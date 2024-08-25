@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 from typing import Any
 
-root_folder = Path("./chapters/ch1")
+root_folder = Path("./chapters")
 
 
 class Lexer:
@@ -30,12 +30,27 @@ def is_condition(line):
 def transform_var_name(var_name):
     return "v_"+var_name.lower().replace(" ","_")
 
+def parse_condition(t: str):
+    if t in [">","<"]:
+        return t
+    elif t == "=":
+        return "=="
+    elif t == "<>":
+        return "!="
+    else:
+        raise ValueError(t)
+
 @dataclass
 class Event:
     type: str = ""
     conditions: dict[str,Any] = field(default_factory=lambda:{"variables":{}})
     results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{}})
 
+
+@dataclass
+class Comparison:
+    type: str
+    value: int
 
 @dataclass
 class Paragraph:
@@ -55,11 +70,11 @@ class Scene:
     paragraphs: list = field(default_factory=list) 
     responses: list = field(default_factory=list) 
 
-    def to_json(self,filename,paragraphs):
+    def to_json(self,paragraphs):
         text = ""
         for par in self.paragraphs:
             if par.conditions != {}:
-                condition_string = ' && '.join([f"{var} == {val}" for var,val in par.conditions.items()])
+                condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in par.conditions.items()])
                 text += f"<% if({condition_string}) {{%>"
             text += paragraphs[par.version][par.id]
             if par.conditions != {}:
@@ -78,8 +93,7 @@ class Scene:
                 for response in self.responses
             ]
         }
-        with open(filename,"w") as f:
-            json.dump(val,f,indent=4)
+        return val
 
 
 class Parser:
@@ -95,13 +109,15 @@ class Parser:
             if is_condition(current):
                 if match := re.search('current scene = "(?P<scene>.*)"',current):
                     event.conditions["scene"] = match.group("scene")
+                elif match := re.search('current scene <> "(?P<scene>.*)"',current):
+                    continue
                 elif "Mouse pointer is over" in current:
                     event.type = "button"
                 elif match := re.search('Button ID of Group.Buttons = (?P<button>.*)',current):
                     event.conditions["button_id"] = int(match.group("button"))-1
-                elif match := re.search('(?P<variable>.*) = (?P<value>.*)',current[2:]):
+                elif match := re.search('(?P<variable>.*) (?P<comparison>=|<|>|<>) (?P<value>.*)',current[2:]):
                     if "counter" not in match.group("variable").lower():
-                        event.conditions["variables"][transform_var_name(match.group("variable"))] = match.group("value")
+                        event.conditions["variables"][transform_var_name(match.group("variable"))] = Comparison(match.group("comparison"),int(match.group("value")))
 
             else:
                 if match := re.search('List : Add line "(?P<button_name>.*)"',current):
@@ -124,38 +140,44 @@ class Parser:
         events = []
         while not self.lexer.eof():
             events.append(self.parse_event())
+            while not self.lexer.peek.startswith("*") and not self.lexer.eof():
+                self.lexer.next()
         return events
             
 
-filename = root_folder/"logic.txt"
+for chapter in [f"ch{i}" for i in range(1,3)]:
+    filename = root_folder/chapter/"logic.txt"
 
-events = []
-current_event = {}
-with open(filename,"r") as f:
-    data = list(f.readlines())
-lexer = Lexer(data)
-parser = Parser(lexer)
+    events = []
+    current_event = {}
+    with open(filename,"r") as f:
+        data = list(f.readlines())
+    lexer = Lexer(data)
+    parser = Parser(lexer)
 
-events = parser.parse()
-scenes = {}
+    events = parser.parse()
+    scenes = {}
 
-for event in events:
-    print(event)
-    if "scene" not in event.conditions:
-        continue
-    scene = event.conditions["scene"]
-    if scene not in scenes:
-        scenes[scene] = Scene(scene)
+    for event in [e for e in events if e.type == "scene_load"]:
+        print(event)
+        if "scene" not in event.conditions:
+            continue
+        scene = event.conditions["scene"]
+        if scene not in scenes:
+            scenes[scene] = Scene(scene)
 
-    if event.type == "scene_load": 
         for button in event.results["add_buttons"]:
             if button not in [resp.text for resp in scenes[scene].responses]:
                 scenes[scene].responses.append(Response(button))
         if "paragraph" in event.results:
             if event.results["paragraph"] not in [par.id for par in scenes[scene].paragraphs]:
                 scenes[scene].paragraphs.append(Paragraph(event.results["paragraph"],event.results["paragraph_version"],event.conditions["variables"])) 
-        
-    if event.type == "button": 
+
+    for event in [e for e in events if e.type == "button"]:
+        if "scene" not in event.conditions:
+            continue
+        scene = event.conditions["scene"]
+            
         for var,value in event.results["set_variables"].items():
             scenes[scene].responses[event.conditions["button_id"]].set_variables[var] = value 
             
@@ -163,30 +185,28 @@ for event in events:
             scenes[scene].responses[event.conditions["button_id"]].new_scene = event.results["new_scene"]
 
 
-for id,scene in scenes.items():
-    print(id)
-    print(scene)
+    for id,scene in scenes.items():
+        print(id)
+        print(scene)
 
 
-paragraphs = {1:{},2:{}}
+    paragraphs = {1:{},2:{}}
 
-for i in [1,2]:
-    with open(root_folder/f"paragraphs{i}.txt","r") as f:
-        data = f.readlines()
+    for i in [1,2]:
+        with open(root_folder/chapter/f"paragraphs{i}.txt","r") as f:
+            data = f.readlines()
 
-    current_par_index = 0
-    current_par = ""
-    for line in data:
-        if match := re.match("\[(?P<par_num>[0-9]*)\] (?P<text>.*)",line):
-            paragraphs[i][current_par_index] = current_par
-            current_par = match.group("text")
-            current_par_index = int(match.group("par_num"))
-        else:
-            current_par += line
-    paragraphs[i][current_par_index] = current_par
+        current_par_index = 0
+        current_par = ""
+        for line in data:
+            if match := re.match("\[(?P<par_num>[0-9]*)\](?P<text>.*)",line):
+                paragraphs[i][current_par_index] = current_par
+                current_par = match.group("text")
+                current_par_index = int(match.group("par_num"))
+            else:
+                current_par += line
+        paragraphs[i][current_par_index] = current_par
 
-
-
-for id,scene in scenes.items():
-    scene.to_json(root_folder/f"{id.lower()}.json",paragraphs)
-
+    json_vals = {id:scene.to_json(paragraphs) for id,scene in scenes.items()}
+    with open(root_folder/f"{chapter}.json","w") as f:
+        json.dump(json_vals,f,indent=4)

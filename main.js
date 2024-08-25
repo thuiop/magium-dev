@@ -1,7 +1,7 @@
 let ejs = require('ejs');
 
-function scene_from_json(json_path,options={},full=false) {
-    let data = Object.assign({},require(json_path));
+function scene_from_json(json_data,options={},full=false) {
+    let data = Object.assign({},json_data);
     data.text = ejs.render(data.text,options)
     console.log(Object.entries(data.responses[0].set_variables))
     console.log(options)
@@ -9,6 +9,10 @@ function scene_from_json(json_path,options={},full=false) {
     return rendered
 }
 
+let json_data = {}
+for (chapter of ["ch1","ch2"]) {
+    json_data = Object.assign(json_data,require(`./chapters/${chapter}.json`))
+}
 
 const express = require('express')
 var cookieParser = require('cookie-parser')
@@ -17,11 +21,11 @@ app.use(cookieParser())
 const port = 3000
 
 app.get('/', (req, res) => {
-  scene_from_json("./chapters/ch1/ch1-intro1.json",req.cookies,true).then((rendered) => res.send(rendered))
+  scene_from_json(json_data["Ch1-Intro1"],req.cookies,true).then((rendered) => res.send(rendered))
 })
 
 app.get('/scene/:id', (req, res) => {
-  scene_from_json("./chapters/ch1/"+req.params.id.toLowerCase()+".json",req.cookies).then((rendered) => res.send(rendered))
+  scene_from_json(json_data[req.params.id],req.cookies).then((rendered) => res.send(rendered))
 })
 
 app.listen(port, () => {
