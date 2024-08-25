@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+    <script> 
+        function storeItem(key,value) {
+            document.cookie = key+"="+value
+          );
+        }
+    </script>
+  </head>
+  <body>
+    <main id="main">
+        <%- text %>
+        <% responses.forEach(function(response){ %>
+        <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
+        <% }); %>
+    </main>
+	<script src="main.js"></script>
+  </body>
+</html>
