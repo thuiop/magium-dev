@@ -40,6 +40,7 @@ class Event:
 @dataclass
 class Paragraph:
     id: int
+    version: int
     conditions: dict = field(default_factory=dict)
 
 @dataclass
@@ -60,7 +61,7 @@ class Scene:
             if par.conditions != {}:
                 condition_string = ' && '.join([f"{var} == {val}" for var,val in par.conditions.items()])
                 text += f"<% if({condition_string}) {{%>"
-            text += paragraphs[par.id]
+            text += paragraphs[par.version][par.id]
             if par.conditions != {}:
                 text += "<% } %>"
         text = text.replace("\n","<br/>")
@@ -112,6 +113,10 @@ class Parser:
                     event.results["set_variables"][transform_var_name(match.group("variable"))] = match.group("value")
                 elif match := re.search('Scene text : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraph"] = int(match.group("paragraph"))
+                    event.results["paragraph_version"] = 1
+                elif match := re.search('Scene text 2 : Display paragraph (?P<paragraph>.*)',current):
+                    event.results["paragraph"] = int(match.group("paragraph"))
+                    event.results["paragraph_version"] = 2
 
         return event
 
@@ -148,7 +153,7 @@ for event in events:
                 scenes[scene].responses.append(Response(button))
         if "paragraph" in event.results:
             if event.results["paragraph"] not in [par.id for par in scenes[scene].paragraphs]:
-                scenes[scene].paragraphs.append(Paragraph(event.results["paragraph"],event.conditions["variables"])) 
+                scenes[scene].paragraphs.append(Paragraph(event.results["paragraph"],event.results["paragraph_version"],event.conditions["variables"])) 
         
     if event.type == "button": 
         for var,value in event.results["set_variables"].items():
@@ -163,20 +168,24 @@ for id,scene in scenes.items():
     print(scene)
 
 
-with open(root_folder/"paragraphs.txt","r") as f:
-    data = f.readlines()
+paragraphs = {1:{},2:{}}
 
-paragraphs = {}
-current_par_index = 0
-current_par = ""
-for line in data:
-    if match := re.match("\[(?P<par_num>[0-9]*)\] (?P<text>.*)",line):
-        paragraphs[current_par_index] = current_par
-        current_par = match.group("text")
-        current_par_index = int(match.group("par_num"))
-    else:
-        current_par += line
-paragraphs[current_par_index] = current_par
+for i in [1,2]:
+    with open(root_folder/f"paragraphs{i}.txt","r") as f:
+        data = f.readlines()
+
+    current_par_index = 0
+    current_par = ""
+    for line in data:
+        if match := re.match("\[(?P<par_num>[0-9]*)\] (?P<text>.*)",line):
+            paragraphs[i][current_par_index] = current_par
+            current_par = match.group("text")
+            current_par_index = int(match.group("par_num"))
+        else:
+            current_par += line
+    paragraphs[i][current_par_index] = current_par
+
+
 
 for id,scene in scenes.items():
     scene.to_json(root_folder/f"{id.lower()}.json",paragraphs)
