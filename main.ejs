@@ -8,14 +8,34 @@
     <link rel="stylesheet" href="/styles/main2.css">
     <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
-    <script> 
+    <script>
+        function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) {
+            return parts.pop().split(';').shift();
+          }
+          return null;
+        }
+
         function storeItem(key,value) {
             document.cookie = key+"="+value;
         }
 
-        function toggleTheme(theme) {
+        function setTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             document.cookie = 'data-theme=' + theme;
+        }
+
+        // On page load, set the theme based on the cookie
+        document.addEventListener('DOMContentLoaded', () => {
+            const theme = getCookie('data-theme') || 'light'; // Default to 'light' if no cookie is found
+            setTheme(theme);
+        });
+
+        function toggleTheme() {
+            const theme = getCookie('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(theme);
         }
     </script>
   </head>
@@ -36,7 +56,7 @@
           </div>
         </div>
         <div class="footer">
-          <button class="footer-button" onclick="void(0)">Activate Night Mode</button>
+          <button class="footer-button" onclick="toggleTheme()">Activate Night Mode</button>
           <p>Magium v0.1</p>
         </div>
     </main>
