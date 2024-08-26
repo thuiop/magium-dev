@@ -13,7 +13,7 @@
         <script>
             // Check if some of the stats are undefined.
             // If they are, update every stat cookie with the default value 0, and reload the page.
-            <% %>
+
             // This can be moved to a global variable later on, but recommendation would be to keep this in frontend
             var stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
                 "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
@@ -39,8 +39,11 @@
                     window.location.reload();
                 }
             })
-            <% %>
-            // console.log(<%- JSON.stringify(locals) %>);
+        </script>
+        <script>
+            function updateStat(stat, value) {
+                document.cookie = stat + "=" + value;
+            }
         </script>
       </head>
       <body>
@@ -50,102 +53,117 @@
             </div>
             <div class="content">
                 <div class="stats-container">
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 1; grid-row: 1;">
+                    <button class="stat-field" id="magical_power" onclick="void(0)" 
+                    style="grid-column: 1; grid-row: 1;">
                         Magical Power: 
                         <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 2; grid-row: 1;">
+                    <button class="stat-field" id="magical_knowledge" onclick="void(0)" 
+                    style="grid-column: 2; grid-row: 1;">
                         Magical Knowledge: 
                         <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 1 / span 2; grid-row: 2;">
+                    <button class="stat-field" id="available_points" onclick="void(0)" 
+                    style="grid-column: 1 / span 2; grid-row: 2;">
                         Available Points: 
                         <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 0 <% } %>
                     </button>
 
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 1; grid-row: 3;">
+                    <button class="stat-field" id="strength" onclick="void(0)" 
+                    style="grid-column: 1; grid-row: 3;">
                         Strength: 
                         <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 1; grid-row: 4;">
+                    <button class="stat-field" id="toughness" onclick="void(0)" 
+                    style="grid-column: 1; grid-row: 4;">
                         Toughness: 
                         <% if (locals.v_toughness) { %> <%= v_toughness %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
 
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 2; grid-row: 3;">
+                    <button class="stat-field" id="agility" onclick="void(0)" 
+                    style="grid-column: 2; grid-row: 3;">
                         Speed: 
                         <% if (locals.v_agility) { %> <%= v_agility %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" onclick="void(0)" style="grid-column: 2; grid-row: 4;">
+                    <button class="stat-field" id="reflexes" onclick="void(0)" 
+                    style="grid-column: 2; grid-row: 4;">
                         Reflexes: 
                         <% if (locals.v_reflexes) { %> <%= v_reflexes %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 1; grid-row: 5;">
+                    <button class="stat-field" id="hearing" onclick="void(0)" 
+                    style="grid-column: 1; grid-row: 5;">
                         Hearing:
                         <% if (locals.v_hearing) { %> <%= v_hearing %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 2; grid-row: 5;">
+                    <button class="stat-field" id="perception" onclick="void(0)" 
+                    style="grid-column: 2; grid-row: 5;">
                         Observation:
                         <% if (locals.v_perception) { %> <%= v_perception %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 6;">
+                    <button class="stat-field" id="ancient_languages" onclick="void(0)" 
+                    style="grid-column: 1 / span 2; grid-row: 6;">
                         Ancient Languages: 
                         <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 7;">
+                    <button class="stat-field" id="combat_technique" onclick="void(0)" 
+                    style="grid-column: 1 / span 2; grid-row: 7;">
                         Combat Technique: 
                         <% if (locals.v_combat_technique) { %> <%= v_combat_technique %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 8;">
+                    <button class="stat-field" id="premonition" onclick="void(0)" 
+                    style="grid-column: 1 / span 2; grid-row: 8;">
                         Premonition: 
                         <% if (locals.v_premonition) { %> <%= v_premonition %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 9;">
+                    <button class="stat-field" id="bluff" onclick="void(0)" 
+                    style="grid-column: 1 / span 2; grid-row: 9;">
                         Bluff (Aura Concealment):
                         <% if (locals.v_bluff) { %> <%= v_bluff %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 1; grid-row: 10;">
+                    <button class="stat-field" id="magical_sense" onclick="void(0)" 
+                    style="grid-column: 1; grid-row: 10;">
                         Magical Sense:
                         <% if (locals.v_magical_sense) { %> <%= v_magical_sense %> <% } else {%> 0 <% } %>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
 
-                    <button class="stat-field" style="grid-column: 2; grid-row: 10;">
+                    <button class="stat-field" id="aura_hardening" onclick="void(0)" 
+                    style="grid-column: 2; grid-row: 10;">
                         Aura Hardening:
                         <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %> <% } else {%> 0 <% } %>
                         /
