@@ -27,6 +27,28 @@ function scene_from_json(json_data,options={},full=false,id="") {
     return rendered
 }
 
+const stats_variables = [
+  "available_points",
+  "strength",
+  "toughness",
+  "speed",
+  "reflexes",
+  "hearing",
+  "observation",
+  "ancient_languages",
+  "combat_technique",
+  "premonition"
+]
+
+function stats_page_from_cookies(cookies) {
+    let stats = {}
+    for (variable of stats_variables) {
+        stats[variable] = cookies[variable] || 0
+    }
+    let rendered = ejs.renderFile("stats.ejs",stats)
+    return rendered
+}
+
 let json_data = {}
 for (chapter of ["ch1","ch2"]) {
     json_data = Object.assign(json_data,require(`./chapters/${chapter}.json`))
@@ -51,6 +73,11 @@ app.get('/scene/:id', (req, res) => {
   scene_from_json(json_data[req.params.id],req.cookies,req.params.id).then((rendered) => res.send(rendered))
 })
 
+app.get('/stats', (req, res) => {
+  stats_page_from_cookies(req.cookies).then((rendered) => res.send(rendered))
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
