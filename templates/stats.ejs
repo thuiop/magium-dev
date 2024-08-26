@@ -1,1 +1,136 @@
-Stats 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Magium</title>
+        <link rel="stylesheet" href="/styles/main2.css">
+        <link rel="stylesheet" href="/styles/stats.css">
+        <link rel="icon" href="/images/magium.ico" type="image/x-icon">
+        <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+        <script src="/scripts/utils.js"></script>
+      </head>
+      <body>
+        <main id="main">
+            <div class="header" style="justify-content: center;">
+              <h2>STATS</h2>
+            </div>
+            <div class="content">
+                <div class="stats-container">
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 1; grid-row: 1;">
+                        Magical Power: 
+                        <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 2; grid-row: 1;">
+                        Magical Knowledge: 
+                        <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 1 / span 2; grid-row: 2;">
+                        Available Points: 
+                        <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 0 <% } %>
+                    </button>
+
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 1; grid-row: 3;">
+                        Strength: 
+                        <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 1; grid-row: 4;">
+                        Toughness: 
+                        <% if (locals.v_toughness) { %> <%= v_toughness %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 2; grid-row: 3;">
+                        Speed: 
+                        <% if (locals.v_agility) { %> <%= v_agility %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" onclick="void(0)" style="grid-column: 2; grid-row: 4;">
+                        Reflexes: 
+                        <% if (locals.v_reflexes) { %> <%= v_reflexes %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 1; grid-row: 5;">
+                        Hearing:
+                        <% if (locals.v_hearing) { %> <%= v_hearing %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 2; grid-row: 5;">
+                        Observation:
+                        <% if (locals.v_perception) { %> <%= v_perception %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 6;">
+                        Ancient Languages: 
+                        <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 7;">
+                        Combat Technique: 
+                        <% if (locals.v_combat_technique) { %> <%= v_combat_technique %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 8;">
+                        Premonition: 
+                        <% if (locals.v_premonition) { %> <%= v_premonition %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 1 / span 2; grid-row: 9;">
+                        Bluff (Aura Concealment):
+                        <% if (locals.v_bluff) { %> <%= v_bluff %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 1; grid-row: 10;">
+                        Magical Sense:
+                        <% if (locals.v_magical_sense) { %> <%= v_magical_sense %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+
+                    <button class="stat-field" style="grid-column: 2; grid-row: 10;">
+                        Aura Hardening:
+                        <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %> <% } else {%> 0 <% } %>
+                        /
+                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                    </button>
+                </div>
+                <div id="stats-button-container">
+                <button onclick="void(0)" id="cancel-changes">Cancel Changes</button>
+                <button onclick="void(0)" id="confirm-changes">Confirm Changes</button>
+                <button onclick="navigateTo('/')" id="return-to-game">Return to game</button>
+                </div>
+            </div>
+            <div class="footer">
+              <button class="footer-button" onclick="toggleTheme()">Activate Night Mode</button>
+              <p>Magium v0.1</p>
+            </div>
+        </main>
+        <!-- <script src="main.js"></script> -->
+      </body>
+</html>

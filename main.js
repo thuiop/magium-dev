@@ -50,7 +50,7 @@ const stats_variables = [
 ]
 
 function stats_page_from_cookies(cookies) {
-    let rendered = ejs.renderFile("stats.ejs",cookies)
+    let rendered = ejs.renderFile("templates/stats.ejs",cookies)
     return rendered
 }
 
