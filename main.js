@@ -33,7 +33,7 @@ function scene_from_json(json_data,options={},full=false,id="") {
 
 // Temporary array to keep track of stats variables
 const stats_variables = [
-  "available_points",
+  "v_available_points",
   "v_strength",
   "v_toughness",
   "v_agility", // Speed
