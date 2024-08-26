@@ -1,4 +1,6 @@
+from collections import defaultdict
 from dataclasses import dataclass, field
+from itertools import groupby
 import json
 from pathlib import Path
 import re
@@ -197,8 +199,14 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
     paragraphs = {1:{},2:{},3:{}}
 
     for i in [1,2,3]:
-        with open(root_folder/chapter/f"paragraphs{i}.txt","r") as f:
-            data = f.readlines()
+        print(chapter,i)
+        print(root_folder/chapter/f"paragraphs{i}.txt")
+        try:
+            with open(root_folder/chapter/f"paragraphs{i}.txt","r") as f:
+                data = f.readlines()
+        except Exception:
+            with open(root_folder/chapter/f"paragraphs{i}.txt","r",encoding="utf16") as f:
+                data = f.readlines()
 
         current_par_index = 0
         current_par = ""
@@ -214,3 +222,84 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
     json_vals = {id:scene.to_json(paragraphs) for id,scene in scenes.items()}
     with open(root_folder/f"{chapter}.json","w") as f:
         json.dump(json_vals,f,indent=4)
+
+@dataclass
+class Achievement:
+    title: str
+    caption: str
+    chapter: str
+    variable: str = ""
+
+class AchievementParser:
+    def __init__(self, lexer) -> None:
+        self.lexer = lexer
+        self.achievements = defaultdict(list)
+
+    def parse_event(self):
+        print("New event")
+        print(self.lexer.peek)
+        assert self.lexer.peek.startswith("*")
+        current_achievement = {}
+        current_chapter = ""
+        current_achievement_id = 0
+        current_achievement_var = ""
+        while len(current:=self.lexer.next()) > 1 and not self.lexer.eof():
+            if is_condition(current):
+                if match := re.search('achievement chapter = (?P<chapter>.*)',current):
+                    current_chapter = match.group("chapter")
+                elif match := re.search('Button ID of Button = (?P<button_id>.*)',current):
+                    current_achievement_id = int(match.group("button_id")) - 1
+                elif match := re.search('(?P<achievement_id>AC .*) = 1',current):
+                    current_achievement_var = transform_var_name(match.group("achievement_id"))
+            else:
+                if match := re.search('List1 : Add line "(?P<achievement_title>.*)"',current):
+                    current_achievement["title"] = match.group("achievement_title")
+                elif match := re.search('List2 : Add line "(?P<achievement_caption>.*)"',current):
+                    current_achievement["caption"] = match.group("achievement_caption")
+                    self.achievements[current_chapter].append(Achievement(current_achievement["title"],current_achievement["caption"],current_chapter))
+                elif match := re.search('Active 2 : Make invisible',current):
+                    print("a",current_chapter,current_achievement_id,current_achievement_var)
+                    print(self.achievements[current_chapter])
+                    self.achievements[current_chapter][current_achievement_id].variable = current_achievement_var
+                    print(self.achievements[current_chapter])
+
+    def parse(self):
+        while True:
+            while not self.lexer.peek.startswith("*") and not self.lexer.eof():
+                self.lexer.next()
+            if self.lexer.eof():
+                break
+            self.parse_event()
+        return self.achievements
+
+def chapter_name(id,book):
+    id = int(id)
+    if id >= 10:
+        id = f"{id//10}"
+    return f"b{book}ch{id}"
+
+for i in range(1,4):
+    with open(f"chapters/achievements_logic{i}.txt","r") as f:
+        data = f.readlines()
+
+    lexer = Lexer(data)
+    parser = AchievementParser(lexer)
+    achievements = parser.parse()
+    achievements_list = []
+    for achievement_group in achievements.values():
+        achievements_list += achievement_group
+    print(achievements_list)
+    achievements_json = [
+        {
+            "title": achievement.title,
+            "caption": achievement.caption,
+            "chapter": chapter_name(achievement.chapter,i),
+            "variable": achievement.variable
+        }
+        for achievement in achievements_list
+    ]
+
+    achievements_json = {k: list(v) for k, v in groupby(achievements_json,key=lambda a:a["chapter"])}
+    print(achievements_json)
+    with open(root_folder/f"achievements{i}.json","w") as f:
+        json.dump(achievements_json,f,indent=4)
