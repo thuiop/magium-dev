@@ -43,10 +43,10 @@
         }
     </script>
     <script>
-      function setResponseCookies() {
-          <% for (const [key, value] of Object.entries(response.set_variables)) { %>
-            document.cookie='<%= key %>=<%= value %>';
-          <% } %>
+      function setResponseCookies(response) {
+          for (const [key, value] of Object.entries(response.set_variables)) {
+            document.cookie=`${key}=${value}`;
+          }
         }
     </script>
   </head>
@@ -62,7 +62,7 @@
           <% responses.forEach(function(response){ %>
           
           <div class="response">
-            <button onClick="setResponseCookies()" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
+            <button onClick="setResponseCookies(<%= JSON.stringify(response) %>)" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
             <% }); %>
           </div>
         </div>
