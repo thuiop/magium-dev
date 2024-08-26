@@ -20,6 +20,9 @@ const app = express()
 app.use(cookieParser())
 const port = 3000
 
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', (req, res) => {
   scene_from_json(json_data["Ch1-Intro1"],req.cookies,true).then((rendered) => res.send(rendered))
 })
