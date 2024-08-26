@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Magium</title>
+    <link rel="stylesheet" href="/styles/main.css">
     <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
     <script> 
@@ -16,6 +16,11 @@
   </head>
   <body>
     <main id="main">
+        <div class="header">
+          <button class="header-button" onclick="void(0)">MAIN MENU</button>
+          <h2>Chapter 1</h2>
+          <button class="header-button" onclick="void(0)">STATS</button>
+        </div>
         <%- text %>
         <% responses.forEach(function(response){ %>
         <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>

@@ -20,6 +20,7 @@ const app = express()
 app.use(cookieParser())
 const port = 3000
 
+// Serve static files
 const path = require('path')
 app.use(express.static(path.join(__dirname, 'public')));
 
