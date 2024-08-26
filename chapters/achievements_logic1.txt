@@ -1,0 +1,896 @@
+* Start of Frame
++ achievement chapter = 1
+	List1 : Reset
+	List1 : Add line "Who are you calling a coward?"
+	List2 : Reset
+	List2 : Add line "A true warrior never backs down from a challenge."
+	List1 : Add line "Off to a good start"
+	List2 : Add line "Died before reaching the first checkpoint."
+	List1 : Add line "Honesty is the best policy."
+	List2 : Add line "A clean mouth and an honest hand will take a man through any land."
+	String 3 : Set alterable string to "2"
+
+* Start of Frame
++ achievement chapter = 2
+	List1 : Reset
+	List1 : Add line "Smooth talker"
+	List2 : Reset
+	List2 : Add line "Choosing the right words at the right time can be a daunting task for many, but you make it look so easy."
+	List1 : Add line "Tough as nails"
+	List2 : Add line "Got stabbed in the neck with a dagger and lived to tell the tale."
+	List1 : Add line "Martial arts master"
+	List2 : Add line "Successfully disarmed an opponent while fighting barehanded."
+	List1 : Add line "An unlikely ally"
+	List2 : Add line "Sometimes, friends can come from the most unexpected places."
+	String 3 : Set alterable string to "2"
+
+* Start of Frame
++ achievement chapter = 3
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "A message in the sky"
+	List2 : Add line "It's a beautiful night for stargazing, don't you think?"
+	List1 : Add line "One man army"
+	List2 : Add line "Singlehandedly defeated a small army of one hundred armed men, as well as their leader."
+	List1 : Add line "That was close!"
+	List2 : Add line "Saved a friend in the nick of time from an incoming dart."
+	String 3 : Set alterable string to "3"
+
+* Start of Frame
++ achievement chapter = 4
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "A noble sacrifice"
+	List2 : Add line "Gave your own life to save a friend's."
+	List1 : Add line "Defeated Cutthroat Dave"
+	List2 : Add line "Won a duel against Cutthroat Dave."
+	List1 : Add line "I really kneed a break!"
+	List2 : Add line "Break both of your knees from a fall."
+	String 3 : Set alterable string to "4"
+
+* Start of Frame
++ achievement chapter = 5
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "Stat device wielder"
+	List2 : Add line "Upon lending the stat device to Daren, you make an unexpected discovery."
+	List1 : Add line "Admitted liar"
+	List2 : Add line "Sometimes you just have to grab the bull by the horns."
+	List1 : Add line "A good deed"
+	List2 : Add line "Even a small act of selflessness can go a long way."
+	List1 : Add line "Shameless"
+	List2 : Add line "Take the credit for someone else's deeds, without any shame."
+	String 3 : Set alterable string to "5"
+
+* Start of Frame
++ achievement chapter = 6
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "Defeated Tyrath"
+	List2 : Add line "Won a duel against Tyrath, the king of all dragons."
+	List1 : Add line "Berserker mode activated"
+	List2 : Add line "Accidentally maximized all of your stats in a fit of rage."
+	List1 : Add line "Full immersion"
+	List2 : Add line "Experience what your in-game character sees, first hand."
+	String 3 : Set alterable string to "6"
+
+* Start of Frame
++ achievement chapter = 7
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "Violence is not the answer"
+	List2 : Add line "Why bother to fight, if you can just bluff your way to victory?"
+	List1 : Add line "Golem crusher"
+	List2 : Add line "Destroy at least one rock golem by yourself in a fight."
+	List1 : Add line "Defeated Hadrik"
+	List2 : Add line "Won a duel against Hadrik."
+	String 3 : Set alterable string to "7"
+
+* Start of Frame
++ achievement chapter = 8
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "Vive la democratie!"
+	List2 : Add line "Win a democratic vote by a small margin."
+	List1 : Add line "First piece of the puzzle"
+	List2 : Add line "Find the first piece of the puzzle made by Varathia's greatest architect."
+	List1 : Add line "Hydra slayer"
+	List2 : Add line "Kill a hydra with your own hands."
+	String 3 : Set alterable string to "8"
+
+* Start of Frame
++ achievement chapter = 9
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "Keen observer"
+	List2 : Add line "When inside enemy territory, you should always mind your surroundings."
+	List1 : Add line "A wise decision"
+	List2 : Add line "Throwing away your pride is never easy, but sometimes there is no other way."
+	String 3 : Set alterable string to "9"
+
+* Start of Frame
++ achievement chapter = 10
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "Defeated ogre shaman"
+	List2 : Add line "Won a duel against the shaman from the ogre stronghold."
+	List1 : Add line "A toast!"
+	List2 : Add line "Shared a drink with Hadrik to celebrate your most recent victory."
+	List1 : Add line "A touching reunion"
+	List2 : Add line "Helped Rose make up with an old friend."
+	String 3 : Set alterable string to "10"
+
+* AndroidPlus: On App return from pause?
+	Special : Set game resumed to 1
+
+* Start of Frame
++ achievement chapter = 11
+	List1 : Reset
+	List2 : Reset
+	List1 : Add line "A mysterious symbol"
+	List2 : Add line "Discover a strange marking engraved on the side of a harmless toy."
+	List1 : Add line "Stillwater slayer"
+	List2 : Add line "Defeated five stillwaters all by yourself."
+	List1 : Add line "No casualties"
+	List2 : Add line "No members of your group died in the first book."
+	List1 : Add line "Average Joe"
+	List2 : Add line "Finished the first book without leveling up a single stat."
+	String 3 : Set alterable string to "11"
+
+* Start of Frame
+	Special : Start loop "buttons" List Nb Lines( "List1" ) times
+	Menu hitbox : Make invisible
+	Back hitbox : Make invisible
+
+* Android object : On back button pressed
+	storyboard controls : Jump to frame "Achievements" (61)
+
+* Multiple Touch: A new touch has occured
+	Multiple Touch : Set NewY to YTouch( "Multiple Touch", 0 ) - Y Top Frame
+	Multiple Touch : Set OldY to YTouch( "Multiple Touch", 0 ) - Y Top Frame
+	Multiple Touch : Set ScrollSpeed to 0
+
+* Multiple Touch: Touch LastNewTouch( "Multiple Touch" ) is active
+	Multiple Touch : Set OldY to NewY( "Multiple Touch" )
+	Multiple Touch : Set NewY to YTouch( "Multiple Touch", 0 ) - Y Top Frame
+	Multiple Touch : Set ScrollSpeed to NewY( "Multiple Touch" ) - OldY( "Multiple Touch" )
+
+// Deceleration
+
+* ScrollSpeed of Multiple Touch > 0
++ NOT Multiple Touch: Touch 0 is active
+	Multiple Touch : Set ScrollSpeed to ScrollSpeed( "Multiple Touch" ) - 0.5
+
+* ScrollSpeed of Multiple Touch < 0
++ NOT Multiple Touch: Touch 0 is active
+	Multiple Touch : Set ScrollSpeed to ScrollSpeed( "Multiple Touch" ) + 0.5
+
+// Limit Speed
+
+* ScrollSpeed of Multiple Touch > 30
++ NOT Multiple Touch: Touch 0 is active
+	Multiple Touch : Set ScrollSpeed to 45
+
+* ScrollSpeed of Multiple Touch < -30
++ NOT Multiple Touch: Touch 0 is active
+	Multiple Touch : Set ScrollSpeed to -45
+
+// Scroll Screen
+
+* ScrollSpeed of Multiple Touch > 0
++ Y Top Frame + ( ( Y Bottom Frame - Y Top Frame ) / 2 ) - ScrollSpeed( "Multiple Touch" ) <= ( 128 * List Nb Lines( "List1" ) ) + 500
+	storyboard controls : Center display at Y=Y Top Frame + ( ( Y Bottom Frame - Y Top Frame ) / 2 ) - ScrollSpeed( "Multiple Touch" )
+
+* ScrollSpeed of Multiple Touch < 0
++ Y Top Frame + ( ( Y Bottom Frame - Y Top Frame ) / 2 ) - ScrollSpeed( "Multiple Touch" ) < ( 128 * List Nb Lines( "List1" ) ) + 500
+	storyboard controls : Center display at Y=Y Top Frame + ( ( Y Bottom Frame - Y Top Frame ) / 2 ) - ScrollSpeed( "Multiple Touch" )
+
+// * ScrollSpeed of Multiple Touch > 0
+	// storyboard controls : Center display at Y=Y Top Frame + ( ( Y Bottom Frame - Y Top Frame ) / 2 ) - ScrollSpeed( "Multiple Touch" )
+
+// * ScrollSpeed of Multiple Touch < 0
+	// storyboard controls : Center display at Y=Y Top Frame + ( ( Y Bottom Frame - Y Top Frame ) / 2 ) - ScrollSpeed( "Multiple Touch" )
+
+* User clicks with left button on Group.Buttons
+	pressed id : Set Counter to Button ID( "Group.Buttons" )
+
+* Repeat while left mouse-key is pressed
+	pressed counter : Set Counter to 1
+
+* Repeat while left mouse-key is pressed
++ NOT Mouse pointer is over Group.Buttons
+	pointer went off button : Set Counter to 1
+
+* NOT Repeat while left mouse-key is pressed
++ pressed counter = 1
++ NOT Mouse pointer is over Group.Buttons
+	pressed counter : Set Counter to 0
+	pressed id : Set Counter to 0
+	pointer went off button : Set Counter to 0
+
+* NOT Repeat while left mouse-key is pressed
++ pressed counter = 1
++ Mouse pointer is over Group.Buttons
++ Button ID of Group.Buttons <> value( "pressed id" )
+	pressed counter : Set Counter to 0
+	pressed id : Set Counter to 0
+	pointer went off button : Set Counter to 0
+
+* NOT Repeat while left mouse-key is pressed
++ pressed counter = "1
++ Mouse pointer is over Group.Buttons
++ Button ID of Group.Buttons = value( "pressed id" )
++ pointer went off button = 0
+	pressed counter : Set Counter to 2
+	pressed id : Set Counter to 0
+
+* NOT Repeat while left mouse-key is pressed
++ pressed counter = 1
++ Mouse pointer is over Group.Buttons
++ Button ID of Group.Buttons = value( "pressed id" )
++ pointer went off button = 1
+	pressed id : Set Counter to 0
+	pointer went off button : Set Counter to 0
+
+// This sets the active detector to the user's touch.
+
+* Multiple Touch: Touch 0 is active
+	End Touch : Set X position to XTouch( "Multiple Touch", 0 )
+	End Touch : Set Y position to YTouch( "Multiple Touch", 0 )
+
+// This sets the passive detector to the user's touch.
+
+* Multiple Touch: Touch 0 is active
++ Only one action when event loops
+	Touch Origin : Set X position to XTouch( "Multiple Touch", 0 )
+	Touch Origin : Set Y position to YTouch( "Multiple Touch", 0 )
+
+// When the touch is released, both detectors move off-screen.
+
+* NOT Multiple Touch: Touch 0 is active
+	End Touch : Set position at (-1,-1)
+	Touch Origin : Set position at (-1,-1)
+
+* On loop "buttons"
+	New Objects : Create Button at (-189,-243) layer 1
+	Button : Set Button ID to LoopIndex("buttons") + 1
+	Button : Set X position to 357
+	Button : Set Y position to 300 + Int(LoopIndex("buttons")) * 250
+	New Objects : Create Button Name at (-250,-75) from Button
+	New Objects : Create String at (-160,0) from Button
+
+* On loop "buttons"
+	New Objects : Create Active 2 at (-240,20) from Button
+	Active 2 : Set ID to LoopIndex("buttons") + 1
+
+* On loop "buttons"
+	New Objects : Create Active at (-230,25) from Button
+	Active : Set ID to LoopIndex("buttons") + 1
+	 Active 3 : Bring to front
+	 Back hitbox : Bring to front
+	 Menu hitbox : Bring to front
+
+* On loop "buttons"
+	 Back button : Bring to front
+	 Main menu button : Bring to front
+
+// * On loop "buttons"
+// + LoopIndex("buttons") = 0
+// + achievement chapter = 1
+// + AC CH1 Coward = 0
+	// New Objects : Create Active 2 at (-240,20) from Button
+
+// * On loop "buttons"
+// + LoopIndex("buttons") = 0
+// + achievement chapter = 1
+// + AC CH1 Coward = 1
+	// New Objects : Create Active at (-230,15) from Button
+
+// * On loop "buttons"
+// + LoopIndex("buttons") = 1
+// + On each one of Active 2, loop name "red"
+// + achievement chapter = 1
+	// New Objects : Create Active 2 at (-240,20) from Button
+
+* Button Name is overlapping Button
+	Button Name : Set alterable string to List Line Text$( "List1", Button ID( "Button" ) )
+	 Button Name : Bring to front
+	String : Set alterable string to List Line Text$( "List2", Button ID( "Button" ) )
+	 String : Bring to front
+
+// * On each one of Active 2, loop name "red"
+// + AC CH1 Coward = 0
+// + ID of Active 2 = 1
+// + achievement chapter = 1
+	// Active 2 : Reappear
+
+// * On each one of Active 2, loop name "red"
+// + AC CH1 Coward = 1
+// + ID of Active 2 = 1
+// + achievement chapter = 1
+	// Active 2 : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 1
++ AC CH1 Coward = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 1
++ AC CH1 Coward = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 1
++ AC CH1 Die = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 1
++ AC CH1 Die = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 1
++ AC CH1 Honesty = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 1
++ AC CH1 Honesty = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 2
++ AC CH2 Talker = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 2
++ AC CH2 Talker = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 2
++ AC CH2 Nails = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 2
++ AC CH2 Nails = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 2
++ AC CH2 Master = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 2
++ AC CH2 Master = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 4
++ achievement chapter = 2
++ AC CH2 Unlikely = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 4
++ achievement chapter = 2
++ AC CH2 Unlikely = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 3
++ AC CH3 Message = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 3
++ AC CH3 Message = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 3
++ AC CH3 Army = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 3
++ AC CH3 Army = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 3
++ AC CH3 Close = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 3
++ AC CH3 Close = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 4
++ AC CH4 Noble = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 4
++ AC CH4 Noble = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 4
++ AC CH4 Cutthroat = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 4
++ AC CH4 Cutthroat = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 4
++ AC CH4 Kneed = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 4
++ AC CH4 Kneed = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 5
++ AC CH5 Wielder = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 5
++ AC CH5 Wielder = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 5
++ AC CH5 Liar = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 5
++ AC CH5 Liar = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 5
++ AC CH5 Deed = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 5
++ AC CH5 Deed = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 4
++ achievement chapter = 5
++ AC CH5 Shameless = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 4
++ achievement chapter = 5
++ AC CH5 Shameless = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 6
++ AC CH6 Tyrath = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 6
++ AC CH6 Tyrath = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 6
++ AC CH6 Berserker = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 6
++ AC CH6 Berserker = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 6
++ AC CH6 Immersion = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 6
++ AC CH6 Immersion = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 7
++ AC CH7 Answer = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 7
++ AC CH7 Answer = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 7
++ AC CH7 Crusher = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 7
++ AC CH7 Crusher = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 7
++ AC CH7 Hadrik = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 7
++ AC CH7 Hadrik = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 8
++ AC CH8 democratie = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 8
++ AC CH8 democratie = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 8
++ AC CH8 first = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 8
++ AC CH8 first = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 8
++ AC CH8 Hydra = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 8
++ AC CH8 Hydra = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 9
++ AC CH9 Observer = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 9
++ AC CH9 Observer = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 9
++ AC CH9 Decision = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 9
++ AC CH9 Decision = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 10
++ AC CH10 Shaman = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 10
++ AC CH10 Shaman = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 10
++ AC CH10 Toast = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 10
++ AC CH10 Reunion = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 10
++ AC CH10 Reunion = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 10
++ AC CH10 Toast = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 11
++ AC CH11 Symbol = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 1
++ achievement chapter = 11
++ AC CH11 Symbol = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 11
++ AC CH11 Stillwater = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 2
++ achievement chapter = 11
++ AC CH11 Stillwater = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 11
++ AC CH11 Casualties = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 3
++ achievement chapter = 11
++ AC CH11 Casualties = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+* On each one of Active, loop name "green"
++ Active is overlapping Button
++ Button ID of Button = 4
++ achievement chapter = 11
++ AC CH11 Average = 0
+	Test : Set Counter to ID( "Active 2" )
+	Active : Make invisible
+
+* On each one of Active 2, loop name "red"
++ Active 2 is overlapping Button
++ Button ID of Button = 4
++ achievement chapter = 11
++ AC CH11 Average = 1
+	Test : Set Counter to ID( "Active 2" )
+	Active 2 : Make invisible
+
+// * AC CH1 Coward = 1
+// + achievement chapter = 1
+	// Active 2 : Make invisible
+
+* User clicks with left button on Back hitbox
+	storyboard controls : Jump to frame "Achievements" (61)
+	Back button : Set Color of RGB(255,255,0)
+
+* User clicks with left button on Menu hitbox
+	storyboard controls : Jump to frame "Main menu" (59)
+	Main menu button : Set Color of RGB(255,255,0)
+
+* Mouse pointer is over Group.Buttons
++ pressed counter = 2
+	pressed counter : Set Counter to 0
+
+* Always
+	Start loop for each one of Active 2, loop name "red"
+	Start loop for each one of Active, loop name "green"
+
+// * LoopIndex("buttons") = 3
+	// Start loop for each one of Active 2, loop name "red"
+
+

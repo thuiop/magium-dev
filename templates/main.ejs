@@ -53,11 +53,12 @@
   <body>
     <main id="main">
         <div class="header">
-          <button class="header-button" onclick="void(0)">MAIN MENU</button>
+          <button class="header-button" hx-get="/menu" hx-target="#content" hx-swap="innerHTML">MAIN MENU</button>
           <h2><%= header %></h2>
-          <button class="header-button" onclick="navigateTo('/stats')">STATS</button>
+          <!-- <button class="header-button" onclick="navigateTo('/stats')">STATS</button> -->
+          <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML">STATS</button>
         </div>
-        <div class="content">
+        <div id="content" class="content">
           <%- text %>
           <% responses.forEach(function(response){ %>
           

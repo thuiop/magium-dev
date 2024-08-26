@@ -27,8 +27,7 @@ function scene_from_json(json_data,options={},full=false,id="") {
     data.header = get_header_from_id(data.id)
     console.log(Object.entries(data.responses[0].set_variables))
     console.log("Options", options)
-    let rendered =  ejs.renderFile("main.ejs",data)
-    return rendered
+    return ejs.renderFile("templates/main.ejs",data)
 }
 
 // Temporary array to keep track of stats variables
@@ -73,6 +72,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   const id = "Ch1-Intro1"
   scene_from_json(json_data[id],req.cookies,true,id).then((rendered) => res.send(rendered))
+})
+
+// app.get('/stats', (req, res) => {
+//     ejs.renderFile("templates/stats.ejs",req.cookies).then((rendered) => res.send(rendered))
+// })
+
+app.get('/menu', (req, res) => {
+    ejs.renderFile("templates/menu.ejs",req.cookies).then((rendered) => res.send(rendered))
 })
 
 app.get('/scene/:id', (req, res) => {
