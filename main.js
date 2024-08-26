@@ -1,5 +1,9 @@
 let ejs = require('ejs');
 
+/* Initial Logic to get the header from the id.
+TODO: Discuss possibilities of alternate logic that do not need inference, 
+  but can simply be stored in the JSON object itself.
+*/
 function get_header_from_id(id) {
     const id_parts = id.split("-")
     const book_regex = /B[0-9]*$/
@@ -27,25 +31,27 @@ function scene_from_json(json_data,options={},full=false,id="") {
     return rendered
 }
 
+// Temporary array to keep track of stats variables
 const stats_variables = [
   "available_points",
-  "strength",
-  "toughness",
-  "speed",
-  "reflexes",
-  "hearing",
-  "observation",
-  "ancient_languages",
-  "combat_technique",
-  "premonition"
+  "v_strength",
+  "v_toughness",
+  "v_agility", // Speed
+  "v_reflexes",
+  "v_hearing",
+  "v_perception", // Observation
+  "v_ancient_languages",
+  "v_combat_technique",
+  "v_premonition",
+  "v_bluff",
+  "v_magical_sense",
+  "v_aura_hardening",
+  "v_magical_power", // Currently, not utilized
+  "v_magical_knowledge" // Currently, not utilized
 ]
 
 function stats_page_from_cookies(cookies) {
-    let stats = {}
-    for (variable of stats_variables) {
-        stats[variable] = cookies[variable] || 0
-    }
-    let rendered = ejs.renderFile("stats.ejs",stats)
+    let rendered = ejs.renderFile("stats.ejs",cookies)
     return rendered
 }
 
