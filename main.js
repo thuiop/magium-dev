@@ -46,7 +46,8 @@ const stats_variables = [
   "v_magical_sense",
   "v_aura_hardening",
   "v_magical_power", // Currently, not utilized
-  "v_magical_knowledge" // Currently, not utilized
+  "v_magical_knowledge", // Currently, not utilized
+  "v_max_stat"
 ]
 
 function stats_page_from_cookies(cookies) {
@@ -86,7 +87,7 @@ app.get('/scene/:id', (req, res) => {
   scene_from_json(json_data[req.params.id],req.cookies,req.params.id).then((rendered) => res.send(rendered))
 })
 
-app.get('/stats', (req, res) => {
+app.get('/stats', (req, res) => {  
   stats_page_from_cookies(req.cookies).then((rendered) => res.send(rendered))
 })
 

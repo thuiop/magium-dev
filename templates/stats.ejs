@@ -10,6 +10,38 @@
         <link rel="icon" href="/images/magium.ico" type="image/x-icon">
         <script src="https://unpkg.com/htmx.org@2.0.2"></script>
         <script src="/scripts/utils.js"></script>
+        <script>
+            // Check if some of the stats are undefined.
+            // If they are, update every stat cookie with the default value 0, and reload the page.
+            <% %>
+            // This can be moved to a global variable later on, but recommendation would be to keep this in frontend
+            var stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
+                "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
+                "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
+                "v_max_stat"]
+            
+            var locals = <%- JSON.stringify(locals) %>;
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var stats_missing = stats_variables.some(function(stat) {
+                    var value = locals[stat];
+                    return value === null || value === undefined;
+                });
+
+                if (stats_missing) {
+                    stats_variables.forEach(function(stat) {
+                        if (stat == 'v_max_stat') {
+                            document.cookie = stat + "=3";
+                        } else {
+                            document.cookie = stat + "=0";
+                        }
+                    });
+                    window.location.reload();
+                }
+            })
+            <% %>
+            // console.log(<%- JSON.stringify(locals) %>);
+        </script>
       </head>
       <body>
         <main id="main">
