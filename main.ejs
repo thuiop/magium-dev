@@ -4,23 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <title>Magium</title>
+    <link rel="stylesheet" href="/styles/main2.css">
+    <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
-    <script> 
+    <script>
+        function getCookie(name) {
+          const value = `; ${document.cookie}`;
+          const parts = value.split(`; ${name}=`);
+          if (parts.length === 2) {
+            return parts.pop().split(';').shift();
+          }
+          return null;
+        }
+
         function storeItem(key,value) {
-            document.cookie = key+"="+value
-          );
+            document.cookie = key+"="+value;
+        }
+
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.cookie = 'data-theme=' + theme;
+        }
+
+        // On page load, set the theme based on the cookie
+        document.addEventListener('DOMContentLoaded', () => {
+            const theme = getCookie('data-theme') || 'light'; // Default to 'light' if no cookie is found
+            setTheme(theme);
+        });
+
+        function toggleTheme() {
+            const theme = getCookie('data-theme') === 'dark' ? 'light' : 'dark';
+            setTheme(theme);
         }
     </script>
   </head>
   <body>
     <main id="main">
-        <%- text %>
-        <% responses.forEach(function(response){ %>
-        <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
-        <% }); %>
+        <div class="header">
+          <button class="header-button" onclick="void(0)">MAIN MENU</button>
+          <h2><%= header %></h2>
+          <button class="header-button" onclick="void(0)">STATS</button>
+        </div>
+        <div class="content">
+          <%- text %>
+          <% responses.forEach(function(response){ %>
+          
+          <div class="response">
+            <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
+            <% }); %>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="footer-button" onclick="toggleTheme()">Activate Night Mode</button>
+          <p>Magium v0.1</p>
+        </div>
     </main>
 	<script src="main.js"></script>
   </body>
