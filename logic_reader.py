@@ -133,19 +133,22 @@ class Parser:
                 elif match := re.search('Scene text 2 : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraph"] = int(match.group("paragraph"))
                     event.results["paragraph_version"] = 2
+                elif match := re.search('scene 3 : Display paragraph (?P<paragraph>.*)',current):
+                    event.results["paragraph"] = int(match.group("paragraph"))
+                    event.results["paragraph_version"] = 3
 
         return event
 
     def parse(self):
         events = []
         while not self.lexer.eof():
-            events.append(self.parse_event())
             while not self.lexer.peek.startswith("*") and not self.lexer.eof():
                 self.lexer.next()
+            events.append(self.parse_event())
         return events
             
 
-for chapter in [f"ch{i}" for i in range(1,3)]:
+for chapter in [f"ch{i}" for i in range(1,7)]:
     filename = root_folder/chapter/"logic.txt"
 
     events = []
@@ -174,6 +177,7 @@ for chapter in [f"ch{i}" for i in range(1,3)]:
                 scenes[scene].paragraphs.append(Paragraph(event.results["paragraph"],event.results["paragraph_version"],event.conditions["variables"])) 
 
     for event in [e for e in events if e.type == "button"]:
+        print(event)
         if "scene" not in event.conditions:
             continue
         scene = event.conditions["scene"]
@@ -190,9 +194,9 @@ for chapter in [f"ch{i}" for i in range(1,3)]:
         print(scene)
 
 
-    paragraphs = {1:{},2:{}}
+    paragraphs = {1:{},2:{},3:{}}
 
-    for i in [1,2]:
+    for i in [1,2,3]:
         with open(root_folder/chapter/f"paragraphs{i}.txt","r") as f:
             data = f.readlines()
 
