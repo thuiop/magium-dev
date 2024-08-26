@@ -37,6 +37,10 @@
             const theme = getCookie('data-theme') === 'dark' ? 'light' : 'dark';
             setTheme(theme);
         }
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
     </script>
   </head>
   <body>
@@ -44,7 +48,7 @@
         <div class="header">
           <button class="header-button" onclick="void(0)">MAIN MENU</button>
           <h2><%= header %></h2>
-          <button class="header-button" onclick="void(0)">STATS</button>
+          <button class="header-button" onclick="navigateTo('/stats')">STATS</button>
         </div>
         <div class="content">
           <%- text %>
