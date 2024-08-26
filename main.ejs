@@ -42,6 +42,13 @@
             window.location.href = url;
         }
     </script>
+    <script>
+      function setResponseCookies() {
+          <% for (const [key, value] of Object.entries(response.set_variables)) { %>
+            document.cookie='<%= key %>=<%= value %>';
+          <% } %>
+        }
+    </script>
   </head>
   <body>
     <main id="main">
@@ -55,7 +62,7 @@
           <% responses.forEach(function(response){ %>
           
           <div class="response">
-            <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
+            <button onClick="setResponseCookies()" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
             <% }); %>
           </div>
         </div>
