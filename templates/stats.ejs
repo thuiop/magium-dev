@@ -41,8 +41,33 @@
             })
         </script>
         <script>
-            function updateStat(stat, value) {
-                document.cookie = stat + "=" + value;
+            // Logic for updating stats
+
+            // Define temporary global variables for the stats
+            var stats_aux = {
+                "v_available_points_aux": <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 3 <% } %>,
+                "v_strength_aux": <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>,
+                "v_toughness_aux": <% if (locals.v_toughness) { %> <%= v_toughness %> <% } else {%> 0 <% } %>,
+                "v_agility_aux": <% if (locals.v_agility) { %> <%= v_agility %> <% } else {%> 0 <% } %>,
+                "v_reflexes_aux": <% if (locals.v_reflexes) { %> <%= v_reflexes %> <% } else {%> 0 <% } %>,
+                "v_hearing_aux": <% if (locals.v_hearing) { %> <%= v_hearing %> <% } else {%> 0 <% } %>,
+                "v_perception_aux": <% if (locals.v_perception) { %> <%= v_perception %> <% } else {%> 0 <% } %>,
+                "v_ancient_languages_aux": <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %> <% } else {%> 0 <% } %>,
+                "v_combat_technique_aux": <% if (locals.v_combat_technique) { %> <%= v_combat_technique %> <% } else {%> 0 <% } %>,
+                "v_premonition_aux": <% if (locals.v_premonition) { %> <%= v_premonition %> <% } else {%> 0 <% } %>,
+                "v_bluff_aux": <% if (locals.v_bluff) { %> <%= v_bluff %> <% } else {%> 0 <% } %>,
+                "v_magical_sense_aux": <% if (locals.v_magical_sense) { %> <%= v_magical_sense %> <% } else {%> 0 <% } %>,
+                "v_aura_hardening_aux": <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %> <% } else {%> 0 <% } %>,
+                "v_magical_power_aux": <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>,
+                "v_magical_knowledge_aux": <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>,
+            }
+
+            function updateStat(stat, value, element_id) {
+
+            }
+
+            function updateAvailablePoints(stat, value, element_id) {
+
             }
         </script>
       </head>
