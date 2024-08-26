@@ -24,8 +24,11 @@
         <div class="content">
           <%- text %>
           <% responses.forEach(function(response){ %>
-          <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
-          <% }); %>
+          
+          <div class="response">
+            <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
+            <% }); %>
+          </div>
         </div>
     </main>
 	<script src="main.js"></script>
