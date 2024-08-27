@@ -46,7 +46,7 @@ def parse_condition(t: str):
 class Event:
     type: str = ""
     conditions: dict[str,Any] = field(default_factory=lambda:{"variables":{}})
-    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{}})
+    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[]})
 
 
 @dataclass
@@ -130,14 +130,11 @@ class Parser:
                 elif match := re.search('Special : Set (?P<variable>.*) to (?P<value>.*)',current):
                     event.results["set_variables"][transform_var_name(match.group("variable"))] = match.group("value")
                 elif match := re.search('Scene text : Display paragraph (?P<paragraph>.*)',current):
-                    event.results["paragraph"] = int(match.group("paragraph"))
-                    event.results["paragraph_version"] = 1
+                    event.results["paragraphs"].append((int(match.group("paragraph")),1))
                 elif match := re.search('Scene text 2 : Display paragraph (?P<paragraph>.*)',current):
-                    event.results["paragraph"] = int(match.group("paragraph"))
-                    event.results["paragraph_version"] = 2
+                    event.results["paragraphs"].append((int(match.group("paragraph")),2))
                 elif match := re.search('scene 3 : Display paragraph (?P<paragraph>.*)',current):
-                    event.results["paragraph"] = int(match.group("paragraph"))
-                    event.results["paragraph_version"] = 3
+                    event.results["paragraphs"].append((int(match.group("paragraph")),3))
 
         return event
 
@@ -174,9 +171,9 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
         for button in event.results["add_buttons"]:
             if button not in [resp.text for resp in scenes[scene].responses]:
                 scenes[scene].responses.append(Response(button))
-        if "paragraph" in event.results:
-            if event.results["paragraph"] not in [par.id for par in scenes[scene].paragraphs]:
-                scenes[scene].paragraphs.append(Paragraph(event.results["paragraph"],event.results["paragraph_version"],event.conditions["variables"])) 
+        for paragraph in event.results["paragraphs"]:
+            #if paragraph[0] not in [par.id for par in scenes[scene].paragraphs]:
+            scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
 
     for event in [e for e in events if e.type == "button"]:
         print(event)
