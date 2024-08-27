@@ -44,12 +44,11 @@
             // Logic for updating stats
 
             // Define temporary global variables for the stats
-            // Can later be made more flexible by using the above locals variable 
-            //  to automatically create the auxiliary stats properties
             // Can also later set up two-way binding directly with the HTML elements using Object.defineProperty
             function getAuxiliaryStats() {
+                // The following code is a more flexible version. It can be used if deemed more appropriate.
+                // TODO: Have a discussion on whether this may be the better approach
                 // function initializeAuxiliaryProperty(stat_property) {
-                //     var default_value = stat_property == "v_max_stat" ? 3 : 0;
                 //     var stat_value = locals[stat_property] ? locals[stat_property] : default_value;
                 //     return stat_value;
                 // }
@@ -57,6 +56,7 @@
                 // for (stat of stats_variables) {
                 //     stats_aux[stat + "_aux"] = initializeAuxiliaryProperty(stat);
                 // }
+                // delete stats_aux["v_max_stat_aux"];
                 var stats_aux = {
                     "v_available_points_aux": locals.v_available_points ? locals.v_available_points : 0,
                     "v_strength_aux": locals.v_strength ? locals.v_strength : 0,
@@ -80,30 +80,31 @@
             // This function is called on page load to initialize the stats
             // As well as to update when Cancel Changes is clicked
             // Unlike getAuxiliaryStats, this function is implemented in a flexible manner, instead of hard-coding
+            //  For example: notice the calculation of stat, stat_value, stat_field_id, stat_value_span_id
+            // TODO: Have a discussion on whether this may be too flexible and if it is better to hard-code the stats
             function initializeStats(stats_aux) {
                 for (var stat_aux in stats_aux) {
                     var stat = stat_aux.split("_aux")[0];
                     var stat_value = stats_aux[stat_aux];
-                    var stat_max = <%= v_max_stat %>
-                    document.getElementById(stat).innerHTML = stat + ": " + stat_value + " / " + stat_max;
+                    var stat_field_id = stat.split("v_")[1];
+                    var stat_value_span_id = stat_field_id + "_value";
+                    document.getElementById(stat_value_span_id).innerHTML = stat_value;
+                    document.getElementById(stat_field_id).className = "stat-field" + 
+                        (stat === "v_available_points" ? " available" : "");
                 }
-                document.getElementById("available_points").innerHTML = "Available Points: " + 
-                    stats_aux["v_available_points_aux"];
             }
 
             var stats_aux = getAuxiliaryStats();
+            initializeStats(stats_aux);
 
-            function updateStat(stat, element_id) {
-                var stat_aux = stat + "_aux";
-                var stat_value = stats_aux[stat_aux];
-                var stat_max = <%= v_max_stat %>
+            function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
+                var stat_aux_value = stats_aux[stat_aux_key];
 
-                if (stat_value >= stat_max) { return; }
-                stats_aux[stat_aux] += 1;
+                if (stat_aux_value >= stat_max) { return; }
+                stats_aux[stat_aux_key] += 1;
                 stats_aux["v_available_points_aux"] -= 1;
-                document.getElementById("available_points").innerHTML = "Available Points: " + 
-                    stats_aux["v_available_points_aux"];
-                document.getElementById(element_id).innerHTML = stat + ": " + stats_aux[stat_aux] + " / " + stat_max;
+                document.getElementById("available_points_value").innerHTML = stats_aux["v_available_points_aux"];
+                document.getElementById(element_id).innerHTML = stats_aux[stat_aux_key];
                 document.getElementById(element_id).className = "stat-field updated";
             }
         </script>
@@ -120,29 +121,33 @@
                     <!-- This initial content is tied to the EJS variable only once.
                     Later, the content for each of the stat-field is tied to the auxiliary variables -->
                         Magical Power: 
-                        <span id="magical_power_value"><% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %></span>
-                        /
-                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                        <span id="magical_power_value">
+                            <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>
+                        </span>
                     </button>
 
                     <button class="stat-field" id="magical_knowledge" onclick="void(0)" 
                     style="grid-column: 2; grid-row: 1;">
                         Magical Knowledge: 
-                        <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>
-                        /
-                        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+                        <span id="magical_knowledge_value">
+                            <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>
+                        </span>
                     </button>
 
-                    <button class="stat-field" id="available_points" onclick="void(0)" 
+                    <button class="stat-field available" id="available_points" onclick="void(0)" 
                     style="grid-column: 1 / span 2; grid-row: 2;">
                         Available Points: 
+                        <span id="available_points_value">
                         <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 0 <% } %>
+                        </span>
                     </button>
 
                     <button class="stat-field" id="strength" onclick="void(0)" 
                     style="grid-column: 1; grid-row: 3;">
                         Strength: 
+                        <span id="strength_value">
                         <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>
+                        </span>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
