@@ -21,12 +21,18 @@ function get_header_from_id(id) {
     return `${book} - ${chapter}`
 }
 
-function scene_from_json(json_data,options={},full=false,id="") {
+function render_full(req,callback,header=""){
+    if (req.get("HX-Request")){
+        return callback(req)
+    }
+    else {
+        return callback(req).then((content) => ejs.renderFile("templates/outline.ejs",{"header": header,"content": content}))
+    }
+}
+
+function render_scene(req,json_data) {
     let data = Object.assign({},json_data);
-    data.text = ejs.render(data.text,options);
-    data.header = get_header_from_id(data.id)
-    console.log(Object.entries(data.responses[0].set_variables))
-    console.log("Options", options)
+    data.text = ejs.render(data.text,req.cookies);
     return ejs.renderFile("templates/main.ejs",data)
 }
 
@@ -50,13 +56,16 @@ const stats_variables = [
   "v_max_stat"
 ]
 
-function stats_page_from_cookies(cookies) {
-    let rendered = ejs.renderFile("templates/stats.ejs",cookies)
-    return rendered
+function render_stats(req) {
+    return ejs.renderFile("templates/stats.ejs",req.cookies)
+}
+
+function render_menu(req) {
+    return ejs.renderFile("templates/menu.ejs",req.cookies)
 }
 
 let json_data = {}
-for (chapter of ["ch1","ch2"]) {
+for (chapter of ["ch1","ch2","ch3","ch4","ch5","ch6"]) {
     json_data = Object.assign(json_data,require(`./chapters/${chapter}.json`))
 }
 
@@ -72,23 +81,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
   const id = "Ch1-Intro1"
-  scene_from_json(json_data[id],req.cookies,true,id).then((rendered) => res.send(rendered))
+  render_full(req,(r) => render_scene(r,json_data[id]),get_header_from_id(id)).then((rendered) => res.send(rendered))
 })
 
-// app.get('/stats', (req, res) => {
-//     ejs.renderFile("templates/stats.ejs",req.cookies).then((rendered) => res.send(rendered))
-// })
-
 app.get('/menu', (req, res) => {
-    ejs.renderFile("templates/menu.ejs",req.cookies).then((rendered) => res.send(rendered))
+  render_full(req,render_menu,"Menu").then((rendered) => res.send(rendered))
 })
 
 app.get('/scene/:id', (req, res) => {
-  scene_from_json(json_data[req.params.id],req.cookies,req.params.id).then((rendered) => res.send(rendered))
+  render_full(req,(r) => render_scene(r,json_data[req.params.id]),get_header_from_id(req.params.id)).then((rendered) => res.send(rendered))
 })
 
 app.get('/stats', (req, res) => {  
-  stats_page_from_cookies(req.cookies).then((rendered) => res.send(rendered))
+  render_full(req,render_stats,"Stats").then((rendered) => res.send(rendered))
 })
 
 app.listen(port, () => {
