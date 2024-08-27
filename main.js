@@ -30,8 +30,8 @@ function render_full(req,callback,header=""){
     }
 }
 
-function render_scene(req,json_data) {
-    let data = Object.assign({},json_data);
+function render_scene(req,json_data,id) {
+    let data = Object.assign({},json_data,{"id":id});
     data.text = ejs.render(data.text,req.cookies);
     return ejs.renderFile("templates/main.ejs",data)
 }
@@ -81,7 +81,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     const id = req.cookies.v_current_scene ? req.cookies.v_current_scene : "Ch1-Intro1"
-    render_full(req,(r) => render_scene(r,json_data[id]),get_header_from_id(id)).then((rendered) => res.send(rendered))
+    render_full(req,(r) => render_scene(r,json_data[id],get_header_from_id(id)),get_header_from_id(id)).then((rendered) => res.send(rendered))
 })
 
 app.get('/menu', (req, res) => {
