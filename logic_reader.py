@@ -76,7 +76,7 @@ class Scene:
         text = ""
         for par in self.paragraphs:
             if par.conditions != {}:
-                condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in par.conditions.items()])
+                condition_string = ' && '.join([f"(locals.{var} || 0) {parse_condition(cond.type)} {cond.value}" for var,cond in par.conditions.items()])
                 text += f"<% if({condition_string}) {{%>"
             text += paragraphs[par.version][par.id]
             if par.conditions != {}:
