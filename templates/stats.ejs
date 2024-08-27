@@ -44,30 +44,55 @@
             // Logic for updating stats
 
             // Define temporary global variables for the stats
-            var stats_aux = {
-                "v_available_points_aux": <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 3 <% } %>,
-                "v_strength_aux": <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>,
-                "v_toughness_aux": <% if (locals.v_toughness) { %> <%= v_toughness %> <% } else {%> 0 <% } %>,
-                "v_agility_aux": <% if (locals.v_agility) { %> <%= v_agility %> <% } else {%> 0 <% } %>,
-                "v_reflexes_aux": <% if (locals.v_reflexes) { %> <%= v_reflexes %> <% } else {%> 0 <% } %>,
-                "v_hearing_aux": <% if (locals.v_hearing) { %> <%= v_hearing %> <% } else {%> 0 <% } %>,
-                "v_perception_aux": <% if (locals.v_perception) { %> <%= v_perception %> <% } else {%> 0 <% } %>,
-                "v_ancient_languages_aux": <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %> <% } else {%> 0 <% } %>,
-                "v_combat_technique_aux": <% if (locals.v_combat_technique) { %> <%= v_combat_technique %> <% } else {%> 0 <% } %>,
-                "v_premonition_aux": <% if (locals.v_premonition) { %> <%= v_premonition %> <% } else {%> 0 <% } %>,
-                "v_bluff_aux": <% if (locals.v_bluff) { %> <%= v_bluff %> <% } else {%> 0 <% } %>,
-                "v_magical_sense_aux": <% if (locals.v_magical_sense) { %> <%= v_magical_sense %> <% } else {%> 0 <% } %>,
-                "v_aura_hardening_aux": <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %> <% } else {%> 0 <% } %>,
-                "v_magical_power_aux": <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>,
-                "v_magical_knowledge_aux": <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>,
+            // Can later be made more flexible by using the above locals variable 
+            //  to automatically create the auxiliary stats properties
+            // Can also later set up two-way binding directly with the HTML elements using Object.defineProperty
+            function getAuxiliaryStats() {
+                var stats_aux = {
+                    "v_available_points_aux": <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 3 <% } %>,
+                    "v_strength_aux": <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>,
+                    "v_toughness_aux": <% if (locals.v_toughness) { %> <%= v_toughness %> <% } else {%> 0 <% } %>,
+                    "v_agility_aux": <% if (locals.v_agility) { %> <%= v_agility %> <% } else {%> 0 <% } %>,
+                    "v_reflexes_aux": <% if (locals.v_reflexes) { %> <%= v_reflexes %> <% } else {%> 0 <% } %>,
+                    "v_hearing_aux": <% if (locals.v_hearing) { %> <%= v_hearing %> <% } else {%> 0 <% } %>,
+                    "v_perception_aux": <% if (locals.v_perception) { %> <%= v_perception %> <% } else {%> 0 <% } %>,
+                    "v_ancient_languages_aux": <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %> <% } else {%> 0 <% } %>,
+                    "v_combat_technique_aux": <% if (locals.v_combat_technique) { %> <%= v_combat_technique %> <% } else {%> 0 <% } %>,
+                    "v_premonition_aux": <% if (locals.v_premonition) { %> <%= v_premonition %> <% } else {%> 0 <% } %>,
+                    "v_bluff_aux": <% if (locals.v_bluff) { %> <%= v_bluff %> <% } else {%> 0 <% } %>,
+                    "v_magical_sense_aux": <% if (locals.v_magical_sense) { %> <%= v_magical_sense %> <% } else {%> 0 <% } %>,
+                    "v_aura_hardening_aux": <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %> <% } else {%> 0 <% } %>,
+                    "v_magical_power_aux": <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>,
+                    "v_magical_knowledge_aux": <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>,
+                }
+                return stats_aux;
             }
 
-            function updateStat(stat, value, element_id) {
-
+            function initializeStats(stats_aux) {
+                for (var stat in stats_aux) {
+                    var stat_aux = stat + "_aux";
+                    var stat_value = stats_aux[stat_aux];
+                    var stat_max = <%= v_max_stat %>
+                    document.getElementById(stat).innerHTML = stat + ": " + stat_value + " / " + stat_max;
+                }
+                document.getElementById("available_points").innerHTML = "Available Points: " + 
+                    stats_aux["v_available_points_aux"];
             }
 
-            function updateAvailablePoints(stat, value, element_id) {
+            var stats_aux = getAuxiliaryStats();
 
+            function updateStat(stat, element_id) {
+                var stat_aux = stat + "_aux";
+                var stat_value = stats_aux[stat_aux];
+                var stat_max = <%= v_max_stat %>
+
+                if (stat_value >= stat_max) { return; }
+                stats_aux[stat_aux] += 1;
+                stats_aux["v_available_points_aux"] -= 1;
+                document.getElementById("available_points").innerHTML = "Available Points: " + 
+                    stats_aux["v_available_points_aux"];
+                document.getElementById(element_id).innerHTML = stat + ": " + stats_aux[stat_aux] + " / " + stat_max;
+                document.getElementById(element_id).className = "stat-field updated";
             }
         </script>
       </head>
@@ -80,8 +105,10 @@
                 <div class="stats-container">
                     <button class="stat-field" id="magical_power" onclick="void(0)" 
                     style="grid-column: 1; grid-row: 1;">
+                    <!-- This initial content is tied to the EJS variable only once.
+                    Later, the content for each of the stat-field is tied to the auxiliary variables -->
                         Magical Power: 
-                        <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>
+                        <span id="magical_power_value"><% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %></span>
                         /
                         <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
                     </button>
