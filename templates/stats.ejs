@@ -35,6 +35,10 @@
                         } else {
                             document.cookie = stat + "=0";
                         }
+                        // Temporary points
+                        if (stat == 'v_available_points') {
+                            document.cookie = stat + "=30";
+                        }
                     });
                     window.location.reload();
                 }
@@ -57,10 +61,18 @@
                 //     stats_aux[stat + "_aux"] = initializeAuxiliaryProperty(stat);
                 // }
                 // delete stats_aux["v_max_stat_aux"];
+                console.log(locals);
+
+                function initializeAuxiliaryProperty(stat_property, default_value) {
+                    var stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
+                        parseInt(locals[stat_property]) : 0;
+                    console.log(stat_property, stat_value);
+                    return stat_value;
+                }
                 var stats_aux = {
-                    "v_available_points_aux": locals.v_available_points ? locals.v_available_points : 0,
-                    "v_strength_aux": locals.v_strength ? locals.v_strength : 0,
-                    "v_toughness_aux": locals.v_toughness ? locals.v_toughness : 0,
+                    "v_available_points_aux": initializeAuxiliaryProperty("v_available_points", 0),
+                    "v_strength_aux": initializeAuxiliaryProperty("v_strength", 0),
+                    "v_toughness_aux": initializeAuxiliaryProperty("v_toughness", 0),
                     "v_agility_aux": locals.v_agility ? locals.v_agility : 0,
                     "v_reflexes_aux": locals.v_reflexes ? locals.v_reflexes : 0,
                     "v_hearing_aux": locals.v_hearing ? locals.v_hearing : 0,
@@ -88,6 +100,7 @@
                     var stat_value = stats_aux[stat_aux];
                     var stat_field_id = stat.split("v_")[1];
                     var stat_value_span_id = stat_field_id + "_value";
+                    if (document.getElementById(stat_value_span_id) === null) {continue;}
                     document.getElementById(stat_value_span_id).innerHTML = stat_value;
                     document.getElementById(stat_field_id).className = "stat-field" + 
                         (stat === "v_available_points" ? " available" : "");
@@ -99,13 +112,15 @@
 
             function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
                 var stat_aux_value = stats_aux[stat_aux_key];
+                var stat_max = locals["v_max_stat"];
+                var available_points = stats_aux["v_available_points_aux"];
 
-                if (stat_aux_value >= stat_max) { return; }
+                if ((stat_aux_value >= stat_max) || (available_points <= 0)) { return; }
                 stats_aux[stat_aux_key] += 1;
                 stats_aux["v_available_points_aux"] -= 1;
                 document.getElementById("available_points_value").innerHTML = stats_aux["v_available_points_aux"];
-                document.getElementById(element_id).innerHTML = stats_aux[stat_aux_key];
-                document.getElementById(element_id).className = "stat-field updated";
+                document.getElementById(stat_field_value_id).innerHTML = stats_aux[stat_aux_key];
+                document.getElementById(stat_field_id).className = "stat-field updated";
             }
         </script>
       </head>
@@ -142,7 +157,8 @@
                         </span>
                     </button>
 
-                    <button class="stat-field" id="strength" onclick="void(0)" 
+                    <button class="stat-field" id="strength" 
+                    onclick="updateStat('strength', 'v_strength_aux', 'strength', 'strength_value')" 
                     style="grid-column: 1; grid-row: 3;">
                         Strength: 
                         <span id="strength_value">
