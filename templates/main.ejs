@@ -37,6 +37,17 @@
             const theme = getCookie('data-theme') === 'dark' ? 'light' : 'dark';
             setTheme(theme);
         }
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+    <script>
+      function setResponseCookies(response) {
+          for (const [key, value] of Object.entries(response.set_variables)) {
+            document.cookie=`${key}=${value}`;
+          }
+        }
     </script>
   </head>
   <body>
@@ -44,14 +55,15 @@
         <div class="header">
           <button class="header-button" hx-get="/menu" hx-target="#content" hx-swap="innerHTML">MAIN MENU</button>
           <h2><%= header %></h2>
-          <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML">STATS</button>
+          <button class="header-button" onclick="navigateTo('/stats')">STATS</button>
+          <!-- <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML">STATS</button> -->
         </div>
         <div id="content" class="content">
           <%- text %>
           <% responses.forEach(function(response){ %>
           
           <div class="response">
-            <button onClick="<% for (const [key, value] of Object.entries(response.set_variables)) { %>document.cookie='<%= key %>=<%= value %>';<% } %>" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
+            <button onClick="setResponseCookies(<%= JSON.stringify(response) %>)" hx-get="/scene/<%= response.target %>" hx-target="main" hx-swap="innerHTML"})"> <%= response.text %> </button>
             <% }); %>
           </div>
         </div>

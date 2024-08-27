@@ -1,0 +1,111 @@
+/* Handles Light and Dark theme */
+
+/* Default Theme (Light) */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+
+    --header-background-color: #000000;
+    --header-text-color: #ffffff;
+    
+    --button-color: #333333;
+    --button-text-color: #ffffff;
+    --button-border-color: transparent;
+
+    --stat-color: transparent;
+    --stat-text-color: #000000;
+    --stat-border-color: transparent;
+    --stat-update-text-color: #008000;
+    --stat-magic-special-text-color: #0000ff;
+    --stat-available-text-color: #a52a2a;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --background-color: #000000;
+    --text-color: #ffffff;
+
+    --header-background-color: #CBCBCB;
+    --header-text-color: #000000;
+
+    --button-color: #333333;
+    --button-text-color: #ffffff;
+    --button-border-color: transparent;
+
+    --stat-color: transparent;
+    --stat-text-color: #ffffff;
+    --stat-border-color: transparent;
+    --stat-update-text-color: #008000;
+    --stat-magic-special-text-color: #0000ff;
+    --stat-available-text-color: #a52a2a;
+}
+
+/* Other Themes can be added similarly */
+
+
+#stats-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+}
+
+#stats-button-container > button {
+    padding: 0.5em;
+    width: calc(30vw);
+    margin-left: calc(10vw);
+    margin-right: calc(10vw);
+
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-color: var(--button-border-color);
+
+    cursor: pointer;
+}
+
+.stats-container {
+    display: grid;
+    justify-items: center;
+
+    grid-template-columns: [left] 50% [col2] 50% [right];
+    grid-template-rows: repeat(10, 1fr);
+    row-gap: 0.5em;
+
+    width: 100%;
+}
+
+.stat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.stat-field {
+    padding: 0.5em;
+    width: calc(30vw);
+    margin-left: calc(10vw);
+    margin-right: calc(10vw);
+
+    background-color: var(--stat-color);
+    color: var(--stat-text-color);
+    border-color: var(--stat-border-color);
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+
+    cursor: pointer;
+}
+
+.magic-special {
+    color: var(--stat-magic-special-text-color);
+    cursor: default;
+}
+
+.available {
+    color: var(--stat-available-text-color);
+    cursor: default;
+}
+
+.updated {
+    color: var(--stat-update-text-color);
+}
