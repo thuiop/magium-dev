@@ -48,21 +48,41 @@
             //  to automatically create the auxiliary stats properties
             // Can also later set up two-way binding directly with the HTML elements using Object.defineProperty
             function getAuxiliaryStats() {
-                function initializeAuxiliaryProperty(stat_property) {
-                    var default_value = stat_property == "v_max_stat" ? 3 : 0;
-                    var stat_value = locals[stat_property] ? locals[stat_property] : default_value;
-                    return stat_value;
-                }
-                var stats_aux = {}
-                for (stat of stats_variables) {
-                    stats_aux[stat + "_aux"] = initializeAuxiliaryProperty(stat);
+                // function initializeAuxiliaryProperty(stat_property) {
+                //     var default_value = stat_property == "v_max_stat" ? 3 : 0;
+                //     var stat_value = locals[stat_property] ? locals[stat_property] : default_value;
+                //     return stat_value;
+                // }
+                // var stats_aux = {}
+                // for (stat of stats_variables) {
+                //     stats_aux[stat + "_aux"] = initializeAuxiliaryProperty(stat);
+                // }
+                var stats_aux = {
+                    "v_available_points_aux": locals.v_available_points ? locals.v_available_points : 0,
+                    "v_strength_aux": locals.v_strength ? locals.v_strength : 0,
+                    "v_toughness_aux": locals.v_toughness ? locals.v_toughness : 0,
+                    "v_agility_aux": locals.v_agility ? locals.v_agility : 0,
+                    "v_reflexes_aux": locals.v_reflexes ? locals.v_reflexes : 0,
+                    "v_hearing_aux": locals.v_hearing ? locals.v_hearing : 0,
+                    "v_perception_aux": locals.v_perception ? locals.v_perception : 0,
+                    "v_ancient_languages_aux": locals.v_ancient_languages ? locals.v_ancient_languages : 0,
+                    "v_combat_technique_aux": locals.v_combat_technique ? locals.v_combat_technique : 0,
+                    "v_premonition_aux": locals.v_premonition ? locals.v_premonition : 0,
+                    "v_bluff_aux": locals.v_bluff ? locals.v_bluff : 0,
+                    "v_magical_sense_aux": locals.v_magical_sense ? locals.v_magical_sense : 0,
+                    "v_aura_hardening_aux": locals.v_aura_hardening ? locals.v_aura_hardening : 0,
+                    "v_magical_power_aux": locals.v_magical_power ? locals.v_magical_power : 0,
+                    "v_magical_knowledge_aux": locals.v_magical_knowledge ? locals.v_magical_knowledge : 0,
                 }
                 return stats_aux;
             }
 
+            // This function is called on page load to initialize the stats
+            // As well as to update when Cancel Changes is clicked
+            // Unlike getAuxiliaryStats, this function is implemented in a flexible manner, instead of hard-coding
             function initializeStats(stats_aux) {
-                for (var stat in stats_aux) {
-                    var stat_aux = stat + "_aux";
+                for (var stat_aux in stats_aux) {
+                    var stat = stat_aux.split("_aux")[0];
                     var stat_value = stats_aux[stat_aux];
                     var stat_max = <%= v_max_stat %>
                     document.getElementById(stat).innerHTML = stat + ": " + stat_value + " / " + stat_max;
