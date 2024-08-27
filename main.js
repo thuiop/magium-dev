@@ -80,23 +80,23 @@ const path = require('path')
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-  const id = "Ch1-Intro1"
-  render_full(req,(r) => render_scene(r,json_data[id]),get_header_from_id(id)).then((rendered) => res.send(rendered))
+    const id = req.cookies.v_current_scene ? req.cookies.v_current_scene : "Ch1-Intro1"
+    render_full(req,(r) => render_scene(r,json_data[id]),get_header_from_id(id)).then((rendered) => res.send(rendered))
 })
 
 app.get('/menu', (req, res) => {
-  render_full(req,render_menu,"Menu").then((rendered) => res.send(rendered))
+    render_full(req,render_menu,"Menu").then((rendered) => res.send(rendered))
 })
 
 app.get('/scene/:id', (req, res) => {
-  render_full(req,(r) => render_scene(r,json_data[req.params.id]),get_header_from_id(req.params.id)).then((rendered) => res.send(rendered))
+    render_full(req,(r) => render_scene(r,json_data[req.params.id]),get_header_from_id(req.params.id)).then((rendered) => res.send(rendered))
 })
 
 app.get('/stats', (req, res) => {  
-  render_full(req,render_stats,"Stats").then((rendered) => res.send(rendered))
+    render_full(req,render_stats,"Stats").then((rendered) => res.send(rendered))
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+    console.log(`Example app listening on port ${port}`)
 })
 
