@@ -113,6 +113,7 @@
 
             var stats_aux = getAuxiliaryStats();
             initializeStats(stats_aux);
+            var stats_changed = false; // This variable is used to check if the stats have been changed
 
             function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
                 var stat_aux_value = stats_aux[stat_aux_key];
@@ -125,6 +126,18 @@
                 document.getElementById("available_points_value").innerHTML = stats_aux["v_available_points_aux"];
                 document.getElementById(stat_field_value_id).innerHTML = stats_aux[stat_aux_key];
                 document.getElementById(stat_field_id).className = "stat-field updated";
+                stats_changed = true;
+            }
+
+            function confirmStats() {
+                if (!stats_changed) { return; }
+                // Update the stats cookies
+                for (var stat_aux in stats_aux) {
+                    var stat = stat_aux.split("_aux")[0];
+                    document.cookie = stat + "=" + stats_aux[stat_aux];
+                }
+                // Refresh the page to reflect the changes
+                window.location.reload();
             }
         </script>
       </head>
@@ -293,10 +306,12 @@
                     </button>
                 </div>
                 <div id="stats-button-container">
-                <button onclick="stats_aux = getAuxiliaryStats();initializeStats(stats_aux);" 
+                <button onclick="stats_aux = getAuxiliaryStats();initializeStats(stats_aux);stats_changed = false;" 
                     id="cancel-changes">Cancel Changes</button>
-                <button onclick="void(0)" id="confirm-changes">Confirm Changes</button>
-                <button onclick="navigateTo('/')" id="return-to-game">Return to game</button>
+                <button onclick="confirmStats()" 
+                    id="confirm-changes">Confirm Changes</button>
+                <button onclick="navigateTo('/')" 
+                    id="return-to-game">Return to game</button>
                 </div>
             </div>
             <div class="footer">
