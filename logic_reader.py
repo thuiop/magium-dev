@@ -127,6 +127,7 @@ class Parser:
                     event.results["add_buttons"].append(match.group("button_name"))
                 elif match := re.search('Special : Set current scene to "(?P<scene>.*)"',current):
                     event.results["new_scene"] = match.group("scene")
+                    event.results["set_variables"][transform_var_name("current scene")] = match.group("scene")
                 elif match := re.search('Special : Set (?P<variable>.*) to (?P<value>.*)',current):
                     event.results["set_variables"][transform_var_name(match.group("variable"))] = match.group("value")
                 elif match := re.search('Scene text : Display paragraph (?P<paragraph>.*)',current):
