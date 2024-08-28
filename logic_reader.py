@@ -20,7 +20,6 @@ class Lexer:
         line = self.peek
         self.pos += 1
         self.peek = data[self.pos]
-        print(line)
         return line
 
     def eof(self):
@@ -62,7 +61,7 @@ def is_compatible(comp1,comp2):
 class Event:
     type: str = ""
     conditions: dict[str,Any] = field(default_factory=lambda:{"variables":{}})
-    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[]})
+    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[],"stat_checks":[]})
 
 
 @dataclass
@@ -90,14 +89,28 @@ class SceneVariableSet:
     conditions: dict = field(default_factory=dict)
 
 @dataclass
+class StatsCheck:
+    text: str
+    successful: bool
+    conditions: dict = field(default_factory=dict)
+
+@dataclass
 class Scene:
     id: str
     paragraphs: list = field(default_factory=list) 
     responses: list = field(default_factory=list) 
     set_variables: list = field(default_factory=list)
+    stat_checks: list = field(default_factory=list) 
 
     def to_json(self,paragraphs):
         text = ""
+        for stat_check in self.stat_checks:
+            if stat_check.conditions != {}:
+                condition_string = ' && '.join([f"(locals.{var} || 0) {parse_condition(cond.type)} {cond.value}" for var,cond in stat_check.conditions.items()])
+                text += f"<% if({condition_string}) {{%>"
+            text += f"<div class='stat_{'success' if stat_check.successful else 'fail'}'>{stat_check.text}</div>"
+            if stat_check.conditions != {}:
+                text += "<% } %>"
         for par in self.paragraphs:
             if par.conditions != {}:
                 condition_string = ' && '.join([f"(locals.{var} || 0) {parse_condition(cond.type)} {cond.value}" for var,cond in par.conditions.items()])
@@ -105,6 +118,7 @@ class Scene:
             text += paragraphs[par.version][par.id]
             if par.conditions != {}:
                 text += "<% } %>"
+        text = re.sub(r"(\n){2,}", r"\n\n", text)
         text = text.replace("\n","<br/>")
         val = {
             "id": self.id,
@@ -128,8 +142,6 @@ class Parser:
         self.lexer = lexer
 
     def parse_event(self):
-        print("New event")
-        print(self.lexer.peek)
         assert self.lexer.peek.startswith("*")
         event = Event()
         while len(current:=self.lexer.next()) > 1 and not self.lexer.eof():
@@ -161,6 +173,13 @@ class Parser:
                     event.results["paragraphs"].append((int(match.group("paragraph")),2))
                 elif match := re.search('scene 3 : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraphs"].append((int(match.group("paragraph")),3))
+                elif match := re.search('checks : Set alterable string to (?P<text>.*)',current):
+                    print(current)
+                    print(match.group("text"))
+                    for stat_check in re.findall('"\[.*?\]"',match.group("text")):
+                        print(stat_check)
+                        event.results["stat_checks"].append(StatsCheck(stat_check.replace('"',"")+"\n","successful" in stat_check))
+                    
 
         return event
 
@@ -195,12 +214,14 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
             scenes[scene] = Scene(scene)
 
         for button in event.results["add_buttons"]:
-            #if button not in [resp.text for resp in scenes[scene].responses]:
             scenes[scene].responses.append(Response(button,conditions=event.conditions["variables"]))
         for paragraph in event.results["paragraphs"]:
             scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
         for variable, value in  event.results["set_variables"].items():
             scenes[scene].set_variables.append(SceneVariableSet(variable,int(value),event.conditions["variables"])) 
+        for stat_check in event.results["stat_checks"]:
+            stat_check.conditions = event.conditions["variables"]
+            scenes[scene].stat_checks.append(stat_check)
 
 
     for event in [e for e in events if e.type == "button"]:
@@ -209,13 +230,9 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
         if "scene" not in event.conditions:
             continue
         scene = event.conditions["scene"]
-        #print(scenes[scene])
-        print(*scenes[scene].responses,sep="\n")
-        print("Raw conditions",event.conditions["variables"])
         event_conditions = event.conditions["variables"]
         conditions_transform = defaultdict(list)
         for scene_variable_set in scenes[scene].set_variables:
-            print(scene_variable_set)
             conditions_transform[scene_variable_set.name].append((scene_variable_set.value,scene_variable_set.conditions))
 
         def is_visible(response):
@@ -224,31 +241,20 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
             for var, condition in variables.items():
                 if var not in conditions_transform:
                     continue
-                print("#"*20)
-                print(var,condition)
-                print("Set conditions",*conditions_transform[var],sep="\n\t")
-                print(response.conditions)
                 if any([cond[1] == response.conditions for cond in conditions_transform[var] if compare(cond[0],condition)]):
-                    print("a")
                     to_remove.append(var)
                 elif any(ls:=[cond[1] == response.conditions for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != []:
-                    print("b")
                     return False
                 elif all(ls:=[cond[1] != response.conditions for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != []:
-                    print("c")
                     to_remove.append(var)
                 
             for var in to_remove:
                 del variables[var]
-            print(variables)
             variables = {var: val for var,val in event.conditions["variables"].items() if not all([var not in response.conditions for response in scenes[scene].responses])}
                     
             return all(is_compatible(variables[key],response.conditions.get(key)) for key in variables) or response.conditions == {} 
         visible_responses = [response for response in scenes[scene].responses if is_visible(response)]
-        print(len(visible_responses))
         response = visible_responses[event.conditions["button_id"]]
-        print("Corresponding response",response)
-
 
         for var,value in event.results["set_variables"].items():
             response.set_variables[var] = value 
@@ -311,8 +317,6 @@ class AchievementParser:
         self.achievements = defaultdict(list)
 
     def parse_event(self):
-        print("New event")
-        print(self.lexer.peek)
         assert self.lexer.peek.startswith("*")
         current_achievement = {}
         current_chapter = ""
@@ -333,10 +337,7 @@ class AchievementParser:
                     current_achievement["caption"] = match.group("achievement_caption")
                     self.achievements[current_chapter].append(Achievement(current_achievement["title"],current_achievement["caption"],current_chapter))
                 elif match := re.search('Active 2 : Make invisible',current):
-                    print("a",current_chapter,current_achievement_id,current_achievement_var)
-                    print(self.achievements[current_chapter])
                     self.achievements[current_chapter][current_achievement_id].variable = current_achievement_var
-                    print(self.achievements[current_chapter])
 
     def parse(self):
         while True:
@@ -363,7 +364,6 @@ for i in range(1,4):
     achievements_list = []
     for achievement_group in achievements.values():
         achievements_list += achievement_group
-    print(achievements_list)
     achievements_json = [
         {
             "title": achievement.title,
@@ -375,6 +375,5 @@ for i in range(1,4):
     ]
 
     achievements_json = {k: list(v) for k, v in groupby(achievements_json,key=lambda a:a["chapter"])}
-    print(achievements_json)
     with open(root_folder/f"achievements{i}.json","w") as f:
         json.dump(achievements_json,f,indent=4)
