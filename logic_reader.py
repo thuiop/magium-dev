@@ -5,7 +5,7 @@ from itertools import groupby
 import json
 from pathlib import Path
 import re
-from typing import Any
+from typing import Any, Optional
 
 root_folder = Path("./chapters")
 
@@ -81,6 +81,7 @@ class Response:
     new_scene: str = field(default_factory=str)
     set_variables: dict = field(default_factory=dict)
     conditions: dict = field(default_factory=dict)
+    special: str = ""
 
 @dataclass
 class SceneVariableSet:
@@ -129,7 +130,8 @@ class Scene:
                     "text": response.text,
                     "target": response.new_scene,
                     "set_variables": response.set_variables,
-                    "conditions": {var: {"type":parse_condition(condition.type),"value":condition.value} for var,condition in response.conditions.items()} 
+                    "conditions": {var: {"type":parse_condition(condition.type),"value":condition.value} for var,condition in response.conditions.items()},
+                    "special": response.special,
                 }
                 for response in self.responses
             ]
@@ -174,11 +176,10 @@ class Parser:
                 elif match := re.search('scene 3 : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraphs"].append((int(match.group("paragraph")),3))
                 elif match := re.search('checks : Set alterable string to (?P<text>.*)',current):
-                    print(current)
-                    print(match.group("text"))
                     for stat_check in re.findall('"\[.*?\]"',match.group("text")):
-                        print(stat_check)
                         event.results["stat_checks"].append(StatsCheck(stat_check.replace('"',"")+"\n","successful" in stat_check))
+                elif match := re.search('storyboard controls : Jump to frame "Stats"',current):
+                    event.results["special"] = "stats"
                     
 
         return event
@@ -262,6 +263,9 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
         if "new_scene" in event.results: 
             response.new_scene = event.results["new_scene"]
 
+        if "special" in event.results:
+            response.special = event.results["special"]
+
         # Handle case where the buttons are identical for different versions of the scene
         for other_response in scenes[scene].responses:
             if response.text == other_response.text:
@@ -270,6 +274,9 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
                     
                 if "new_scene" in event.results: 
                     other_response.new_scene = event.results["new_scene"]
+
+                if "special" in event.results:
+                    other_response.special = event.results["special"]
 
 
     for id,scene in scenes.items():

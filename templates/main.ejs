@@ -25,7 +25,18 @@
 <%- text %>
 <% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
     <div class="response">
-        <button onClick="setResponseCookies(<%= JSON.stringify(response) %>)" hx-get="/scene/<%= response.target %>" hx-target="#content" hx-swap="innerHTML"})"> <%= response.text %> </button>
+        <button
+        onClick="setResponseCookies(<%= JSON.stringify(response) %>)"
+        <% if (response.special=="") { %>
+            hx-get="/scene/<%= response.target %>"
+        <% } else if (response.special=="stats") { %>
+            hx-get="stats"
+        <% } %>
+            hx-target="#content"
+            hx-swap="innerHTML"
+        > 
+                <%= response.text %>
+        </button>
     </div>
 <% }}); %>
 <div style="display:none">
