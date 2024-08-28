@@ -10,7 +10,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Maybe",
                     "v_checkpoint_rich": "0"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Of course not. Daren was just joking earlier. Don't worry about it.\"\"",
@@ -19,7 +20,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Joking",
                     "v_checkpoint_rich": "0"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -33,7 +35,8 @@
                 "target": "Ch6-Profess",
                 "set_variables": {
                     "v_current_scene": "Ch6-Profess"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"No, you're right, we should get going.\"\"",
@@ -41,7 +44,8 @@
                 "target": "Ch6-Going",
                 "set_variables": {
                     "v_current_scene": "Ch6-Going"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -55,7 +59,8 @@
                 "target": "Ch6-Profess",
                 "set_variables": {
                     "v_current_scene": "Ch6-Profess"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"No, you're right, we should get going.\"\"",
@@ -63,7 +68,8 @@
                 "target": "Ch6-Going",
                 "set_variables": {
                     "v_current_scene": "Ch6-Going"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -77,7 +83,8 @@
                 "target": "Ch6-Packing",
                 "set_variables": {
                     "v_current_scene": "Ch6-Packing"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -91,7 +98,8 @@
                 "target": "Ch6-Packing",
                 "set_variables": {
                     "v_current_scene": "Ch6-Packing"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -105,6 +113,16 @@
                 "target": "Ch6-Secure",
                 "set_variables": {
                     "v_current_scene": "Ch6-Secure"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
@@ -113,27 +131,161 @@
                 "target": "Ch6-Enough",
                 "set_variables": {
                     "v_current_scene": "Ch6-Enough"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Secure the backpack",
+                "text": "Secure the backpack",
+                "target": "Ch6-Secure",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Secure"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Do not secure the backpack",
+                "text": "Do not secure the backpack",
+                "target": "Ch6-Enough",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Enough"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "!=",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "Leave her alone",
                 "text": "Leave her alone",
-                "target": "Ch6-Happened",
+                "target": "Ch6-Alone",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Happened"
+                    "v_current_scene": "Ch6-Alone"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "Ask her how she met Elaria",
                 "text": "Ask her how she met Elaria",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Met",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Met"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
             },
             {
                 "code": "Ask her if something happened between her and Elaria",
                 "text": "Ask her if something happened between her and Elaria",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Happened",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Happened"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Leave her alone",
+                "text": "Leave her alone",
+                "target": "Ch6-Alone",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Alone"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Ask her how she met Elaria",
+                "text": "Ask her how she met Elaria",
+                "target": "Ch6-Met",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Met"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Ask her if something happened between her and Elaria",
+                "text": "Ask her if something happened between her and Elaria",
+                "target": "Ch6-Happened",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Happened"
+                },
+                "conditions": {
+                    "v_ch2_deer_interaction": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_treasure": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -147,7 +299,8 @@
                 "target": "Ch6-Secure",
                 "set_variables": {
                     "v_current_scene": "Ch6-Secure"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Do not secure the backpack",
@@ -155,7 +308,8 @@
                 "target": "Ch6-Enough",
                 "set_variables": {
                     "v_current_scene": "Ch6-Enough"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -169,7 +323,8 @@
                 "target": "Ch6-Fault",
                 "set_variables": {
                     "v_current_scene": "Ch6-Fault"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"That's stupid. You weren't the one who killed him.\"\"",
@@ -178,7 +333,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Stupid",
                     "v_ch6_rose_deer": "0"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Elaria didn't seem to mind your presence.\"\"",
@@ -187,7 +343,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Presence",
                     "v_ch6_rose_deer": "1"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -201,7 +358,8 @@
                 "target": "Ch6-Fault",
                 "set_variables": {
                     "v_current_scene": "Ch6-Fault"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"That's stupid. You weren't the one who killed him.\"\"",
@@ -210,7 +368,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Stupid",
                     "v_ch6_rose_deer": "0"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Elaria didn't seem to mind your presence.\"\"",
@@ -219,7 +378,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Presence",
                     "v_ch6_rose_deer": "1"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -234,7 +394,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Worse",
                     "v_ch6_rose_deer": "1"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Maybe it would indeed be better to keep your distance for now.\"\"",
@@ -243,7 +404,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Better",
                     "v_ch6_rose_deer": "0"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -257,7 +419,8 @@
                 "target": "Ch6-Secure",
                 "set_variables": {
                     "v_current_scene": "Ch6-Secure"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Do not secure the backpack",
@@ -265,7 +428,8 @@
                 "target": "Ch6-Enough",
                 "set_variables": {
                     "v_current_scene": "Ch6-Enough"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -279,7 +443,8 @@
                 "target": "Ch6-Secure",
                 "set_variables": {
                     "v_current_scene": "Ch6-Secure"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Do not secure the backpack",
@@ -287,7 +452,8 @@
                 "target": "Ch6-Enough",
                 "set_variables": {
                     "v_current_scene": "Ch6-Enough"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -301,7 +467,8 @@
                 "target": "Ch6-Secure",
                 "set_variables": {
                     "v_current_scene": "Ch6-Secure"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Do not secure the backpack",
@@ -309,7 +476,8 @@
                 "target": "Ch6-Enough",
                 "set_variables": {
                     "v_current_scene": "Ch6-Enough"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -323,7 +491,8 @@
                 "target": "Ch6-Secure",
                 "set_variables": {
                     "v_current_scene": "Ch6-Secure"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Do not secure the backpack",
@@ -331,7 +500,8 @@
                 "target": "Ch6-Enough",
                 "set_variables": {
                     "v_current_scene": "Ch6-Enough"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -345,29 +515,179 @@
                 "target": "Ch6-Travel",
                 "set_variables": {
                     "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
                 "code": "\"\"I wasn't going to.\"\"",
                 "text": "\"\"I wasn't going to.\"\"",
-                "target": "Ch6-Upset",
+                "target": "Ch6-Wasnt",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Upset"
+                    "v_current_scene": "Ch6-Wasnt"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
                 "text": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
-                "target": "Ch6-Beginning",
+                "target": "Ch6-Upset",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Beginning"
+                    "v_current_scene": "Ch6-Upset"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
                 "text": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Beginning",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Beginning"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I wasn't going to.\"\"",
+                "text": "\"\"I wasn't going to.\"\"",
+                "target": "Ch6-Wasnt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Wasnt"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
+                "text": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
+                "target": "Ch6-Upset",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Upset"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
+                "text": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
+                "target": "Ch6-Beginning",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Beginning"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -381,29 +701,179 @@
                 "target": "Ch6-Travel",
                 "set_variables": {
                     "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
                 "code": "\"\"I wasn't going to.\"\"",
                 "text": "\"\"I wasn't going to.\"\"",
-                "target": "Ch6-Upset",
+                "target": "Ch6-Wasnt",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Upset"
+                    "v_current_scene": "Ch6-Wasnt"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
                 "text": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
-                "target": "Ch6-Beginning",
+                "target": "Ch6-Upset",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Beginning"
+                    "v_current_scene": "Ch6-Upset"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
                 "text": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Beginning",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Beginning"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I wasn't going to.\"\"",
+                "text": "\"\"I wasn't going to.\"\"",
+                "target": "Ch6-Wasnt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Wasnt"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
+                "text": "\"\"I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset.\"\"",
+                "target": "Ch6-Upset",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Upset"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
+                "text": "\"\"I'm sorry, I should have told you the truth from the beginning.\"\"",
+                "target": "Ch6-Beginning",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Beginning"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -417,6 +887,26 @@
                 "target": "Ch6-Travel",
                 "set_variables": {
                     "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -431,6 +921,26 @@
                 "target": "Ch6-Travel",
                 "set_variables": {
                     "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -445,6 +955,26 @@
                 "target": "Ch6-Travel",
                 "set_variables": {
                     "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Travel",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Travel"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -460,6 +990,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Flirt",
                     "v_ch6_flirt": "1"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -469,6 +1005,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Flirt",
                     "v_ch6_flirt": "2"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -478,6 +1020,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Flirt",
                     "v_ch6_flirt": "3"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -487,6 +1035,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Flirt",
                     "v_ch6_flirt": "4"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -496,6 +1050,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Flirt",
                     "v_ch6_flirt": "5"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -505,6 +1065,402 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Flirt",
                     "v_ch6_flirt": "6"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Don't worry, that wasn't what our discussion was about.\"\"",
+                "text": "\"\"Don't worry, that wasn't what our discussion was about.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "1"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, I prefer women with larger breasts like yourself.\"\"",
+                "text": "\"\"Actually, I prefer women with larger breasts like yourself.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "2"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm still available, if that's what you're asking.\"\"",
+                "text": "\"\"I'm still available, if that's what you're asking.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "3"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"You've got it all wrong! My only feelings are for you.\"\"",
+                "text": "\"\"You've got it all wrong! My only feelings are for you.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "4"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Don't worry, we got to say all we needed before you interrupted.\"\"",
+                "text": "\"\"Don't worry, we got to say all we needed before you interrupted.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "5"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, you're the one that stunned me with your beauty when I first saw you.\"\"",
+                "text": "\"\"Actually, you're the one that stunned me with your beauty when I first saw you.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "6"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Don't worry, that wasn't what our discussion was about.\"\"",
+                "text": "\"\"Don't worry, that wasn't what our discussion was about.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "1"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, I prefer women with larger breasts like yourself.\"\"",
+                "text": "\"\"Actually, I prefer women with larger breasts like yourself.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "2"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm still available, if that's what you're asking.\"\"",
+                "text": "\"\"I'm still available, if that's what you're asking.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "3"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"You've got it all wrong! My only feelings are for you.\"\"",
+                "text": "\"\"You've got it all wrong! My only feelings are for you.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "4"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Don't worry, we got to say all we needed before you interrupted.\"\"",
+                "text": "\"\"Don't worry, we got to say all we needed before you interrupted.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "5"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, you're the one that stunned me with your beauty when I first saw you.\"\"",
+                "text": "\"\"Actually, you're the one that stunned me with your beauty when I first saw you.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "6"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Don't worry, that wasn't what our discussion was about.\"\"",
+                "text": "\"\"Don't worry, that wasn't what our discussion was about.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "1"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, I prefer women with larger breasts like yourself.\"\"",
+                "text": "\"\"Actually, I prefer women with larger breasts like yourself.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "2"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"I'm still available, if that's what you're asking.\"\"",
+                "text": "\"\"I'm still available, if that's what you're asking.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "3"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"You've got it all wrong! My only feelings are for you.\"\"",
+                "text": "\"\"You've got it all wrong! My only feelings are for you.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "4"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Don't worry, we got to say all we needed before you interrupted.\"\"",
+                "text": "\"\"Don't worry, we got to say all we needed before you interrupted.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "5"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, you're the one that stunned me with your beauty when I first saw you.\"\"",
+                "text": "\"\"Actually, you're the one that stunned me with your beauty when I first saw you.\"\"",
+                "target": "Ch6-Flirt",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Flirt",
+                    "v_ch6_flirt": "6"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch5_admit_lie": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch5_ignore_scream": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             }
         ]
@@ -519,45 +1475,125 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
                 "code": "\"\"Every single time.\"\"",
                 "text": "\"\"Every single time.\"\"",
-                "target": "Ch6-Passion",
+                "target": "Ch6-Single",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Passion"
+                    "v_current_scene": "Ch6-Single"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             },
             {
                 "code": "\"\"Not really.\"\"",
                 "text": "\"\"Not really.\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Really",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Really"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
             },
             {
                 "code": "\"\"Of course.\"\"",
                 "text": "\"\"Of course.\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Course",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Course"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
             },
             {
                 "code": "\"\"I want my answer now!\"\"",
                 "text": "\"\"I want my answer now!\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Answer",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Answer"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
             },
             {
                 "code": "\"\"Maybe you're right. I'm sorry for getting ahead of myself.\"\"",
                 "text": "\"\"Maybe you're right. I'm sorry for getting ahead of myself.\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Ahead",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Ahead"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 4
+                    }
+                }
             },
             {
                 "code": "\"\"I cannot wait any longer. My heart burns with passion for you!\"\"",
                 "text": "\"\"I cannot wait any longer. My heart burns with passion for you!\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Passion",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Passion"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Backstory",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Backstory"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 5
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Backstory",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Backstory"
+                },
+                "conditions": {
+                    "v_ch6_flirt": {
+                        "type": "==",
+                        "value": 6
+                    }
+                }
             }
         ]
     },
@@ -571,7 +1607,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -585,7 +1622,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -599,7 +1637,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -613,7 +1652,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -627,7 +1667,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -641,7 +1682,8 @@
                 "target": "Ch6-Mean",
                 "set_variables": {
                     "v_current_scene": "Ch6-Mean"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Ex husband?\"\"",
@@ -649,7 +1691,8 @@
                 "target": "Ch6-Husband",
                 "set_variables": {
                     "v_current_scene": "Ch6-Husband"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -663,7 +1706,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -677,7 +1721,8 @@
                 "target": "Ch6-Backstory",
                 "set_variables": {
                     "v_current_scene": "Ch6-Backstory"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -691,7 +1736,8 @@
                 "target": "Ch6-Monster",
                 "set_variables": {
                     "v_current_scene": "Ch6-Monster"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Why aren't the people rebelling against the nobles?\"\"",
@@ -699,7 +1745,8 @@
                 "target": "Ch6-Nobles",
                 "set_variables": {
                     "v_current_scene": "Ch6-Nobles"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -714,7 +1761,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Stats",
                     "v_max_stat": "4"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -729,7 +1777,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Stats",
                     "v_max_stat": "4"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -743,6 +1792,12 @@
                 "target": "Ch6-Stats-spent",
                 "set_variables": {
                     "v_current_scene": "Ch6-Stats-spent"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -751,6 +1806,40 @@
                 "target": "Ch6-Dragon",
                 "set_variables": {
                     "v_current_scene": "Ch6-Dragon"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Invest points now",
+                "text": "Invest points now",
+                "target": "Ch6-Stats-spent",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Stats-spent"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Invest points later(by pressing the stats button on the top of the screen)",
+                "text": "Invest points later(by pressing the stats button on the top of the screen)",
+                "target": "Ch6-Dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Dragon"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -765,6 +1854,26 @@
                 "target": "Ch6-Dragon",
                 "set_variables": {
                     "v_current_scene": "Ch6-Dragon"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Dragon"
+                },
+                "conditions": {
+                    "v_ch2_human_reason": {
+                        "type": "!=",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -779,7 +1888,8 @@
                 "target": "Ch6-Morning",
                 "set_variables": {
                     "v_current_scene": "Ch6-Morning"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"We're not working with him, we only just met him a few hours ago.\"\"",
@@ -787,7 +1897,8 @@
                 "target": "Ch6-Working",
                 "set_variables": {
                     "v_current_scene": "Ch6-Working"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Why are you looking for him?\"\"",
@@ -795,7 +1906,8 @@
                 "target": "Ch6-Looking",
                 "set_variables": {
                     "v_current_scene": "Ch6-Looking"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -809,6 +1921,26 @@
                 "target": "Ch6-Villain",
                 "set_variables": {
                     "v_current_scene": "Ch6-Villain"
+                },
+                "conditions": {
+                    "v_ch3_star_message": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Villain",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Villain"
+                },
+                "conditions": {
+                    "v_ch3_star_message": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             }
         ]
@@ -823,6 +1955,26 @@
                 "target": "Ch6-Villain",
                 "set_variables": {
                     "v_current_scene": "Ch6-Villain"
+                },
+                "conditions": {
+                    "v_ch3_star_message": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Villain",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Villain"
+                },
+                "conditions": {
+                    "v_ch3_star_message": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             }
         ]
@@ -837,6 +1989,26 @@
                 "target": "Ch6-Villain",
                 "set_variables": {
                     "v_current_scene": "Ch6-Villain"
+                },
+                "conditions": {
+                    "v_ch3_star_message": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Villain",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Villain"
+                },
+                "conditions": {
+                    "v_ch3_star_message": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             }
         ]
@@ -852,6 +2024,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Time-weaver",
                     "v_ch6_eiden_answer": "1"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
@@ -861,6 +2039,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Time-weaver",
                     "v_ch6_eiden_answer": "2"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
@@ -870,6 +2054,57 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Time-weaver",
                     "v_ch6_eiden_answer": "3"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "\"\"Where have you been hiding all this time?\"\"",
+                "text": "\"\"Where have you been hiding all this time?\"\"",
+                "target": "Ch6-Time-weaver",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Time-weaver",
+                    "v_ch6_eiden_answer": "1"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"What did you do?\"\"",
+                "text": "\"\"What did you do?\"\"",
+                "target": "Ch6-Time-weaver",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Time-weaver",
+                    "v_ch6_eiden_answer": "2"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Why did you save us?\"\"",
+                "text": "\"\"Why did you save us?\"\"",
+                "target": "Ch6-Time-weaver",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Time-weaver",
+                    "v_ch6_eiden_answer": "3"
+                },
+                "conditions": {
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -885,6 +2120,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Power-up",
                     "v_ch6_eiden_answer": "1"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -894,6 +2135,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Power-up",
                     "v_ch6_eiden_answer": "2"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
@@ -903,6 +2150,102 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Power-up",
                     "v_ch6_eiden_answer": "3"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Good, then maybe you can finish off that dragon for us.\"\"",
+                "text": "\"\"Good, then maybe you can finish off that dragon for us.\"\"",
+                "target": "Ch6-Power-up",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Power-up",
+                    "v_ch6_eiden_answer": "1"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"What's a time weaver?\"\"",
+                "text": "\"\"What's a time weaver?\"\"",
+                "target": "Ch6-Power-up",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Power-up",
+                    "v_ch6_eiden_answer": "2"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"What's so special about being a stat device wielder?\"\"",
+                "text": "\"\"What's so special about being a stat device wielder?\"\"",
+                "target": "Ch6-Power-up",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Power-up",
+                    "v_ch6_eiden_answer": "3"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"Good, then maybe you can finish off that dragon for us.\"\"",
+                "text": "\"\"Good, then maybe you can finish off that dragon for us.\"\"",
+                "target": "Ch6-Power-up",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Power-up",
+                    "v_ch6_eiden_answer": "1"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "code": "\"\"What's a time weaver?\"\"",
+                "text": "\"\"What's a time weaver?\"\"",
+                "target": "Ch6-Power-up",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Power-up",
+                    "v_ch6_eiden_answer": "2"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "code": "\"\"What's so special about being a stat device wielder?\"\"",
+                "text": "\"\"What's so special about being a stat device wielder?\"\"",
+                "target": "Ch6-Power-up",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Power-up",
+                    "v_ch6_eiden_answer": "3"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -917,6 +2260,40 @@
                 "target": "Ch6-Think",
                 "set_variables": {
                     "v_current_scene": "Ch6-Think"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Think",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Think"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Think",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Think"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -932,7 +2309,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Improvise",
                     "v_ch6_improvise": "1"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Make a plan before engaging the dragon.",
@@ -941,7 +2319,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Plan",
                     "v_ch6_improvise": "2"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -955,7 +2334,8 @@
                 "target": "Ch6-Stat-checks",
                 "set_variables": {
                     "v_current_scene": "Ch6-Stat-checks"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -970,7 +2350,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Offense",
                     "v_ch6_defense": "1"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Cast protection from fire, wind and physical damage",
@@ -979,7 +2360,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Offense",
                     "v_ch6_defense": "2"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Freeze time, then cast all of the protection spells I know, just to be sure",
@@ -988,7 +2370,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Offense",
                     "v_ch6_defense": "3"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1003,7 +2386,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Elemental",
                     "v_ch6_offense": "1"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Ask Daren for his sword",
@@ -1012,7 +2396,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Sword",
                     "v_ch6_offense": "2"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Hit the dragon with the big spells",
@@ -1021,7 +2406,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Big-spells",
                     "v_ch6_offense": "3"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1032,24 +2418,72 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "Ch6-Elemental3",
+                "target": "Ch6-Stat-checks",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Elemental3"
+                    "v_current_scene": "Ch6-Stat-checks"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
                 "code": "Continue fighting with safe elemental spells",
                 "text": "Continue fighting with safe elemental spells",
-                "target": "Ch6-Big-not-planned",
+                "target": "Ch6-Elemental3",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Big-not-planned"
+                    "v_current_scene": "Ch6-Elemental3"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             },
             {
                 "code": "Start fighting with bigger spells",
                 "text": "Start fighting with bigger spells",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Big-not-planned",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Big-not-planned"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue fighting with safe elemental spells",
+                "text": "Continue fighting with safe elemental spells",
+                "target": "Ch6-Elemental3",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Elemental3"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "code": "Start fighting with bigger spells",
+                "text": "Start fighting with bigger spells",
+                "target": "Ch6-Big-not-planned",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Big-not-planned"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1063,6 +2497,40 @@
                 "target": "Ch6-Sword-strength",
                 "set_variables": {
                     "v_current_scene": "Ch6-Sword-strength"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword-strength",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword-strength"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword-strength",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword-strength"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -1077,6 +2545,40 @@
                 "target": "Ch6-Big-spells2",
                 "set_variables": {
                     "v_current_scene": "Ch6-Big-spells2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Big-spells2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Big-spells2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Big-spells2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Big-spells2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -1091,6 +2593,106 @@
                 "target": "Ch6-Sword2",
                 "set_variables": {
                     "v_current_scene": "Ch6-Sword2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    }
                 }
             }
         ]
@@ -1104,29 +2706,276 @@
                 "text": "Continue",
                 "target": "Ch6-Sword2",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Sword2"
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             },
             {
                 "code": "Restart game",
                 "text": "Restart game",
                 "target": "",
-                "set_variables": {
-                    "v_chapter_load": "1",
-                    "v_chapter_save_counter": "5"
+                "set_variables": {},
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    }
                 }
             },
             {
                 "code": "Load from last checkpoint",
                 "text": "Load from last checkpoint",
                 "target": "",
-                "set_variables": {}
+                "set_variables": {},
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
             },
             {
                 "code": "Load game",
                 "text": "Load game",
                 "target": "",
-                "set_variables": {}
+                "set_variables": {},
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Sword2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Sword2",
+                    "v_chapter_load": "1",
+                    "v_chapter_save_counter": "5"
+                },
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -1140,7 +2989,8 @@
                 "target": "Ch6-Elemental3",
                 "set_variables": {
                     "v_current_scene": "Ch6-Elemental3"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Start fighting with bigger spells",
@@ -1148,7 +2998,8 @@
                 "target": "Ch6-Big-not-planned",
                 "set_variables": {
                     "v_current_scene": "Ch6-Big-not-planned"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1162,7 +3013,8 @@
                 "target": "Ch6-Elemental3",
                 "set_variables": {
                     "v_current_scene": "Ch6-Elemental3"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Start fighting with bigger spells",
@@ -1170,7 +3022,8 @@
                 "target": "Ch6-Big-not-planned",
                 "set_variables": {
                     "v_current_scene": "Ch6-Big-not-planned"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1184,7 +3037,8 @@
                 "target": "Ch6-Sword-acid",
                 "set_variables": {
                     "v_current_scene": "Ch6-Sword-acid"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Fight with the sword normally",
@@ -1192,7 +3046,8 @@
                 "target": "Ch6-Sword-simple",
                 "set_variables": {
                     "v_current_scene": "Ch6-Sword-simple"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1206,6 +3061,26 @@
                 "target": "Ch6-Lose-fight",
                 "set_variables": {
                     "v_current_scene": "Ch6-Lose-fight"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Lose-fight",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Lose-fight"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -1221,7 +3096,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Win-fight",
                     "v_ch6_won_dragon": "1"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1236,6 +3112,27 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Win-fight",
                     "v_ch6_won_dragon": "2"
+                },
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Win-fight",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Win-fight",
+                    "v_ch6_won_dragon": "2"
+                },
+                "conditions": {
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    }
                 }
             }
         ]
@@ -1250,7 +3147,8 @@
                 "target": "Ch6-Big-spells2",
                 "set_variables": {
                     "v_current_scene": "Ch6-Big-spells2"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1265,6 +3163,27 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Win-fight",
                     "v_ch6_won_dragon": "1"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Win-fight",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Win-fight",
+                    "v_ch6_won_dragon": "1"
+                },
+                "conditions": {
+                    "v_ch6_defense": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -1280,6 +3199,16 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Eiden-vs-dragon",
                     "v_ch6_big_plans": "1"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             },
             {
@@ -1289,6 +3218,16 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Eiden-vs-dragon",
                     "v_ch6_big_plans": "2"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             },
             {
@@ -1298,6 +3237,118 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Eiden-vs-dragon",
                     "v_ch6_big_plans": "3"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"I don't know what that means.\"\"",
+                "text": "\"\"I don't know what that means.\"\"",
+                "target": "Ch6-Eiden-vs-dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon",
+                    "v_ch6_big_plans": "1"
+                },
+                "conditions": {
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"I didn't activate anything.\"\"",
+                "text": "\"\"I didn't activate anything.\"\"",
+                "target": "Ch6-Eiden-vs-dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon",
+                    "v_ch6_big_plans": "2"
+                },
+                "conditions": {
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"Why do you keep saving me?\"\"",
+                "text": "\"\"Why do you keep saving me?\"\"",
+                "target": "Ch6-Eiden-vs-dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon",
+                    "v_ch6_big_plans": "3"
+                },
+                "conditions": {
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"I don't know what that means.\"\"",
+                "text": "\"\"I don't know what that means.\"\"",
+                "target": "Ch6-Eiden-vs-dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon",
+                    "v_ch6_big_plans": "1"
+                },
+                "conditions": {
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"I didn't activate anything.\"\"",
+                "text": "\"\"I didn't activate anything.\"\"",
+                "target": "Ch6-Eiden-vs-dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon",
+                    "v_ch6_big_plans": "2"
+                },
+                "conditions": {
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Why do you keep saving me?\"\"",
+                "text": "\"\"Why do you keep saving me?\"\"",
+                "target": "Ch6-Eiden-vs-dragon",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon",
+                    "v_ch6_big_plans": "3"
+                },
+                "conditions": {
+                    "v_ch6_improvise": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             }
         ]
@@ -1313,6 +3364,42 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Eiden-vs-dragon2",
                     "v_ch6_won_dragon": "3"
+                },
+                "conditions": {
+                    "v_ch6_big_plans": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Eiden-vs-dragon2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon2",
+                    "v_ch6_won_dragon": "3"
+                },
+                "conditions": {
+                    "v_ch6_big_plans": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Eiden-vs-dragon2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-vs-dragon2",
+                    "v_ch6_won_dragon": "3"
+                },
+                "conditions": {
+                    "v_ch6_big_plans": {
+                        "type": "==",
+                        "value": 3
+                    }
                 }
             }
         ]
@@ -1328,7 +3415,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Lose-fight2",
                     "v_ch6_lessathi": "1"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Who are the lessathi?\"\"",
@@ -1337,7 +3425,8 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Lose-fight2",
                     "v_ch6_lessathi": "2"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1352,6 +3441,12 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Win-fight2",
                     "v_ch6_lessathi": "1"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "!=",
+                        "value": 2
+                    }
                 }
             },
             {
@@ -1361,6 +3456,88 @@
                 "set_variables": {
                     "v_current_scene": "Ch6-Win-fight2",
                     "v_ch6_lessathi": "2"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"What just happened?\"\"",
+                "text": "\"\"What just happened?\"\"",
+                "target": "Ch6-Win-fight2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Win-fight2",
+                    "v_ch6_lessathi": "1"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_won_dragon": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Who are the lessathi?\"\"",
+                "text": "\"\"Who are the lessathi?\"\"",
+                "target": "Ch6-Win-fight2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Win-fight2",
+                    "v_ch6_lessathi": "2"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_won_dragon": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"What just happened?\"\"",
+                "text": "\"\"What just happened?\"\"",
+                "target": "Ch6-Win-fight2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Win-fight2",
+                    "v_ch6_lessathi": "1"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_won_dragon": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "code": "\"\"Who are the lessathi?\"\"",
+                "text": "\"\"Who are the lessathi?\"\"",
+                "target": "Ch6-Win-fight2",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Win-fight2",
+                    "v_ch6_lessathi": "2"
+                },
+                "conditions": {
+                    "v_ch6_offense": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch6_won_dragon": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             }
         ]
@@ -1375,6 +3552,26 @@
                 "target": "Ch6-Eiden-leaves",
                 "set_variables": {
                     "v_current_scene": "Ch6-Eiden-leaves"
+                },
+                "conditions": {
+                    "v_ch6_lessathi": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Eiden-leaves",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-leaves"
+                },
+                "conditions": {
+                    "v_ch6_lessathi": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             }
         ]
@@ -1389,6 +3586,26 @@
                 "target": "Ch6-Eiden-leaves",
                 "set_variables": {
                     "v_current_scene": "Ch6-Eiden-leaves"
+                },
+                "conditions": {
+                    "v_ch6_lessathi": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Eiden-leaves",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Eiden-leaves"
+                },
+                "conditions": {
+                    "v_ch6_lessathi": {
+                        "type": "==",
+                        "value": 2
+                    }
                 }
             }
         ]
@@ -1403,7 +3620,8 @@
                 "target": "Ch6-Ashamed",
                 "set_variables": {
                     "v_current_scene": "Ch6-Ashamed"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "\"\"Calm down, Rose, it's not as simple as that.\"\"",
@@ -1411,7 +3629,8 @@
                 "target": "Ch6-Simple",
                 "set_variables": {
                     "v_current_scene": "Ch6-Simple"
-                }
+                },
+                "conditions": {}
             },
             {
                 "code": "Ask Kate to freeze the whole area to make sure Eiden isn't around anymore",
@@ -1419,7 +3638,8 @@
                 "target": "Ch6-Freeze",
                 "set_variables": {
                     "v_current_scene": "Ch6-Freeze"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1433,7 +3653,8 @@
                 "target": "Ch6-Healing",
                 "set_variables": {
                     "v_current_scene": "Ch6-Healing"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1447,7 +3668,8 @@
                 "target": "Ch6-Healing",
                 "set_variables": {
                     "v_current_scene": "Ch6-Healing"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1461,7 +3683,8 @@
                 "target": "Ch6-Healing",
                 "set_variables": {
                     "v_current_scene": "Ch6-Healing"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1475,29 +3698,143 @@
                 "target": "Ch6-Ending",
                 "set_variables": {
                     "v_current_scene": "Ch6-Ending"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "Ch6-Ending",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Ending"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 0
+                    }
                 }
             },
             {
                 "code": "\"\"Actually, it doesn't look that bad. More like a tattoo, than anything else.\"\"",
                 "text": "\"\"Actually, it doesn't look that bad. More like a tattoo, than anything else.\"\"",
-                "target": "Ch6-Ending",
+                "target": "Ch6-Tattoo",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Ending"
+                    "v_current_scene": "Ch6-Tattoo"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
                 "code": "Say nothing",
                 "text": "Say nothing",
-                "target": "Ch6-Mask",
+                "target": "Ch6-Ending",
                 "set_variables": {
-                    "v_current_scene": "Ch6-Mask"
+                    "v_current_scene": "Ch6-Ending"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
                 }
             },
             {
                 "code": "\"\"Damn, that's ugly. I'd be using a mask from now on if I were you.\"\"",
                 "text": "\"\"Damn, that's ugly. I'd be using a mask from now on if I were you.\"\"",
-                "target": "",
-                "set_variables": {}
+                "target": "Ch6-Mask",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Mask"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Actually, it doesn't look that bad. More like a tattoo, than anything else.\"\"",
+                "text": "\"\"Actually, it doesn't look that bad. More like a tattoo, than anything else.\"\"",
+                "target": "Ch6-Tattoo",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Tattoo"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "Say nothing",
+                "text": "Say nothing",
+                "target": "Ch6-Ending",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Ending"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "code": "\"\"Damn, that's ugly. I'd be using a mask from now on if I were you.\"\"",
+                "text": "\"\"Damn, that's ugly. I'd be using a mask from now on if I were you.\"\"",
+                "target": "Ch6-Mask",
+                "set_variables": {
+                    "v_current_scene": "Ch6-Mask"
+                },
+                "conditions": {
+                    "v_ch6_eiden_answer": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ch3_kate_badly_hurt": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
             }
         ]
     },
@@ -1511,7 +3848,8 @@
                 "target": "Ch6-Ending",
                 "set_variables": {
                     "v_current_scene": "Ch6-Ending"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1525,7 +3863,8 @@
                 "target": "Ch6-Ending",
                 "set_variables": {
                     "v_current_scene": "Ch6-Ending"
-                }
+                },
+                "conditions": {}
             }
         ]
     },
@@ -1543,7 +3882,8 @@
                     "v_chapter_save": "1",
                     "v_chapter_save_counter": "5",
                     "v_checkpoint_rich": "1"
-                }
+                },
+                "conditions": {}
             }
         ]
     }
