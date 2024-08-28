@@ -205,7 +205,7 @@ class Parser:
         return events
             
 
-for chapter in [f"ch{i}" for i in range(2,3)]:
+for chapter in [f"ch{i}" for i in range(1,7)]:
     filename = root_folder/chapter/"logic.txt"
 
     events = []
