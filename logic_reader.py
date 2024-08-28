@@ -1,4 +1,5 @@
 from collections import defaultdict
+from copy import copy, deepcopy
 from dataclasses import dataclass, field
 from itertools import groupby
 import json
@@ -33,7 +34,7 @@ def transform_var_name(var_name):
     return "v_"+var_name.lower().replace(" ","_")
 
 def parse_condition(t: str):
-    if t in [">","<"]:
+    if t in [">","<",">=","<="]:
         return t
     elif t == "=":
         return "=="
@@ -41,6 +42,21 @@ def parse_condition(t: str):
         return "!="
     else:
         raise ValueError(t)
+
+def compare(value,comparison):
+    return eval(f"{value} {parse_condition(comparison.type)} {comparison.value}")
+
+def is_compatible(comp1,comp2):
+    if comp1 is None or comp2 is None:
+        return False
+    if comp1.type == "=": 
+        return compare(comp1.value,comp2)
+    elif comp2.type == "=": 
+        return compare(comp2.value,comp1)
+    elif comp1 == comp2:
+        return True
+    else:
+        raise ValueError(f"Do not know whether {comp1} and {comp2} are compatible")
 
 @dataclass
 class Event:
@@ -65,12 +81,20 @@ class Response:
     text: str = field(default_factory=str)
     new_scene: str = field(default_factory=str)
     set_variables: dict = field(default_factory=dict)
+    conditions: dict = field(default_factory=dict)
+
+@dataclass
+class SceneVariableSet:
+    name: str
+    value: int
+    conditions: dict = field(default_factory=dict)
 
 @dataclass
 class Scene:
     id: str
     paragraphs: list = field(default_factory=list) 
     responses: list = field(default_factory=list) 
+    set_variables: list = field(default_factory=list)
 
     def to_json(self,paragraphs):
         text = ""
@@ -91,6 +115,7 @@ class Scene:
                     "text": response.text,
                     "target": response.new_scene,
                     "set_variables": response.set_variables,
+                    "conditions": {var: {"type":parse_condition(condition.type),"value":condition.value} for var,condition in response.conditions.items()} 
                 }
                 for response in self.responses
             ]
@@ -117,7 +142,7 @@ class Parser:
                     event.type = "button"
                 elif match := re.search('Button ID of Group.Buttons = (?P<button>.*)',current):
                     event.conditions["button_id"] = int(match.group("button"))-1
-                elif match := re.search('(?P<variable>.*) (?P<comparison>=|<|>|<>) (?P<value>.*)',current[2:]):
+                elif match := re.search('(?P<variable>.*) (?P<comparison>=|<|>|<>|>=|<=) (?P<value>.*)',current[2:]):
                     if "counter" not in match.group("variable").lower():
                         event.conditions["variables"][transform_var_name(match.group("variable"))] = Comparison(match.group("comparison"),int(match.group("value")))
 
@@ -170,23 +195,75 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
             scenes[scene] = Scene(scene)
 
         for button in event.results["add_buttons"]:
-            if button not in [resp.text for resp in scenes[scene].responses]:
-                scenes[scene].responses.append(Response(button))
+            #if button not in [resp.text for resp in scenes[scene].responses]:
+            scenes[scene].responses.append(Response(button,conditions=event.conditions["variables"]))
         for paragraph in event.results["paragraphs"]:
-            #if paragraph[0] not in [par.id for par in scenes[scene].paragraphs]:
             scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
+        for variable, value in  event.results["set_variables"].items():
+            scenes[scene].set_variables.append(SceneVariableSet(variable,int(value),event.conditions["variables"])) 
+
 
     for event in [e for e in events if e.type == "button"]:
+        print("#"*60)
         print(event)
         if "scene" not in event.conditions:
             continue
         scene = event.conditions["scene"]
-            
+        #print(scenes[scene])
+        print(*scenes[scene].responses,sep="\n")
+        print("Raw conditions",event.conditions["variables"])
+        event_conditions = event.conditions["variables"]
+        conditions_transform = defaultdict(list)
+        for scene_variable_set in scenes[scene].set_variables:
+            print(scene_variable_set)
+            conditions_transform[scene_variable_set.name].append((scene_variable_set.value,scene_variable_set.conditions))
+
+        def is_visible(response):
+            variables = {var: val for var,val in event.conditions["variables"].items() if "_ac_" not in var}
+            to_remove = []
+            for var, condition in variables.items():
+                if var not in conditions_transform:
+                    continue
+                print("#"*20)
+                print(var,condition)
+                print("Set conditions",*conditions_transform[var],sep="\n\t")
+                print(response.conditions)
+                if any([cond[1] == response.conditions for cond in conditions_transform[var] if compare(cond[0],condition)]):
+                    print("a")
+                    to_remove.append(var)
+                elif any(ls:=[cond[1] == response.conditions for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != []:
+                    print("b")
+                    return False
+                elif all(ls:=[cond[1] != response.conditions for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != []:
+                    print("c")
+                    to_remove.append(var)
+                
+            for var in to_remove:
+                del variables[var]
+            print(variables)
+            variables = {var: val for var,val in event.conditions["variables"].items() if not all([var not in response.conditions for response in scenes[scene].responses])}
+                    
+            return all(is_compatible(variables[key],response.conditions.get(key)) for key in variables) or response.conditions == {} 
+        visible_responses = [response for response in scenes[scene].responses if is_visible(response)]
+        print(len(visible_responses))
+        response = visible_responses[event.conditions["button_id"]]
+        print("Corresponding response",response)
+
+
         for var,value in event.results["set_variables"].items():
-            scenes[scene].responses[event.conditions["button_id"]].set_variables[var] = value 
+            response.set_variables[var] = value 
             
         if "new_scene" in event.results: 
-            scenes[scene].responses[event.conditions["button_id"]].new_scene = event.results["new_scene"]
+            response.new_scene = event.results["new_scene"]
+
+        # Handle case where the buttons are identical for different versions of the scene
+        for other_response in scenes[scene].responses:
+            if response.text == other_response.text:
+                for var,value in event.results["set_variables"].items():
+                    other_response.set_variables[var] = value 
+                    
+                if "new_scene" in event.results: 
+                    other_response.new_scene = event.results["new_scene"]
 
 
     for id,scene in scenes.items():

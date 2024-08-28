@@ -31,7 +31,7 @@ function render_full(req,callback,header=""){
 }
 
 function render_scene(req,json_data,id) {
-    let data = Object.assign({},json_data,{"id":id});
+    let data = Object.assign({},json_data,{"id":id},req.cookies);
     data.text = ejs.render(data.text,req.cookies);
     return ejs.renderFile("templates/main.ejs",data)
 }
@@ -89,7 +89,7 @@ app.get('/menu', (req, res) => {
 })
 
 app.get('/scene/:id', (req, res) => {
-    render_full(req,(r) => render_scene(r,json_data[req.params.id]),get_header_from_id(req.params.id)).then((rendered) => res.send(rendered))
+    render_full(req,(r) => render_scene(r,json_data[req.params.id],get_header_from_id(req.params.id)),get_header_from_id(req.params.id)).then((rendered) => res.send(rendered))
 })
 
 app.get('/stats', (req, res) => {  

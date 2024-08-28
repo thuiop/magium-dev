@@ -1,10 +1,35 @@
+ <%
+    function apply_condition(entry){
+        variable = entry[0]
+        condition = entry[1]
+        if (condition.type == ">") {
+            return (locals[variable] || 0) > condition.value
+        }
+        else if (condition.type == "<") {
+            return (locals[variable] || 0) < condition.value
+        }
+        else if (condition.type == "<=") {
+            return (locals[variable] || 0) <= condition.value
+        }
+        else if (condition.type == ">=") {
+            return (locals[variable] || 0) >= condition.value
+        }
+        else if (condition.type == "!=") {
+            return (locals[variable] || 0) != condition.value
+        }
+        else if (condition.type == "==") {
+            return (locals[variable] || 0) == condition.value
+        }
+    }
+%>
 <%- text %>
-<% responses.forEach(function(response){ %>
-
-<div class="response">
-    <button onClick="setResponseCookies(<%= JSON.stringify(response) %>)" hx-get="/scene/<%= response.target %>" hx-target="#content" hx-swap="innerHTML"})"> <%= response.text %> </button>
-    <% }); %>
+<% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
+    <div class="response">
+        <button onClick="setResponseCookies(<%= JSON.stringify(response) %>)" hx-get="/scene/<%= response.target %>" hx-target="#content" hx-swap="innerHTML"})"> <%= response.text %> </button>
+    </div>
+<% }}); %>
+<div style="display:none">
+    <h2 id="header" hx-swap-oob="true">
+        <%= id %>
+    </h2>
 </div>
-<h2 id="header" style="display:none" hx-swap-oob="true">
-    <%= id %>
-</h2>
