@@ -11,26 +11,28 @@
     
     var locals = <%- JSON.stringify(locals) %>;
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var stats_missing = stats_variables.some(function(stat) {
-            var value = locals[stat];
-            return value === null || value === undefined;
-        });
-
-        if (stats_missing) {
-            stats_variables.forEach(function(stat) {
-                if (stat == 'v_max_stat') {
-                    document.cookie = stat + "=3";
-                } else {
-                    document.cookie = stat + "=0";
-                }
-                // Temporary points
-                if (stat == 'v_available_points') {
-                    document.cookie = stat + "=30";
-                }
+    "DOMContentLoaded htmx:afterSwap".split(" ").forEach(function(e){
+        document.addEventListener(e, function() {
+            var stats_missing = stats_variables.some(function(stat) {
+                var value = locals[stat];
+                return value === null || value === undefined;
             });
-            window.location.reload();
-        }
+
+            if (stats_missing) {
+                stats_variables.forEach(function(stat) {
+                    if (stat == 'v_max_stat') {
+                        document.cookie = stat + "=3";
+                    } else {
+                        document.cookie = stat + "=0";
+                    }
+                    // Temporary points
+                    if (stat == 'v_available_points') {
+                        document.cookie = stat + "=30";
+                    }
+                });
+                window.location.reload();
+            }
+        })
     })
 </script>
 <script>
