@@ -378,9 +378,6 @@ class AchievementParser:
         return self.achievements
 
 def chapter_name(id,book):
-    id = int(id)
-    if id >= 10:
-        id = f"{id//10}"
     return f"b{book}ch{id}"
 
 for i in range(1,4):
