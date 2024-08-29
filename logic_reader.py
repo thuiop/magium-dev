@@ -1,11 +1,10 @@
 from collections import defaultdict
-from copy import copy, deepcopy
 from dataclasses import dataclass, field
 from itertools import groupby
 import json
 from pathlib import Path
 import re
-from typing import Any, Optional
+from typing import Any
 
 root_folder = Path("./chapters")
 
@@ -54,8 +53,19 @@ def is_compatible(comp1,comp2):
         return compare(comp2.value,comp1)
     elif comp1 == comp2:
         return True
+    elif comp1.type == "<" and comp2.type == ">" and comp2.value >= comp1.value-1:
+        return False
+    elif comp2.type == "<" and comp1.type == ">" and comp1.value >= comp2.value-1:
+        return False
+    elif comp1.type == ">=" and comp2.type == "<" and comp1.value >= comp2.value:
+        return False
+    elif comp2.type == ">=" and comp1.type == "<" and comp2.value >= comp1.value:
+        return False
     else:
         raise ValueError(f"Do not know whether {comp1} and {comp2} are compatible")
+
+def all_is_compatible(comp_set1,comp_set2):
+    return all(is_compatible(comp_set1[key],comp_set2.get(key)) for key in comp_set1)
 
 @dataclass
 class Event:
@@ -169,6 +179,8 @@ class Parser:
                     event.results["set_variables"][transform_var_name("current scene")] = match.group("scene")
                 elif match := re.search('Special : Set (?P<variable>.*) to (?P<value>.*)',current):
                     event.results["set_variables"][transform_var_name(match.group("variable"))] = match.group("value")
+                elif match := re.search('Special : Add (?P<value>.*) to (?P<variable>.*)',current):
+                    event.results["set_variables"][transform_var_name(match.group("variable"))] = "+"+match.group("value")
                 elif match := re.search('Scene text : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraphs"].append((int(match.group("paragraph")),1))
                 elif match := re.search('Scene text 2 : Display paragraph (?P<paragraph>.*)',current):
@@ -242,18 +254,28 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
             for var, condition in variables.items():
                 if var not in conditions_transform:
                     continue
-                if any([cond[1] == response.conditions for cond in conditions_transform[var] if compare(cond[0],condition)]):
+                # If one of the conditions to setting the variable to the required value is satisfied
+                # OR if all the conditions to setting the variable to an incompatible value are NOT satisfied
+                condition_validated = (
+                    any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)])
+                    or (all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != [])
+                )
+                # If none of the conditions for setting the variable to the correct value are satisfied
+                # OR if one of the conditions for setting the variable to an incompatible value is satisfied
+                condition_invalidated = (
+                    (all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)]) and ls != [])
+                    or any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)])
+                )
+                if condition_validated:
                     to_remove.append(var)
-                elif any(ls:=[cond[1] == response.conditions for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != []:
+                elif condition_invalidated:
                     return False
-                elif all(ls:=[cond[1] != response.conditions for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != []:
-                    to_remove.append(var)
                 
             for var in to_remove:
                 del variables[var]
             variables = {var: val for var,val in event.conditions["variables"].items() if not all([var not in response.conditions for response in scenes[scene].responses])}
                     
-            return all(is_compatible(variables[key],response.conditions.get(key)) for key in variables) or response.conditions == {} 
+            return all_is_compatible(variables,response.conditions) or response.conditions == {} 
         visible_responses = [response for response in scenes[scene].responses if is_visible(response)]
         response = visible_responses[event.conditions["button_id"]]
 

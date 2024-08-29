@@ -11,6 +11,11 @@ function storeItem(key,value) {
     document.cookie = key+"="+value;
 }
 
+function cookieAdd(name,value) {
+    const current_value = getCookie(name)
+    storeItem(name,parseInt(current_value)+parseInt(value))
+}
+
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     document.cookie = 'data-theme=' + theme;
