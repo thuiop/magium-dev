@@ -1,3 +1,4 @@
+<script src="/scripts/night_mode.js"></script>
 <div class="main-menu">
     <div class="response">
         <button
@@ -20,7 +21,9 @@
         </button>
     </div>
     <div class="response">
-        <button id="themeToggleBtn" onclick="nightModeButtonClick()"></button>
+        <button id="themeToggleBtn" onclick="nightModeButtonClick()">
+            Activate night mode
+        </button>
     </div>
     <div class="response">
         <button
@@ -38,33 +41,3 @@
         Menu
     </h2>
 </div>
-
-<!--
-Script used to toggle night mode
--->
-<script>
-    (function() {
-        updateNightModeButtonText();
-    })();
-
-    document.addEventListener('DOMContentLoaded', updateNightModeButtonText);
-
-    function nightModeButtonClick() {
-        toggleTheme();
-        updateNightModeButtonText();
-    }
-
-    function updateNightModeButtonText() {
-        const theme = getCookie('data-theme');
-        const button = document.getElementById('themeToggleBtn');
-        button.textContent = theme === 'dark' ? 'Deactivate night mode' : 'Activate night mode';
-    }
-
-    function toggleTheme() {
-        const theme = getCookie('data-theme') === 'dark' ? 'light' : 'dark';
-        setTheme(theme);
-    }
-</script>
-<!--
-End of script used to toggle night mode
--->
