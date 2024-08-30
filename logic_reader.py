@@ -241,7 +241,6 @@ chapters = (
     + [f"b2ch{num}" for num in [1,2,3,"4a","4b","5a","5b",6,7,8,"9a","9b","10a","10b","11a","11b","11c"]]
     + [f"b3ch{num}" for num in [1,"2a","2b","2c","3a","3b","4a","4b","5a","5b","6a","6b","6c","7a","8a","8b","9a","9b","9c","10a","10b","10c","11a","12a","12b"]]
 )
-chapters=  [f"b3ch{num}" for num in [1,"2a","2b","2c","3a","3b","4a","4b","5a","5b","6a","6b","6c","7a","8a","8b","9a","9b","9c","10a","10b","10c","11a","12a","12b"]]
 verbose = True
 for chapter in chapters:
     filename = root_folder/chapter/"logic.txt"
@@ -271,6 +270,7 @@ for chapter in chapters:
             scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
         for variable, value in  event.results["set_variables"].items():
             scenes[scene].set_variables.append(SceneVariableSet(variable,int(value),event.conditions["variables"])) 
+
         for stat_check in event.results["stat_checks"]:
             stat_check.conditions = event.conditions["variables"]
             scenes[scene].stat_checks.append(stat_check)
@@ -363,6 +363,10 @@ for chapter in chapters:
 
         for var,value in event.results["set_variables"].items():
             response.set_variables[var] = value 
+        if scene == "Ch11b-Ending":
+            response.set_variables["v_first_book_purchased"] = "1"
+        if scene == "B2-Ch11c-Ending":
+            response.set_variables["v_second_book_purchased"] = "1"
             
         if "new_scene" in event.results: 
             response.new_scene = event.results["new_scene"]
