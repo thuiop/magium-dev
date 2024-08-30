@@ -217,7 +217,11 @@ class Parser:
         return events
             
 
-for chapter in [f"ch{i}" for i in range(1,7)]:
+chapters = (
+    [f"ch{num}" for num in list(range(1,11))+["11a","11b"]]
+    + [f"b2ch{num}" for num in [1,2,3,"4a","4b","5a","5b",6,7,8,"9a","9b","10a","10b","11a","11b","11c"]]
+)
+for chapter in chapters:
     filename = root_folder/chapter/"logic.txt"
 
     events = []
@@ -255,12 +259,17 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
         if "scene" not in event.conditions:
             continue
         scene = event.conditions["scene"]
+        if scene not in scenes:
+            raise ValueError(f"The scene '{scene} was not found ! List of available scenes : {' '.join(scenes.keys())}'")
         event_conditions = event.conditions["variables"]
         conditions_transform = defaultdict(list)
         for scene_variable_set in scenes[scene].set_variables:
             conditions_transform[scene_variable_set.name].append((scene_variable_set.value,scene_variable_set.conditions))
 
+        print(*scenes[scene].responses,sep="\n")
         def is_visible(response):
+            if response.conditions == {}:
+                return True
             variables = {var: val for var,val in event.conditions["variables"].items() if "_ac_" not in var}
             to_remove = []
             for var, condition in variables.items():
@@ -287,7 +296,7 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
                 del variables[var]
             variables = {var: val for var,val in event.conditions["variables"].items() if not all([var not in response.conditions for response in scenes[scene].responses])}
                     
-            return all_is_compatible(variables,response.conditions) or response.conditions == {} 
+            return all_is_compatible(variables,response.conditions)
         visible_responses = [response for response in scenes[scene].responses if is_visible(response)]
         response = visible_responses[event.conditions["button_id"]]
 

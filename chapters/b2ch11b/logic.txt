@@ -1,0 +1,1279 @@
+* Mouse pointer is over Group.Buttons
++ Button ID of Group.Buttons = value( "pressed id" )
++ pressed counter = 1
++ pointer went off button = 0
+	Group.Buttons : Change animation sequence to Select
+
+* NOT Mouse pointer is over Group.Buttons
++ pressed counter = 1
+	Group.Buttons : Change animation sequence to Stopped
+
+* current scene = "B2-Ch11b-Collars"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 2
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 2
+	List : Reset
+	List : Add line """But I want to see it!"""
+	scene 3 : Display paragraph 2
+	List : Add line """I suppose it would be better to skip it, then."""
+	List : Add line """Could you show me Diane's discussion with her brother, instead, then?"""
+
+* current scene = "B2-Ch11b-Collars"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Collars"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Skip1"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	Special : Set B2 CH11 Skip1 to 0
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Collars"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Skip1"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	Special : Set B2 CH11 Skip1 to 1
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Collars"
++ Button ID of Group.Buttons = 3
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Skip1"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	Special : Set B2 CH11 Skip1 to 2
+
+* current scene = "B2-Ch11b-Skip1"
++ B2 CH11 Skip1 = 0
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 3
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 3
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Skip1"
++ B2 CH11 Skip1 = 1
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 4
+	Group.Buttons : Destroy
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Skip1"
++ B2 CH11 Skip1 = 2
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 5
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 4
+	scene 3 : Display paragraph 3
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Skip1"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Skip1"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Olivia"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Olivia"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 6
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 5
+	List : Reset
+	List : Add line "Continue"
+	scene 3 : Display paragraph 4
+
+* current scene = "B2-Ch11b-Olivia"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Olivia"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Malnourished"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Malnourished"
++ B2 CH11 Skip1 = 2
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 7
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 6
+	scene 3 : Display paragraph 5
+	List : Reset
+	List : Add line """What kind of test are you talking about?"""
+	List : Add line """Why would the lessathi have direct access to the Magium?"""
+	List : Add line """How do you think the lessathi might have gotten subconsciously linked to the Magium?"""
+
+* current scene = "B2-Ch11b-Malnourished"
++ B2 CH11 Skip1 <> 2
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 8
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 6
+	scene 3 : Display paragraph 5
+	List : Reset
+	List : Add line """What kind of test are you talking about?"""
+	List : Add line """Why would the lessathi have direct access to the Magium?"""
+	List : Add line """How do you think the lessathi might have gotten subconsciously linked to the Magium?"""
+
+* current scene = "B2-Ch11b-Malnourished"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Malnourished"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Test"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Test"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 9
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 7
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Test"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Malnourished"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Direct"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Direct"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 10
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 7
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Direct"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Malnourished"
++ Button ID of Group.Buttons = 3
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Subconsciously"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Subconsciously"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 11
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 7
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Subconsciously"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Test"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Warning"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Direct"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Warning"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Subconsciously"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Warning"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Warning"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Group.Buttons : Destroy
+	List : Reset
+	List : Add line "Continue"
+	Scene text : Display paragraph 12
+	Scene text 2 : Display paragraph 8
+	scene 3 : Display paragraph 6
+
+* current scene = "B2-Ch11b-Warning"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Warning"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Arrogant"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Arrogant"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 13
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 9
+	List : Reset
+	List : Add line """Then how about bringing us to the actual start of the lessathi meeting?"""
+	scene 3 : Display paragraph 7
+	List : Add line """Can we just skip directly to the important parts, then?"""
+
+* current scene = "B2-Ch11b-Arrogant"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Arrogant"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Individual"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	Special : Set B2 CH11 Skip2 to 0
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Arrogant"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Individual"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	Special : Set B2 CH11 Skip2 to 1
+
+* current scene = "B2-Ch11b-Individual"
++ B2 CH11 Skip2 = 0
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 14
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 10
+	scene 3 : Display paragraph 8
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Individual"
++ B2 CH11 Skip2 = 1
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 15
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 10
+	scene 3 : Display paragraph 8
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Individual"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Individual"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Secretly"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Secretly"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 16
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 11
+	scene 3 : Display paragraph 9
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Secretly"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Secretly"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Treatment"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Treatment"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 17
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 12
+	scene 3 : Display paragraph 10
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Treatment"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Treatment"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Development"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Development"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 18
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 13
+	scene 3 : Display paragraph 11
+	List : Reset
+	List : Add line """I'd say not much, given what we've heard from Golmyck."""
+	List : Add line """What I'm wondering is if she had a hand in the shutting down of the Beacon."""
+	List : Add line """Well, Diane is no longer wearing a collar, so some things have definitely changed."""
+
+* current scene = "B2-Ch11b-Development"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Development"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Golmyck"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Golmyck"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 19
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 14
+	scene 3 : Display paragraph 12
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Golmyck"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Development"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Shutting"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Shutting"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 20
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 14
+	scene 3 : Display paragraph 12
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Shutting"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Development"
++ Button ID of Group.Buttons = 3
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Collar"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Collar"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 21
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 14
+	scene 3 : Display paragraph 12
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Collar"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Golmyck"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Convincing"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Shutting"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Convincing"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Collar"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Convincing"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Convincing"
++ B2 CH11 Skip2 = 0
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 22
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 15
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Convincing"
++ B2 CH11 Skip2 = 1
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 23
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 16
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Convincing"
++ CH11 Saved Rose = 0
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Group.Buttons : Destroy
+	scene 3 : Display paragraph 13
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Convincing"
++ CH11 Saved Rose = 1
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Group.Buttons : Destroy
+	scene 3 : Display paragraph 14
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Convincing"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Convincing"
++ CH11 Saved Rose = 0
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Denial"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Denial"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 24
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 17
+	scene 3 : Display paragraph 15
+	List : Reset
+	List : Add line """If you think she's scared now, then you should have seen her earlier..."""
+	List : Add line """Trust me, if you'd have gone through what we just did, you'd be panicking like that too."""
+	List : Add line """Actually, you have a pretty uneasy look too. Did something happen during your ritual?"""
+
+* current scene = "B2-Ch11b-Denial"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Convincing"
++ CH11 Saved Rose = 1
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Switching"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Switching"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 25
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 18
+	List : Reset
+	List : Add line """That's terrible..."""
+	List : Add line """Seems fair."""
+	List : Add line """What about the cases where nothing really bad happened to the slaves afterwards?"""
+
+* current scene = "B2-Ch11b-Switching"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Switching"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Terrible"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Terrible"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 26
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 19
+	List : Reset
+	List : Add line "Continue"
+	scene 3 : Display paragraph 16
+
+* current scene = "B2-Ch11b-Terrible"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Switching"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Fair"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Fair"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 27
+	Group.Buttons : Destroy
+	List : Reset
+	List : Add line "Continue"
+	Scene text 2 : Display paragraph 19
+	scene 3 : Display paragraph 16
+
+* current scene = "B2-Ch11b-Fair"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Switching"
++ Button ID of Group.Buttons = 3
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Afterwards"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Afterwards"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 28
+	Group.Buttons : Destroy
+	List : Reset
+	List : Add line "Continue"
+	Scene text 2 : Display paragraph 19
+	scene 3 : Display paragraph 16
+
+* current scene = "B2-Ch11b-Afterwards"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Terrible"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Commendable"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Fair"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Commendable"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Afterwards"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Commendable"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Commendable"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 29
+	Group.Buttons : Destroy
+	List : Reset
+	List : Add line "Continue"
+	Scene text 2 : Display paragraph 20
+	scene 3 : Display paragraph 17
+
+* current scene = "B2-Ch11b-Commendable"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Commendable"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Reunion"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Reunion"
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 30
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 21
+	scene 3 : Display paragraph 18
+	List : Reset
+	List : Add line """If you think she's scared now, then you should have seen her earlier..."""
+	List : Add line """Trust me, if you'd have gone through what we just did, you'd be panicking like that too."""
+	List : Add line """Actually, you have a pretty uneasy look too. Did something happen during your ritual?"""
+
+* current scene = "B2-Ch11b-Reunion"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Reunion"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Scared"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Denial"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Scared"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Scared"
++ CH11 Saved slave <> 3
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 31
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 22
+	scene 3 : Display paragraph 19
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Scared"
++ CH11 Saved slave = 3
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 31
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 22
+	scene 3 : Display paragraph 20
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Scared"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Reunion"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Panicking"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Denial"
++ Button ID of Group.Buttons = 2
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Panicking"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Panicking"
++ CH11 Saved slave <> 3
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 32
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 22
+	scene 3 : Display paragraph 19
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Panicking"
++ CH11 Saved slave = 3
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 22
+	scene 3 : Display paragraph 20
+	Scene text : Display paragraph 32
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Panicking"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Reunion"
++ Button ID of Group.Buttons = 3
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Uneasy"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Denial"
++ Button ID of Group.Buttons = 3
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Uneasy"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Uneasy"
++ CH11 Saved slave <> 3
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 33
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 22
+	scene 3 : Display paragraph 19
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Uneasy"
++ CH11 Saved slave = 3
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 22
+	scene 3 : Display paragraph 20
+	Scene text : Display paragraph 33
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Uneasy"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Scared"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Fatigue"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Panicking"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Fatigue"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Uneasy"
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11b-Fatigue"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+
+* current scene = "B2-Ch11b-Fatigue"
++ CH11 Saved Rose = 1
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 34
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 23
+	scene 3 : Display paragraph 21
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Fatigue"
++ CH11 Saved Rose = 0
++ Counter = 3
+	bottom of text : Set Counter to 2400
+	storyboard controls : Center display at Y=Y Top( "Scene text" )
+	Button Name : Destroy
+	Scene text : Display paragraph 35
+	Group.Buttons : Destroy
+	Scene text 2 : Display paragraph 24
+	scene 3 : Display paragraph 22
+	List : Reset
+	List : Add line "Continue"
+
+* current scene = "B2-Ch11b-Fatigue"
++ Counter = 1
+	Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Fatigue"
++ CH11 Saved Rose = 1
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11c-Herbalist"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	storyboard controls : Jump to frame "Book 2 Chapter 11 c" (29)
+	 Ini : Set string current scene to item "current_scene" in group selected save slot
+
+* Mouse pointer is over Group.Buttons
++ current scene = "B2-Ch11b-Fatigue"
++ CH11 Saved Rose = 0
++ Button ID of Group.Buttons = 1
++ Counter = 0
++ pressed counter = 2
+	Counter : Set Counter to 5
+	Multiple Touch : Set ScrollSpeed to 0
+	Special : Set current scene to "B2-Ch11c-Hesitation"
+	Successful checks : Set alterable string to ""
+	Failed checks : Set alterable string to ""
+	storyboard controls : Jump to frame "Book 2 Chapter 11 c" (29)
+	 Ini : Set string current scene to item "current_scene" in group selected save slot
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Trolls"
+// + Button ID of Group.Buttons = 1
+// + Counter = 0
+// + pressed counter = 2
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Special : Set current scene to "B2-Ch02a-Ending"
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+
+// * current scene = "B2-Ch02a-Ending"
+// + Counter = 3
+	// bottom of text : Set Counter to 2400
+	// storyboard controls : Center display at Y=Y Top( "Scene text" )
+	// Button Name : Destroy
+	// Scene text : Display paragraph 89
+	// Group.Buttons : Destroy
+	// List : Reset
+	// List : Add line "Proceed towards chapter 3"
+
+// * current scene = "B2-Ch02a-Ending"
+// + Counter = 1
+	// Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Ending"
+// + Button ID of Group.Buttons = 1
+// + Counter = 0
+// + pressed counter = 2
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+	// Special : Set current scene to "B2-Ch02a-Credits"
+
+// * current scene = "B2-Ch02a-Credits"
+// + Second book purchased = 0
+// + Counter = 3
+	// bottom of text : Set Counter to 2400
+	// storyboard controls : Center display at Y=Y Top( "Scene text" )
+	// Button Name : Destroy
+	// Scene text : Display paragraph 90
+	// Group.Buttons : Destroy
+	// List : Reset
+	// List : Add line "Go to next chapter"
+	// List : Add line "Remove ads from 2nd book (which also unlocks the 3rd book)"
+
+// * current scene = "B2-Ch02a-Credits"
+// + Second book purchased = 1
+// + Counter = 3
+	// bottom of text : Set Counter to 2400
+	// storyboard controls : Center display at Y=Y Top( "Scene text" )
+	// Button Name : Destroy
+	// Scene text : Display paragraph 91
+	// Group.Buttons : Destroy
+	// List : Reset
+	// List : Add line "Go to next chapter"
+
+// * current scene = "B2-Ch02a-Credits"
+// + Counter = 1
+	// Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Credits"
+// + Button ID of Group.Buttons = 1
+// + Counter = 0
+// + pressed counter = 2
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+	// Special : Set current scene to "B2-Ch03a-Intro"
+	// Special : Set chapter save to 1
+	// Special : Set chapter save counter to 5
+	// Special : Set checkpoint rich to 1
+	// storyboard controls : Jump to frame "Save load game" (56)
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Ending"
+// + Button ID of Group.Buttons = 1
+// + Counter = 0
+// + pressed counter = 2
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Special : Set current scene to "B2-Ch02a-Credits"
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+
+// * current scene = "B2-Ch02a-Credits"
+// + Second book purchased = 1
+// + Counter = 3
+	// bottom of text : Set Counter to 2400
+	// storyboard controls : Center display at Y=Y Top( "Scene text" )
+	// Button Name : Destroy
+	// Scene text : Display paragraph 90
+	// Group.Buttons : Destroy
+	// List : Reset
+	// List : Add line "Join the discussion on Reddit"
+	// List : Add line "Restart game"
+	// List : Add line "Load from last checkpoint"
+	// List : Add line "Load game"
+
+// * current scene = "B2-Ch02a-Credits"
+// + Second book purchased = 0
+// + Counter = 3
+	// bottom of text : Set Counter to 2400
+	// storyboard controls : Center display at Y=Y Top( "Scene text" )
+	// Button Name : Destroy
+	// Scene text : Display paragraph 91
+	// Group.Buttons : Destroy
+	// List : Reset
+	// List : Add line "Join the discussion on Reddit"
+	// List : Add line "Restart game"
+	// List : Add line "Load from last checkpoint"
+	// List : Add line "Load game"
+	// List : Add line "Remove ads from 2nd book (which also unlocks the 3rd book)"
+
+// * current scene = "B2-Ch02a-Credits"
+// + Counter = 1
+	// Special : Start loop "buttons" List Nb Lines( "List" ) times
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Credits"
+// + Button ID of Group.Buttons = 1
+// + Counter = 0
+// + pressed counter = 2
+	//  Android object : Open URL "https://www.reddit.com/r/magium"
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Credits"
+// + Button ID of Group.Buttons = 2
+// + Counter = 0
+// + pressed counter = 2
+	// Special : Set current scene to "Ch1-Intro1"
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Special : Start loop "reset variables" 1 times
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+	// storyboard controls : Jump to frame "Chapter 1" (1)
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Credits"
+// + Button ID of Group.Buttons = 3
+// + Counter = 0
+// + pressed counter = 2
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+	// Special : Set chapter load to 1
+	// Special : Set chapter save counter to 5
+	// storyboard controls : Jump to frame "Save load game" (56)
+
+// * Mouse pointer is over Group.Buttons
+// + current scene = "B2-Ch02a-Credits"
+// + Button ID of Group.Buttons = 4
+// + Counter = 0
+// + pressed counter = 2
+	// Counter : Set Counter to 5
+	// Multiple Touch : Set ScrollSpeed to 0
+	// Successful checks : Set alterable string to ""
+	// Failed checks : Set alterable string to ""
+	// storyboard controls : Jump to frame "Save load game" (56)
+
+* Mouse pointer is over Group.Buttons
++ pressed counter = 2
+	Special : Set Strength to Strength aux
+	Special : Set Agility to Agility aux
+	Special : Set Toughness to Toughness aux
+	Special : Set Reflexes to Reflexes aux
+	Special : Set Hearing to Hearing aux
+	Special : Set Perception to Perception aux
+	Special : Set Ancient languages to Ancient languages aux
+	Special : Set Combat technique to Combat technique aux
+	Special : Set Premonition to Premonition aux
+	Special : Set Available points to Available points aux
+	Scene text 2 : Display paragraph 1
+	scene 3 : Display paragraph 1
+
+
