@@ -31,6 +31,14 @@
             hx-get="/scene/<%= response.target %>"
         <% } else if (response.special=="stats") { %>
             hx-get="stats"
+        <% } else if (response.special=="checkpoint_load") { %>
+            hx-get="/"
+            hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
+        <% } else if (response.special=="checkpoint_save") { %>
+            hx-get="/"
+            hx-on::before-request="saveGameToLocalStorage('checkpoint')"
+        <% } else if (response.special=="saves") { %>
+            hx-get="/saves"
         <% } %>
             hx-target="#content"
             hx-swap="innerHTML"

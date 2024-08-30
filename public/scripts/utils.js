@@ -7,6 +7,16 @@ function getCookie(name) {
     return null;
 }
 
+var getCookies = function(){
+  var pairs = document.cookie.split(";");
+  var cookies = {};
+  for (var i=0; i<pairs.length; i++){
+    var pair = pairs[i].split("=");
+    cookies[(pair[0]+'').trim()] = unescape(pair.slice(1).join('='));
+  }
+  return cookies;
+}
+
 function storeItem(key,value) {
     document.cookie = key+"="+value;
 }
@@ -29,4 +39,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function navigateTo(url) {
     window.location.href = url;
+}
+
+
+function setResponseCookies(response) {
+  for (const [key, value] of Object.entries(response.set_variables)) {
+      if (value.startsWith("+")){
+          cookieAdd(key,value.slice(1))
+      }
+      else {
+          storeItem(key,value)
+      }
+  }
+}
+
+function saveGameToLocalStorage(saveName) {
+    const cookies = getCookies();
+    if (localStorage) {
+        localStorage.setItem(saveName,JSON.stringify(cookies));
+    }
+    else {
+        console.log("localStorage not supported");
+    }
+}
+
+function clearState() {
+    document.cookie.split(';').forEach(cookie => {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        if (/v_.*/.exec(name)) {
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        }
+    });
+}
+
+
+function loadGameFromLocalStorage(saveName) {
+    if (localStorage) {
+        const data = JSON.parse(localStorage.getItem(saveName));
+        clearState()
+        Object.entries(data).forEach((entry) => storeItem(entry[0],entry[1]))
+    }
+    else {
+        console.log("localStorage not supported");
+    }
 }

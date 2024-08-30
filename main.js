@@ -76,6 +76,11 @@ function render_achievements_menu_chapter(req,achievements_data) {
     return ejs.renderFile("templates/achievements_menu_chapter.ejs",Object.assign({},{"achievements":achievements_data},req.cookies))
 }
 
+
+function render_saves(req,achievements_data) {
+    return ejs.renderFile("templates/saves.ejs",req.cookies)
+}
+
 let json_data = {}
 for (chapter of ["ch1","ch2","ch3","ch4","ch5","ch6"]) {
     json_data = Object.assign(json_data,require(`./chapters/${chapter}.json`))
@@ -128,6 +133,10 @@ app.get('/achievements/book/:id', (req, res) => {
 app.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) => {
     const callback = (r) => render_achievements_menu_chapter(r,achievements_data[parseInt(r.params.idBook)][`b${r.params.idBook}ch${r.params.idChapter}`]);
     render_full(req,callback,"Achievements").then((rendered) => res.send(rendered))
+})
+
+app.get('/saves', (req, res) => {  
+    render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
 })
 
 app.listen(port, () => {
