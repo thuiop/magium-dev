@@ -202,6 +202,8 @@ class Parser:
                 elif match := re.search('storyboard controls : Jump to frame "Save load game"',current):
                     if event.results.get("special","") == "":
                         event.results["special"] = "saves"
+                elif match := re.search('Achievement title : Set alterable string to "(?P<achievement>.*)"',current):
+                    event.results["special"] = f"achievement-{match.group('achievement')}"
                     
 
         return event
