@@ -12,6 +12,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla consequ
 ## Contributors
 
 <a href="https://github.com/thuiop/magium-dev/graphs/contributors">
-
-![contributors](https://contributors-img.firebaseapp.com/image?repo=thuiop/magium-dev)
+<img src="https://contributors-img.firebaseapp.com/image?repo=thuiop/magium-dev" />
 </a>
