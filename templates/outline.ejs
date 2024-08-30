@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/stats.css">
     <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="https://unpkg.com/htmx.org@2.0.2"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <script src="/scripts/utils.js"></script>
   </head>
   <body>
@@ -18,8 +19,7 @@
           <h2 id="header"><%= header %></h2>
           <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
         </div>
-        <div id="content" class="content">
-            <%- content %>
+        <div id="content" class="content" hx-get hx-trigger="load">
         </div>
         <div class="footer">
           <button class="footer-button" onclick="toggleTheme()">Activate Night Mode</button>
