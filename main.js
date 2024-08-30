@@ -92,56 +92,72 @@ for (book of [1,2,3]) {
     achievements_data[book] = require(`./chapters/achievements${book}.json`)
 }
 
+const { app, BrowserWindow } = require('electron');
+app.on('ready', function() {
+  let mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    webPreferences: {
+      nodeIntegration: true
+    },
+    autoHideMenuBar: true,
+    useContentSize: true,
+    resizable: true,
+  });
+  mainWindow.loadURL('http://localhost:3000/');
+  mainWindow.focus();
+});
+
 const express = require('express');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const app = express();
-app.use(cookieParser());
+const expressApp = express();
+expressApp.use(cookieParser());
 const port = 3000
 
 // Serve static files
 const path = require('path')
-app.use(express.static(path.join(__dirname, 'public')));
+expressApp.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
+expressApp.get('/', (req, res) => {
     const id = req.cookies.v_current_scene ? req.cookies.v_current_scene : "Ch1-Intro1"
     render_full(req,(r) => render_scene(r,json_data[id],get_header_from_id(id)),get_header_from_id(id)).then((rendered) => res.send(rendered))
 })
 
-app.get('/menu', (req, res) => {
+expressApp.get('/menu', (req, res) => {
     render_full(req,render_menu,"Menu").then((rendered) => res.send(rendered))
 })
 
-app.get('/scene/:id', (req, res) => {
+expressApp.get('/scene/:id', (req, res) => {
     const callback = (r) => render_scene(r,json_data[req.params.id],get_header_from_id(req.params.id));
     render_full(req,callback,get_header_from_id(req.params.id)).then((rendered) => res.send(rendered));
 })
 
-app.get('/stats', (req, res) => {  
+expressApp.get('/stats', (req, res) => {  
     render_full(req,render_stats,"Stats").then((rendered) => res.send(rendered));
 })
 
 
-app.get('/achievements', (req, res) => {  
+expressApp.get('/achievements', (req, res) => {  
     render_full(req,render_achievements_menu,"Achievements").then((rendered) => res.send(rendered));
 })
 
-app.get('/achievements/book/:id', (req, res) => {
+expressApp.get('/achievements/book/:id', (req, res) => {
     const callback = (r) => render_achievements_menu_book(r,achievements_data[parseInt(r.params.id)]);
     render_full(req,callback,"Achievements").then((rendered) => res.send(rendered));
 })
 
 
-app.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) => {
+expressApp.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) => {
     const callback = (r) => render_achievements_menu_chapter(r,achievements_data[parseInt(r.params.idBook)][`b${r.params.idBook}ch${r.params.idChapter}`]);
     render_full(req,callback,"Achievements").then((rendered) => res.send(rendered))
 })
 
-app.all('/saves', bodyParser.json(), (req, res) => {  
+expressApp.all('/saves', bodyParser.json(), (req, res) => {  
     render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
 })
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+expressApp.listen(port, () => {
+    console.log(`Example expressApp listening on port ${port}`)
 })
 
