@@ -54,7 +54,10 @@ function setResponseCookies(response) {
 }
 
 function saveGameToLocalStorage(saveName) {
-    const cookies = getCookies();
+    let cookies = getCookies();
+    const today = new Date();
+    cookies.date = today.toUTCString()
+
     if (localStorage) {
         localStorage.setItem(saveName,JSON.stringify(cookies));
     }
@@ -67,7 +70,7 @@ function clearState() {
     document.cookie.split(';').forEach(cookie => {
         const eqPos = cookie.indexOf('=');
         const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-        if (/v_.*/.exec(name)) {
+        if (/v_.*/.test(name) && !(/.*_ac_.*/.test(name))) {
             document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
         }
     });
@@ -84,3 +87,20 @@ function loadGameFromLocalStorage(saveName) {
         console.log("localStorage not supported");
     }
 }
+
+htmx.defineExtension('submitlocalstorage', {
+    onEvent: function (name, evt) {
+        if (name === "htmx:configRequest") {
+            evt.detail.headers['Content-Type'] = "application/json"
+        }
+    },
+    encodeParameters: function(xhr, parameters, elt) {
+        xhr.overrideMimeType('text/json') // override default mime type
+        let data = Object.assign({},localStorage)
+        Object.keys(data).forEach(function(key, index) {
+            data[key] = JSON.parse(data[key])
+        });
+        delete data["htmx-history-cache"]
+        return (JSON.stringify(data))
+    }
+  })
