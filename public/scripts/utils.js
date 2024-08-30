@@ -37,11 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTheme(theme);
 });
 
-function toggleTheme() {
-    const theme = getCookie('data-theme') === 'dark' ? 'light' : 'dark';
-    setTheme(theme);
-}
-
 function navigateTo(url) {
     window.location.href = url;
 }
