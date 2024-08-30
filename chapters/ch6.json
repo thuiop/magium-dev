@@ -1,7 +1,7 @@
 {
     "Ch6-Intro": {
         "id": "Ch6-Intro",
-        "text": "<br/>\"Alright, I think that's a wrap!\" says Daren once we finish our strategy meeting. <br/><br/>We're currently all sitting in a circle in front of our cave's entrance. The sun is pretty high up in the sky, and there's not a cloud in sight. Luckily, Kate has graciously agreed to use her ice magic to cool the air around us a bit. This way we can enjoy the weather without feeling as if we were inside an oven. <br/><br/>\"Noon is almost upon us,\" Daren continues. \"We should get going as soon as possible. We can't afford to keep travelling once the sun sets, and we have a long road ahead of us. Rose, did you get all of the herbs you were looking for?\"<br/><br/>\"Oh, no... I just remembered, I dropped my bag of herbs when I was being chased by the goblins.\"<br/><br/>\"Don't worry, I doubt anyone would have stolen it, so it must still be where you left it. I'll help you look for it! Come with me.\"<br/><br/>I get up to follow them, but Kate grabs me by the sleeve.<br/><br/>\"Wait,\" she says. \"There's something that's been bothering me since this morning.\"<br/>She looks really tense. It seems that she's struggling to get the words out of her mouth.<br/><br/>\"Were you...\"<br/><br/>She pauses.<br/><br/>\"Were you really smitten with me since you first saw me?\"<br/><br/>Of all the things I would have expected her to say to me right now, this was the last of them. Thanks a lot, Daren. What am I supposed to tell her, now?<br/><br/>",
+        "text": "<% if((locals.v_checkpoint_rich || 0) == 1) {%><div class='stat_success'>Checkpoint reached: Game saved.</div><% } %><br/>\"Alright, I think that's a wrap!\" says Daren once we finish our strategy meeting. <br/><br/>We're currently all sitting in a circle in front of our cave's entrance. The sun is pretty high up in the sky, and there's not a cloud in sight. Luckily, Kate has graciously agreed to use her ice magic to cool the air around us a bit. This way we can enjoy the weather without feeling as if we were inside an oven. <br/><br/>\"Noon is almost upon us,\" Daren continues. \"We should get going as soon as possible. We can't afford to keep travelling once the sun sets, and we have a long road ahead of us. Rose, did you get all of the herbs you were looking for?\"<br/><br/>\"Oh, no... I just remembered, I dropped my bag of herbs when I was being chased by the goblins.\"<br/><br/>\"Don't worry, I doubt anyone would have stolen it, so it must still be where you left it. I'll help you look for it! Come with me.\"<br/><br/>I get up to follow them, but Kate grabs me by the sleeve.<br/><br/>\"Wait,\" she says. \"There's something that's been bothering me since this morning.\"<br/>She looks really tense. It seems that she's struggling to get the words out of her mouth.<br/><br/>\"Were you...\"<br/><br/>She pauses.<br/><br/>\"Were you really smitten with me since you first saw me?\"<br/><br/>Of all the things I would have expected her to say to me right now, this was the last of them. Thanks a lot, Daren. What am I supposed to tell her, now?<br/><br/>",
         "responses": [
             {
                 "code": "\"\"Maybe a little.\"\"",
@@ -3026,7 +3026,6 @@
                 "text": "Load from last checkpoint",
                 "target": "",
                 "set_variables": {
-                    "v_chapter_load": "1",
                     "v_chapter_save_counter": "5"
                 },
                 "conditions": {
@@ -3043,7 +3042,7 @@
                         "value": 4
                     }
                 },
-                "special": ""
+                "special": "checkpoint_load"
             },
             {
                 "code": "Load game",
@@ -3064,7 +3063,7 @@
                         "value": 4
                     }
                 },
-                "special": ""
+                "special": "saves"
             },
             {
                 "code": "Continue",
@@ -4103,12 +4102,11 @@
                 "set_variables": {
                     "v_next_chapter_crash": "1",
                     "v_current_scene": "Ch7-Intro",
-                    "v_chapter_save": "1",
                     "v_chapter_save_counter": "5",
                     "v_checkpoint_rich": "1"
                 },
                 "conditions": {},
-                "special": ""
+                "special": "checkpoint_save"
             }
         ]
     }

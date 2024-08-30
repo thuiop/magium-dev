@@ -1,0 +1,34 @@
+<div class="response">
+    <button
+        hx-get="/"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+    > 
+        Return to game
+    </button>
+</div>
+<div class="save-list">
+    <% for (let i = 0; i < 9; i++) { %>
+        <div class="save-entry">
+            Save <%= i %>
+            <button onClick="saveGameToLocalStorage('save<%= i %>')"> 
+                Save
+            </button>
+            <button 
+                hx-get="/"
+                hx-on::before-request="loadGameFromLocalStorage('save<%= i %>')"
+                hx-target="#content"
+                hx-swap="innerHTML"
+                hx-push-url="true"
+            > 
+                Load
+            </button>
+        </div>
+    <% }; %>
+</div>
+<div style="display:none">
+    <h2 id="header" hx-swap-oob="true">
+        Savegames
+    </h2>
+</div>
