@@ -3,10 +3,12 @@ from dataclasses import dataclass, field
 from itertools import groupby
 import json
 from pathlib import Path
+import pprint
 import re
 from typing import Any
 
 root_folder = Path("./chapters")
+pp = pprint.PrettyPrinter(2)
 
 
 class Lexer:
@@ -60,6 +62,20 @@ def is_compatible(comp1,comp2):
     elif comp1.type == ">=" and comp2.type == "<" and comp1.value >= comp2.value:
         return False
     elif comp2.type == ">=" and comp1.type == "<" and comp2.value >= comp1.value:
+        return False
+    elif comp1.type == ">=" and comp2.type == "<" and comp1.value < comp2.value:
+        return False
+    elif comp2.type == ">=" and comp1.type == "<" and comp2.value < comp1.value:
+        return False
+    elif comp1.type == "<" and comp2.type == "<" and comp1.value <= comp2.value:
+        return True
+    elif comp1.type == "<" and comp2.type == "<" and comp1.value > comp2.value:
+        return False
+    elif comp1.type == ">=" and comp2.type == ">=" and comp1.value >= comp2.value:
+        return False
+    elif comp1.type == ">=" and comp2.type == ">=" and comp1.value < comp2.value:
+        return True
+    elif comp1.type == "<" and comp2.type == ">=":
         return False
     else:
         raise ValueError(f"Do not know whether {comp1} and {comp2} are compatible")
@@ -123,6 +139,9 @@ class Scene:
             if stat_check.conditions != {}:
                 text += "<% } %>"
         for par in self.paragraphs:
+            if par.id not in paragraphs[par.version]:
+                print(f"Paragraph {par.id} not found in {par.version}")
+                continue
             if par.conditions != {}:
                 condition_string = ' && '.join([f"(locals.{var} || 0) {parse_condition(cond.type)} {cond.value}" for var,cond in par.conditions.items()])
                 text += f"<% if({condition_string}) {{%>"
@@ -217,7 +236,13 @@ class Parser:
         return events
             
 
-for chapter in [f"ch{i}" for i in range(1,7)]:
+chapters = (
+    [f"ch{num}" for num in list(range(1,11))+["11a","11b"]]
+    + [f"b2ch{num}" for num in [1,2,3,"4a","4b","5a","5b",6,7,8,"9a","9b","10a","10b","11a","11b","11c"]]
+    + [f"b3ch{num}" for num in [1,"2a","2b","2c","3a","3b","4a","4b","5a","5b","6a","6b","6c","7a","8a","8b","9a","9b","9c","10a","10b","10c","11a","12a","12b"]]
+)
+verbose = True
+for chapter in chapters:
     filename = root_folder/chapter/"logic.txt"
 
     events = []
@@ -231,7 +256,8 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
     scenes = {}
 
     for event in [e for e in events if e.type == "scene_load"]:
-        print(event)
+        if verbose:
+            print(event)
         if "scene" not in event.conditions:
             continue
         scene = event.conditions["scene"]
@@ -244,40 +270,76 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
             scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
         for variable, value in  event.results["set_variables"].items():
             scenes[scene].set_variables.append(SceneVariableSet(variable,int(value),event.conditions["variables"])) 
+
         for stat_check in event.results["stat_checks"]:
             stat_check.conditions = event.conditions["variables"]
             scenes[scene].stat_checks.append(stat_check)
 
 
     for event in [e for e in events if e.type == "button"]:
-        print("#"*60)
-        print(event)
+        if verbose:
+            print("#"*60)
+            print(event)
         if "scene" not in event.conditions:
             continue
         scene = event.conditions["scene"]
+        if scene not in scenes:
+            raise ValueError(f"The scene '{scene} was not found ! List of available scenes : {' '.join(scenes.keys())}'")
         event_conditions = event.conditions["variables"]
         conditions_transform = defaultdict(list)
         for scene_variable_set in scenes[scene].set_variables:
             conditions_transform[scene_variable_set.name].append((scene_variable_set.value,scene_variable_set.conditions))
 
+        if verbose:
+            print("Testing visibility...")
+            pp.pprint(conditions_transform)
+
         def is_visible(response):
+            if verbose:
+                print("Current response:",response)
+
             variables = {var: val for var,val in event.conditions["variables"].items() if "_ac_" not in var}
+            if verbose:
+                print("Event conditions:",variables)
+
+            flattened_transform = []
+            for var in variables:
+                flattened_transform.append(var)
+                for entry in conditions_transform.get(var,{}):
+                    flattened_transform += entry[1]
+            # If none of the conditions of the response are conditions for the event
+            if all([var not in flattened_transform for var in response.conditions]):
+                print("All response conditions are irrelevant")
+                return True
             to_remove = []
             for var, condition in variables.items():
                 if var not in conditions_transform:
+                    if verbose:
+                        print(var,"is not set at the beginning of this scene")
                     continue
                 # If one of the conditions to setting the variable to the required value is satisfied
                 # OR if all the conditions to setting the variable to an incompatible value are NOT satisfied
                 condition_validated = (
-                    any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)])
-                    or (all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != [])
+                    (valid1:=any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)]))
+                    or (valid2:=all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != [])
                 )
                 # If none of the conditions for setting the variable to the correct value are satisfied
                 # OR if one of the conditions for setting the variable to an incompatible value is satisfied
                 condition_invalidated = (
-                    (all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)]) and ls != [])
-                    or any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)])
+                    (invalid1:= all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)]) and ls != [])
+                    or (invalid2:=any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)]))
                 )
+                if verbose:
+                    print("Variable",var,"was","validated" if condition_validated else "invalidated" if condition_invalidated else "ignored")
+                    print("Reason: ",end="")
+                    if valid1:
+                        print("one of the conditions to setting the variable to the required value is satisfied")
+                    elif valid2:
+                        print("all the conditions to setting the variable to an incompatible value are NOT satisfied")
+                    elif invalid1:
+                        print("none of the conditions for setting the variable to the correct value are satisfied")
+                    elif invalid2:
+                        print("if one of the conditions for setting the variable to an incompatible value is satisfied")
                 if condition_validated:
                     to_remove.append(var)
                 elif condition_invalidated:
@@ -285,14 +347,26 @@ for chapter in [f"ch{i}" for i in range(1,7)]:
                 
             for var in to_remove:
                 del variables[var]
-            variables = {var: val for var,val in event.conditions["variables"].items() if not all([var not in response.conditions for response in scenes[scene].responses])}
-                    
-            return all_is_compatible(variables,response.conditions) or response.conditions == {} 
+
+            # Removing variables which are a condition for none of the responses (-> irrelevant)
+            variables = {var: val for var,val in variables.items() if not all([var not in response.conditions for response in scenes[scene].responses])}
+            if verbose:
+                print("Remaining event conditions:",variables)
+                print("Response conditions:",response.conditions)
+                print("are compatible" if all_is_compatible(variables,response.conditions) else "are not compatible")
+            print()
+            return all_is_compatible(variables,response.conditions)
+
         visible_responses = [response for response in scenes[scene].responses if is_visible(response)]
+        print(event.conditions["button_id"],visible_responses)
         response = visible_responses[event.conditions["button_id"]]
 
         for var,value in event.results["set_variables"].items():
             response.set_variables[var] = value 
+        if scene == "Ch11b-Ending":
+            response.set_variables["v_first_book_purchased"] = "1"
+        if scene == "B2-Ch11c-Ending":
+            response.set_variables["v_second_book_purchased"] = "1"
             
         if "new_scene" in event.results: 
             response.new_scene = event.results["new_scene"]

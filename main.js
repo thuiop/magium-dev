@@ -5,20 +5,11 @@ TODO: Discuss possibilities of alternate logic that do not need inference,
   but can simply be stored in the JSON object itself.
 */
 function get_header_from_id(id) {
-    const id_parts = id.split("-")
-    const book_regex = /B[0-9]*$/
-    const chapter_regex = /Ch[0-9]*$/
-    let book = "Book 1";
-    let chapter = "Chapter 1";
-    for (part of id_parts) {
-        if (book_regex.test(part)) {
-            book = part.replace("B","Book ")
-        }
-        else if (chapter_regex.test(part)) {
-            chapter = part.replace("Ch","Chapter ")
-        }
+    const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
+    if (result=regex.exec(id)) {
+        let book = result.groups["book"] ? result.groups["book"] : "1"
+        return `Book ${book} - Chapter ${result.groups["chapter"]}`
     }
-    return `${book} - ${chapter}`
 }
 
 function render_full(req,callback,header=""){
@@ -82,7 +73,12 @@ function render_saves(req,achievements_data) {
 }
 
 let json_data = {}
-for (chapter of ["ch1","ch2","ch3","ch4","ch5","ch6"]) {
+const chapters = (
+    ["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9","ch10","ch11a","ch11b",
+    'b2ch1', 'b2ch2', 'b2ch3', 'b2ch4a', 'b2ch4b', 'b2ch5a', 'b2ch5b', 'b2ch6', 'b2ch7','b2ch8', 'b2ch9a', 'b2ch9b', 'b2ch10a', 'b2ch10b', 'b2ch11a', 'b2ch11b', 'b2ch11c',
+    'b3ch1', 'b3ch2a', 'b3ch2b', 'b3ch2c', 'b3ch3a', 'b3ch3b', 'b3ch4a', 'b3ch4b', 'b3ch5a', 'b3ch5b', 'b3ch6a', 'b3ch6b', 'b3ch6c', 'b3ch7a', 'b3ch8a', 'b3ch8b', 'b3ch9a', 'b3ch9b', 'b3ch9c', 'b3ch10a', 'b3ch10b', 'b3ch10c', 'b3ch11a', 'b3ch12a', 'b3ch12b']
+)
+for (chapter of chapters) {
     json_data = Object.assign(json_data,require(`./chapters/${chapter}.json`))
 }
 
