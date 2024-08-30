@@ -5,9 +5,25 @@
 <img src="public/images/magium.ico" />
 </div>
 
-## Lorem ipsum
+## Story
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fringilla consequat ex, sit amet venenatis tellus euismod vel. Aenean molestie suscipit mauris non dictum. Curabitur quis tellus luctus, malesuada massa vel, finibus felis.
+Magium is a text based choose your own adventure game. In it, we follow Barry, a young man who has entered a mage tournament with the surprising goal of becoming a mage in the first place.
+
+This is a fan made recreation of the three original books created by the late Christian Mihailescu. This project intends to create a more easily accessible form for playing the interactive story, to better preserve his stories once they are taken off the various app stores Magium is currently offered on, and to eventually finish his stories collaboratively based off of the notes for his original vision for the story.
+
+## Links:
+
+[Original Magium repository](https://github.com/raduprv/Magium/tree/main?tab=MIT-1-ov-file)
+
+[Original App - PlayStore](https://play.google.com/store/apps/details?id=com.magiumgames.magium)
+
+[Original App - App Store](https://apps.apple.com/us/app/magium-text-adventure-cyoa/id1229498009)
+
+[Dev Team - Telegram](https://t.me/+xZaRFbK1P7wxYjI8)
+
+[Writing Team - Discord](https://discord.com/invite/cF3EDRmK)
+
+[Writing Team - Telegram](https://t.me/+ElJa-3ImQcVkZDBl)
 
 ## Contributors
 
