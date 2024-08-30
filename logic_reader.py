@@ -177,6 +177,10 @@ class Parser:
                 elif match := re.search('Special : Set current scene to "(?P<scene>.*)"',current):
                     event.results["new_scene"] = match.group("scene")
                     event.results["set_variables"][transform_var_name("current scene")] = match.group("scene")
+                elif match := re.search('Special : Set chapter save to 1',current):
+                    event.results["special"] = "checkpoint_save"
+                elif match := re.search('Special : Set chapter load to 1',current):
+                    event.results["special"] = "checkpoint_load"
                 elif match := re.search('Special : Set (?P<variable>.*) to (?P<value>.*)',current):
                     event.results["set_variables"][transform_var_name(match.group("variable"))] = match.group("value")
                 elif match := re.search('Special : Add (?P<value>.*) to (?P<variable>.*)',current):
@@ -190,8 +194,14 @@ class Parser:
                 elif match := re.search('checks : Set alterable string to (?P<text>.*)',current):
                     for stat_check in re.findall('"\[.*?\]"',match.group("text")):
                         event.results["stat_checks"].append(StatsCheck(stat_check.replace('"',"")+"\n","successful" in stat_check))
+                    if "Checkpoint reached" in match.group("text"):
+                        event.results["stat_checks"].append(StatsCheck("Checkpoint reached: Game saved.",True))
+                        event.type = "scene_load"
                 elif match := re.search('storyboard controls : Jump to frame "Stats"',current):
                     event.results["special"] = "stats"
+                elif match := re.search('storyboard controls : Jump to frame "Save load game"',current):
+                    if event.results.get("special","") == "":
+                        event.results["special"] = "saves"
                     
 
         return event
