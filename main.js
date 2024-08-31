@@ -17,7 +17,7 @@ function render_full(req,callback,header=""){
         return callback(req)
     }
     else {
-        return ejs.renderFile("templates/outline.ejs",{"header": header})
+        return ejs.renderFile("templates/outline.ejs",{"header": header,"path": req.path})
     }
 }
 
