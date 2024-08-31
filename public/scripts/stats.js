@@ -66,7 +66,7 @@ function getAuxiliaryStatMapping() {
     return stats_aux_mapping;
 }
 
-function initializeAuxiliaryProperty(locals, stat_property, default_value) {
+function initializeAuxiliaryProperty(stat_property, default_value) {
     const stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
         parseInt(locals[stat_property]) : 0;
     return stat_value;
@@ -74,7 +74,7 @@ function initializeAuxiliaryProperty(locals, stat_property, default_value) {
 
 // Define temporary global variables for the stats
 // Can also later set up two-way binding directly with the HTML elements using Object.defineProperty
-function getAuxiliaryStats(locals, stats_aux_mapping = null) {
+function getAuxiliaryStats(stats_aux_mapping = null) {
     if (!stats_aux_mapping) {
         stats_aux_mapping = getAuxiliaryStatMapping();
     }
@@ -82,7 +82,7 @@ function getAuxiliaryStats(locals, stats_aux_mapping = null) {
     let stats_aux = {}
     for (const [stat_aux, stat_aux_mapping] of Object.entries(stats_aux_mapping)) {
         let stat = stat_aux_mapping["stat"];
-        stats_aux[stat_aux] = initializeAuxiliaryProperty(locals, stat, 0);
+        stats_aux[stat_aux] = initializeAuxiliaryProperty(stat, 0);
     }
 
     return stats_aux;
@@ -117,9 +117,9 @@ initializeStats(stats_aux);
 var stats_changed = false; // This variable is used to check if the stats have been changed
 
 function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
-    var stat_aux_value = stats_aux[stat_aux_key];
-    var stat_max = locals["v_max_stat"];
-    var available_points = stats_aux["v_available_points_aux"];
+    let stat_aux_value = stats_aux[stat_aux_key];
+    const stat_max = locals["v_max_stat"];
+    const available_points = stats_aux["v_available_points_aux"];
 
     if ((stat_aux_value >= stat_max) || (available_points <= 0)) { return; }
     stats_aux[stat_aux_key] += 1;
@@ -133,9 +133,10 @@ function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
 function confirmStats() {
     if (!stats_changed) { return; }
     // Update the stats cookies
-    for (var stat_aux in stats_aux) {
-        var stat = stat_aux.split("_aux")[0];
-        document.cookie = stat + "=" + stats_aux[stat_aux];
+    for (let stat_aux in stats_aux) {
+        let stat_aux_mapping = stats_aux_mapping[stat_aux]
+        let stat = stat_aux_mapping["stat"]
+        storeItem(stat, stats_aux[stat_aux])
     }
     // Refresh the page to reflect the changes
     window.location.reload();
