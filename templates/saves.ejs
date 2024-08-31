@@ -26,7 +26,8 @@
             <span style="flex-grow: 1;">Slot <%= i %></span>
             <button 
             style="flex-grow: 1;"
-            onClick="saveGameToLocalStorage('save<%= i %>')"
+            onClick="saveGameToLocalStorage('save<%= i %>', 
+            <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>)"
             hx-post
             hx-ext="submitlocalstorage"
             hx-target="#content"
