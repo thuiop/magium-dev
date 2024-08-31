@@ -11,6 +11,8 @@
     --button-color: #535353;
     --button-text-color: #ffffff;
     --button-border-color: transparent;
+
+    --saves-text-color: #a52a2a;
 }
 
 /* Dark Theme */
@@ -24,6 +26,8 @@
     --button-color: #535353;
     --button-text-color: #ffffff;
     --button-border-color: transparent;
+
+    --saves-text-color: #a52a2a;
 }
 
 /* Other Themes can be added similarly */
@@ -171,13 +175,6 @@ button {
     margin-left: 1em;
 }
 
-.save-list {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin: auto;
-}
-
 .achievement-modal {
     visibility: hidden;
     position: fixed; 
@@ -218,4 +215,47 @@ button {
 
 .description {
     margin-bottom: 2em;
+}
+
+.save-list {
+    display: flex;
+    row-gap: 0.5em;
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+.save-entry {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1em;
+    align-items: center;
+}
+
+.save-entry > button {
+    /* margin-bottom: 2em; */
+    padding: 0.5em;
+    /* width: calc(30vw); */
+
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border-color: var(--button-border-color);
+
+    cursor: pointer;
+}
+
+input[type="text"] {
+    /* width: 100%; */
+    padding: 0.5em;
+    font-size: 16px;
+    border: 2px solid var(--saves-text-color);
+    /* border-radius: 25px; */
+    background-color: var(--background-color);
+    color: var(--saves-text-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
 }
