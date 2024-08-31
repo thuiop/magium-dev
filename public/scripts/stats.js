@@ -24,13 +24,13 @@ var locals = getCookies() // From the utils.js file
         if (stats_missing) {
             stats_variables.forEach(function(stat) {
                 if (stat == 'v_max_stat') {
-                    document.cookie = stat + "=3";
+                    storeItem(stat, "3") // From the utils.js file
                 } else {
-                    document.cookie = stat + "=0";
+                    storeItem(stat, "0")
                 }
                 // Temporary points
                 if (stat == 'v_available_points') {
-                    document.cookie = stat + "=30";
+                    storeItem(stat, "30")
                 }
             });
             window.location.reload();
