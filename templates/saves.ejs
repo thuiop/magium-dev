@@ -1,6 +1,11 @@
 <script>
-    function updateName(save_name_id) {
+    function renameLocalStorageSave(save_key, save_name_id) {
+        console.log("Renaming save", save_key);
         let save_name = document.getElementById(save_name_id);
+
+        let data = JSON.parse(localStorage.getItem(save_key));
+        data['name'] = save_name;
+        localStorage.setItem(save_key, JSON.stringify(data));
     }
 </script>
 <div class="description">
@@ -41,7 +46,7 @@
             </button>
             <!-- <% console.log(locals) %> -->
             <input class="save-name-input" style="flex-grow: 1;" type="text" 
-            onblur="updatename(save_name_<%= i%>)"
+            onblur="renameLocalStorageSave('save<%= i %>', 'save_name_<%= i %>')"
             id="save_name_<%= i %>"
             value="<%= saveData[`save${i}`].date %>">
             <!-- <button style="flex-grow: 1;">Update</button> -->
