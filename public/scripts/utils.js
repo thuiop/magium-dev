@@ -97,8 +97,14 @@ htmx.defineExtension('submitlocalstorage', {
     encodeParameters: function(xhr, parameters, elt) {
         xhr.overrideMimeType('text/json') // override default mime type
         let data = Object.assign({},localStorage)
+        console.log("local Storage Data: ", data);
         Object.keys(data).forEach(function(key, index) {
-            data[key] = JSON.parse(data[key])
+            try {
+                data[key] = JSON.parse(data[key]);
+            }
+            catch {
+                console.log("The following is not a JSON object: ", key);
+            }
         });
         delete data["htmx-history-cache"]
         return (JSON.stringify(data))
