@@ -5,11 +5,10 @@
   "license": "MIT",
   "main": "main.js",
   "scripts": {
-    "start:server": "nodemon main.js",
-    "startelectron": "electron .",
-    "start": "electron-forge start",
+    "start:server": "nodemon main_node.js",
+    "start:electron": "electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make --arch arm64 --platform linux"
+    "make": "electron-forge make"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
@@ -32,13 +31,6 @@
   },
   "config": {
     "forge": {
-       "packagerConfig": { 
-         "extraResource": [
-           "./templates",
-           "./public",
-           "./chapters"
-          ]
-        },
         "makers": [
         {
           "name": "@electron-forge/maker-zip",
