@@ -3,11 +3,12 @@
 <script>
     // Check if some of the stats are undefined.
     // If they are, update every stat cookie with the default value 0, and reload the page.
-    const stats_variables = getDefaultStatsVariables()
+    var stats_variables = getDefaultStatsVariables()
     
-    const locals = <%- JSON.stringify(locals) %>;
+    var locals = <%- JSON.stringify(locals) %>;
 
     "DOMContentLoaded htmx:afterSwap".split(" ").forEach(function(e){
+        console.log('Running events on stats page');
         document.addEventListener(e, function() {
             const updateCallback = () => {window.location.reload();}
             handleMissingStats(locals, storeItem, updateCallback)
@@ -19,10 +20,10 @@
 
     // Define temporary (aux) global variables for the stats
     // Can also later set up two-way binding directly with the HTML elements using Object.defineProperty
-    const stats_aux_mapping = getAuxiliaryStatMapping()
-    let stats_aux = getAuxiliaryStats(locals, stats_aux_mapping);
+    var stats_aux_mapping = getAuxiliaryStatMapping()
+    var stats_aux = getAuxiliaryStats(locals, stats_aux_mapping);
     initializeStats(stats_aux, stats_aux_mapping);
-    let stats_changed = false; // This variable is used to check if the stats have been changed
+    var stats_changed = false; // This variable is used to check if the stats have been changed
 
     function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
         let stat_aux_value = stats_aux[stat_aux_key];
