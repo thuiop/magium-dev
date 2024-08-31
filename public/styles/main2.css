@@ -214,12 +214,13 @@ button {
 }
 
 .description {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    font-size: 0.75em;
 }
 
 .save-list {
     display: flex;
-    row-gap: 0.5em;
+    row-gap: 0.1em;
     flex-direction: column;
     align-items: start;
 
@@ -232,13 +233,14 @@ button {
 .save-entry {
     display: flex;
     flex-direction: row;
-    column-gap: 1em;
+    column-gap: 0.5em;
     align-items: center;
 }
 
 .save-entry > button {
     /* margin-bottom: 2em; */
     padding: 0.5em;
+    font-size: 0.75em;
 
     background-color: var(--button-color);
     color: var(--button-text-color);
@@ -247,7 +249,7 @@ button {
     cursor: pointer;
 }
 
-.save-title-input {
+.save-name-input {
     /* width: 100%; */
     padding: 0.5em;
     font-size: 0.75em;
@@ -261,20 +263,30 @@ button {
 }
 
 @media (min-width: 800px) {
+    .save-list {
+        row-gap: 0.2em;
+    }
+
+    .save-entry {
+        column-gap: 1em;
+    }
+
+    .save-entry > button {
+        width: calc(10vw);
+        font-size: 0.875em;
+    }
+
     .description {
         width: 60%;
         margin: auto;
-        margin-bottom: 5em;
+        margin-bottom: 2em;
+        font-size: 1em;
     }
 
     .description > div {
     }
 
-    .save-entry > button {
-        width: calc(10vw);
-    }
-
-    .save-title-input {
-        font-size: 1em;
+    .save-name-input {
+        font-size: 0.875em;
     }
 }
