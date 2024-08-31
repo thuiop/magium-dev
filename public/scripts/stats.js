@@ -62,7 +62,7 @@ function getAuxiliaryStatMapping() {
 }
 
 function initializeAuxiliaryProperty(locals, stat_property, default_value) {
-    var stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
+    const stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
         parseInt(locals[stat_property]) : 0;
     return stat_value;
 }
