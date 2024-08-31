@@ -1,6 +1,13 @@
 let ejs = require('ejs');
 const path = require('path')
 
+
+if (!isNaN(parseInt(process.argv[2]))) {
+    port = parseInt(process.argv[2]);
+}
+
+console.log(port)
+
 const { app, BrowserWindow } = require('electron');
 app.on('ready', function() {
   let mainWindow = new BrowserWindow({
@@ -13,7 +20,7 @@ app.on('ready', function() {
     useContentSize: true,
     resizable: true,
   });
-  mainWindow.loadURL('http://localhost:3000/');
+  mainWindow.loadURL(`http://localhost:${port}/`);
   mainWindow.focus();
 });
 /* Initial Logic to get the header from the id.
@@ -114,7 +121,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const expressApp = express();
 expressApp.use(cookieParser());
-const port = 3000
 
 // Serve static files
 expressApp.use(express.static(path.join(__dirname, 'public')));
@@ -158,6 +164,6 @@ expressApp.all('/saves', bodyParser.json(), (req, res) => {
 })
 
 expressApp.listen(port, () => {
-    console.log(`Example expressApp listening on port ${port}`)
+    console.log(`Magium listening on port ${port}`)
 })
 
