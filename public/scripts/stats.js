@@ -16,7 +16,7 @@ var locals = getCookies() // From the utils.js file
 
 "DOMContentLoaded htmx:afterSwap".split(" ").forEach(function(e){
     document.addEventListener(e, function() {
-        var stats_missing = stats_variables.some(function(stat) {
+        const stats_missing = stats_variables.some(function(stat) {
             var value = locals[stat];
             return value === null || value === undefined;
         });
@@ -90,21 +90,22 @@ function getAuxiliaryStats(locals, stats_aux_mapping = null) {
 
 // This function is called on page load to initialize the stats
 // As well as to update when Cancel Changes is clicked
-// Unlike getAuxiliaryStats, this function is implemented in a flexible manner, instead of hard-coding
-//  For example: notice the calculation of stat, stat_value, stat_field_id, stat_value_span_id
-// TODO: Have a discussion on whether this may be too flexible and if it is better to hard-code the stats
-function initializeStats(stats_aux, reset_magic_stats = true) {
-    for (var stat_aux in stats_aux) {
+function initializeStats(stats_aux, stats_aux_mapping = null, reset_magic_stats = true) {
+    if (!stats_aux_mapping) {
+        stats_aux_mapping = getAuxiliaryStatMapping();
+    }
+
+    for (const [stat_aux, stat_aux_value] of Object.entries(stats_aux)) {
         if (!reset_magic_stats && 
         (stat_aux === "v_magical_power_aux" || stat_aux === "v_magical_knowledge_aux")) {
             continue;
         }
-        var stat = stat_aux.split("_aux")[0];
-        var stat_value = stats_aux[stat_aux];
-        var stat_field_id = stat.split("v_")[1];
-        var stat_value_span_id = stat_field_id + "_value";
+        let stat_aux_mapping = stats_aux_mapping[stat_aux]
+        let stat = stat_aux_mapping["stat"];
+        let stat_field_id = stat_aux_mapping["field_id"];
+        let stat_value_span_id = stat_aux_mapping["value_span_id"]
         if (document.getElementById(stat_value_span_id) === null) {continue;}
-        document.getElementById(stat_value_span_id).innerHTML = stat_value;
+        document.getElementById(stat_value_span_id).innerHTML = stat_aux_value;
         document.getElementById(stat_field_id).className = "stat-field" + 
             (stat === "v_available_points" ? " available" : "") +
             (stat === "v_magical_power" || stat === "v_magical_knowledge" ? " magic-special" : "");
