@@ -14,7 +14,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Intro2": {
         "id": "B3-Ch02a-Intro2",
@@ -40,7 +41,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Bunch": {
         "id": "B3-Ch02a-Bunch",
@@ -56,7 +58,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Story": {
         "id": "B3-Ch02a-Story",
@@ -72,7 +75,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Unimpressed": {
         "id": "B3-Ch02a-Unimpressed",
@@ -84,7 +88,7 @@
                 "target": "B3-Ch02a-Resort",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Resort",
-                    "v_b3_ch2_pass2": "4"
+                    "v_b3_ch2_pass2": "0"
                 },
                 "conditions": {},
                 "special": ""
@@ -128,7 +132,7 @@
                 "target": "B3-Ch02a-Resort",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Resort",
-                    "v_b3_ch2_pass2": "4"
+                    "v_b3_ch2_pass2": "0"
                 },
                 "conditions": {
                     "v_b3_ch1_password": {
@@ -189,8 +193,11 @@
             {
                 "code": "\"\"The password is 'griffin beak' \"\"",
                 "text": "\"\"The password is 'griffin beak' \"\"",
-                "target": "",
-                "set_variables": {},
+                "target": "B3-Ch02a-Resort",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Resort",
+                    "v_b3_ch2_pass2": "4"
+                },
                 "conditions": {
                     "v_b3_ch1_password": {
                         "type": "==",
@@ -199,7 +206,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Resort": {
         "id": "B3-Ch02a-Resort",
@@ -258,69 +266,243 @@
                 "special": ""
             },
             {
+                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "target": "B3-Ch02a-Drunk",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Drunk",
+                    "v_b3_ch2_infiltration": "0",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "target": "B3-Ch02a-Smash",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Smash",
+                    "v_b3_ch2_infiltration": "1",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "target": "B3-Ch02a-Drunk",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Drunk",
+                    "v_b3_ch2_infiltration": "0",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "target": "B3-Ch02a-Smash",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Smash",
+                    "v_b3_ch2_infiltration": "1",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "target": "B3-Ch02a-Drunk",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Drunk",
+                    "v_b3_ch2_infiltration": "0",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "target": "B3-Ch02a-Smash",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Smash",
+                    "v_b3_ch2_infiltration": "1",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
+                "target": "B3-Ch02a-Drunk",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Drunk",
+                    "v_b3_ch2_infiltration": "0",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 4
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "target": "B3-Ch02a-Smash",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Smash",
+                    "v_b3_ch2_infiltration": "1",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 4
+                    }
+                },
+                "special": ""
+            },
+            {
                 "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
                 "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
                 "target": "B3-Ch02a-Eavesdrop",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Eavesdrop",
-                    "v_b3_ch2_infiltration": "2"
+                    "v_b3_ch2_infiltration": "2",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
                 },
                 "conditions": {
                     "v_b3_ch2_pass2": {
                         "type": "==",
                         "value": 0
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "target": "B3-Ch02a-Drunk",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Drunk",
-                    "v_b3_ch2_infiltration": "0",
-                    "v_strength": "Strength aux",
-                    "v_agility": "Agility aux",
-                    "v_toughness": "Toughness aux",
-                    "v_reflexes": "Reflexes aux",
-                    "v_hearing": "Hearing aux",
-                    "v_perception": "Perception aux",
-                    "v_ancient_languages": "Ancient languages aux",
-                    "v_combat_technique": "Combat technique aux",
-                    "v_premonition": "Premonition aux",
-                    "v_available_points": "Available points aux"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
+                    },
+                    "v_hearing_aux": {
                         "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
-                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
-                "target": "B3-Ch02a-Smash",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Smash",
-                    "v_b3_ch2_infiltration": "1",
-                    "v_strength": "Strength aux",
-                    "v_agility": "Agility aux",
-                    "v_toughness": "Toughness aux",
-                    "v_reflexes": "Reflexes aux",
-                    "v_hearing": "Hearing aux",
-                    "v_perception": "Perception aux",
-                    "v_ancient_languages": "Ancient languages aux",
-                    "v_combat_technique": "Combat technique aux",
-                    "v_premonition": "Premonition aux",
-                    "v_available_points": "Available points aux"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
-                        "type": "==",
-                        "value": 1
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
                     }
                 },
                 "special": ""
@@ -331,23 +513,7 @@
                 "target": "B3-Ch02a-Eavesdrop",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Eavesdrop",
-                    "v_b3_ch2_infiltration": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "target": "B3-Ch02a-Drunk",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Drunk",
-                    "v_b3_ch2_infiltration": "0",
+                    "v_b3_ch2_infiltration": "2",
                     "v_strength": "Strength aux",
                     "v_agility": "Agility aux",
                     "v_toughness": "Toughness aux",
@@ -362,6 +528,116 @@
                 "conditions": {
                     "v_b3_ch2_pass2": {
                         "type": "==",
+                        "value": 1
+                    },
+                    "v_hearing_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
+                "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
+                "target": "B3-Ch02a-Eavesdrop",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Eavesdrop",
+                    "v_b3_ch2_infiltration": "2",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_hearing_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
+                "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
+                "target": "B3-Ch02a-Eavesdrop",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Eavesdrop",
+                    "v_b3_ch2_infiltration": "2",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_hearing_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
+                "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
+                "target": "B3-Ch02a-Eavesdrop",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Eavesdrop",
+                    "v_b3_ch2_infiltration": "2",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_hearing_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
                         "value": 2
                     }
                 },
@@ -388,34 +664,26 @@
                 "conditions": {
                     "v_b3_ch2_pass2": {
                         "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
                         "value": 2
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
-                "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
-                "target": "B3-Ch02a-Eavesdrop",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Eavesdrop",
-                    "v_b3_ch2_infiltration": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
+                    },
+                    "v_hearing_aux": {
                         "type": "==",
-                        "value": 2
+                        "value": 4
                     }
                 },
                 "special": ""
             },
             {
-                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "target": "B3-Ch02a-Drunk",
+                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "target": "B3-Ch02a-Smash",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Drunk",
-                    "v_b3_ch2_infiltration": "0",
+                    "v_current_scene": "B3-Ch02a-Smash",
+                    "v_b3_ch2_infiltration": "1",
                     "v_strength": "Strength aux",
                     "v_agility": "Agility aux",
                     "v_toughness": "Toughness aux",
@@ -430,7 +698,49 @@
                 "conditions": {
                     "v_b3_ch2_pass2": {
                         "type": "==",
-                        "value": 3
+                        "value": 1
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_hearing_aux": {
+                        "type": "==",
+                        "value": 4
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "text": "\"\"To be honest, I agree with Hadrik. We should just smash through their front gates.\"\"",
+                "target": "B3-Ch02a-Smash",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Smash",
+                    "v_b3_ch2_infiltration": "1",
+                    "v_strength": "Strength aux",
+                    "v_agility": "Agility aux",
+                    "v_toughness": "Toughness aux",
+                    "v_reflexes": "Reflexes aux",
+                    "v_hearing": "Hearing aux",
+                    "v_perception": "Perception aux",
+                    "v_ancient_languages": "Ancient languages aux",
+                    "v_combat_technique": "Combat technique aux",
+                    "v_premonition": "Premonition aux",
+                    "v_available_points": "Available points aux"
+                },
+                "conditions": {
+                    "v_b3_ch2_pass2": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_hearing_aux": {
+                        "type": "==",
+                        "value": 4
                     }
                 },
                 "special": ""
@@ -457,46 +767,12 @@
                     "v_b3_ch2_pass2": {
                         "type": "==",
                         "value": 3
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
-                "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
-                "target": "B3-Ch02a-Eavesdrop",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Eavesdrop",
-                    "v_b3_ch2_infiltration": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
-                        "type": "==",
-                        "value": 3
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "text": "\"\"What if we tried to get one of them drunk, instead?\"\"",
-                "target": "B3-Ch02a-Drunk",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Drunk",
-                    "v_b3_ch2_infiltration": "0",
-                    "v_strength": "Strength aux",
-                    "v_agility": "Agility aux",
-                    "v_toughness": "Toughness aux",
-                    "v_reflexes": "Reflexes aux",
-                    "v_hearing": "Hearing aux",
-                    "v_perception": "Perception aux",
-                    "v_ancient_languages": "Ancient languages aux",
-                    "v_combat_technique": "Combat technique aux",
-                    "v_premonition": "Premonition aux",
-                    "v_available_points": "Available points aux"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_hearing_aux": {
                         "type": "==",
                         "value": 4
                     }
@@ -525,27 +801,20 @@
                     "v_b3_ch2_pass2": {
                         "type": "==",
                         "value": 4
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
-                "text": "\"\"I could try to eavesdrop on someone from afar.\"\" (Requires Hearing 4)",
-                "target": "B3-Ch02a-Eavesdrop",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch02a-Eavesdrop",
-                    "v_b3_ch2_infiltration": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_pass2": {
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_hearing_aux": {
                         "type": "==",
                         "value": 4
                     }
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Drunk": {
         "id": "B3-Ch02a-Drunk",
@@ -561,7 +830,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Drunk2": {
         "id": "B3-Ch02a-Drunk2",
@@ -577,7 +847,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Drunk3": {
         "id": "B3-Ch02a-Drunk3",
@@ -605,7 +876,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Shrewd": {
         "id": "B3-Ch02a-Shrewd",
@@ -641,7 +913,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Smash": {
         "id": "B3-Ch02a-Smash",
@@ -657,7 +930,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Smash2": {
         "id": "B3-Ch02a-Smash2",
@@ -673,7 +947,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Eavesdrop": {
         "id": "B3-Ch02a-Eavesdrop",
@@ -689,7 +964,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Eavesdrop2": {
         "id": "B3-Ch02a-Eavesdrop2",
@@ -705,7 +981,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Information": {
         "id": "B3-Ch02a-Information",
@@ -744,7 +1021,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Ignore": {
         "id": "B3-Ch02a-Ignore",
@@ -753,14 +1031,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B3-Ch02a-Ruckus",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Ruckus"
+                },
+                "conditions": {
+                    "v_b3_ch2_infiltration": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B3-Ch02a-Insane",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Insane"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch2_infiltration": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Kill": {
         "id": "B3-Ch02a-Kill",
@@ -769,14 +1068,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B3-Ch02a-Ruckus",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Ruckus"
+                },
+                "conditions": {
+                    "v_b3_ch2_infiltration": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B3-Ch02a-Insane",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Insane"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch2_infiltration": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Talk": {
         "id": "B3-Ch02a-Talk",
@@ -785,14 +1105,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B3-Ch02a-Unfortunate",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Unfortunate"
+                },
+                "conditions": {
+                    "v_b3_ch1_password": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B3-Ch02a-Dialect",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Dialect"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch1_password": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Unfortunate": {
         "id": "B3-Ch02a-Unfortunate",
@@ -801,14 +1142,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B3-Ch02a-Ruckus",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch02a-Ruckus"
+                },
+                "conditions": {
+                    "v_b3_ch2_infiltration": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B3-Ch02a-Insane",
                 "set_variables": {
                     "v_current_scene": "B3-Ch02a-Insane"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch2_infiltration": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Dialect": {
         "id": "B3-Ch02a-Dialect",
@@ -824,7 +1186,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Dialect2": {
         "id": "B3-Ch02a-Dialect2",
@@ -958,7 +1321,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Trouble": {
         "id": "B3-Ch02a-Trouble",
@@ -1040,7 +1404,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Communicating": {
         "id": "B3-Ch02a-Communicating",
@@ -1056,7 +1421,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Ruckus": {
         "id": "B3-Ch02a-Ruckus",
@@ -1072,7 +1438,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Insane": {
         "id": "B3-Ch02a-Insane",
@@ -1123,7 +1490,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Insane2": {
         "id": "B3-Ch02a-Insane2",
@@ -1173,7 +1541,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch02a-Observation": {
         "id": "B3-Ch02a-Observation",
@@ -1295,6 +1664,32 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch1_unlock": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -1419,6 +1814,32 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch1_unlock": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch02a-Speed": {
@@ -1541,6 +1962,32 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch1_unlock": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -1736,6 +2183,68 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch1_unlock": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch02a-Rubble": {
@@ -1752,6 +2261,7 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

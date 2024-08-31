@@ -25,7 +25,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Scout": {
         "id": "B3-Ch12b-Scout",
@@ -106,6 +107,28 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch12_scout",
+                "value": 2,
+                "conditions": {
+                    "v_perception": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch12_scout",
+                "value": 3,
+                "conditions": {
+                    "v_perception": {
+                        "type": ">=",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "B3-Ch12b-Necromancers": {
@@ -172,7 +195,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Hostage": {
         "id": "B3-Ch12b-Hostage",
@@ -208,7 +232,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Visions": {
         "id": "B3-Ch12b-Visions",
@@ -234,7 +259,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Wait": {
         "id": "B3-Ch12b-Wait",
@@ -250,7 +276,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Wait2": {
         "id": "B3-Ch12b-Wait2",
@@ -284,7 +311,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Attack": {
         "id": "B3-Ch12b-Attack",
@@ -300,7 +328,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Attack2": {
         "id": "B3-Ch12b-Attack2",
@@ -316,7 +345,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Attack3": {
         "id": "B3-Ch12b-Attack3",
@@ -332,7 +362,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Attack4": {
         "id": "B3-Ch12b-Attack4",
@@ -434,12 +465,70 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Gadgets": {
         "id": "B3-Ch12b-Gadgets",
         "text": "<% if((locals.v_b3_ch12_punches || 0) == 0) {%> \"If you liked that throw, wait till you feel one of her punches!\"<br/>\"I never knew that you remembered my punches so fondly, Barry,\" Kate tells me, as she is cracking her knuckles. \"Come closer, and I can give you as many of them as you want.\"<br/><br/>\"Tempting, but I think I'll pass, for now!\" I say.<br/><br/>\"That's fine,\" Kate says. \"The offer won't expire, anyway. All you need to do is say something stupid again, and you can claim your reward for free.\"<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 0) {%> \"Couldn't you have this conversation while you're walking?...\" Arraka says. \"The enemies are already gone. What exactly are we still doing here?\"<br/>\"I'm trying to figure out how the mages teleported out of here,\" Daren says. \"I saw the illusionist using some kind of device, but it was too small to be a teleporter, so I figured that it was just a remote control, and that the real teleporter should still be hidden somewhere around here. Maybe we could make use of it.\"<br/><br/>\"Do you seriously think he'd leave a device like this lying around if it was still usable?\" Arraka says. \"It's probably one of those... one-use-only teleporting gadgets that you can easily buy on the market if you have enough money. Even I know about them, and I have zero interest in magical devices. You're just wasting your time.\"<br/><br/>\"On the contrary,\" Daren says. \"Those 'one-use-only' gadgets, as you call them can actually be used as amplifiers for your magical power for a whole day if you tweak them a little after they've fulfilled their purpose as teleporting devices. It's a trick that I learned back in my early days of enchanting when I didn't want to waste any materials on--\"<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 0) {%> \"Ugh...\" Arraka groans, audibly. \"Even if you can find some use for it, you'll never be able to retrieve it. The green-robed wimp hid the device behind an illusion that remained active even after he teleported away, which means that it's likely even more complicated than the one I already deciphered. Since I couldn't care less about your lame magic amplifier, and you obviously can't see through the illusion by yourself, the only solution would be to wait until the spell runs out, which could last for days. Or, if you're really desperate, I suppose you could dig up the entire area until you find it, because I'm assuming that he must have buried it somewhere. Are you up for a few hours of digging, Daren?\"<br/>\"Okay, I get your point,\" Daren says. \"Let's move on.\"<br/><br/>\"Music to my ears!\" Arraka tells him.<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 1) {%> \"Kate being shy? Are you sure you're talking about the same person?\"<br/>\"Oh, that's right...\" Diane says. \"The Kate that you saw in the God of Time's ritual was just the current version of her in her younger body. You never actually got to see how she used to act during that time! I wish you met her back then. She was so adorable!\"<br/><br/>\"Can you... not talk about what I was like before I left the Beacon?\" Kate says. \"It's a little embarrassing.\"<br/><br/>\"Oh, so you can still get embarrassed despite your newly-found cold and composed attitude!\" Diane says. \"I'm liking this new Kate more and more!\"<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 1) {%> \"Couldn't you have this conversation while you're walking?...\" Arraka says. \"The enemies are already gone. What exactly are we still doing here?\"<br/>\"I'm trying to figure out how the mages teleported out of here,\" Daren says. \"I saw the illusionist using some kind of device, but it was too small to be a teleporter, so I figured that it was just a remote control, and that the real teleporter should still be hidden somewhere around here. Maybe we could make use of it.\"<br/><br/>\"Do you seriously think he'd leave a device like this lying around if it was still usable?\" Arraka says. \"It's probably one of those... one-use-only teleporting gadgets that you can easily buy on the market if you have enough money. Even I know about them, and I have zero interest in magical devices. You're just wasting your time.\"<br/><br/>\"On the contrary,\" Daren says. \"Those 'one-use-only' gadgets, as you call them can actually be used as amplifiers for your magical power for a whole day if you tweak them a little after they've fulfilled their purpose as teleporting devices. It's a trick that I learned back in my early days of enchanting when I didn't want to waste any materials on--\"<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 1) {%> \"Ugh...\" Arraka groans, audibly. \"Even if you can find some use for it, you'll never be able to retrieve it. The green-robed wimp hid the device behind an illusion that remained active even after he teleported away, which means that it's likely even more complicated than the one I already deciphered. Since I couldn't care less about your lame magic amplifier, and you obviously can't see through the illusion by yourself, the only solution would be to wait until the spell runs out, which could last for days. Or, if you're really desperate, I suppose you could dig up the entire area until you find it, because I'm assuming that he must have buried it somewhere. Are you up for a few hours of digging, Daren?\"<br/>\"Okay, I get your point,\" Daren says. \"Let's move on.\"<br/><br/>\"Music to my ears!\" Arraka tells him.<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 2) {%> \"I don't understand how you thought you could beat Kate in hand-to-hand combat.\" <br/>\"Yeah, no kidding,\" Hadrik says. \"She even managed to throw me to the ground one time during a mock duel! I mean, I was holding back quite a bit, but it was still pretty impressive! She has this sort of... technique that allows her to knock you off balance and completely brush off your attack even if you put a lot of strength behind your punch. I'm not sure how she does it, exactly...\"<br/><br/>\"It's a type of martial art,\" Daren says, as he is still looking around the area that the mages teleported from. \"Nolderan told me about it at one point. I don't remember exactly what it's called, but supposedly it uses your opponent's own strength against them and it can also work against armed opponents, if you are skilled enough. Didn't Kate once mention to us that some martial arts master took pity on her when her ice powers were still weak, and he secretly taught her some lessons in the woods where she was hiding?\"<br/><br/>\"Oh, right, I think she did say something like that,\" Hadrik says.<br/><br/>\"I didn't know you learned to fight from a martial arts master, Kate!\" Diane says. \"I would love to meet him some day!\"<br/><br/>\"Unfortunately that is not possible anymore,\" Kate says. \"He died of old age not too long ago.\"<br/><br/>\"I'm sorry to hear that...\" Diane says.<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 2) {%> \"Couldn't you have this conversation while you're walking?...\" Arraka says. \"The enemies are already gone. What exactly are we still doing here?\"<br/>\"I'm trying to figure out how the mages teleported out of here,\" Daren says. \"I saw the illusionist using some kind of device, but it was too small to be a teleporter, so I figured that it was just a remote control, and that the real teleporter should still be hidden somewhere around here. Maybe we could make use of it.\"<br/><br/>\"Do you seriously think he'd leave a device like this lying around if it was still usable?\" Arraka says. \"It's probably one of those... one-use-only teleporting gadgets that you can easily buy on the market if you have enough money. Even I know about them, and I have zero interest in magical devices. You're just wasting your time.\"<br/><br/>\"On the contrary,\" Daren says. \"Those 'one-use-only' gadgets, as you call them can actually be used as amplifiers for your magical power for a whole day if you tweak them a little after they've fulfilled their purpose as teleporting devices. It's a trick that I learned back in my early days of enchanting when I didn't want to waste any materials on--\"<br/><br/><% } %><% if((locals.v_b3_ch12_punches || 0) == 2) {%> \"Ugh...\" Arraka groans, audibly. \"Even if you can find some use for it, you'll never be able to retrieve it. The green-robed wimp hid the device behind an illusion that remained active even after he teleported away, which means that it's likely even more complicated than the one I already deciphered. Since I couldn't care less about your lame magic amplifier, and you obviously can't see through the illusion by yourself, the only solution would be to wait until the spell runs out, which could last for days. Or, if you're really desperate, I suppose you could dig up the entire area until you find it, because I'm assuming that he must have buried it somewhere. Are you up for a few hours of digging, Daren?\"<br/>\"Okay, I get your point,\" Daren says. \"Let's move on.\"<br/><br/>\"Music to my ears!\" Arraka tells him.<br/><br/><% } %>",
         "responses": [
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch12b-Digging",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Digging"
+                },
+                "conditions": {
+                    "v_b3_ch12_punches": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch12b-Digging",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Digging"
+                },
+                "conditions": {
+                    "v_b3_ch12_punches": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch12b-Digging",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Digging"
+                },
+                "conditions": {
+                    "v_b3_ch12_punches": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
             {
                 "code": "Continue",
                 "text": "Continue",
@@ -451,6 +540,10 @@
                     "v_b3_ch12_punches": {
                         "type": "==",
                         "value": 0
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "!=",
+                        "value": 3
                     }
                 },
                 "special": ""
@@ -466,6 +559,10 @@
                     "v_b3_ch12_punches": {
                         "type": "==",
                         "value": 1
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "!=",
+                        "value": 3
                     }
                 },
                 "special": ""
@@ -481,11 +578,16 @@
                     "v_b3_ch12_punches": {
                         "type": "==",
                         "value": 2
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "!=",
+                        "value": 3
                     }
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Digging": {
         "id": "B3-Ch12b-Digging",
@@ -501,7 +603,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Detector": {
         "id": "B3-Ch12b-Detector",
@@ -537,7 +640,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Pinecone": {
         "id": "B3-Ch12b-Pinecone",
@@ -576,12 +680,70 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Diplomatic": {
         "id": "B3-Ch12b-Diplomatic",
         "text": "<% if((locals.v_b3_ch12_hideous || 0) == 0) {%> \"Flower, watch out! There's a hideous monster right behind you!!!\"<br/>\"There is?!\" Flower says, panicked, as she instantly turns around. \"Where?... Oh, you meant the-- Oh, it was a joke. Good one, Barry... You got me!\"<br/><br/>She then laughs very nervously for about two seconds.<br/><br/>\"What are you doing with the pinecone, Flower?\" the golden fox says.<br/><br/>\"Oh, this pinecone?!\" Flower says, as if she only now noticed what she was holding in her hand. \"We need it for... umm... you see, there is this mage contest, and--\"<br/><br/>\"I know what the pinecone is for,\" the fox says. \"I've had mages invading my forests for days, trying to get their hands on them. What I am asking you is why you thought it was a good idea to take something from my territory without asking for my permission?\"<br/><br/>\"I... didn't think you'd care if it was just one pinecone...\" Flower says, in a meek voice.<br/><br/>\"Well, you thought wrong,\" the fox says. \"Now hand it over.\"<br/><br/>\"Couldn't we maybe... make a deal or something?\" Flower says. \"We only need one!\"<br/><br/>\"A deal, you say?...\" asks Eleya, the golden fox.<br/><br/>\"Yeah,\" Flower answers her. \"Is there something you'd like in exchange for it?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 0) {%> \"Now that I take a good look at you all, I see that you've gotten quite a bit stronger since I've last seen you,\" Eleya says. \"Maybe there is something you can do for me in exchange for the pinecone...\"<br/>\"Sure thing!\" Flower says. \"Just name your price!\"<br/><br/>\"You may already know this,\" the fox says, \"but there will be a diplomatic meeting in Galamir soon, concerning the upcoming war against Tyrath's forces, and my second-in-command, Leo, was supposed to attend it. However, due to the constant trespassing of my territory by mages who have been looking for pinecones in the past few days, I have been unable to spare any of my strong warriors to accompany him to his destination.\"<br/><br/>\"Can't you just monitor all of the borders by yourself, and teleport there whenever there's trouble like you did now?\" Flower asks, confused.<br/><br/>\"My magical sense does not cover the whole continent, and my territories are spread out all over Varathia,\" Eleya says. \"I need my warriors to stay where they are, which is why I am asking you to escort Leo to Galamir, in exchange for the pinecone. As far as I know, that is also where your friends will need to take the pinecone in order to commence their second tournament objective, so this task should not interfere with their schedule. Are you going to accept the deal or not?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 0) {%> \"Uh, yes... I think... I mean, if everyone else agrees...\" Flower says, as she takes a quick look towards us and she sees us all nodding at her. \"But... are you sure that you want to send Leo alone with us? Wouldn't it be safer to send him to Galamir alone than with a group of human mages?\"<br/>\"Flower...\" Eleya says. \"During the twenty years since I've met you, you've done nothing but help the animals in my care, without ever expecting anything in return. And as much as I hate to admit it, in the end you were right about Illuna, and she has proven to be a trustworthy ally over the years. I've also verified that she was indeed telling the truth about Arraka being the one who instigated the tragic incident of the so-called 'sacred woods massacre', and while it is hard to say that she will ever be forgiven for what she has done, her actions were at least understandable, given the context.\"<br/><br/>\"Hmph,\" Illuna says, simply.<br/><br/>\"Therefore,\" the fox continues, \"if you give me your word that you will do your best to safely escort Leo to Galamir, that will be enough reassurance for me.\"<br/><br/>\"Wow, Eleya,\" Flower says. \"I don't know what to say. Thank you! And yes, I give you my word. I will do my best to escort Leo to Galamir safely!\"<br/><br/>\"Very well,\" the fox says. \"In that case, I will bring him to you in a moment. Wait here.\"<br/><br/>\"Huh...\" says Hadrik, after Eleya teleports away from us. \"I guess the fox really does have a soft spot for Flower. Who would have thought, eh?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 1) {%> \"We're not trespassing this time! Look, the border is over there!\"<br/>\"I never said that you were trespassing,\" the golden fox says, simply.<br/><br/>\"Good,\" I say. \"That's good. I just wanted to make sure that there are no misunderstandings.\"<br/><br/>\"So... am I free to go, then?\" Flower asks the fox.<br/><br/>\"Of course,\" says the golden fox. \"As soon as you hand over the pinecone.\"<br/><br/>\"But-- but we need it for--\"<br/><br/>\"I know what the pinecone is for,\" the fox says. \"I've had mages invading my forests for days, trying to get their hands on them. Now hand it over.\"<br/><br/>\"Couldn't we maybe... make a deal or something?\" Flower says. \"All we want is one pinecone...\"<br/><br/>\"A deal, you say?...\" asks Eleya, the golden fox.<br/><br/>\"Yeah,\" Flower answers her. \"Is there something you'd like in exchange for it?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 1) {%> \"Now that I take a good look at you all, I see that you've gotten quite a bit stronger since I've last seen you,\" Eleya says. \"Maybe there is something you can do for me in exchange for the pinecone...\"<br/>\"Sure thing!\" Flower says. \"Just name your price!\"<br/><br/>\"You may already know this,\" the fox says, \"but there will be a diplomatic meeting in Galamir soon, concerning the upcoming war against Tyrath's forces, and my second-in-command, Leo, was supposed to attend it. However, due to the constant trespassing of my territory by mages who have been looking for pinecones in the past few days, I have been unable to spare any of my strong warriors to accompany him to his destination.\"<br/><br/>\"Can't you just monitor all of the borders by yourself, and teleport there whenever there's trouble like you did now?\" Flower asks, confused.<br/><br/>\"My magical sense does not cover the whole continent, and my territories are spread out all over Varathia,\" Eleya says. \"I need my warriors to stay where they are, which is why I am asking you to escort Leo to Galamir, in exchange for the pinecone. As far as I know, that is also where your friends will need to take the pinecone in order to commence their second tournament objective, so this task should not interfere with their schedule. Are you going to accept the deal or not?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 1) {%> \"Uh, yes... I think... I mean, if everyone else agrees...\" Flower says, as she takes a quick look towards us and she sees us all nodding at her. \"But... are you sure that you want to send Leo alone with us? Wouldn't it be safer to send him to Galamir alone than with a group of human mages?\"<br/>\"Flower...\" Eleya says. \"During the twenty years since I've met you, you've done nothing but help the animals in my care, without ever expecting anything in return. And as much as I hate to admit it, in the end you were right about Illuna, and she has proven to be a trustworthy ally over the years. I've also verified that she was indeed telling the truth about Arraka being the one who instigated the tragic incident of the so-called 'sacred woods massacre', and while it is hard to say that she will ever be forgiven for what she has done, her actions were at least understandable, given the context.\"<br/><br/>\"Hmph,\" Illuna says, simply.<br/><br/>\"Therefore,\" the fox continues, \"if you give me your word that you will do your best to safely escort Leo to Galamir, that will be enough reassurance for me.\"<br/><br/>\"Wow, Eleya,\" Flower says. \"I don't know what to say. Thank you! And yes, I give you my word. I will do my best to escort Leo to Galamir safely!\"<br/><br/>\"Very well,\" the fox says. \"In that case, I will bring him to you in a moment. Wait here.\"<br/><br/>\"Huh...\" says Hadrik, after Eleya teleports away from us. \"I guess the fox really does have a soft spot for Flower. Who would have thought, eh?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 2) {%> \"What are you doing with the pinecone, Flower?\" the golden fox says, after a few more seconds of silence.<br/>\"Oh, this pinecone?!\" Flower says, as if she only now noticed what she was holding in her hand. \"We need it for... umm... you see, there is this mage contest, and--\"<br/><br/>\"I know what the pinecone is for,\" the fox says. \"I've had mages invading my forests for days, trying to get their hands on them. What I am asking you is why you thought it was a good idea to take something from my territory without asking for my permission?\"<br/><br/>\"I... didn't think you'd care if it was just one pinecone...\" Flower says, in a meek voice.<br/><br/>\"Well, you thought wrong,\" the fox says. \"Now hand it over.\"<br/><br/>\"Couldn't we maybe... make a deal or something?\" Flower says. \"We only need one!\"<br/><br/>\"A deal, you say?...\" asks Eleya, the golden fox.<br/><br/>\"Yeah,\" Flower answers her. \"Is there something you'd like in exchange for it?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 2) {%> \"Now that I take a good look at you all, I see that you've gotten quite a bit stronger since I've last seen you,\" Eleya says. \"Maybe there is something you can do for me in exchange for the pinecone...\"<br/>\"Sure thing!\" Flower says. \"Just name your price!\"<br/><br/>\"You may already know this,\" the fox says, \"but there will be a diplomatic meeting in Galamir soon, concerning the upcoming war against Tyrath's forces, and my second-in-command, Leo, was supposed to attend it. However, due to the constant trespassing of my territory by mages who have been looking for pinecones in the past few days, I have been unable to spare any of my strong warriors to accompany him to his destination.\"<br/><br/>\"Can't you just monitor all of the borders by yourself, and teleport there whenever there's trouble like you did now?\" Flower asks, confused.<br/><br/>\"My magical sense does not cover the whole continent, and my territories are spread out all over Varathia,\" Eleya says. \"I need my warriors to stay where they are, which is why I am asking you to escort Leo to Galamir, in exchange for the pinecone. As far as I know, that is also where your friends will need to take the pinecone in order to commence their second tournament objective, so this task should not interfere with their schedule. Are you going to accept the deal or not?\"<br/><br/><% } %><% if((locals.v_b3_ch12_hideous || 0) == 2) {%> \"Uh, yes... I think... I mean, if everyone else agrees...\" Flower says, as she takes a quick look towards us and she sees us all nodding at her. \"But... are you sure that you want to send Leo alone with us? Wouldn't it be safer to send him to Galamir alone than with a group of human mages?\"<br/>\"Flower...\" Eleya says. \"During the twenty years since I've met you, you've done nothing but help the animals in my care, without ever expecting anything in return. And as much as I hate to admit it, in the end you were right about Illuna, and she has proven to be a trustworthy ally over the years. I've also verified that she was indeed telling the truth about Arraka being the one who instigated the tragic incident of the so-called 'sacred woods massacre', and while it is hard to say that she will ever be forgiven for what she has done, her actions were at least understandable, given the context.\"<br/><br/>\"Hmph,\" Illuna says, simply.<br/><br/>\"Therefore,\" the fox continues, \"if you give me your word that you will do your best to safely escort Leo to Galamir, that will be enough reassurance for me.\"<br/><br/>\"Wow, Eleya,\" Flower says. \"I don't know what to say. Thank you! And yes, I give you my word. I will do my best to escort Leo to Galamir safely!\"<br/><br/>\"Very well,\" the fox says. \"In that case, I will bring him to you in a moment. Wait here.\"<br/><br/>\"Huh...\" says Hadrik, after Eleya teleports away from us. \"I guess the fox really does have a soft spot for Flower. Who would have thought, eh?\"<br/><br/><% } %>",
         "responses": [
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch12b-Wolf",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Wolf"
+                },
+                "conditions": {
+                    "v_b3_ch12_hideous": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_animals": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch12b-Wolf",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Wolf"
+                },
+                "conditions": {
+                    "v_b3_ch12_hideous": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch9_animals": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch12b-Wolf",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Wolf"
+                },
+                "conditions": {
+                    "v_b3_ch12_hideous": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_b2_ch9_animals": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
             {
                 "code": "Continue",
                 "text": "Continue",
@@ -593,6 +755,10 @@
                     "v_b3_ch12_hideous": {
                         "type": "==",
                         "value": 0
+                    },
+                    "v_b2_ch9_animals": {
+                        "type": "!=",
+                        "value": 2
                     }
                 },
                 "special": ""
@@ -608,6 +774,10 @@
                     "v_b3_ch12_hideous": {
                         "type": "==",
                         "value": 1
+                    },
+                    "v_b2_ch9_animals": {
+                        "type": "!=",
+                        "value": 2
                     }
                 },
                 "special": ""
@@ -623,11 +793,16 @@
                     "v_b3_ch12_hideous": {
                         "type": "==",
                         "value": 2
+                    },
+                    "v_b2_ch9_animals": {
+                        "type": "!=",
+                        "value": 2
                     }
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Wolf": {
         "id": "B3-Ch12b-Wolf",
@@ -662,6 +837,28 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch12_languages",
+                "value": 0,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch12_languages",
+                "value": 1,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -699,7 +896,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Eiden": {
         "id": "B3-Ch12b-Eiden",
@@ -727,7 +925,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Eiden2": {
         "id": "B3-Ch12b-Eiden2",
@@ -763,7 +962,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Eiden3": {
         "id": "B3-Ch12b-Eiden3",
@@ -779,7 +979,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Eiden4": {
         "id": "B3-Ch12b-Eiden4",
@@ -795,7 +996,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Eiden5": {
         "id": "B3-Ch12b-Eiden5",
@@ -821,7 +1023,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Deescalate": {
         "id": "B3-Ch12b-Deescalate",
@@ -855,7 +1058,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Unleashes": {
         "id": "B3-Ch12b-Unleashes",
@@ -871,23 +1075,13 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Unleashes2": {
         "id": "B3-Ch12b-Unleashes2",
         "text": " Okay... I need to analyze the situation calmly and come up with a solution. Right now, Daren and Hadrik are the only ones actively fighting Eiden, and it's pretty clear that so far he has only been toying with them. Even without releasing his full power, he should be capable of much more than what he's shown so far.<br/>This means that if we catch him by surprise in his current state, we might still have a chance to turn things around. As it stands, we already have a plan prepared for neutralizing the Arraka from the past, which is supposed to be more powerful than Eiden's strongest form. However, in order for that plan to work, Eiden would need to stand in place for a few seconds and to also be distracted enough to not attempt to block Kate's ice beam.<br/><br/>Let me think. Is there some way in which I could get Eiden to stand in place and not pay attention to what Kate is doing?...<br/><br/>Wait! There is a way! I actually have the perfect spells I need, and I've even practiced them multiple times! But I'm still going to need him to be considerably weakened before I cast these spells if I want them to have the best effect on him.<br/><br/> And for that, I'm going to need some help.<br/>\"Flower, Illuna,\" I say. \"We need to put some more pressure on Eiden. Can I count on you?\"<br/><br/>\"I trust that you've come up with a plan of some sort?\" Illuna asks me.<br/><br/>\"I have, but I'd rather not talk about it out loud, because I'm not sure how much Eiden has enhanced his hearing ability,\" I say.<br/><br/>\"Understood,\" Illuna says. \"In that case, whenever you're ready.\"<br/><br/>I nod at her, and then I turn to Kate, who is still standing near the unconscious Diane, in order to be ready to defend her from harm.<br/><br/> \"Kate,\" I say, \"do you remember our plan to take down the Arraka from the past?\"<br/>\"I remember it, yes,\" Kate answers me.<br/><br/>\"Good,\" I say, \"Then, I'm going to need you to save up your energy as much as possible, and not do anything until I set up the perfect opportunity for you. You'll know it when it happens.\"<br/><br/>\"Okay, I'll be waiting, then,\" Kate says.<br/><br/>",
         "responses": [
-            {
-                "code": "Go all out (Requires max Strength, Speed, Reflexes, Toughness, Aura hardening)",
-                "text": "Go all out (Requires max Strength, Speed, Reflexes, Toughness, Aura hardening)",
-                "target": "B3-Ch12b-Allout1",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch12b-Allout1",
-                    "v_b3_ch12_eiden": "4"
-                },
-                "conditions": {},
-                "special": ""
-            },
             {
                 "code": "Offer support to Flower and Illuna, but try to keep a distance from Eiden.",
                 "text": "Offer support to Flower and Illuna, but try to keep a distance from Eiden.",
@@ -907,8 +1101,41 @@
                 },
                 "conditions": {},
                 "special": ""
+            },
+            {
+                "code": "Go all out (Requires max Strength, Speed, Reflexes, Toughness, Aura hardening)",
+                "text": "Go all out (Requires max Strength, Speed, Reflexes, Toughness, Aura hardening)",
+                "target": "B3-Ch12b-Allout1",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Allout1",
+                    "v_b3_ch12_eiden": "4"
+                },
+                "conditions": {
+                    "v_strength_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_agility_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_toughness_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_reflexes_aux": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_aura_hardening_aux": {
+                        "type": "==",
+                        "value": 4
+                    }
+                },
+                "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Support": {
         "id": "B3-Ch12b-Support",
@@ -1067,7 +1294,8 @@
                 },
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Allout1": {
         "id": "B3-Ch12b-Allout1",
@@ -1126,7 +1354,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Allout2": {
         "id": "B3-Ch12b-Allout2",
@@ -1142,7 +1371,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Together": {
         "id": "B3-Ch12b-Together",
@@ -1201,7 +1431,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Together2": {
         "id": "B3-Ch12b-Together2",
@@ -1265,10 +1496,10 @@
             {
                 "code": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
                 "text": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
-                "target": "B3-Ch12b-Steal",
+                "target": "B3-Ch12b-Orangutan",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch12b-Steal",
-                    "v_b3_ch12_eiden": "3"
+                    "v_current_scene": "B3-Ch12b-Orangutan",
+                    "v_b3_ch12_eiden": "0"
                 },
                 "conditions": {
                     "v_b3_ch12_hadrik": {
@@ -1337,10 +1568,10 @@
             {
                 "code": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
                 "text": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
-                "target": "B3-Ch12b-Steal",
+                "target": "B3-Ch12b-Orangutan",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch12b-Steal",
-                    "v_b3_ch12_eiden": "3"
+                    "v_current_scene": "B3-Ch12b-Orangutan",
+                    "v_b3_ch12_eiden": "0"
                 },
                 "conditions": {
                     "v_b3_ch12_hadrik": {
@@ -1409,8 +1640,11 @@
             {
                 "code": "Temporarily steal Eiden's energy with my stat device.",
                 "text": "Temporarily steal Eiden's energy with my stat device.",
-                "target": "",
-                "set_variables": {},
+                "target": "B3-Ch12b-Steal",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Steal",
+                    "v_b3_ch12_eiden": "3"
+                },
                 "conditions": {
                     "v_b3_ch12_hadrik": {
                         "type": "==",
@@ -1430,10 +1664,10 @@
             {
                 "code": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
                 "text": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
-                "target": "B3-Ch12b-Steal",
+                "target": "B3-Ch12b-Orangutan",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch12b-Steal",
-                    "v_b3_ch12_eiden": "3"
+                    "v_current_scene": "B3-Ch12b-Orangutan",
+                    "v_b3_ch12_eiden": "0"
                 },
                 "conditions": {
                     "v_b3_ch12_hadrik": {
@@ -1490,10 +1724,10 @@
             {
                 "code": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
                 "text": "Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.",
-                "target": "B3-Ch12b-Steal",
+                "target": "B3-Ch12b-Orangutan",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch12b-Steal",
-                    "v_b3_ch12_eiden": "3"
+                    "v_current_scene": "B3-Ch12b-Orangutan",
+                    "v_b3_ch12_eiden": "0"
                 },
                 "conditions": {
                     "v_b3_ch12_hadrik": {
@@ -1550,8 +1784,11 @@
             {
                 "code": "Temporarily steal Eiden's energy with my stat device.",
                 "text": "Temporarily steal Eiden's energy with my stat device.",
-                "target": "",
-                "set_variables": {},
+                "target": "B3-Ch12b-Steal",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch12b-Steal",
+                    "v_b3_ch12_eiden": "3"
+                },
                 "conditions": {
                     "v_b3_ch12_hadrik": {
                         "type": "==",
@@ -1563,6 +1800,22 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch10_eiden": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -1754,6 +2007,50 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_bluff": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_bluff": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_bluff": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            }
         ]
     },
     "B3-Ch12b-Dagger": {
@@ -1820,7 +2117,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Away": {
         "id": "B3-Ch12b-Away",
@@ -1854,7 +2152,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Overconfident": {
         "id": "B3-Ch12b-Overconfident",
@@ -1917,6 +2216,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b2_ch9_animals": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -2108,6 +2419,50 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "!=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch12_hadrik": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch12_scout": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "B3-Ch12b-Steal": {
@@ -2203,6 +2558,22 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch11_red": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            }
         ]
     },
     "B3-Ch12b-Blinding": {
@@ -2229,7 +2600,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Taunt": {
         "id": "B3-Ch12b-Taunt",
@@ -2263,7 +2635,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Invitation": {
         "id": "B3-Ch12b-Invitation",
@@ -2299,7 +2672,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Invitation2": {
         "id": "B3-Ch12b-Invitation2",
@@ -2315,7 +2689,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Invitation3": {
         "id": "B3-Ch12b-Invitation3",
@@ -2331,7 +2706,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Invitation4": {
         "id": "B3-Ch12b-Invitation4",
@@ -2359,7 +2735,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Azarius": {
         "id": "B3-Ch12b-Azarius",
@@ -2395,7 +2772,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Ending": {
         "id": "B3-Ch12b-Ending",
@@ -2411,20 +2789,13 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch12b-Credits": {
         "id": "B3-Ch12b-Credits",
         "text": " This is the end of the third Magium book.<br/>The rest of the books have not been written yet, but they will be released on a chapter by chapter basis. (there will likely be 5 books in the main series and 2 prequels)<br/><br/>My current estimate is that the first chapter of the fourth book should be released within the next few months.<br/><br/>If you want to replay the game to find different paths, I recommend trying to complete the achievements from the main menu, because they are designed to showcase most of the important variations in the story.<br/><br/>If you want to chat about the game with other players while you wait for the new chapters, you can join the discussion on the r/magium subreddit, by tapping on the button below.<br/><br/>If you want to be notified of the game's updates, then you can visit the Magium Games twitter page, by tapping the corresponding button below, and follow me on twitter.<br/><br/>Also, if you want to review the game,  please keep in mind that not all players reading the game reviews have finished the game, so avoid giving spoilers in the reviews as much as possible.<br/><br/>Thank you for playing!<br/><br/>P.S. If you enjoyed the game, don't forget to recommend it to your friends.<br/><br/>",
         "responses": [
-            {
-                "code": "Join the discussion on Reddit",
-                "text": "Join the discussion on Reddit",
-                "target": "",
-                "set_variables": {},
-                "conditions": {},
-                "special": ""
-            },
             {
                 "code": "Restart game",
                 "text": "Restart game",
@@ -2452,15 +2823,8 @@
                 "set_variables": {},
                 "conditions": {},
                 "special": "saves"
-            },
-            {
-                "code": "Visit the Magium Games twitter page",
-                "text": "Visit the Magium Games twitter page",
-                "target": "",
-                "set_variables": {},
-                "conditions": {},
-                "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

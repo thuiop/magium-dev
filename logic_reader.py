@@ -1,13 +1,15 @@
 from collections import defaultdict
+from copy import deepcopy
 from dataclasses import dataclass, field
 from itertools import groupby
 import json
-from pathlib import Path
+import pathlib
 import pprint
 import re
 from typing import Any
+import warnings
 
-root_folder = Path("./chapters")
+root_folder = pathlib.Path("./chapters")
 pp = pprint.PrettyPrinter(2)
 
 
@@ -122,8 +124,27 @@ class StatsCheck:
     conditions: dict = field(default_factory=dict)
 
 @dataclass
+class Path:
+    conditions: dict[str,Any]
+    responses: list[Response]
+    paragraphs: list[Paragraph]
+    set_variables: list[SceneVariableSet]
+    stat_checks: list[StatsCheck]
+
+    def __repr__(self) -> str:
+        text = "Path\n"
+        text += f"\tConditions: {self.conditions}\n"
+        text += f"\tParagraphs: {self.paragraphs}\n"
+        text += f"\tResponses: {self.responses}\n"
+        text += f"\tSet variables: {self.set_variables}\n"
+        text += f"\tStat checks: {self.stat_checks}"
+        return text
+
+
+@dataclass
 class Scene:
     id: str
+    paths: list[Path] = field(default_factory=list) 
     paragraphs: list = field(default_factory=list) 
     responses: list = field(default_factory=list) 
     set_variables: list = field(default_factory=list)
@@ -163,6 +184,14 @@ class Scene:
                     "special": response.special,
                 }
                 for response in self.responses
+            ],
+            "set_variables": [
+                {
+                    "name": set_variable.name,
+                    "value": set_variable.value,
+                    "conditions": {var: {"type":parse_condition(condition.type),"value":condition.value} for var,condition in set_variable.conditions.items()},
+                }
+                for set_variable in self.set_variables
             ]
         }
         return val
@@ -241,7 +270,7 @@ chapters = (
     + [f"b2ch{num}" for num in [1,2,3,"4a","4b","5a","5b",6,7,8,"9a","9b","10a","10b","11a","11b","11c"]]
     + [f"b3ch{num}" for num in [1,"2a","2b","2c","3a","3b","4a","4b","5a","5b","6a","6b","6c","7a","8a","8b","9a","9b","9c","10a","10b","10c","11a","12a","12b"]]
 )
-verbose = True
+verbose = False
 for chapter in chapters:
     filename = root_folder/chapter/"logic.txt"
 
@@ -259,138 +288,110 @@ for chapter in chapters:
         if verbose:
             print(event)
         if "scene" not in event.conditions:
+            print("No scene specified...")
             continue
-        scene = event.conditions["scene"]
-        if scene not in scenes:
-            scenes[scene] = Scene(scene)
+        scene_id = event.conditions["scene"]
+        if scene_id not in scenes:
+            scenes[scene_id] = Scene(scene_id)
 
-        for button in event.results["add_buttons"]:
-            special = "restart" if "Restart game" in button else ""
-            scenes[scene].responses.append(Response(button,conditions=event.conditions["variables"],special=special))
-        for paragraph in event.results["paragraphs"]:
-            scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
-        for variable, value in  event.results["set_variables"].items():
-            scenes[scene].set_variables.append(SceneVariableSet(variable,int(value),event.conditions["variables"])) 
-
-        for stat_check in event.results["stat_checks"]:
-            stat_check.conditions = event.conditions["variables"]
-            scenes[scene].stat_checks.append(stat_check)
-
+        scenes[scene_id].paths.append(Path(
+            conditions=event.conditions["variables"],
+            responses=[Response(button) for button in event.results["add_buttons"]],
+            paragraphs=[Paragraph(paragraph[0],paragraph[1]) for paragraph in event.results["paragraphs"]],
+            set_variables=[SceneVariableSet(variable,int(value)) for variable, value in  event.results["set_variables"].items()],
+            stat_checks=event.results["stat_checks"],
+        ))
 
     for event in [e for e in events if e.type == "button"]:
         if verbose:
             print("#"*60)
             print(event)
         if "scene" not in event.conditions:
+            print("No scene specified...")
             continue
-        scene = event.conditions["scene"]
-        if scene not in scenes:
-            raise ValueError(f"The scene '{scene} was not found ! List of available scenes : {' '.join(scenes.keys())}'")
+        scene_id = event.conditions["scene"]
+        if scene_id not in scenes:
+            raise ValueError(f"The scene '{scene_id} was not found ! List of available scenes : {' '.join(scenes.keys())}'")
+
+
+        set_variable_names = []
+        for path in scenes[scene_id].paths:
+            for set_variable in path.set_variables:
+                set_variable_names.append(set_variable.name)
+
         event_conditions = event.conditions["variables"]
-        conditions_transform = defaultdict(list)
-        for scene_variable_set in scenes[scene].set_variables:
-            conditions_transform[scene_variable_set.name].append((scene_variable_set.value,scene_variable_set.conditions))
-
-        if verbose:
-            print("Testing visibility...")
-            pp.pprint(conditions_transform)
-
-        def is_visible(response):
+        for path in scenes[scene_id].paths:
             if verbose:
-                print("Current response:",response)
+                print(path)
+                print("Event conditions:",event_conditions)
+                print("Button id:",event.conditions["button_id"])
+            fake_scene_conditions = (
+                path.conditions
+                | {scene_set_variable.name: Comparison("=",scene_set_variable.value) for scene_set_variable in path.set_variables}
+                | {scene_set_variable_name: Comparison("=",0) for scene_set_variable_name in set_variable_names if scene_set_variable_name not in [v.name for v in path.set_variables]}
+            )
 
-            variables = {var: val for var,val in event.conditions["variables"].items() if "_ac_" not in var}
+            unrelated_conditions = {}
+            for var,condition in event_conditions.items():
+                if var not in fake_scene_conditions:
+                    unrelated_conditions[var] = condition
+            for var,condition in unrelated_conditions.items():
+                fake_scene_conditions[var] = condition
             if verbose:
-                print("Event conditions:",variables)
+                if len(unrelated_conditions):
+                    print("There are unrelated conditions:",unrelated_conditions)
 
-            flattened_transform = []
-            for var in variables:
-                flattened_transform.append(var)
-                for entry in conditions_transform.get(var,{}):
-                    flattened_transform += entry[1]
-            # If none of the conditions of the response are conditions for the event
-            if all([var not in flattened_transform for var in response.conditions]):
-                print("All response conditions are irrelevant")
-                return True
-            to_remove = []
-            for var, condition in variables.items():
-                if var not in conditions_transform:
-                    if verbose:
-                        print(var,"is not set at the beginning of this scene")
-                    continue
-                # If one of the conditions to setting the variable to the required value is satisfied
-                # OR if all the conditions to setting the variable to an incompatible value are NOT satisfied
-                condition_validated = (
-                    (valid1:=any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)]))
-                    or (valid2:=all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)]) and ls != [])
-                )
-                # If none of the conditions for setting the variable to the correct value are satisfied
-                # OR if one of the conditions for setting the variable to an incompatible value is satisfied
-                condition_invalidated = (
-                    (invalid1:= all(ls:=[not all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if compare(cond[0],condition)]) and ls != [])
-                    or (invalid2:=any(ls:=[all_is_compatible(cond[1],response.conditions) for cond in conditions_transform[var] if not compare(cond[0],condition)]))
-                )
+
+            if not all_is_compatible(event_conditions,fake_scene_conditions) or path.responses==[]:
                 if verbose:
-                    print("Variable",var,"was","validated" if condition_validated else "invalidated" if condition_invalidated else "ignored")
-                    print("Reason: ",end="")
-                    if valid1:
-                        print("one of the conditions to setting the variable to the required value is satisfied")
-                    elif valid2:
-                        print("all the conditions to setting the variable to an incompatible value are NOT satisfied")
-                    elif invalid1:
-                        print("none of the conditions for setting the variable to the correct value are satisfied")
-                    elif invalid2:
-                        print("if one of the conditions for setting the variable to an incompatible value is satisfied")
-                if condition_validated:
-                    to_remove.append(var)
-                elif condition_invalidated:
-                    return False
-                
-            for var in to_remove:
-                del variables[var]
+                    print("Not compatible")
+                continue
 
-            # Removing variables which are a condition for none of the responses (-> irrelevant)
-            variables = {var: val for var,val in variables.items() if not all([var not in response.conditions for response in scenes[scene].responses])}
+
+            if event.conditions["button_id"] >= len(path.responses):
+                warnings.warn(f"Button id {event.conditions['button_id']} was not found !")
+                continue
+            response = path.responses[event.conditions["button_id"]]
+
+            if len(unrelated_conditions):
+                new_path = Path({},[],[],[],[])
+                new_path.conditions = deepcopy(path.conditions) | event_conditions
+                response = deepcopy(response)
+                new_path.responses.append(response)
+                scenes[scene_id].paths.append(new_path)
+                if verbose:
+                    print("Creating a fake path...")
+                    print(new_path)
+
             if verbose:
-                print("Remaining event conditions:",variables)
-                print("Response conditions:",response.conditions)
-                print("are compatible" if all_is_compatible(variables,response.conditions) else "are not compatible")
-            print()
-            return all_is_compatible(variables,response.conditions)
+                print("Chosen response:",response)
 
-        visible_responses = [response for response in scenes[scene].responses if is_visible(response)]
-        print(event.conditions["button_id"],visible_responses)
-        response = visible_responses[event.conditions["button_id"]]
+            for var,value in event.results["set_variables"].items():
+                response.set_variables[var] = value 
+            if scene_id == "Ch11b-Ending":
+                response.set_variables["v_first_book_purchased"] = "1"
+            if scene_id == "B2-Ch11c-Ending":
+                response.set_variables["v_second_book_purchased"] = "1"
+                
+            if "new_scene" in event.results: 
+                response.new_scene = event.results["new_scene"]
 
-        for var,value in event.results["set_variables"].items():
-            response.set_variables[var] = value 
-        if scene == "Ch11b-Ending":
-            response.set_variables["v_first_book_purchased"] = "1"
-        if scene == "B2-Ch11c-Ending":
-            response.set_variables["v_second_book_purchased"] = "1"
-            
-        if "new_scene" in event.results: 
-            response.new_scene = event.results["new_scene"]
+            if "special" in event.results:
+                response.special = event.results["special"]
+            elif response.text == "Restart game":
+                response.special = "restart" 
 
-        if "special" in event.results:
-            response.special = event.results["special"]
+            if verbose:
+                print("New response:",response)
+                print()
 
-        # Handle case where the buttons are identical for different versions of the scene
-        for other_response in scenes[scene].responses:
-            if response.text == other_response.text:
-                for var,value in event.results["set_variables"].items():
-                    other_response.set_variables[var] = value 
-                    
-                if "new_scene" in event.results: 
-                    other_response.new_scene = event.results["new_scene"]
-
-                if "special" in event.results:
-                    other_response.special = event.results["special"]
-
-
-    for id,scene in scenes.items():
-        print(id)
-        print(scene)
+    for scene in scenes.values():
+        for path in scene.paths:
+            for element_type in ["paragraphs","stat_checks","responses","set_variables"]:
+                for element in getattr(path,element_type):
+                    element.conditions = path.conditions
+                    getattr(scene,element_type).append(element)
+            scene.responses = [response for response in scene.responses if response.new_scene != "" or response.special != ""]
 
 
     paragraphs = {1:{},2:{},3:{}}

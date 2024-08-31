@@ -36,7 +36,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Intro2": {
         "id": "Ch1-Intro2",
@@ -63,7 +64,6 @@
                 "text": "Show myself",
                 "target": "Ch1-Cutthroat Dave",
                 "set_variables": {
-                    "v_ac_ch1_coward": "1",
                     "v_current_scene": "Ch1-Cutthroat Dave",
                     "v_ch1_show_yourself": "2"
                 },
@@ -73,7 +73,7 @@
                         "value": 1
                     }
                 },
-                "special": "achievement-Who are you calling a coward?"
+                "special": ""
             },
             {
                 "code": "\"\"I see no reason to show myself to you.\"\"",
@@ -112,7 +112,6 @@
                 "text": "Show myself",
                 "target": "Ch1-Cutthroat Dave",
                 "set_variables": {
-                    "v_ac_ch1_coward": "1",
                     "v_current_scene": "Ch1-Cutthroat Dave",
                     "v_ch1_show_yourself": "2"
                 },
@@ -122,7 +121,7 @@
                         "value": 2
                     }
                 },
-                "special": "achievement-Who are you calling a coward?"
+                "special": ""
             },
             {
                 "code": "\"\"I see no reason to show myself to you.\"\"",
@@ -161,7 +160,6 @@
                 "text": "Show myself",
                 "target": "Ch1-Cutthroat Dave",
                 "set_variables": {
-                    "v_ac_ch1_coward": "1",
                     "v_current_scene": "Ch1-Cutthroat Dave",
                     "v_ch1_show_yourself": "2"
                 },
@@ -171,7 +169,7 @@
                         "value": 3
                     }
                 },
-                "special": "achievement-Who are you calling a coward?"
+                "special": ""
             },
             {
                 "code": "\"\"I see no reason to show myself to you.\"\"",
@@ -188,8 +186,66 @@
                     }
                 },
                 "special": ""
+            },
+            {
+                "code": "Show myself",
+                "text": "Show myself",
+                "target": "",
+                "set_variables": {
+                    "v_ac_ch1_coward": "1"
+                },
+                "conditions": {
+                    "v_ch1_intro_feeling": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ac_ch1_coward": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Who are you calling a coward?"
+            },
+            {
+                "code": "Show myself",
+                "text": "Show myself",
+                "target": "",
+                "set_variables": {
+                    "v_ac_ch1_coward": "1"
+                },
+                "conditions": {
+                    "v_ch1_intro_feeling": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ac_ch1_coward": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Who are you calling a coward?"
+            },
+            {
+                "code": "Show myself",
+                "text": "Show myself",
+                "target": "",
+                "set_variables": {
+                    "v_ac_ch1_coward": "1"
+                },
+                "conditions": {
+                    "v_ch1_intro_feeling": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ac_ch1_coward": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Who are you calling a coward?"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Cutthroat Dave": {
         "id": "Ch1-Cutthroat Dave",
@@ -200,7 +256,6 @@
                 "text": "Give him until the count of ten to retreat",
                 "target": "Ch1-Retreat",
                 "set_variables": {
-                    "v_ac_ch1_die": "1",
                     "v_current_scene": "Ch1-Retreat"
                 },
                 "conditions": {
@@ -209,7 +264,7 @@
                         "value": 1
                     }
                 },
-                "special": "achievement-Off to a good start"
+                "special": ""
             },
             {
                 "code": "Imply that I'm the one who destroyed the city of Olmnar",
@@ -231,7 +286,6 @@
                 "text": "Give him until the count of ten to retreat",
                 "target": "Ch1-Retreat",
                 "set_variables": {
-                    "v_ac_ch1_die": "1",
                     "v_current_scene": "Ch1-Retreat"
                 },
                 "conditions": {
@@ -240,7 +294,7 @@
                         "value": 2
                     }
                 },
-                "special": "achievement-Off to a good start"
+                "special": ""
             },
             {
                 "code": "Imply that I'm the one who destroyed the city of Olmnar",
@@ -262,7 +316,6 @@
                 "text": "Give him until the count of ten to retreat",
                 "target": "Ch1-Retreat",
                 "set_variables": {
-                    "v_ac_ch1_die": "1",
                     "v_current_scene": "Ch1-Retreat"
                 },
                 "conditions": {
@@ -271,7 +324,7 @@
                         "value": 3
                     }
                 },
-                "special": "achievement-Off to a good start"
+                "special": ""
             },
             {
                 "code": "Imply that I'm the one who destroyed the city of Olmnar",
@@ -287,8 +340,69 @@
                     }
                 },
                 "special": ""
+            },
+            {
+                "code": "Give him until the count of ten to retreat",
+                "text": "Give him until the count of ten to retreat",
+                "target": "Ch1-Retreat",
+                "set_variables": {
+                    "v_ac_ch1_die": "1",
+                    "v_current_scene": "Ch1-Retreat"
+                },
+                "conditions": {
+                    "v_ch1_show_yourself": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ac_ch1_die": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Off to a good start"
+            },
+            {
+                "code": "Give him until the count of ten to retreat",
+                "text": "Give him until the count of ten to retreat",
+                "target": "Ch1-Retreat",
+                "set_variables": {
+                    "v_ac_ch1_die": "1",
+                    "v_current_scene": "Ch1-Retreat"
+                },
+                "conditions": {
+                    "v_ch1_show_yourself": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_ac_ch1_die": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Off to a good start"
+            },
+            {
+                "code": "Give him until the count of ten to retreat",
+                "text": "Give him until the count of ten to retreat",
+                "target": "Ch1-Retreat",
+                "set_variables": {
+                    "v_ac_ch1_die": "1",
+                    "v_current_scene": "Ch1-Retreat"
+                },
+                "conditions": {
+                    "v_ch1_show_yourself": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_ac_ch1_die": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Off to a good start"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Retreat": {
         "id": "Ch1-Retreat",
@@ -387,7 +501,8 @@
                 },
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Imply": {
         "id": "Ch1-Imply",
@@ -423,7 +538,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Imply2": {
         "id": "Ch1-Imply2",
@@ -525,7 +641,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Humor": {
         "id": "Ch1-Humor",
@@ -565,7 +682,8 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Ordinary": {
         "id": "Ch1-Ordinary",
@@ -576,12 +694,11 @@
                 "text": "Tell him the truth",
                 "target": "Ch1-Truth",
                 "set_variables": {
-                    "v_ac_ch1_honesty": "1",
                     "v_current_scene": "Ch1-Truth",
                     "v_ch2_human_reason": "1"
                 },
                 "conditions": {},
-                "special": "achievement-Honesty is the best policy."
+                "special": ""
             },
             {
                 "code": "Tell him I was forced into it",
@@ -604,8 +721,26 @@
                 },
                 "conditions": {},
                 "special": ""
+            },
+            {
+                "code": "Tell him the truth",
+                "text": "Tell him the truth",
+                "target": "Ch1-Truth",
+                "set_variables": {
+                    "v_ac_ch1_honesty": "1",
+                    "v_current_scene": "Ch1-Truth",
+                    "v_ch2_human_reason": "1"
+                },
+                "conditions": {
+                    "v_ac_ch1_honesty": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Honesty is the best policy."
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Truth": {
         "id": "Ch1-Truth",
@@ -621,7 +756,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Forced": {
         "id": "Ch1-Forced",
@@ -637,7 +773,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Sister": {
         "id": "Ch1-Sister",
@@ -653,7 +790,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch1-Weakness": {
         "id": "Ch1-Weakness",
@@ -693,6 +831,7 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

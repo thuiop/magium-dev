@@ -23,6 +23,10 @@
     }
 %>
 <%- text %>
+<% set_variables.forEach(function(set_variable){ if (!set_variable.conditions || Object.entries(set_variable.conditions).every(apply_condition)) {%>
+    <% locals[set_variable.name] = set_variable.value; %>
+     <script> storeItem(<%= set_variable.name %>,<% set_variable.name %>) </script>
+<% }}); %>
 <% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
     <div class="response">
         <button
@@ -39,10 +43,10 @@
             hx-on::before-request="saveGameToLocalStorage('checkpoint')"
         <% } else if (response.special=="restart") { %>
             hx-get="/scene/<%= response.target %>"
-            test="wtf"
             hx-on::before-request="clearState()"
         <% } else if (response.special=="saves") { %>
-            hx-get="/saves"
+            hx-post="/saves"
+            hx-ext="submitlocalstorage"
         <% } else if (response.special.startsWith("achievement")) { %>
             hx-get="/scene/<%= response.target %>"
             _="on click send achievementGained to #achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
