@@ -29,7 +29,11 @@
           <h2 id="header"><%= header %></h2>
           <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
         </div>
-        <div id="content" class="content" hx-get hx-trigger="load">
+        <% if (path=="/saves") { %>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage">
+        <% } else { %>
+            <div id="content" class="content" hx-get hx-trigger="load">
+        <% } %>
         </div>
         <div class="footer">
           <p>Magium v0.1</p>

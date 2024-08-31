@@ -28,7 +28,7 @@ TODO: Discuss possibilities of alternate logic that do not need inference,
   but can simply be stored in the JSON object itself.
 */
 function get_header_from_id(id) {
-    const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
+    const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]?-.*$/
     if (result=regex.exec(id)) {
         let book = result.groups["book"] ? result.groups["book"] : "1"
         return `Book ${book} - Chapter ${result.groups["chapter"]}`
@@ -40,7 +40,7 @@ function render_full(req,callback,header=""){
         return callback(req)
     }
     else {
-        return ejs.renderFile(path.join(__dirname,"templates/outline.ejs"),{"header": header})
+        return ejs.renderFile(path.join(__dirname,"templates/outline.ejs"),{"header": header,"path": req.path})
     }
 }
 
@@ -94,7 +94,7 @@ function render_achievements_menu_chapter(req,achievements_data) {
 function render_saves(req) {
     let saveData = {} 
     Object.entries(req.body).forEach(function(entry){
-        saveData[entry[0]] = {"date": entry[1].date}
+        saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
     })
     let data = Object.assign({},req.cookies, {"saveData":saveData})
     return ejs.renderFile(path.join(__dirname,"templates/saves.ejs"),data)

@@ -53,10 +53,16 @@ function setResponseCookies(response) {
   }
 }
 
-function saveGameToLocalStorage(saveName) {
+function saveGameToLocalStorage(saveName, overwrite = false) {
+    if (overwrite && !window.confirm("Do you want to overwrite your save?")) {
+        return;
+    }
+
     let cookies = getCookies();
     const today = new Date();
-    cookies.date = today.toUTCString()
+    const curDateTime = today.toUTCString()
+    cookies.date = curDateTime
+    cookies.name = curDateTime
 
     if (localStorage) {
         localStorage.setItem(saveName,JSON.stringify(cookies));
