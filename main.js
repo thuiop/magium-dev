@@ -1,5 +1,21 @@
 let ejs = require('ejs');
+const path = require('path')
 
+const { app, BrowserWindow } = require('electron');
+app.on('ready', function() {
+  let mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    webPreferences: {
+      nodeIntegration: true
+    },
+    autoHideMenuBar: true,
+    useContentSize: true,
+    resizable: true,
+  });
+  mainWindow.loadURL('http://localhost:3000/');
+  mainWindow.focus();
+});
 /* Initial Logic to get the header from the id.
 TODO: Discuss possibilities of alternate logic that do not need inference, 
   but can simply be stored in the JSON object itself.
@@ -17,14 +33,14 @@ function render_full(req,callback,header=""){
         return callback(req)
     }
     else {
-        return ejs.renderFile("templates/outline.ejs",{"header": header})
+        return ejs.renderFile(path.join(__dirname,"..","templates/outline.ejs"),{"header": header})
     }
 }
 
 function render_scene(req,json_data,id) {
     let data = Object.assign({},json_data,{"id":id},req.cookies);
     data.text = ejs.render(data.text,req.cookies);
-    return ejs.renderFile("templates/main.ejs",data)
+    return ejs.renderFile(path.join(__dirname,"..","templates/main.ejs"),data)
 }
 
 // Temporary array to keep track of stats variables
@@ -48,23 +64,23 @@ const stats_variables = [
 ]
 
 function render_stats(req) {
-    return ejs.renderFile("templates/stats.ejs",req.cookies)
+    return ejs.renderFile(path.join(__dirname,"..","templates/stats.ejs"),req.cookies)
 }
 
 function render_menu(req) {
-    return ejs.renderFile("templates/menu.ejs",req.cookies)
+    return ejs.renderFile(path.join(__dirname,"..","templates/menu.ejs"),req.cookies)
 }
 
 function render_achievements_menu(req) {
-    return ejs.renderFile("templates/achievements_menu.ejs",req.cookies)
+    return ejs.renderFile(path.join(__dirname,"..","templates/achievements_menu.ejs"),req.cookies)
 }
 
 function render_achievements_menu_book(req,achievements_data) {
-    return ejs.renderFile("templates/achievements_menu_book.ejs",{"achievements":achievements_data})
+    return ejs.renderFile(path.join(__dirname,"..","templates/achievements_menu_book.ejs"),{"achievements":achievements_data})
 }
 
 function render_achievements_menu_chapter(req,achievements_data) {
-    return ejs.renderFile("templates/achievements_menu_chapter.ejs",Object.assign({},{"achievements":achievements_data},req.cookies))
+    return ejs.renderFile(path.join(__dirname,"..","templates/achievements_menu_chapter.ejs"),Object.assign({},{"achievements":achievements_data},req.cookies))
 }
 
 
@@ -74,7 +90,7 @@ function render_saves(req) {
         saveData[entry[0]] = {"date": entry[1].date}
     })
     let data = Object.assign({},req.cookies, {"saveData":saveData})
-    return ejs.renderFile("templates/saves.ejs",data)
+    return ejs.renderFile(path.join(__dirname,"..","templates/saves.ejs"),data)
 }
 
 let json_data = {}
@@ -84,29 +100,14 @@ const chapters = (
     'b3ch1', 'b3ch2a', 'b3ch2b', 'b3ch2c', 'b3ch3a', 'b3ch3b', 'b3ch4a', 'b3ch4b', 'b3ch5a', 'b3ch5b', 'b3ch6a', 'b3ch6b', 'b3ch6c', 'b3ch7a', 'b3ch8a', 'b3ch8b', 'b3ch9a', 'b3ch9b', 'b3ch9c', 'b3ch10a', 'b3ch10b', 'b3ch10c', 'b3ch11a', 'b3ch12a', 'b3ch12b']
 )
 for (chapter of chapters) {
-    json_data = Object.assign(json_data,require(`./chapters/${chapter}.json`))
+    json_data = Object.assign(json_data,require(path.join(__dirname,"..",`chapters/${chapter}.json`)))
 }
 
 let achievements_data = {}
 for (book of [1,2,3]) {
-    achievements_data[book] = require(`./chapters/achievements${book}.json`)
+    achievements_data[book] = require(path.join(__dirname,"..",`chapters/achievements${book}.json`))
 }
 
-const { app, BrowserWindow } = require('electron');
-app.on('ready', function() {
-  let mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 720,
-    webPreferences: {
-      nodeIntegration: true
-    },
-    autoHideMenuBar: true,
-    useContentSize: true,
-    resizable: true,
-  });
-  mainWindow.loadURL('http://localhost:3000/');
-  mainWindow.focus();
-});
 
 const express = require('express');
 var cookieParser = require('cookie-parser');
@@ -116,8 +117,7 @@ expressApp.use(cookieParser());
 const port = 3000
 
 // Serve static files
-const path = require('path')
-expressApp.use(express.static(path.join(__dirname, 'public')));
+expressApp.use(express.static(path.join(__dirname,"..", 'public')));
 
 expressApp.get('/', (req, res) => {
     const id = req.cookies.v_current_scene ? req.cookies.v_current_scene : "Ch1-Intro1"
