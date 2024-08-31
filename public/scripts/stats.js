@@ -42,21 +42,21 @@ function handleMissingStats(locals, saveCallback, updateCallback) {
 //  and infer relations in others, (e.g. initializeStats)
 function getAuxiliaryStatMapping() {
     let stats_aux_mapping = {};
-    stats_aux_mapping["v_available_points_aux"] = {"stat": "v_available_points", "field": "available_points", "label": "available_points_value"};
-    stats_aux_mapping["v_strength_aux"] = {"stat": "v_strength", "field": "strength", "label": "strength_value"};
-    stats_aux_mapping["v_toughness_aux"] = {"stat": "v_toughness", "field": "toughness", "label": "toughness_value"};
-    stats_aux_mapping["v_agility_aux"] = {"stat": "v_agility", "field": "agility", "label": "agility_value"};
-    stats_aux_mapping["v_reflexes_aux"] = {"stat": "v_reflexes", "field": "reflexes", "label": "reflexes_value"};
-    stats_aux_mapping["v_hearing_aux"] = {"stat": "v_hearing", "field": "hearing", "label": "hearing_value"};
-    stats_aux_mapping["v_perception_aux"] = {"stat": "v_perception", "field": "perception", "label": "perception_value"};
-    stats_aux_mapping["v_ancient_languages_aux"] = {"stat": "v_ancient_languages", "field": "ancient_languages", "label": "ancient_languages_value"};
-    stats_aux_mapping["v_combat_technique_aux"] = {"stat": "v_combat_technique", "field": "combat_technique", "label": "combat_technique_value"};
-    stats_aux_mapping["v_premonition_aux"] = {"stat": "v_premonition", "field": "premonition", "label": "premonition_value"};
-    stats_aux_mapping["v_bluff_aux"] = {"stat": "v_bluff", "field": "bluff", "label": "bluff_value"};
-    stats_aux_mapping["v_magical_sense_aux"] = {"stat": "v_magical_sense", "field": "magical_sense", "label": "magical_sense_value"};
-    stats_aux_mapping["v_aura_hardening_aux"] = {"stat": "v_aura_hardening", "field": "aura_hardening", "label": "aura_hardening_value"};
-    stats_aux_mapping["v_magical_power_aux"] = {"stat": "v_magical_power", "field": "magical_power", "label": "magical_power_value"};
-    stats_aux_mapping["v_magical_knowledge_aux"] = {"stat": "v_magical_knowledge", "field": "magical_knowledge", "label": "magical_knowledge_value"};
+    stats_aux_mapping["v_available_points_aux"] = {"stat": "v_available_points", "field_id": "available_points", "value_span_id": "available_points_value"};
+    stats_aux_mapping["v_strength_aux"] = {"stat": "v_strength", "field_id": "strength", "value_span_id": "strength_value"};
+    stats_aux_mapping["v_toughness_aux"] = {"stat": "v_toughness", "field_id": "toughness", "value_span_id": "toughness_value"};
+    stats_aux_mapping["v_agility_aux"] = {"stat": "v_agility", "field_id": "agility", "value_span_id": "agility_value"};
+    stats_aux_mapping["v_reflexes_aux"] = {"stat": "v_reflexes", "field_id": "reflexes", "value_span_id": "reflexes_value"};
+    stats_aux_mapping["v_hearing_aux"] = {"stat": "v_hearing", "field_id": "hearing", "value_span_id": "hearing_value"};
+    stats_aux_mapping["v_perception_aux"] = {"stat": "v_perception", "field_id": "perception", "value_span_id": "perception_value"};
+    stats_aux_mapping["v_ancient_languages_aux"] = {"stat": "v_ancient_languages", "field_id": "ancient_languages", "value_span_id": "ancient_languages_value"};
+    stats_aux_mapping["v_combat_technique_aux"] = {"stat": "v_combat_technique", "field_id": "combat_technique", "value_span_id": "combat_technique_value"};
+    stats_aux_mapping["v_premonition_aux"] = {"stat": "v_premonition", "field_id": "premonition", "value_span_id": "premonition_value"};
+    stats_aux_mapping["v_bluff_aux"] = {"stat": "v_bluff", "field_id": "bluff", "value_span_id": "bluff_value"};
+    stats_aux_mapping["v_magical_sense_aux"] = {"stat": "v_magical_sense", "field_id": "magical_sense", "value_span_id": "magical_sense_value"};
+    stats_aux_mapping["v_aura_hardening_aux"] = {"stat": "v_aura_hardening", "field_id": "aura_hardening", "value_span_id": "aura_hardening_value"};
+    stats_aux_mapping["v_magical_power_aux"] = {"stat": "v_magical_power", "field_id": "magical_power", "value_span_id": "magical_power_value"};
+    stats_aux_mapping["v_magical_knowledge_aux"] = {"stat": "v_magical_knowledge", "field_id": "magical_knowledge", "value_span_id": "magical_knowledge_value"};
 
     return stats_aux_mapping;
 }
@@ -73,9 +73,9 @@ function getAuxiliaryStats(locals, stats_aux_mapping = null) {
     }
 
     let stats_aux = {}
-    for (const [stat_aux_key, stat_aux_value] of Object.entries(stats_aux_mapping)) {
-        let stat_key = stat_aux_value["stat"];
-        stats_aux[stat_aux_key] = initializeAuxiliaryProperty(locals, stat_key, 0);
+    for (const [stat_aux, stat_aux_mapping] of Object.entries(stats_aux_mapping)) {
+        let stat = stat_aux_mapping["stat"];
+        stats_aux[stat_aux] = initializeAuxiliaryProperty(locals, stat, 0);
     }
 
     return stats_aux;
@@ -86,26 +86,22 @@ function getAuxiliaryStats(locals, stats_aux_mapping = null) {
 // Unlike getAuxiliaryStats, this function is implemented in a flexible manner, instead of hard-coding
 //  For example: notice the calculation of stat, stat_value, stat_field_id, stat_value_span_id
 // TODO: Have a discussion on whether this may be too flexible and if it is better to hard-code the stats
-function initializeStats(stats_aux, reset_magic_stats = true, stats_aux_mapping = null) {
+function initializeStats(stats_aux, stats_aux_mapping = null, reset_magic_stats = true) {
     if (!stats_aux_mapping) {
         stats_aux_mapping = getAuxiliaryStatMapping();
     }
 
-    for (const [stat_aux_key, stat_aux_value] of Object.entries(stats_aux_mapping)) {
-
-    }
-
-    for (let stat_aux in stats_aux) {
+    for (const [stat_aux, stat_aux_value] of Object.entries(stats_aux)) {
         if (!reset_magic_stats && 
         (stat_aux === "v_magical_power_aux" || stat_aux === "v_magical_knowledge_aux")) {
             continue;
         }
-        var stat = stat_aux.split("_aux")[0];
-        var stat_value = stats_aux[stat_aux];
-        var stat_field_id = stat.split("v_")[1];
-        var stat_value_span_id = stat_field_id + "_value";
+        let stat_aux_mapping = stats_aux_mapping[stat_aux]
+        let stat = stat_aux_mapping["stat"];
+        let stat_field_id = stat_aux_mapping["field_id"];
+        let stat_value_span_id = stat_aux_mapping["value_span_id"]
         if (document.getElementById(stat_value_span_id) === null) {continue;}
-        document.getElementById(stat_value_span_id).innerHTML = stat_value;
+        document.getElementById(stat_value_span_id).innerHTML = stat_aux_value;
         document.getElementById(stat_field_id).className = "stat-field" + 
             (stat === "v_available_points" ? " available" : "") +
             (stat === "v_magical_power" || stat === "v_magical_knowledge" ? " magic-special" : "");
