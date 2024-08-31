@@ -1,14 +1,42 @@
 {
-  "name": "magium-dev",
-  "version": "1.0.0",
-  "description": "",
+  "name": "MagiumJS",
+  "version": "0.8",
+  "description": "Porting of the original Magium app to JS",
+  "license": "MIT",
+  "main": "main.js",
   "scripts": {
-    "start:server": "nodemon main.js"
+    "start:server": "nodemon main_node.js",
+    "start:electron": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.10",
+    "electron-squirrel-startup": "^1.0.1",
     "express": "^4.19.2",
     "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron-forge/publisher-github": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^32.0.1"
+  },
+  "config": {
+    "forge": {
+        "makers": [
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": ["linux","win32","darwin"]
+        }
+      ]
+    }
   }
 }
