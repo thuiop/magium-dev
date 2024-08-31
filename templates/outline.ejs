@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/stats.css">
     <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="/scripts/htmx.min.js"></script>
-    <script src="/scripts/_hyperscript.min.js"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
     <script src="/scripts/utils.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -29,7 +29,7 @@
           <h2 id="header"><%= header %></h2>
           <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
         </div>
-        <% if (path=="/saves") { %>
+        <% if (locals.path=="/saves") { %>
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage">
         <% } else { %>
             <div id="content" class="content" hx-get hx-trigger="load">
