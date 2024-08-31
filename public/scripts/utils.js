@@ -103,7 +103,7 @@ htmx.defineExtension('submitlocalstorage', {
                 data[key] = JSON.parse(data[key]);
             }
             catch {
-                console.log("localStorage save failed for key: ", key);
+                console.log("The following is not a JSON object: ", key);
             }
         });
         delete data["htmx-history-cache"]
