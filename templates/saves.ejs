@@ -12,7 +12,12 @@
     <% for (let i = 0; i < 9; i++) { %>
         <div class="save-entry">
             Save <%= i %>
-            <button onClick="saveGameToLocalStorage('save<%= i %>')"> 
+            <button 
+            onClick="saveGameToLocalStorage('save<%= i %>')"
+            hx-post
+            hx-ext="submitlocalstorage"
+            hx-target="#content"
+            hx-swap="innerHTML"> 
                 Save
             </button>
             <button 
@@ -24,6 +29,8 @@
             > 
                 Load
             </button>
+            <% console.log(locals) %>
+            <% if (saveData[`save${i}`]) { %> <%= saveData[`save${i}`].date %> <% } %>
         </div>
     <% }; %>
 </div>

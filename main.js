@@ -68,8 +68,13 @@ function render_achievements_menu_chapter(req,achievements_data) {
 }
 
 
-function render_saves(req,achievements_data) {
-    return ejs.renderFile("templates/saves.ejs",req.cookies)
+function render_saves(req) {
+    let saveData = {} 
+    Object.entries(req.body).forEach(function(entry){
+        saveData[entry[0]] = {"date": entry[1].date}
+    })
+    let data = Object.assign({},req.cookies, {"saveData":saveData})
+    return ejs.renderFile("templates/saves.ejs",data)
 }
 
 let json_data = {}
@@ -87,10 +92,11 @@ for (book of [1,2,3]) {
     achievements_data[book] = require(`./chapters/achievements${book}.json`)
 }
 
-const express = require('express')
-var cookieParser = require('cookie-parser')
-const app = express()
-app.use(cookieParser())
+const express = require('express');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+const app = express();
+app.use(cookieParser());
 const port = 3000
 
 // Serve static files
@@ -131,7 +137,7 @@ app.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) => {
     render_full(req,callback,"Achievements").then((rendered) => res.send(rendered))
 })
 
-app.get('/saves', (req, res) => {  
+app.all('/saves', bodyParser.json(), (req, res) => {  
     render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
 })
 

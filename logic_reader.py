@@ -265,7 +265,8 @@ for chapter in chapters:
             scenes[scene] = Scene(scene)
 
         for button in event.results["add_buttons"]:
-            scenes[scene].responses.append(Response(button,conditions=event.conditions["variables"]))
+            special = "restart" if "Restart game" in button else ""
+            scenes[scene].responses.append(Response(button,conditions=event.conditions["variables"],special=special))
         for paragraph in event.results["paragraphs"]:
             scenes[scene].paragraphs.append(Paragraph(paragraph[0],paragraph[1],event.conditions["variables"])) 
         for variable, value in  event.results["set_variables"].items():
