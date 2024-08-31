@@ -141,6 +141,7 @@ function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
 function confirmStats() {
     if (!stats_changed) { return; }
     // Update the stats cookies
+    const stats_aux_mapping = getAuxiliaryStatMapping();
     for (let stat_aux in stats_aux) {
         let stat_aux_mapping = stats_aux_mapping[stat_aux]
         let stat = stat_aux_mapping["stat"]
