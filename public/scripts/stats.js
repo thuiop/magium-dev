@@ -1,23 +1,18 @@
+// import utils.js // Perhaps a better way to specify the dependence of the file on utils.js
+
 // Check if some of the stats are undefined.
 // If they are, update every stat cookie with the default value 0, and reload the page.
 
-// This can be moved to a global variable later on, but recommendation would be to keep this in frontend
-var stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
-    "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
-    "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
-    "v_max_stat"]
-
-var getCookies = function(){
-  var pairs = document.cookie.split(";");
-  var cookies = {};
-  for (var i=0; i<pairs.length; i++){
-    var pair = pairs[i].split("=");
-    cookies[(pair[0]+'').trim()] = unescape(pair.slice(1).join('='));
-  }
-  return cookies;
+function getDefaultStatsVariables() {
+    const stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
+        "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
+        "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
+        "v_max_stat"]
+    return stats_variables;
 }
+var stats_variables = getDefaultStatsVariables()
 
-var locals = getCookies()
+var locals = getCookies() // From the utils.js file
 
 "DOMContentLoaded htmx:afterSwap".split(" ").forEach(function(e){
     document.addEventListener(e, function() {
@@ -45,43 +40,51 @@ var locals = getCookies()
 
 // Logic for updating stats
 
+// Mapping dictionary to establish the relation between the auxiliary stat 
+//  and its corresponding stat, field_name, and span id.
+// Note: Attempt is to improve upon the previous problematic approach 
+//  where we had hard-coding of the relations in some places (e.g. getAuxiliaryStats)
+//  and infer relations in others, (e.g. initializeStats)
+function getAuxiliaryStatMapping() {
+    let stats_aux_mapping = {};
+    stats_aux_mapping["v_available_points_aux"] = {"stat": "v_available_points", "field_id": "available_points", "value_span_id": "available_points_value"};
+    stats_aux_mapping["v_strength_aux"] = {"stat": "v_strength", "field_id": "strength", "value_span_id": "strength_value"};
+    stats_aux_mapping["v_toughness_aux"] = {"stat": "v_toughness", "field_id": "toughness", "value_span_id": "toughness_value"};
+    stats_aux_mapping["v_agility_aux"] = {"stat": "v_agility", "field_id": "agility", "value_span_id": "agility_value"};
+    stats_aux_mapping["v_reflexes_aux"] = {"stat": "v_reflexes", "field_id": "reflexes", "value_span_id": "reflexes_value"};
+    stats_aux_mapping["v_hearing_aux"] = {"stat": "v_hearing", "field_id": "hearing", "value_span_id": "hearing_value"};
+    stats_aux_mapping["v_perception_aux"] = {"stat": "v_perception", "field_id": "perception", "value_span_id": "perception_value"};
+    stats_aux_mapping["v_ancient_languages_aux"] = {"stat": "v_ancient_languages", "field_id": "ancient_languages", "value_span_id": "ancient_languages_value"};
+    stats_aux_mapping["v_combat_technique_aux"] = {"stat": "v_combat_technique", "field_id": "combat_technique", "value_span_id": "combat_technique_value"};
+    stats_aux_mapping["v_premonition_aux"] = {"stat": "v_premonition", "field_id": "premonition", "value_span_id": "premonition_value"};
+    stats_aux_mapping["v_bluff_aux"] = {"stat": "v_bluff", "field_id": "bluff", "value_span_id": "bluff_value"};
+    stats_aux_mapping["v_magical_sense_aux"] = {"stat": "v_magical_sense", "field_id": "magical_sense", "value_span_id": "magical_sense_value"};
+    stats_aux_mapping["v_aura_hardening_aux"] = {"stat": "v_aura_hardening", "field_id": "aura_hardening", "value_span_id": "aura_hardening_value"};
+    stats_aux_mapping["v_magical_power_aux"] = {"stat": "v_magical_power", "field_id": "magical_power", "value_span_id": "magical_power_value"};
+    stats_aux_mapping["v_magical_knowledge_aux"] = {"stat": "v_magical_knowledge", "field_id": "magical_knowledge", "value_span_id": "magical_knowledge_value"};
+
+    return stats_aux_mapping;
+}
+
+function initializeAuxiliaryProperty(locals, stat_property, default_value) {
+    const stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
+        parseInt(locals[stat_property]) : 0;
+    return stat_value;
+}
+
 // Define temporary global variables for the stats
 // Can also later set up two-way binding directly with the HTML elements using Object.defineProperty
-function getAuxiliaryStats() {
-    // The following code is a more flexible version. It can be used if deemed more appropriate.
-    // TODO: Have a discussion on whether this may be the better approach
-    // function initializeAuxiliaryProperty(stat_property) {
-    //     var stat_value = locals[stat_property] ? locals[stat_property] : default_value;
-    //     return stat_value;
-    // }
-    // var stats_aux = {}
-    // for (stat of stats_variables) {
-    //     stats_aux[stat + "_aux"] = initializeAuxiliaryProperty(stat);
-    // }
-    // delete stats_aux["v_max_stat_aux"];
+function getAuxiliaryStats(locals, stats_aux_mapping = null) {
+    if (!stats_aux_mapping) {
+        stats_aux_mapping = getAuxiliaryStatMapping();
+    }
 
-    function initializeAuxiliaryProperty(stat_property, default_value) {
-        var stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
-            parseInt(locals[stat_property]) : 0;
-        return stat_value;
+    let stats_aux = {}
+    for (const [stat_aux, stat_aux_mapping] of Object.entries(stats_aux_mapping)) {
+        let stat = stat_aux_mapping["stat"];
+        stats_aux[stat_aux] = initializeAuxiliaryProperty(locals, stat, 0);
     }
-    var stats_aux = {
-        "v_available_points_aux": initializeAuxiliaryProperty("v_available_points", 0),
-        "v_strength_aux": initializeAuxiliaryProperty("v_strength", 0),
-        "v_toughness_aux": initializeAuxiliaryProperty("v_toughness", 0),
-        "v_agility_aux": initializeAuxiliaryProperty("v_agility", 0),
-        "v_reflexes_aux": initializeAuxiliaryProperty("v_reflexes", 0),
-        "v_hearing_aux": initializeAuxiliaryProperty("v_hearing", 0),
-        "v_perception_aux": initializeAuxiliaryProperty("v_perception", 0),
-        "v_ancient_languages_aux": initializeAuxiliaryProperty("v_ancient_languages", 0),
-        "v_combat_technique_aux": initializeAuxiliaryProperty("v_combat_technique", 0),
-        "v_premonition_aux": initializeAuxiliaryProperty("v_premonition", 0),
-        "v_bluff_aux": initializeAuxiliaryProperty("v_bluff", 0),
-        "v_magical_sense_aux": initializeAuxiliaryProperty("v_magical_sense", 0),
-        "v_aura_hardening_aux": initializeAuxiliaryProperty("v_aura_hardening", 0),
-        "v_magical_power_aux": initializeAuxiliaryProperty("v_magical_power", 0),
-        "v_magical_knowledge_aux": initializeAuxiliaryProperty("v_magical_knowledge", 0),
-    }
+
     return stats_aux;
 }
 
