@@ -25,7 +25,7 @@
 <%- text %>
 <% set_variables.forEach(function(set_variable){ if (!set_variable.conditions || Object.entries(set_variable.conditions).every(apply_condition)) {%>
     <% locals[set_variable.name] = set_variable.value; %>
-     <script> storeItem(<%= set_variable.name %>,<% set_variable.name %>) </script>
+     <script> storeItem("<%= set_variable.name %>",<% set_variable.name %>) </script>
 <% }}); %>
 <% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
     <div class="response">
