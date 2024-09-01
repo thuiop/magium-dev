@@ -7,15 +7,15 @@ function getCookie(name) {
     return null;
 }
 
-var getCookies = function(){
-  var pairs = document.cookie.split(";");
-  var cookies = {};
-  for (var i=0; i<pairs.length; i++){
-    var pair = pairs[i].split("=");
-    cookies[(pair[0]+'').trim()] = unescape(pair.slice(1).join('='));
-  }
-  return cookies;
-}
+const getCookies = function () {
+    const pairs = document.cookie.split(";");
+    const cookies = {};
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i].split("=");
+        cookies[(pair[0] + '').trim()] = unescape(pair.slice(1).join('='));
+    }
+    return cookies;
+};
 
 function storeItem(key,value) {
     document.cookie = key+"="+value;

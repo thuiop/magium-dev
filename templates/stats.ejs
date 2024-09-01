@@ -127,7 +127,7 @@
     <% function sceneAfter(id) {
         const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
         if (result=regex.exec(id)) {
-            return (result.groups["book"] == "3") && (parseInt(result.groups["chapter"]) >= 4)
+            return (result.groups["book"] === "3") && (parseInt(result.groups["chapter"]) >= 4)
         }
     } %>
     <% if (sceneAfter(locals.v_current_scene)) { %>
