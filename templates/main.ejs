@@ -1,26 +1,21 @@
- <%
-    function apply_condition(entry){
-        variable = entry[0]
-        condition = entry[1]
-        if (condition.type == ">") {
-            return (locals[variable] || 0) > condition.value
-        }
-        else if (condition.type == "<") {
-            return (locals[variable] || 0) < condition.value
-        }
-        else if (condition.type == "<=") {
-            return (locals[variable] || 0) <= condition.value
-        }
-        else if (condition.type == ">=") {
-            return (locals[variable] || 0) >= condition.value
-        }
-        else if (condition.type == "!=") {
-            return (locals[variable] || 0) != condition.value
-        }
-        else if (condition.type == "==") {
-            return (locals[variable] || 0) == condition.value
-        }
+<%
+function apply_condition(entry) {
+    variable = entry[0]
+    condition = entry[1]
+    if (condition.type === ">") {
+        return (locals[variable] || 0) > condition.value
+    } else if (condition.type === "<") {
+        return (locals[variable] || 0) < condition.value
+    } else if (condition.type === "<=") {
+        return (locals[variable] || 0) <= condition.value
+    } else if (condition.type === ">=") {
+        return (locals[variable] || 0) >= condition.value
+    } else if (condition.type === "!=") {
+        return (locals[variable] || 0) != condition.value
+    } else if (condition.type === "==") {
+        return (locals[variable] || 0) == condition.value // TODO: Understand why switching to === won't work
     }
+}
 %>
 <%- text %>
 <% set_variables.forEach(function(set_variable){ if (!set_variable.conditions || Object.entries(set_variable.conditions).every(apply_condition)) {%>
@@ -48,35 +43,35 @@
             hx-post="/saves"
             hx-ext="submitlocalstorage"
         <% } else if (response.special.startsWith("achievement")) { %>
-            hx-get="/scene/<%= response.target %>"
-            _="on click send achievementGained to #achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
-        <% } %>
-            hx-target="#content"
-            hx-swap="innerHTML"
-        > 
-                <%= response.text %>
+                hx-get="/scene/<%= response.target %>"
+                _="on click send achievementGained to #achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
+                <% } %>
+                hx-target="#content"
+                hx-swap="innerHTML"
+        >
+            <%= response.text %>
         </button>
     </div>
     <% if (response.special.startsWith("achievement")) { %>
         <div id="modalOob" hx-swap-oob="afterbegin:#main">
-            <div 
-            id="achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
-            class="achievement-modal"
-            _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
+            <div
+                    id="achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
+                    class="achievement-modal"
+                    _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
                on click remove me end">
-               <div class="achievement-modal-columns">
-                    <img src="/images/achievement_trophy.png" width="100" height="100" />
+                <div class="achievement-modal-columns">
+                    <img src="/images/achievement_trophy.png" width="100" height="100"/>
                     <div class="achievement-modal-content">
                         <div class="achievement-modal-title">
-                            ACHIEVEMENT UNLOCKED 
+                            ACHIEVEMENT UNLOCKED
                         </div>
                         <div class="achievement-modal-caption">
-                          <%= response.special.split("-")[1] %>
+                            <%= response.special.split("-")[1] %>
                         </div>
                     </div>
-              </div>
+                </div>
+            </div>
         </div>
-    </div>
     <% } %>
 <% }}); %>
 <div style="display:none">
