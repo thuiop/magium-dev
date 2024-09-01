@@ -212,7 +212,7 @@ class Scene:
             if stat_check.conditions != {}:
                 condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in stat_check.conditions.items()])
                 text += f"#if({condition_string}) {{\n"
-                text += f"{'SUCCESS:' if stat_check.successful else 'FAIL:'}{stat_check.text}\n"
+                text += f"{'SUCCESS:' if stat_check.successful else 'FAIL:'}{stat_check.text}"
             if stat_check.conditions != {}:
                 text += "}\n" #} (comment because vim is indent is messed  up)
 
