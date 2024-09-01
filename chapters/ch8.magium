@@ -1,8 +1,7 @@
 ID: Ch8-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Barry!" I hear Daren's voice calling out to me. "Hey, Barry, can you hear me?"
 
@@ -247,15 +246,16 @@ As we step over the rubble and take a good look outside of our cell, we see that
 "Barry," Daren says, "didn't that trinket of yours have a stat named 'ancient languages'? Come over here and see if you can translate this!"
 
 }
-choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 1, v_ancient_languages < 3)
-choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 0, v_ancient_languages < 3)
-choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 1, v_ancient_languages >= 3)
-choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 0, v_ancient_languages >= 3)
+choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 1 && v_ancient_languages < 3)
+choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 0 && v_ancient_languages < 3)
+choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 1 && v_ancient_languages >= 3)
+choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 0 && v_ancient_languages >= 3)
 
 
 ID: Ch8-Languages-failed
 TEXT: 
 
+FAIL:[ Ancient languages check failed - level 3 ]}
  
 As I approach the glyphs on the wall, I attempt to decipher them, but the words used are too complicated for me to understand at my current level of knowledge. I might stand a better chance if I max out my ancient languages stat, however.
 
@@ -331,6 +331,7 @@ choice("Continue", Ch8-Training, v_current_scene = Ch8-Training)
 ID: Ch8-Languages-success
 TEXT: 
 
+SUCCESS:[ Ancient languages check successful - level 3 ]}
  
 As I start to decipher the glyphs on the wall, I realize that the writing says: "If you like discovering secrets, tap each of these glyphs in rapid succession."
 
@@ -649,12 +650,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 2)
 set(v_is_dead,0) if (v_reflexes >= 2)
-#if(v_reflexes < 2) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
-#if(v_reflexes >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
+FAIL:[ Reflexes check failed - level 2 ] if (v_reflexes < 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2)}
 #if(v_reflexes < 2) {
  
 "Hadrik, there's no time! Just tear down that wall, and we'll worry about the consequences later."
@@ -819,6 +816,7 @@ choice("Continue", Ch8-Hearing-success, v_current_scene = Ch8-Hearing-success) i
 ID: Ch8-Hearing-fail
 TEXT: 
 
+FAIL:[ Hearing check failed - level 4 ]}
  
 "Well," Hadrik says. "If it's not going to come to us..."
 
@@ -840,6 +838,7 @@ choice("""Are you seriously going to do this every time we fight a big monster?"
 ID: Ch8-Hearing-success
 TEXT: 
 
+SUCCESS:[ Hearing check successful - level 4 ]}
  
 I can hear someone's heart pounding very rapidly. Trying to locate the source of the sound, I realize that it isn't coming from one of us, but from the hydra. I start to block out all other sounds with my mind and focus solely on the loud beating of the monster's heart, in order to pinpoint its exact location. It takes me a few seconds, but in the end I manage to trace the sound back to its origin: the tip of the hydra's tail. So that's where it was hiding its weak point!
 
@@ -909,12 +908,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_agility < 3)
 set(v_is_dead,0) if (v_agility >= 3)
-#if(v_agility < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
 #if(v_agility < 3) {
  
 I waste no time and rush towards the monster now, while it's still disoriented. 
@@ -1435,22 +1430,14 @@ choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_c
 ID: Ch8-Wasp
 TEXT: 
 
-set(v_is_dead,1) if (v_premonition < 4, v_ch8_talk == 0)
-set(v_is_dead,1) if (v_premonition < 4, v_ch8_talk == 1)
-set(v_is_dead,0) if (v_premonition == 4, v_ch8_talk == 0)
-set(v_is_dead,0) if (v_premonition == 4, v_ch8_talk == 1)
-#if(v_premonition < 4 && v_ch8_talk == 0) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition < 4 && v_ch8_talk == 1) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition == 4 && v_ch8_talk == 0) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
-#if(v_premonition == 4 && v_ch8_talk == 1) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_premonition < 4 && v_ch8_talk == 0)
+set(v_is_dead,1) if (v_premonition < 4 && v_ch8_talk == 1)
+set(v_is_dead,0) if (v_premonition == 4 && v_ch8_talk == 0)
+set(v_is_dead,0) if (v_premonition == 4 && v_ch8_talk == 1)
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_ch8_talk == 0)}
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_ch8_talk == 1)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition == 4 && v_ch8_talk == 0)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition == 4 && v_ch8_talk == 1)}
 #if(v_premonition < 4 && v_ch8_talk == 0) {
  
 "If we know that at least one of these paths is the correct one, then we may as well just pick one at random and if we trigger any traps, we get out of there as soon as possible. I say we try the corridor marked with a wasp first."
@@ -1587,14 +1574,14 @@ After a few minutes of walking through the corridor, we finally start to see som
 "This is it!" Flower says, excited, as she points towards the exit. "I remember this part! Once we're past that door, nothing will stand between us and the control room! I told you we'd make it there safely! Come on, follow me!"
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4, v_ch8_talk == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4, v_ch8_talk == 0)
-choice("Load game", , , special:saves) if (v_premonition < 4, v_ch8_talk == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4, v_ch8_talk == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4, v_ch8_talk == 1)
-choice("Load game", , , special:saves) if (v_premonition < 4, v_ch8_talk == 1)
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4, v_ch8_talk == 0)
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4, v_ch8_talk == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_ch8_talk == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_ch8_talk == 0)
+choice("Load game", , , special:saves) if (v_premonition < 4 && v_ch8_talk == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_ch8_talk == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_ch8_talk == 1)
+choice("Load game", , , special:saves) if (v_premonition < 4 && v_ch8_talk == 1)
+choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4 && v_ch8_talk == 0)
+choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4 && v_ch8_talk == 1)
 
 
 ID: Ch8-Beetle

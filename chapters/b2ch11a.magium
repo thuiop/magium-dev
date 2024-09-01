@@ -1,8 +1,7 @@
 ID: B2-Ch11a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
 #if(v_ch11_saved_rose == 0) {
  
 "You're right..." Daren tells Hadrik, after looking around himself for a few seconds. "The time really is frozen. Could it be Eiden's doing?"
@@ -1110,10 +1109,10 @@ Once again, the whole scenery around us changes in an instant, and we both find 
 "No, you idiot!" Arraka says. "How many times do I need to tell you that your friends are connected to the Magium, right now? Reading their thoughts while they are in this state is easy if you have some decent knowledge of how auras work. Now shut up and pay attention! I didn't bring you here for nothing."
 
 }
-choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 1, v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 1, v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 0, v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 0, v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 1 && v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 1 && v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 0 && v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 0 && v_ch11_saved_slave == 3)
 
 
 ID: B2-Ch11a-Luggage

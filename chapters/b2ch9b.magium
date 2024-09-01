@@ -246,6 +246,7 @@ choice("Continue", B2-Ch09b-Success, v_current_scene = B2-Ch09b-Success, v_b2_ch
 ID: B2-Ch09b-Failed
 TEXT: 
 
+FAIL:[ Ancient languages check failed - level 2 ]}
  
 "Hold on," Flower tells us. "I can understand a little of their language. I'll try to communicate with them."
 
@@ -272,6 +273,7 @@ choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila)
 ID: B2-Ch09b-Success
 TEXT: 
 
+SUCCESS:[ Ancient languages check successful - level 2 ]}
  
 "Wait," I tell them, in the ancient language of the animals. "We're here to help!"
 
@@ -511,10 +513,10 @@ She then turns away from me, and she starts heading towards the others.
 As I sit there and think, I suddenly hear a familiar voice, speaking loudly through my transceiver.
 
 }
-choice("Continue", B2-Ch09b-Revenant, v_current_scene = B2-Ch09b-Revenant) if (v_b2_ch8_energizer == 1, v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch09b-Revenant, v_current_scene = B2-Ch09b-Revenant) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch09b-Freezing, v_current_scene = B2-Ch09b-Freezing) if (v_b2_ch8_energizer == 1, v_ch11_saved_rose == 1)
-choice("Continue", B2-Ch09b-Freezing, v_current_scene = B2-Ch09b-Freezing) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch09b-Revenant, v_current_scene = B2-Ch09b-Revenant) if (v_b2_ch8_energizer == 1 && v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch09b-Revenant, v_current_scene = B2-Ch09b-Revenant) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch09b-Freezing, v_current_scene = B2-Ch09b-Freezing) if (v_b2_ch8_energizer == 1 && v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch09b-Freezing, v_current_scene = B2-Ch09b-Freezing) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch09b-Revenant
@@ -767,10 +769,10 @@ After I finish my sentence, there is a long pause, during which none of us says 
 "So, uh..." Hadrik says, trying to change the subject. "How are things going in Thilias?"
 
 }
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 1, v_ch11_romance_rose == 0)
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 1, v_ch11_romance_rose == 1)
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0, v_ch11_romance_rose == 0)
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0, v_ch11_romance_rose == 1)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 0)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 1)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1)
 
 
 ID: B2-Ch09b-Weaver
@@ -895,8 +897,8 @@ We all say our goodbyes to Rose, and then she closes the transceiver, in order t
 
 }
 choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 1)
-choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 0, v_b2_ch2_deal != 3)
-choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 0, v_b2_ch2_deal == 3)
+choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 0 && v_b2_ch2_deal != 3)
+choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 0 && v_b2_ch2_deal == 3)
 
 
 ID: B2-Ch09b-Shift
@@ -1048,8 +1050,8 @@ So, the question here is... Did he place down a good card? Or a bad card?
 }
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch9_amused == 1)
 choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch9_amused == 1)
-choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 1, v_b2_ch9_amused == 0)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 1, v_b2_ch9_amused == 0)
+choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 2)
 choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 2)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 3)
@@ -1151,10 +1153,10 @@ As I finish talking, I take a look towards the cards that I have on the ground, 
 "Congratulations on winning the round, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
 
 }
-choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 1, v_b2_ch9_drink == 0)
-choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 1, v_b2_ch9_drink == 1)
-choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 0, v_b2_ch9_drink == 1)
-choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 0, v_b2_ch9_drink == 0)
+choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 1 && v_b2_ch9_drink == 0)
+choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 1 && v_b2_ch9_drink == 1)
+choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 0 && v_b2_ch9_drink == 1)
+choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_flip == 0 && v_b2_ch9_drink == 0)
 
 
 ID: B2-Ch09b-Ending

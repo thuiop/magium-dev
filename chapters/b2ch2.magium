@@ -1,8 +1,7 @@
 ID: B2-Ch02a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Listen, Arraka," Daren says, as we walk towards the arena. "Are you absolutely sure that the Eiden you've fought during the still winter is the same person as the one we're dealing with now? I mean, it's been six hundred years, right? No one would blame you if you were to make a confusion after all this time!"
 
@@ -95,10 +94,10 @@ TEXT:
 }
 choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 0)
 choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 0)
-choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 1, v_ch11_romance_rose == 1)
-choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1, v_ch11_romance_rose == 1)
-choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 1, v_ch11_romance_rose == 0)
-choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1, v_ch11_romance_rose == 0)
+choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
+choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
+choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
 
 
 ID: B2-Ch02a-Tell-servant
@@ -224,10 +223,10 @@ Once he found the shop, Daren went in, and he didn't come out until exactly half
  During this time, I used my transceiver to contact Rose, and to tell her that we wouldn't make it home in time for dinner tonight. She was shocked at first, but after she heard the whole story, she was relieved that we were at least given a chance to free ourselves. She then promised me that she will be there, in the audience, to cheer for us when the time comes.
 
 }
-choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 1, v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 1, v_ch11_saved_rose == 1)
-choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 0, v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 0, v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch02a-Gems
@@ -454,52 +453,24 @@ ID: B2-Ch02a-Fist
 TEXT: 
 
 set(v_b2_ch2_fist,1) if (v_toughness >= 2)
-set(v_b2_ch2_fist,2) if (v_toughness < 2, v_strength >= 2)
-set(v_b2_ch2_fist,3) if (v_toughness < 2, v_strength < 2, v_combat_technique >= 2)
-set(v_b2_ch2_fist,4) if (v_toughness < 2, v_strength < 2, v_combat_technique < 2, v_reflexes >= 2)
-set(v_b2_ch2_fist,5) if (v_toughness < 2, v_strength < 2, v_combat_technique < 2, v_reflexes < 2)
-#if(v_toughness >= 2) {
-SUCCESS:[ Toughness check successful - level 2 ]
-}
-#if(v_toughness < 2 && v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_toughness < 2 && v_strength >= 2) {
-FAIL:[ Toughness check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2) {
-FAIL:[ Toughness check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2) {
-FAIL:[ Toughness check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2) {
-FAIL:[ Toughness check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
+set(v_b2_ch2_fist,2) if (v_toughness < 2 && v_strength >= 2)
+set(v_b2_ch2_fist,3) if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)
+set(v_b2_ch2_fist,4) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)
+set(v_b2_ch2_fist,5) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)
+SUCCESS:[ Toughness check successful - level 2 ] if (v_toughness >= 2)}
+SUCCESS:[ Strength check successful - level 2 ] if (v_toughness < 2 && v_strength >= 2)}
+FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength >= 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)}
+FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)}
+FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
+FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
 #if(v_toughness >= 2) {
  
 I make no attempt to dodge his strike, as the man's fist hits me in the bridge of my nose. The impact from the blow made me feel almost no pain, and it didn't even make me move an inch from my original position. As the bulky man retracts his arm, I look at him with the same disinterested expression in my eyes as the one that the desk worker had when he looked at me.
@@ -596,11 +567,11 @@ The bulky man then turns away from me, and he starts to head back towards his ce
 }
 choice("""Well, we are part of the same team.""", B2-Ch02a-Team, v_current_scene = B2-Ch02a-Team) if (v_toughness >= 2)
 choice("""How about you apologize for attacking me, first?""", B2-Ch02a-Apologize, v_current_scene = B2-Ch02a-Apologize) if (v_toughness >= 2)
-choice("""Well, we are part of the same team.""", B2-Ch02a-Team, v_current_scene = B2-Ch02a-Team) if (v_toughness < 2, v_strength >= 2)
-choice("""How about you apologize for attacking me, first?""", B2-Ch02a-Apologize, v_current_scene = B2-Ch02a-Apologize) if (v_toughness < 2, v_strength >= 2)
-choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2, v_strength < 2, v_combat_technique >= 2)
-choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2, v_strength < 2, v_combat_technique < 2, v_reflexes >= 2)
-choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2, v_strength < 2, v_combat_technique < 2, v_reflexes < 2)
+choice("""Well, we are part of the same team.""", B2-Ch02a-Team, v_current_scene = B2-Ch02a-Team) if (v_toughness < 2 && v_strength >= 2)
+choice("""How about you apologize for attacking me, first?""", B2-Ch02a-Apologize, v_current_scene = B2-Ch02a-Apologize) if (v_toughness < 2 && v_strength >= 2)
+choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)
+choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)
+choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)
 
 
 ID: B2-Ch02a-Team
@@ -645,12 +616,8 @@ choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual)
 ID: B2-Ch02a-Unusual
 TEXT: 
 
-#if(v_premonition < 2) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition >= 2) {
-SUCCESS:[ Premonition check successful - level 2 ]
-}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2)}
+SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2)}
 #if(v_premonition < 2) {
  
 "Yeah, it's Barry," I say.
@@ -1100,18 +1067,18 @@ As I stand there and think about going back to my cell,  Wilhelm suddenly moves 
 He then turns to leave.
 
 }
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1, v_b2_ch2_threatened == 0)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 2, v_b2_ch2_threatened == 0)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1, v_b2_ch2_threatened == 1)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 2, v_b2_ch2_threatened == 1)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1, v_b2_ch2_threatened == 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 2, v_b2_ch2_threatened == 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 3, v_b2_ch2_threatened != 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 4, v_b2_ch2_threatened != 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 5, v_b2_ch2_threatened != 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 3, v_b2_ch2_threatened == 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 4, v_b2_ch2_threatened == 2)
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 5, v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 0)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 0)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 3 && v_b2_ch2_threatened != 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 4 && v_b2_ch2_threatened != 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 5 && v_b2_ch2_threatened != 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 3 && v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 4 && v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 5 && v_b2_ch2_threatened == 2)
 
 
 ID: B2-Ch02a-Princess
@@ -1604,10 +1571,10 @@ There's no way I could agree to take this deal after I already convinced everyon
 choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_ac_b2_ch2_easy = 1, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3, special:achievement-The easy way out-v_ac_b2_ch2_easy) if (v_b2_ch1_interfere == 0)
 choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0, v_b2_ch2_tell_servant == 1)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1, v_b2_ch2_tell_servant == 1)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 0, v_b2_ch2_tell_servant == 0)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 1, v_b2_ch2_tell_servant == 0)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 1)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 1)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 0)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 0)
 
 
 ID: B2-Ch02a-Refuse-threat
@@ -1726,12 +1693,8 @@ TEXT:
 
 set(v_b2_ch2_heard,1) if (v_hearing >= 3)
 set(v_b2_ch2_heard,0) if (v_hearing < 3)
-#if(v_hearing >= 3) {
-SUCCESS:[ Hearing check successful - level 3 ]
-}
-#if(v_hearing < 3) {
-FAIL:[ Hearing check failed - level 3 ]
-}
+SUCCESS:[ Hearing check successful - level 3 ] if (v_hearing >= 3)}
+FAIL:[ Hearing check failed - level 3 ] if (v_hearing < 3)}
 #if(v_hearing >= 3) {
  
 Not long after the lessathi leaves, I start to hear some voices in a distant hallway outside my cell. I recognize one of the voices as that of the guard who woke me up this morning.
@@ -2213,36 +2176,18 @@ ID: B2-Ch02a-Gargoyles
 TEXT: 
 
 set(v_is_dead,0) if (v_strength >= 2)
-set(v_is_dead,0) if (v_strength < 2, v_combat_technique >= 3)
-set(v_is_dead,0) if (v_strength < 2, v_combat_technique < 3, v_reflexes >= 3)
-set(v_is_dead,1) if (v_strength < 2, v_combat_technique < 3, v_reflexes < 3)
-#if(v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_strength < 2 && v_combat_technique >= 3) {
-SUCCESS:[ Combat technique check successful - level 3 ]
-}
-#if(v_strength < 2 && v_combat_technique >= 3) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
-#if(v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3) {
-FAIL:[ Reflexes check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_strength < 2 && v_combat_technique >= 3)
+set(v_is_dead,0) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)
+set(v_is_dead,1) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)
+SUCCESS:[ Strength check successful - level 2 ] if (v_strength >= 2)}
+SUCCESS:[ Combat technique check successful - level 3 ] if (v_strength < 2 && v_combat_technique >= 3)}
+FAIL:[ Strength check failed - level 2 ] if (v_strength < 2 && v_combat_technique >= 3)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)}
+FAIL:[ Strength check failed - level 2 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)}
+FAIL:[ Strength check failed - level 2 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)}
+FAIL:[ Reflexes check failed - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)}
 #if(v_strength >= 2) {
  
 The rock smashes the gargoyle's head, which makes it fall on the ground. I proceed to kill the second gargoyle in the same way, but before I can find a third rock, all of the iron gratings suddenly open at the same time, and the beasts slowly start coming out of their cells.
@@ -2285,11 +2230,11 @@ I did not expect it to move so fast without using its wings. I was careless. The
 
 }
 choice("Continue", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins) if (v_strength >= 2)
-choice("Continue", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins) if (v_strength < 2, v_combat_technique >= 3)
-choice("Continue", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins) if (v_strength < 2, v_combat_technique < 3, v_reflexes >= 3)
-choice("Restart game", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins, special:restart) if (v_strength < 2, v_combat_technique < 3, v_reflexes < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 2, v_combat_technique < 3, v_reflexes < 3)
-choice("Load game", , , special:saves) if (v_strength < 2, v_combat_technique < 3, v_reflexes < 3)
+choice("Continue", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins) if (v_strength < 2 && v_combat_technique >= 3)
+choice("Continue", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)
+choice("Restart game", B2-Ch02a-Griffins, v_current_scene = B2-Ch02a-Griffins, special:restart) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)
 
 
 ID: B2-Ch02a-Griffins
@@ -2323,12 +2268,8 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
-#if(v_toughness >= 3) {
-SUCCESS:[ Toughness check successful - level 3 ]
-}
-#if(v_toughness < 3) {
-FAIL:[ Toughness check failed - level 3 ]
-}
+SUCCESS:[ Toughness check successful - level 3 ] if (v_toughness >= 3)}
+FAIL:[ Toughness check failed - level 3 ] if (v_toughness < 3)}
 #if(v_toughness >= 3) {
  
 I retreat inside the gargoyle cell, and I post myself in front of the door, with my dagger at the ready. As expected, the griffins follow me, and the first one to enter through the door blocks the way for all the others. I lunge at its chest with my dagger, but the beast blocks my strike with one of its front claws. As I struggle to get the knife out of its claw, the griffin brings its beak down upon me, aiming for my chest. 
@@ -2357,23 +2298,13 @@ ID: B2-Ch02a-Space
 TEXT: 
 
 set(v_is_dead,0) if (v_agility >= 3)
-set(v_is_dead,0) if (v_agility < 3, v_strength >= 3)
-set(v_is_dead,1) if (v_agility < 3, v_strength < 3)
-#if(v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility < 3 && v_strength >= 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_strength >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_agility < 3 && v_strength < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_strength < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_agility < 3 && v_strength >= 3)
+set(v_is_dead,1) if (v_agility < 3 && v_strength < 3)
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_strength >= 3)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_agility < 3 && v_strength >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_strength < 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility < 3 && v_strength < 3)}
 #if(v_agility >= 3) {
  
 I decide that it's too risky to allow myself to get cornered inside one room, so I prepare to engage all of the beasts at the same time.
@@ -2402,10 +2333,10 @@ I don't wait for them to make the first move, and I rush towards the griffin tha
 
 }
 choice("Continue", B2-Ch02a-Acrobatic, v_current_scene = B2-Ch02a-Acrobatic) if (v_agility >= 3)
-choice("Continue", B2-Ch02a-Acrobatic, v_current_scene = B2-Ch02a-Acrobatic) if (v_agility < 3, v_strength >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3, v_strength < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3, v_strength < 3)
-choice("Load game", , , special:saves) if (v_agility < 3, v_strength < 3)
+choice("Continue", B2-Ch02a-Acrobatic, v_current_scene = B2-Ch02a-Acrobatic) if (v_agility < 3 && v_strength >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_strength < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_strength < 3)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_strength < 3)
 
 
 ID: B2-Ch02a-Slowly
@@ -2432,12 +2363,8 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
-#if(v_toughness >= 3) {
-SUCCESS:[ Toughness check successful - level 3 ]
-}
-#if(v_toughness < 3) {
-FAIL:[ Toughness check failed - level 3 ]
-}
+SUCCESS:[ Toughness check successful - level 3 ] if (v_toughness >= 3)}
+FAIL:[ Toughness check failed - level 3 ] if (v_toughness < 3)}
 #if(v_toughness >= 3) {
  
 Alright, here we go!

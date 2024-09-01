@@ -206,15 +206,15 @@ class Scene:
         for set_variable in self.set_variables:
             text += f'set({set_variable.name},{set_variable.value})'
             if set_variable.conditions != {}:
-                text += f' if ({", ".join([f"{var} {parse_condition(condition.type)} {condition.value}" for var, condition in set_variable.conditions.items()])})'
+                text += f' if ({" && ".join([f"{var} {parse_condition(condition.type)} {condition.value}" for var, condition in set_variable.conditions.items()])})'
             text += "\n"
         for stat_check in self.stat_checks:
+            stat_check_text = stat_check.text.replace('\n','')
+            text += f"{'SUCCESS:' if stat_check.successful else 'FAIL:'}{stat_check_text}"
             if stat_check.conditions != {}:
                 condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in stat_check.conditions.items()])
-                text += f"#if({condition_string}) {{\n"
-                text += f"{'SUCCESS:' if stat_check.successful else 'FAIL:'}{stat_check.text}"
-            if stat_check.conditions != {}:
-                text += "}\n" #} (comment because vim is indent is messed  up)
+                text += f" if ({condition_string})"
+            text += "}\n"
 
         paragraph_groups = self.merge_paragraphs()
         for par_group in paragraph_groups:
@@ -236,7 +236,7 @@ class Scene:
                  text += f", special:{response.special}"
             text += ")"
             if response.conditions != {}:
-                text += f' if ({", ".join([f"{name} {parse_condition(cond.type)} {cond.value}" for name,cond in response.conditions.items()])})' 
+                text += f' if ({" && ".join([f"{name} {parse_condition(cond.type)} {cond.value}" for name,cond in response.conditions.items()])})' 
             text += "\n"
 
         return text

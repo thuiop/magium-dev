@@ -1,8 +1,7 @@
 ID: B2-Ch06a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 The girl dressed in pajamas is looking at us with a victorious smile on her face. She seems very pleased with herself for having managed to finally get our attention. Despite the fact that she is clearly the one who has magically suspended us into the air, her aura is showing no traces of magic whatsoever. Even when Kate and Flower hide their auras, you can still tell that they are mages if you inspect their auras very closely. The girl in front of us, however, seems no different from a regular human. This can mean one of two things. Either she is much better at hiding her aura than Flower and Kate, or...
 
@@ -541,8 +540,8 @@ After a few seconds of silence, Melindra hands me back the device, looking rathe
 
 }
 choice("Continue", B2-Ch06a-Shopping, v_current_scene = B2-Ch06a-Shopping) if (v_b2_ch6_stat == 0)
-choice("Continue", B2-Ch06a-Shopping, v_current_scene = B2-Ch06a-Shopping) if (v_b2_ch6_stat == 1, v_available_points == 22)
-choice("Continue", B2-Ch06a-Shopping, v_current_scene = B2-Ch06a-Shopping) if (v_b2_ch6_stat == 1, v_available_points != 22)
+choice("Continue", B2-Ch06a-Shopping, v_current_scene = B2-Ch06a-Shopping) if (v_b2_ch6_stat == 1 && v_available_points == 22)
+choice("Continue", B2-Ch06a-Shopping, v_current_scene = B2-Ch06a-Shopping) if (v_b2_ch6_stat == 1 && v_available_points != 22)
 
 
 ID: B2-Ch06a-Shopping
@@ -1075,10 +1074,10 @@ choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-E
 choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch3_treasure != 0)
 choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch10_gems == 1)
 choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch10_gems == 1)
-choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar == 2, v_ch3_treasure == 0, v_ch10_gems == 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_b2_ch5_scimitar == 2, v_ch3_treasure == 0, v_ch10_gems == 0)
-choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar != 2, v_ch3_treasure == 0, v_ch10_gems == 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_ac_b2_ch6_edge = 1, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1, special:achievement-Living on the edge-v_ac_b2_ch6_edge) if (v_b2_ch5_scimitar != 2, v_ch3_treasure == 0, v_ch10_gems == 0)
+choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
+choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar != 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_ac_b2_ch6_edge = 1, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1, special:achievement-Living on the edge-v_ac_b2_ch6_edge) if (v_b2_ch5_scimitar != 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
 
 
 ID: B2-Ch06a-Elixir
@@ -1500,7 +1499,7 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0, v_b2_ch1_interfere == 1)
-choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1, v_b2_ch1_interfere == 1)
-choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0, v_b2_ch1_interfere == 0)
-choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1, v_b2_ch1_interfere == 0)
+choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 && v_b2_ch1_interfere == 1)
+choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1 && v_b2_ch1_interfere == 1)
+choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 && v_b2_ch1_interfere == 0)
+choice("Go to next chapter", B2-Ch07a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch07a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1 && v_b2_ch1_interfere == 0)

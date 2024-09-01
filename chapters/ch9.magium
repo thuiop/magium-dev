@@ -1,8 +1,7 @@
 ID: Ch9-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 After finishing our briefing and finding our way out of the ruins, we wave goodbye to Leo the leopard, we grab our backpacks and we start heading towards our new objective. Flower is leading the way again, but this time she looks a lot less confident than before, and there's definitely some uneasiness in her voice as she speaks to us.
 
@@ -1465,35 +1464,19 @@ choice("Continue", Ch9-Final-march, v_current_scene = Ch9-Final-march) if (v_ch9
 ID: Ch9-Final-march
 TEXT: 
 
-set(v_ch9_ogres,1) if (v_ch9_take_rose == 0, v_hearing < 2)
-set(v_ch9_ogres,1) if (v_ch9_take_rose == 1, v_hearing < 2)
-set(v_ch9_ogres,2) if (v_ch9_take_rose == 0, v_hearing >= 2, v_perception == 0)
-set(v_ch9_ogres,2) if (v_ch9_take_rose == 1, v_hearing >= 2, v_perception == 0)
-set(v_ch9_ogres,3) if (v_hearing >= 2, v_perception >= 1)
-#if(v_ch9_take_rose == 0 && v_hearing < 2) {
-FAIL:[ Hearing check failed - level 2 ]
-}
-#if(v_ch9_take_rose == 1 && v_hearing < 2) {
-FAIL:[ Hearing check failed - level 2 ]
-}
-#if(v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0) {
-FAIL:[ Observation check failed - level 1 ]
-}
-#if(v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0) {
-FAIL:[ Observation check failed - level 1 ]
-}
-#if(v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_hearing >= 2 && v_perception >= 1) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_hearing >= 2 && v_perception >= 1) {
-SUCCESS:[ Observation check successful - level 1 ]
-}
+set(v_ch9_ogres,1) if (v_ch9_take_rose == 0 && v_hearing < 2)
+set(v_ch9_ogres,1) if (v_ch9_take_rose == 1 && v_hearing < 2)
+set(v_ch9_ogres,2) if (v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0)
+set(v_ch9_ogres,2) if (v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0)
+set(v_ch9_ogres,3) if (v_hearing >= 2 && v_perception >= 1)
+FAIL:[ Hearing check failed - level 2 ] if (v_ch9_take_rose == 0 && v_hearing < 2)}
+FAIL:[ Hearing check failed - level 2 ] if (v_ch9_take_rose == 1 && v_hearing < 2)}
+FAIL:[ Observation check failed - level 1 ] if (v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0)}
+FAIL:[ Observation check failed - level 1 ] if (v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_perception >= 1)}
+SUCCESS:[ Observation check successful - level 1 ] if (v_hearing >= 2 && v_perception >= 1)}
 #if(v_ch9_take_rose == 0 && v_hearing < 2) {
  
 With these last words, we all wave goodbye to Kate and Rose, and then we start our final march towards the stronghold.
@@ -1560,13 +1543,13 @@ A crazy thought occurs to me, and I aim my crossbow somewhere a few feet above t
 I pay him no mind, and I shoot an arrow at the empty space in front of me. Instead of going through the air, however, the arrow stops in mid-flight, and a trickle of blood starts coming out from its tip. Soon afterwards, a hideous creature begins to slowly materialize in front of us, with my arrow sticking out of its big belly. The monster is about eight feet tall, with thick gray skin, and it's wearing nothing other than a loincloth around its waist. Two of its lower fangs are sticking out of its closed mouth, its forehead is exceedingly narrow, and on its face, it is wearing one of the dumbest expressions I've ever seen in my life.
 
 }
-choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 0, v_hearing < 2)
-choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 0, v_hearing < 2)
-choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 1, v_hearing < 2)
-choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 1, v_hearing < 2)
-choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 0, v_hearing >= 2, v_perception == 0)
-choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 1, v_hearing >= 2, v_perception == 0)
-choice("Continue", Ch9-Nice, v_current_scene = Ch9-Nice) if (v_hearing >= 2, v_perception >= 1)
+choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 0 && v_hearing < 2)
+choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 0 && v_hearing < 2)
+choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 1 && v_hearing < 2)
+choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 1 && v_hearing < 2)
+choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0)
+choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0)
+choice("Continue", Ch9-Nice, v_current_scene = Ch9-Nice) if (v_hearing >= 2 && v_perception >= 1)
 
 
 ID: Ch9-Nice
@@ -1683,12 +1666,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 3)
 set(v_is_dead,0) if (v_reflexes >= 3)
-#if(v_reflexes < 3) {
-FAIL:[ Reflexes check failed - level 3 ]
-}
-#if(v_reflexes >= 3) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
+FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3)}
 #if(v_reflexes < 3) {
  
 As I turn around, I am terrified to learn that one of the ogres has just come out of invisibility, and is now bringing down a five foot long club towards my skull. 
@@ -1735,9 +1714,9 @@ TEXT:
 
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
-choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0, v_ch9_ogres != 3)
+choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
 choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 1)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0, v_ch9_ogres == 3)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0 && v_ch9_ogres == 3)
 
 
 ID: Ch9-Sacred
@@ -1752,9 +1731,9 @@ TEXT:
 
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
-choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0, v_ch9_ogres != 3)
+choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
 choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 1)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0, v_ch9_ogres == 3)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0 && v_ch9_ogres == 3)
 
 
 ID: Ch9-Merry
@@ -1769,9 +1748,9 @@ TEXT:
 
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
-choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0, v_ch9_ogres != 3)
+choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
 choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 1)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0, v_ch9_ogres == 3)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0 && v_ch9_ogres == 3)
 
 
 ID: Ch9-Persuade

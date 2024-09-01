@@ -58,10 +58,10 @@ When I take a look around, I suddenly realize that we had already reached the wa
 "If that is what the people want, then I would not shy away from accepting this great responsibility," the king of the underground says. "It has, however, not yet been decided who this temporary king will be, and you are of course welcome to make your own suggestions as to who you think would be the most suited to take on this very important role."
 
 }
-choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_kelrim == 1)
 choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim == 1)
 choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim == 1)
@@ -72,14 +72,14 @@ choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_sce
 choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_plan == 3)
 choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_plan == 3)
 choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 4) if (v_b3_ch6_plan == 3)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1, v_b3_ch6_password == 3)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3, v_b3_ch6_password == 3)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1, v_b3_ch6_labels >= 2)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3, v_b3_ch6_labels >= 2)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1, v_b3_ch6_secret >= 1, v_ch11_saved_rose == 1)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3, v_b3_ch6_secret >= 1, v_ch11_saved_rose == 1)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1, v_b3_ch6_secret == 0, v_ch11_saved_rose == 1, v_b3_ch6_sleep == 0)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3, v_b3_ch6_secret == 0, v_ch11_saved_rose == 1, v_b3_ch6_sleep == 0)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1 && v_b3_ch6_password == 3)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3 && v_b3_ch6_password == 3)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1 && v_b3_ch6_labels >= 2)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3 && v_b3_ch6_labels >= 2)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1 && v_b3_ch6_secret >= 1 && v_ch11_saved_rose == 1)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3 && v_b3_ch6_secret >= 1 && v_ch11_saved_rose == 1)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1 && v_b3_ch6_secret == 0 && v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 0)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3 && v_b3_ch6_secret == 0 && v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 0)
 
 
 ID: B3-Ch08b-King
@@ -335,7 +335,7 @@ The king then looks at Peter, waiting for an answer.
  "You will free all of them?" Kate asks, in a doubtful tone. "Even the ones that are essential for keeping the devices all around Ollendor functional?"
 
 }
-choice("Continue", B3-Ch08b-King3, v_current_scene = B3-Ch08b-King3) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch08b-King3, v_current_scene = B3-Ch08b-King3) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("Continue", B3-Ch08b-King3, v_current_scene = B3-Ch08b-King3) if (v_b3_ch6_kelrim == 1)
 choice("Continue", B3-Ch08b-King3, v_current_scene = B3-Ch08b-King3) if (v_b3_ch6_plan == 3)
 choice("Continue", B3-Ch08b-King3, v_current_scene = B3-Ch08b-King3) if (v_b3_ch8_king == 4)
@@ -538,14 +538,14 @@ TEXT:
  "Oh, and another thing..." the king of the underground says. "You should be careful to not talk about our plans to eliminate the Overseer when you are close to any of the blue crystals. It may be hard to believe, but Albert told me while we were in the throne room that he could feel someone watching us through the crystals. When I asked him to give me more details, he said he couldn't, because it was more of an instinct than anything else, and that he couldn't feel any foreign auras coming from the crystals by using his magical sense. Since I have come to trust Albert's assassin instincts throughout the years, my conclusion was that the most likely culprit would be the Overseer, because to my knowledge, his metal balls also have blue crystals within them, so he must have somehow found a way to resonate with the crystals in the caves. That might also explain why the crystals have started behaving so erratically all of a sudden, although their strange behavior could also have been caused by the recent explosions that affected them."
 
 }
-choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king != 5, v_b3_ch8_watching == 0)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5, v_b3_ch8_watching == 0)
-choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king != 5, v_b3_ch8_watching == 1)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5, v_b3_ch8_watching == 1)
-choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king == 5, v_b3_ch8_watching == 0)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5, v_b3_ch8_watching == 0)
-choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king == 5, v_b3_ch8_watching == 1)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5, v_b3_ch8_watching == 1)
+choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 0)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 0)
+choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 1)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 1)
+choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 0)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 0)
+choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 1)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 1)
 
 
 ID: B3-Ch08b-Populated
@@ -717,12 +717,12 @@ TEXT:
 
 I follow doctor Reidzek, Leila and Daren back to the waiting room, and then we each go our own separate ways, with me heading towards the recreation area of the underground caverns first.
 
-choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king == 5, v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king == 5, v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king == 5, v_b3_ch4_billy != 7)
-choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king != 5, v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king != 5, v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king != 5, v_b3_ch4_billy != 7)
+choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king == 5 && v_b3_ch4_billy == 7)
+choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king == 5 && v_b3_ch4_billy == 8)
+choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king == 5 && v_b3_ch4_billy != 7)
+choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king != 5 && v_b3_ch4_billy == 7)
+choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king != 5 && v_b3_ch4_billy == 8)
+choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2) if (v_b3_ch8_king != 5 && v_b3_ch4_billy != 7)
 choice("Continue", B3-Ch08b-Workshop2, v_current_scene = B3-Ch08b-Workshop2)
 
 
@@ -868,24 +868,24 @@ As soon as we were all on the same page regarding tomorrow's events and what nee
  "So, does anyone feel like volunteering for a night shift?" Daren asks us, once we are all done making our beds.
 
 }
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 0, v_b3_ch4_billy != 8, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 0, v_b3_ch4_billy == 7, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 0, v_b3_ch4_billy == 8, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy <= 6, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 9, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7, v_b3_ch8_king != 5, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8, v_b3_ch8_king != 5, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7, v_b3_ch8_king == 5, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8, v_b3_ch8_king == 5, v_b3_ch6_shift == 0)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 0, v_b3_ch4_billy != 8, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 0, v_b3_ch4_billy == 7, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 0, v_b3_ch4_billy == 8, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy <= 6, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 9, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7, v_b3_ch8_king != 5, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8, v_b3_ch8_king != 5, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7, v_b3_ch8_king == 5, v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8, v_b3_ch8_king == 5, v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy != 8 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy == 7 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy == 8 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy <= 6 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7 && v_b3_ch8_king != 5 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8 && v_b3_ch8_king != 5 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7 && v_b3_ch8_king == 5 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8 && v_b3_ch8_king == 5 && v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy != 8 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy == 7 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy == 8 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy <= 6 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7 && v_b3_ch8_king != 5 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8 && v_b3_ch8_king != 5 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7 && v_b3_ch8_king == 5 && v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8 && v_b3_ch8_king == 5 && v_b3_ch6_shift == 1)
 
 
 ID: B3-Ch08b-Hadrik

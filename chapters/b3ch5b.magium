@@ -451,23 +451,13 @@ ID: B3-Ch05b-Hearing
 TEXT: 
 
 set(v_b3_ch5_fight,0) if (v_hearing < 4)
-set(v_b3_ch5_fight,0) if (v_hearing >= 4, v_b2_ch6_stat != 1)
-set(v_b3_ch5_fight,4) if (v_hearing >= 4, v_b2_ch6_stat == 1)
-#if(v_hearing < 4) {
-FAIL:[ Hearing check failed - level 4 ]
-}
-#if(v_hearing >= 4 && v_b2_ch6_stat != 1) {
-FAIL:[ Hearing check failed - level 7 ]
-}
-#if(v_hearing >= 4 && v_b2_ch6_stat != 1) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing >= 4 && v_b2_ch6_stat == 1) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing >= 4 && v_b2_ch6_stat == 1) {
-SUCCESS:[ Hearing check successful - level 7 ]
-}
+set(v_b3_ch5_fight,0) if (v_hearing >= 4 && v_b2_ch6_stat != 1)
+set(v_b3_ch5_fight,4) if (v_hearing >= 4 && v_b2_ch6_stat == 1)
+FAIL:[ Hearing check failed - level 4 ] if (v_hearing < 4)}
+FAIL:[ Hearing check failed - level 7 ] if (v_hearing >= 4 && v_b2_ch6_stat != 1)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing >= 4 && v_b2_ch6_stat != 1)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing >= 4 && v_b2_ch6_stat == 1)}
+SUCCESS:[ Hearing check successful - level 7 ] if (v_hearing >= 4 && v_b2_ch6_stat == 1)}
 #if(v_hearing < 4) {
  
 No matter how skilled Albert is, his feet still need to touch the ground when he is walking from one place to another. If I listen really carefully, maybe I'll be able to figure out where he'll strike next.
@@ -512,8 +502,8 @@ As Daren was talking, Peter changed his mind and decided to target him instead o
 
 }
 choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_hearing < 4)
-choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_hearing >= 4, v_b2_ch6_stat != 1)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_hearing >= 4, v_b2_ch6_stat == 1)
+choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_hearing >= 4 && v_b2_ch6_stat != 1)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_hearing >= 4 && v_b2_ch6_stat == 1)
 
 
 ID: B3-Ch05b-Bluff
@@ -521,12 +511,8 @@ TEXT:
 
 set(v_b3_ch5_fight,0) if (v_bluff < 4)
 set(v_b3_ch5_fight,5) if (v_bluff >= 4)
-#if(v_bluff < 4) {
-FAIL:[ Bluff check failed - level 4 ]
-}
-#if(v_bluff >= 4) {
-SUCCESS:[ Bluff check successful - level 4 ]
-}
+FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4)}
+SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff >= 4)}
 #if(v_bluff < 4) {
  
 "Hey, Albert, you do realize that I can tell where you are, right?" I say. "You might want to try making some less obvious movements, because right now it's like you're begging to be shot with a crossbow in the chest."
@@ -562,23 +548,13 @@ ID: B3-Ch05b-Observation
 TEXT: 
 
 set(v_b3_ch5_fight,0) if (v_magical_sense < 4)
-set(v_b3_ch5_fight,0) if (v_magical_sense >= 4, v_perception < 4)
-set(v_b3_ch5_fight,6) if (v_magical_sense >= 4, v_perception >= 4)
-#if(v_magical_sense < 4) {
-FAIL:[ Magical sense check failed - level 4 ]
-}
-#if(v_magical_sense >= 4 && v_perception < 4) {
-FAIL:[ Observation check failed - level 4 ]
-}
-#if(v_magical_sense >= 4 && v_perception < 4) {
-SUCCESS:[ Magical sense check successful - level 4 ]
-}
-#if(v_magical_sense >= 4 && v_perception >= 4) {
-SUCCESS:[ Magical sense check successful - level 4 ]
-}
-#if(v_magical_sense >= 4 && v_perception >= 4) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
+set(v_b3_ch5_fight,0) if (v_magical_sense >= 4 && v_perception < 4)
+set(v_b3_ch5_fight,6) if (v_magical_sense >= 4 && v_perception >= 4)
+FAIL:[ Magical sense check failed - level 4 ] if (v_magical_sense < 4)}
+FAIL:[ Observation check failed - level 4 ] if (v_magical_sense >= 4 && v_perception < 4)}
+SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense >= 4 && v_perception < 4)}
+SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense >= 4 && v_perception >= 4)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_magical_sense >= 4 && v_perception >= 4)}
 #if(v_magical_sense < 4) {
  
 The king said that Albert is concealing his aura, but maybe if I concentrate as hard as I can I'll be able to catch a glimpse of it. I attempt to block most of my other senses from my mind and I concentrate only on reading the auras around me.
@@ -620,8 +596,8 @@ As Daren was talking, Peter changed his mind and decided to target him instead o
 
 }
 choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_magical_sense < 4)
-choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_magical_sense >= 4, v_perception < 4)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_magical_sense >= 4, v_perception >= 4)
+choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_magical_sense >= 4 && v_perception < 4)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_magical_sense >= 4 && v_perception >= 4)
 
 
 ID: B3-Ch05b-Nothing
@@ -635,28 +611,16 @@ choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition)
 ID: B3-Ch05b-Premonition
 TEXT: 
 
-set(v_b3_ch5_fight,0) if (v_premonition < 2, v_toughness == 0)
-set(v_b3_ch5_fight,0) if (v_premonition < 2, v_toughness > 0)
-set(v_b3_ch5_fight,0) if (v_premonition >= 2, v_aura_hardening < 4)
-set(v_b3_ch5_fight,7) if (v_premonition >= 2, v_aura_hardening >= 4)
-#if(v_premonition < 2 && v_toughness == 0) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition < 2 && v_toughness > 0) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition >= 2 && v_aura_hardening < 4) {
-FAIL:[ Aura hardening check failed - level 4 ]
-}
-#if(v_premonition >= 2 && v_aura_hardening < 4) {
-SUCCESS:[ Premonition check successful - level 2 ]
-}
-#if(v_premonition >= 2 && v_aura_hardening >= 4) {
-SUCCESS:[ Premonition check successful - level 2 ]
-}
-#if(v_premonition >= 2 && v_aura_hardening >= 4) {
-SUCCESS:[ Aura hardening check successful - level 4 ]
-}
+set(v_b3_ch5_fight,0) if (v_premonition < 2 && v_toughness == 0)
+set(v_b3_ch5_fight,0) if (v_premonition < 2 && v_toughness > 0)
+set(v_b3_ch5_fight,0) if (v_premonition >= 2 && v_aura_hardening < 4)
+set(v_b3_ch5_fight,7) if (v_premonition >= 2 && v_aura_hardening >= 4)
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_toughness == 0)}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_toughness > 0)}
+FAIL:[ Aura hardening check failed - level 4 ] if (v_premonition >= 2 && v_aura_hardening < 4)}
+SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2 && v_aura_hardening < 4)}
+SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2 && v_aura_hardening >= 4)}
+SUCCESS:[ Aura hardening check successful - level 4 ] if (v_premonition >= 2 && v_aura_hardening >= 4)}
 #if(v_premonition < 2 && v_toughness == 0) {
  
 While I stand there, thinking of what to do next, Hadrik decides that he's done waiting and he chooses to taunt his opponent instead.
@@ -741,10 +705,10 @@ While I'm still being shocked, Albert tries to free himself again but I hold ont
 As Daren was talking, Peter changed his mind and decided to target him instead of me, casting a lightning spell on Daren as soon as he exposed his back to him.
 
 }
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition < 2, v_toughness == 0)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition < 2, v_toughness > 0)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition >= 2, v_aura_hardening < 4)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition >= 2, v_aura_hardening >= 4)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition < 2 && v_toughness == 0)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition < 2 && v_toughness > 0)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition >= 2 && v_aura_hardening < 4)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition >= 2 && v_aura_hardening >= 4)
 
 
 ID: B3-Ch05b-Obscure
@@ -889,7 +853,7 @@ choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v
 choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief == 2)
 choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief == 0)
 choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_fight >= 4)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief != 0, v_b3_ch5_fight < 4)
+choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief != 0 && v_b3_ch5_fight < 4)
 choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy == 9)
 choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy != 0)
 choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy == 7)

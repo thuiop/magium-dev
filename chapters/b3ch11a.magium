@@ -1,8 +1,7 @@
 ID: B3-Ch11a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Let me see if I got this straight..." Hadrik tells Meridith. "You people have been gathering a huge amount of energy from mages since the beginning of this tournament, all for the purpose of killing Eiden..."
 
@@ -344,14 +343,10 @@ TEXT:
 
 set(v_b3_ch11_hear,1) if (v_hearing >= 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2)
-set(v_b3_ch11_hear,0) if (v_hearing < 2, v_perception_aux >= 4)
-set(v_b3_ch11_hear,0) if (v_hearing < 2, v_perception_aux < 4)
-#if(v_hearing >= 2) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_hearing < 2) {
-FAIL:[ Hearing check failed - level 2 ]
-}
+set(v_b3_ch11_hear,0) if (v_hearing < 2 && v_perception_aux >= 4)
+set(v_b3_ch11_hear,0) if (v_hearing < 2 && v_perception_aux < 4)
+SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2)}
+FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
 #if(v_hearing >= 2) {
  
 "Yeah, if it's marked like you say, then he probably avoided that tunnel."
@@ -419,8 +414,8 @@ As Daren and Melindra walk over to us, Flower frowns and sticks her tongue out a
 }
 choice("Tell the others where Hadrik went.", B3-Ch11a-Went, v_current_scene = B3-Ch11a-Went, v_b3_ch11_reverse = 1) if (v_hearing >= 2)
 choice("Remain silent, and keep going towards the wrong tunnel.", B3-Ch11a-Silent, v_current_scene = B3-Ch11a-Silent, v_b3_ch11_reverse = 0) if (v_hearing >= 2)
-choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_hearing < 2, v_perception_aux >= 4)
-choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_hearing < 2, v_perception_aux < 4)
+choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_hearing < 2 && v_perception_aux >= 4)
+choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_hearing < 2 && v_perception_aux < 4)
 
 
 ID: B3-Ch11a-Silent
@@ -462,6 +457,7 @@ choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_per
 ID: B3-Ch11a-Observation
 TEXT: 
 
+SUCCESS:[ Observation check successful - level 4 ]}
  
 Just as we were about to leave, I notice that a small area from one of the tunnel walls looks slightly out of place, compared to the rest of the black seredium surface. For some reason, this bothers me, so I walk closer to it, so that I can get a better look.
 
@@ -601,6 +597,7 @@ choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch
 ID: B3-Ch11a-Behind
 TEXT: 
 
+FAIL:[ Observation check failed - level 4 ]}
  
 Once we leave the lessathi guard behind, it doesn't take us long to reach the entrance of the tunnel, and then to go through the other corridor, in order to head towards the main quarters of Meridith's opposing faction.
 
@@ -646,12 +643,8 @@ TEXT:
 
 set(v_b3_ch11_hear,1) if (v_hearing >= 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2)
-#if(v_hearing >= 2) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_hearing < 2) {
-FAIL:[ Hearing check failed - level 2 ]
-}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2)}
+FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
 #if(v_hearing >= 2) {
  
 "Actually, he might have had even more of a reason to go there, if it's marked."
@@ -1159,11 +1152,11 @@ TEXT:
 
 }
 choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 0)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 1, v_b3_ch8_overseer2 == 1)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 1, v_b3_ch8_overseer2 == 0)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 2, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 2, v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 0, v_b3_ch11_reverse == 0)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 1)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 0)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 2 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 2 && v_b3_ch4_billy == 9)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0)
 choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 1)
 choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_reverse == 1)
 
@@ -1257,7 +1250,7 @@ As soon as Meridith figures out what happened, she explains the situation to the
  "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
 
 }
-choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 0, v_b3_ch11_reverse == 0)
+choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0)
 choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 1)
 choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_reverse == 1)
 
@@ -1923,15 +1916,15 @@ The Overseer then begins playing the conversation that he recorded, by using the
 choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 0)
 choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 0)
 choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 0)
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy != 7)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy != 7)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy != 7)
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 7)
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1, v_b3_ch4_billy == 8)
+choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
+choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
+choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
 
 
 ID: B3-Ch11a-Detector
@@ -2417,7 +2410,7 @@ When she saw Eiden, Diane was already beginning to charge up her electric powers
 "Oh," Eiden says, in a very disappointed tone. "I see..."
 
 }
-choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 1, v_b3_ch10_benefits == 1)
+choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 1 && v_b3_ch10_benefits == 1)
 choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 0)
 choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b3_ch10_benefits == 0)
 

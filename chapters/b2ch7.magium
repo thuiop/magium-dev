@@ -1,8 +1,7 @@
 ID: B2-Ch07a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
 #if(v_b2_ch1_interfere == 1) {
  
 "Barry, how long are you planning to stare at that piece of paper?" Daren says. "I told you, there are no conflicts between my protection spells. No matter how many times you check, you can't find something that is not there."
@@ -688,10 +687,10 @@ The game involved a lot of bluffing, so it was no surprise that Leila was the on
 "The golden one," Daren says. "The one that makes a spinning effect with sparkles when you cast it."
 
 }
-choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 0, v_b2_ch2_deal == 3)
-choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 1, v_b2_ch2_deal == 3)
-choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 0, v_b2_ch2_deal != 3)
-choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 1, v_b2_ch2_deal != 3)
+choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 0 && v_b2_ch2_deal == 3)
+choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 1 && v_b2_ch2_deal == 3)
+choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 0 && v_b2_ch2_deal != 3)
+choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v_ch11_saved_rose == 1 && v_b2_ch2_deal != 3)
 
 
 ID: B2-Ch07a-No-Help2
@@ -1010,18 +1009,12 @@ choice("Continue", B2-Ch07a-Premonition, v_current_scene = B2-Ch07a-Premonition)
 ID: B2-Ch07a-Premonition
 TEXT: 
 
-set(v_is_dead,1) if (v_premonition < 4, v_b2_ch7_tunnel == 1)
-set(v_is_dead,1) if (v_premonition < 4, v_b2_ch7_tunnel == 0)
+set(v_is_dead,1) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
+set(v_is_dead,1) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
 set(v_is_dead,0) if (v_premonition == 4)
-#if(v_premonition < 4 && v_b2_ch7_tunnel == 1) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition < 4 && v_b2_ch7_tunnel == 0) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition == 4) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_b2_ch7_tunnel == 1)}
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_b2_ch7_tunnel == 0)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition == 4)}
 #if(v_premonition < 4 && v_b2_ch7_tunnel == 1) {
  
 As we make our way further into the tunnel, I begin to ask myself if not choosing to enter that secret corridor really was the best decision. This tunnel is still as empty as ever, and I cannot deny that I'm also starting to get a bit of an eerie feeling as we get closer to our destination. I do not have the time to ask myself these questions much longer, because a few seconds later, the whole area around us is covered in a huge explosion, which sends the ceiling crashing down upon us and kills me in an instant.
@@ -1052,12 +1045,12 @@ As we make our way further into the tunnel, I suddenly get a vision of our group
 "Yeah, but to risk blowing up this whole corridor based on a simple hunch..." Hadrik says. "I don't know, I'm finding it a bit hard to believe. Barry, are you sure that your thingamajig isn't malfunctioning somehow? I mean, you don't have any guarantee that those premonitions will always come true, do you?"
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4, v_b2_ch7_tunnel == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4, v_b2_ch7_tunnel == 1)
-choice("Load game", , , special:saves) if (v_premonition < 4, v_b2_ch7_tunnel == 1)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4, v_b2_ch7_tunnel == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4, v_b2_ch7_tunnel == 0)
-choice("Load game", , , special:saves) if (v_premonition < 4, v_b2_ch7_tunnel == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
+choice("Load game", , , special:saves) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
+choice("Load game", , , special:saves) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
 choice("""Well, why don't you throw a rock, and see for yourself if it explodes, then?""", B2-Ch07a-Secret, v_current_scene = B2-Ch07a-Secret, v_b2_ch7_rock = 1) if (v_premonition == 4)
 choice("""It's certainly reliable enough to not want to risk my life by ignoring it.""", B2-Ch07a-Secret, v_current_scene = B2-Ch07a-Secret, v_b2_ch7_rock = 0) if (v_premonition == 4)
 
@@ -1179,10 +1172,10 @@ Before Daren gets to finish his sentence, Hadrik reaches the wall, and he punche
 "Fine, let's keep going," Daren says. "We'll see what happens, when it happens."
 
 }
-choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 0, v_b2_ch7_rock == 1)
-choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 0, v_b2_ch7_rock == 0)
-choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 1, v_b2_ch7_rock == 1)
-choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 1, v_b2_ch7_rock == 0)
+choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 0 && v_b2_ch7_rock == 1)
+choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 0 && v_b2_ch7_rock == 0)
+choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 1 && v_b2_ch7_rock == 1)
+choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing) if (v_b2_ch7_tunnel == 1 && v_b2_ch7_rock == 0)
 
 
 ID: B2-Ch07a-Relax
@@ -1213,23 +1206,13 @@ ID: B2-Ch07a-Hearing
 TEXT: 
 
 set(v_b2_ch7_overheard,0) if (v_hearing < 2)
-set(v_b2_ch7_overheard,0) if (v_hearing >= 2, v_ancient_languages < 3)
-set(v_b2_ch7_overheard,1) if (v_hearing >= 2, v_ancient_languages >= 3)
-#if(v_hearing < 2) {
-FAIL:[ Hearing check failed - level 2 ]
-}
-#if(v_hearing >= 2 && v_ancient_languages < 3) {
-FAIL:[ Ancient languages check failed - level 3 ]
-}
-#if(v_hearing >= 2 && v_ancient_languages < 3) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_hearing >= 2 && v_ancient_languages >= 3) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_hearing >= 2 && v_ancient_languages >= 3) {
-SUCCESS:[ Ancient languages check successful - level 3 ]
-}
+set(v_b2_ch7_overheard,0) if (v_hearing >= 2 && v_ancient_languages < 3)
+set(v_b2_ch7_overheard,1) if (v_hearing >= 2 && v_ancient_languages >= 3)
+FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
+FAIL:[ Ancient languages check failed - level 3 ] if (v_hearing >= 2 && v_ancient_languages < 3)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_ancient_languages < 3)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_ancient_languages >= 3)}
+SUCCESS:[ Ancient languages check successful - level 3 ] if (v_hearing >= 2 && v_ancient_languages >= 3)}
 #if(v_hearing < 2) {
  
 We travel through the secret tunnel without encountering any form of resistance. When we reach the end of it, Hadrik takes a quick glance towards the rest of us, and then he punches through the wall, clearing our way to the seredium corridor. As we look around us, we see that this tunnel is just as empty as the other ones.
@@ -1302,19 +1285,15 @@ I join Daren and the others into the narrow hallway, and we prepare to storm the
 
 }
 choice("Continue", B2-Ch07a-Welcome, v_current_scene = B2-Ch07a-Welcome) if (v_hearing < 2)
-choice("Continue", B2-Ch07a-Welcome, v_current_scene = B2-Ch07a-Welcome) if (v_hearing >= 2, v_ancient_languages < 3)
-choice("Continue", B2-Ch07a-Welcome, v_current_scene = B2-Ch07a-Welcome) if (v_hearing >= 2, v_ancient_languages >= 3)
+choice("Continue", B2-Ch07a-Welcome, v_current_scene = B2-Ch07a-Welcome) if (v_hearing >= 2 && v_ancient_languages < 3)
+choice("Continue", B2-Ch07a-Welcome, v_current_scene = B2-Ch07a-Welcome) if (v_hearing >= 2 && v_ancient_languages >= 3)
 
 
 ID: B2-Ch07a-Welcome
 TEXT: 
 
-#if(v_ancient_languages < 3) {
-FAIL:[ Ancient languages check failed - level 3 ]
-}
-#if(v_ancient_languages >= 3) {
-SUCCESS:[ Ancient languages check successful - level 3 ]
-}
+FAIL:[ Ancient languages check failed - level 3 ] if (v_ancient_languages < 3)}
+SUCCESS:[ Ancient languages check successful - level 3 ] if (v_ancient_languages >= 3)}
 #if(v_ancient_languages < 3) {
  
 Just as we prepare to charge into their headquarters, I suddenly feel an electric shock all throughout my body, and I fall to the ground, unable to move. The same thing apparently happened to all of my friends, because they're now also lying on the ground beside me.
@@ -1411,36 +1390,18 @@ ID: B2-Ch07a-Attack
 TEXT: 
 
 set(v_is_dead,0) if (v_strength >= 3)
-set(v_is_dead,0) if (v_strength < 3, v_combat_technique >= 3)
-set(v_is_dead,0) if (v_strength < 3, v_combat_technique < 3, v_agility >= 3)
-set(v_is_dead,1) if (v_strength < 3, v_combat_technique < 3, v_agility < 3)
-#if(v_strength >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique >= 3) {
-SUCCESS:[ Combat technique check successful - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique >= 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique < 3 && v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique < 3 && v_agility >= 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique < 3 && v_agility >= 3) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique < 3 && v_agility < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique < 3 && v_agility < 3) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_strength < 3 && v_combat_technique < 3 && v_agility < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_strength < 3 && v_combat_technique >= 3)
+set(v_is_dead,0) if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)
+set(v_is_dead,1) if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
+SUCCESS:[ Combat technique check successful - level 3 ] if (v_strength < 3 && v_combat_technique >= 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_combat_technique >= 3)}
+SUCCESS:[ Speed check successful - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)}
 #if(v_strength >= 3) {
  
 As he was talking, I was busy counting the seconds until the next electric shock.
@@ -1475,11 +1436,11 @@ Unable to get out of its way fast enough, I get hit by the acid head-on, and I q
 
 }
 choice("Continue", B2-Ch07a-Trident, v_current_scene = B2-Ch07a-Trident) if (v_strength >= 3)
-choice("Continue", B2-Ch07a-Trident, v_current_scene = B2-Ch07a-Trident) if (v_strength < 3, v_combat_technique >= 3)
-choice("Continue", B2-Ch07a-Trident, v_current_scene = B2-Ch07a-Trident) if (v_strength < 3, v_combat_technique < 3, v_agility >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_strength < 3, v_combat_technique < 3, v_agility < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3, v_combat_technique < 3, v_agility < 3)
-choice("Load game", , , special:saves) if (v_strength < 3, v_combat_technique < 3, v_agility < 3)
+choice("Continue", B2-Ch07a-Trident, v_current_scene = B2-Ch07a-Trident) if (v_strength < 3 && v_combat_technique >= 3)
+choice("Continue", B2-Ch07a-Trident, v_current_scene = B2-Ch07a-Trident) if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)
+choice("Load game", , , special:saves) if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)
 
 
 ID: B2-Ch07a-Wait
@@ -1515,17 +1476,11 @@ ID: B2-Ch07a-Trident
 TEXT: 
 
 set(v_is_dead,1) if (v_toughness < 4)
-set(v_is_dead,0) if (v_toughness == 4, v_b2_ch7_wait == 0)
-set(v_is_dead,0) if (v_toughness == 4, v_b2_ch7_wait == 1)
-#if(v_toughness < 4) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_toughness == 4 && v_b2_ch7_wait == 0) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
-#if(v_toughness == 4 && v_b2_ch7_wait == 1) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
+set(v_is_dead,0) if (v_toughness == 4 && v_b2_ch7_wait == 0)
+set(v_is_dead,0) if (v_toughness == 4 && v_b2_ch7_wait == 1)
+FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_b2_ch7_wait == 0)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_b2_ch7_wait == 1)}
 #if(v_toughness < 4) {
  
 "Damn it!" one of the other lessathi says, as he sticks a trident-like weapon into a wall.
@@ -1560,8 +1515,8 @@ While I am still unable to move, Kate manages to free herself from the paralysis
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness < 4)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4)
 choice("Load game", , , special:saves) if (v_toughness < 4)
-choice("Continue", B2-Ch07a-Blinded, v_current_scene = B2-Ch07a-Blinded) if (v_toughness == 4, v_b2_ch7_wait == 0)
-choice("Continue", B2-Ch07a-Blinded, v_current_scene = B2-Ch07a-Blinded) if (v_toughness == 4, v_b2_ch7_wait == 1)
+choice("Continue", B2-Ch07a-Blinded, v_current_scene = B2-Ch07a-Blinded) if (v_toughness == 4 && v_b2_ch7_wait == 0)
+choice("Continue", B2-Ch07a-Blinded, v_current_scene = B2-Ch07a-Blinded) if (v_toughness == 4 && v_b2_ch7_wait == 1)
 
 
 ID: B2-Ch07a-Winter
@@ -1833,10 +1788,10 @@ TEXT:
 "Good luck on your travels," Golmyck says. "And remember that you will always be welcome to Thilias, should you choose to visit this city again!"
 
 }
-choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 1, v_b2_ch7_reward == 1)
-choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 1, v_b2_ch7_reward == 0)
-choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 0, v_b2_ch7_reward == 1)
-choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 0, v_b2_ch7_reward == 0)
+choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 1 && v_b2_ch7_reward == 1)
+choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 1 && v_b2_ch7_reward == 0)
+choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 0 && v_b2_ch7_reward == 1)
+choice("Continue", B2-Ch07a-Mansion, v_current_scene = B2-Ch07a-Mansion) if (v_b2_ch7_overheard == 0 && v_b2_ch7_reward == 0)
 
 
 ID: B2-Ch07a-Mansion
@@ -1906,10 +1861,10 @@ Just as promised, exactly twenty minutes later, Rose comes out of the kitchen, c
 The food that Rose cooked for us was definitely tasty, but it had been a long time since we had the opportunity to taste any of Flower's delicacies, so in the end, our feast was a combination of homemade and magically conceived food. As usual, Hadrik was more than happy to provide us with the drinks for the occasion, and Rose also made sure to supply us with her special herbs, so we could start fresh in the morning, without fear of any hangovers.
 
 }
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0, v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0, v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1, v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1, v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0 && v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0 && v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1 && v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1 && v_ch11_saved_slave != 3)
 
 
 ID: B2-Ch07a-Mansion2
@@ -1943,10 +1898,10 @@ The food that Rose cooked for us was definitely tasty, but it had been a long ti
 The food that Rose cooked for us was definitely tasty, but it had been a long time since we had the opportunity to taste any of Flower's delicacies, so in the end, our feast was a combination of homemade and magically conceived food. As usual, Hadrik was more than happy to provide us with the drinks for the occasion, and Rose also made sure to supply us with her special herbs, so we could start fresh in the morning, without fear of any hangovers.
 
 }
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0, v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0, v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1, v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1, v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0 && v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 0 && v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1 && v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch07a-Ending, v_current_scene = B2-Ch07a-Ending) if (v_ch11_saved_rose == 1 && v_ch11_saved_slave != 3)
 
 
 ID: B2-Ch07a-Ending
@@ -2001,8 +1956,8 @@ As she waves at us, to make sure that we've spotted her, we quicken our pace, an
 
 }
 choice("Next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0)
-choice("Next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 1, v_ch11_romance_rose == 0)
-choice("Next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 1, v_ch11_romance_rose == 1)
+choice("Next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("Next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 
 
 ID: B2-Ch07a-Credits

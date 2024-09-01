@@ -1,8 +1,7 @@
 ID: B3-Ch07a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 The whole world is spinning, and I'm having one hell of a headache. This has got to be the worst hangover I've ever had in my life. What did I even drink yesterday to bring me in this state?
 
@@ -147,19 +146,13 @@ choice("Let Leila handle her headache by herself and go follow her.", B3-Ch07a-M
 ID: B3-Ch07a-Massage
 TEXT: 
 
-set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 1, v_magical_sense < 2)
-set(v_b3_ch7_massage,2) if (v_b3_ch7_massage == 1, v_magical_sense >= 2)
-set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 2, v_magical_sense >= 2)
+set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 1 && v_magical_sense < 2)
+set(v_b3_ch7_massage,2) if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)
+set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 2 && v_magical_sense >= 2)
 set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 0)
-#if(v_b3_ch7_massage == 1 && v_magical_sense < 2) {
-FAIL:[ Magical sense check failed - level 2 ]
-}
-#if(v_b3_ch7_massage == 1 && v_magical_sense >= 2) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch7_massage == 2 && v_magical_sense >= 2) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
+FAIL:[ Magical sense check failed - level 2 ] if (v_b3_ch7_massage == 1 && v_magical_sense < 2)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch7_massage == 2 && v_magical_sense >= 2)}
 #if(v_b3_ch7_massage == 1 && v_magical_sense < 2) {
  
 "Before we go, could you try teaching me that massage technique?" I say. "Maybe I can help you get rid of your headache."
@@ -262,9 +255,9 @@ I then pull out my transceiver, set the frequency to Daren's number and tap it o
 I then pull out my transceiver, set the frequency to Daren's number and tap it once.
 
 }
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 1, v_magical_sense < 2)
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 1, v_magical_sense >= 2)
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 2, v_magical_sense >= 2)
+choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 1 && v_magical_sense < 2)
+choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)
+choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 2 && v_magical_sense >= 2)
 choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 0)
 
 
@@ -515,12 +508,8 @@ choice("Continue", B3-Ch07a-Respite, v_current_scene = B3-Ch07a-Respite)
 ID: B3-Ch07a-Convince
 TEXT: 
 
-#if(v_bluff < 3) {
-FAIL:[ Bluff check failed - level 3 ]
-}
-#if(v_bluff >= 3) {
-SUCCESS:[ Bluff check successful - level 3 ]
-}
+FAIL:[ Bluff check failed - level 3 ] if (v_bluff < 3)}
+SUCCESS:[ Bluff check successful - level 3 ] if (v_bluff >= 3)}
 #if(v_bluff < 3) {
  
 "You do realize that Leila wasn't bluffing just now, right?" I tell Gontrok. "Our weapons really are as sharp as Daren's sword."
@@ -620,26 +609,16 @@ ID: B3-Ch07a-Respite
 TEXT: 
 
 set(v_is_dead,1) if (v_reflexes < 4)
-set(v_is_dead,1) if (v_reflexes >= 4, v_agility < 4)
-set(v_is_dead,0) if (v_reflexes >= 4, v_agility >= 4)
-set(v_is_dead,0) if (v_b3_ch7_bet == 0, v_is_dead == 0)
-set(v_is_dead,0) if (v_b3_ch7_bet == 1, v_is_dead == 0)
-set(v_is_dead,0) if (v_b3_ch7_bet == 3, v_is_dead == 0)
-#if(v_reflexes < 4) {
-FAIL:[ Reflexes check failed - level 4 ]
-}
-#if(v_reflexes >= 4 && v_agility < 4) {
-FAIL:[ Speed check failed - level 4 ]
-}
-#if(v_reflexes >= 4 && v_agility < 4) {
-SUCCESS:[ Reflexes check successful - level 4 ]
-}
-#if(v_reflexes >= 4 && v_agility >= 4) {
-SUCCESS:[ Reflexes check successful - level 4 ]
-}
-#if(v_reflexes >= 4 && v_agility >= 4) {
-SUCCESS:[ Speed check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_reflexes >= 4 && v_agility < 4)
+set(v_is_dead,0) if (v_reflexes >= 4 && v_agility >= 4)
+set(v_is_dead,0) if (v_b3_ch7_bet == 0 && v_is_dead == 0)
+set(v_is_dead,0) if (v_b3_ch7_bet == 1 && v_is_dead == 0)
+set(v_is_dead,0) if (v_b3_ch7_bet == 3 && v_is_dead == 0)
+FAIL:[ Reflexes check failed - level 4 ] if (v_reflexes < 4)}
+FAIL:[ Speed check failed - level 4 ] if (v_reflexes >= 4 && v_agility < 4)}
+SUCCESS:[ Reflexes check successful - level 4 ] if (v_reflexes >= 4 && v_agility < 4)}
+SUCCESS:[ Reflexes check successful - level 4 ] if (v_reflexes >= 4 && v_agility >= 4)}
+SUCCESS:[ Speed check successful - level 4 ] if (v_reflexes >= 4 && v_agility >= 4)}
 #if(v_reflexes < 4) {
  
 The giant takes a few steps towards Leila, looking as if he were about to attack her at any minute, but after a few seconds he turns around and makes a dash for me instead.
@@ -685,17 +664,17 @@ As I am getting this brief moment of respite, I cannot help but notice that ther
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 4)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 4)
 choice("Load game", , , special:saves) if (v_reflexes < 4)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 4, v_agility < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 4, v_agility < 4)
-choice("Load game", , , special:saves) if (v_reflexes >= 4, v_agility < 4)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_reflexes >= 4, v_agility >= 4)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_reflexes >= 4, v_agility >= 4)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 0, v_is_dead == 0)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 0, v_is_dead == 0)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 1, v_is_dead == 0)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 1, v_is_dead == 0)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 3, v_is_dead == 0)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 3, v_is_dead == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 4 && v_agility < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 4 && v_agility < 4)
+choice("Load game", , , special:saves) if (v_reflexes >= 4 && v_agility < 4)
+choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_reflexes >= 4 && v_agility >= 4)
+choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_reflexes >= 4 && v_agility >= 4)
+choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 0 && v_is_dead == 0)
+choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 0 && v_is_dead == 0)
+choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 1 && v_is_dead == 0)
+choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 1 && v_is_dead == 0)
+choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 3 && v_is_dead == 0)
+choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 3 && v_is_dead == 0)
 
 
 ID: B3-Ch07a-Studied
@@ -703,12 +682,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_magical_sense < 4)
 set(v_is_dead,0) if (v_magical_sense >= 4)
-#if(v_magical_sense < 4) {
-FAIL:[ Magical sense check failed - level 4 ]
-}
-#if(v_magical_sense >= 4) {
-SUCCESS:[ Magical sense check successful - level 4 ]
-}
+FAIL:[ Magical sense check failed - level 4 ] if (v_magical_sense < 4)}
+SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense >= 4)}
 #if(v_magical_sense < 4) {
  
 I focus on the giant's aura, trying to understand what the problem is with it. Unfortunately, while I am concentrating, I fail to react in time to one of Gontrok's extremely quick strikes, and he cracks my skull open with a single punch.
@@ -736,12 +711,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 2)
 set(v_is_dead,0) if (v_combat_technique >= 2)
-#if(v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
 #if(v_combat_technique < 2) {
  "I will hit you as soon as you stop running around in circles like some chicken without a head," Gontrok says angrily. "How about you fight like a man instead of continuing to disgrace yourself by acting in such a cowardly way?"
 "I will fight however I please, thank you very much," I tell him.
@@ -774,14 +745,10 @@ ID: B3-Ch07a-Perform2
 TEXT: 
 
 set(v_is_dead,0) if (v_b3_ch7_massage == 2)
-set(v_is_dead,1) if (v_b3_ch7_massage != 2, v_combat_technique < 4)
-set(v_is_dead,0) if (v_b3_ch7_massage != 2, v_combat_technique >= 4)
-#if(v_b3_ch7_massage != 2 && v_combat_technique < 4) {
-FAIL:[ Combat technique check failed - level 4 ]
-}
-#if(v_b3_ch7_massage != 2 && v_combat_technique >= 4) {
-SUCCESS:[ Combat technique check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
+set(v_is_dead,0) if (v_b3_ch7_massage != 2 && v_combat_technique >= 4)
+FAIL:[ Combat technique check failed - level 4 ] if (v_b3_ch7_massage != 2 && v_combat_technique < 4)}
+SUCCESS:[ Combat technique check successful - level 4 ] if (v_b3_ch7_massage != 2 && v_combat_technique >= 4)}
 #if(v_b3_ch7_massage == 2) {
  Surely enough, after several more strikes coming from Gontrok, my suspicions get confirmed and I can now say without a shadow of a doubt that he is indeed using the technique I was thinking of.  I avoid his attacks for a while longer until Leila finally distracts him once more, and then I quickly continue from where I left off the last time, joining my fingers together again and hitting several more spots at the back of Gontrok's neck until I can feel his aura going completely haywire.
 
@@ -833,10 +800,10 @@ Just like the last time, the royal guard's voice appears to be coming from all a
 
 }
 choice("Continue", B3-Ch07a-Loyrang, v_ac_b3_ch7_honorable = 1, v_current_scene = B3-Ch07a-Loyrang, special:achievement-An honorable victory-v_ac_b3_ch7_honorable) if (v_b3_ch7_massage == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_massage != 2, v_combat_technique < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_massage != 2, v_combat_technique < 4)
-choice("Load game", , , special:saves) if (v_b3_ch7_massage != 2, v_combat_technique < 4)
-choice("Continue", B3-Ch07a-Loyrang, v_ac_b3_ch7_honorable = 1, v_current_scene = B3-Ch07a-Loyrang, special:achievement-An honorable victory-v_ac_b3_ch7_honorable) if (v_b3_ch7_massage != 2, v_combat_technique >= 4)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
+choice("Load game", , , special:saves) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
+choice("Continue", B3-Ch07a-Loyrang, v_ac_b3_ch7_honorable = 1, v_current_scene = B3-Ch07a-Loyrang, special:achievement-An honorable victory-v_ac_b3_ch7_honorable) if (v_b3_ch7_massage != 2 && v_combat_technique >= 4)
 
 
 ID: B3-Ch07a-Busy
@@ -874,12 +841,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 2)
 set(v_is_dead,0) if (v_combat_technique >= 2)
-#if(v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
 #if(v_combat_technique < 2) {
  
 I decide that I shouldn't waste the precious little time I have by looking at an aura, and that I should try to formulate a plan of attack, instead. Unfortunately, Leila's distraction does not work for very long, and Gontrok soon attacks me again with an extremely quick punch, making me jump back in order to dodge him.
@@ -937,12 +900,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 4)
 set(v_is_dead,0) if (v_combat_technique >= 4)
-#if(v_combat_technique < 4) {
-FAIL:[ Combat technique check failed - level 4 ]
-}
-#if(v_combat_technique >= 4) {
-SUCCESS:[ Combat technique check successful - level 4 ]
-}
+FAIL:[ Combat technique check failed - level 4 ] if (v_combat_technique < 4)}
+SUCCESS:[ Combat technique check successful - level 4 ] if (v_combat_technique >= 4)}
 #if(v_combat_technique < 4) {
  
 "You two are really beginning to test my patience..." Gontrok says, as he looks at the two of us, one by one.
@@ -1431,8 +1390,8 @@ He then picks up a rock from the ground with his right hand and he shows it to L
 Gontrok does not get to finish his swing, however, because his arm freezes in place and so does the rest of his body, as if it were being immobilized by an invisible force. While the giant struggles to break himself free of the aura technique, we see Eiden coming out of invisibility somewhere not too far behind him with his eyes closed, as always.
 
 }
-choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1, v_bluff >= 1)
-choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1, v_bluff == 0)
+choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1 && v_bluff >= 1)
+choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1 && v_bluff == 0)
 choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 0)
 
 
@@ -1768,15 +1727,11 @@ choice("Ask the king where Leila's father is.", B3-Ch07a-Traitorous, v_current_s
 ID: B3-Ch07a-Traitorous
 TEXT: 
 
-set(v_is_dead,1) if (v_b3_ch7_tyrant == 1, v_aura_hardening < 3)
-set(v_is_dead,0) if (v_b3_ch7_tyrant == 1, v_aura_hardening >= 3)
+set(v_is_dead,1) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
+set(v_is_dead,0) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3)
 set(v_is_dead,0) if (v_b3_ch7_tyrant == 0)
-#if(v_b3_ch7_tyrant == 1 && v_aura_hardening < 3) {
-FAIL:[ Aura hardening check failed - level 3 ]
-}
-#if(v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3) {
-SUCCESS:[ Aura hardening check successful - level 3 ]
-}
+FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)}
+SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3)}
 #if(v_b3_ch7_tyrant == 1 && v_aura_hardening < 3) {
  
 I take out my crossbow and I aim it at the king's head. Just as I am pulling the trigger, I see Leila's text in front of my eyes, saying: "Wait, we didn't ask him where my father is, yet!"
@@ -1826,11 +1781,11 @@ The beam envelops my whole body in flames, but thanks to my hardened aura I only
 "Upon further analysis, it seems that the device which the king uses to call the royal guards to his location is also malfunctioning, possibly due to someone having tampered with it beforehand," the Overseer says. "If you want to kill the king, now would be the perfect time, as he will not be able to call his allies to help him."
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_tyrant == 1, v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_tyrant == 1, v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch7_tyrant == 1, v_aura_hardening < 3)
-choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 1, v_aura_hardening >= 3)
-choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 1, v_aura_hardening >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
+choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3)
+choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3)
 choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 0)
 choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 0)
 
@@ -1838,22 +1793,18 @@ choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assas
 ID: B3-Ch07a-Assassinate
 TEXT: 
 
-set(v_is_dead,1) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 0, v_perception < 2)
-set(v_is_dead,0) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 0, v_perception >= 2)
-set(v_is_dead,0) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 1)
-set(v_is_dead,0) if (v_b3_ch7_assassinate == 0, v_b3_ch7_door == 0)
-set(v_is_dead,0) if (v_b3_ch7_assassinate == 0, v_b3_ch7_door == 1)
-set(v_is_dead,0) if (v_is_dead == 0, v_b3_ch4_billy == 7)
-set(v_is_dead,0) if (v_is_dead == 0, v_b3_ch4_billy == 8)
-set(v_is_dead,0) if (v_is_dead == 0, v_b3_ch4_billy == 0)
-set(v_is_dead,0) if (v_is_dead == 0, v_b3_ch4_billy != 0)
-set(v_is_dead,0) if (v_is_dead == 0, v_b3_ch4_billy == 9)
-#if(v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2) {
-FAIL:[ Observation check failed - level 2 ]
-}
-#if(v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2) {
-SUCCESS:[ Observation check successful - level 2 ]
-}
+set(v_is_dead,1) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
+set(v_is_dead,0) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
+set(v_is_dead,0) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1)
+set(v_is_dead,0) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0)
+set(v_is_dead,0) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1)
+set(v_is_dead,0) if (v_is_dead == 0 && v_b3_ch4_billy == 7)
+set(v_is_dead,0) if (v_is_dead == 0 && v_b3_ch4_billy == 8)
+set(v_is_dead,0) if (v_is_dead == 0 && v_b3_ch4_billy == 0)
+set(v_is_dead,0) if (v_is_dead == 0 && v_b3_ch4_billy != 0)
+set(v_is_dead,0) if (v_is_dead == 0 && v_b3_ch4_billy == 9)
+FAIL:[ Observation check failed - level 2 ] if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)}
+SUCCESS:[ Observation check successful - level 2 ] if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)}
 #if(v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2) {
  
 I aim my crossbow right above the king's left knee and I pull the trigger. Just as I do this, I suddenly realize that for some unknown reason my mind had been completely fooled into thinking that I was aiming at my adversary, when in fact I was aiming at myself.
@@ -1976,18 +1927,18 @@ Having finished their job, the red-eyed drones now retreat out of the room in an
 "Now, is there anything else I can help you with?" the Overseer says.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 0, v_perception < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 0, v_perception < 2)
-choice("Load game", , , special:saves) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 0, v_perception < 2)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 0, v_perception >= 2)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 1, v_b3_ch7_door == 1)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 0, v_b3_ch7_door == 0)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 0, v_b3_ch7_door == 1)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0, v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0, v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0, v_b3_ch4_billy == 0)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0, v_b3_ch4_billy != 0)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0, v_b3_ch4_billy == 9)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
+choice("Load game", , , special:saves) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 7)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 8)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 0)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy != 0)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 9)
 
 
 ID: B3-Ch07a-Golems

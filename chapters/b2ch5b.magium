@@ -244,38 +244,20 @@ choice("Wait for him to make mistakes, then attack him directly", B2-Ch05b-Tacti
 ID: B2-Ch05b-Tactic1
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2, v_b2_ch5_scimitar != 0, v_strength >= 1)
-set(v_is_dead,0) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_strength >= 2)
+set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
+set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
 set(v_is_dead,1) if (v_agility < 2)
-set(v_is_dead,1) if (v_agility >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-set(v_is_dead,1) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_agility < 2) {
-FAIL:[ Speed check failed - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
+set(v_is_dead,1) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+set(v_is_dead,1) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
+SUCCESS:[ Strength check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2)}
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
+FAIL:[ Strength check failed - level 1 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
 #if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
  
 
@@ -339,44 +321,32 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 I somehow manage to surprise him even when he was the one who initiated the attack, and I slash at his battle-axe's handle with my dagger as hard as I can, but it is not enough to knock it out of his hands. The loss of momentum from my failed attack is enough for the warrior to swing his axe straight at me, and he kills me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2, v_b2_ch5_scimitar != 0, v_strength >= 1)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_strength >= 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
 choice("Load game", , , special:saves) if (v_agility < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-choice("Load game", , , special:saves) if (v_agility >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
-choice("Load game", , , special:saves) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
 
 
 ID: B2-Ch05b-Tactic2
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2, v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_combat_technique >= 2)
+set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar != 0)
+set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
 set(v_is_dead,1) if (v_agility < 2)
-set(v_is_dead,1) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_agility < 2) {
-FAIL:[ Speed check failed - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
+set(v_is_dead,1) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0)}
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2)}
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
 #if(v_agility >= 2 && v_b2_ch5_scimitar != 0) {
  
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -423,51 +393,33 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 I somehow manage to surprise him even when he was the one who initiated the attack, and I attempt to stab him in the chest with my dagger. To my shock and dismay, in a miraculous turn of events, the gladiator manages to parry my hit with the handle of his axe at the very last moment, and then he uses it to hit me in the head, stunning me for a brief moment. That one moment was all he needed, and he quickly brings down his battle-axe upon me, killing me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2, v_b2_ch5_scimitar != 0)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_combat_technique >= 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar != 0)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
 choice("Load game", , , special:saves) if (v_agility < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
-choice("Load game", , , special:saves) if (v_agility >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
 
 
 ID: B2-Ch05b-Tactic3
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0, v_strength >= 1)
-set(v_is_dead,0) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_strength >= 2)
+set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
+set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
 set(v_is_dead,1) if (v_reflexes < 2)
-set(v_is_dead,1) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-set(v_is_dead,1) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_reflexes < 2) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
+set(v_is_dead,1) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+set(v_is_dead,1) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
+SUCCESS:[ Strength check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_reflexes < 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
+FAIL:[ Strength check failed - level 1 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
 #if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
  
 
@@ -535,44 +487,32 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 I dance around the warrior enough to get him a bit tired, and as soon as I catch him on the wrong footing, I slash at his battle-axe's handle with my dagger as hard as I can, in an attempt to disarm him, but the force of the blow is not enough to knock the weapon out of his hands. The loss of momentum from my failed attack is enough for the warrior to swing his axe straight at me, and he kills me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0, v_strength >= 1)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_strength >= 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
 choice("Load game", , , special:saves) if (v_reflexes < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-choice("Load game", , , special:saves) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0, v_strength == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
-choice("Load game", , , special:saves) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_strength < 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
 
 
 ID: B2-Ch05b-Tactic4
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_combat_technique >= 2)
+set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
+set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
 set(v_is_dead,1) if (v_reflexes < 2)
-set(v_is_dead,1) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_reflexes < 2) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
+set(v_is_dead,1) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_reflexes < 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
 #if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0) {
  
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -625,14 +565,14 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 I dance around the warrior enough to get him a bit tired, and as soon as I catch him on the wrong footing, I attempt to stab him in the chest with my dagger. Unfortunately, even from his unfavorable position, the warrior still manages to parry my hit with the handle of his axe, and then he uses the same handle to hit me in the head, stunning me for a brief moment. That one moment was all he needed, and he quickly brings down his battle-axe upon me, killing me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2, v_b2_ch5_scimitar != 0)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_combat_technique >= 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
 choice("Load game", , , special:saves) if (v_reflexes < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
-choice("Load game", , , special:saves) if (v_reflexes >= 2, v_b2_ch5_scimitar == 0, v_combat_technique < 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
 
 
 ID: B2-Ch05b-Mercy
@@ -805,10 +745,10 @@ The winner of the third round was some guy from the seventh division that didn't
 "Will the undesirables please form a line and face the rest of the gladiators?" the announcer says.
 
 }
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 0, v_b2_ch2_creatures == 0)
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 1, v_b2_ch2_creatures == 0)
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 0, v_b2_ch2_creatures == 1)
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 1, v_b2_ch2_creatures == 1)
+choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 0 && v_b2_ch2_creatures == 0)
+choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 1 && v_b2_ch2_creatures == 0)
+choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 0 && v_b2_ch2_creatures == 1)
+choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 1 && v_b2_ch2_creatures == 1)
 
 
 ID: B2-Ch05b-Caliber
@@ -1332,12 +1272,8 @@ TEXT:
 
 set(v_is_dead,0) if (v_combat_technique >= 2)
 set(v_is_dead,1) if (v_combat_technique < 2)
-#if(v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2)}
 #if(v_combat_technique >= 2) {
  
 "I'm about to attack Tyrath," I tell Golmyck. "Get ready."

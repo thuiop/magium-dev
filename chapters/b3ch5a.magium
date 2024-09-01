@@ -1,8 +1,7 @@
 ID: B3-Ch05a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Ah, I see that you've finally returned," the king of the underground says in an offhanded manner, when he sees us walk into the waiting room of the rebel base.
 
@@ -72,12 +71,12 @@ When they hear what I answered the king, Kate and Breynan both instinctively tur
 "A price?..." the king of the underground says, and he spends a few moments thinking about my offer. "Well, to be perfectly honest with you, I can't say that I would be willing to spend a lot of money on this information. The way I see it, either you struck some secret deal with the Overseer, in which case you obviously aren't going to tell me about it, or your discussion was centered on viable ways to assassinate the king, which have likely become irrelevant now that the king has ordered a city-wide lockdown. However, I would be willing to pay you ten gold coins upfront if you agree to confirm or deny my hypothesis. What do you say?"
 
 }
-choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2, v_b3_ch4_billy != 8)
-choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2, v_b3_ch4_billy != 8)
-choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2, v_b3_ch4_billy == 7)
-choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2, v_b3_ch4_billy == 7)
-choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2, v_b3_ch4_billy == 8)
-choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2, v_b3_ch4_billy == 8)
+choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy != 8)
+choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy != 8)
+choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 7)
+choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 7)
+choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 8)
+choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 8)
 
 
 ID: B3-Ch05a-Contacting
@@ -226,19 +225,19 @@ I pull out my transceiver and I begin by calling Daren. I give him a short expla
 Just as I'm done talking with Hadrik, Daren comes out of the quarantine zone, holding Arraka's amulet close to his mouth like a transceiver while having a heated argument with her. Close behind them, we see the goblin healer, Kelrim, who is silently following the two of them as they are heading in our direction.
 
 }
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1, v_b3_ch4_billy != 8)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1, v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1, v_b3_ch4_billy == 8)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1 && v_b3_ch4_billy != 8)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1 && v_b3_ch4_billy == 7)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1 && v_b3_ch4_billy == 8)
 choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 0)
 choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 3)
 choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 4)
 choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy != 8)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7, v_b3_ch5_negotiations != 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8, v_b3_ch5_negotiations != 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7, v_b3_ch5_negotiations == 0)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8, v_b3_ch5_negotiations == 0)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7, v_b3_ch5_negotiations == 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8, v_b3_ch5_negotiations == 4)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7 && v_b3_ch5_negotiations != 4)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8 && v_b3_ch5_negotiations != 4)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 0)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 0)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 4)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 4)
 choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_ch11_saved_rose == 0)
 choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_ch11_saved_rose == 1)
 

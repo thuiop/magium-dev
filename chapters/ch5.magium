@@ -1,8 +1,7 @@
 ID: Ch5-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
 #if(v_ch4_ending == 1) {
 
 "Daren!" I shout. "Daren, can you hear me?"
@@ -204,8 +203,8 @@ choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_
 choice("""Maybe he has some artifact that's helping him?""", Ch5-Artifact, v_current_scene = Ch5-Artifact, v_checkpoint_rich = 0) if (v_ch4_ending == 4)
 choice("""Maybe he's older than he looks?""", Ch5-Older, v_current_scene = Ch5-Older, v_checkpoint_rich = 0) if (v_ch4_ending == 4)
 choice("""Maybe he made a pact with some god?""", Ch5-Pact, v_current_scene = Ch5-Pact, v_checkpoint_rich = 0) if (v_ch4_ending == 4)
-choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 5, v_ch4_dave_defeat != 1)
-choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 5, v_ch4_dave_defeat == 1)
+choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 5 && v_ch4_dave_defeat != 1)
+choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 5 && v_ch4_dave_defeat == 1)
 choice("""Maybe he has some artifact that's helping him?""", Ch5-Artifact, v_current_scene = Ch5-Artifact, v_checkpoint_rich = 0) if (v_ch4_ending == 6)
 choice("""Maybe he's older than he looks?""", Ch5-Older, v_current_scene = Ch5-Older, v_checkpoint_rich = 0) if (v_ch4_ending == 6)
 choice("""Maybe he made a pact with some god?""", Ch5-Pact, v_current_scene = Ch5-Pact, v_checkpoint_rich = 0) if (v_ch4_ending == 6)
@@ -325,10 +324,10 @@ She's hiding something again. I just know it.
 "They're being backed by the kings?" Daren asks. "What would Eiden want with these hotshots? You simply have to tell them to remember the still winter, right? I wonder what that's supposed to mean?"
 
 }
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 0, v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 0, v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 1, v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 1, v_ch3_kate_badly_hurt == 0)
+choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0)
+choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0)
+choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0)
+choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0)
 choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_kate_badly_hurt == 1)
 choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_kate_badly_hurt == 1)
 
@@ -886,12 +885,8 @@ TEXT:
 
 set(v_ch5_goblins,0) if (v_ancient_languages < 3)
 set(v_ch5_goblins,0) if (v_ancient_languages == 3)
-#if(v_ancient_languages < 3) {
-FAIL:[ Ancient languages check failed - level 3 ]
-}
-#if(v_ancient_languages == 3) {
-SUCCESS:[ Ancient languages check successful - level 3 ]
-}
+FAIL:[ Ancient languages check failed - level 3 ] if (v_ancient_languages < 3)}
+SUCCESS:[ Ancient languages check successful - level 3 ] if (v_ancient_languages == 3)}
 #if(v_ancient_languages < 3) {
 
 As soon as they see us, one of them yells something to his allies in a language I don't understand, and then they all quickly make themselves scarce. Visibly, they were not prepared for an actual fight.

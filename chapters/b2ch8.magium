@@ -1,8 +1,7 @@
 ID: B2-Ch08a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "There you are!" Melindra says, once we all get within hearing range of her. "Just in time. Tell me, are you all ready to begin our adventure?"
 
@@ -564,38 +563,22 @@ TEXT:
 
 set(v_b2_ch8_saved,0) if (v_combat_technique >= 1)
 set(v_is_dead,0) if (v_combat_technique >= 1)
-set(v_b2_ch8_saved,0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 1)
-set(v_is_dead,0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 1)
-set(v_b2_ch8_saved,0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes >= 2)
-set(v_is_dead,0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes >= 2)
-set(v_b2_ch8_saved,1) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 0)
-set(v_is_dead,0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 0)
-set(v_is_dead,1) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 1)
-set(v_b2_ch8_saved,0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 1)
-#if(v_combat_technique >= 1) {
-SUCCESS:[ Combat technique check successful - level 1 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 1) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
+set(v_b2_ch8_saved,0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)
+set(v_is_dead,0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)
+set(v_b2_ch8_saved,0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)
+set(v_is_dead,0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)
+set(v_b2_ch8_saved,1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)
+set(v_is_dead,0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)
+set(v_is_dead,1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
+set(v_b2_ch8_saved,0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
+SUCCESS:[ Combat technique check successful - level 1 ] if (v_combat_technique >= 1)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)}
 #if(v_combat_technique >= 1) {
  
 The crossbow bolt hits him right in his forehead, and it passes through his skull, as the monster falls to the ground, dropping his sword.
@@ -669,15 +652,15 @@ Just as she is about to take the shot, the girl suddenly loses her balance, and 
 }
 choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique >= 1)
 choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique >= 1)
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 1)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0, v_b2_ch6_crossbow == 1)
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes >= 2)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes >= 2)
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 0)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 1)
-choice("Load game", , , special:saves) if (v_combat_technique == 0, v_b2_ch6_crossbow == 0, v_reflexes < 2, v_b2_ch8_tornado == 1)
+choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)
+choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)
+choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)
+choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)
+choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)
+choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
+choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
 
 
 ID: B2-Ch08a-Assess
@@ -709,8 +692,8 @@ A very powerful burst of air then comes out of her hands, as the orc gets blown 
 "Well, there's no need to be so rude about it," Melindra says, as she casts a spell, and she flies high into the air, out of the orcs' reach, while the orc that she blew away earlier goes back to fighting Leila.
 
 choice("Continue", B2-Ch08a-Goblins, v_current_scene = B2-Ch08a-Goblins) if (v_b2_ch8_goblins == 1)
-choice("Continue", B2-Ch08a-Trees, v_current_scene = B2-Ch08a-Trees, v_b2_ch8_goblins = 2) if (v_b2_ch8_goblins == 0, v_strength_aux >= 3)
-choice("Continue", B2-Ch08a-Fight, v_current_scene = B2-Ch08a-Fight) if (v_b2_ch8_goblins == 0, v_strength_aux < 3)
+choice("Continue", B2-Ch08a-Trees, v_current_scene = B2-Ch08a-Trees, v_b2_ch8_goblins = 2) if (v_b2_ch8_goblins == 0 && v_strength_aux >= 3)
+choice("Continue", B2-Ch08a-Fight, v_current_scene = B2-Ch08a-Fight) if (v_b2_ch8_goblins == 0 && v_strength_aux < 3)
 
 
 ID: B2-Ch08a-Goblins
@@ -794,12 +777,8 @@ choice("Continue", B2-Ch08a-Dispatches, v_current_scene = B2-Ch08a-Dispatches)
 ID: B2-Ch08a-Trees
 TEXT: 
 
-#if(v_b2_ch5_scimitar != 0) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_b2_ch5_scimitar == 0) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
+SUCCESS:[ Strength check successful - level 3 ] if (v_b2_ch5_scimitar != 0)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_b2_ch5_scimitar == 0)}
 #if(v_b2_ch5_scimitar != 0) {
  
 "Flower! Illuna!" I say. "Could you go see why the two goblin mages haven't attacked us yet? You should be able to find where they're hiding, with a little help from Arraka."
@@ -861,50 +840,24 @@ choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_b
 ID: B2-Ch08a-Fight
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 3, v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_agility >= 3, v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_agility < 3, v_b2_ch5_scimitar == 0, v_reflexes >= 2)
-set(v_is_dead,0) if (v_agility < 3, v_b2_ch5_scimitar != 0, v_reflexes >= 2)
-set(v_is_dead,1) if (v_agility < 3, v_reflexes < 2)
-#if(v_agility >= 3 && v_b2_ch5_scimitar == 0) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_agility >= 3 && v_b2_ch5_scimitar == 0) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility >= 3 && v_b2_ch5_scimitar != 0) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_agility >= 3 && v_b2_ch5_scimitar != 0) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 2) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 2) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 2) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
+set(v_is_dead,0) if (v_agility >= 3 && v_b2_ch5_scimitar == 0)
+set(v_is_dead,0) if (v_agility >= 3 && v_b2_ch5_scimitar != 0)
+set(v_is_dead,0) if (v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2)
+set(v_is_dead,0) if (v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2)
+set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 2)
+FAIL:[ Strength check failed - level 3 ] if (v_agility >= 3 && v_b2_ch5_scimitar == 0)}
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3 && v_b2_ch5_scimitar == 0)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility >= 3 && v_b2_ch5_scimitar != 0)}
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3 && v_b2_ch5_scimitar != 0)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility < 3 && v_reflexes < 2)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes < 2)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_agility < 3 && v_reflexes < 2)}
 #if(v_agility >= 3 && v_b2_ch5_scimitar == 0) {
  
 
@@ -979,36 +932,26 @@ I specifically target the orc that had already been injured by Leila, and I make
 I try to jump out of its way, but I am not able to react fast enough, and his weapon bashes my head in, killing me instantly.
 
 }
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3, v_b2_ch5_scimitar == 0)
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3, v_b2_ch5_scimitar != 0)
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility < 3, v_b2_ch5_scimitar == 0, v_reflexes >= 2)
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility < 3, v_b2_ch5_scimitar != 0, v_reflexes >= 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3, v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3, v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_agility < 3, v_reflexes < 2)
+choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3 && v_b2_ch5_scimitar == 0)
+choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3 && v_b2_ch5_scimitar != 0)
+choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2)
+choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_reflexes < 2)
 
 
 ID: B2-Ch08a-Fight2
 TEXT: 
 
 set(v_is_dead,0) if (v_combat_technique >= 2)
-set(v_is_dead,0) if (v_combat_technique < 2, v_toughness >= 3)
-set(v_is_dead,1) if (v_combat_technique < 2, v_toughness < 3)
-#if(v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_combat_technique < 2 && v_toughness >= 3) {
-SUCCESS:[ Toughness check successful - level 3 ]
-}
-#if(v_combat_technique < 2 && v_toughness >= 3) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_combat_technique < 2 && v_toughness < 3) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_combat_technique < 2 && v_toughness < 3) {
-FAIL:[ Toughness check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_combat_technique < 2 && v_toughness >= 3)
+set(v_is_dead,1) if (v_combat_technique < 2 && v_toughness < 3)
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
+SUCCESS:[ Toughness check successful - level 3 ] if (v_combat_technique < 2 && v_toughness >= 3)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2 && v_toughness >= 3)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2 && v_toughness < 3)}
+FAIL:[ Toughness check failed - level 3 ] if (v_combat_technique < 2 && v_toughness < 3)}
 #if(v_combat_technique >= 2) {
  
 Luckily for me, his posture gives away his true intentions, and I manage to call his bluff, as I completely ignore his mace, and focus solely on his shield. Just as I guessed, the orc tries to bash my head in with his shield as soon as he gets near me, but I step out of the way at the very last second, making him lose his balance, which allows me to deliver a swift and lethal blow with my blade to the back of his neck.
@@ -1039,10 +982,10 @@ As the orc hits me hard in the head with his shield, I can feel my skull crack u
 
 }
 choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_combat_technique >= 2)
-choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_combat_technique < 2, v_toughness >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 2, v_toughness < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 2, v_toughness < 3)
-choice("Load game", , , special:saves) if (v_combat_technique < 2, v_toughness < 3)
+choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_combat_technique < 2 && v_toughness >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 2 && v_toughness < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 2 && v_toughness < 3)
+choice("Load game", , , special:saves) if (v_combat_technique < 2 && v_toughness < 3)
 
 
 ID: B2-Ch08a-Retreat

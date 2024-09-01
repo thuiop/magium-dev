@@ -104,7 +104,7 @@ He pauses.
 "Aye," Hadrik says. "The village in question was nothing more than a regular dwarven small town that didn't have any soldiers in it whatsoever. I probably should have realized this when I noticed that they didn't even have any lookouts posted during the night, but I fooled myself into thinking that they were just really well hidden, and that they could jump out of the bushes to attack us at any minute. Gontrok convinced me that we needed to take the initiative before they had the chance to strike first, and he led me to the top of a cliff overseeing the valley in which the village was located. The reason why he took us all the way up there was because of some huge boulders that were placed right at the top, which were too big to be moved by anyone other than giants like us. He wanted us to push them all down the cliff simultaneously, so that they would roll all the way down to the village and destroy the houses before any of the villagers had the time to react."
 
 }
-choice("Continue", B3-Ch06c-Explanation2, v_current_scene = B3-Ch06c-Explanation2) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation2, v_current_scene = B3-Ch06c-Explanation2) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("Continue", B3-Ch06c-Explanation2, v_current_scene = B3-Ch06c-Explanation2) if (v_b3_ch6_plan == 3)
 choice("Continue", B3-Ch06c-Explanation2, v_current_scene = B3-Ch06c-Explanation2) if (v_b3_ch6_kelrim == 1)
 
@@ -226,7 +226,7 @@ We both make our way into one of the tunnels leading out of the waiting room, an
 }
 choice("Continue", B3-Ch06c-Swimming, v_current_scene = B3-Ch06c-Swimming) if (v_b3_ch6_drink == 1)
 choice("Continue", B3-Ch06c-Swimming, v_current_scene = B3-Ch06c-Swimming) if (v_b3_ch6_drink == 0)
-choice("Continue", B3-Ch06c-Swimming, v_current_scene = B3-Ch06c-Swimming) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Swimming, v_current_scene = B3-Ch06c-Swimming) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("Continue", B3-Ch06c-Swimming, v_current_scene = B3-Ch06c-Swimming) if (v_b3_ch6_kelrim == 1)
 choice("Continue", B3-Ch06c-Swimming, v_current_scene = B3-Ch06c-Swimming) if (v_b3_ch6_plan == 3)
 
@@ -515,8 +515,8 @@ Not long after Daren leaves the room, we finally hear Peter's voice coming from 
 choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic)
 choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic) if (v_b3_ch6_password == 3)
 choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic) if (v_b3_ch6_labels >= 2)
-choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic) if (v_b3_ch6_secret >= 1, v_ch11_saved_rose == 1)
-choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic) if (v_b3_ch6_secret == 0, v_ch11_saved_rose == 1, v_b3_ch6_sleep == 0)
+choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic) if (v_b3_ch6_secret >= 1 && v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch06c-Panic, v_current_scene = B3-Ch06c-Panic) if (v_b3_ch6_secret == 0 && v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 0)
 
 
 ID: B3-Ch06c-Panic
@@ -562,12 +562,8 @@ TEXT:
 
 set(v_b3_ch6_transceivers,0) if (v_hearing < 4)
 set(v_b3_ch6_transceivers,2) if (v_hearing >= 4)
-#if(v_hearing < 4) {
-FAIL:[ Hearing check failed - level 4 ]
-}
-#if(v_hearing >= 4) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
+FAIL:[ Hearing check failed - level 4 ] if (v_hearing < 4)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing >= 4)}
 #if(v_hearing < 4) {
  
 While Leila is calming down, I try to focus on the sounds coming from the tunnel leading to the teleporter room. Where are the royal guards right now? Are they going to attack us from that direction, or will they be coming from above, like Peter said? Were the trainees only chasing after Peter to silence him or will they also be arriving here afterwards?

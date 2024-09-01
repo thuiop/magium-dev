@@ -1,8 +1,7 @@
 ID: B3-Ch12a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Arraka, wake up!" Illuna says. "Barry already completed the task you gave him ten minutes ago. If you don't give him something to do, he'll start testing that obnoxious spell of his with the blinding flash of light over and over again, and none of us want that."
 
@@ -134,23 +133,13 @@ ID: B3-Ch12a-Predict
 TEXT: 
 
 set(v_b3_ch12_hadrik,0) if (v_magical_sense < 4)
-set(v_b3_ch12_hadrik,0) if (v_magical_sense == 4, v_perception < 4)
-set(v_b3_ch12_hadrik,1) if (v_magical_sense == 4, v_perception == 4)
-#if(v_magical_sense < 4) {
-FAIL:[ Magical sense check failed - level 4 ]
-}
-#if(v_magical_sense == 4 && v_perception < 4) {
-FAIL:[ Observation check failed - level 4 ]
-}
-#if(v_magical_sense == 4 && v_perception < 4) {
-SUCCESS:[ Magical sense check successful - level 4 ]
-}
-#if(v_magical_sense == 4 && v_perception == 4) {
-SUCCESS:[ Magical sense check successful - level 4 ]
-}
-#if(v_magical_sense == 4 && v_perception == 4) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
+set(v_b3_ch12_hadrik,0) if (v_magical_sense == 4 && v_perception < 4)
+set(v_b3_ch12_hadrik,1) if (v_magical_sense == 4 && v_perception == 4)
+FAIL:[ Magical sense check failed - level 4 ] if (v_magical_sense < 4)}
+FAIL:[ Observation check failed - level 4 ] if (v_magical_sense == 4 && v_perception < 4)}
+SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense == 4 && v_perception < 4)}
+SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense == 4 && v_perception == 4)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_magical_sense == 4 && v_perception == 4)}
 #if(v_magical_sense < 4) {
  
 Alright, let's see what we've got, here.
@@ -263,31 +252,21 @@ Still, that went much better than I thought it would. After only a few adjustmen
 
 }
 choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4, v_perception < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4, v_perception == 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4 && v_perception < 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4 && v_perception == 4)
 
 
 ID: B3-Ch12a-Brute
 TEXT: 
 
 set(v_b3_ch12_hadrik,0) if (v_agility < 4)
-set(v_b3_ch12_hadrik,0) if (v_agility == 4, v_reflexes < 4)
-set(v_b3_ch12_hadrik,1) if (v_agility == 4, v_reflexes == 4)
-#if(v_agility < 4) {
-FAIL:[ Speed check failed - level 4 ]
-}
-#if(v_agility == 4 && v_reflexes < 4) {
-FAIL:[ Reflexes check failed - level 4 ]
-}
-#if(v_agility == 4 && v_reflexes < 4) {
-SUCCESS:[ Speed check successful - level 4 ]
-}
-#if(v_agility == 4 && v_reflexes == 4) {
-SUCCESS:[ Speed check successful - level 4 ]
-}
-#if(v_agility == 4 && v_reflexes == 4) {
-SUCCESS:[ Reflexes check successful - level 4 ]
-}
+set(v_b3_ch12_hadrik,0) if (v_agility == 4 && v_reflexes < 4)
+set(v_b3_ch12_hadrik,1) if (v_agility == 4 && v_reflexes == 4)
+FAIL:[ Speed check failed - level 4 ] if (v_agility < 4)}
+FAIL:[ Reflexes check failed - level 4 ] if (v_agility == 4 && v_reflexes < 4)}
+SUCCESS:[ Speed check successful - level 4 ] if (v_agility == 4 && v_reflexes < 4)}
+SUCCESS:[ Speed check successful - level 4 ] if (v_agility == 4 && v_reflexes == 4)}
+SUCCESS:[ Reflexes check successful - level 4 ] if (v_agility == 4 && v_reflexes == 4)}
 #if(v_agility < 4) {
  
 I decide to accept Hadrik's challenge and to try to beat him at his own game instead of attempting to outsmart him.
@@ -392,8 +371,8 @@ Instead of dashing away again, Hadrik just stands there for a few moments and pl
 
 }
 choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4, v_reflexes < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4, v_reflexes == 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4 && v_reflexes < 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4 && v_reflexes == 4)
 
 
 ID: B3-Ch12a-Bluff
@@ -401,12 +380,8 @@ TEXT:
 
 set(v_b3_ch12_hadrik,0) if (v_bluff < 4)
 set(v_b3_ch12_hadrik,1) if (v_bluff == 4)
-#if(v_bluff < 4) {
-FAIL:[ Bluff check failed - level 4 ]
-}
-#if(v_bluff == 4) {
-SUCCESS:[ Bluff check successful - level 4 ]
-}
+FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4)}
+SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff == 4)}
 #if(v_bluff < 4) {
  
 "Hey, Hadrik," I say, "you do realize that I'd have a much harder time aiming my spell at you if you were to stand in place instead of running around, right?"
@@ -704,8 +679,8 @@ TEXT:
 choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 0)
 choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 1)
 choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 2)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 3, v_b3_ch5_moustache == 2)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 3, v_b3_ch5_moustache != 2)
+choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 3 && v_b3_ch5_moustache == 2)
+choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2)
 choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_hadrik == 0)
 choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_hadrik == 1)
 
@@ -1292,10 +1267,10 @@ choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v
 choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 1)
 choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 2)
 choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch5_moustache == 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 0, v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 1, v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 2, v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 3, v_b3_ch5_moustache != 2)
+choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 0 && v_b3_ch5_moustache != 2)
+choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 1 && v_b3_ch5_moustache != 2)
+choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 2 && v_b3_ch5_moustache != 2)
+choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2)
 
 
 ID: B3-Ch12a-Brinhorn
@@ -1506,13 +1481,13 @@ ID: B3-Ch12a-Plates
 TEXT: 
 
 set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 2)
-set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1, v_bluff > 0)
-set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1, v_bluff == 0)
+set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1 && v_bluff > 0)
+set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 0)
-set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 2, v_b3_ch12_hadrik == 1)
-set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1, v_bluff > 0, v_b3_ch12_hadrik == 1)
-set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1, v_bluff == 0, v_b3_ch12_hadrik == 1)
-set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 0, v_b3_ch12_hadrik == 1)
+set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 2 && v_b3_ch12_hadrik == 1)
+set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1 && v_bluff > 0 && v_b3_ch12_hadrik == 1)
+set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1 && v_bluff == 0 && v_b3_ch12_hadrik == 1)
+set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 0 && v_b3_ch12_hadrik == 1)
 #if(v_b3_ch12_sincere == 2) {
  "So... is it okay if I go wash the plates?" Flower asks us, suddenly. "I see that you're all done eating."
 "Actually, I think I'll be washing the plates today," Illuna says. "I've been using the knowledge that I retrieved from Meridith's Magium node to improve a spell of mine, and this would be a good way to practice it."
@@ -1623,14 +1598,14 @@ set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 0, v_b3_ch12_hadrik == 1)
 "Hmm..." Arraka says. "Not bad. There are a few tiny adjustments that I'd make, but other than that, it doesn't look bad at all. Here, let me mark some of the inadequacies I've noticed, so that you can work on them."
 
 }
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 2, v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 1, v_bluff > 0, v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 1, v_bluff == 0, v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 0, v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 2, v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 1, v_bluff > 0, v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 1, v_bluff == 0, v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 0, v_b3_ch12_hadrik == 0)
+choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 2 && v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 1 && v_bluff > 0 && v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 1 && v_bluff == 0 && v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 0 && v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 2 && v_b3_ch12_hadrik == 0)
+choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 1 && v_bluff > 0 && v_b3_ch12_hadrik == 0)
+choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 1 && v_bluff == 0 && v_b3_ch12_hadrik == 0)
+choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 0 && v_b3_ch12_hadrik == 0)
 
 
 ID: B3-Ch12a-Sober
@@ -1835,7 +1810,7 @@ As soon as we leave the area, Flower pulls out her transceiver, and she shouts i
 "Hey, Melindra!" she says. "You'll never guess what rock I found lying in the grass in the middle of the woods!"
 
 }
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 0, v_b3_ch12_diane == 1)
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 0, v_b3_ch12_diane == 0)
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 1, v_b3_ch12_diane == 1)
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 1, v_b3_ch12_diane == 0)
+choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_diane == 1)
+choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_diane == 0)
+choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_diane == 1)
+choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_diane == 0)

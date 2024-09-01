@@ -36,12 +36,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_premonition < 4)
 set(v_is_dead,0) if (v_premonition >= 4)
-#if(v_premonition < 4) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition >= 4) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition >= 4)}
 #if(v_premonition < 4) {
  
 "Kate," I say, "could you freeze the whole area around us in order to take care of all the clones at the same time?"
@@ -634,23 +630,13 @@ ID: Ch11b-Civilians2
 TEXT: 
 
 set(v_is_dead,0) if (v_perception >= 2)
-set(v_is_dead,0) if (v_perception < 2, v_hearing >= 3)
-set(v_is_dead,1) if (v_perception < 2, v_hearing < 3)
-#if(v_perception >= 2) {
-SUCCESS:[ Observation check successful - level 2 ]
-}
-#if(v_perception < 2 && v_hearing >= 3) {
-SUCCESS:[ Hearing check successful - level 3 ]
-}
-#if(v_perception < 2 && v_hearing >= 3) {
-FAIL:[ Observation check failed - level 2 ]
-}
-#if(v_perception < 2 && v_hearing < 3) {
-FAIL:[ Observation check failed - level 2 ]
-}
-#if(v_perception < 2 && v_hearing < 3) {
-FAIL:[ Hearing check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_perception < 2 && v_hearing >= 3)
+set(v_is_dead,1) if (v_perception < 2 && v_hearing < 3)
+SUCCESS:[ Observation check successful - level 2 ] if (v_perception >= 2)}
+SUCCESS:[ Hearing check successful - level 3 ] if (v_perception < 2 && v_hearing >= 3)}
+FAIL:[ Observation check failed - level 2 ] if (v_perception < 2 && v_hearing >= 3)}
+FAIL:[ Observation check failed - level 2 ] if (v_perception < 2 && v_hearing < 3)}
+FAIL:[ Hearing check failed - level 3 ] if (v_perception < 2 && v_hearing < 3)}
 #if(v_perception >= 2) {
  
 As the steam surrounds me, I suddenly notice some barely visible sparks starting to form next to me. This doesn't seem right. I need to get away from here, quick.
@@ -689,10 +675,10 @@ I never get the chance to get back into the fight, because right after I hit the
 
 }
 choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial) if (v_perception >= 2)
-choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial) if (v_perception < 2, v_hearing >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 2, v_hearing < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 2, v_hearing < 3)
-choice("Load game", , , special:saves) if (v_perception < 2, v_hearing < 3)
+choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial) if (v_perception < 2 && v_hearing >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 2 && v_hearing < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 2 && v_hearing < 3)
+choice("Load game", , , special:saves) if (v_perception < 2 && v_hearing < 3)
 
 
 ID: Ch11b-Buy
@@ -970,36 +956,18 @@ ID: Ch11b-Hole
 TEXT: 
 
 set(v_ch11_saved_rose,0) if (v_hearing < 4)
-set(v_ch11_saved_rose,0) if (v_hearing == 4, v_perception < 4)
-set(v_ch11_saved_rose,0) if (v_hearing == 4, v_perception == 4, v_agility < 4)
-set(v_ch11_saved_rose,1) if (v_hearing == 4, v_perception == 4, v_agility == 4)
-#if(v_hearing < 4) {
-FAIL:[ Hearing check failed - level 4 ]
-}
-#if(v_hearing == 4 && v_perception < 4) {
-FAIL:[ Observation failed - level 4 ]
-}
-#if(v_hearing == 4 && v_perception < 4) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_perception == 4 && v_agility < 4) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_perception == 4 && v_agility < 4) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_perception == 4 && v_agility < 4) {
-FAIL:[ Speed check failed - level 4 ]
-}
-#if(v_hearing == 4 && v_perception == 4 && v_agility == 4) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_perception == 4 && v_agility == 4) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_perception == 4 && v_agility == 4) {
-SUCCESS:[ Speed check successful - level 4 ]
-}
+set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4)
+set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception == 4 && v_agility < 4)
+set(v_ch11_saved_rose,1) if (v_hearing == 4 && v_perception == 4 && v_agility == 4)
+FAIL:[ Hearing check failed - level 4 ] if (v_hearing < 4)}
+FAIL:[ Observation failed - level 4 ] if (v_hearing == 4 && v_perception < 4)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_perception < 4)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility < 4)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility < 4)}
+FAIL:[ Speed check failed - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility < 4)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility == 4)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility == 4)}
+SUCCESS:[ Speed check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility == 4)}
 #if(v_hearing < 4) {
  
 While Hadrik and Arraka are talking, I hear the sound of stones smashing against the ground somewhere on the opposite side of the market square. As I turn around to identify the source of the sound, it takes me a few seconds to fully process the scene unfolding before my eyes.
@@ -1118,9 +1086,9 @@ Soon after Daren starts to heal us, a loud booming noise suddenly starts to echo
 
 }
 choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing < 4)
-choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing == 4, v_perception < 4)
-choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing == 4, v_perception == 4, v_agility < 4)
-choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending) if (v_hearing == 4, v_perception == 4, v_agility == 4)
+choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing == 4 && v_perception < 4)
+choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing == 4 && v_perception == 4 && v_agility < 4)
+choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending) if (v_hearing == 4 && v_perception == 4 && v_agility == 4)
 
 
 ID: Ch11b-Revenant
@@ -1188,7 +1156,7 @@ ID: Ch11b-Credits
 TEXT: 
 
 choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_b1_strength = Strength aux, v_b1_agility = Agility aux, v_b1_toughness = Toughness aux, v_b1_reflexes = Reflexes aux, v_b1_hearing = Hearing aux, v_b1_perception = Perception aux, v_b1_ancient_languages = Ancient languages aux, v_b1_combat_technique = Combat technique aux, v_b1_premonition = Premonition aux, v_b1_available_points = Available points aux, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_first_book_purchased == 1)
-choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_b1_strength = Strength aux, v_b1_agility = Agility aux, v_b1_toughness = Toughness aux, v_b1_reflexes = Reflexes aux, v_b1_hearing = Hearing aux, v_b1_perception = Perception aux, v_b1_ancient_languages = Ancient languages aux, v_b1_combat_technique = Combat technique aux, v_b1_premonition = Premonition aux, v_b1_available_points = Available points aux, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_nb_of_unlocked_achievements >= 25, v_first_book_purchased == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_nb_of_unlocked_achievements < 25, v_first_book_purchased == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_nb_of_unlocked_achievements < 25, v_first_book_purchased == 0)
-choice("Load game", , , special:saves) if (v_nb_of_unlocked_achievements < 25, v_first_book_purchased == 0)
+choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_b1_strength = Strength aux, v_b1_agility = Agility aux, v_b1_toughness = Toughness aux, v_b1_reflexes = Reflexes aux, v_b1_hearing = Hearing aux, v_b1_perception = Perception aux, v_b1_ancient_languages = Ancient languages aux, v_b1_combat_technique = Combat technique aux, v_b1_premonition = Premonition aux, v_b1_available_points = Available points aux, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_nb_of_unlocked_achievements >= 25 && v_first_book_purchased == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_nb_of_unlocked_achievements < 25 && v_first_book_purchased == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_nb_of_unlocked_achievements < 25 && v_first_book_purchased == 0)
+choice("Load game", , , special:saves) if (v_nb_of_unlocked_achievements < 25 && v_first_book_purchased == 0)

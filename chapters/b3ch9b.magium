@@ -83,8 +83,8 @@ When I turn to look towards Peter, who was somewhere around twenty feet away fro
 choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_backup == 0)
 choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_backup == 1)
 choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_conclusions != 1)
-choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_conclusions == 1, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_conclusions == 1, v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_conclusions == 1 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Logical, v_current_scene = B3-Ch09b-Logical) if (v_b3_ch9_conclusions == 1 && v_b3_ch9_backup == 1)
 
 
 ID: B3-Ch09b-Logical
@@ -184,8 +184,8 @@ choice("Ask Flower if she can attack the king with a pillar of fire to break his
 ID: B3-Ch09b-Separate
 TEXT: 
 
-set(v_is_dead,1) if (v_b3_ch9_backup == 0, v_b3_ch9_assassinate == 0)
-set(v_is_dead,1) if (v_b3_ch9_backup == 0, v_b3_ch9_assassinate == 1)
+set(v_is_dead,1) if (v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 0)
+set(v_is_dead,1) if (v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 1)
 set(v_is_dead,0) if (v_b3_ch9_backup == 1)
 #if(v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 0) {
  "Let's try to move in separate directions after we teleport again," I tell Flower in a low voice. "I don't think he can maintain two boxes at the same time with his aura technique."
@@ -282,8 +282,8 @@ Okay, so the way I see it, this technique has one major weakness, which is the f
 Oh, boy... I really hope I didn't think all that out loud, or I'll be making a complete fool of myself.
 
 }
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0, v_b3_ch9_assassinate == 0)
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0, v_b3_ch9_assassinate == 1)
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 0)
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 1)
 choice("Continue", B3-Ch09b-Invent, v_current_scene = B3-Ch09b-Invent) if (v_b3_ch9_backup == 1)
 
 
@@ -426,19 +426,19 @@ Once the fireballs fade into thin air, I decide to make full use of the training
 
 He's right. The only way to counter this spell is to either dispel it in time or to conjure a shield around myself that is powerful enough to withstand the impact of fifty explosions. There's no way I can build a protective layer of earth or ice that is durable enough with the limited spells I have at my disposal. That is the reason why I instinctively tried to dispel it. How did the dispelling not work? I did everything correctly, and I even saw the spell being cancelled. So, then why?... Why are these fireballs still following me?!
 
-choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_teleport != 1, v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_teleport == 1, v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 0, v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 1, v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 2, v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 3, v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_teleport != 1 && v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_teleport == 1 && v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 0 && v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 1 && v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 2 && v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_element == 3 && v_b3_ch9_backup == 1)
 choice("Continue", B3-Ch09b-Engagement, v_current_scene = B3-Ch09b-Engagement) if (v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_teleport != 1, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_teleport == 1, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 0, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 1, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 2, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 3, v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_teleport != 1 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_teleport == 1 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 0 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 1 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 2 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_element == 3 && v_b3_ch9_backup == 0)
 choice("Continue", B3-Ch09b-Manually, v_current_scene = B3-Ch09b-Manually) if (v_b3_ch9_backup == 0)
 
 
@@ -1282,18 +1282,12 @@ choice("Listen to the voice in my head and don't cast any more spells for the ti
 ID: B3-Ch09b-Risky
 TEXT: 
 
-set(v_is_dead,1) if (v_aura_hardening < 4, v_b3_ch9_assassinate == 0)
-set(v_is_dead,1) if (v_aura_hardening < 4, v_b3_ch9_assassinate == 1)
+set(v_is_dead,1) if (v_aura_hardening < 4 && v_b3_ch9_assassinate == 0)
+set(v_is_dead,1) if (v_aura_hardening < 4 && v_b3_ch9_assassinate == 1)
 set(v_is_dead,0) if (v_aura_hardening >= 4)
-#if(v_aura_hardening < 4 && v_b3_ch9_assassinate == 0) {
-FAIL:[ Aura hardening check failed - level 4 ]
-}
-#if(v_aura_hardening < 4 && v_b3_ch9_assassinate == 1) {
-FAIL:[ Aura hardening check failed - level 4 ]
-}
-#if(v_aura_hardening >= 4) {
-SUCCESS:[ Aura hardening check successful - level 4 ]
-}
+FAIL:[ Aura hardening check failed - level 4 ] if (v_aura_hardening < 4 && v_b3_ch9_assassinate == 0)}
+FAIL:[ Aura hardening check failed - level 4 ] if (v_aura_hardening < 4 && v_b3_ch9_assassinate == 1)}
+SUCCESS:[ Aura hardening check successful - level 4 ] if (v_aura_hardening >= 4)}
 #if(v_aura_hardening < 4 && v_b3_ch9_assassinate == 0) {
  
 "Until we know who that voice belonged to, continuing to fight here would be too risky," the king says.
@@ -1381,8 +1375,8 @@ Before the king gets to finish what he had to say, I shoot Peter with the same l
 These are the last words that Peter manages to say before fainting, and then the same thing also happens to his body on the earthen plane.
 
 }
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_aura_hardening < 4, v_b3_ch9_assassinate == 0)
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_aura_hardening < 4, v_b3_ch9_assassinate == 1)
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_aura_hardening < 4 && v_b3_ch9_assassinate == 0)
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_aura_hardening < 4 && v_b3_ch9_assassinate == 1)
 choice("Continue", B3-Ch09b-Illusory, v_current_scene = B3-Ch09b-Illusory) if (v_aura_hardening >= 4)
 
 
@@ -1447,18 +1441,12 @@ ID: B3-Ch09b-Floating
 TEXT: 
 
 set(v_is_dead,0) if (v_b3_ch9_backup == 1)
-set(v_is_dead,1) if (v_b3_ch9_backup == 0, v_toughness < 4, v_b3_ch9_assassinate == 0)
-set(v_is_dead,1) if (v_b3_ch9_backup == 0, v_toughness < 4, v_b3_ch9_assassinate == 1)
-set(v_is_dead,0) if (v_b3_ch9_backup == 0, v_toughness >= 4)
-#if(v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 0) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 1) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_b3_ch9_backup == 0 && v_toughness >= 4) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 0)
+set(v_is_dead,1) if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 1)
+set(v_is_dead,0) if (v_b3_ch9_backup == 0 && v_toughness >= 4)
+FAIL:[ Toughness check failed - level 4 ] if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 0)}
+FAIL:[ Toughness check failed - level 4 ] if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 1)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_b3_ch9_backup == 0 && v_toughness >= 4)}
 #if(v_b3_ch9_backup == 1) {
  Right before he gets to pin me to the ground with his aura manipulation, the king gets an intense headache and the invisible force above me disappears completely. When I switch my focus to the ethereal plane to see what happened, I realize that the Overseer has now also joined the fight, likely because the king was no longer able to keep him contained after all of the back and forth between the two planes of existence affected his concentration.
 Instead of engaging him in the material world, I prefer to fly away from him and to focus on defeating him in the non-material plane of existence where I have the upper hand. As Flower, the Overseer and I cast our spells at the king all at once, we can clearly see that his barriers can no longer keep up, and surely enough, a few moments later we manage to break through all of his defenses. One last lightning bolt from me is all it takes to make the king faint, which causes him to lose his consciousness on the earthen plane as well.
@@ -1524,10 +1512,10 @@ As expected, the king is having a hard time defending himself on both planes of 
 }
 choice("Kill Peter and the king of the underground.", B3-Ch09b-Kill, v_current_scene = B3-Ch09b-Kill, v_b3_ch9_enemies = 1) if (v_b3_ch9_backup == 1)
 choice("Spare their lives.", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 0) if (v_b3_ch9_backup == 1)
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0, v_toughness < 4, v_b3_ch9_assassinate == 0)
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0, v_toughness < 4, v_b3_ch9_assassinate == 1)
-choice("Kill Peter and the king of the underground.", B3-Ch09b-Kill, v_current_scene = B3-Ch09b-Kill, v_b3_ch9_enemies = 1) if (v_b3_ch9_backup == 0, v_toughness >= 4)
-choice("Spare their lives.", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 0) if (v_b3_ch9_backup == 0, v_toughness >= 4)
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 0)
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 1)
+choice("Kill Peter and the king of the underground.", B3-Ch09b-Kill, v_current_scene = B3-Ch09b-Kill, v_b3_ch9_enemies = 1) if (v_b3_ch9_backup == 0 && v_toughness >= 4)
+choice("Spare their lives.", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 0) if (v_b3_ch9_backup == 0 && v_toughness >= 4)
 
 
 ID: B3-Ch09b-Kill
@@ -1703,8 +1691,8 @@ I then wait for a few more seconds before asking her what was really on my mind.
 }
 choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 2)
 choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 3)
-choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 0, v_b3_ch9_backup == 0)
-choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 0, v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 0 && v_b3_ch9_backup == 0)
+choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 0 && v_b3_ch9_backup == 1)
 choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies == 0)
 choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_enemies != 0)
 choice("Continue", B3-Ch09b-Elephant, v_current_scene = B3-Ch09b-Elephant) if (v_b3_ch9_backup == 0)

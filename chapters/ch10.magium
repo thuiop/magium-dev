@@ -1,8 +1,7 @@
 ID: Ch10-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "I can't believe that we managed to get ourselves imprisoned twice in two days," Hadrik says. "And by animals and ogres, to boot. If word gets out, we're going to become the laughing stock of the tournament."
 
@@ -441,23 +440,13 @@ ID: Ch10-Rush
 TEXT: 
 
 set(v_is_dead,0) if (v_premonition >= 2)
-set(v_is_dead,0) if (v_premonition < 2, v_perception >= 2)
-set(v_is_dead,1) if (v_premonition < 2, v_perception < 2)
-#if(v_premonition >= 2) {
-SUCCESS:[ Premonition check successful - level 2 ]
-}
-#if(v_premonition < 2 && v_perception >= 2) {
-SUCCESS:[ Observation check successful - level 2 ]
-}
-#if(v_premonition < 2 && v_perception >= 2) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition < 2 && v_perception < 2) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition < 2 && v_perception < 2) {
-FAIL:[ Observation check failed - level 2 ]
-}
+set(v_is_dead,0) if (v_premonition < 2 && v_perception >= 2)
+set(v_is_dead,1) if (v_premonition < 2 && v_perception < 2)
+SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2)}
+SUCCESS:[ Observation check successful - level 2 ] if (v_premonition < 2 && v_perception >= 2)}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_perception >= 2)}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_perception < 2)}
+FAIL:[ Observation check failed - level 2 ] if (v_premonition < 2 && v_perception < 2)}
 #if(v_premonition >= 2) {
  
 As Kate, Rose and I hurry to reach Illuna's position, the ogre captain smashes his club into the ground and the floor begins to shatter.
@@ -522,10 +511,10 @@ Before I get to finish my sentence, the whole floor collapses underneath us, and
 
 }
 choice("Continue", Ch10-Teleport, v_current_scene = Ch10-Teleport) if (v_premonition >= 2)
-choice("Continue", Ch10-Teleport, v_current_scene = Ch10-Teleport) if (v_premonition < 2, v_perception >= 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 2, v_perception < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 2, v_perception < 2)
-choice("Load game", , , special:saves) if (v_premonition < 2, v_perception < 2)
+choice("Continue", Ch10-Teleport, v_current_scene = Ch10-Teleport) if (v_premonition < 2 && v_perception >= 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 2 && v_perception < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 2 && v_perception < 2)
+choice("Load game", , , special:saves) if (v_premonition < 2 && v_perception < 2)
 
 
 ID: Ch10-Maintain
@@ -730,12 +719,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_premonition < 3)
 set(v_is_dead,0) if (v_premonition >= 3)
-#if(v_premonition < 3) {
-FAIL:[ Premonition check failed - level 3 ]
-}
-#if(v_premonition >= 3) {
-SUCCESS:[ Premonition check successful - level 3 ]
-}
+FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3)}
+SUCCESS:[ Premonition check successful - level 3 ] if (v_premonition >= 3)}
 #if(v_premonition < 3) {
  
 "Screw Arraka! We can't afford to waste any more time here."
@@ -903,23 +888,13 @@ ID: Ch10-Volunteer
 TEXT: 
 
 set(v_is_dead,0) if (v_perception >= 3)
-set(v_is_dead,0) if (v_perception < 3, v_reflexes >= 3)
-set(v_is_dead,1) if (v_perception < 3, v_reflexes < 3)
-#if(v_perception >= 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
-#if(v_perception < 3 && v_reflexes >= 3) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
-#if(v_perception < 3 && v_reflexes >= 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_perception < 3 && v_reflexes < 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_perception < 3 && v_reflexes < 3) {
-FAIL:[ Reflexes check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_perception < 3 && v_reflexes >= 3)
+set(v_is_dead,1) if (v_perception < 3 && v_reflexes < 3)
+SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_perception < 3 && v_reflexes >= 3)}
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3 && v_reflexes >= 3)}
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3 && v_reflexes < 3)}
+FAIL:[ Reflexes check failed - level 3 ] if (v_perception < 3 && v_reflexes < 3)}
 #if(v_perception >= 3) {
  
 "I volunteer for the job," I say. "I should be able to handle the shaman by myself if he can only cast spells from his staff."
@@ -983,33 +958,23 @@ I had no time to get out of its way, and the projectile went straight through my
 
 }
 choice("Continue", Ch10-Volunteer2, v_current_scene = Ch10-Volunteer2) if (v_perception >= 3)
-choice("Continue", Ch10-Volunteer2, v_current_scene = Ch10-Volunteer2) if (v_perception < 3, v_reflexes >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 3, v_reflexes < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 3, v_reflexes < 3)
-choice("Load game", , , special:saves) if (v_perception < 3, v_reflexes < 3)
+choice("Continue", Ch10-Volunteer2, v_current_scene = Ch10-Volunteer2) if (v_perception < 3 && v_reflexes >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_perception < 3 && v_reflexes < 3)
 
 
 ID: Ch10-Volunteer2
 TEXT: 
 
 set(v_is_dead,0) if (v_agility >= 2)
-set(v_is_dead,0) if (v_agility < 2, v_strength >= 3)
-set(v_is_dead,1) if (v_agility < 2, v_strength < 3)
-#if(v_agility >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility < 2 && v_strength >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_agility < 2 && v_strength >= 3) {
-FAIL:[ Speed check failed - level 2 ]
-}
-#if(v_agility < 2 && v_strength < 3) {
-FAIL:[ Speed check failed - level 2 ]
-}
-#if(v_agility < 2 && v_strength < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_agility < 2 && v_strength >= 3)
+set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_agility < 2 && v_strength >= 3)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2 && v_strength >= 3)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2 && v_strength < 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility < 2 && v_strength < 3)}
 #if(v_agility >= 2) {
  
 His staff takes too long to charge up, and I manage to stick my knife in his chest. The shaman spits out blood, and as I prepare to land the finishing blow, the world suddenly starts spinning around me, and then I soon find myself standing in the middle of a cave again, with all of my friends besides me. They also seem to have just woken up, because they are now looking around themselves to confirm that we are indeed back in the abandoned mines below the ogre fort.
@@ -1073,10 +1038,10 @@ I raise my arm and I put as much force behind my blow as I possibly can. When my
 
 }
 choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse) if (v_agility >= 2)
-choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse) if (v_agility < 2, v_strength >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2, v_strength < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2, v_strength < 3)
-choice("Load game", , , special:saves) if (v_agility < 2, v_strength < 3)
+choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse) if (v_agility < 2 && v_strength >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2 && v_strength < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2 && v_strength < 3)
+choice("Load game", , , special:saves) if (v_agility < 2 && v_strength < 3)
 
 
 ID: Ch10-Someone-else
@@ -1097,12 +1062,8 @@ choice("Continue", Ch10-Catch, v_current_scene = Ch10-Catch)
 ID: Ch10-Catch
 TEXT: 
 
-#if(v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
 #if(v_agility >= 3) {
  
 I succeed in taking it by surprise, as I cut its throat and then quickly remove my knife, while the beast takes a few more steps and then falls on the ground in a pool of its own blood. At the same time, Kate gets behind another wolf, and she sticks her knife into the back of its head, killing it instantly.  
@@ -1143,12 +1104,8 @@ choice("Give Kate my dagger and help her by throwing rocks at the wolves", Ch10-
 ID: Ch10-Rocks
 TEXT: 
 
-#if(v_strength >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_strength < 3)}
 #if(v_strength >= 3) {
  
 "Here, take this," I tell Kate as I hand her my dagger. "You'll probably put it to better use than me. I'll try to provide support by throwing rocks at the wolves."
@@ -1223,23 +1180,13 @@ ID: Ch10-Keep
 TEXT: 
 
 set(v_is_dead,0) if (v_agility >= 3)
-set(v_is_dead,0) if (v_agility < 3, v_reflexes >= 4)
-set(v_is_dead,1) if (v_agility < 3, v_reflexes < 4)
-#if(v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes >= 4) {
-SUCCESS:[ Reflexes check successful - level 4 ]
-}
-#if(v_agility < 3 && v_reflexes >= 4) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 4) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 4) {
-FAIL:[ Reflexes check failed - level 4 ]
-}
+set(v_is_dead,0) if (v_agility < 3 && v_reflexes >= 4)
+set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 4)
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+SUCCESS:[ Reflexes check successful - level 4 ] if (v_agility < 3 && v_reflexes >= 4)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes >= 4)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes < 4)}
+FAIL:[ Reflexes check failed - level 4 ] if (v_agility < 3 && v_reflexes < 4)}
 #if(v_agility >= 3) {
  
 I rush towards one of the wolves, and I slit its throat before it has a chance to react. One of the other two lunges for me, but I dash out of its way, and circle around the third wolf in order to stab it in the back of its neck. Once I kill my second wolf, the last one standing pounces towards me again, but I step to the side and run my knife through its skull.
@@ -1307,10 +1254,10 @@ One of the other wolves seizes the opportunity and bites my right leg from behin
 
 }
 choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse) if (v_agility >= 3)
-choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse) if (v_agility < 3, v_reflexes >= 4)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3, v_reflexes < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3, v_reflexes < 4)
-choice("Load game", , , special:saves) if (v_agility < 3, v_reflexes < 4)
+choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse) if (v_agility < 3 && v_reflexes >= 4)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_reflexes < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_reflexes < 4)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_reflexes < 4)
 
 
 ID: Ch10-Dagger

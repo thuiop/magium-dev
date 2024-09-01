@@ -1,8 +1,7 @@
 ID: Ch7-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
 #if(v_ch3_kate_badly_hurt == 0) {
  
 "Barry, I would like to have a word with you, in private," Kate tells me, as the four of us are taking a small break near a river.
@@ -1573,8 +1572,8 @@ His laugh is just as crazy as the look in his eyes. Daren does not say anything,
 }
 choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 0)
 choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 0)
-choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 1, v_ch7_watch_fight == 1)
-choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 1, v_ch7_watch_fight == 1)
+choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
+choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
 
 
 ID: Ch7-Bet-your-life
@@ -1620,23 +1619,13 @@ ID: Ch7-Surprise
 TEXT: 
 
 set(v_is_dead,0) if (v_agility >= 3)
-set(v_is_dead,0) if (v_agility < 3, v_premonition >= 3)
-set(v_is_dead,1) if (v_premonition < 3, v_agility < 3)
-#if(v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility < 3 && v_premonition >= 3) {
-SUCCESS:[ Premonition check successful - level 3 ]
-}
-#if(v_agility < 3 && v_premonition >= 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_premonition < 3 && v_agility < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_premonition < 3 && v_agility < 3) {
-FAIL:[ Premonition check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_agility < 3 && v_premonition >= 3)
+set(v_is_dead,1) if (v_premonition < 3 && v_agility < 3)
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+SUCCESS:[ Premonition check successful - level 3 ] if (v_agility < 3 && v_premonition >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_premonition >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_premonition < 3 && v_agility < 3)}
+FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3 && v_agility < 3)}
 #if(v_agility >= 3) {
  
 "Alright," I tell him. "Then, I'll just go kill the healer real quick."
@@ -1703,11 +1692,11 @@ As I try to retreat, I suddenly feel a sharp pain in my chest, and when I look d
 }
 choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility >= 3)
 choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility >= 3)
-choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility < 3, v_premonition >= 3)
-choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility < 3, v_premonition >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 3, v_agility < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 3, v_agility < 3)
-choice("Load game", , , special:saves) if (v_premonition < 3, v_agility < 3)
+choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility < 3 && v_premonition >= 3)
+choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility < 3 && v_premonition >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 3 && v_agility < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 3 && v_agility < 3)
+choice("Load game", , , special:saves) if (v_premonition < 3 && v_agility < 3)
 
 
 ID: Ch7-Assist
@@ -1742,63 +1731,29 @@ choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scen
 ID: Ch7-Fight
 TEXT: 
 
-set(v_is_dead,0) if (v_strength < 3, v_agility >= 2)
-set(v_is_dead,1) if (v_strength < 3, v_agility < 2)
-set(v_is_dead,0) if (v_strength >= 3, v_toughness == 4)
-set(v_is_dead,0) if (v_strength >= 3, v_toughness < 4, v_combat_technique >= 3)
-set(v_is_dead,0) if (v_strength >= 3, v_toughness < 4, v_combat_technique < 3, v_agility >= 2)
-set(v_is_dead,1) if (v_strength >= 3, v_toughness < 4, v_combat_technique < 3, v_agility < 2)
-#if(v_strength < 3 && v_agility >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_strength < 3 && v_agility >= 2) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_strength < 3 && v_agility < 2) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_strength < 3 && v_agility < 2) {
-FAIL:[ Speed check failed- level 2 ]
-}
-#if(v_strength >= 3 && v_toughness == 4) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness == 4) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3) {
-SUCCESS:[ Combat technique check successful - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2) {
-FAIL:[ Speed check failed - level 2 ]
-}
+set(v_is_dead,0) if (v_strength < 3 && v_agility >= 2)
+set(v_is_dead,1) if (v_strength < 3 && v_agility < 2)
+set(v_is_dead,0) if (v_strength >= 3 && v_toughness == 4)
+set(v_is_dead,0) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)
+set(v_is_dead,0) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)
+set(v_is_dead,1) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
+SUCCESS:[ Speed check successful - level 2 ] if (v_strength < 3 && v_agility >= 2)}
+FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility >= 2)}
+FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility < 2)}
+FAIL:[ Speed check failed- level 2 ] if (v_strength < 3 && v_agility < 2)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness == 4)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_strength >= 3 && v_toughness == 4)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)}
+SUCCESS:[ Combat technique check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)}
+FAIL:[ Toughness check failed - level 4 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
+SUCCESS:[ Speed check successful - level 2 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
+FAIL:[ Toughness check failed - level 4 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
+FAIL:[ Toughness check failed - level 4 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
+FAIL:[ Speed check failed - level 2 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
 #if(v_strength < 3 && v_agility >= 2) {
  
 
@@ -1895,39 +1850,29 @@ My strike was definitely powerful enough to cut through the golem's rock hide, b
 There was no time for me to react. There was barely even enough time for me to feel the immense power behind the creature's strike, as it smashed me against the ground, and then casually moved away from me as if nothing had happened.
 
 }
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength < 3, v_agility >= 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength < 3, v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3, v_agility < 2)
-choice("Load game", , , special:saves) if (v_strength < 3, v_agility < 2)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3, v_toughness == 4)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3, v_toughness < 4, v_combat_technique >= 3)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3, v_toughness < 4, v_combat_technique < 3, v_agility >= 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength >= 3, v_toughness < 4, v_combat_technique < 3, v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength >= 3, v_toughness < 4, v_combat_technique < 3, v_agility < 2)
-choice("Load game", , , special:saves) if (v_strength >= 3, v_toughness < 4, v_combat_technique < 3, v_agility < 2)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength < 3 && v_agility >= 2)
+choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength < 3 && v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3 && v_agility < 2)
+choice("Load game", , , special:saves) if (v_strength < 3 && v_agility < 2)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness == 4)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)
+choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
+choice("Load game", , , special:saves) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
 
 
 ID: Ch7-Avoid
 TEXT: 
 
 set(v_is_dead,0) if (v_agility >= 1)
-set(v_is_dead,0) if (v_agility == 0, v_perception >= 2)
-set(v_is_dead,1) if (v_perception < 2, v_agility == 0)
-#if(v_agility >= 1) {
-SUCCESS:[ Speed check successful - level 1 ]
-}
-#if(v_agility == 0 && v_perception >= 2) {
-SUCCESS:[ Observation check successful - level 2 ]
-}
-#if(v_agility == 0 && v_perception >= 2) {
-FAIL:[ Speed check failed - level 1 ]
-}
-#if(v_perception < 2 && v_agility == 0) {
-FAIL:[ Speed check failed - level 1 ]
-}
-#if(v_perception < 2 && v_agility == 0) {
-FAIL:[ Observation check failed - level 2 ]
-}
+set(v_is_dead,0) if (v_agility == 0 && v_perception >= 2)
+set(v_is_dead,1) if (v_perception < 2 && v_agility == 0)
+SUCCESS:[ Speed check successful - level 1 ] if (v_agility >= 1)}
+SUCCESS:[ Observation check successful - level 2 ] if (v_agility == 0 && v_perception >= 2)}
+FAIL:[ Speed check failed - level 1 ] if (v_agility == 0 && v_perception >= 2)}
+FAIL:[ Speed check failed - level 1 ] if (v_perception < 2 && v_agility == 0)}
+FAIL:[ Observation check failed - level 2 ] if (v_perception < 2 && v_agility == 0)}
 #if(v_agility >= 1) {
  
 I'm not going to win an arm wrestling match against one of these monsters anytime soon. There's no use trying to fight them head on. I'll just let Daren do his thing and try to avoid getting hit as long as possible.
@@ -1972,10 +1917,10 @@ I suddenly see an opening in their formation, probably made when Daren killed on
 
 }
 choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_agility >= 1)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_agility == 0, v_perception >= 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_perception < 2, v_agility == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 2, v_agility == 0)
-choice("Load game", , , special:saves) if (v_perception < 2, v_agility == 0)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_agility == 0 && v_perception >= 2)
+choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_perception < 2 && v_agility == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 2 && v_agility == 0)
+choice("Load game", , , special:saves) if (v_perception < 2 && v_agility == 0)
 
 
 ID: Ch7-Summoner-vs-dwarf
@@ -2617,44 +2562,26 @@ Instead of going for a punch, however, he attempts to prod me with his index fin
 
 }
 choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 0)
-choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1, v_ch7_watch_fight == 0)
-choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1, v_ch7_watch_fight == 1)
+choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 0)
+choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
 
 
 ID: Ch7-Accept2
 TEXT: 
 
 set(v_ch7_win_vs_hadrik,0) if (v_reflexes < 3)
-set(v_ch7_win_vs_hadrik,0) if (v_reflexes >= 3, v_combat_technique < 4)
-set(v_ch7_win_vs_hadrik,0) if (v_reflexes >= 3, v_combat_technique == 4, v_strength < 2)
-set(v_ch7_win_vs_hadrik,1) if (v_reflexes >= 3, v_combat_technique == 4, v_strength >= 2)
-#if(v_reflexes < 3) {
-FAIL:[ Reflexes check failed - level 3 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique < 4) {
-FAIL:[ Combat technique check failed - level 4 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique < 4) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2) {
-SUCCESS:[ Combat technique check successful - level 4 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2) {
-SUCCESS:[ Combat technique check successful - level 4 ]
-}
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
+set(v_ch7_win_vs_hadrik,0) if (v_reflexes >= 3 && v_combat_technique < 4)
+set(v_ch7_win_vs_hadrik,0) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
+set(v_ch7_win_vs_hadrik,1) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
+FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3)}
+FAIL:[ Combat technique check failed - level 4 ] if (v_reflexes >= 3 && v_combat_technique < 4)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3 && v_combat_technique < 4)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)}
+SUCCESS:[ Combat technique check successful - level 4 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)}
+SUCCESS:[ Combat technique check successful - level 4 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)}
+SUCCESS:[ Strength check successful - level 2 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)}
 #if(v_reflexes < 3) {
  
 Even for a prod, his strike was so fast that I couldn't even dream of dodging it. Instead, I get thrown back about four feet before falling to the ground with a big thump.
@@ -2708,12 +2635,12 @@ Kate looks as if she's about to cry.
 }
 choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes < 3)
 choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes < 3)
-choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3, v_combat_technique < 4)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3, v_combat_technique < 4)
-choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3, v_combat_technique == 4, v_strength < 2)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3, v_combat_technique == 4, v_strength < 2)
-choice("""You're welcome.""", Ch7-Welcome, v_current_scene = Ch7-Welcome) if (v_reflexes >= 3, v_combat_technique == 4, v_strength >= 2)
-choice("""No need to thank me. I was just looking for an opportunity to test my skills.""", Ch7-Opportunity, v_current_scene = Ch7-Opportunity) if (v_reflexes >= 3, v_combat_technique == 4, v_strength >= 2)
+choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3 && v_combat_technique < 4)
+choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique < 4)
+choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
+choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
+choice("""You're welcome.""", Ch7-Welcome, v_current_scene = Ch7-Welcome) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
+choice("""No need to thank me. I was just looking for an opportunity to test my skills.""", Ch7-Opportunity, v_current_scene = Ch7-Opportunity) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
 
 
 ID: Ch7-Refuse

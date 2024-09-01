@@ -3,8 +3,7 @@ TEXT:
 
 set(v_b3_ch3_stats_unavailable,0)
 set(v_b3_ch3_stats_unavailable,0) if (v_checkpoint_rich == 1)
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Please make yourselves at home," the king of the underground says, as soon as we all enter the throne room. "I've prepared a few chairs for you, but you can also stand, if you want."
 
@@ -629,14 +628,14 @@ TEXT:
 }
 choice("""Melindra and I are not in a relationship.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 0) if (v_b2_ch8_energizer == 1)
 choice("""Uh, yes... of course! A relationship is exactly what we are in, Melindra and I!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 1) if (v_b2_ch8_energizer == 1)
-choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 1, v_ch11_romance_rose == 1)
-choice("""Well, technically it's just a vague promise. Anything could still happen!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 1, v_ch11_romance_rose == 1)
-choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 0)
-choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 0)
-choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 0)
-choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 1, v_ch11_romance_rose == 0)
-choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 1, v_ch11_romance_rose == 0)
-choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1, v_ch11_saved_rose == 1, v_ch11_romance_rose == 0)
+choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
+choice("""Well, technically it's just a vague promise. Anything could still happen!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
+choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
+choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
+choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
+choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
 
 
 ID: B3-Ch03a-Plans
@@ -650,18 +649,12 @@ set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 4)
 set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 5)
 set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 6)
 set(v_b3_ch3_chains,0) if (v_b3_ch1_unlock == 2)
-set(v_b3_ch3_chains,0) if (v_premonition < 4, v_b3_ch1_unlock != 2)
-set(v_b3_ch3_chains,1) if (v_premonition == 4, v_b3_ch1_unlock != 2)
+set(v_b3_ch3_chains,0) if (v_premonition < 4 && v_b3_ch1_unlock != 2)
+set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
 set(v_b3_ch3_chains,0)
-#if(v_b3_ch1_unlock == 2) {
-FAIL:[ Stat device locked - check failed ]
-}
-#if(v_premonition < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
+FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition == 4 && v_b3_ch1_unlock != 2)}
 #if(v_b3_ch3_plans == 0) {
  
 "Melindra and I are not in a relationship," I say, as Leila's father takes a key out of his pocket and finally unlocks the door. 
@@ -819,8 +812,8 @@ choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_
 choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 5)
 choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 6)
 choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_premonition < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_premonition == 4, v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_premonition < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
 choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1)
 
 

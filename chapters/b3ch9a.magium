@@ -1,8 +1,7 @@
 ID: B3-Ch09a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Albert, you're back," the king of the underground says. "What news do you bring?"
 
@@ -148,15 +147,15 @@ It takes me a few moments to understand that what he's referring to is our decis
 choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch9_jack == 0)
 choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch9_jack == 1)
 choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch9_jack == 2)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch8_overseer2 == 1, v_b3_ch9_jack != 2)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch8_overseer2 == 1, v_b3_ch9_jack == 2)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch9_jack != 2)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch9_jack == 2)
 choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch8_overseer2 == 0)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy == 0, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy != 0, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy == 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy != 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy == 0, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy != 0, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy == 0 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy != 0 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy == 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy != 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy == 0 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch09a-Delay, v_current_scene = B3-Ch09a-Delay, v_b3_ch9_jack = 2) if (v_b3_ch4_billy != 0 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 
 
 ID: B3-Ch09a-Delay
@@ -247,16 +246,16 @@ TEXT:
 "Well, you can choose whatever type of air currents you want," Melindra says. "Just remember that I can no longer switch the type of currents once you're in the air, so you should take the decision before we go outside."
 
 }
-choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king != 5, v_b3_ch6_kelrim == 1)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5, v_b3_ch6_kelrim == 1)
-choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king == 5, v_b3_ch6_kelrim == 1)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5, v_b3_ch6_kelrim == 1)
-choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king != 5, v_b3_ch6_plan == 3)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5, v_b3_ch6_plan == 3)
-choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king == 5, v_b3_ch6_plan == 3)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5, v_b3_ch6_plan == 3)
+choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king != 5 && v_b3_ch6_kelrim == 1)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5 && v_b3_ch6_kelrim == 1)
+choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king == 5 && v_b3_ch6_kelrim == 1)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5 && v_b3_ch6_kelrim == 1)
+choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king != 5 && v_b3_ch6_plan == 3)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5 && v_b3_ch6_plan == 3)
+choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king == 5 && v_b3_ch6_plan == 3)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5 && v_b3_ch6_plan == 3)
 
 
 ID: B3-Ch09a-Currents
@@ -426,14 +425,10 @@ ID: B3-Ch09a-Refused
 TEXT: 
 
 set(v_b3_ch9_conclusions,0) if (v_b3_ch8_overseer2 == 0)
-set(v_b3_ch9_conclusions,3) if (v_b3_ch8_overseer2 == 1, v_bluff < 3)
-set(v_b3_ch9_conclusions,0) if (v_b3_ch8_overseer2 == 1, v_bluff >= 3)
-#if(v_b3_ch8_overseer2 == 1 && v_bluff < 3) {
-FAIL:[ Bluff check failed - level 3 ]
-}
-#if(v_b3_ch8_overseer2 == 1 && v_bluff >= 3) {
-SUCCESS:[ Bluff check successful - level 3 ]
-}
+set(v_b3_ch9_conclusions,3) if (v_b3_ch8_overseer2 == 1 && v_bluff < 3)
+set(v_b3_ch9_conclusions,0) if (v_b3_ch8_overseer2 == 1 && v_bluff >= 3)
+FAIL:[ Bluff check failed - level 3 ] if (v_b3_ch8_overseer2 == 1 && v_bluff < 3)}
+SUCCESS:[ Bluff check successful - level 3 ] if (v_b3_ch8_overseer2 == 1 && v_bluff >= 3)}
 #if(v_b3_ch8_overseer2 == 0) {
  "Okay, so there's actually something we haven't told you," I say.
 "We're listening," the king says.
@@ -556,8 +551,8 @@ The king of the underground keeps baiting the drones for another minute or so, u
 
 }
 choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 0)
-choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 1, v_bluff < 3)
-choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 1, v_bluff >= 3)
+choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 1 && v_bluff < 3)
+choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 1 && v_bluff >= 3)
 
 
 ID: B3-Ch09a-Caught
@@ -640,16 +635,12 @@ choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if 
 ID: B3-Ch09a-Carcasses
 TEXT: 
 
-set(v_b3_ch9_premonition,0) if (v_b3_ch8_overseer2 == 0, v_b3_ch9_conclusions == 2)
-set(v_b3_ch9_premonition,0) if (v_b3_ch8_overseer2 == 0, v_b3_ch9_conclusions != 2)
-set(v_b3_ch9_premonition,2) if (v_b3_ch8_overseer2 == 1, v_premonition < 4)
-set(v_b3_ch9_premonition,1) if (v_b3_ch8_overseer2 == 1, v_premonition >= 4)
-#if(v_b3_ch8_overseer2 == 1 && v_premonition < 4) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_b3_ch8_overseer2 == 1 && v_premonition >= 4) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
+set(v_b3_ch9_premonition,0) if (v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions == 2)
+set(v_b3_ch9_premonition,0) if (v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions != 2)
+set(v_b3_ch9_premonition,2) if (v_b3_ch8_overseer2 == 1 && v_premonition < 4)
+set(v_b3_ch9_premonition,1) if (v_b3_ch8_overseer2 == 1 && v_premonition >= 4)
+FAIL:[ Premonition check failed - level 4 ] if (v_b3_ch8_overseer2 == 1 && v_premonition < 4)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_b3_ch8_overseer2 == 1 && v_premonition >= 4)}
 #if(v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions == 2) {
  "Watch out!" Daren shouts to us, as dozens of flaming metal carcasses are dropping on top of us and all of the king's men are running around frantically, trying to avoid getting hit by them.
 As we step aside from the falling metal balls, we see a new wave of drones quickly approaching the king, while a few dozen other drones are moving in to attack the troops on the ground.
@@ -735,10 +726,10 @@ As soon as the circling flames slow down and disappear, the now unfrozen Albert 
 Just as I am about to finish my sentence, the red-eyed drones that were attacking the rebels fly higher into the sky and they begin to spin in place, while the light from their eyes is blinking constantly.
 
 }
-choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 0, v_b3_ch9_conclusions == 2)
-choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 0, v_b3_ch9_conclusions != 2)
-choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 1, v_premonition < 4)
-choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 1, v_premonition >= 4)
+choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions == 2)
+choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions != 2)
+choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 1 && v_premonition < 4)
+choice("Continue", B3-Ch09a-Warning, v_current_scene = B3-Ch09a-Warning, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch8_overseer2 == 1 && v_premonition >= 4)
 
 
 ID: B3-Ch09a-Warning
@@ -1572,24 +1563,24 @@ As Hadrik is teaching Daren how to avoid thinking out loud, the rest of us take 
 "Great!" I say. "I'll try to cast one right now, then. Give me a second!"
 
 }
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 0)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 0)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 0)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 1)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 1)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 1)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 2)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 2)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1, v_b3_ch9_food == 2)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 0)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 0)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 0)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 1)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 1)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 1)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 2)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 2)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1, v_b3_ch9_food == 2)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 == 0)
 choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 == 0)
 choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 == 0)

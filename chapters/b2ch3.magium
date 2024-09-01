@@ -1,8 +1,7 @@
 ID: B2-Ch03a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 Illuna's friend was waiting for us in an area not far from the one where the trolls ambushed us. He was leaning on a wooden staff, with several dead trolls lying on the ground around him, and he was studying us closely, as we approached him. 
 
@@ -884,21 +883,11 @@ choice("Continue", B2-Ch03a-Formation, v_current_scene = B2-Ch03a-Formation)
 ID: B2-Ch03a-Arrow
 TEXT: 
 
-#if(v_hearing < 4) {
-FAIL:[ Hearing check failed - level 4 ]
-}
-#if(v_hearing == 4 && v_ancient_languages < 3) {
-FAIL:[ Ancient languages check failed - level 3 ]
-}
-#if(v_hearing == 4 && v_ancient_languages < 3) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_ancient_languages >= 3) {
-SUCCESS:[ Hearing check successful - level 4 ]
-}
-#if(v_hearing == 4 && v_ancient_languages >= 3) {
-SUCCESS:[ Ancient languages check successful - level 3 ]
-}
+FAIL:[ Hearing check failed - level 4 ] if (v_hearing < 4)}
+FAIL:[ Ancient languages check failed - level 3 ] if (v_hearing == 4 && v_ancient_languages < 3)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_ancient_languages < 3)}
+SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_ancient_languages >= 3)}
+SUCCESS:[ Ancient languages check successful - level 3 ] if (v_hearing == 4 && v_ancient_languages >= 3)}
 #if(v_hearing < 4) {
  
 A few minutes later, we finally reached the end of the trail of blood, which led us to a dead-end, but also to a wounded troll with an arrow stuck in his chest, sitting on the ground, with his back leaning against a wall. We study the troll and his surroundings from a safe distance, in an attempt to figure out if this is supposed to be the set-up for an ambush or not, but there is no way to tell for sure.
@@ -967,11 +956,11 @@ A few minutes later, we finally reached the end of the trail of blood, which led
 }
 choice("Help him remove the arrow", B2-Ch03a-Dead, v_current_scene = B2-Ch03a-Dead) if (v_hearing < 4)
 choice("Leave him to die", B2-Ch03a-Leave, v_current_scene = B2-Ch03a-Leave, v_b2_ch3_troll = 0) if (v_hearing < 4)
-choice("Help him remove the arrow", B2-Ch03a-Dead, v_current_scene = B2-Ch03a-Dead) if (v_hearing == 4, v_ancient_languages < 3)
-choice("Leave him to die", B2-Ch03a-Leave, v_current_scene = B2-Ch03a-Leave, v_b2_ch3_troll = 0) if (v_hearing == 4, v_ancient_languages < 3)
-choice("Help him remove the arrow", B2-Ch03a-Dead, v_current_scene = B2-Ch03a-Dead) if (v_hearing == 4, v_ancient_languages >= 3)
-choice("Leave him to die", B2-Ch03a-Leave, v_current_scene = B2-Ch03a-Leave, v_b2_ch3_troll = 0) if (v_hearing == 4, v_ancient_languages >= 3)
-choice("""Where are all the other trolls that you were talking to, earlier?""", B2-Ch03a-Earlier, v_current_scene = B2-Ch03a-Earlier, v_b2_ch3_troll = 1) if (v_hearing == 4, v_ancient_languages >= 3)
+choice("Help him remove the arrow", B2-Ch03a-Dead, v_current_scene = B2-Ch03a-Dead) if (v_hearing == 4 && v_ancient_languages < 3)
+choice("Leave him to die", B2-Ch03a-Leave, v_current_scene = B2-Ch03a-Leave, v_b2_ch3_troll = 0) if (v_hearing == 4 && v_ancient_languages < 3)
+choice("Help him remove the arrow", B2-Ch03a-Dead, v_current_scene = B2-Ch03a-Dead) if (v_hearing == 4 && v_ancient_languages >= 3)
+choice("Leave him to die", B2-Ch03a-Leave, v_current_scene = B2-Ch03a-Leave, v_b2_ch3_troll = 0) if (v_hearing == 4 && v_ancient_languages >= 3)
+choice("""Where are all the other trolls that you were talking to, earlier?""", B2-Ch03a-Earlier, v_current_scene = B2-Ch03a-Earlier, v_b2_ch3_troll = 1) if (v_hearing == 4 && v_ancient_languages >= 3)
 
 
 ID: B2-Ch03a-Dead
@@ -1452,18 +1441,18 @@ He then casts his spell, and he vanishes into thin air, alongside the tiger and 
 "You have some very... unique friends," Leila writes, smiling, as we walk through the dark corridor.
 
 }
-choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins != 1, v_b2_ch3_troll == 0)
-choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins != 1, v_b2_ch3_troll == 0)
-choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins != 1, v_b2_ch3_troll == 0)
-choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins != 1, v_b2_ch3_troll == 1)
-choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins != 1, v_b2_ch3_troll == 1)
-choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins != 1, v_b2_ch3_troll == 1)
-choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins == 1, v_b2_ch3_troll == 0)
-choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins == 1, v_b2_ch3_troll == 0)
-choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins == 1, v_b2_ch3_troll == 0)
-choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins == 1, v_b2_ch3_troll == 1)
-choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins == 1, v_b2_ch3_troll == 1)
-choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins == 1, v_b2_ch3_troll == 1)
+choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins != 1 && v_b2_ch3_troll == 0)
+choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins != 1 && v_b2_ch3_troll == 0)
+choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins != 1 && v_b2_ch3_troll == 0)
+choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins != 1 && v_b2_ch3_troll == 1)
+choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins != 1 && v_b2_ch3_troll == 1)
+choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins != 1 && v_b2_ch3_troll == 1)
+choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins == 1 && v_b2_ch3_troll == 0)
+choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins == 1 && v_b2_ch3_troll == 0)
+choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins == 1 && v_b2_ch3_troll == 0)
+choice("""What's that supposed to mean?""", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_ch5_goblins == 1 && v_b2_ch3_troll == 1)
+choice("""Actually, only one of them is my friend.""", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_ch5_goblins == 1 && v_b2_ch3_troll == 1)
+choice("""You can say that again...""", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_ch5_goblins == 1 && v_b2_ch3_troll == 1)
 
 
 ID: B2-Ch03a-Supposed

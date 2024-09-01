@@ -1,8 +1,7 @@
 ID: B2-Ch05a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Stillwater!" Bruce shouts. "Hey, stillwater, are you listening?"
 
@@ -40,9 +39,9 @@ choice("""Let him fight with us. We'll need all the help we can get against that
 choice("""Wilhelm is not a threat. Let him do what he wants. It won't make any difference.""", B2-Ch05a-Threat, v_current_scene = B2-Ch05a-Threat, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0) if (v_b2_ch2_deal == 3)
 choice("""We don't have any rope. We could just tell him to keep his distance from us.""", B2-Ch05a-Rope, v_current_scene = B2-Ch05a-Rope, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0) if (v_b2_ch2_deal == 3)
 choice("""Let him fight with us. We'll need all the help we can get against that troll.""", B2-Ch05a-Help, v_current_scene = B2-Ch05a-Help, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 1) if (v_b2_ch2_deal == 3)
-choice("""Wilhelm is not a threat. Let him do what he wants. It won't make any difference.""", B2-Ch05a-Threat, v_current_scene = B2-Ch05a-Threat, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0) if (v_b2_ch2_threatened == 2, v_b2_ch2_lessathi == 0)
-choice("""We don't have any rope. We could just tell him to keep his distance from us.""", B2-Ch05a-Rope, v_current_scene = B2-Ch05a-Rope, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0) if (v_b2_ch2_threatened == 2, v_b2_ch2_lessathi == 0)
-choice("""Let him fight with us. We'll need all the help we can get against that troll.""", B2-Ch05a-Help, v_current_scene = B2-Ch05a-Help, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 1) if (v_b2_ch2_threatened == 2, v_b2_ch2_lessathi == 0)
+choice("""Wilhelm is not a threat. Let him do what he wants. It won't make any difference.""", B2-Ch05a-Threat, v_current_scene = B2-Ch05a-Threat, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0) if (v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
+choice("""We don't have any rope. We could just tell him to keep his distance from us.""", B2-Ch05a-Rope, v_current_scene = B2-Ch05a-Rope, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0) if (v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
+choice("""Let him fight with us. We'll need all the help we can get against that troll.""", B2-Ch05a-Help, v_current_scene = B2-Ch05a-Help, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 1) if (v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
 
 
 ID: B2-Ch05a-Threat
@@ -157,6 +156,7 @@ choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast, v_b2_ch5_he
 ID: B2-Ch05a-Ogres-heard
 TEXT: 
 
+SUCCESS:[ Hearing check successful - level 2 ]}
  
 Almost as soon as I exit my room, I start hearing two guards talking to each other, very far down the corridor.
 
@@ -182,9 +182,7 @@ choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast)
 ID: B2-Ch05a-Toast
 TEXT: 
 
-#if(v_b2_ch5_heard_guards == 0) {
-FAIL:[ Hearing check failed - level 2 ]
-}
+FAIL:[ Hearing check failed - level 2 ] if (v_b2_ch5_heard_guards == 0)}
 #if(v_b2_ch5_heard_guards == 1) {
  I make my way down the hallway as fast as I can, and I try to figure out which one of the doors leads to the dwarf's room. When I hear Hadrik's laughter coming from behind one of the doors, I realize that I've reached my destination, and I knock on the door three times, calling out to him, to let him know who it is.
 "Hadrik, are you in there?" I say.
@@ -336,10 +334,10 @@ I don't say anything and I keep walking forward.
 "Damn it!" the announcer says. "Open the gates. Open them now!"
 
 }
-choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 0, v_b2_ch2_creatures == 1)
-choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 0, v_b2_ch2_creatures == 0)
-choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 1, v_b2_ch2_creatures == 1)
-choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 1, v_b2_ch2_creatures == 0)
+choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 0 && v_b2_ch2_creatures == 1)
+choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 0 && v_b2_ch2_creatures == 0)
+choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 1 && v_b2_ch2_creatures == 1)
+choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch4_beer == 1 && v_b2_ch2_creatures == 0)
 
 
 ID: B2-Ch05a-Flammable
@@ -373,60 +371,36 @@ choice("Go for a tactical retreat.", B2-Ch05a-Tactical, v_current_scene = B2-Ch0
 ID: B2-Ch05a-Cut
 TEXT: 
 
-set(v_b2_ch5_first_cut,1) if (v_agility >= 3, v_strength >= 2)
-set(v_is_dead,0) if (v_agility >= 3, v_strength >= 2)
-set(v_b2_ch5_first_cut,0) if (v_agility >= 3, v_strength < 2)
-set(v_is_dead,0) if (v_agility >= 3, v_strength < 2)
-set(v_b2_ch5_first_cut,1) if (v_agility < 3, v_combat_technique >= 2, v_strength >= 2)
-set(v_is_dead,0) if (v_agility < 3, v_combat_technique >= 2, v_strength >= 2)
-set(v_b2_ch5_first_cut,0) if (v_agility < 3, v_combat_technique >= 2, v_strength < 2)
-set(v_is_dead,0) if (v_agility < 3, v_combat_technique >= 2, v_strength < 2)
-set(v_is_dead,1) if (v_agility < 3, v_combat_technique < 2)
-set(v_b2_ch5_first_cut,0) if (v_agility < 3, v_combat_technique < 2)
-set(v_b2_ch5_first_cut,0) if (v_agility >= 3, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_is_dead,0) if (v_agility >= 3, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_b2_ch5_first_cut,0) if (v_agility >= 3, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_is_dead,0) if (v_agility >= 3, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_b2_ch5_first_cut,0) if (v_agility < 3, v_combat_technique >= 2, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_is_dead,0) if (v_agility < 3, v_combat_technique >= 2, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_b2_ch5_first_cut,0) if (v_agility < 3, v_combat_technique >= 2, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_is_dead,0) if (v_agility < 3, v_combat_technique >= 2, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-#if(v_agility >= 3 && v_strength >= 2) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility >= 3 && v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_agility >= 3 && v_strength < 2) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility >= 3 && v_strength < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_combat_technique >= 2 && v_strength < 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_agility < 3 && v_combat_technique >= 2 && v_strength < 2) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_combat_technique >= 2 && v_strength < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
-#if(v_agility < 3 && v_combat_technique < 2) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
+set(v_b2_ch5_first_cut,1) if (v_agility >= 3 && v_strength >= 2)
+set(v_is_dead,0) if (v_agility >= 3 && v_strength >= 2)
+set(v_b2_ch5_first_cut,0) if (v_agility >= 3 && v_strength < 2)
+set(v_is_dead,0) if (v_agility >= 3 && v_strength < 2)
+set(v_b2_ch5_first_cut,1) if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2)
+set(v_is_dead,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2)
+set(v_b2_ch5_first_cut,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2)
+set(v_is_dead,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2)
+set(v_is_dead,1) if (v_agility < 3 && v_combat_technique < 2)
+set(v_b2_ch5_first_cut,0) if (v_agility < 3 && v_combat_technique < 2)
+set(v_b2_ch5_first_cut,0) if (v_agility >= 3 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_is_dead,0) if (v_agility >= 3 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_b2_ch5_first_cut,0) if (v_agility >= 3 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_is_dead,0) if (v_agility >= 3 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_b2_ch5_first_cut,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_is_dead,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_b2_ch5_first_cut,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_is_dead,0) if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3 && v_strength >= 2)}
+SUCCESS:[ Strength check successful - level 2 ] if (v_agility >= 3 && v_strength >= 2)}
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3 && v_strength < 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_agility >= 3 && v_strength < 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2)}
+SUCCESS:[ Strength check successful - level 2 ] if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_combat_technique < 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_agility < 3 && v_combat_technique < 2)}
 #if(v_agility >= 3 && v_strength >= 2) {
  
 
@@ -509,17 +483,17 @@ Not long after his warning, two very large ogres make their way out of the gate 
 I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and attempting to cut his head off from the side where his shoulder pad had been shattered. Velgos sees me coming, and he slashes one of his scimitars towards me, but I manage to dodge it, and I go straight for his neck. Unfortunately, the troll's first strike was never meant to hit its target, but only to lead me into the path of his second scimitar. I never got the chance to dodge his second blow, which severed my head from my shoulders, and killed me on the spot.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3, v_combat_technique < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3, v_combat_technique < 2)
-choice("Load game", , , special:saves) if (v_agility < 3, v_combat_technique < 2)
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility >= 3, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility >= 3, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility < 3, v_combat_technique >= 2, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility < 3, v_combat_technique >= 2, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility >= 3, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 1)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility >= 3, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 1)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility < 3, v_combat_technique >= 2, v_strength >= 2, v_is_dead == 0, v_b2_ch5_heard_guards == 1)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility < 3, v_combat_technique >= 2, v_strength < 2, v_is_dead == 0, v_b2_ch5_heard_guards == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_combat_technique < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_combat_technique < 2)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_combat_technique < 2)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility >= 3 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility >= 3 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility >= 3 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility >= 3 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility < 3 && v_combat_technique >= 2 && v_strength >= 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility < 3 && v_combat_technique >= 2 && v_strength < 2 && v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
 
 
 ID: B2-Ch05a-Decoy
@@ -527,29 +501,19 @@ TEXT:
 
 set(v_b2_ch5_first_cut,1) if (v_agility >= 3)
 set(v_is_dead,0) if (v_agility >= 3)
-set(v_b2_ch5_first_cut,1) if (v_agility < 3, v_reflexes >= 3)
-set(v_is_dead,0) if (v_agility < 3, v_reflexes >= 3)
-set(v_is_dead,1) if (v_agility < 3, v_reflexes < 3)
-set(v_b2_ch5_first_cut,0) if (v_agility < 3, v_reflexes < 3)
-set(v_b2_ch5_first_cut,0) if (v_agility >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_is_dead,0) if (v_agility >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_b2_ch5_first_cut,0) if (v_agility < 3, v_reflexes >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-set(v_is_dead,0) if (v_agility < 3, v_reflexes >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-#if(v_agility >= 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes >= 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes >= 3) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility < 3 && v_reflexes < 3) {
-FAIL:[ Reflexes check failed - level 3 ]
-}
+set(v_b2_ch5_first_cut,1) if (v_agility < 3 && v_reflexes >= 3)
+set(v_is_dead,0) if (v_agility < 3 && v_reflexes >= 3)
+set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 3)
+set(v_b2_ch5_first_cut,0) if (v_agility < 3 && v_reflexes < 3)
+set(v_b2_ch5_first_cut,0) if (v_agility >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_is_dead,0) if (v_agility >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_b2_ch5_first_cut,0) if (v_agility < 3 && v_reflexes >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+set(v_is_dead,0) if (v_agility < 3 && v_reflexes >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes >= 3)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_agility < 3 && v_reflexes >= 3)}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes < 3)}
+FAIL:[ Reflexes check failed - level 3 ] if (v_agility < 3 && v_reflexes < 3)}
 #if(v_agility >= 3) {
  
 Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
@@ -609,13 +573,13 @@ I rush towards Velgos, with my enchanted knife at the ready, pretending that I w
 I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I don't get the chance to dodge his strike, and one of his scimitars beheads me on the spot.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3, v_reflexes < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3, v_reflexes < 3)
-choice("Load game", , , special:saves) if (v_agility < 3, v_reflexes < 3)
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility < 3, v_reflexes >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 1)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility < 3, v_reflexes >= 3, v_is_dead == 0, v_b2_ch5_heard_guards == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_reflexes < 3)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_agility < 3 && v_reflexes >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_agility < 3 && v_reflexes >= 3 && v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
 
 
 ID: B2-Ch05a-Tactical
@@ -628,25 +592,25 @@ I signal Leila to retreat, and we both head back towards the other members of ou
  
 "Stop complaining," Bruce says. "Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself."
 
-choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_is_dead == 0, v_b2_ch5_heard_guards == 0)
-choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_is_dead == 0, v_b2_ch5_heard_guards == 1)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_is_dead == 0 && v_b2_ch5_heard_guards == 0)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_is_dead == 0 && v_b2_ch5_heard_guards == 1)
 
 
 ID: B2-Ch05a-Not-Heard
 TEXT: 
 
 set(v_b2_ch5_negotiate,0)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
-set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
+set(v_b2_ch5_negotiate,0) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
  "I'd be careful, if I were you," I tell Bruce. "I've seen my fair share of regular ogres this past week, and I can tell you without a doubt that these two are a cut above the rest."
 "Bah!" Bruce says. "Their size does not impress me. Big or no, I'm willing to bet that they bleed all the same."
 
@@ -656,18 +620,18 @@ The ogres do not leave us the chance to continue our conversation, and they star
 
 As Leila goes to fight the troll, I take one long look at our enemy, trying to prepare a plan of attack.
 
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
 
 
 ID: B2-Ch05a-Heard
@@ -675,12 +639,8 @@ TEXT:
 
 set(v_b2_ch5_negotiate,0) if (v_ancient_languages == 0)
 set(v_b2_ch5_negotiate,1) if (v_ancient_languages >= 1)
-#if(v_ancient_languages == 0) {
-FAIL:[ Ancient languages check failed - level 1 ]
-}
-#if(v_ancient_languages >= 1) {
-SUCCESS:[ Ancient languages check successful - level 1 ]
-}
+FAIL:[ Ancient languages check failed - level 1 ] if (v_ancient_languages == 0)}
+SUCCESS:[ Ancient languages check successful - level 1 ] if (v_ancient_languages >= 1)}
 #if(v_ancient_languages == 0) {
  
 "Actually, I'd rather be the one to take them on, if you don't mind," I tell Bruce. "I'm not completely sure, but I think I might be able to bring them over to our side, if I have a little chat with them."
@@ -774,41 +734,31 @@ TEXT:
 
 Once Bruce takes my place and begins fighting the ogres, I take one long look towards the troll, and I try to make a plan of attack.
 
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 1)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 1)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_wilhelm == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0)
 
 
 ID: B2-Ch05a-Kill-ogres
 TEXT: 
 
 set(v_is_dead,0) if (v_agility >= 2)
-set(v_is_dead,0) if (v_agility < 2, v_strength >= 3)
-set(v_is_dead,1) if (v_agility < 2, v_strength < 3)
-#if(v_agility >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility < 2 && v_strength >= 3) {
-FAIL:[ Speed check failed - level 2 ]
-}
-#if(v_agility < 2 && v_strength >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_agility < 2 && v_strength < 3) {
-FAIL:[ Speed check failed - level 2 ]
-}
-#if(v_agility < 2 && v_strength < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
+set(v_is_dead,0) if (v_agility < 2 && v_strength >= 3)
+set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2 && v_strength >= 3)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_agility < 2 && v_strength >= 3)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2 && v_strength < 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_agility < 2 && v_strength < 3)}
 #if(v_agility >= 2) {
  
 There's no use in prolonging this battle any further. I'm going to finish them off as quickly as possible, so I can rejoin Leila and the others.
@@ -843,10 +793,10 @@ I make a rush towards the ogres, trying to anticipate which direction they'll st
 
 }
 choice("Continue", B2-Ch05a-Prepare, v_current_scene = B2-Ch05a-Prepare) if (v_agility >= 2)
-choice("Continue", B2-Ch05a-Prepare, v_current_scene = B2-Ch05a-Prepare) if (v_agility < 2, v_strength >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2, v_strength < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2, v_strength < 3)
-choice("Load game", , , special:saves) if (v_agility < 2, v_strength < 3)
+choice("Continue", B2-Ch05a-Prepare, v_current_scene = B2-Ch05a-Prepare) if (v_agility < 2 && v_strength >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2 && v_strength < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2 && v_strength < 3)
+choice("Load game", , , special:saves) if (v_agility < 2 && v_strength < 3)
 
 
 ID: B2-Ch05a-Prepare
@@ -880,18 +830,18 @@ Instead, the troll regrew his head again from his neck, although this time aroun
 As I prepare to join my friends in battle, I take one long look at Velgos, and I try to make a plan of attack.
 
 }
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 0)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 0)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 0)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 1)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 1)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 1)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 0)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 0)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 0)
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 1)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 1)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 1)
 
 
 ID: B2-Ch05a-Contrary-Ogres
@@ -933,10 +883,10 @@ I take another quick look towards the battlefield, and it looks like Velgos is n
 The ogres are now rushing towards the troll, with their clubs at the ready, preparing to strike. As he sees his former companions turning on him, Velgos' eyes fill with rage.
 
 }
-choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 0)
-choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 2, v_b2_ch5_first_cut == 1)
-choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 0)
-choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 1, v_b2_ch5_first_cut == 1)
+choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 2 && v_b2_ch5_first_cut == 1)
+choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_negotiate == 1 && v_b2_ch5_first_cut == 1)
 
 
 ID: B2-Ch05a-Climactic-Ogres
@@ -1004,12 +954,12 @@ The troll is now desperately trying to gasp for air, while looking at me and Lei
 "Well, that was anti-climactic..." I say.
 
 }
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 1, v_b2_ch5_first_cut == 0)
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 2, v_b2_ch5_first_cut == 0)
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 3, v_b2_ch5_first_cut == 0)
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 1, v_b2_ch5_first_cut == 1)
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 2, v_b2_ch5_first_cut == 1)
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 3, v_b2_ch5_first_cut == 1)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 1 && v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 2 && v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 3 && v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 1 && v_b2_ch5_first_cut == 1)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 2 && v_b2_ch5_first_cut == 1)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 3 && v_b2_ch5_first_cut == 1)
 
 
 ID: B2-Ch05a-Contrary-Wilhelm
@@ -1088,12 +1038,8 @@ TEXT:
 
 set(v_is_dead,0) if (v_perception >= 3)
 set(v_is_dead,1) if (v_perception < 3)
-#if(v_perception >= 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
-#if(v_perception < 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
+SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3)}
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3)}
 #if(v_perception >= 3) {
  
 I maintain my position, trying to study the troll carefully, as he is fighting. After watching the two combatants for a while, I notice that Velgos tends to make a big jump backwards, every time he feels like he is being overwhelmed by Leila's attacks. That is definitely something I can use against him! I just have to wait for the right opportunity, and then I can stab him from behind, right as he makes the jump.
@@ -1123,12 +1069,8 @@ TEXT:
 
 set(v_is_dead,0) if (v_strength >= 2)
 set(v_is_dead,1) if (v_strength < 2)
-#if(v_strength >= 2) {
-SUCCESS:[ Strength check successful - level 2 ]
-}
-#if(v_strength < 2) {
-FAIL:[ Strength check failed - level 2 ]
-}
+SUCCESS:[ Strength check successful - level 2 ] if (v_strength >= 2)}
+FAIL:[ Strength check failed - level 2 ] if (v_strength < 2)}
 #if(v_strength >= 2) {
  
 "So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind, I'll be off!"
@@ -1201,7 +1143,7 @@ The troll is now desperately trying to gasp for air, while looking at me and Lei
 choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_first_cut == 1)
 choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_wilhelm == 1)
 choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 2)
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_wilhelm == 0, v_b2_ch5_first_cut == 0, v_b2_ch5_strategy != 2)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_wilhelm == 0 && v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy != 2)
 
 
 ID: B2-Ch05a-Easily-Without
@@ -1321,12 +1263,8 @@ TEXT:
 
 set(v_is_dead,0) if (v_agility >= 2)
 set(v_is_dead,1) if (v_agility < 2)
-#if(v_agility >= 2) {
-SUCCESS:[ Speed check successful - level 2 ]
-}
-#if(v_agility < 2) {
-FAIL:[ Speed check failed - level 2 ]
-}
+SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2)}
+FAIL:[ Speed check failed - level 2 ] if (v_agility < 2)}
 #if(v_agility >= 2) {
  
 "You!" the mage shouts at me. "This is all your fault! You traitorous son of a bitch, I'm going to kill you!"
@@ -1518,9 +1456,9 @@ He pauses.
 choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 1)
 choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 2)
 choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0)
-choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0, v_b2_ch5_strategy == 2, v_b2_ch5_first_cut == 0)
-choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0, v_b2_ch5_strategy == 2, v_b2_ch5_first_cut == 1, v_b2_ch5_wilhelm == 0)
-choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0, v_b2_ch5_wilhelm == 0, v_b2_ch2_cell == 1, v_b2_ch5_strategy == 2, v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_first_cut == 0)
+choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_first_cut == 1 && v_b2_ch5_wilhelm == 0)
+choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0 && v_b2_ch2_cell == 1 && v_b2_ch5_strategy == 2 && v_b2_ch5_first_cut == 0)
 
 
 ID: B2-Ch05a-Smoothly

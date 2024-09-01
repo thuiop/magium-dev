@@ -312,12 +312,12 @@ Meanwhile, the other two serpents are not doing so well. The elf air elementalis
 choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 1)
 choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 1)
 choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 1)
-choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0, v_b3_ch6_secret != 0)
-choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0, v_b3_ch6_secret != 0)
-choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0, v_b3_ch6_secret != 0)
-choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0, v_b3_ch6_secret == 0)
-choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0, v_b3_ch6_secret == 0)
-choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0, v_b3_ch6_secret == 0)
+choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
+choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
+choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
+choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret == 0)
+choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret == 0)
+choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret == 0)
 
 
 ID: B3-Ch06b-Defend
@@ -433,40 +433,30 @@ The black-robed man remains completely silent, and it's no wonder. Given the num
 choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_focus == 0)
 choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1)
 choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1, v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1, v_b3_ch6_preparing == 0)
-choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_focus == 0, v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2, v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 1)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 0, v_b3_ch6_focus == 1)
-choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 0)
-choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_preparing == 0, v_b3_ch6_focus == 0)
-choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 2)
-choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_preparing == 0, v_b3_ch6_focus == 2)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0)
+choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1)
+choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 1)
+choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
+choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 0)
+choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
+choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 2)
 
 
 ID: B3-Ch06b-Air
 TEXT: 
 
 set(v_is_dead,1) if (v_perception < 3)
-set(v_is_dead,1) if (v_perception >= 3, v_reflexes < 3)
-set(v_is_dead,0) if (v_perception >= 3, v_reflexes >= 3)
-set(v_is_dead,0) if (v_perception >= 3, v_reflexes >= 3, v_b3_ch6_selected == 3, v_is_dead == 0)
-#if(v_perception < 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_perception >= 3 && v_reflexes < 3) {
-FAIL:[ Reflexes check failed - level 3 ]
-}
-#if(v_perception >= 3 && v_reflexes < 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
-#if(v_perception >= 3 && v_reflexes >= 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
-#if(v_perception >= 3 && v_reflexes >= 3) {
-SUCCESS:[ Reflexes check successful - level 3 ]
-}
+set(v_is_dead,1) if (v_perception >= 3 && v_reflexes < 3)
+set(v_is_dead,0) if (v_perception >= 3 && v_reflexes >= 3)
+set(v_is_dead,0) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected == 3 && v_is_dead == 0)
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3)}
+FAIL:[ Reflexes check failed - level 3 ] if (v_perception >= 3 && v_reflexes < 3)}
+SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3 && v_reflexes < 3)}
+SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3 && v_reflexes >= 3)}
+SUCCESS:[ Reflexes check successful - level 3 ] if (v_perception >= 3 && v_reflexes >= 3)}
 #if(v_perception < 3) {
  
 When I get closer to him, I suddenly feel myself starting to spin in place in mid-air, faster and faster. I try to free myself, but it's no use. The whirlwind that is spinning me is simply too strong.
@@ -503,11 +493,11 @@ Just as I am done talking, the elf launches a wind blade towards me, which I som
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 3)
 choice("Load game", , , special:saves) if (v_perception < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception >= 3, v_reflexes < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception >= 3, v_reflexes < 3)
-choice("Load game", , , special:saves) if (v_perception >= 3, v_reflexes < 3)
-choice("Continue", B3-Ch06b-Rating, v_current_scene = B3-Ch06b-Rating) if (v_perception >= 3, v_reflexes >= 3, v_b3_ch6_selected == 3, v_is_dead == 0)
-choice("Continue", B3-Ch06b-Echoing, v_current_scene = B3-Ch06b-Echoing) if (v_perception >= 3, v_reflexes >= 3, v_b3_ch6_selected != 3, v_is_dead == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception >= 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception >= 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_perception >= 3 && v_reflexes < 3)
+choice("Continue", B3-Ch06b-Rating, v_current_scene = B3-Ch06b-Rating) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected == 3 && v_is_dead == 0)
+choice("Continue", B3-Ch06b-Echoing, v_current_scene = B3-Ch06b-Echoing) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected != 3 && v_is_dead == 0)
 
 
 ID: B3-Ch06b-Rating
@@ -559,16 +549,12 @@ TEXT:
 
 set(v_b3_ch6_air,0) if (v_ancient_languages < 2)
 set(v_b3_ch6_air,1) if (v_ancient_languages >= 2)
-set(v_b3_ch6_air,0) if (v_ancient_languages < 2, v_b3_ch6_tie == 0)
-set(v_b3_ch6_air,0) if (v_ancient_languages < 2, v_b3_ch6_tie == 1)
-set(v_b3_ch6_air,0) if (v_ancient_languages >= 2, v_b3_ch6_tie == 0)
-set(v_b3_ch6_air,0) if (v_ancient_languages >= 2, v_b3_ch6_tie == 1)
-#if(v_ancient_languages < 2) {
-FAIL:[ Ancient languages check failed - level 2 ]
-}
-#if(v_ancient_languages >= 2) {
-SUCCESS:[ Ancient languages check successful - level 2 ]
-}
+set(v_b3_ch6_air,0) if (v_ancient_languages < 2 && v_b3_ch6_tie == 0)
+set(v_b3_ch6_air,0) if (v_ancient_languages < 2 && v_b3_ch6_tie == 1)
+set(v_b3_ch6_air,0) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 0)
+set(v_b3_ch6_air,0) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 1)
+FAIL:[ Ancient languages check failed - level 2 ] if (v_ancient_languages < 2)}
+SUCCESS:[ Ancient languages check successful - level 2 ] if (v_ancient_languages >= 2)}
 #if(v_ancient_languages < 2) {
  We do what Daren says and then he charges at the hydra, swinging his sword at it as hard as he can. Unfortunately, instead of absorbing anything, the sword simply passes through the semi-transparent hydra as if he were just using some normal weapon to cut through non-magical air.
 "Damn, it's not working!" Daren says. "Get back from the hydra. Get back now!"
@@ -645,10 +631,10 @@ As we are trying to decide what to do next, the man in black robes that ambushed
 }
 choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages < 2)
 choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages >= 2)
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages < 2, v_b3_ch6_tie == 0)
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages < 2, v_b3_ch6_tie == 1)
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages >= 2, v_b3_ch6_tie == 0)
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages >= 2, v_b3_ch6_tie == 1)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages < 2 && v_b3_ch6_tie == 0)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages < 2 && v_b3_ch6_tie == 1)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 0)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 1)
 
 
 ID: B3-Ch06b-Earth
@@ -685,51 +671,25 @@ ID: B3-Ch06b-Earth2
 TEXT: 
 
 set(v_is_dead,1) if (v_magical_sense < 2)
-set(v_is_dead,1) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff < 3)
-set(v_is_dead,1) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff < 3)
-set(v_is_dead,0) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 0)
-set(v_is_dead,0) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 0)
-set(v_is_dead,0) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 1)
-set(v_is_dead,0) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 1)
-#if(v_magical_sense < 2) {
-FAIL:[ Magical sense check failed - level 2 ]
-}
-#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3) {
-FAIL:[ Aura concealment check failed - level 3 ]
-}
-#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3) {
-FAIL:[ Aura concealment check failed - level 3 ]
-}
-#if(v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0) {
-SUCCESS:[ Aura concealment check successful - level 3 ]
-}
-#if(v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0) {
-SUCCESS:[ Aura concealment check successful - level 3 ]
-}
-#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1) {
-SUCCESS:[ Aura concealment check successful - level 3 ]
-}
-#if(v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1) {
-SUCCESS:[ Magical sense check successful - level 2 ]
-}
-#if(v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1) {
-SUCCESS:[ Aura concealment check successful - level 3 ]
-}
+set(v_is_dead,1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
+set(v_is_dead,1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
+set(v_is_dead,0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+set(v_is_dead,0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+set(v_is_dead,0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
+set(v_is_dead,0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
+FAIL:[ Magical sense check failed - level 2 ] if (v_magical_sense < 2)}
+FAIL:[ Aura concealment check failed - level 3 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)}
+FAIL:[ Aura concealment check failed - level 3 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
+SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
+SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
+SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
+SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
+SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
 #if(v_magical_sense < 2) {
  
 After flying around aimlessly for a few more seconds, I realize that I'm not making any progress like this, so I decide to close my eyes and to focus only on finding the mage's aura.
@@ -853,20 +813,20 @@ It's working! He doesn't know where I am anymore, but I still know where he is. 
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_magical_sense < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_magical_sense < 2)
 choice("Load game", , , special:saves) if (v_magical_sense < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff < 3)
-choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 0)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 0)
-choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 0)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 0)
-choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 1)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 1)
-choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 1)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3, v_magical_sense >= 2, v_bluff >= 3, v_b3_ch6_concealed == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
+choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
 
 
 ID: B3-Ch06b-Visibility
@@ -897,22 +857,14 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch
 ID: B3-Ch06b-Mustache
 TEXT: 
 
-set(v_is_dead,1) if (v_b2_ch5_scimitar != 0, v_strength < 3)
-set(v_is_dead,0) if (v_b2_ch5_scimitar != 0, v_strength >= 3)
-set(v_is_dead,1) if (v_b2_ch5_scimitar == 0, v_strength < 4)
-set(v_is_dead,0) if (v_b2_ch5_scimitar == 0, v_strength >= 4)
-#if(v_b2_ch5_scimitar != 0 && v_strength < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
-#if(v_b2_ch5_scimitar != 0 && v_strength >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_b2_ch5_scimitar == 0 && v_strength < 4) {
-FAIL:[ Strength check failed - level 4 ]
-}
-#if(v_b2_ch5_scimitar == 0 && v_strength >= 4) {
-SUCCESS:[ Strength check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
+set(v_is_dead,0) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
+set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
+FAIL:[ Strength check failed - level 3 ] if (v_b2_ch5_scimitar != 0 && v_strength < 3)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_b2_ch5_scimitar != 0 && v_strength >= 3)}
+FAIL:[ Strength check failed - level 4 ] if (v_b2_ch5_scimitar == 0 && v_strength < 4)}
+SUCCESS:[ Strength check successful - level 4 ] if (v_b2_ch5_scimitar == 0 && v_strength >= 4)}
 #if(v_b2_ch5_scimitar != 0 && v_strength < 3) {
  
 I doubt I'm going to get a better chance than this to deal with the earth elementalist, so I should probably keep chasing him. I'm sure that my friends will be fine without me for a while longer.
@@ -965,16 +917,16 @@ My superhuman strength allows me to cut through the rock's surface in a single m
 When I see him, I quickly fly behind him and then I put my blade at his throat just as he is getting back up.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar != 0, v_strength < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar != 0, v_strength < 3)
-choice("Load game", , , special:saves) if (v_b2_ch5_scimitar != 0, v_strength < 3)
-choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar != 0, v_strength >= 3)
-choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar != 0, v_strength >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0, v_strength < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0, v_strength < 4)
-choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0, v_strength < 4)
-choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar == 0, v_strength >= 4)
-choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar == 0, v_strength >= 4)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
+choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
+choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
+choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
 
 
 ID: B3-Ch06b-Convince
@@ -1096,36 +1048,24 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch
 ID: B3-Ch06b-Robed
 TEXT: 
 
-set(v_is_dead,0) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 1)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 0)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 2)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 1)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 0)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 2)
-set(v_is_dead,1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening < 3)
-set(v_is_dead,1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening < 3)
-set(v_is_dead,1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening < 3)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening >= 3)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening >= 3)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening >= 3)
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3) {
-FAIL:[ Aura hardening check failed - level 3 ]
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3) {
-FAIL:[ Aura hardening check failed - level 3 ]
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3) {
-FAIL:[ Aura hardening check failed - level 3 ]
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3) {
-SUCCESS:[ Aura hardening check successful - level 3 ]
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3) {
-SUCCESS:[ Aura hardening check successful - level 3 ]
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3) {
-SUCCESS:[ Aura hardening check successful - level 3 ]
-}
+set(v_is_dead,0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
+set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
+set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
+FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)}
+FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)}
+FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)}
+SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)}
+SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)}
+SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)}
 #if(v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1) {
  Kate manages to get out of the way in time, but now the black-robed man is creating weapons out of thin air and making them fly towards her and Illuna while he keeps teleporting around, waving his dagger at them. As Kate is busy blocking the flying weapons, she is also making sure to keep the pressure on the ambassador, so that he doesn't get a chance to escape during all the confusion.
 After dodging the black-robed man's attacks a few times, Illuna suddenly decides to stop moving and she just stands there for a few seconds, while the man swings his dagger towards her. Seeing that she is not planning to evade his strike, the man stops his slash right as he was about to cut through her arm, and then he teleports next to Kate instead. Realizing what's going on, Kate stops moving as well, and as she does this, the man in black robes simply stops doing anything, while his flying weapons also appear to be frozen in mid-air.
@@ -1415,33 +1355,33 @@ As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begi
 "Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
 
 }
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 1)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 1)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 0)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 0)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 2)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1, v_b3_ch6_focus == 2)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 1)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 1)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 0)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 0)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 2)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_focus == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening < 3)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening >= 3)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 1, v_aura_hardening >= 3)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening >= 3)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 0, v_aura_hardening >= 3)
-choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening >= 3)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_focus == 2, v_aura_hardening >= 3)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
+choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
 
 
 ID: B3-Ch06b-Dome
@@ -1523,10 +1463,10 @@ Now that he has gotten a better idea of what to expect, the earth elementalist i
 That is a relief. For a moment there, I wasn't sure if Daren's defenses could withstand such a relentless assault, but I'm glad to see I was mistaken--
 
 }
-choice("Continue", B3-Ch06b-Underneath, v_current_scene = B3-Ch06b-Underneath) if (v_b3_ch6_defense == 1, v_b3_ch6_air == 0)
-choice("Continue", B3-Ch06b-Underneath, v_current_scene = B3-Ch06b-Underneath) if (v_b3_ch6_defense == 1, v_b3_ch6_air >= 1)
-choice("Continue", B3-Ch06b-Blunder, v_current_scene = B3-Ch06b-Blunder) if (v_b3_ch6_defense == 0, v_b3_ch6_air == 0)
-choice("Continue", B3-Ch06b-Blunder, v_current_scene = B3-Ch06b-Blunder) if (v_b3_ch6_defense == 0, v_b3_ch6_air >= 1)
+choice("Continue", B3-Ch06b-Underneath, v_current_scene = B3-Ch06b-Underneath) if (v_b3_ch6_defense == 1 && v_b3_ch6_air == 0)
+choice("Continue", B3-Ch06b-Underneath, v_current_scene = B3-Ch06b-Underneath) if (v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1)
+choice("Continue", B3-Ch06b-Blunder, v_current_scene = B3-Ch06b-Blunder) if (v_b3_ch6_defense == 0 && v_b3_ch6_air == 0)
+choice("Continue", B3-Ch06b-Blunder, v_current_scene = B3-Ch06b-Blunder) if (v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1)
 
 
 ID: B3-Ch06b-Blunder
@@ -1534,12 +1474,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_toughness < 4)
 set(v_is_dead,0) if (v_toughness >= 4)
-#if(v_toughness < 4) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_toughness >= 4) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
+FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness >= 4)}
 #if(v_toughness < 4) {
  
 Before I get to finish my train of thought, two smaller boulders pass through both Daren and Melindra's barriers with ease, and one of them hits me in the head before I even get the time to realize what's going on.
@@ -1632,7 +1568,7 @@ Eventually, the large boulders stop falling and everyone escapes unharmed, inclu
 "Look out!" I shout as I get somewhat closer to the ground, while the rocks above me are already beginning to fall. "Boulders incoming! Boulders incoming!"
 
 }
-choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4)
+choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4)
 choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions) if (v_b3_ch6_preparing == 1)
 choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions) if (v_b3_ch5_fight >= 4)
 
@@ -1761,55 +1697,51 @@ He waits for a few seconds, but he gets no answer.
 "Duly noted," the captain says, as the ambassador is now heading into the street we are in, so he can reach his shelter.
 
 }
-choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0)
-choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1)
-choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air >= 1, v_b3_ch6_tie == 0)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1, v_b3_ch6_tie == 0)
-choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air >= 1, v_b3_ch6_tie == 1)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1, v_b3_ch6_tie == 1)
+choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0)
+choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
+choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 0)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 0)
+choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 1)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 1)
 
 
 ID: B3-Ch06b-Surrounded
 TEXT: 
 
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 0)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 0)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 0)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0)
 set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1)
-set(v_b3_ch6_wounded,1) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique < 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 0, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 1, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique < 2, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique >= 2, v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique < 2, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique >= 2, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-#if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
+set(v_b3_ch6_wounded,1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan == 3)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+FAIL:[ Combat technique check failed - level 2 ] if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2)}
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2)}
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0) {
  
 "Hey, Arraka," I say in a low voice, "could you highlight the aura technique's weak points again like yesterday, so that Kate can hit them with her icicles?"
@@ -1974,36 +1906,36 @@ The captain now begins to slowly amplify the pressure on top of us, probably try
 The invisible force above us is getting stronger with each passing moment. The pain is becoming more and more unbearable to the point that most of us have already given up on trying to keep quiet and we're now just screaming our lungs out.
 
 }
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air >= 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique < 2, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique >= 2, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique < 2, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique >= 2, v_b3_ch6_plan != 3, v_premonition_aux >= 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 1, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_tie == 1, v_b3_ch6_uninjured == 0, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 1, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique < 2, v_b3_ch6_plan != 3, v_premonition_aux < 2)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0, v_b3_ch6_tie == 0, v_combat_technique >= 2, v_b3_ch6_plan != 3, v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan != 3 && v_premonition_aux < 2)
 
 
 ID: B3-Ch06b-Trance
@@ -2108,6 +2040,7 @@ choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v
 ID: B3-Ch06b-Nausea
 TEXT: 
 
+SUCCESS:[ Premonition check successful - level 2 ]}
  
 While all this is happening, I get a sudden premonition in which I see the captain getting a headache that makes him lose control of his aura manipulation technique, and immediately afterwards I see another vision of Daren carrying Kelrim's lifeless corpse with a very grim expression in his eyes.
 
@@ -2121,8 +2054,8 @@ ID: B3-Ch06b-Touching
 TEXT: 
 
 set(v_is_dead,1) if (v_b3_ch6_manipulators != 2)
-set(v_is_dead,0) if (v_b3_ch6_manipulators == 2, v_b3_ch6_uninjured == 0)
-set(v_is_dead,0) if (v_b3_ch6_manipulators == 2, v_b3_ch6_uninjured == 1)
+set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0)
+set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
 #if(v_b3_ch6_manipulators != 2) {
  "Kelrim, don't do it!" I shout loudly. "Don't cast the nausea spell!"
 "What?..." Kelrim says. "How did you know that I was going to--"
@@ -2190,8 +2123,8 @@ Instead of answering the captain's question, Kate sends several icicles his way,
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_manipulators != 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_manipulators != 2)
 choice("Load game", , , special:saves) if (v_b3_ch6_manipulators != 2)
-choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2, v_b3_ch6_uninjured == 0)
-choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2, v_b3_ch6_uninjured == 1)
+choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0)
+choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
 
 
 ID: B3-Ch06b-Wyvern
@@ -2239,9 +2172,7 @@ choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v
 ID: B3-Ch06b-Panic
 TEXT: 
 
-#if(v_b3_ch6_kelrim != 2) {
-FAIL:[ Premonition check failed - level 2 ]
-}
+FAIL:[ Premonition check failed - level 2 ] if (v_b3_ch6_kelrim != 2)}
 #if(v_b3_ch6_kelrim != 2) {
  
 After enduring the pain for a while longer, I suddenly feel the pressure above me disappearing, as the captain seems to be experiencing a very strong headache. When he realizes that he lost control of his aura technique, he tries to push us down again, but he can't make the invisible force strong enough to pin us to the ground anymore, so he eventually gives up, making a barrier in front of him instead.
@@ -2371,9 +2302,9 @@ TEXT:
 "We're not retreating, you coward!" the voice says. "We will stay here and avenge our fallen captain!"
 
 }
-choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus == 1, v_b3_ch6_selected != 3)
-choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus == 1, v_b3_ch6_selected != 3)
-choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus == 1, v_b3_ch6_selected != 3)
+choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
+choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
+choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
 choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus != 1)
 choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus != 1)
 choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus != 1)
@@ -2443,24 +2374,24 @@ The boulders are already falling by the time she reaches them, but she blasts th
 "If you're talking about the royal guards, then yes," Melindra says.
 
 }
-choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_coward == 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_coward == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_coward == 2, v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_coward == 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_coward == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_coward == 2 && v_b3_ch6_plan == 3)
 choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_earth == 0, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_earth == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_coward == 0, v_b3_ch6_plan != 3, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_coward == 1, v_b3_ch6_plan != 3, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_coward == 2, v_b3_ch6_plan != 3, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_plan != 3, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_earth == 0, v_b3_ch6_plan != 3, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_earth == 1, v_b3_ch6_plan != 3, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_coward == 0, v_b3_ch6_plan != 3, v_b3_ch6_kelrim != 1)
-choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_coward == 1, v_b3_ch6_plan != 3, v_b3_ch6_kelrim != 1)
-choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_coward == 2, v_b3_ch6_plan != 3, v_b3_ch6_kelrim != 1)
-choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_plan != 3, v_b3_ch6_kelrim != 1)
-choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_earth == 0, v_b3_ch6_plan != 3, v_b3_ch6_kelrim != 1)
-choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_earth == 1, v_b3_ch6_plan != 3, v_b3_ch6_kelrim != 1)
+choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_earth == 0 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Opportunity, v_current_scene = B3-Ch06b-Opportunity) if (v_b3_ch6_earth == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_coward == 0 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_coward == 1 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_coward == 2 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_plan != 3 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_earth == 0 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06b-Mention, v_current_scene = B3-Ch06b-Mention) if (v_b3_ch6_earth == 1 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_coward == 0 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim != 1)
+choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_coward == 1 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim != 1)
+choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_coward == 2 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim != 1)
+choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_plan != 3 && v_b3_ch6_kelrim != 1)
+choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_earth == 0 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim != 1)
+choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b3_ch6_earth == 1 && v_b3_ch6_plan != 3 && v_b3_ch6_kelrim != 1)
 
 
 ID: B3-Ch06b-Opportunity
@@ -2630,24 +2561,24 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
 
 
 ID: B3-Ch06b-Mention
@@ -2753,30 +2684,30 @@ After we all assemble in the same spot, including Hadrik, who is back in his dwa
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
 
 }
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
 
 
 ID: B3-Ch06b-Reveals
@@ -2844,30 +2775,30 @@ After we all assemble in the same spot, including Hadrik, who is back in his dwa
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
 
 }
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 1, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_wounded == 0, v_b3_ch4_billy != 9, v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 && v_b3_ch6_betrayed == 3)
 
 
 ID: B3-Ch06b-Fading
@@ -2963,7 +2894,7 @@ We all sprint away from the drone, with Daren making sure to be the last one in 
 "The ground has been cooled," Illuna tells me.
 
 }
-choice("Continue", B3-Ch06b-Carry2, v_current_scene = B3-Ch06b-Carry2) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06b-Carry2, v_current_scene = B3-Ch06b-Carry2) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("Continue", B3-Ch06b-Carry2, v_current_scene = B3-Ch06b-Carry2) if (v_b3_ch6_kelrim == 1)
 choice("Continue", B3-Ch06b-Carry2, v_current_scene = B3-Ch06b-Carry2) if (v_b3_ch6_plan == 3)
 
@@ -3020,8 +2951,8 @@ It looks like the Overseer is indeed still unable to move his drones. All he can
 
 }
 choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
 
 
 ID: B3-Ch06b-Utterly
@@ -3337,21 +3268,21 @@ He then walks away from us and he turns invisible, as he is now presumably headi
 "Any time..." the teleporter guy says, and then we all leave the teleporter room to head into the tunnel leading towards the rebel base.
 
 }
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch4_billy == 9, v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch4_billy != 9)
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_betrayed == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_kelrim == 1)
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_plan == 3)
 
 
 ID: B3-Ch06b-Leave
@@ -3526,15 +3457,15 @@ He then walks away from us and he turns invisible, as he is now presumably headi
 
 }
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_kelrim == 1)
 choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight < 4, v_b3_ch6_plan == 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_kelrim != 1, v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_kelrim == 1)
-choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0, v_b3_ch5_fight >= 4, v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 1 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_plan == 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_kelrim == 1)
+choice("Continue", B3-Ch06c-Explanation, v_current_scene = B3-Ch06c-Explanation) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_plan == 3)

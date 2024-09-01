@@ -1,8 +1,7 @@
 ID: B3-Ch08a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Okay, so let me see if I got this straight..." Daren says, while our group is standing in the middle of the room from the rebel base where we slept last night. "These blue crystals that keep shining and vibrating every now and then are in fact made up of crystalized Magium essence, correct?"
 
@@ -357,12 +356,8 @@ TEXT:
 
 set(v_b3_ch8_watching,0) if (v_premonition < 4)
 set(v_b3_ch8_watching,1) if (v_premonition >= 4)
-#if(v_premonition < 4) {
-FAIL:[ Premonition check failed - level 4 ]
-}
-#if(v_premonition >= 4) {
-SUCCESS:[ Premonition check successful - level 4 ]
-}
+FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4)}
+SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition >= 4)}
 #if(v_premonition < 4) {
  "Indeed," we suddenly hear the Overseer's metallic voice coming from one of the blue crystals lodged into the walls, which is now shining brightly. "The Overseer protocol would be most interested to know what conclusion you will reach in regards to this particular matter."
 "What the--" Arraka says. "Why is-- How did a simple machine figure out a way to use crystalized Magium essence as a listening device? And why was I not able to detect the Overseer's presence through the crystals? What is going on, here?!
@@ -938,12 +933,12 @@ TEXT:
 "Let's head for the waiting room, then," Daren says. "Once we're there, we'll see if we can spot Albert or Peter, so that they can tell us where the king is."
 
 }
-choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 0, v_b3_ch8_watching == 1)
-choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 1, v_b3_ch8_watching == 1)
-choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 2, v_b3_ch8_watching == 1)
-choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 0, v_b3_ch8_watching == 0)
-choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 1, v_b3_ch8_watching == 0)
-choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 2, v_b3_ch8_watching == 0)
+choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 0 && v_b3_ch8_watching == 1)
+choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 1 && v_b3_ch8_watching == 1)
+choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 2 && v_b3_ch8_watching == 1)
+choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 0 && v_b3_ch8_watching == 0)
+choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 1 && v_b3_ch8_watching == 0)
+choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 2 && v_b3_ch8_watching == 0)
 
 
 ID: B3-Ch08a-Weakling
@@ -967,12 +962,8 @@ TEXT:
 
 set(v_b3_ch8_precisely,1) if (v_bluff < 4)
 set(v_b3_ch8_precisely,2) if (v_bluff >= 4)
-#if(v_bluff < 4) {
-FAIL:[ Bluff check failed - level 4 ]
-}
-#if(v_bluff >= 4) {
-SUCCESS:[ Bluff check successful - level 4 ]
-}
+FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4)}
+SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff >= 4)}
 #if(v_bluff < 4) {
  "Ahem!" Leila's father says. "If I may... I just wanted to tell you all how fascinating I found your discussion about the Magium from earlier to be! As a lower-ranked lessathi, my knowledge about the Magium was limited only to fairy-tales, so it was most exhilarating for me to be a participant of your spirited debate, even if only as a spectator!" 
 "Oh," Daren says. "Well, I wish I could share your sentiment, doctor. Unfortunately, for me, personally, this whole ordeal with the Magium 'fragments' has done nothing but to cast further doubts in my mind about whether or not this prize that they're offering at the end of the tournament would be of any use to me."

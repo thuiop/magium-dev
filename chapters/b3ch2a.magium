@@ -1,8 +1,7 @@
 ID: B3-Ch02a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Okay, Melindra," Daren says, after we all retreat back into the forest so we can have another strategy meeting. "I think now would be a good time for you to tell us everything you know about Ollendor's defenses. We're all ears."
 
@@ -240,16 +239,16 @@ choice("""What if we tried to get one of them drunk, instead?""", B3-Ch02a-Drunk
 choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 3)
 choice("""What if we tried to get one of them drunk, instead?""", B3-Ch02a-Drunk, v_current_scene = B3-Ch02a-Drunk, v_b3_ch2_infiltration = 0, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 4)
 choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 4)
-choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0, v_hearing_aux == 4, v_b3_ch1_unlock != 2)
-choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 1, v_hearing_aux == 4, v_b3_ch1_unlock != 2)
-choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 2, v_hearing_aux == 4, v_b3_ch1_unlock != 2)
-choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 3, v_hearing_aux == 4, v_b3_ch1_unlock != 2)
-choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 4, v_hearing_aux == 4, v_b3_ch1_unlock != 2)
-choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0, v_b3_ch1_unlock != 2, v_hearing_aux == 4)
-choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 1, v_b3_ch1_unlock != 2, v_hearing_aux == 4)
-choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 2, v_b3_ch1_unlock != 2, v_hearing_aux == 4)
-choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 3, v_b3_ch1_unlock != 2, v_hearing_aux == 4)
-choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 4, v_b3_ch1_unlock != 2, v_hearing_aux == 4)
+choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
+choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 1 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
+choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 2 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
+choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 3 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
+choice("""I could try to eavesdrop on someone from afar."" (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 4 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
+choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0 && v_b3_ch1_unlock != 2 && v_hearing_aux == 4)
+choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 1 && v_b3_ch1_unlock != 2 && v_hearing_aux == 4)
+choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 2 && v_b3_ch1_unlock != 2 && v_hearing_aux == 4)
+choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 3 && v_b3_ch1_unlock != 2 && v_hearing_aux == 4)
+choice("""To be honest, I agree with Hadrik. We should just smash through their front gates.""", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 4 && v_b3_ch1_unlock != 2 && v_hearing_aux == 4)
 
 
 ID: B3-Ch02a-Drunk
@@ -498,6 +497,7 @@ choice("Continue", B3-Ch02a-Information, v_current_scene = B3-Ch02a-Information)
 ID: B3-Ch02a-Eavesdrop
 TEXT: 
 
+SUCCESS:[ Hearing check successful - level 4 ]}
  
 "I could try to eavesdrop on someone from afar," I say. "There's bound to be some villager who needs to get into the city eventually."
 
@@ -914,10 +914,10 @@ He then gives a signal to the two metal golems behind him, who immediately open 
 We all move past the guard and enter the city, and as soon as we're inside, the gates behind us slam shut.
 
 }
-choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 4, v_b3_ch2_infiltration != 2)
-choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 4, v_b3_ch2_infiltration == 2)
-choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_infiltration != 1, v_b3_ch2_goblins == 3)
-choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_infiltration == 1, v_b3_ch2_goblins == 3)
+choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 4 && v_b3_ch2_infiltration != 2)
+choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 4 && v_b3_ch2_infiltration == 2)
+choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_infiltration != 1 && v_b3_ch2_goblins == 3)
+choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_infiltration == 1 && v_b3_ch2_goblins == 3)
 
 
 ID: B3-Ch02a-Communicating
@@ -1092,17 +1092,11 @@ ID: B3-Ch02a-Observation
 TEXT: 
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2)
-set(v_is_dead,1) if (v_perception < 4, v_b3_ch1_unlock != 2)
-set(v_is_dead,0) if (v_perception == 4, v_b3_ch1_unlock != 2)
-#if(v_b3_ch1_unlock == 2) {
-FAIL:[ Stat device locked - check failed ]
-}
-#if(v_perception < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Observation check failed - level 4 ]
-}
-#if(v_perception == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_perception < 4 && v_b3_ch1_unlock != 2)
+set(v_is_dead,0) if (v_perception == 4 && v_b3_ch1_unlock != 2)
+FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
+FAIL:[ Observation check failed - level 4 ] if (v_perception < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_perception == 4 && v_b3_ch1_unlock != 2)}
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll go help Illuna," I say. "The sooner we deal with the crossbowmen, the better."
@@ -1147,27 +1141,21 @@ Unfortunately, while we were busy dealing with the few golems that were near eno
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch1_unlock == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch1_unlock == 2)
 choice("Load game", , , special:saves) if (v_b3_ch1_unlock == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 4, v_b3_ch1_unlock != 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 4, v_b3_ch1_unlock != 2)
-choice("Load game", , , special:saves) if (v_perception < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_perception == 4, v_b3_ch1_unlock != 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 4 && v_b3_ch1_unlock != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 4 && v_b3_ch1_unlock != 2)
+choice("Load game", , , special:saves) if (v_perception < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_perception == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch02a-Reflexes
 TEXT: 
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2)
-set(v_is_dead,1) if (v_reflexes < 4, v_b3_ch1_unlock != 2)
-set(v_is_dead,0) if (v_reflexes == 4, v_b3_ch1_unlock != 2)
-#if(v_b3_ch1_unlock == 2) {
-FAIL:[ Stat device locked - check failed ]
-}
-#if(v_reflexes < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Reflexes check failed - level 4 ]
-}
-#if(v_reflexes == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Reflexes check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_reflexes < 4 && v_b3_ch1_unlock != 2)
+set(v_is_dead,0) if (v_reflexes == 4 && v_b3_ch1_unlock != 2)
+FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
+FAIL:[ Reflexes check failed - level 4 ] if (v_reflexes < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Reflexes check successful - level 4 ] if (v_reflexes == 4 && v_b3_ch1_unlock != 2)}
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1210,27 +1198,21 @@ Unfortunately, while we were busy dealing with the few golems that were near eno
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch1_unlock == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch1_unlock == 2)
 choice("Load game", , , special:saves) if (v_b3_ch1_unlock == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 4, v_b3_ch1_unlock != 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 4, v_b3_ch1_unlock != 2)
-choice("Load game", , , special:saves) if (v_reflexes < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_reflexes == 4, v_b3_ch1_unlock != 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 4 && v_b3_ch1_unlock != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 4 && v_b3_ch1_unlock != 2)
+choice("Load game", , , special:saves) if (v_reflexes < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_reflexes == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch02a-Speed
 TEXT: 
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2)
-set(v_is_dead,1) if (v_agility < 4, v_b3_ch1_unlock != 2)
-set(v_is_dead,0) if (v_agility == 4, v_b3_ch1_unlock != 2)
-#if(v_b3_ch1_unlock == 2) {
-FAIL:[ Stat device locked - check failed ]
-}
-#if(v_agility < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Speed check failed - level 4 ]
-}
-#if(v_agility == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Speed check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_agility < 4 && v_b3_ch1_unlock != 2)
+set(v_is_dead,0) if (v_agility == 4 && v_b3_ch1_unlock != 2)
+FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
+FAIL:[ Speed check failed - level 4 ] if (v_agility < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Speed check successful - level 4 ] if (v_agility == 4 && v_b3_ch1_unlock != 2)}
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1273,37 +1255,25 @@ Unfortunately, while we were busy dealing with the few golems that were near eno
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch1_unlock == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch1_unlock == 2)
 choice("Load game", , , special:saves) if (v_b3_ch1_unlock == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 4, v_b3_ch1_unlock != 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 4, v_b3_ch1_unlock != 2)
-choice("Load game", , , special:saves) if (v_agility < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_agility == 4, v_b3_ch1_unlock != 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 4 && v_b3_ch1_unlock != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 4 && v_b3_ch1_unlock != 2)
+choice("Load game", , , special:saves) if (v_agility < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_agility == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch02a-Strength
 TEXT: 
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2)
-set(v_is_dead,1) if (v_toughness < 4, v_b3_ch1_unlock != 2)
-set(v_is_dead,1) if (v_toughness == 4, v_strength < 4, v_b3_ch1_unlock != 2)
-set(v_is_dead,0) if (v_toughness == 4, v_strength == 4, v_b3_ch1_unlock != 2)
-#if(v_b3_ch1_unlock == 2) {
-FAIL:[ Stat device locked - check failed ]
-}
-#if(v_toughness < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Toughness check failed - level 4 ]
-}
-#if(v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Strength check failed - level 4 ]
-}
-#if(v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
-#if(v_toughness == 4 && v_strength == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Toughness check successful - level 4 ]
-}
-#if(v_toughness == 4 && v_strength == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Strength check successful - level 4 ]
-}
+set(v_is_dead,1) if (v_toughness < 4 && v_b3_ch1_unlock != 2)
+set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2)
+set(v_is_dead,0) if (v_toughness == 4 && v_strength == 4 && v_b3_ch1_unlock != 2)
+FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
+FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4 && v_b3_ch1_unlock != 2)}
+FAIL:[ Strength check failed - level 4 ] if (v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_strength == 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Strength check successful - level 4 ] if (v_toughness == 4 && v_strength == 4 && v_b3_ch1_unlock != 2)}
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll try to deal with one of the golems," I say. "The quicker we take them out, the better."
@@ -1367,13 +1337,13 @@ Unfortunately, it seems that while we were busy dealing with the few golems that
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch1_unlock == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch1_unlock == 2)
 choice("Load game", , , special:saves) if (v_b3_ch1_unlock == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness < 4, v_b3_ch1_unlock != 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4, v_b3_ch1_unlock != 2)
-choice("Load game", , , special:saves) if (v_toughness < 4, v_b3_ch1_unlock != 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness == 4, v_strength < 4, v_b3_ch1_unlock != 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness == 4, v_strength < 4, v_b3_ch1_unlock != 2)
-choice("Load game", , , special:saves) if (v_toughness == 4, v_strength < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_toughness == 4, v_strength == 4, v_b3_ch1_unlock != 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness < 4 && v_b3_ch1_unlock != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4 && v_b3_ch1_unlock != 2)
+choice("Load game", , , special:saves) if (v_toughness < 4 && v_b3_ch1_unlock != 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2)
+choice("Load game", , , special:saves) if (v_toughness == 4 && v_strength < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_toughness == 4 && v_strength == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch02a-Rubble

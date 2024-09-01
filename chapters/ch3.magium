@@ -1,8 +1,7 @@
 ID: Ch3-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
 #if(v_ch2_deer_interaction != 1) {
 
 "So, Barry, let me get this straight," Daren says. "You're saying that trinket you're carrying with you is in fact a device that amplifies your physical attributes, which is powered by the magic all around us..."
@@ -384,23 +383,13 @@ ID: Ch3-Vantage
 TEXT: 
 
 set(v_ch3_star_message,0) if (v_perception < 1)
-set(v_ch3_star_message,1) if (v_perception >= 1, v_ancient_languages < 2)
-set(v_ch3_star_message,2) if (v_perception >= 1, v_ancient_languages >= 2)
-#if(v_perception < 1) {
-FAIL:[ Observation check failed - level 1 ]
-}
-#if(v_perception >= 1 && v_ancient_languages < 2) {
-SUCCESS:[ Observation check successful - level 1 ]
-}
-#if(v_perception >= 1 && v_ancient_languages < 2) {
-FAIL:[ Ancient languages check failed - level 2 ]
-}
-#if(v_perception >= 1 && v_ancient_languages >= 2) {
-SUCCESS:[ Observation check successful - level 1 ]
-}
-#if(v_perception >= 1 && v_ancient_languages >= 2) {
-SUCCESS:[ Ancient languages check successful - level 2 ]
-}
+set(v_ch3_star_message,1) if (v_perception >= 1 && v_ancient_languages < 2)
+set(v_ch3_star_message,2) if (v_perception >= 1 && v_ancient_languages >= 2)
+FAIL:[ Observation check failed - level 1 ] if (v_perception < 1)}
+SUCCESS:[ Observation check successful - level 1 ] if (v_perception >= 1 && v_ancient_languages < 2)}
+FAIL:[ Ancient languages check failed - level 2 ] if (v_perception >= 1 && v_ancient_languages < 2)}
+SUCCESS:[ Observation check successful - level 1 ] if (v_perception >= 1 && v_ancient_languages >= 2)}
+SUCCESS:[ Ancient languages check successful - level 2 ] if (v_perception >= 1 && v_ancient_languages >= 2)}
 #if(v_perception < 1) {
 
 As we stand guard,  Daren starts telling me stories about his travels around the world, and the adventures he's had. He tells me of the fifty foot giants that live in the far east of the Northern Continent. He tells me how he's cured the dreaded Iknar plague of the Eastern Continent by himself, and how he defeated the green wyvern of the north. 
@@ -439,12 +428,12 @@ Listening to him tell me all these stories made me realize why I defended him in
 choice("""I was just busy thinking of how to stay alive at the time.""", Ch3-Busy, v_current_scene = Ch3-Busy) if (v_perception < 1)
 choice("""I felt sorry for them, but I didn't let it affect me.""", Ch3-Sorry, v_current_scene = Ch3-Sorry) if (v_perception < 1)
 choice("""I was almost about to puke.""", Ch3-Puke, v_current_scene = Ch3-Puke) if (v_perception < 1)
-choice("""I was just busy thinking of how to stay alive at the time.""", Ch3-Busy, v_current_scene = Ch3-Busy) if (v_perception >= 1, v_ancient_languages < 2)
-choice("""I felt sorry for them, but I didn't let it affect me.""", Ch3-Sorry, v_current_scene = Ch3-Sorry) if (v_perception >= 1, v_ancient_languages < 2)
-choice("""I was almost about to puke.""", Ch3-Puke, v_current_scene = Ch3-Puke) if (v_perception >= 1, v_ancient_languages < 2)
-choice("""I was just busy thinking of how to stay alive at the time.""", Ch3-Busy, v_current_scene = Ch3-Busy) if (v_perception >= 1, v_ancient_languages >= 2)
-choice("""I felt sorry for them, but I didn't let it affect me.""", Ch3-Sorry, v_current_scene = Ch3-Sorry) if (v_perception >= 1, v_ancient_languages >= 2)
-choice("""I was almost about to puke.""", Ch3-Puke, v_current_scene = Ch3-Puke) if (v_perception >= 1, v_ancient_languages >= 2)
+choice("""I was just busy thinking of how to stay alive at the time.""", Ch3-Busy, v_current_scene = Ch3-Busy) if (v_perception >= 1 && v_ancient_languages < 2)
+choice("""I felt sorry for them, but I didn't let it affect me.""", Ch3-Sorry, v_current_scene = Ch3-Sorry) if (v_perception >= 1 && v_ancient_languages < 2)
+choice("""I was almost about to puke.""", Ch3-Puke, v_current_scene = Ch3-Puke) if (v_perception >= 1 && v_ancient_languages < 2)
+choice("""I was just busy thinking of how to stay alive at the time.""", Ch3-Busy, v_current_scene = Ch3-Busy) if (v_perception >= 1 && v_ancient_languages >= 2)
+choice("""I felt sorry for them, but I didn't let it affect me.""", Ch3-Sorry, v_current_scene = Ch3-Sorry) if (v_perception >= 1 && v_ancient_languages >= 2)
+choice("""I was almost about to puke.""", Ch3-Puke, v_current_scene = Ch3-Puke) if (v_perception >= 1 && v_ancient_languages >= 2)
 
 
 ID: Ch3-Busy
@@ -817,10 +806,10 @@ As we walk in awkward silence for a few minutes, I figure I might as well try to
 }
 choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1) if (v_ch2_kate_debt == 0)
 choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2) if (v_ch2_kate_debt == 0)
-choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1) if (v_ch2_kate_debt == 1, v_ch2_not_owe_debt == 1)
-choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2) if (v_ch2_kate_debt == 1, v_ch2_not_owe_debt == 1)
-choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1) if (v_ch2_kate_debt == 1, v_ch2_not_owe_debt == 0)
-choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2) if (v_ch2_kate_debt == 1, v_ch2_not_owe_debt == 0)
+choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1) if (v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 1)
+choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2) if (v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 1)
+choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1) if (v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 0)
+choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2) if (v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 0)
 
 
 ID: Ch3-Awkward
@@ -1113,47 +1102,23 @@ choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry =
 ID: Ch3-Dart
 TEXT: 
 
-set(v_ch3_saved_from_dart,1) if (v_premonition >= 2, v_perception == 3)
-set(v_ch3_saved_from_dart,0) if (v_premonition >= 2, v_perception < 3)
-set(v_ch3_saved_from_dart,1) if (v_premonition < 2, v_hearing >= 2, v_perception == 3)
-set(v_ch3_saved_from_dart,0) if (v_premonition < 2, v_hearing >= 2, v_perception < 3)
-set(v_ch3_saved_from_dart,0) if (v_premonition < 2, v_hearing < 2)
-#if(v_premonition >= 2 && v_perception == 3) {
-SUCCESS:[ Premonition check successful - level 2 ]
-}
-#if(v_premonition >= 2 && v_perception == 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
-#if(v_premonition >= 2 && v_perception < 3) {
-SUCCESS:[ Premonition check successful - level 2 ]
-}
-#if(v_premonition >= 2 && v_perception < 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_premonition < 2 && v_hearing >= 2 && v_perception == 3) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_premonition < 2 && v_hearing >= 2 && v_perception == 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
-#if(v_premonition < 2 && v_hearing >= 2 && v_perception == 3) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition < 2 && v_hearing >= 2 && v_perception < 3) {
-SUCCESS:[ Hearing check successful - level 2 ]
-}
-#if(v_premonition < 2 && v_hearing >= 2 && v_perception < 3) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition < 2 && v_hearing >= 2 && v_perception < 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_premonition < 2 && v_hearing < 2) {
-FAIL:[ Premonition check failed - level 2 ]
-}
-#if(v_premonition < 2 && v_hearing < 2) {
-FAIL:[ Hearing check failed - level 2 ]
-}
+set(v_ch3_saved_from_dart,1) if (v_premonition >= 2 && v_perception == 3)
+set(v_ch3_saved_from_dart,0) if (v_premonition >= 2 && v_perception < 3)
+set(v_ch3_saved_from_dart,1) if (v_premonition < 2 && v_hearing >= 2 && v_perception == 3)
+set(v_ch3_saved_from_dart,0) if (v_premonition < 2 && v_hearing >= 2 && v_perception < 3)
+set(v_ch3_saved_from_dart,0) if (v_premonition < 2 && v_hearing < 2)
+SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2 && v_perception == 3)}
+SUCCESS:[ Observation check successful - level 3 ] if (v_premonition >= 2 && v_perception == 3)}
+SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2 && v_perception < 3)}
+FAIL:[ Observation check failed - level 3 ] if (v_premonition >= 2 && v_perception < 3)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_premonition < 2 && v_hearing >= 2 && v_perception == 3)}
+SUCCESS:[ Observation check successful - level 3 ] if (v_premonition < 2 && v_hearing >= 2 && v_perception == 3)}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_hearing >= 2 && v_perception == 3)}
+SUCCESS:[ Hearing check successful - level 2 ] if (v_premonition < 2 && v_hearing >= 2 && v_perception < 3)}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_hearing >= 2 && v_perception < 3)}
+FAIL:[ Observation check failed - level 3 ] if (v_premonition < 2 && v_hearing >= 2 && v_perception < 3)}
+FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_hearing < 2)}
+FAIL:[ Hearing check failed - level 2 ] if (v_premonition < 2 && v_hearing < 2)}
 #if(v_premonition >= 2 && v_perception == 3) {
 
 Suddenly I see a vision of a dart being shot towards Kate. I realize immediately that what I've just seen was a premonition. But where did the dart come from? 
@@ -1328,16 +1293,16 @@ As she speaks, one of Kate's eyes is twitching, and there is sweat dripping all 
 "I'll manage. I've been in far worse situations and made it out alive. Plus, even if I get injured, Daren can heal me when the fight is over. Now hurry up, time is not on our side."
 
 }
-choice("Go with her plan", Ch3-Plan, v_current_scene = Ch3-Plan) if (v_premonition >= 2, v_perception == 3)
-choice("Tell her I'd rather fight the enemies head on and ask for an ice dagger", Ch3-Saved-Dagger, v_current_scene = Ch3-Saved-Dagger) if (v_premonition >= 2, v_perception == 3)
-choice("Go and call for Daren", Ch3-Call-Daren, v_current_scene = Ch3-Call-Daren, v_ch3_treasure = 0) if (v_premonition >= 2, v_perception < 3)
-choice("Ask Kate for an ice dagger, and deal with the attackers myself", Ch3-Give, v_current_scene = Ch3-Give) if (v_premonition >= 2, v_perception < 3)
-choice("Go with her plan", Ch3-Plan, v_current_scene = Ch3-Plan) if (v_premonition < 2, v_hearing >= 2, v_perception == 3)
-choice("Tell her I'd rather fight the enemies head on and ask for an ice dagger", Ch3-Saved-Dagger, v_current_scene = Ch3-Saved-Dagger) if (v_premonition < 2, v_hearing >= 2, v_perception == 3)
-choice("Go and call for Daren", Ch3-Call-Daren, v_current_scene = Ch3-Call-Daren, v_ch3_treasure = 0) if (v_premonition < 2, v_hearing >= 2, v_perception < 3)
-choice("Ask Kate for an ice dagger, and deal with the attackers myself", Ch3-Give, v_current_scene = Ch3-Give) if (v_premonition < 2, v_hearing >= 2, v_perception < 3)
-choice("Go and call for Daren", Ch3-Call-Daren, v_current_scene = Ch3-Call-Daren, v_ch3_treasure = 0) if (v_premonition < 2, v_hearing < 2)
-choice("Ask Kate for an ice dagger, and deal with the attackers myself", Ch3-Give, v_current_scene = Ch3-Give) if (v_premonition < 2, v_hearing < 2)
+choice("Go with her plan", Ch3-Plan, v_current_scene = Ch3-Plan) if (v_premonition >= 2 && v_perception == 3)
+choice("Tell her I'd rather fight the enemies head on and ask for an ice dagger", Ch3-Saved-Dagger, v_current_scene = Ch3-Saved-Dagger) if (v_premonition >= 2 && v_perception == 3)
+choice("Go and call for Daren", Ch3-Call-Daren, v_current_scene = Ch3-Call-Daren, v_ch3_treasure = 0) if (v_premonition >= 2 && v_perception < 3)
+choice("Ask Kate for an ice dagger, and deal with the attackers myself", Ch3-Give, v_current_scene = Ch3-Give) if (v_premonition >= 2 && v_perception < 3)
+choice("Go with her plan", Ch3-Plan, v_current_scene = Ch3-Plan) if (v_premonition < 2 && v_hearing >= 2 && v_perception == 3)
+choice("Tell her I'd rather fight the enemies head on and ask for an ice dagger", Ch3-Saved-Dagger, v_current_scene = Ch3-Saved-Dagger) if (v_premonition < 2 && v_hearing >= 2 && v_perception == 3)
+choice("Go and call for Daren", Ch3-Call-Daren, v_current_scene = Ch3-Call-Daren, v_ch3_treasure = 0) if (v_premonition < 2 && v_hearing >= 2 && v_perception < 3)
+choice("Ask Kate for an ice dagger, and deal with the attackers myself", Ch3-Give, v_current_scene = Ch3-Give) if (v_premonition < 2 && v_hearing >= 2 && v_perception < 3)
+choice("Go and call for Daren", Ch3-Call-Daren, v_current_scene = Ch3-Call-Daren, v_ch3_treasure = 0) if (v_premonition < 2 && v_hearing < 2)
+choice("Ask Kate for an ice dagger, and deal with the attackers myself", Ch3-Give, v_current_scene = Ch3-Give) if (v_premonition < 2 && v_hearing < 2)
 
 
 ID: Ch3-Call-Daren
@@ -1821,25 +1786,15 @@ ID: Ch3-Second-Alive
 TEXT: 
 
 set(v_is_dead,0) if (v_combat_technique >= 2)
-set(v_is_dead,0) if (v_combat_technique < 2, v_reflexes >= 2)
-set(v_is_dead,1) if (v_combat_technique < 2, v_reflexes < 2)
-set(v_is_dead,0) if (v_combat_technique >= 2, v_is_dead == 0, v_ch3_saved_from_dart == 1)
-set(v_is_dead,0) if (v_combat_technique < 2, v_reflexes >= 2, v_is_dead == 0, v_ch3_saved_from_dart == 1)
-#if(v_combat_technique >= 2) {
-SUCCESS:[ Combat technique check successful - level 2 ]
-}
-#if(v_combat_technique < 2 && v_reflexes >= 2) {
-SUCCESS:[ Reflexes check successful - level 2 ]
-}
-#if(v_combat_technique < 2 && v_reflexes >= 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_combat_technique < 2 && v_reflexes < 2) {
-FAIL:[ Combat technique check failed - level 2 ]
-}
-#if(v_combat_technique < 2 && v_reflexes < 2) {
-FAIL:[ Reflexes check failed - level 2 ]
-}
+set(v_is_dead,0) if (v_combat_technique < 2 && v_reflexes >= 2)
+set(v_is_dead,1) if (v_combat_technique < 2 && v_reflexes < 2)
+set(v_is_dead,0) if (v_combat_technique >= 2 && v_is_dead == 0 && v_ch3_saved_from_dart == 1)
+set(v_is_dead,0) if (v_combat_technique < 2 && v_reflexes >= 2 && v_is_dead == 0 && v_ch3_saved_from_dart == 1)
+SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
+SUCCESS:[ Reflexes check successful - level 2 ] if (v_combat_technique < 2 && v_reflexes >= 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2 && v_reflexes >= 2)}
+FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2 && v_reflexes < 2)}
+FAIL:[ Reflexes check failed - level 2 ] if (v_combat_technique < 2 && v_reflexes < 2)}
 #if(v_combat_technique >= 2) {
 
 I quickly grab the crossbow from the ground, and jump right in front of the five men, aiming for the one in the middle.
@@ -1896,96 +1851,54 @@ I notice too late that one of the men lying on the ground managed to grab back h
 There was no time for me to react.  His crossbow bolt hit me right in the face, and I died almost instantly.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 2, v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 2, v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_combat_technique < 2, v_reflexes < 2)
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_combat_technique >= 2, v_is_dead == 0, v_ch3_saved_from_dart == 1)
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_combat_technique < 2, v_reflexes >= 2, v_is_dead == 0, v_ch3_saved_from_dart == 1)
-choice("Continue", Ch3-Decide-Alive, v_current_scene = Ch3-Decide-Alive) if (v_combat_technique >= 2, v_is_dead == 0, v_ch3_saved_from_dart == 0)
-choice("Continue", Ch3-Decide-Alive, v_current_scene = Ch3-Decide-Alive) if (v_combat_technique < 2, v_reflexes >= 2, v_is_dead == 0, v_ch3_saved_from_dart == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 2 && v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 2 && v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_combat_technique < 2 && v_reflexes < 2)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_combat_technique >= 2 && v_is_dead == 0 && v_ch3_saved_from_dart == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_combat_technique < 2 && v_reflexes >= 2 && v_is_dead == 0 && v_ch3_saved_from_dart == 1)
+choice("Continue", Ch3-Decide-Alive, v_current_scene = Ch3-Decide-Alive) if (v_combat_technique >= 2 && v_is_dead == 0 && v_ch3_saved_from_dart == 0)
+choice("Continue", Ch3-Decide-Alive, v_current_scene = Ch3-Decide-Alive) if (v_combat_technique < 2 && v_reflexes >= 2 && v_is_dead == 0 && v_ch3_saved_from_dart == 0)
 
 
 ID: Ch3-Second-Kill
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 1, v_combat_technique >= 1)
-set(v_is_dead,0) if (v_reflexes >= 1, v_combat_technique == 0, v_agility >= 1)
-set(v_is_dead,0) if (v_reflexes == 0, v_toughness == 3, v_combat_technique >= 1)
-set(v_is_dead,0) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility >= 1)
-set(v_is_dead,1) if (v_reflexes == 0, v_toughness < 3)
-set(v_is_dead,1) if (v_reflexes >= 1, v_combat_technique == 0, v_agility == 0)
-set(v_is_dead,1) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility == 0)
-set(v_is_dead,0) if (v_reflexes >= 1, v_combat_technique >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-set(v_is_dead,0) if (v_reflexes >= 1, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-set(v_is_dead,0) if (v_reflexes == 0, v_toughness == 3, v_combat_technique >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-set(v_is_dead,0) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-set(v_is_dead,0) if (v_reflexes >= 1, v_combat_technique >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-set(v_is_dead,0) if (v_reflexes >= 1, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-set(v_is_dead,0) if (v_reflexes == 0, v_toughness == 3, v_combat_technique >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-set(v_is_dead,0) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-#if(v_reflexes >= 1 && v_combat_technique >= 1) {
-SUCCESS:[ Reflexes check successful - level 1 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique >= 1) {
-SUCCESS:[ Combat technique check successful - level 1 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1) {
-SUCCESS:[ Reflexes check successful - level 1 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1) {
-SUCCESS:[ Speed check successful - level 1 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1) {
-SUCCESS:[ Toughness check successful - level 3 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1) {
-SUCCESS:[ Combat technique check successful - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1) {
-FAIL:[ Reflexes check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1) {
-FAIL:[ Reflexes check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1) {
-SUCCESS:[ Toughness check successful - level 3 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1) {
-SUCCESS:[ Speed check successful - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness < 3) {
-FAIL:[ Reflexes check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness < 3) {
-FAIL:[ Toughness check failed - level 3 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0) {
-FAIL:[ Speed check failed - level 1 ]
-}
-#if(v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0) {
-SUCCESS:[ Reflexes check successful - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0) {
-FAIL:[ Reflexes check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0) {
-FAIL:[ Combat technique check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0) {
-FAIL:[ Speed check failed - level 1 ]
-}
-#if(v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0) {
-SUCCESS:[ Toughness check successful - level 3 ]
-}
+set(v_is_dead,0) if (v_reflexes >= 1 && v_combat_technique >= 1)
+set(v_is_dead,0) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1)
+set(v_is_dead,0) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1)
+set(v_is_dead,0) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1)
+set(v_is_dead,1) if (v_reflexes == 0 && v_toughness < 3)
+set(v_is_dead,1) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)
+set(v_is_dead,1) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)
+set(v_is_dead,0) if (v_reflexes >= 1 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+set(v_is_dead,0) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+set(v_is_dead,0) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+set(v_is_dead,0) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+set(v_is_dead,0) if (v_reflexes >= 1 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+set(v_is_dead,0) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+set(v_is_dead,0) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+set(v_is_dead,0) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+SUCCESS:[ Reflexes check successful - level 1 ] if (v_reflexes >= 1 && v_combat_technique >= 1)}
+SUCCESS:[ Combat technique check successful - level 1 ] if (v_reflexes >= 1 && v_combat_technique >= 1)}
+SUCCESS:[ Reflexes check successful - level 1 ] if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1)}
+SUCCESS:[ Speed check successful - level 1 ] if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1)}
+SUCCESS:[ Toughness check successful - level 3 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1)}
+SUCCESS:[ Combat technique check successful - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1)}
+FAIL:[ Reflexes check failed - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1)}
+FAIL:[ Reflexes check failed - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1)}
+SUCCESS:[ Toughness check successful - level 3 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1)}
+SUCCESS:[ Speed check successful - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1)}
+FAIL:[ Reflexes check failed - level 1 ] if (v_reflexes == 0 && v_toughness < 3)}
+FAIL:[ Toughness check failed - level 3 ] if (v_reflexes == 0 && v_toughness < 3)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)}
+FAIL:[ Speed check failed - level 1 ] if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)}
+SUCCESS:[ Reflexes check successful - level 1 ] if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)}
+FAIL:[ Reflexes check failed - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)}
+FAIL:[ Combat technique check failed - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)}
+FAIL:[ Speed check failed - level 1 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)}
+SUCCESS:[ Toughness check successful - level 3 ] if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)}
 #if(v_reflexes >= 1 && v_combat_technique >= 1) {
 
 I quickly grab the crossbow from the ground, and jump right in front of the five men, aiming for the one in the middle. I shoot him directly in the head, and before he even drops to the ground, I shoot one of his comrades as well, this time in his neck. As the two of them fall to the ground, lifeless, I hide behind a tree, while three crossbow bolts fly right past me.
@@ -2110,27 +2023,27 @@ I miss the shot. And that was my last one. I don't have the time to reload, so I
 Unfortunately I wasn't fast enough. The man saw me coming and he shot me right in the face, avenging his fallen comrades. The shot killed me instantly.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes == 0, v_toughness < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes == 0, v_toughness < 3)
-choice("Load game", , , special:saves) if (v_reflexes == 0, v_toughness < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 1, v_combat_technique == 0, v_agility == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 1, v_combat_technique == 0, v_agility == 0)
-choice("Load game", , , special:saves) if (v_reflexes >= 1, v_combat_technique == 0, v_agility == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility == 0)
-choice("Load game", , , special:saves) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility == 0)
-choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes >= 1, v_combat_technique >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes >= 1, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes == 0, v_toughness == 3, v_combat_technique >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_first_killed == 0)
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes >= 1, v_combat_technique >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes >= 1, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes == 0, v_toughness == 3, v_combat_technique >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 1, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes >= 1, v_combat_technique >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 0, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes >= 1, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 0, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes == 0, v_toughness == 3, v_combat_technique >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 0, v_ch3_first_killed == 1)
-choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes == 0, v_toughness == 3, v_combat_technique == 0, v_agility >= 1, v_is_dead == 0, v_ch3_saved_from_dart == 0, v_ch3_first_killed == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes == 0 && v_toughness < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes == 0 && v_toughness < 3)
+choice("Load game", , , special:saves) if (v_reflexes == 0 && v_toughness < 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)
+choice("Load game", , , special:saves) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)
+choice("Load game", , , special:saves) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility == 0)
+choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes >= 1 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+choice("Continue", Ch3-Second-Feeling, v_current_scene = Ch3-Second-Feeling) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_first_killed == 0)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes >= 1 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 1 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes >= 1 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 0 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes >= 1 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 0 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 0 && v_ch3_first_killed == 1)
+choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_reflexes == 0 && v_toughness == 3 && v_combat_technique == 0 && v_agility >= 1 && v_is_dead == 0 && v_ch3_saved_from_dart == 0 && v_ch3_first_killed == 1)
 
 
 ID: Ch3-Second-Feeling
@@ -2238,12 +2151,8 @@ TEXT:
 
 set(v_ch3_tried_lift,0) if (v_strength == 0)
 set(v_ch3_tried_lift,1) if (v_strength >= 1)
-#if(v_strength == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_strength >= 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
+FAIL:[ Strength check failed - level 1 ] if (v_strength == 0)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1)}
 #if(v_strength == 0) {
 
 Just because they tried to kill me, it doesn't mean I have to treat them the same way. They may have had legitimate reasons to work for the man with the high pitched voice and the loud horn. And they may have families waiting for them at home. I will go out of my way to make sure that none of the men I encounter from now on will die by my hand.
@@ -2277,12 +2186,8 @@ TEXT:
 
 set(v_ch3_tried_lift,0) if (v_strength == 0)
 set(v_ch3_tried_lift,1) if (v_strength >= 1)
-#if(v_strength == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_strength >= 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
+FAIL:[ Strength check failed - level 1 ] if (v_strength == 0)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1)}
 #if(v_strength == 0) {
 
 I didn't come here to become a mass murderer. But I am ready to kill if there is no other way. I am not going to risk my life and go out of my way to save some people who were ready to kill me at a moment's notice without so much as the slightest provocation on my part. However, I am going to try and not kill them unless it's absolutely necessary.
@@ -2316,12 +2221,8 @@ TEXT:
 
 set(v_ch3_tried_lift,1) if (v_strength >= 1)
 set(v_ch3_tried_lift,0) if (v_strength == 0)
-#if(v_strength >= 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
-#if(v_strength == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
+SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1)}
+FAIL:[ Strength check failed - level 1 ] if (v_strength == 0)}
 #if(v_strength >= 1) {
 
 I see no reason to spare the lives of any of these people. They're trying to kill us for no reason at all, and they're not showing any hint of hesitation in doing so. It is only fitting that I pay them back in the same coin. I don't have the time to chase after every lone survivor, but I am most certainly not planning to hold back when I fight the lot of them.
@@ -2353,38 +2254,22 @@ choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_strength == 0)
 ID: Ch3-Every
 TEXT: 
 
-set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 1, v_strength == 0, v_ch3_second_killed == 1)
-set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 1, v_strength >= 1, v_ch3_second_killed == 1)
-set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 0, v_strength == 0, v_ch3_second_killed == 1)
-set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 0, v_strength >= 1, v_ch3_second_killed == 1)
-set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 1, v_strength == 0, v_ch3_second_killed == 0)
-set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 1, v_strength >= 1, v_ch3_second_killed == 0)
-set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 0, v_strength == 0, v_ch3_second_killed == 0)
-set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 0, v_strength >= 1, v_ch3_second_killed == 0)
-#if(v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 1) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
-#if(v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 1) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 1) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
-#if(v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 0) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
-#if(v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 0) {
-FAIL:[ Strength check failed - level 1 ]
-}
-#if(v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 0) {
-SUCCESS:[ Strength check successful - level 1 ]
-}
+set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 1)
+set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 1)
+set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 1)
+set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 1)
+set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 0)
+set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 0)
+set(v_ch3_tried_lift,0) if (v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 0)
+set(v_ch3_tried_lift,1) if (v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 0)
+FAIL:[ Strength check failed - level 1 ] if (v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 1)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 1)}
+FAIL:[ Strength check failed - level 1 ] if (v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 1)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 1)}
+FAIL:[ Strength check failed - level 1 ] if (v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 0)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 0)}
+FAIL:[ Strength check failed - level 1 ] if (v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 0)}
+SUCCESS:[ Strength check successful - level 1 ] if (v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 0)}
 #if(v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 1) {
 
 The only way to be sure we win this fight is to kill every single one of them, especially their leader. If I leave any survivors, they might call for reinforcements. Who knows how many more of them are on standby, just waiting for some signal to flank us? I cannot take that risk. I won't let any of them make it out of here alive.
@@ -2527,32 +2412,26 @@ I could also try to snipe them from a distance, but I'd need to be pretty far fo
 My eyes wander towards one of the many fallen trees around me, and suddenly a crazy thought comes to my mind. I bend my knees and try to lift the tree from the ground.
 
 }
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1, v_strength == 0, v_ch3_second_killed == 1)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1, v_strength >= 1, v_ch3_second_killed == 1)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0, v_strength == 0, v_ch3_second_killed == 1)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0, v_strength >= 1, v_ch3_second_killed == 1)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1, v_strength == 0, v_ch3_second_killed == 0)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1, v_strength >= 1, v_ch3_second_killed == 0)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0, v_strength == 0, v_ch3_second_killed == 0)
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0, v_strength >= 1, v_ch3_second_killed == 0)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 0)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 1 && v_strength >= 1 && v_ch3_second_killed == 0)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0 && v_strength == 0 && v_ch3_second_killed == 0)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0 && v_strength >= 1 && v_ch3_second_killed == 0)
 
 
 ID: Ch3-Lift
 TEXT: 
 
-set(v_ch3_lift_tree,1) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize >= 3)
-set(v_ch3_lift_tree,1) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize < 3)
-set(v_ch3_lift_tree,0) if (v_ch3_tried_lift == 1, v_strength < 3)
+set(v_ch3_lift_tree,1) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3)
+set(v_ch3_lift_tree,1) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3)
+set(v_ch3_lift_tree,0) if (v_ch3_tried_lift == 1 && v_strength < 3)
 set(v_ch3_lift_tree,0) if (v_ch3_tried_lift == 0)
-#if(v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3) {
-SUCCESS:[ Strength check successful - level 3 ]
-}
-#if(v_ch3_tried_lift == 1 && v_strength < 3) {
-FAIL:[ Strength check failed - level 3 ]
-}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3)}
+SUCCESS:[ Strength check successful - level 3 ] if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3)}
+FAIL:[ Strength check failed - level 3 ] if (v_ch3_tried_lift == 1 && v_strength < 3)}
 #if(v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3) {
 
 My eyes cannot believe what they are seeing. I just managed to lift the whole tree off the ground. And I'm pretty sure I could throw it too, if I wanted. This is insane. It must be weighing at least four hundred pounds. This is far beyond anything I would have dreamed to achieve with my stat device. This is superhuman.
@@ -2584,17 +2463,17 @@ At any rate, time is running out. I need to choose one strategy and stick to it.
 At any rate, time is running out. I need to choose one strategy and stick to it.
 
 }
-choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize >= 3)
-choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize >= 3)
-choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize >= 3)
-choice("Use fallen trees for throwing and clobbering", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 4) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize >= 3)
-choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize < 3)
-choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize < 3)
-choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize < 3)
-choice("Use fallen trees for throwing and clobbering", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 4) if (v_strength == 3, v_ch3_tried_lift == 1, v_ch3_prioritize < 3)
-choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_ch3_tried_lift == 1, v_strength < 3)
-choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_ch3_tried_lift == 1, v_strength < 3)
-choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_ch3_tried_lift == 1, v_strength < 3)
+choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3)
+choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3)
+choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3)
+choice("Use fallen trees for throwing and clobbering", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 4) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3)
+choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3)
+choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3)
+choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3)
+choice("Use fallen trees for throwing and clobbering", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 4) if (v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize < 3)
+choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_ch3_tried_lift == 1 && v_strength < 3)
+choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_ch3_tried_lift == 1 && v_strength < 3)
+choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_ch3_tried_lift == 1 && v_strength < 3)
 choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_ch3_tried_lift == 0)
 choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_ch3_tried_lift == 0)
 choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_ch3_tried_lift == 0)
@@ -2642,12 +2521,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_agility < 3)
 set(v_is_dead,0) if (v_agility == 3)
-#if(v_agility < 3) {
-FAIL:[ Speed check failed - level 3 ]
-}
-#if(v_agility == 3) {
-SUCCESS:[ Speed check successful - level 3 ]
-}
+FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
+SUCCESS:[ Speed check successful - level 3 ] if (v_agility == 3)}
 #if(v_agility < 3) {
 
 I rush towards them and try to use my speed to outmaneuver them.
@@ -2677,18 +2552,12 @@ choice("Continue", Ch3-Speed2, v_current_scene = Ch3-Speed2) if (v_agility == 3)
 ID: Ch3-Snipe-first
 TEXT: 
 
-set(v_is_dead,1) if (v_perception < 3, v_ch3_lift_tree == 0)
-set(v_is_dead,1) if (v_perception < 3, v_ch3_lift_tree == 1)
+set(v_is_dead,1) if (v_perception < 3 && v_ch3_lift_tree == 0)
+set(v_is_dead,1) if (v_perception < 3 && v_ch3_lift_tree == 1)
 set(v_is_dead,0) if (v_perception == 3)
-#if(v_perception < 3 && v_ch3_lift_tree == 0) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_perception < 3 && v_ch3_lift_tree == 1) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_perception == 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3 && v_ch3_lift_tree == 0)}
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3 && v_ch3_lift_tree == 1)}
+SUCCESS:[ Observation check successful - level 3 ] if (v_perception == 3)}
 #if(v_perception < 3 && v_ch3_lift_tree == 0) {
 
 I try to take advantage of the distance between us, by shooting them right away.
@@ -2710,29 +2579,23 @@ I try to take advantage of the distance between us, by shooting them right away.
 I only now realize how amazing my eyesight has become. Even through this darkness, I can almost see my attackers' faces clearly. Aiming for them with my crossbow is a piece of cake. 
 
 }
-choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_perception < 3, v_ch3_lift_tree == 0)
-choice("Try to aim the crossbow while moving", Ch3-Move-second, v_current_scene = Ch3-Move-second) if (v_perception < 3, v_ch3_lift_tree == 0)
-choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_perception < 3, v_ch3_lift_tree == 1)
-choice("Try to aim the crossbow while moving", Ch3-Move-second, v_current_scene = Ch3-Move-second) if (v_perception < 3, v_ch3_lift_tree == 1)
-choice("Use fallen trees for throwing and clobbering", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_perception < 3, v_ch3_lift_tree == 1)
+choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_perception < 3 && v_ch3_lift_tree == 0)
+choice("Try to aim the crossbow while moving", Ch3-Move-second, v_current_scene = Ch3-Move-second) if (v_perception < 3 && v_ch3_lift_tree == 0)
+choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_perception < 3 && v_ch3_lift_tree == 1)
+choice("Try to aim the crossbow while moving", Ch3-Move-second, v_current_scene = Ch3-Move-second) if (v_perception < 3 && v_ch3_lift_tree == 1)
+choice("Use fallen trees for throwing and clobbering", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_perception < 3 && v_ch3_lift_tree == 1)
 choice("Continue", Ch3-Snipe2, v_current_scene = Ch3-Snipe2) if (v_perception == 3)
 
 
 ID: Ch3-Move-first
 TEXT: 
 
-set(v_is_dead,1) if (v_combat_technique < 3, v_ch3_lift_tree == 0)
-set(v_is_dead,1) if (v_combat_technique < 3, v_ch3_lift_tree == 1)
+set(v_is_dead,1) if (v_combat_technique < 3 && v_ch3_lift_tree == 0)
+set(v_is_dead,1) if (v_combat_technique < 3 && v_ch3_lift_tree == 1)
 set(v_is_dead,0) if (v_combat_technique == 3)
-#if(v_combat_technique < 3 && v_ch3_lift_tree == 0) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_combat_technique < 3 && v_ch3_lift_tree == 1) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_combat_technique == 3) {
-SUCCESS:[ Combat technique check successful - level 3 ]
-}
+FAIL:[ Combat technique check failed - level 3 ] if (v_combat_technique < 3 && v_ch3_lift_tree == 0)}
+FAIL:[ Combat technique check failed - level 3 ] if (v_combat_technique < 3 && v_ch3_lift_tree == 1)}
+SUCCESS:[ Combat technique check successful - level 3 ] if (v_combat_technique == 3)}
 #if(v_combat_technique < 3 && v_ch3_lift_tree == 0) {
 
 I make sure I don't stop moving for even a second, and I start shooting them with my crossbow. 
@@ -2756,11 +2619,11 @@ There are ten of them and one of me. I am not foolish enough to think that simpl
 By doing that, I make sure none of them manage to circle around me while others distract me. Knowing all of my enemies' location also helps me find their collective blind spots. If only two or three of them see me at a time, it makes it easier for me to dodge their shots. 
 
 }
-choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_combat_technique < 3, v_ch3_lift_tree == 0)
-choice("Snipe them from a distance", Ch3-Snipe-second, v_current_scene = Ch3-Snipe-second) if (v_combat_technique < 3, v_ch3_lift_tree == 0)
-choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_combat_technique < 3, v_ch3_lift_tree == 1)
-choice("Snipe them from a distance", Ch3-Snipe-second, v_current_scene = Ch3-Snipe-second) if (v_combat_technique < 3, v_ch3_lift_tree == 1)
-choice("Use fallen trees for throwing and clobbering", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_combat_technique < 3, v_ch3_lift_tree == 1)
+choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_combat_technique < 3 && v_ch3_lift_tree == 0)
+choice("Snipe them from a distance", Ch3-Snipe-second, v_current_scene = Ch3-Snipe-second) if (v_combat_technique < 3 && v_ch3_lift_tree == 0)
+choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_combat_technique < 3 && v_ch3_lift_tree == 1)
+choice("Snipe them from a distance", Ch3-Snipe-second, v_current_scene = Ch3-Snipe-second) if (v_combat_technique < 3 && v_ch3_lift_tree == 1)
+choice("Use fallen trees for throwing and clobbering", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_combat_technique < 3 && v_ch3_lift_tree == 1)
 choice("Continue", Ch3-Move2, v_current_scene = Ch3-Move2) if (v_combat_technique == 3)
 
 
@@ -2769,12 +2632,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 3)
 set(v_is_dead,0) if (v_combat_technique == 3)
-#if(v_combat_technique < 3) {
-FAIL:[ Combat technique check failed - level 3 ]
-}
-#if(v_combat_technique == 3) {
-SUCCESS:[ Combat technique check successful - level 3 ]
-}
+FAIL:[ Combat technique check failed - level 3 ] if (v_combat_technique < 3)}
+SUCCESS:[ Combat technique check successful - level 3 ] if (v_combat_technique == 3)}
 #if(v_combat_technique < 3) {
 
 I make sure I don't stop moving for even a second, and I start shooting them with my crossbow. 
@@ -2804,12 +2663,8 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 3)
 set(v_is_dead,0) if (v_perception == 3)
-#if(v_perception < 3) {
-FAIL:[ Observation check failed - level 3 ]
-}
-#if(v_perception == 3) {
-SUCCESS:[ Observation check successful - level 3 ]
-}
+FAIL:[ Observation check failed - level 3 ] if (v_perception < 3)}
+SUCCESS:[ Observation check successful - level 3 ] if (v_perception == 3)}
 #if(v_perception < 3) {
 
 I back away as much as I can and I try to take advantage of the distance I've just created between us.
@@ -2885,10 +2740,10 @@ What followed was a massacre. There was no need for me to hide. No need for a st
 But there was no escape from me. I left no survivors.
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4, v_ch3_final_decision == 2)
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize < 4, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 1, v_is_dead == 0)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4 && v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize < 4 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 1 && v_is_dead == 0)
 
 
 ID: Ch3-Snipe2
@@ -2927,12 +2782,12 @@ In the end, only one of them remains standing. Seeing what happened to his comra
 He might be fast, but he cannot escape my sight. I aim my crossbow for him, and shoot him in the back of the head, killing him instantly. 
 
 }
-choice("Continue", Ch3-Snipe-crossbowmen, v_current_scene = Ch3-Snipe-crossbowmen) if (v_ch3_prioritize < 3, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Snipe-crossbowmen, v_current_scene = Ch3-Snipe-crossbowmen) if (v_ch3_prioritize == 3, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Snipe-crossbowmen, v_current_scene = Ch3-Snipe-crossbowmen) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize < 3, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 3, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 1, v_is_dead == 0)
+choice("Continue", Ch3-Snipe-crossbowmen, v_current_scene = Ch3-Snipe-crossbowmen) if (v_ch3_prioritize < 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Snipe-crossbowmen, v_current_scene = Ch3-Snipe-crossbowmen) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Snipe-crossbowmen, v_current_scene = Ch3-Snipe-crossbowmen) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize < 3 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 1 && v_is_dead == 0)
 
 
 ID: Ch3-Move2
@@ -2971,12 +2826,12 @@ In the end, only one of them remains standing. Seeing what happened to his comra
 He might be fast, but he cannot escape my sight. I aim my crossbow for him, and shoot him in the back of the head, killing him instantly. 
 
 }
-choice("Continue", Ch3-Move-crossbowmen, v_current_scene = Ch3-Move-crossbowmen) if (v_ch3_prioritize < 3, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Move-crossbowmen, v_current_scene = Ch3-Move-crossbowmen) if (v_ch3_prioritize == 3, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Move-crossbowmen, v_current_scene = Ch3-Move-crossbowmen) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize < 3, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 3, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 1, v_is_dead == 0)
+choice("Continue", Ch3-Move-crossbowmen, v_current_scene = Ch3-Move-crossbowmen) if (v_ch3_prioritize < 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Move-crossbowmen, v_current_scene = Ch3-Move-crossbowmen) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Move-crossbowmen, v_current_scene = Ch3-Move-crossbowmen) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize < 3 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 1 && v_is_dead == 0)
 
 
 ID: Ch3-Speed2
@@ -2986,9 +2841,9 @@ set(v_is_dead,1) if (v_ch3_prioritize == 1)
 set(v_is_dead,0) if (v_ch3_prioritize == 2)
 set(v_is_dead,0) if (v_ch3_prioritize == 3)
 set(v_is_dead,0) if (v_ch3_prioritize == 4)
-set(v_is_dead,0) if (v_ch3_prioritize == 2, v_ch3_final_decision == 2, v_is_dead == 0)
-set(v_is_dead,0) if (v_ch3_prioritize == 3, v_ch3_final_decision == 2, v_is_dead == 0)
-set(v_is_dead,0) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2, v_is_dead == 0)
+set(v_is_dead,0) if (v_ch3_prioritize == 2 && v_ch3_final_decision == 2 && v_is_dead == 0)
+set(v_is_dead,0) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
+set(v_is_dead,0) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2 && v_is_dead == 0)
 #if(v_ch3_prioritize == 1) {
 I cut a branch that looks solid enough to use as a blunt weapon from the tree behind me, and I wait for the crossbowmen to separate.
 I start by targeting the splinter group with the fewer members.
@@ -3056,12 +2911,12 @@ He might be fast, but he cannot escape my sight. I aim my crossbow for him, and 
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch3_prioritize == 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch3_prioritize == 1)
 choice("Load game", , , special:saves) if (v_ch3_prioritize == 1)
-choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 2, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 3, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 2, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 3, v_ch3_final_decision == 1, v_is_dead == 0)
-choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 1, v_is_dead == 0)
+choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 2 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 2 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 1 && v_is_dead == 0)
+choice("Continue", Ch3-Leader-finish, v_current_scene = Ch3-Leader-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 1 && v_is_dead == 0)
 
 
 ID: Ch3-Move-crossbowmen
@@ -3089,8 +2944,8 @@ As I take out more and more of them, the crossbowmen are starting to gradually l
 Taking out every single crossbowman that attempted to flee the battlefield has proven to be a bit time consuming, however. By the time I've finished all one hundred of them, Kate had sustained quite a few injuries. She looks pretty bloodied up, but at least she's still standing.   
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4, v_ch3_final_decision == 2)
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4 && v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2)
 
 
 ID: Ch3-Snipe-crossbowmen
@@ -3118,8 +2973,8 @@ As I take out more and more of them, the crossbowmen are starting to gradually l
 Taking out every single crossbowman that attempted to flee the battlefield has proven to be a bit time consuming, however. By the time I've finished all one hundred of them, Kate had sustained quite a few injuries. She looks pretty bloodied up, but at least she's still standing.   
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4, v_ch3_final_decision == 2)
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4 && v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2)
 
 
 ID: Ch3-Speed-crossbowmen
@@ -3145,8 +3000,8 @@ As I take out more and more of them, the crossbowmen are starting to gradually l
 Taking out every single crossbowman that attempted to flee the battlefield has proven to be a bit time consuming, however. It's a good thing I managed to compensate by moving very fast from one place to the other. Kate didn't sustain any serious injuries while I was busy cleaning up. 
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4, v_ch3_final_decision == 2)
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4, v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize < 4 && v_ch3_final_decision == 2)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2)
 
 
 ID: Ch3-Crossbowmen-finish
@@ -3390,10 +3245,10 @@ As I approach the battlefield, I am shocked to see that all of the men that came
 We spent the rest of our trip back in silence. But I didn't really find it awkward anymore. After all we've been through this morning, a bit of quiet is more than welcome.
 
 }
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize < 4, v_ch2_kate_debt == 0)
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize < 4, v_ch2_kate_debt == 1)
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize == 4, v_ch2_kate_debt == 0)
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize == 4, v_ch2_kate_debt == 1)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize < 4 && v_ch2_kate_debt == 0)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize < 4 && v_ch2_kate_debt == 1)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize == 4 && v_ch2_kate_debt == 0)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_prioritize == 4 && v_ch2_kate_debt == 1)
 
 
 ID: Ch3-Alone-Crossbowmen-Return
@@ -3491,7 +3346,7 @@ I notice she's barely able to stand on her feet, so I hurry to support her.
 We spent the rest of our trip back in silence. But I didn't really find it awkward anymore. After all we've been through this morning, a bit of quiet is more than welcome.
 
 }
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 0, v_ch2_kate_debt == 0)
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 0, v_ch2_kate_debt == 1)
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 1, v_ch2_kate_debt == 0)
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 1, v_ch2_kate_debt == 1)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 0 && v_ch2_kate_debt == 0)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 0 && v_ch2_kate_debt == 1)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 1 && v_ch2_kate_debt == 0)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch3_bloodied == 1 && v_ch2_kate_debt == 1)

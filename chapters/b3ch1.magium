@@ -1,8 +1,7 @@
 ID: B3-Ch01a-Intro
 TEXT: 
 
-#if(v_checkpoint_rich == 1) {
-SUCCESS:Checkpoint reached: Game saved.}
+SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
  
 "Hey, Barry, are you done eating?" Daren says. "It's almost time for our daily strategy meeting with Arraka."
 
@@ -844,12 +843,12 @@ Leila nods.
 "I was surprised that more people didn't feel the need to talk about it," Leila writes. "I would have thought that most people would want to discuss these things with friends, instead of trying to pretend that nothing happened..."
 
 }
-choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 0, v_b3_ch1_unlock == 1)
-choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 1, v_b3_ch1_unlock == 1)
-choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 0, v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 1, v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch01a-Complicated, v_current_scene = B3-Ch01a-Complicated) if (v_b3_ch1_kate3 == 0, v_b3_ch1_unlock == 0)
-choice("Continue", B3-Ch01a-Complicated, v_current_scene = B3-Ch01a-Complicated) if (v_b3_ch1_kate3 == 1, v_b3_ch1_unlock == 0)
+choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 0 && v_b3_ch1_unlock == 1)
+choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 1 && v_b3_ch1_unlock == 1)
+choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 0 && v_b3_ch1_unlock == 2)
+choice("Continue", B3-Ch01a-Mechanisms, v_current_scene = B3-Ch01a-Mechanisms) if (v_b3_ch1_kate3 == 1 && v_b3_ch1_unlock == 2)
+choice("Continue", B3-Ch01a-Complicated, v_current_scene = B3-Ch01a-Complicated) if (v_b3_ch1_kate3 == 0 && v_b3_ch1_unlock == 0)
+choice("Continue", B3-Ch01a-Complicated, v_current_scene = B3-Ch01a-Complicated) if (v_b3_ch1_kate3 == 1 && v_b3_ch1_unlock == 0)
 
 
 ID: B3-Ch01a-Mechanisms
@@ -1254,27 +1253,15 @@ ID: B3-Ch01a-Infiltrate
 TEXT: 
 
 set(v_b3_ch1_password,0) if (v_b3_ch1_unlock == 2)
-set(v_b3_ch1_password,0) if (v_perception < 4, v_b3_ch1_unlock != 2)
-set(v_b3_ch1_password,0) if (v_perception == 4, v_ancient_languages < 4, v_b3_ch1_unlock != 2)
-set(v_b3_ch1_password,1) if (v_perception == 4, v_ancient_languages == 4, v_b3_ch1_unlock != 2)
-#if(v_b3_ch1_unlock == 2) {
-FAIL:[ Stat device locked - check failed ]
-}
-#if(v_perception < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Observation check failed - level 4 ]
-}
-#if(v_perception == 4 && v_ancient_languages < 4 && v_b3_ch1_unlock != 2) {
-FAIL:[ Ancient languages check failed - level 4 ]
-}
-#if(v_perception == 4 && v_ancient_languages < 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
-#if(v_perception == 4 && v_ancient_languages == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Observation check successful - level 4 ]
-}
-#if(v_perception == 4 && v_ancient_languages == 4 && v_b3_ch1_unlock != 2) {
-SUCCESS:[ Ancient languages check successful - level 4 ]
-}
+set(v_b3_ch1_password,0) if (v_perception < 4 && v_b3_ch1_unlock != 2)
+set(v_b3_ch1_password,0) if (v_perception == 4 && v_ancient_languages < 4 && v_b3_ch1_unlock != 2)
+set(v_b3_ch1_password,1) if (v_perception == 4 && v_ancient_languages == 4 && v_b3_ch1_unlock != 2)
+FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
+FAIL:[ Observation check failed - level 4 ] if (v_perception < 4 && v_b3_ch1_unlock != 2)}
+FAIL:[ Ancient languages check failed - level 4 ] if (v_perception == 4 && v_ancient_languages < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_perception == 4 && v_ancient_languages < 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Observation check successful - level 4 ] if (v_perception == 4 && v_ancient_languages == 4 && v_b3_ch1_unlock != 2)}
+SUCCESS:[ Ancient languages check successful - level 4 ] if (v_perception == 4 && v_ancient_languages == 4 && v_b3_ch1_unlock != 2)}
 #if(v_b3_ch1_unlock == 2) {
  
 While Melindra was busy showing Flower her rocks, Daren decided to do one final check to see if we all still remembered our infiltration plans for the city, which we'd discussed at length during the previous day.
@@ -1370,9 +1357,9 @@ While Melindra was busy showing Flower her rocks, Daren decided to do one final 
 
 }
 choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_perception < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_perception == 4, v_ancient_languages < 4, v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_perception == 4, v_ancient_languages == 4, v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_perception < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_perception == 4 && v_ancient_languages < 4 && v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch01a-Ending, v_current_scene = B3-Ch01a-Ending) if (v_perception == 4 && v_ancient_languages == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch01a-Ending
