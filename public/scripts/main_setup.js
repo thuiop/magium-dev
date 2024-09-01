@@ -2,7 +2,7 @@
 const ejs = require('ejs');
 const path = require('path');
 
-let port = 3000;
+let port = process.env.PORT || 3000;
 if (!isNaN(parseInt(process.argv[2]))) {
     port = parseInt(process.argv[2]);
 }
