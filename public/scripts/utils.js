@@ -2,28 +2,28 @@ function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) {
-      return parts.pop().split(';').shift();
+        return parts.pop().split(';').shift();
     }
     return null;
 }
 
-var getCookies = function(){
-  var pairs = document.cookie.split(";");
-  var cookies = {};
-  for (var i=0; i<pairs.length; i++){
-    var pair = pairs[i].split("=");
-    cookies[(pair[0]+'').trim()] = unescape(pair.slice(1).join('='));
-  }
-  return cookies;
+var getCookies = function () {
+    var pairs = document.cookie.split(";");
+    var cookies = {};
+    for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split("=");
+        cookies[(pair[0] + '').trim()] = unescape(pair.slice(1).join('='));
+    }
+    return cookies;
 }
 
-function storeItem(key,value) {
-    document.cookie = key+"="+value;
+function storeItem(key, value) {
+    document.cookie = key + "=" + value;
 }
 
-function cookieAdd(name,value) {
+function cookieAdd(name, value) {
     const current_value = getCookie(name)
-    storeItem(name,parseInt(current_value)+parseInt(value))
+    storeItem(name, parseInt(current_value) + parseInt(value))
 }
 
 function setTheme(theme) {
@@ -43,14 +43,13 @@ function navigateTo(url) {
 
 
 function setResponseCookies(response) {
-  for (const [key, value] of Object.entries(response.set_variables)) {
-      if (value.startsWith("+")){
-          cookieAdd(key,value.slice(1))
-      }
-      else {
-          storeItem(key,value)
-      }
-  }
+    for (const [key, value] of Object.entries(response.set_variables)) {
+        if (value.startsWith("+")) {
+            cookieAdd(key, value.slice(1))
+        } else {
+            storeItem(key, value)
+        }
+    }
 }
 
 function saveGameToLocalStorage(saveName, overwrite = false) {
@@ -65,9 +64,8 @@ function saveGameToLocalStorage(saveName, overwrite = false) {
     cookies.name = curDateTime
 
     if (localStorage) {
-        localStorage.setItem(saveName,JSON.stringify(cookies));
-    }
-    else {
+        localStorage.setItem(saveName, JSON.stringify(cookies));
+    } else {
         console.log("localStorage not supported");
     }
 }
@@ -87,9 +85,8 @@ function loadGameFromLocalStorage(saveName) {
     if (localStorage) {
         const data = JSON.parse(localStorage.getItem(saveName));
         clearState()
-        Object.entries(data).forEach((entry) => storeItem(entry[0],entry[1]))
-    }
-    else {
+        Object.entries(data).forEach((entry) => storeItem(entry[0], entry[1]))
+    } else {
         console.log("localStorage not supported");
     }
 }
@@ -100,19 +97,18 @@ htmx.defineExtension('submitlocalstorage', {
             evt.detail.headers['Content-Type'] = "application/json"
         }
     },
-    encodeParameters: function(xhr, parameters, elt) {
+    encodeParameters: function (xhr, parameters, elt) {
         xhr.overrideMimeType('text/json') // override default mime type
-        let data = Object.assign({},localStorage)
+        let data = Object.assign({}, localStorage)
         console.log("local Storage Data: ", data);
-        Object.keys(data).forEach(function(key, index) {
+        Object.keys(data).forEach(function (key, index) {
             try {
                 data[key] = JSON.parse(data[key]);
-            }
-            catch {
+            } catch {
                 console.log("The following is not a JSON object: ", key);
             }
         });
         delete data["htmx-history-cache"]
         return (JSON.stringify(data))
     }
-  })
+})

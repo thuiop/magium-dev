@@ -10,56 +10,56 @@
 </script>
 <div class="description">
     <div>
-    Select a savegame slot from below. 
-    <br><br>
-    To save or load your game: 
-    <br>
-    To change the save names:
-    <br>
-    To overwrite a save: 
+        Select a savegame slot from below.
+        <br><br>
+        To save or load your game:
+        <br>
+        To change the save names:
+        <br>
+        To overwrite a save:
     </div>
 </div>
 <div class="save-list-container" style="margin: auto;">
-<div class="save-list">
-    <% for (let i = 0; i < 9; i++) { %>
-        <div class="save-entry">
-            <span style="flex-grow: 1;">Slot <%= i %></span>
-            <button 
-            style="flex-grow: 1;"
-            hx-on::before-request="saveGameToLocalStorage('save<%= i %>', 
-            <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>)"
-            hx-post
-            hx-ext="submitlocalstorage"
-            hx-target="#content"
-            hx-swap="innerHTML"> 
-                Save
-            </button>
-            <% if (saveData[`save${i}`]) { %>
-                <button 
-                    style="flex-grow: 1;"
-                    hx-get="/"
-                    hx-on::before-request="loadGameFromLocalStorage('save<%= i %>')"
-                    hx-target="#content"
-                    hx-swap="innerHTML"
-                    hx-push-url="true"
-                > 
-                    Load
+    <div class="save-list">
+        <% for (let i = 0; i < 9; i++) { %>
+            <div class="save-entry">
+                <span style="flex-grow: 1;">Slot <%= i %></span>
+                <button
+                        style="flex-grow: 1;"
+                        hx-on::before-request="saveGameToLocalStorage('save<%= i %>',
+            <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% } %>)"
+                        hx-post
+                        hx-ext="submitlocalstorage"
+                        hx-target="#content"
+                        hx-swap="innerHTML">
+                    Save
                 </button>
-                <!-- <% console.log(locals) %> -->
-                <input class="save-name-input" style="flex-grow: 1;" type="text" 
-                id="save_name_<%= i %>"
-                value="<%= saveData[`save${i}`].name %>"
-                hx-on::before-request="renameLocalStorageSave('save<%= i %>', 'save_name_<%= i %>')"
-                hx-trigger='blur'
-                hx-post
-                hx-ext="submitlocalstorage"
-                hx-target="#content"
-                hx-swap="innerHTML"
-                >
-            <% } %>
-        </div>
-    <% }; %>
-</div>
+                <% if (saveData[`save${i}`]) { %>
+                    <button
+                            style="flex-grow: 1;"
+                            hx-get="/"
+                            hx-on::before-request="loadGameFromLocalStorage('save<%= i %>')"
+                            hx-target="#content"
+                            hx-swap="innerHTML"
+                            hx-push-url="true"
+                    >
+                        Load
+                    </button>
+                    <!-- <% console.log(locals) %> -->
+                    <input class="save-name-input" style="flex-grow: 1;" type="text"
+                           id="save_name_<%= i %>"
+                           value="<%= saveData[`save${i}`].name %>"
+                           hx-on::before-request="renameLocalStorageSave('save<%= i %>', 'save_name_<%= i %>')"
+                           hx-trigger='blur'
+                           hx-post
+                           hx-ext="submitlocalstorage"
+                           hx-target="#content"
+                           hx-swap="innerHTML"
+                    >
+                <% } %>
+            </div>
+        <% }; %>
+    </div>
 </div>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
@@ -68,11 +68,11 @@
 </div>
 <div class="response">
     <button
-        hx-get="/"
-        hx-target="#content"
-        hx-swap="innerHTML"
-        hx-push-url="true"
-    > 
+            hx-get="/"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+    >
         Return to game
     </button>
 </div>

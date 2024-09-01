@@ -1,78 +1,73 @@
- <%
-    function apply_condition(entry){
-        variable = entry[0]
-        condition = entry[1]
-        if (condition.type == ">") {
-            return (locals[variable] || 0) > condition.value
-        }
-        else if (condition.type == "<") {
-            return (locals[variable] || 0) < condition.value
-        }
-        else if (condition.type == "<=") {
-            return (locals[variable] || 0) <= condition.value
-        }
-        else if (condition.type == ">=") {
-            return (locals[variable] || 0) >= condition.value
-        }
-        else if (condition.type == "!=") {
-            return (locals[variable] || 0) != condition.value
-        }
-        else if (condition.type == "==") {
-            return (locals[variable] || 0) == condition.value
-        }
+<%
+function apply_condition(entry) {
+    variable = entry[0]
+    condition = entry[1]
+    if (condition.type == ">") {
+        return (locals[variable] || 0) > condition.value
+    } else if (condition.type == "<") {
+        return (locals[variable] || 0) < condition.value
+    } else if (condition.type == "<=") {
+        return (locals[variable] || 0) <= condition.value
+    } else if (condition.type == ">=") {
+        return (locals[variable] || 0) >= condition.value
+    } else if (condition.type == "!=") {
+        return (locals[variable] || 0) != condition.value
+    } else if (condition.type == "==") {
+        return (locals[variable] || 0) == condition.value
     }
+}
 %>
 <%- text %>
-<% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
+<% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) { %>
     <div class="response">
         <button
-        onClick="setResponseCookies(<%= JSON.stringify(response) %>)"
-        <% if (response.special=="") { %>
-            hx-get="/scene/<%= response.target %>"
-        <% } else if (response.special=="stats") { %>
-            hx-get="stats"
-        <% } else if (response.special=="checkpoint_load") { %>
-            hx-get="/"
-            hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
-        <% } else if (response.special=="checkpoint_save") { %>
-            hx-get="/scene/<%= response.target %>"
-            hx-on::before-request="saveGameToLocalStorage('checkpoint')"
-        <% } else if (response.special=="restart") { %>
-            hx-get="/scene/<%= response.target %>"
-            test="wtf"
-            hx-on::before-request="clearState()"
-        <% } else if (response.special=="saves") { %>
-            hx-get="/saves"
+                onClick="setResponseCookies(<%= JSON.stringify(response) %>)"
+        <% if (response.special == "") { %>
+                hx-get="/scene/<%= response.target %>"
+        <% } else if (response.special == "stats") { %>
+                hx-get="stats"
+        <% } else if (response.special == "checkpoint_load") { %>
+                hx-get="/"
+                hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
+        <% } else if (response.special == "checkpoint_save") { %>
+                hx-get="/scene/<%= response.target %>"
+                hx-on::before-request="saveGameToLocalStorage('checkpoint')"
+        <% } else if (response.special == "restart") { %>
+                hx-get="/scene/<%= response.target %>"
+                test="wtf"
+                hx-on::before-request="clearState()"
+        <% } else if (response.special == "saves") { %>
+                hx-get="/saves"
         <% } else if (response.special.startsWith("achievement")) { %>
-            hx-get="/scene/<%= response.target %>"
-            _="on click send achievementGained to #achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
-        <% } %>
-            hx-target="#content"
-            hx-swap="innerHTML"
-        > 
-                <%= response.text %>
+                hx-get="/scene/<%= response.target %>"
+                _="on click send achievementGained to #achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
+                <% } %>
+                hx-target="#content"
+                hx-swap="innerHTML"
+        >
+            <%= response.text %>
         </button>
     </div>
     <% if (response.special.startsWith("achievement")) { %>
         <div id="modalOob" hx-swap-oob="afterbegin:#main">
-            <div 
-            id="achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
-            class="achievement-modal"
-            _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
+            <div
+                    id="achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
+                    class="achievement-modal"
+                    _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
                on click remove me end">
-               <div class="achievement-modal-columns">
-                    <img src="/images/achievement_trophy.png" width="100" height="100" />
+                <div class="achievement-modal-columns">
+                    <img src="/images/achievement_trophy.png" width="100" height="100"/>
                     <div class="achievement-modal-content">
                         <div class="achievement-modal-title">
-                            ACHIEVEMENT UNLOCKED 
+                            ACHIEVEMENT UNLOCKED
                         </div>
                         <div class="achievement-modal-caption">
-                          <%= response.special.split("-")[1] %>
+                            <%= response.special.split("-")[1] %>
                         </div>
                     </div>
-              </div>
+                </div>
+            </div>
         </div>
-    </div>
     <% } %>
 <% }}); %>
 <div style="display:none">
