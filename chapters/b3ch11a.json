@@ -14,7 +14,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Intro2": {
         "id": "B3-Ch11a-Intro2",
@@ -53,7 +54,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Suspicious": {
         "id": "B3-Ch11a-Suspicious",
@@ -104,7 +106,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Augmenting": {
         "id": "B3-Ch11a-Augmenting",
@@ -120,7 +123,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Implemented": {
         "id": "B3-Ch11a-Implemented",
@@ -136,7 +140,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Inefficient": {
         "id": "B3-Ch11a-Inefficient",
@@ -164,7 +169,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Ridiculous": {
         "id": "B3-Ch11a-Ridiculous",
@@ -200,7 +206,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Insane": {
         "id": "B3-Ch11a-Insane",
@@ -216,7 +223,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Faction": {
         "id": "B3-Ch11a-Faction",
@@ -286,7 +294,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Avoided": {
         "id": "B3-Ch11a-Avoided",
@@ -327,6 +336,25 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B3-Ch11a-Observation",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch11a-Observation"
+                },
+                "conditions": {
+                    "v_hearing": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_perception_aux": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B3-Ch11a-Behind",
                 "set_variables": {
                     "v_current_scene": "B3-Ch11a-Behind"
@@ -335,9 +363,35 @@
                     "v_hearing": {
                         "type": "<",
                         "value": 2
+                    },
+                    "v_perception_aux": {
+                        "type": "<",
+                        "value": 4
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch11_hear",
+                "value": 1,
+                "conditions": {
+                    "v_hearing": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch11_hear",
+                "value": 0,
+                "conditions": {
+                    "v_hearing": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -348,14 +402,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B3-Ch11a-Observation",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch11a-Observation"
+                },
+                "conditions": {
+                    "v_perception_aux": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B3-Ch11a-Behind",
                 "set_variables": {
                     "v_current_scene": "B3-Ch11a-Behind"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_perception_aux": {
+                        "type": "<",
+                        "value": 4
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Observation": {
         "id": "B3-Ch11a-Observation",
@@ -383,7 +458,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Heksol": {
         "id": "B3-Ch11a-Heksol",
@@ -419,7 +495,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Behind": {
         "id": "B3-Ch11a-Behind",
@@ -435,7 +512,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Reason": {
         "id": "B3-Ch11a-Reason",
@@ -471,6 +549,28 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch11_hear",
+                "value": 1,
+                "conditions": {
+                    "v_hearing": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch11_hear",
+                "value": 0,
+                "conditions": {
+                    "v_hearing": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch11a-Went": {
@@ -487,7 +587,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Fellow": {
         "id": "B3-Ch11a-Fellow",
@@ -503,7 +604,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Uverg": {
         "id": "B3-Ch11a-Uverg",
@@ -519,7 +621,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Protocol": {
         "id": "B3-Ch11a-Protocol",
@@ -621,7 +724,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Exchange": {
         "id": "B3-Ch11a-Exchange",
@@ -672,7 +776,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Crafty": {
         "id": "B3-Ch11a-Crafty",
@@ -688,7 +793,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Infiltrate": {
         "id": "B3-Ch11a-Infiltrate",
@@ -727,7 +833,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Limitation": {
         "id": "B3-Ch11a-Limitation",
@@ -873,7 +980,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Analysis": {
         "id": "B3-Ch11a-Analysis",
@@ -928,7 +1036,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Entrusted": {
         "id": "B3-Ch11a-Entrusted",
@@ -967,7 +1076,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Generations": {
         "id": "B3-Ch11a-Generations",
@@ -1018,7 +1128,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Eccentric": {
         "id": "B3-Ch11a-Eccentric",
@@ -1034,7 +1145,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Adventure": {
         "id": "B3-Ch11a-Adventure",
@@ -1076,7 +1188,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Natural": {
         "id": "B3-Ch11a-Natural",
@@ -1127,7 +1240,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Connector": {
         "id": "B3-Ch11a-Connector",
@@ -1143,7 +1257,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Endless": {
         "id": "B3-Ch11a-Endless",
@@ -1213,7 +1328,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Generous": {
         "id": "B3-Ch11a-Generous",
@@ -1249,7 +1365,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Exploring": {
         "id": "B3-Ch11a-Exploring",
@@ -1265,7 +1382,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Recording": {
         "id": "B3-Ch11a-Recording",
@@ -1499,7 +1617,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Detector": {
         "id": "B3-Ch11a-Detector",
@@ -1550,7 +1669,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Declaration": {
         "id": "B3-Ch11a-Declaration",
@@ -1566,7 +1686,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Offered": {
         "id": "B3-Ch11a-Offered",
@@ -1616,7 +1737,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Afford": {
         "id": "B3-Ch11a-Afford",
@@ -1682,7 +1804,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Military": {
         "id": "B3-Ch11a-Military",
@@ -1737,7 +1860,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Continent": {
         "id": "B3-Ch11a-Continent",
@@ -1753,7 +1877,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Ending": {
         "id": "B3-Ch11a-Ending",
@@ -1769,7 +1894,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch11a-Credits": {
         "id": "B3-Ch11a-Credits",
@@ -1787,6 +1913,7 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

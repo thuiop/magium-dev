@@ -36,7 +36,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Reveal": {
         "id": "B2-Ch09b-Reveal",
@@ -87,7 +88,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Circles": {
         "id": "B2-Ch09b-Circles",
@@ -115,7 +117,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Silent": {
         "id": "B2-Ch09b-Silent",
@@ -131,7 +134,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Save": {
         "id": "B2-Ch09b-Save",
@@ -147,7 +151,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Save2": {
         "id": "B2-Ch09b-Save2",
@@ -156,15 +161,37 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch09b-Failed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch09b-Failed",
+                    "v_b2_ch9_animals": "1"
+                },
+                "conditions": {
+                    "v_ancient_languages_aux": {
+                        "type": "<",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch09b-Success",
                 "set_variables": {
                     "v_current_scene": "B2-Ch09b-Success",
                     "v_b2_ch9_animals": "2"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_ancient_languages_aux": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Failed": {
         "id": "B2-Ch09b-Failed",
@@ -180,7 +207,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Success": {
         "id": "B2-Ch09b-Success",
@@ -208,7 +236,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Spell": {
         "id": "B2-Ch09b-Spell",
@@ -244,7 +273,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Leila": {
         "id": "B2-Ch09b-Leila",
@@ -280,7 +310,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Things": {
         "id": "B2-Ch09b-Things",
@@ -296,7 +327,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Group": {
         "id": "B2-Ch09b-Group",
@@ -312,7 +344,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Lately": {
         "id": "B2-Ch09b-Lately",
@@ -328,12 +361,51 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Breakthrough": {
         "id": "B2-Ch09b-Breakthrough",
         "text": "<% if((locals.v_b2_ch8_energizer || 0) == 1) {%> \"I'm not sure how well that would work,\" Leila writes, \"given that my father and I are both wanted criminals. There's also the fact that Ollendor is a rogue kingdom, so the other kingdoms would never approve such an invitation, even if I weren't considered a criminal.\"<br/>\"Yes, but you are forgetting that our goal in Ollendor is to assassinate their king,\" I say. \"Things will most certainly not stay the same after this happens. And your criminal record might get erased in the future, with a little help from Golmyck. I think he made it pretty clear that he's on your side, so I'm certain that he'll find a way to aid you once he's gained a little more influence in his city. Think positive!\"<br/><br/>\"Perhaps you are right...\" Leila writes. \"At the very least, something tells me that Hadrik would never leave Varathia without having a final celebration, regardless of who will actually win the tournament in the end, so we'll be sure to meet at least one more time before you leave.\"<br/><br/>\"See? What did I tell you?\" I say. \"You already understand how our group works, and you've barely travelled with us for more than two days. You're practically an official member of the team, by now!\"<br/><br/>\"Then I will make sure to work hard to be worthy of this title,\" Leila writes, smiling.<br/><br/>\"Hey, Leila!\" Hadrik shouts. \"I know that I'm asking for a lot, here, but could you please come and help us keep the scores with those handy floating texts of yours? Maybe we could change the rules a bit, so you can play with us on equal terms.\"<br/><br/><% } %><% if((locals.v_b2_ch8_energizer || 0) == 1) {%> \"It appears that my talents are needed elsewhere,\" Leila writes to me, as she gets up from the grass. \"Good luck with your notebook, Barry. It was fun chatting with you!\"<br/>\"Likewise,\" I say. \"Make sure to work hard, so you can earn your permanent group membership!\"<br/><br/>\"I will,\" Leila writes to me.<br/><br/>She then turns away from me, and she starts heading towards the others.<br/><br/>\"I'm coming!\" she writes in big blue letters, as she hurries to join the card game once more.<br/><br/><% } %><% if((locals.v_b2_ch8_energizer || 0) == 1) {%> For the next twenty minutes or so, I focus only on my notebook, trying to ignore the sounds in the background made by Hadrik and the others while playing their game. Unfortunately, simply focusing very hard is not enough for me to make another major breakthrough. Maybe I'm going to need to start taking a different approach than simply going through all of the information that I have available and hoping that I'll figure something out eventually. But what other approach is there?...<br/>As I sit there and think, I start to get a powerful headache and a feeling of nausea, which completely disrupt my concentration. It seems that the second energizer spell has also run out. Well, I guess there's no use in trying to do any more studying at this point. I may as well lie down on my back and try to avoid thinking about the pain and the fatigue as much as possible.<br/><br/>After about ten minutes of lying on my back, I suddenly hear a familiar voice, speaking loudly through my transceiver.<br/><br/><% } %><% if((locals.v_b2_ch8_energizer || 0) != 1) {%> \"I'm not sure how well that would work,\" Leila writes, \"given that my father and I are both wanted criminals. There's also the fact that Ollendor is a rogue kingdom, so the other kingdoms would never approve such an invitation, even if I weren't considered a criminal.\"<br/>\"Yes, but you are forgetting that our goal in Ollendor is to assassinate their king,\" I say. \"Things will most certainly not stay the same after this happens. And your criminal record might get erased in the future, with a little help from Golmyck. I think he made it pretty clear that he's on your side, so I'm certain that he'll find a way to aid you once he's gained a little more influence in his city. Think positive!\"<br/><br/>\"Perhaps you are right...\" Leila writes. \"At the very least, something tells me that Hadrik would never leave Varathia without having a final celebration, regardless of who will actually win the tournament in the end, so we'll be sure to meet at least one more time before you leave.\"<br/><br/>\"See? What did I tell you?\" I say. \"You already understand how our group works, and you've barely travelled with us for more than two days. You're practically an official member of the team, by now!\"<br/><br/>\"Then I will make sure to work hard to be worthy of this title,\" Leila writes, smiling.<br/><br/>\"Hey, Leila!\" Hadrik shouts. \"I know that I'm asking for a lot, here, but could you please come and help us keep the scores with those handy floating texts of yours? Maybe we could change the rules a bit, so you can play with us on equal terms.\"<br/><br/><% } %><% if((locals.v_b2_ch8_energizer || 0) != 1) {%> \"It appears that my talents are needed elsewhere,\" Leila writes to me, as she gets up from the grass. \"Good luck with your notebook, Barry. It was fun chatting with you!\"<br/>\"Likewise,\" I say. \"Make sure to work hard, so you can earn your permanent group membership!\"<br/><br/>\"I will,\" Leila writes to me.<br/><br/>She then turns away from me, and she starts heading towards the others.<br/><br/>\"I'm coming!\" she writes in big blue letters, as she hurries to join the card game once more.<br/><br/><% } %><% if((locals.v_b2_ch8_energizer || 0) != 1) {%> For the next thirty minutes or so, I focus only on my notebook, trying to ignore the sounds in the background made by Hadrik and the others while playing their game. Unfortunately, simply focusing very hard is not enough for me to make another major breakthrough. Maybe I'm going to need to start taking a different approach than simply going through all of the information that I have available and hoping that I'll figure something out eventually. But what other approach is there?...<br/>As I sit there and think, I suddenly hear a familiar voice, speaking loudly through my transceiver.<br/><br/><% } %>",
         "responses": [
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch09b-Revenant",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch09b-Revenant"
+                },
+                "conditions": {
+                    "v_b2_ch8_energizer": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch09b-Revenant",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch09b-Revenant"
+                },
+                "conditions": {
+                    "v_b2_ch8_energizer": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
             {
                 "code": "Continue",
                 "text": "Continue",
@@ -343,6 +415,10 @@
                 },
                 "conditions": {
                     "v_b2_ch8_energizer": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ch11_saved_rose": {
                         "type": "==",
                         "value": 1
                     }
@@ -360,11 +436,16 @@
                     "v_b2_ch8_energizer": {
                         "type": "!=",
                         "value": 1
+                    },
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 1
                     }
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Revenant": {
         "id": "B2-Ch09b-Revenant",
@@ -434,7 +515,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Channel": {
         "id": "B2-Ch09b-Channel",
@@ -470,7 +552,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Freezing": {
         "id": "B2-Ch09b-Freezing",
@@ -479,9 +562,9 @@
             {
                 "code": "\"\"Could you at least tell us what you know about time weavers in general?\"\"",
                 "text": "\"\"Could you at least tell us what you know about time weavers in general?\"\"",
-                "target": "B2-Ch09b-Weaver",
+                "target": "B2-Ch09b-Energizer-Rose",
                 "set_variables": {
-                    "v_current_scene": "B2-Ch09b-Weaver",
+                    "v_current_scene": "B2-Ch09b-Energizer-Rose",
                     "v_b2_ch9_weavers": "1"
                 },
                 "conditions": {
@@ -495,9 +578,9 @@
             {
                 "code": "\"\"Rose, do you remember what you were doing before the time froze?\"\"",
                 "text": "\"\"Rose, do you remember what you were doing before the time froze?\"\"",
-                "target": "B2-Ch09b-Weaver",
+                "target": "B2-Ch09b-Energizer-Rose",
                 "set_variables": {
-                    "v_current_scene": "B2-Ch09b-Weaver",
+                    "v_current_scene": "B2-Ch09b-Energizer-Rose",
                     "v_b2_ch9_weavers": "0"
                 },
                 "conditions": {
@@ -540,7 +623,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Energizer-Rose": {
         "id": "B2-Ch09b-Energizer-Rose",
@@ -622,7 +706,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Weaver": {
         "id": "B2-Ch09b-Weaver",
@@ -658,7 +743,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Thilias": {
         "id": "B2-Ch09b-Thilias",
@@ -717,7 +803,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Shift": {
         "id": "B2-Ch09b-Shift",
@@ -851,7 +938,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Met-zek": {
         "id": "B2-Ch09b-Met-zek",
@@ -887,7 +975,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Interrupt": {
         "id": "B2-Ch09b-Interrupt",
@@ -1061,7 +1150,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Conversation": {
         "id": "B2-Ch09b-Conversation",
@@ -1143,7 +1233,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Ending": {
         "id": "B2-Ch09b-Ending",
@@ -1162,7 +1253,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch09b-Credits": {
         "id": "B2-Ch09b-Credits",
@@ -1204,6 +1296,7 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

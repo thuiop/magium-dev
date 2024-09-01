@@ -14,7 +14,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Intro2": {
         "id": "B2-Ch10a-Intro2",
@@ -42,7 +43,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Charmed": {
         "id": "B2-Ch10a-Charmed",
@@ -101,7 +103,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Undefeated": {
         "id": "B2-Ch10a-Undefeated",
@@ -119,7 +122,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Drakesbane": {
         "id": "B2-Ch10a-Drakesbane",
@@ -145,7 +149,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Stats-spent": {
         "id": "B2-Ch10a-Stats-spent",
@@ -161,7 +166,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Fortune": {
         "id": "B2-Ch10a-Fortune",
@@ -177,7 +183,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Flank": {
         "id": "B2-Ch10a-Flank",
@@ -234,8 +241,11 @@
             {
                 "code": "Use the dagger to fight the orcs",
                 "text": "Use the dagger to fight the orcs",
-                "target": "",
-                "set_variables": {},
+                "target": "B2-Ch10a-Splitting",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Splitting",
+                    "v_b2_ch10_crossbow": "0"
+                },
                 "conditions": {
                     "v_b2_ch5_scimitar": {
                         "type": "==",
@@ -244,7 +254,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Splitting": {
         "id": "B2-Ch10a-Splitting",
@@ -253,14 +264,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch10a-Crossbow",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Crossbow"
+                },
+                "conditions": {
+                    "v_b2_ch10_crossbow": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch10a-Dagger",
                 "set_variables": {
                     "v_current_scene": "B2-Ch10a-Dagger"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch10_crossbow": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Crossbow": {
         "id": "B2-Ch10a-Crossbow",
@@ -281,6 +313,10 @@
                     "v_b2_ch10_toast": {
                         "type": "==",
                         "value": 1
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -294,6 +330,10 @@
                 },
                 "conditions": {
                     "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_is_dead": {
                         "type": "==",
                         "value": 0
                     }
@@ -311,6 +351,10 @@
                     "v_b2_ch10_toast": {
                         "type": "==",
                         "value": 0
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -326,6 +370,10 @@
                     "v_combat_technique": {
                         "type": ">=",
                         "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -345,6 +393,10 @@
                     "v_b2_ch6_crossbow": {
                         "type": "==",
                         "value": 1
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -364,6 +416,10 @@
                     "v_b2_ch6_crossbow": {
                         "type": "==",
                         "value": 0
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -379,6 +435,10 @@
                     "v_combat_technique": {
                         "type": "==",
                         "value": 0
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -390,10 +450,16 @@
                 "set_variables": {
                     "v_current_scene": "B2-Ch10a-Mammoth"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Dagger": {
         "id": "B2-Ch10a-Dagger",
@@ -774,6 +840,54 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 1
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10a-Mammoth": {
@@ -800,7 +914,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Suggest": {
         "id": "B2-Ch10a-Suggest",
@@ -816,7 +931,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Shoot": {
         "id": "B2-Ch10a-Shoot",
@@ -832,7 +948,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Weakness": {
         "id": "B2-Ch10a-Weakness",
@@ -848,7 +965,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Currents": {
         "id": "B2-Ch10a-Currents",
@@ -1010,7 +1128,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Bribe": {
         "id": "B2-Ch10a-Bribe",
@@ -1023,16 +1142,6 @@
                 "set_variables": {
                     "v_current_scene": "B2-Ch10a-Wyverns"
                 },
-                "conditions": {},
-                "special": ""
-            },
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch10a-Wyverns",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch10a-Wyverns"
-                },
                 "conditions": {
                     "v_b2_ch5_scimitar": {
                         "type": "!=",
@@ -1113,6 +1222,36 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch10a-Bribe2",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Bribe2"
+                },
+                "conditions": {
+                    "v_ch10_gems": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Bribe2",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Bribe2"
+                },
+                "conditions": {
+                    "v_ch10_gems": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch10a-Wyverns",
                 "set_variables": {
                     "v_current_scene": "B2-Ch10a-Wyverns"
@@ -1120,12 +1259,13 @@
                 "conditions": {
                     "v_ch10_gems": {
                         "type": "==",
-                        "value": 1
+                        "value": 0
                     }
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Bribe2": {
         "id": "B2-Ch10a-Bribe2",
@@ -1141,7 +1281,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Riders": {
         "id": "B2-Ch10a-Riders",
@@ -1204,6 +1345,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1268,6 +1421,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -1379,42 +1544,13 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Plan": {
         "id": "B2-Ch10a-Plan",
         "text": "<% if((locals.v_b2_ch10_weakpoint || 0) == 0) {%> The eyes should be more easily reachable, so I'll go for those. I know that the eyelids are supposed to be really thick, but seriously, how thick can they be? A few crossbow bolts should be more than enough to do the trick.<br/>As I lower my altitude a little, I notice that Hadrik is currently holding onto the mammoth's trunk, while the monster keeps swinging it up and down, trying to make him lose his grip and fall off.<br/><br/>\"Hey, Barry, you can fly now?\" Hadrik shouts at me, while still holding onto the trunk.<br/><br/>\"For now...\" I shout back at him.<br/><br/>\"Great!\" Hadrik shouts. \"Then maybe we can work together on this! I'll hold down the mammoth's trunk, while you stab it in the eyes. What do you say?\"<br/><br/>While Hadrik is talking, the sound of his voice keeps fluctuating in intensity, due to the fact that he's continuously being carried up and down by the trunk, at great speed.<br/><br/>\"Sounds like a good plan,\" I shout. \"But how are you planning on holding down the trunk?\"<br/><br/><% } %><% if((locals.v_b2_ch10_weakpoint || 0) == 0) {%> \"Don't worry,\" Hadrik says. \"I've got that covered.\"<br/>He then jumps off the trunk and he lands on the ground.<br/><br/>\"You just need to keep the mammoth busy for a few seconds, while I do some shapeshifting,\" Hadrik shouts.<br/><br/>Shapeshifting?... Against a red-eyed mammoth? Didn't Golmyck say that he'd ban him from the tournament if he were to turn himself into anything much bigger than his current size?<br/><br/>I don't have time to think about this much longer, because the mammoth is now fully focused on smashing me with its trunk, and I'm barely even getting a moment's respite between two consecutive swings. When the monster wears itself out a little, and it slows down its rhythm, I take the opportunity to look down and see what Hadrik's been up to.<br/><br/>Apparently, Hadrik has turned himself into a giant snail... And he's just crawling on the ground at a very low speed... Oh man, I sure hope he's not messing with me, right now. At any rate, I already told Hadrik that I'd follow his plan, so all I can do now is keep dodging, and hope that he knows what he's doing.<br/><br/><% } %><% if((locals.v_b2_ch10_weakpoint || 0) == 1) {%> The nostrils might be a little harder to reach than the eyes, but they're also the most defenseless part of the mammoth's body by far, so they are definitely the target I should be aiming for, if I want to do the greatest damage.<br/>As I lower my altitude a little, I notice that Hadrik is currently holding onto the mammoth's trunk, while the monster keeps swinging it up and down, trying to make him lose his grip and fall off.<br/><br/>\"Hey, Barry, you can fly now?\" Hadrik shouts at me, while still holding onto the trunk.<br/><br/>\"For now...\" I shout back at him.<br/><br/>\"Great!\" Hadrik shouts. \"Then maybe we can work together on this! I'll hold down the mammoth's trunk, while you stab it in the eyes. What do you say?\"<br/><br/>While Hadrik is talking, the sound of his voice keeps fluctuating in intensity, due to the fact that he's continuously being carried up and down by the trunk, at great speed.<br/><br/>\"Sounds like a good plan,\" I shout, \"although, I'd rather aim for a weak point other than the eyes. But how are you planning on holding down the trunk?\"<br/><br/><% } %><% if((locals.v_b2_ch10_weakpoint || 0) == 1) {%> \"Don't worry,\" Hadrik says. \"I've got that covered.\"<br/>He then jumps off the trunk and he lands on the ground.<br/><br/>\"You just need to keep the mammoth busy for a few seconds, while I do some shapeshifting,\" Hadrik shouts.<br/><br/>Shapeshifting?... Against a red-eyed mammoth? Didn't Golmyck say that he'd ban him from the tournament if he were to turn himself into anything much bigger than his current size?<br/><br/>I don't have time to think about this much longer, because the mammoth is now fully focused on smashing me with its trunk, and I'm barely even getting a moment's respite between two consecutive swings. When the monster wears itself out a little, and it slows down its rhythm, I take the opportunity to look down and see what Hadrik's been up to.<br/><br/>Apparently, Hadrik has turned himself into a giant snail... And he's just crawling on the ground at a very low speed... Oh man, I sure hope he's not messing with me, right now. At any rate, I already told Hadrik that I'd follow his plan, so all I can do now is keep dodging, and hope that he knows what he's doing.<br/><br/><% } %><% if((locals.v_b2_ch10_toast || 0) == 0) {%> After flying out of the trunk's way a few more times, I notice that Hadrik is finally done with his shapeshifting, and he is now back in his dwarf form, standing with his feet in the slime that his snail form left behind. He has his arms raised, and he is looking straight at me.<br/><br/><% } %><% if((locals.v_b2_ch9_drink || 0) == 0) {%> After flying out of the trunk's way a few more times, I notice that Hadrik is finally done with his shapeshifting, and he is now back in his dwarf form, standing with his feet in the slime that his snail form left behind. He has his arms raised, and he is looking straight at me.<br/><br/><% } %>",
         "responses": [
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch10a-Breed",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch10a-Breed"
-                },
-                "conditions": {
-                    "v_b2_ch10_weakpoint": {
-                        "type": "==",
-                        "value": 0
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch10a-Breed",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch10a-Breed"
-                },
-                "conditions": {
-                    "v_b2_ch10_weakpoint": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
             {
                 "code": "Continue",
                 "text": "Continue",
@@ -1444,8 +1580,215 @@
                     }
                 },
                 "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Drunk",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Drunk"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Drunk",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Drunk"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10a-Breed",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10a-Breed"
+                },
+                "conditions": {
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch10_toast": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_drink": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Drunk": {
         "id": "B2-Ch10a-Drunk",
@@ -1508,6 +1851,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
             }
         ]
     },
@@ -1804,6 +2159,62 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_b2_ch10_weakpoint": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10a-Arena": {
@@ -1832,7 +2243,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Checked": {
         "id": "B2-Ch10a-Checked",
@@ -1960,7 +2372,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Milady": {
         "id": "B2-Ch10a-Milady",
@@ -1976,7 +2389,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Participant": {
         "id": "B2-Ch10a-Participant",
@@ -2046,7 +2460,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Intimidating": {
         "id": "B2-Ch10a-Intimidating",
@@ -2214,7 +2629,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10a-Diverse": {
         "id": "B2-Ch10a-Diverse",
@@ -2270,6 +2686,7 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

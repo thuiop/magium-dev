@@ -14,6 +14,13 @@
                 "conditions": {},
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch3_stats_unavailable",
+                "value": 0,
+                "conditions": {}
+            }
         ]
     },
     "B3-Ch03a-Intro2": {
@@ -42,7 +49,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Interest": {
         "id": "B3-Ch03a-Interest",
@@ -78,7 +86,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Assistance": {
         "id": "B3-Ch03a-Assistance",
@@ -94,7 +103,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Scouts": {
         "id": "B3-Ch03a-Scouts",
@@ -130,7 +140,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Food": {
         "id": "B3-Ch03a-Food",
@@ -144,7 +155,76 @@
                     "v_current_scene": "B3-Ch03a-Hag",
                     "v_b3_ch3_monsters": "0"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "!=",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
+                "text": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "0"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
+                "text": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "1"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
+                "text": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "2"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "0"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             },
             {
@@ -162,53 +242,9 @@
                     }
                 },
                 "special": ""
-            },
-            {
-                "code": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
-                "text": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
-                "target": "B3-Ch03a-Goblins",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch03a-Goblins",
-                    "v_b3_ch3_monsters": "1"
-                },
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
-                "text": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
-                "target": "B3-Ch03a-Goblins",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch03a-Goblins",
-                    "v_b3_ch3_monsters": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
-                "text": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
-                "target": "",
-                "set_variables": {},
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Roam": {
         "id": "B3-Ch03a-Roam",
@@ -222,7 +258,76 @@
                     "v_current_scene": "B3-Ch03a-Hag",
                     "v_b3_ch3_monsters": "0"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "!=",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
+                "text": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "0"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
+                "text": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "1"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
+                "text": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "2"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "0"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             },
             {
@@ -240,53 +345,9 @@
                     }
                 },
                 "special": ""
-            },
-            {
-                "code": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
-                "text": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
-                "target": "B3-Ch03a-Goblins",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch03a-Goblins",
-                    "v_b3_ch3_monsters": "1"
-                },
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
-                "text": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
-                "target": "B3-Ch03a-Goblins",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch03a-Goblins",
-                    "v_b3_ch3_monsters": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
-                "text": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
-                "target": "",
-                "set_variables": {},
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Guided": {
         "id": "B3-Ch03a-Guided",
@@ -300,7 +361,76 @@
                     "v_current_scene": "B3-Ch03a-Hag",
                     "v_b3_ch3_monsters": "0"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "!=",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
+                "text": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "0"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
+                "text": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "1"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
+                "text": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "2"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch03a-Goblins",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch03a-Goblins",
+                    "v_b3_ch3_monsters": "0"
+                },
+                "conditions": {
+                    "v_b3_ch2_goblins": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             },
             {
@@ -318,53 +448,9 @@
                     }
                 },
                 "special": ""
-            },
-            {
-                "code": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
-                "text": "\"\"Listen, there was no way we could have known those were good goblins!\"\"",
-                "target": "B3-Ch03a-Goblins",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch03a-Goblins",
-                    "v_b3_ch3_monsters": "1"
-                },
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
-                "text": "\"\"All we can really do now is try and make it up to him in some way.\"\"",
-                "target": "B3-Ch03a-Goblins",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch03a-Goblins",
-                    "v_b3_ch3_monsters": "2"
-                },
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
-                "text": "\"\"Does it really matter that much? They were all monsters, after all.\"\"",
-                "target": "",
-                "set_variables": {},
-                "conditions": {
-                    "v_b3_ch2_goblins": {
-                        "type": "==",
-                        "value": 1
-                    }
-                },
-                "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Goblins": {
         "id": "B3-Ch03a-Goblins",
@@ -445,7 +531,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Hag": {
         "id": "B3-Ch03a-Hag",
@@ -491,7 +578,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Mundane": {
         "id": "B3-Ch03a-Mundane",
@@ -507,7 +595,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Travelling": {
         "id": "B3-Ch03a-Travelling",
@@ -551,7 +640,7 @@
                 "target": "B3-Ch03a-Plans",
                 "set_variables": {
                     "v_current_scene": "B3-Ch03a-Plans",
-                    "v_b3_ch3_plans": "4"
+                    "v_b3_ch3_plans": "2"
                 },
                 "conditions": {
                     "v_b2_ch8_energizer": {
@@ -725,7 +814,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Plans": {
         "id": "B3-Ch03a-Plans",
@@ -910,6 +1000,46 @@
                 "conditions": {},
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch3_chains",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch1_unlock": {
+                        "type": "==",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch3_chains",
+                "value": 0,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch3_chains",
+                "value": 1,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b3_ch1_unlock": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch03a-Brinhorn": {
@@ -926,7 +1056,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Brinhorn2": {
         "id": "B3-Ch03a-Brinhorn2",
@@ -942,7 +1073,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Brinhorn3": {
         "id": "B3-Ch03a-Brinhorn3",
@@ -981,7 +1113,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Workbench": {
         "id": "B3-Ch03a-Workbench",
@@ -1032,7 +1165,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Technique": {
         "id": "B3-Ch03a-Technique",
@@ -1048,7 +1182,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Fluke": {
         "id": "B3-Ch03a-Fluke",
@@ -1084,7 +1219,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Permission": {
         "id": "B3-Ch03a-Permission",
@@ -1100,7 +1236,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Moron": {
         "id": "B3-Ch03a-Moron",
@@ -1116,7 +1253,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Purpose": {
         "id": "B3-Ch03a-Purpose",
@@ -1132,7 +1270,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Recording": {
         "id": "B3-Ch03a-Recording",
@@ -1148,7 +1287,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Corner": {
         "id": "B3-Ch03a-Corner",
@@ -1184,7 +1324,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Happening": {
         "id": "B3-Ch03a-Happening",
@@ -1200,7 +1341,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Listening": {
         "id": "B3-Ch03a-Listening",
@@ -1216,7 +1358,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Constantly": {
         "id": "B3-Ch03a-Constantly",
@@ -1232,7 +1375,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Opinion": {
         "id": "B3-Ch03a-Opinion",
@@ -1268,7 +1412,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Suspecting": {
         "id": "B3-Ch03a-Suspecting",
@@ -1284,7 +1429,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Hidden": {
         "id": "B3-Ch03a-Hidden",
@@ -1300,7 +1446,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Evasive": {
         "id": "B3-Ch03a-Evasive",
@@ -1316,7 +1463,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Exploring": {
         "id": "B3-Ch03a-Exploring",
@@ -1332,7 +1480,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Dagger": {
         "id": "B3-Ch03a-Dagger",
@@ -1371,7 +1520,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Affiliation": {
         "id": "B3-Ch03a-Affiliation",
@@ -1512,7 +1662,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Familiar": {
         "id": "B3-Ch03a-Familiar",
@@ -1528,7 +1679,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Friend": {
         "id": "B3-Ch03a-Friend",
@@ -1544,7 +1696,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch03a-Whim": {
         "id": "B3-Ch03a-Whim",
@@ -1560,6 +1713,7 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     }
 }
