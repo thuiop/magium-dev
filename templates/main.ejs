@@ -25,7 +25,7 @@
 <%- text %>
 <% set_variables.forEach(function(set_variable){ if (!set_variable.conditions || Object.entries(set_variable.conditions).every(apply_condition)) {%>
     <% locals[set_variable.name] = set_variable.value; %>
-     <script> storeItem("<%= set_variable.name %>",<% set_variable.name %>) </script>
+     <script> storeItem("<%= set_variable.name %>",<%= set_variable.value %>) </script>
 <% }}); %>
 <% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
     <div class="response">
@@ -34,7 +34,8 @@
         <% if (response.special=="") { %>
             hx-get="/scene/<%= response.target %>"
         <% } else if (response.special=="stats") { %>
-            hx-get="stats"
+            hx-get="/stats"
+            hx-push-url="true"
         <% } else if (response.special=="checkpoint_load") { %>
             hx-get="/"
             hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
@@ -47,9 +48,10 @@
         <% } else if (response.special=="saves") { %>
             hx-post="/saves"
             hx-ext="submitlocalstorage"
+            hx-push-url="true"
         <% } else if (response.special.startsWith("achievement")) { %>
             hx-get="/scene/<%= response.target %>"
-            _="on click send achievementGained to #achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
+            _="on click send achievementGained to #achievementModal<%= response.special.split("-")[2] %>"
         <% } %>
             hx-target="#content"
             hx-swap="innerHTML"
@@ -57,10 +59,10 @@
                 <%= response.text %>
         </button>
     </div>
-    <% if (response.special.startsWith("achievement")) { %>
+    <% if (response.special.startsWith("achievement") && ((locals[response.special.split("-")[2]] || 0) === 0)) { %>
         <div id="modalOob" hx-swap-oob="afterbegin:#main">
             <div 
-            id="achievementModal<%= response.special.split("-")[1].split(' ')[0] %>"
+            id="achievementModal<%= response.special.split("-")[2] %>"
             class="achievement-modal"
             _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
                on click remove me end">
