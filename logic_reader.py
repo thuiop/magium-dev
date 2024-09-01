@@ -176,7 +176,6 @@ class Scene:
             "text": text,
             "responses": [
                 {
-                    "code": response.text,
                     "text": response.text,
                     "target": response.new_scene,
                     "set_variables": response.set_variables,
@@ -251,7 +250,9 @@ class Parser:
                     if event.results.get("special","") == "":
                         event.results["special"] = "saves"
                 elif match := re.search('Achievement title : Set alterable string to "(?P<achievement>.*)"',current):
-                    event.results["special"] = f"achievement-{match.group('achievement')}"
+                    achievement_var = [var for var in event.conditions["variables"] if "_ac_" in var][0]
+                    event.results["special"] = f"achievement-{match.group('achievement')}-{achievement_var}"
+                    event.conditions["variables"] = {var:condition for var, condition in event.conditions["variables"].items() if "_ac_" not in var}
                     
 
         return event
@@ -318,6 +319,10 @@ for chapter in chapters:
         for path in scenes[scene_id].paths:
             for set_variable in path.set_variables:
                 set_variable_names.append(set_variable.name)
+        for path in scenes[scene_id].paths:
+            for set_variable_name in set_variable_names:
+                if set_variable_name not in [v.name for v in path.set_variables]:
+                    path.set_variables.append(SceneVariableSet(set_variable_name,0))
 
         event_conditions = event.conditions["variables"]
         for path in scenes[scene_id].paths:
@@ -328,7 +333,7 @@ for chapter in chapters:
             fake_scene_conditions = (
                 path.conditions
                 | {scene_set_variable.name: Comparison("=",scene_set_variable.value) for scene_set_variable in path.set_variables}
-                | {scene_set_variable_name: Comparison("=",0) for scene_set_variable_name in set_variable_names if scene_set_variable_name not in [v.name for v in path.set_variables]}
+                #| {scene_set_variable_name: Comparison("=",0) for scene_set_variable_name in set_variable_names if scene_set_variable_name not in [v.name for v in path.set_variables]}
             )
 
             unrelated_conditions = {}
@@ -376,7 +381,7 @@ for chapter in chapters:
             if "new_scene" in event.results: 
                 response.new_scene = event.results["new_scene"]
 
-            if "special" in event.results:
+            if "special" in event.results and response.special == "":
                 response.special = event.results["special"]
             elif response.text == "Restart game":
                 response.special = "restart" 
