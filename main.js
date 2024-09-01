@@ -100,6 +100,7 @@ function render_saves(req) {
     return ejs.renderFile(path.join(__dirname, "templates/saves.ejs"), data)
 }
 
+let json_data = {}
 const chapters = (
     ["ch1", "ch2", "ch3", "ch4", "ch5", "ch6", "ch7", "ch8", "ch9", "ch10", "ch11a", "ch11b",
         'b2ch1', 'b2ch2', 'b2ch3', 'b2ch4a', 'b2ch4b', 'b2ch5a', 'b2ch5b', 'b2ch6', 'b2ch7', 'b2ch8', 'b2ch9a', 'b2ch9b', 'b2ch10a', 'b2ch10b', 'b2ch11a', 'b2ch11b', 'b2ch11c',
