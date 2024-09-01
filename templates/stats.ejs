@@ -63,163 +63,164 @@
         <% if (locals.v_max_stat) { %> <%= v_max_stat %>
         <% } else { %> 3
         <% } %>
+    </button>
 
-        <button class="stat-field" id="agility"
-                onclick="updateStat('agility', 'v_agility_aux', 'agility', 'agility_value')"
-                style="grid-column: 2; grid-row: 3;">
-            Speed:
-            <span id="agility_value">
-                <% if (locals.v_agility) { %> <%= v_agility %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
+    <button class="stat-field" id="agility"
+            onclick="updateStat('agility', 'v_agility_aux', 'agility', 'agility_value')"
+            style="grid-column: 2; grid-row: 3;">
+        Speed:
+        <span id="agility_value">
+            <% if (locals.v_agility) { %> <%= v_agility %>
+            <% } else { %> 0
             <% } %>
-        </button>
-
-        <button class="stat-field" id="reflexes"
-                onclick="updateStat('reflexes', 'v_reflexes_aux', 'reflexes', 'reflexes_value')"
-                style="grid-column: 2; grid-row: 4;">
-            Reflexes:
-            <span id="reflexes_value">
-                <% if (locals.v_reflexes) { %> <%= v_reflexes %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
-            <% } %>
-        </button>
-
-        <button class="stat-field" id="hearing"
-                onclick="updateStat('hearing', 'v_hearing_aux', 'hearing', 'hearing_value')"
-                style="grid-column: 1; grid-row: 5;">
-            Hearing:
-            <span id="hearing_value">
-                <% if (locals.v_hearing) { %> <%= v_hearing %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
-            <% } %>
-        </button>
-
-        <button class="stat-field" id="perception"
-                onclick="updateStat('perception', 'v_perception_aux', 'perception', 'perception_value')"
-                style="grid-column: 2; grid-row: 5;">
-            Observation:
-            <span id="perception_value">
-                <% if (locals.v_perception) { %> <%= v_perception %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
-            <% } %>
-        </button>
-
-        <button class="stat-field" id="ancient_languages"
-                onclick="updateStat('ancient_languages', 'v_ancient_languages_aux', 'ancient_languages', 'ancient_languages_value')"
-                style="grid-column: 1 / span 2; grid-row: 6;">
-            Ancient Languages:
-            <span id="ancient_languages_value">
-                <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
-            <% } %>
-        </button>
-
-        <button class="stat-field" id="combat_technique"
-                onclick="updateStat('combat_technique', 'v_combat_technique_aux', 'combat_technique', 'combat_technique_value')"
-                style="grid-column: 1 / span 2; grid-row: 7;">
-            Combat Technique:
-            <span id="combat_technique_value">
-                <% if (locals.v_combat_technique) { %> <%= v_combat_technique %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
-            <% } %>
-        </button>
-
-        <button class="stat-field" id="premonition"
-                onclick="updateStat('premonition', 'v_premonition_aux', 'premonition', 'premonition_value')"
-                style="grid-column: 1 / span 2; grid-row: 8;">
-            Premonition:
-            <span id="premonition_value">
-                <% if (locals.v_premonition) { %> <%= v_premonition %>
-                <% } else { %> 0
-                <% } %>
-            </span>
-            /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-            <% } else { %> 3
-            <% } %>
-        </button>
-        <% function sceneAfter(id) {
-            const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
-            if (result = regex.exec(id)) {
-                return (result.groups["book"] == "3") && (parseInt(result.groups["chapter"]) >= 4)
-            }
-        } %>
-        <% if (sceneAfter(locals.v_current_scene)) { %>
-            <button class="stat-field" id="bluff"
-                    onclick="updateStat('bluff', 'v_bluff_aux', 'bluff', 'bluff_value')"
-                    style="grid-column: 1 / span 2; grid-row: 9;">
-                Bluff (Aura Concealment):
-                <span id="bluff_value">
-                    <% if (locals.v_bluff) { %> <%= v_bluff %>
-                    <% } else { %> 0
-                    <% } %>
-                </span>
-                /
-                <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-                <% } else { %> 3
-                <% } %>
-            </button>
-
-            <button class="stat-field" id="magical_sense"
-                    onclick="updateStat('magical_sense', 'v_magical_sense_aux', 'magical_sense', 'magical_sense_value')"
-                    style="grid-column: 1; grid-row: 10;">
-                Magical Sense:
-                <span id="magical_sense_value">
-                    <% if (locals.v_magical_sense) { %> <%= v_magical_sense %>
-                    <% } else { %> 0
-                    <% } %>
-                </span>
-                /
-                <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-                <% } else { %> 3
-                <% } %>
-            </button>
-
-            <button class="stat-field" id="aura_hardening"
-                    onclick="updateStat('aura_hardening', 'v_aura_hardening_aux', 'aura_hardening', 'aura_hardening_value')"
-                    style="grid-column: 2; grid-row: 10;">
-                Aura Hardening:
-                <span id="aura_hardening_value">
-                    <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %>
-                    <% } else { %> 0
-                    <% } %>
-                </span>
-                /
-                <% if (locals.v_max_stat) { %> <%= v_max_stat %>
-                <% } else { %> 3
-                <% } %>
-            </button>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
         <% } %>
+    </button>
+
+    <button class="stat-field" id="reflexes"
+            onclick="updateStat('reflexes', 'v_reflexes_aux', 'reflexes', 'reflexes_value')"
+            style="grid-column: 2; grid-row: 4;">
+        Reflexes:
+        <span id="reflexes_value">
+            <% if (locals.v_reflexes) { %> <%= v_reflexes %>
+            <% } else { %> 0
+            <% } %>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
+        <% } %>
+    </button>
+
+    <button class="stat-field" id="hearing"
+            onclick="updateStat('hearing', 'v_hearing_aux', 'hearing', 'hearing_value')"
+            style="grid-column: 1; grid-row: 5;">
+        Hearing:
+        <span id="hearing_value">
+            <% if (locals.v_hearing) { %> <%= v_hearing %>
+            <% } else { %> 0
+            <% } %>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
+        <% } %>
+    </button>
+
+    <button class="stat-field" id="perception"
+            onclick="updateStat('perception', 'v_perception_aux', 'perception', 'perception_value')"
+            style="grid-column: 2; grid-row: 5;">
+        Observation:
+        <span id="perception_value">
+            <% if (locals.v_perception) { %> <%= v_perception %>
+            <% } else { %> 0
+            <% } %>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
+        <% } %>
+    </button>
+
+    <button class="stat-field" id="ancient_languages"
+            onclick="updateStat('ancient_languages', 'v_ancient_languages_aux', 'ancient_languages', 'ancient_languages_value')"
+            style="grid-column: 1 / span 2; grid-row: 6;">
+        Ancient Languages:
+        <span id="ancient_languages_value">
+            <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %>
+            <% } else { %> 0
+            <% } %>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
+        <% } %>
+    </button>
+
+    <button class="stat-field" id="combat_technique"
+            onclick="updateStat('combat_technique', 'v_combat_technique_aux', 'combat_technique', 'combat_technique_value')"
+            style="grid-column: 1 / span 2; grid-row: 7;">
+        Combat Technique:
+        <span id="combat_technique_value">
+            <% if (locals.v_combat_technique) { %> <%= v_combat_technique %>
+            <% } else { %> 0
+            <% } %>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
+        <% } %>
+    </button>
+
+    <button class="stat-field" id="premonition"
+            onclick="updateStat('premonition', 'v_premonition_aux', 'premonition', 'premonition_value')"
+            style="grid-column: 1 / span 2; grid-row: 8;">
+        Premonition:
+        <span id="premonition_value">
+            <% if (locals.v_premonition) { %> <%= v_premonition %>
+            <% } else { %> 0
+            <% } %>
+        </span>
+        /
+        <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+        <% } else { %> 3
+        <% } %>
+    </button>
+    <% function sceneAfter(id) {
+        const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
+        if (result = regex.exec(id)) {
+            return (result.groups["book"] == "3") && (parseInt(result.groups["chapter"]) >= 4)
+        }
+    } %>
+    <% if (sceneAfter(locals.v_current_scene)) { %>
+        <button class="stat-field" id="bluff"
+                onclick="updateStat('bluff', 'v_bluff_aux', 'bluff', 'bluff_value')"
+                style="grid-column: 1 / span 2; grid-row: 9;">
+            Bluff (Aura Concealment):
+            <span id="bluff_value">
+                <% if (locals.v_bluff) { %> <%= v_bluff %>
+                <% } else { %> 0
+                <% } %>
+            </span>
+            /
+            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+            <% } else { %> 3
+            <% } %>
+        </button>
+
+        <button class="stat-field" id="magical_sense"
+                onclick="updateStat('magical_sense', 'v_magical_sense_aux', 'magical_sense', 'magical_sense_value')"
+                style="grid-column: 1; grid-row: 10;">
+            Magical Sense:
+            <span id="magical_sense_value">
+                <% if (locals.v_magical_sense) { %> <%= v_magical_sense %>
+                <% } else { %> 0
+                <% } %>
+            </span>
+            /
+            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+            <% } else { %> 3
+            <% } %>
+        </button>
+
+        <button class="stat-field" id="aura_hardening"
+                onclick="updateStat('aura_hardening', 'v_aura_hardening_aux', 'aura_hardening', 'aura_hardening_value')"
+                style="grid-column: 2; grid-row: 10;">
+            Aura Hardening:
+            <span id="aura_hardening_value">
+                <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %>
+                <% } else { %> 0
+                <% } %>
+            </span>
+            /
+            <% if (locals.v_max_stat) { %> <%= v_max_stat %>
+            <% } else { %> 3
+            <% } %>
+        </button>
+    <% } %>
 </div>
 <div id="stats-button-container">
     <button onclick="stats_aux = getAuxiliaryStats();initializeStats(stats_aux);stats_changed = false;"

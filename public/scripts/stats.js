@@ -24,13 +24,13 @@ var locals = getCookies() // From the utils.js file
 
         if (stats_missing) {
             stats_variables.forEach(function (stat) {
-                if (stat == 'v_max_stat') {
+                if (stat === 'v_max_stat') {
                     storeItem(stat, "3") // From the utils.js file
                 } else {
                     storeItem(stat, "0")
                 }
                 // Temporary points
-                if (stat == 'v_available_points') {
+                if (stat === 'v_available_points') {
                     storeItem(stat, "30")
                 }
             });
