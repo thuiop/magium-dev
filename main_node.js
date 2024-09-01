@@ -97,7 +97,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const app = express();
 app.use(cookieParser());
-const port = 3000
+const port = process.env.PORT || 3000
 
 // Serve static files
 const path = require('path')
