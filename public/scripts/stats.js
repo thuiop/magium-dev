@@ -1,5 +1,3 @@
-// import utils.js // Perhaps a better way to specify the dependence of the file on utils.js
-
 // Check if some of the stats are undefined.
 // If they are, update every stat cookie with the default value 0, and reload the page.
 
@@ -11,9 +9,9 @@ function getDefaultStatsVariables() {
     return stats_variables;
 }
 
-var stats_variables = getDefaultStatsVariables()
+const stats_variables = getDefaultStatsVariables();
 
-var locals = getCookies() // From the utils.js file
+var locals = getCookies() // From the handle_cookies.js file
 
 "DOMContentLoaded htmx:afterSwap".split(" ").forEach(function (e) {
     document.addEventListener(e, function () {
@@ -25,7 +23,7 @@ var locals = getCookies() // From the utils.js file
         if (stats_missing) {
             stats_variables.forEach(function (stat) {
                 if (stat === 'v_max_stat') {
-                    storeItem(stat, "3") // From the utils.js file
+                    storeItem(stat, "3") // From the handle_cookies.js file
                 } else {
                     storeItem(stat, "0")
                 }
