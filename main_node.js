@@ -71,7 +71,7 @@ function render_achievements_menu_chapter(req,achievements_data) {
 function render_saves(req) {
     let saveData = {} 
     Object.entries(req.body).forEach(function(entry){
-        saveData[entry[0]] = {"date": entry[1].date}
+        saveData[entry[0]] = {"date": entry[1].date,"name": entry[1].name}
     })
     let data = Object.assign({},req.cookies, {"saveData":saveData})
     return ejs.renderFile("templates/saves.ejs",data)
