@@ -180,7 +180,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Intro2": {
         "id": "Ch4-Intro2",
@@ -276,7 +277,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Beacon": {
         "id": "Ch4-Beacon",
@@ -302,7 +304,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Survivor": {
         "id": "Ch4-Survivor",
@@ -328,7 +331,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Accept": {
         "id": "Ch4-Accept",
@@ -362,7 +366,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Propose": {
         "id": "Ch4-Propose",
@@ -371,14 +376,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "Ch4-Dave-vs-Eiden",
+                "set_variables": {
+                    "v_current_scene": "Ch4-Dave-vs-Eiden"
+                },
+                "conditions": {
+                    "v_ch1_show_yourself": {
+                        "type": "!=",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "Ch4-Face-shown",
                 "set_variables": {
                     "v_current_scene": "Ch4-Face-shown"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_ch1_show_yourself": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Dave-vs-Eiden": {
         "id": "Ch4-Dave-vs-Eiden",
@@ -404,7 +430,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Fewer-enemies": {
         "id": "Ch4-Fewer-enemies",
@@ -430,7 +457,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Lie": {
         "id": "Ch4-Lie",
@@ -464,7 +492,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Truth": {
         "id": "Ch4-Truth",
@@ -484,7 +513,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Gruesome-fate": {
         "id": "Ch4-Gruesome-fate",
@@ -500,7 +530,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Barry-vs-Dave": {
         "id": "Ch4-Barry-vs-Dave",
@@ -578,7 +609,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Persuade": {
         "id": "Ch4-Persuade",
@@ -595,7 +627,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Agree": {
         "id": "Ch4-Agree",
@@ -612,7 +645,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Kate-meets-Eiden": {
         "id": "Ch4-Kate-meets-Eiden",
@@ -632,7 +666,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Face-shown": {
         "id": "Ch4-Face-shown",
@@ -668,7 +703,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Doubted": {
         "id": "Ch4-Doubted",
@@ -684,7 +720,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Hiding": {
         "id": "Ch4-Hiding",
@@ -700,7 +737,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Relieved": {
         "id": "Ch4-Relieved",
@@ -716,7 +754,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Strategy": {
         "id": "Ch4-Strategy",
@@ -812,7 +851,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Busy": {
         "id": "Ch4-Busy",
@@ -848,7 +888,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Busy2": {
         "id": "Ch4-Busy2",
@@ -976,6 +1017,7 @@
                 "text": "Next chapter",
                 "target": "Ch5-Intro",
                 "set_variables": {
+                    "v_next_chapter_crash": "1",
                     "v_current_scene": "Ch5-Intro",
                     "v_chapter_save_counter": "5",
                     "v_checkpoint_rich": "1",
@@ -996,6 +1038,26 @@
                     }
                 },
                 "special": "checkpoint_save"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_perception": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1023,7 +1085,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Daren-spare": {
         "id": "Ch4-Daren-spare",
@@ -1044,7 +1107,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Bait-kill": {
         "id": "Ch4-Bait-kill",
@@ -1065,7 +1129,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Bait-spare": {
         "id": "Ch4-Bait-spare",
@@ -1086,7 +1151,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Defeat": {
         "id": "Ch4-Defeat",
@@ -1122,7 +1188,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Defeat2": {
         "id": "Ch4-Defeat2",
@@ -1161,8 +1228,10 @@
             {
                 "code": "Aim for the kill",
                 "text": "Aim for the kill",
-                "target": "",
-                "set_variables": {},
+                "target": "Ch4-Defeat-kill",
+                "set_variables": {
+                    "v_current_scene": "Ch4-Defeat-kill"
+                },
                 "conditions": {
                     "v_strength": {
                         "type": "<",
@@ -1178,8 +1247,10 @@
             {
                 "code": "Aim to neutralize him, but don't kill him",
                 "text": "Aim to neutralize him, but don't kill him",
-                "target": "",
-                "set_variables": {},
+                "target": "Ch4-Defeat-spare",
+                "set_variables": {
+                    "v_current_scene": "Ch4-Defeat-spare"
+                },
                 "conditions": {
                     "v_strength": {
                         "type": "<",
@@ -1195,8 +1266,10 @@
             {
                 "code": "Aim for the kill",
                 "text": "Aim for the kill",
-                "target": "",
-                "set_variables": {},
+                "target": "Ch4-Defeat-kill",
+                "set_variables": {
+                    "v_current_scene": "Ch4-Defeat-kill"
+                },
                 "conditions": {
                     "v_strength": {
                         "type": "<",
@@ -1216,8 +1289,10 @@
             {
                 "code": "Aim to neutralize him, but don't kill him",
                 "text": "Aim to neutralize him, but don't kill him",
-                "target": "",
-                "set_variables": {},
+                "target": "Ch4-Defeat-spare",
+                "set_variables": {
+                    "v_current_scene": "Ch4-Defeat-spare"
+                },
                 "conditions": {
                     "v_strength": {
                         "type": "<",
@@ -1260,6 +1335,68 @@
                     }
                 },
                 "special": "checkpoint_save"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_ch4_dave_defeat",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_ch4_dave_defeat",
+                "value": 2,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_agility": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_ch4_dave_defeat",
+                "value": 3,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1327,7 +1464,8 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch4-Defeat-spare": {
         "id": "Ch4-Defeat-spare",
@@ -1393,6 +1531,7 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

@@ -13,29 +13,37 @@ const stats_variables = getDefaultStatsVariables();
 
 var locals = getCookies() // From the handle_cookies.js file
 
-"DOMContentLoaded htmx:afterSwap".split(" ").forEach(function (e) {
-    document.addEventListener(e, function () {
-        const stats_missing = stats_variables.some(function (stat) {
-            var value = locals[stat];
-            return value === null || value === undefined;
-        });
 
-        if (stats_missing) {
-            stats_variables.forEach(function (stat) {
-                if (stat === 'v_max_stat') {
-                    storeItem(stat, "3") // From the handle_cookies.js file
-                } else {
-                    storeItem(stat, "0")
-                }
-                // Temporary points
-                if (stat === 'v_available_points') {
-                    storeItem(stat, "30")
-                }
-            });
-            window.location.reload();
-        }
-    })
-})
+function initStats(event) {
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if (page!="stats") {
+        return;
+    }
+    locals = getCookies()
+    const stats_missing = stats_variables.some(function(stat) {
+        var value = locals[stat];
+        return value === null || value === undefined;
+    });
+
+    if (stats_missing) {
+        stats_variables.forEach(function(stat) {
+            console.log(stat)
+            if (stat == 'v_max_stat') {
+                storeItem(stat, "3") // From the utils.js file
+            } else {
+                storeItem(stat, "0")
+            }
+            // Temporary points
+            if (stat == 'v_available_points') {
+                storeItem(stat, "30")
+            }
+        });
+        window.location.reload();
+    }
+}
+document.addEventListener("htmx:afterSwap", initStats)
+document.addEventListener("DOMContentLoaded", initStats)
 
 // Logic for updating stats
 
@@ -186,6 +194,7 @@ function confirmStats() {
         return;
     }
     // Update the stats cookies
+    const stats_aux_mapping = getAuxiliaryStatMapping();
     for (let stat_aux in stats_aux) {
         let stat_aux_mapping = stats_aux_mapping[stat_aux]
         let stat = stat_aux_mapping["stat"]

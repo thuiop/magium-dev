@@ -63,7 +63,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Guess": {
         "id": "B2-Ch10b-Guess",
@@ -79,7 +80,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Pull": {
         "id": "B2-Ch10b-Pull",
@@ -95,7 +97,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Recruited": {
         "id": "B2-Ch10b-Recruited",
@@ -134,7 +137,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Compete": {
         "id": "B2-Ch10b-Compete",
@@ -185,7 +189,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Denied": {
         "id": "B2-Ch10b-Denied",
@@ -201,7 +206,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Vague": {
         "id": "B2-Ch10b-Vague",
@@ -227,7 +233,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Immediately": {
         "id": "B2-Ch10b-Immediately",
@@ -243,7 +250,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Confirm": {
         "id": "B2-Ch10b-Confirm",
@@ -259,7 +267,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Fascinated": {
         "id": "B2-Ch10b-Fascinated",
@@ -275,7 +284,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Insane": {
         "id": "B2-Ch10b-Insane",
@@ -303,7 +313,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Dwarf": {
         "id": "B2-Ch10b-Dwarf",
@@ -599,6 +610,108 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_toughness": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_strength": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_b2_ch5_scimitar": {
+                        "type": "!=",
+                        "value": 0
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10b-Trouble": {
@@ -638,7 +751,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Technique": {
         "id": "B2-Ch10b-Technique",
@@ -692,7 +806,6 @@
                 "text": "Continue",
                 "target": "B2-Ch10b-Mosquito",
                 "set_variables": {
-                    "v_ac_b2_ch10_demolition": "1",
                     "v_current_scene": "B2-Ch10b-Mosquito"
                 },
                 "conditions": {
@@ -701,7 +814,43 @@
                         "value": 4
                     }
                 },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10b-Mosquito",
+                "set_variables": {
+                    "v_ac_b2_ch10_demolition": "1",
+                    "v_current_scene": "B2-Ch10b-Mosquito"
+                },
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "==",
+                        "value": 4
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_ac_b2_ch10_demolition": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": "achievement-Demolition man"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
             }
         ]
     },
@@ -767,6 +916,18 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10b-Observe": {
@@ -831,6 +992,18 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10b-Mosquito": {
@@ -847,7 +1020,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Henchmen": {
         "id": "B2-Ch10b-Henchmen",
@@ -883,7 +1057,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Henchmen2": {
         "id": "B2-Ch10b-Henchmen2",
@@ -899,7 +1074,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Henchmen3": {
         "id": "B2-Ch10b-Henchmen3",
@@ -945,7 +1121,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Run-dwarves": {
         "id": "B2-Ch10b-Run-dwarves",
@@ -1068,6 +1245,46 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": ">=",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10b-Fly-dwarves": {
@@ -1131,6 +1348,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1196,6 +1425,18 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "B2-Ch10b-Fly-elf": {
@@ -1212,7 +1453,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Specialty": {
         "id": "B2-Ch10b-Specialty",
@@ -1228,7 +1470,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Intensely": {
         "id": "B2-Ch10b-Intensely",
@@ -1264,7 +1507,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Cheer": {
         "id": "B2-Ch10b-Cheer",
@@ -1280,7 +1524,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Insult": {
         "id": "B2-Ch10b-Insult",
@@ -1296,7 +1541,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Silent": {
         "id": "B2-Ch10b-Silent",
@@ -1312,7 +1558,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Shocked": {
         "id": "B2-Ch10b-Shocked",
@@ -1378,7 +1625,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Huddled": {
         "id": "B2-Ch10b-Huddled",
@@ -1394,7 +1642,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Absorb": {
         "id": "B2-Ch10b-Absorb",
@@ -1410,7 +1659,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Misinterpreting": {
         "id": "B2-Ch10b-Misinterpreting",
@@ -1448,7 +1698,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Empty": {
         "id": "B2-Ch10b-Empty",
@@ -1457,14 +1708,100 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch10b-Secret",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10b-Secret"
+                },
+                "conditions": {
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_channel": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch6_stat": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10b-Details",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10b-Details"
+                },
+                "conditions": {
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch9_channel": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch6_stat": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch10b-Except",
                 "set_variables": {
                     "v_current_scene": "B2-Ch10b-Except"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch9_channel": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10b-Except",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10b-Except"
+                },
+                "conditions": {
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch10b-Except",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch10b-Except"
+                },
+                "conditions": {
+                    "v_b2_ch9_channel": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Secret": {
         "id": "B2-Ch10b-Secret",
@@ -1492,7 +1829,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Boost": {
         "id": "B2-Ch10b-Boost",
@@ -1570,7 +1908,8 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Details": {
         "id": "B2-Ch10b-Details",
@@ -1625,7 +1964,8 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Except": {
         "id": "B2-Ch10b-Except",
@@ -1680,7 +2020,8 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch10b-Credits": {
         "id": "B2-Ch10b-Credits",
@@ -1722,6 +2063,7 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

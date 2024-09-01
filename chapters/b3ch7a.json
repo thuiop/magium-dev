@@ -39,7 +39,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Intro2": {
         "id": "B3-Ch07a-Intro2",
@@ -90,7 +91,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Intro3": {
         "id": "B3-Ch07a-Intro3",
@@ -118,7 +120,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Massage": {
         "id": "B3-Ch07a-Massage",
@@ -196,6 +199,22 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch7_massage",
+                "value": 2,
+                "conditions": {
+                    "v_b3_ch7_massage": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_magical_sense": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch07a-Massage2": {
@@ -212,7 +231,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Massage3": {
         "id": "B3-Ch07a-Massage3",
@@ -278,7 +298,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Hadrik": {
         "id": "B3-Ch07a-Hadrik",
@@ -294,7 +315,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Gontrok": {
         "id": "B3-Ch07a-Gontrok",
@@ -310,7 +332,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Enchantments": {
         "id": "B3-Ch07a-Enchantments",
@@ -444,7 +467,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Attack": {
         "id": "B3-Ch07a-Attack",
@@ -460,7 +484,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Convince": {
         "id": "B3-Ch07a-Convince",
@@ -469,9 +494,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch07a-Loyrang",
+                "target": "B3-Ch07a-Respite",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch07a-Loyrang"
+                    "v_current_scene": "B3-Ch07a-Respite"
                 },
                 "conditions": {
                     "v_bluff": {
@@ -496,7 +521,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Provoke": {
         "id": "B3-Ch07a-Provoke",
@@ -512,7 +538,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Respite": {
         "id": "B3-Ch07a-Respite",
@@ -776,6 +803,46 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": ">=",
+                        "value": 4
+                    },
+                    "v_agility": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_reflexes": {
+                        "type": ">=",
+                        "value": 4
+                    },
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B3-Ch07a-Studied": {
@@ -857,6 +924,28 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_magical_sense": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_magical_sense": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B3-Ch07a-Perform": {
@@ -921,6 +1010,28 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch07a-Perform2": {
@@ -932,8 +1043,7 @@
                 "text": "Continue",
                 "target": "B3-Ch07a-Loyrang",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch07a-Loyrang",
-                    "v_ac_b3_ch7_honorable": "1"
+                    "v_current_scene": "B3-Ch07a-Loyrang"
                 },
                 "conditions": {
                     "v_b3_ch7_massage": {
@@ -941,11 +1051,30 @@
                         "value": 2
                     }
                 },
-                "special": "achievement-An honorable victory"
+                "special": ""
             },
             {
                 "code": "Restart game",
                 "text": "Restart game",
+                "target": "Ch1-Intro1",
+                "set_variables": {
+                    "v_current_scene": "Ch1-Intro1"
+                },
+                "conditions": {
+                    "v_b3_ch7_massage": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 4
+                    }
+                },
+                "special": "restart"
+            },
+            {
+                "code": "Load from last checkpoint",
+                "text": "Load from last checkpoint",
                 "target": "",
                 "set_variables": {
                     "v_chapter_save_counter": "5"
@@ -963,8 +1092,8 @@
                 "special": "checkpoint_load"
             },
             {
-                "code": "Load from last checkpoint",
-                "text": "Load from last checkpoint",
+                "code": "Load game",
+                "text": "Load game",
                 "target": "",
                 "set_variables": {},
                 "conditions": {
@@ -980,29 +1109,11 @@
                 "special": "saves"
             },
             {
-                "code": "Load game",
-                "text": "Load game",
-                "target": "",
-                "set_variables": {},
-                "conditions": {
-                    "v_b3_ch7_massage": {
-                        "type": "!=",
-                        "value": 2
-                    },
-                    "v_combat_technique": {
-                        "type": "<",
-                        "value": 4
-                    }
-                },
-                "special": ""
-            },
-            {
                 "code": "Continue",
                 "text": "Continue",
                 "target": "B3-Ch07a-Loyrang",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch07a-Loyrang",
-                    "v_ac_b3_ch7_honorable": "1"
+                    "v_current_scene": "B3-Ch07a-Loyrang"
                 },
                 "conditions": {
                     "v_b3_ch7_massage": {
@@ -1014,7 +1125,89 @@
                         "value": 4
                     }
                 },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch07a-Loyrang",
+                "set_variables": {
+                    "v_ac_b3_ch7_honorable": "1",
+                    "v_current_scene": "B3-Ch07a-Loyrang"
+                },
+                "conditions": {
+                    "v_b3_ch7_massage": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_ac_b3_ch7_honorable": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": "achievement-An honorable victory"
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch07a-Loyrang",
+                "set_variables": {
+                    "v_ac_b3_ch7_honorable": "1",
+                    "v_current_scene": "B3-Ch07a-Loyrang"
+                },
+                "conditions": {
+                    "v_b3_ch7_massage": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 4
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_ac_b3_ch7_honorable": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-An honorable victory"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch7_massage": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_massage": {
+                        "type": "!=",
+                        "value": 2
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
             }
         ]
     },
@@ -1032,7 +1225,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Ignore": {
         "id": "B3-Ch07a-Ignore",
@@ -1095,6 +1289,28 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -1160,6 +1376,28 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B3-Ch07a-Weapons": {
@@ -1176,7 +1414,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Weapons2": {
         "id": "B3-Ch07a-Weapons2",
@@ -1212,7 +1451,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Loyrang": {
         "id": "B3-Ch07a-Loyrang",
@@ -1443,7 +1683,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Line": {
         "id": "B3-Ch07a-Line",
@@ -1459,7 +1700,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Join": {
         "id": "B3-Ch07a-Join",
@@ -1475,7 +1717,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Work": {
         "id": "B3-Ch07a-Work",
@@ -1491,7 +1734,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Vibrating": {
         "id": "B3-Ch07a-Vibrating",
@@ -1507,7 +1751,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Fingers": {
         "id": "B3-Ch07a-Fingers",
@@ -1535,7 +1780,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Disappeared": {
         "id": "B3-Ch07a-Disappeared",
@@ -1594,7 +1840,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Barbarian": {
         "id": "B3-Ch07a-Barbarian",
@@ -1610,7 +1857,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Honorable": {
         "id": "B3-Ch07a-Honorable",
@@ -1646,7 +1894,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Heads": {
         "id": "B3-Ch07a-Heads",
@@ -1662,7 +1911,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Lookout": {
         "id": "B3-Ch07a-Lookout",
@@ -1678,7 +1928,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Secretly": {
         "id": "B3-Ch07a-Secretly",
@@ -1694,7 +1945,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Dimension": {
         "id": "B3-Ch07a-Dimension",
@@ -1710,7 +1962,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Vigilant": {
         "id": "B3-Ch07a-Vigilant",
@@ -1780,7 +2033,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Relics": {
         "id": "B3-Ch07a-Relics",
@@ -1816,7 +2070,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Nullified": {
         "id": "B3-Ch07a-Nullified",
@@ -1832,7 +2087,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Pawn": {
         "id": "B3-Ch07a-Pawn",
@@ -1902,7 +2158,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Traitorous": {
         "id": "B3-Ch07a-Traitorous",
@@ -2034,6 +2291,46 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch7_tyrant": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_tyrant": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_aura_hardening": {
+                        "type": ">=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_tyrant": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
             }
         ]
     },
@@ -2283,6 +2580,86 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch7_assassinate": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch7_door": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_perception": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_assassinate": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch7_door": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_perception": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_assassinate": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch7_door": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_assassinate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch7_door": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch7_assassinate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch7_door": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            }
         ]
     },
     "B3-Ch07a-Golems": {
@@ -2299,7 +2676,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Fabric": {
         "id": "B3-Ch07a-Fabric",
@@ -2325,7 +2703,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Trick": {
         "id": "B3-Ch07a-Trick",
@@ -2359,7 +2738,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Wreaking": {
         "id": "B3-Ch07a-Wreaking",
@@ -2375,7 +2755,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Ending": {
         "id": "B3-Ch07a-Ending",
@@ -2391,7 +2772,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch07a-Credits": {
         "id": "B3-Ch07a-Credits",
@@ -2410,6 +2792,7 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

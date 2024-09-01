@@ -16,8 +16,8 @@
     <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="/scripts/htmx.min.js"></script>
     <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
-    <script src="/scripts/handle_cookies.js"></script>
-    <script src="/scripts/save_game.js"></script>
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/stats.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
                 loadGameFromLocalStorage("currentState");
@@ -28,24 +28,19 @@
             }
         )
     </script>
-</head>
-<body>
-<main id="main">
-    <div class="header">
-        <button class="header-button" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">MAIN
-            MENU
-        </button>
-        <h2 id="header"><%= header %></h2>
-        <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">
-            STATS
-        </button>
-    </div>
-    <% if (locals.path === "/saves") { %>
-    <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage">
-        <% } else { %>
-        <div id="content" class="content" hx-get hx-trigger="load">
-            <% } %>
+  </head>
+  <body>
+    <main id="main">
+        <div class="header">
+          <button class="header-button" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">MAIN MENU</button>
+          <h2 id="header"><%= header %></h2>
+          <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
         </div>
+        <% if (locals.path=="/saves") { %>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage"></div>
+        <% } else { %>
+            <div id="content" class="content" hx-get hx-trigger="load"></div>
+        <% } %>
         <div class="footer">
             <p>Magium v0.1</p>
         </div>

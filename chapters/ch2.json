@@ -20,13 +20,12 @@
                 "text": "Deciding which one should make a pass at her",
                 "target": "Ch2-Pass",
                 "set_variables": {
-                    "v_ac_ch2_talker": "1",
                     "v_current_scene": "Ch2-Pass",
                     "v_ch2_kate_whisper": "2",
                     "v_checkpoint_rich": "0"
                 },
                 "conditions": {},
-                "special": "achievement-Smooth talker"
+                "special": ""
             },
             {
                 "code": "Just finishing our discussion from earlier",
@@ -51,8 +50,24 @@
                 },
                 "conditions": {},
                 "special": ""
+            },
+            {
+                "code": "Deciding which one should make a pass at her",
+                "text": "Deciding which one should make a pass at her",
+                "target": "",
+                "set_variables": {
+                    "v_ac_ch2_talker": "1"
+                },
+                "conditions": {
+                    "v_ac_ch2_talker": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-Smooth talker"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Looks": {
         "id": "Ch2-Looks",
@@ -68,7 +83,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Pass": {
         "id": "Ch2-Pass",
@@ -84,7 +100,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Earlier": {
         "id": "Ch2-Earlier",
@@ -100,7 +117,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Banshee": {
         "id": "Ch2-Banshee",
@@ -116,7 +134,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Escort": {
         "id": "Ch2-Escort",
@@ -212,7 +231,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Against": {
         "id": "Ch2-Against",
@@ -230,7 +250,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Trust": {
         "id": "Ch2-Trust",
@@ -248,7 +269,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Quick": {
         "id": "Ch2-Quick",
@@ -266,7 +288,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Stats": {
         "id": "Ch2-Stats",
@@ -292,7 +315,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Stats-spent": {
         "id": "Ch2-Stats-spent",
@@ -308,7 +332,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Fallen-trees": {
         "id": "Ch2-Fallen-trees",
@@ -333,10 +358,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "Ch2-Battle-human",
+                "target": "Ch2-Battle-stillwater",
                 "set_variables": {
-                    "v_current_scene": "Ch2-Battle-human",
-                    "v_ch2_toughness_happened": "0"
+                    "v_current_scene": "Ch2-Battle-stillwater"
                 },
                 "conditions": {
                     "v_ch1_stillwater": {
@@ -346,7 +370,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Battle-stillwater": {
         "id": "Ch2-Battle-stillwater",
@@ -476,6 +501,68 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_ch2_toughness_happened",
+                "value": 0,
+                "conditions": {
+                    "v_premonition": {
+                        "type": ">",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_ch2_toughness_happened",
+                "value": 0,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": ">",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_ch2_toughness_happened",
+                "value": 1,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": ">",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "Ch2-Battle-human": {
@@ -492,7 +579,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Battle-begins": {
         "id": "Ch2-Battle-begins",
@@ -528,7 +616,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Hide": {
         "id": "Ch2-Hide",
@@ -565,7 +654,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Avoid": {
         "id": "Ch2-Avoid",
@@ -581,7 +671,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Avoid2": {
         "id": "Ch2-Avoid2",
@@ -794,6 +885,48 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": ">",
+                        "value": 2
+                    },
+                    "v_ch2_toughness_happened": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_reflexes": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "Ch2-Fight": {
@@ -810,7 +943,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Fight2": {
         "id": "Ch2-Fight2",
@@ -976,6 +1110,40 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": ">",
+                        "value": 2
+                    },
+                    "v_ch2_toughness_happened": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_combat_technique": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "Ch2-Ask-Kate": {
@@ -992,7 +1160,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Battle-end": {
         "id": "Ch2-Battle-end",
@@ -1001,9 +1170,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "Ch2-Battle-end2",
+                "target": "Ch2-Confession",
                 "set_variables": {
-                    "v_current_scene": "Ch2-Battle-end2"
+                    "v_current_scene": "Ch2-Confession"
                 },
                 "conditions": {
                     "v_ch1_stillwater": {
@@ -1028,7 +1197,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Confession": {
         "id": "Ch2-Confession",
@@ -1067,7 +1237,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Truth2": {
         "id": "Ch2-Truth2",
@@ -1083,7 +1254,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Forced2": {
         "id": "Ch2-Forced2",
@@ -1099,7 +1271,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Sister2": {
         "id": "Ch2-Sister2",
@@ -1115,7 +1288,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Battle-end2": {
         "id": "Ch2-Battle-end2",
@@ -1197,7 +1371,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Crystal": {
         "id": "Ch2-Crystal",
@@ -1213,7 +1388,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Elaborate": {
         "id": "Ch2-Elaborate",
@@ -1229,7 +1405,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Always": {
         "id": "Ch2-Always",
@@ -1245,7 +1422,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Clear": {
         "id": "Ch2-Clear",
@@ -1261,7 +1439,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-No-debt": {
         "id": "Ch2-No-debt",
@@ -1277,7 +1456,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Deer": {
         "id": "Ch2-Deer",
@@ -1306,7 +1486,6 @@
                 "text": "Offer to provide protection in exchange for leading us to their cave",
                 "target": "Ch2-Protection",
                 "set_variables": {
-                    "v_ac_ch2_unlikely": "1",
                     "v_current_scene": "Ch2-Protection",
                     "v_ch2_deer_interaction": "1"
                 },
@@ -1316,7 +1495,7 @@
                         "value": 2
                     }
                 },
-                "special": "achievement-An unlikely ally"
+                "special": ""
             },
             {
                 "code": "Wish them safe travels",
@@ -1349,6 +1528,61 @@
                     }
                 },
                 "special": ""
+            },
+            {
+                "code": "Offer to provide protection in exchange for leading us to their cave",
+                "text": "Offer to provide protection in exchange for leading us to their cave",
+                "target": "",
+                "set_variables": {
+                    "v_ac_ch2_unlikely": "1"
+                },
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_ch2_understood_deer": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_ac_ch2_unlikely": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": "achievement-An unlikely ally"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_ch2_understood_deer",
+                "value": 0,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_ch2_deer_interaction",
+                "value": 0,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_ch2_understood_deer",
+                "value": 1,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -1369,7 +1603,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Travels": {
         "id": "Ch2-Travels",
@@ -1388,7 +1623,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "Ch2-Delicious": {
         "id": "Ch2-Delicious",
@@ -1407,6 +1643,7 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

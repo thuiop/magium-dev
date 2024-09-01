@@ -65,7 +65,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Passage": {
         "id": "B3-Ch04b-Passage",
@@ -81,7 +82,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Passage2": {
         "id": "B3-Ch04b-Passage2",
@@ -142,7 +144,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Billy1": {
         "id": "B3-Ch04b-Billy1",
@@ -158,7 +161,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Billy2": {
         "id": "B3-Ch04b-Billy2",
@@ -174,7 +178,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Billy3": {
         "id": "B3-Ch04b-Billy3",
@@ -213,7 +218,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Beg1": {
         "id": "B3-Ch04b-Beg1",
@@ -229,7 +235,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Beg2": {
         "id": "B3-Ch04b-Beg2",
@@ -245,7 +252,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Beg3": {
         "id": "B3-Ch04b-Beg3",
@@ -273,7 +281,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Beg4": {
         "id": "B3-Ch04b-Beg4",
@@ -368,6 +377,22 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
+            }
         ]
     },
     "B3-Ch04b-Beg5": {
@@ -384,7 +409,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Billy4": {
         "id": "B3-Ch04b-Billy4",
@@ -400,7 +426,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Billy5": {
         "id": "B3-Ch04b-Billy5",
@@ -422,45 +449,11 @@
                 "special": ""
             },
             {
-                "code": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
-                "text": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
-                "target": "B3-Ch04b-Voluntarily",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch04b-Voluntarily"
-                },
-                "conditions": {
-                    "v_premonition": {
-                        "type": ">=",
-                        "value": 3
-                    }
-                },
-                "special": ""
-            },
-            {
                 "code": "\"\"Yes, but if we kill him, we'll be just as bad as he is!\"\"",
                 "text": "\"\"Yes, but if we kill him, we'll be just as bad as he is!\"\"",
                 "target": "B3-Ch04b-Bad",
                 "set_variables": {
                     "v_current_scene": "B3-Ch04b-Bad"
-                },
-                "conditions": {
-                    "v_premonition": {
-                        "type": "<",
-                        "value": 3
-                    },
-                    "v_aura_hardening": {
-                        "type": ">=",
-                        "value": 3
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
-                "text": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
-                "target": "B3-Ch04b-Voluntarily",
-                "set_variables": {
-                    "v_current_scene": "B3-Ch04b-Voluntarily"
                 },
                 "conditions": {
                     "v_premonition": {
@@ -528,6 +521,122 @@
                     }
                 },
                 "special": "saves"
+            },
+            {
+                "code": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "text": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "target": "B3-Ch04b-Undetected",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch04b-Undetected"
+                },
+                "conditions": {
+                    "v_premonition": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch4_control": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "text": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "target": "B3-Ch04b-Undetected",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch04b-Undetected"
+                },
+                "conditions": {
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_aura_hardening": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch4_control": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "text": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "target": "B3-Ch04b-Voluntarily",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch04b-Voluntarily"
+                },
+                "conditions": {
+                    "v_premonition": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch4_control": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "text": "\"\"I do have a reason, actually. You'll see why I did it if you wait a few more seconds.\"\"",
+                "target": "B3-Ch04b-Voluntarily",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch04b-Voluntarily"
+                },
+                "conditions": {
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_aura_hardening": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch4_control": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_premonition": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -545,7 +654,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Sneaky": {
         "id": "B3-Ch04b-Sneaky",
@@ -581,7 +691,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Undetected": {
         "id": "B3-Ch04b-Undetected",
@@ -609,7 +720,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Undetected2": {
         "id": "B3-Ch04b-Undetected2",
@@ -645,7 +757,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Voluntarily": {
         "id": "B3-Ch04b-Voluntarily",
@@ -661,7 +774,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Voluntarily2": {
         "id": "B3-Ch04b-Voluntarily2",
@@ -677,7 +791,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Voluntarily3": {
         "id": "B3-Ch04b-Voluntarily3",
@@ -716,7 +831,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Voluntarily4": {
         "id": "B3-Ch04b-Voluntarily4",
@@ -767,7 +883,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Guarantee": {
         "id": "B3-Ch04b-Guarantee",
@@ -783,7 +900,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Guarantee2": {
         "id": "B3-Ch04b-Guarantee2",
@@ -878,6 +996,18 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_ch11_saved_rose": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            }
         ]
     },
     "B3-Ch04b-Tasked": {
@@ -887,9 +1017,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch04b-Blades",
+                "target": "B3-Ch04b-Hearing",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch04b-Blades"
+                    "v_current_scene": "B3-Ch04b-Hearing"
                 },
                 "conditions": {
                     "v_bluff": {
@@ -913,6 +1043,28 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch4_tasked",
+                "value": 5,
+                "conditions": {
+                    "v_bluff": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch4_tasked",
+                "value": 1,
+                "conditions": {
+                    "v_bluff": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
             }
         ]
     },
@@ -938,9 +1090,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch04b-Hearing",
+                "target": "B3-Ch04b-Cleaners2",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch04b-Hearing"
+                    "v_current_scene": "B3-Ch04b-Cleaners2"
                 },
                 "conditions": {
                     "v_bluff": {
@@ -949,6 +1101,28 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch4_tasked",
+                "value": 5,
+                "conditions": {
+                    "v_bluff": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b3_ch4_tasked",
+                "value": 2,
+                "conditions": {
+                    "v_bluff": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -966,7 +1140,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Cleaners2": {
         "id": "B3-Ch04b-Cleaners2",
@@ -975,9 +1150,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch04b-Blades",
+                "target": "B3-Ch04b-Hearing",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch04b-Blades"
+                    "v_current_scene": "B3-Ch04b-Hearing"
                 },
                 "conditions": {
                     "v_bluff": {
@@ -1001,6 +1176,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b3_ch4_tasked",
+                "value": 4,
+                "conditions": {
+                    "v_bluff": {
+                        "type": ">=",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1065,6 +1252,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_hearing": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1192,7 +1391,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Froze": {
         "id": "B3-Ch04b-Froze",
@@ -1226,7 +1426,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Contact": {
         "id": "B3-Ch04b-Contact",
@@ -1242,7 +1443,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Contact2": {
         "id": "B3-Ch04b-Contact2",
@@ -1278,7 +1480,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Contact3": {
         "id": "B3-Ch04b-Contact3",
@@ -1390,6 +1593,18 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_magical_sense": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B3-Ch04b-Drones1": {
@@ -1453,6 +1668,18 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
             }
         ]
     },
@@ -1549,6 +1776,22 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B3-Ch04b-Drones3": {
@@ -1613,6 +1856,18 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B3-Ch04b-Drones4": {
@@ -1647,7 +1902,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Stuck": {
         "id": "B3-Ch04b-Stuck",
@@ -1663,7 +1919,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Ending": {
         "id": "B3-Ch04b-Ending",
@@ -1682,7 +1939,8 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch04b-Credits": {
         "id": "B3-Ch04b-Credits",
@@ -1701,6 +1959,7 @@
                 "conditions": {},
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

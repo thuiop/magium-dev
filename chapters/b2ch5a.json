@@ -153,7 +153,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Threat": {
         "id": "B2-Ch05a-Threat",
@@ -162,15 +163,37 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch05a-Ogres-heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Ogres-heard",
+                    "v_b2_ch5_heard_guards": "1"
+                },
+                "conditions": {
+                    "v_hearing_aux": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch05a-Toast",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Toast",
                     "v_b2_ch5_heard_guards": "0"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_hearing_aux": {
+                        "type": "<",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Rope": {
         "id": "B2-Ch05a-Rope",
@@ -179,20 +202,19 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B2-Ch05a-Toast",
+                "target": "B2-Ch05a-Ogres-heard",
                 "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Toast",
-                    "v_b2_ch5_heard_guards": "0"
+                    "v_current_scene": "B2-Ch05a-Ogres-heard",
+                    "v_b2_ch5_heard_guards": "1"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_hearing_aux": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                },
                 "special": ""
-            }
-        ]
-    },
-    "B2-Ch05a-Help": {
-        "id": "B2-Ch05a-Help",
-        "text": " \"Let him fight with us. We'll need all the help we can get against that troll.\"<br/>\"If you're worried about me backstabbing you,\" Wilhelm says, \"then I'll make sure to always be in your line of sight during the battle, so you can keep your eyes on me without much effort. Would that be enough to put your worries to rest?\"<br/><br/>\"I suppose...\" Bruce says. \"As long as I can easily see where you are at all times, you're not much of a threat.\"<br/><br/>\"Very well,\" Wilhelm says. \"Fighting on the front lines is not exactly ideal for me, but I'd rather do this than be forced to fight alone. I only hope that you won't take advantage of this situation to use me as a decoy.\"<br/><br/>Damn it! Now I've lost my train of thought. What was I thinking about, before I got interrupted? I'm sure it had something to do with the troll.<br/><br/>As I take another look towards the fighting area and see the troll still waving at the crowds, my previous thoughts suddenly come back to me.<br/><br/>\"Hey, Leila,\" I say. \"Is it just me or is the troll wearing different armor this time around?\"<br/><br/>\"Yes,\" Leila writes. \"It's still anti-magic armor, but now he also has shoulder pads. He probably switched armors in order to make it harder for us to cut his head off again.\"<br/><br/>\"Correct me if I'm wrong,\" I say, \"but isn't this specific model of armor he's wearing vulnerable to regular fire?\"<br/><br/> \"The armor he is wearing does not protect him against regular fire at all,\" Leila writes. \"Only against magical fire.\"<br/>\"That's what I thought,\" I say, and then I head towards the door leading to the corridors outside our room. <br/><br/>As I prepare to open the door, I turn towards Leila, to give her one final message before I go.<br/><br/>\"Leila, could you do me a favor?\" I tell her. \"I need you to take one of the torches that are lighting the halls and to bring it with you in the arena when the round begins. Make sure that you don't let the troll see it, when you approach him. When we're both in the fighting area, I'll give you a signal, and then you can throw the torch at him. Got it?\"<br/><br/>\"Yes, but where are you going?\" Leila writes. \"What are you planning to do?\"<br/><br/>\"You'll find out soon enough,\" I say, and then I walk out the door.<br/><br/>I make sure that the guards are nowhere in sight, and I start heading directly towards Hadrik's division area. If memory serves, his room should be very close to ours.<br/><br/>",
-        "responses": [
+            },
             {
                 "code": "Continue",
                 "text": "Continue",
@@ -201,10 +223,55 @@
                     "v_current_scene": "B2-Ch05a-Toast",
                     "v_b2_ch5_heard_guards": "0"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_hearing_aux": {
+                        "type": "<",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
+    },
+    "B2-Ch05a-Help": {
+        "id": "B2-Ch05a-Help",
+        "text": " \"Let him fight with us. We'll need all the help we can get against that troll.\"<br/>\"If you're worried about me backstabbing you,\" Wilhelm says, \"then I'll make sure to always be in your line of sight during the battle, so you can keep your eyes on me without much effort. Would that be enough to put your worries to rest?\"<br/><br/>\"I suppose...\" Bruce says. \"As long as I can easily see where you are at all times, you're not much of a threat.\"<br/><br/>\"Very well,\" Wilhelm says. \"Fighting on the front lines is not exactly ideal for me, but I'd rather do this than be forced to fight alone. I only hope that you won't take advantage of this situation to use me as a decoy.\"<br/><br/>Damn it! Now I've lost my train of thought. What was I thinking about, before I got interrupted? I'm sure it had something to do with the troll.<br/><br/>As I take another look towards the fighting area and see the troll still waving at the crowds, my previous thoughts suddenly come back to me.<br/><br/>\"Hey, Leila,\" I say. \"Is it just me or is the troll wearing different armor this time around?\"<br/><br/>\"Yes,\" Leila writes. \"It's still anti-magic armor, but now he also has shoulder pads. He probably switched armors in order to make it harder for us to cut his head off again.\"<br/><br/>\"Correct me if I'm wrong,\" I say, \"but isn't this specific model of armor he's wearing vulnerable to regular fire?\"<br/><br/> \"The armor he is wearing does not protect him against regular fire at all,\" Leila writes. \"Only against magical fire.\"<br/>\"That's what I thought,\" I say, and then I head towards the door leading to the corridors outside our room. <br/><br/>As I prepare to open the door, I turn towards Leila, to give her one final message before I go.<br/><br/>\"Leila, could you do me a favor?\" I tell her. \"I need you to take one of the torches that are lighting the halls and to bring it with you in the arena when the round begins. Make sure that you don't let the troll see it, when you approach him. When we're both in the fighting area, I'll give you a signal, and then you can throw the torch at him. Got it?\"<br/><br/>\"Yes, but where are you going?\" Leila writes. \"What are you planning to do?\"<br/><br/>\"You'll find out soon enough,\" I say, and then I walk out the door.<br/><br/>I make sure that the guards are nowhere in sight, and I start heading directly towards Hadrik's division area. If memory serves, his room should be very close to ours.<br/><br/>",
+        "responses": [
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Ogres-heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Ogres-heard",
+                    "v_b2_ch5_heard_guards": "1"
+                },
+                "conditions": {
+                    "v_hearing_aux": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Toast",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Toast",
+                    "v_b2_ch5_heard_guards": "0"
+                },
+                "conditions": {
+                    "v_hearing_aux": {
+                        "type": "<",
+                        "value": 2
+                    }
+                },
+                "special": ""
+            }
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Ogres-heard": {
         "id": "B2-Ch05a-Ogres-heard",
@@ -220,7 +287,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Toast": {
         "id": "B2-Ch05a-Toast",
@@ -256,7 +324,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Maliciously": {
         "id": "B2-Ch05a-Maliciously",
@@ -338,7 +407,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Flammable": {
         "id": "B2-Ch05a-Flammable",
@@ -377,96 +447,13 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Cut": {
         "id": "B2-Ch05a-Cut",
         "text": "<% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) >= 2) {%><div class='stat_success'>[ Speed check successful - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) >= 2) {%><div class='stat_success'>[ Strength check successful - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) < 2) {%><div class='stat_success'>[ Speed check successful - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) < 2) {%><div class='stat_fail'>[ Strength check failed - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) >= 2) {%><div class='stat_success'>[ Combat technique check successful - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) >= 2) {%><div class='stat_success'>[ Strength check successful - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) >= 2) {%><div class='stat_fail'>[ Speed check failed - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) < 2) {%><div class='stat_success'>[ Combat technique check successful - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) < 2) {%><div class='stat_fail'>[ Speed check failed - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) < 2) {%><div class='stat_fail'>[ Strength check failed - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) < 2) {%><div class='stat_fail'>[ Speed check failed - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) < 2) {%><div class='stat_fail'>[ Combat technique check failed - level 2 ]<br/></div><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) >= 2) {%> <br/><br/>I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and slashing my enchanted dagger at his neck, from the direction where his shoulder pad had been shattered. Velgos does not get the time to react, and I manage to cut his head off his shoulders in a single movement. <br/><br/>I quickly grab his severed head by the hair, and I throw it away, as far as I can. The troll's body jumps back, looking very disoriented.<br/><br/>\"This is our chance!\" I tell Leila. \"Let's hit him with all we've got before--\"<br/><br/>I interrupt myself, because the troll's head is now slowly being recreated, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.<br/><br/>\"I'm going to take my time killing you,\" Velgos says, looking as if he's still trying to hold back some of the pain. \"I'll do it slowly, after I force you to watch all your friends die.\" <br/><br/>\"Yeah, yeah,\" I say. \"I've heard it all before.\"<br/><br/><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) >= 2) {%> \"Watch out!\" Bruce shouts at us, from behind.<br/>Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both me and Leila jump back, and we join our teammates, who have now all arrived at our location.<br/><br/>\"I knew it,\" our mage teammate says. \"I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!\"<br/> <br/>\"Stop complaining,\" Bruce says. \"Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself.\"<br/><br/><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) < 2) {%> <br/><br/>I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and slashing my enchanted dagger at his neck, from the direction where his shoulder pad had been shattered. Velgos doesn't get to react in time, but my strike is not powerful enough to cut his head off in a single movement, so my knife gets stuck in his throat. As Velgos attempts to chop my arm off with one of his scimitars, I am forced to step back before finishing the job, and the wound from the troll's neck heals itself back up in a matter of seconds.<br/><br/>\"It's going to take more than that to kill me,\" Velgos says.<br/><br/><% } %><% if((locals.v_agility || 0) >= 3 && (locals.v_strength || 0) < 2) {%> \"Watch out!\" Bruce shouts at us, from behind.<br/>Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both me and Leila jump back, and we join our teammates, who have now all arrived at our location.<br/><br/>\"I knew it,\" our mage teammate says. \"I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!\"<br/> <br/>\"Stop complaining,\" Bruce says. \"Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself.\"<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) >= 2) {%> <br/><br/>I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and pretending that I'm trying to drive my blade through his chest. As the troll tries to attack me, I quickly step to the side, and I swing my arm towards his neck, from the side where his shoulder pad had been shattered, cutting his head off in a single movement.<br/><br/>I quickly grab his severed head by the hair, and I throw it away, as far as I can. The troll's body jumps back, looking very disoriented.<br/><br/>\"This is our chance!\" I tell Leila. \"Let's hit him with all we've got before--\"<br/><br/>I interrupt myself, because the troll's head is now slowly being recreated, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.<br/><br/>\"I'm going to take my time killing you,\" Velgos says, looking as if he's still trying to hold back some of the pain. \"I'll do it slowly, after I force you to watch all your friends die.\" <br/><br/>\"Yeah, yeah,\" I say. \"I've heard it all before.\"<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) >= 2) {%> \"Watch out!\" Bruce shouts at us, from behind.<br/>Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both me and Leila jump back, and we join our teammates, who have now all arrived at our location.<br/><br/>\"I knew it,\" our mage teammate says. \"I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!\"<br/> <br/>\"Stop complaining,\" Bruce says. \"Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself.\"<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) < 2) {%> <br/><br/>I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and pretending that I'm trying to drive my blade through his chest. As the troll tries to attack me, I quickly step to the side, and I swing my arm towards his neck, from the side where his shoulder pad had been shattered. My strike is not powerful enough to cut his head off in a single movement, however, so my knife gets stuck in his throat. As Velgos attempts to chop my arm off with one of his scimitars, I am forced to step back before finishing the job, and the wound from the troll's neck heals itself back up in a matter of seconds.<br/><br/>\"It's going to take more than that to kill me,\" Velgos says.<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) >= 2 && (locals.v_strength || 0) < 2) {%> \"Watch out!\" Bruce shouts at us, from behind.<br/>Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both me and Leila jump back, and we join our teammates, who have now all arrived at our location.<br/><br/>\"I knew it,\" our mage teammate says. \"I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!\"<br/> <br/>\"Stop complaining,\" Bruce says. \"Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself.\"<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_combat_technique || 0) < 2) {%> <br/><br/>I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and attempting to cut his head off from the side where his shoulder pad had been shattered. Velgos sees me coming, and he slashes one of his scimitars towards me, but I manage to dodge it, and I go straight for his neck. Unfortunately, the troll's first strike was never meant to hit its target, but only to lead me into the path of his second scimitar. I never got the chance to dodge his second blow, which severed my head from my shoulders, and killed me on the spot.<br/><br/><% } %>",
         "responses": [
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch05a-Heard",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Heard"
-                },
-                "conditions": {
-                    "v_agility": {
-                        "type": ">=",
-                        "value": 3
-                    },
-                    "v_strength": {
-                        "type": ">=",
-                        "value": 2
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch05a-Heard",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Heard"
-                },
-                "conditions": {
-                    "v_agility": {
-                        "type": ">=",
-                        "value": 3
-                    },
-                    "v_strength": {
-                        "type": "<",
-                        "value": 2
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch05a-Heard",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Heard"
-                },
-                "conditions": {
-                    "v_agility": {
-                        "type": "<",
-                        "value": 3
-                    },
-                    "v_combat_technique": {
-                        "type": ">=",
-                        "value": 2
-                    },
-                    "v_strength": {
-                        "type": ">=",
-                        "value": 2
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch05a-Heard",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Heard"
-                },
-                "conditions": {
-                    "v_agility": {
-                        "type": "<",
-                        "value": 3
-                    },
-                    "v_combat_technique": {
-                        "type": ">=",
-                        "value": 2
-                    },
-                    "v_strength": {
-                        "type": "<",
-                        "value": 2
-                    }
-                },
-                "special": ""
-            },
             {
                 "code": "Restart game",
                 "text": "Restart game",
@@ -521,6 +508,286 @@
                     }
                 },
                 "special": "saves"
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b2_ch5_first_cut",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_strength": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_b2_ch5_first_cut",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_combat_technique": {
+                        "type": ">=",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": ">=",
+                        "value": 2
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_combat_technique": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
             }
         ]
     },
@@ -529,40 +796,6 @@
         "text": "<% if((locals.v_agility || 0) >= 3) {%><div class='stat_success'>[ Speed check successful - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) >= 3) {%><div class='stat_fail'>[ Speed check failed - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) >= 3) {%><div class='stat_success'>[ Reflexes check successful - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) < 3) {%><div class='stat_fail'>[ Speed check failed - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) < 3) {%><div class='stat_fail'>[ Reflexes check failed - level 3 ]<br/></div><% } %><% if((locals.v_agility || 0) >= 3) {%> <br/>Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.<br/><br/>I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.<br/><br/>I get just close enough to him in order to make him attack me, but then I dash back, and I position myself in a way that forces the troll to turn his back on Leila, in order to keep watching me.<br/><br/>Leila immediately understands the intent behind my actions, and as soon as Velgos takes his eyes off her, she makes one quick dash towards him, swinging one of her daggers towards his neck, from the side where his shoulder pad had been shattered. She cuts his head off in a single movement, and then she grabs it by the hair and throws it on the ground. Almost immediately afterwards, she stomps on the troll's head, crushing it underneath her sandal.<br/><br/><% } %><% if((locals.v_agility || 0) >= 3) {%> The troll's body jumps away from us, but the head on the ground does not seem to be regenerating. Instead, a new head is now forming itself, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.<br/>\"I'm going to take my time killing you,\" Velgos says, looking as if he's still trying to hold back some of the pain. \"I'll do it slowly, after I force you to watch all your friends die.\" <br/><br/>\"Yeah, yeah,\" I say. \"I've heard it all before.\"<br/><br/>\"Watch out!\" Bruce shouts at us, from behind.<br/><br/>Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both Leila and I jump back, and we join our teammates, who have now all arrived at our location.<br/><br/>\"I knew it,\" our mage teammate says. \"I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!\"<br/> <br/>\"Stop complaining,\" Bruce says. \"Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself.\"<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) >= 3) {%> <br/><br/>Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.<br/><br/>I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.<br/><br/>I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I somehow manage to make up for it with my fast reflexes, and I dodge his strike, positioning myself in a way that forces the troll to turn his back on Leila.<br/><br/>Leila immediately understands the intent behind my actions, and as soon as Velgos takes his eyes off her, she makes one quick dash towards him, swinging one of her daggers towards his neck, from the side where his shoulder pad had been shattered. She cuts his head off in a single movement, and then she grabs it by the hair and throws it on the ground. Almost immediately afterwards, she stomps on the troll's head, crushing it underneath her sandal.<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) >= 3) {%> The troll's body jumps away from us, but the head on the ground does not seem to be regenerating. Instead, a new head is now forming itself, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.<br/>\"I'm going to take my time killing you,\" Velgos says, looking as if he's still trying to hold back some of the pain. \"I'll do it slowly, after I force you to watch all your friends die.\" <br/><br/>\"Yeah, yeah,\" I say. \"I've heard it all before.\"<br/><br/>\"Watch out!\" Bruce shouts at us, from behind.<br/><br/>Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both Leila and I jump back, and we join our teammates, who have now all arrived at our location.<br/><br/>\"I knew it,\" our mage teammate says. \"I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!\"<br/> <br/>\"Stop complaining,\" Bruce says. \"Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself.\"<br/><br/><% } %><% if((locals.v_agility || 0) < 3 && (locals.v_reflexes || 0) < 3) {%> <br/><br/>Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.<br/><br/>I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.<br/><br/>I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I don't get the chance to dodge his strike, and one of his scimitars beheads me on the spot.<br/><br/><% } %>",
         "responses": [
             {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch05a-Heard",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Heard"
-                },
-                "conditions": {
-                    "v_agility": {
-                        "type": ">=",
-                        "value": 3
-                    }
-                },
-                "special": ""
-            },
-            {
-                "code": "Continue",
-                "text": "Continue",
-                "target": "B2-Ch05a-Heard",
-                "set_variables": {
-                    "v_current_scene": "B2-Ch05a-Heard"
-                },
-                "conditions": {
-                    "v_agility": {
-                        "type": "<",
-                        "value": 3
-                    },
-                    "v_reflexes": {
-                        "type": ">=",
-                        "value": 3
-                    }
-                },
-                "special": ""
-            },
-            {
                 "code": "Restart game",
                 "text": "Restart game",
                 "target": "Ch1-Intro1",
@@ -616,6 +849,146 @@
                     }
                 },
                 "special": "saves"
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Heard"
+                },
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": ">=",
+                        "value": 3
+                    },
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b2_ch5_first_cut",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": ">=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_b2_ch5_first_cut",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": ">=",
+                        "value": 3
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 3
+                    },
+                    "v_reflexes": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -626,14 +999,43 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch05a-Not-Heard",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Not-Heard"
+                },
+                "conditions": {
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch05a-Heard",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Heard"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_is_dead": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_heard_guards": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Not-Heard": {
         "id": "B2-Ch05a-Not-Heard",
@@ -642,12 +1044,241 @@
             {
                 "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
                 "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "target": "B2-Ch05a-Contrary-Wilhelm",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Wilhelm",
+                    "v_b2_ch5_strategy": "1"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Lie to the mage, in order to convince him to act as a decoy",
+                "text": "Lie to the mage, in order to convince him to act as a decoy",
+                "target": "B2-Ch05a-Contrary-Wilhelm",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Wilhelm",
+                    "v_b2_ch5_strategy": "2"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Cut the troll's head off, while he's busy fighting Leila",
+                "text": "Cut the troll's head off, while he's busy fighting Leila",
+                "target": "B2-Ch05a-Contrary-Wilhelm",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Wilhelm",
+                    "v_b2_ch5_strategy": "3"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "target": "B2-Ch05a-Contrary-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Without",
+                    "v_b2_ch5_strategy": "1"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Lie to the mage, in order to convince him to act as a decoy",
+                "text": "Lie to the mage, in order to convince him to act as a decoy",
+                "target": "B2-Ch05a-Contrary-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Without",
+                    "v_b2_ch5_strategy": "2"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Cut the troll's head off, while he's busy fighting Leila",
+                "text": "Cut the troll's head off, while he's busy fighting Leila",
+                "target": "B2-Ch05a-Contrary-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Without",
+                    "v_b2_ch5_strategy": "3"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "target": "B2-Ch05a-Easily-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Easily-Without",
+                    "v_b2_ch5_strategy": "1"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Lie to the mage, in order to convince him to act as a decoy",
+                "text": "Lie to the mage, in order to convince him to act as a decoy",
+                "target": "B2-Ch05a-Easily-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Easily-Without",
+                    "v_b2_ch5_strategy": "2"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Cut the troll's head off, while he's busy fighting Leila",
+                "text": "Cut the troll's head off, while he's busy fighting Leila",
+                "target": "B2-Ch05a-Easily-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Easily-Without",
+                    "v_b2_ch5_strategy": "3"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
                 "target": "B2-Ch05a-Easily-Without-Real",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Easily-Without-Real",
                     "v_b2_ch5_strategy": "1"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             },
             {
@@ -658,7 +1289,20 @@
                     "v_current_scene": "B2-Ch05a-Easily-Without-Real",
                     "v_b2_ch5_strategy": "2"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             },
             {
@@ -669,8 +1313,28 @@
                     "v_current_scene": "B2-Ch05a-Easily-Without-Real",
                     "v_b2_ch5_strategy": "3"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b2_ch5_negotiate",
+                "value": 0,
+                "conditions": {}
             }
         ]
     },
@@ -724,6 +1388,28 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_b2_ch5_negotiate",
+                "value": 0,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_b2_ch5_negotiate",
+                "value": 1,
+                "conditions": {
+                    "v_ancient_languages": {
+                        "type": ">=",
+                        "value": 1
+                    }
+                }
+            }
         ]
     },
     "B2-Ch05a-Negotiation": {
@@ -740,7 +1426,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Dealing": {
         "id": "B2-Ch05a-Dealing",
@@ -749,12 +1436,241 @@
             {
                 "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
                 "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "target": "B2-Ch05a-Contrary-Wilhelm",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Wilhelm",
+                    "v_b2_ch5_strategy": "1"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Lie to the mage, in order to convince him to act as a decoy",
+                "text": "Lie to the mage, in order to convince him to act as a decoy",
+                "target": "B2-Ch05a-Contrary-Wilhelm",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Wilhelm",
+                    "v_b2_ch5_strategy": "2"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Cut the troll's head off, while he's busy fighting Leila",
+                "text": "Cut the troll's head off, while he's busy fighting Leila",
+                "target": "B2-Ch05a-Contrary-Wilhelm",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Wilhelm",
+                    "v_b2_ch5_strategy": "3"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "target": "B2-Ch05a-Contrary-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Without",
+                    "v_b2_ch5_strategy": "1"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Lie to the mage, in order to convince him to act as a decoy",
+                "text": "Lie to the mage, in order to convince him to act as a decoy",
+                "target": "B2-Ch05a-Contrary-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Without",
+                    "v_b2_ch5_strategy": "2"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Cut the troll's head off, while he's busy fighting Leila",
+                "text": "Cut the troll's head off, while he's busy fighting Leila",
+                "target": "B2-Ch05a-Contrary-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Contrary-Without",
+                    "v_b2_ch5_strategy": "3"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "target": "B2-Ch05a-Easily-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Easily-Without",
+                    "v_b2_ch5_strategy": "1"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Lie to the mage, in order to convince him to act as a decoy",
+                "text": "Lie to the mage, in order to convince him to act as a decoy",
+                "target": "B2-Ch05a-Easily-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Easily-Without",
+                    "v_b2_ch5_strategy": "2"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Cut the troll's head off, while he's busy fighting Leila",
+                "text": "Cut the troll's head off, while he's busy fighting Leila",
+                "target": "B2-Ch05a-Easily-Without",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Easily-Without",
+                    "v_b2_ch5_strategy": "3"
+                },
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
+                "text": "Observe the battle between Leila and Velgos, in order to find his weaknesses",
                 "target": "B2-Ch05a-Easily-Without-Real",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Easily-Without-Real",
                     "v_b2_ch5_strategy": "1"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             },
             {
@@ -765,7 +1681,20 @@
                     "v_current_scene": "B2-Ch05a-Easily-Without-Real",
                     "v_b2_ch5_strategy": "2"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             },
             {
@@ -776,10 +1705,24 @@
                     "v_current_scene": "B2-Ch05a-Easily-Without-Real",
                     "v_b2_ch5_strategy": "3"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_negotiate": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_first_cut": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b2_ch5_wilhelm": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Kill-ogres": {
         "id": "B2-Ch05a-Kill-ogres",
@@ -873,6 +1816,22 @@
                     }
                 },
                 "special": "saves"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 2
+                    },
+                    "v_strength": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1120,7 +2079,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Contrary-Ogres": {
         "id": "B2-Ch05a-Contrary-Ogres",
@@ -1202,7 +2162,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Climactic-Ogres": {
         "id": "B2-Ch05a-Climactic-Ogres",
@@ -1322,7 +2283,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Contrary-Wilhelm": {
         "id": "B2-Ch05a-Contrary-Wilhelm",
@@ -1338,7 +2300,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Anti-Wilhelm": {
         "id": "B2-Ch05a-Anti-Wilhelm",
@@ -1389,7 +2352,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Contrary-Without": {
         "id": "B2-Ch05a-Contrary-Without",
@@ -1398,14 +2362,50 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch05a-Observe",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Observe"
+                },
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Effortlessly",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Effortlessly"
+                },
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch05a-Mage",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Mage"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Observe": {
         "id": "B2-Ch05a-Observe",
@@ -1468,6 +2468,18 @@
                     }
                 },
                 "special": "saves"
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_perception": {
+                        "type": "<",
+                        "value": 3
+                    }
+                }
             }
         ]
     },
@@ -1533,6 +2545,18 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_strength": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B2-Ch05a-Mage": {
@@ -1549,7 +2573,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Troll-final": {
         "id": "B2-Ch05a-Troll-final",
@@ -1623,7 +2648,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Easily-Without": {
         "id": "B2-Ch05a-Easily-Without",
@@ -1632,14 +2658,50 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch05a-Observe",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Observe"
+                },
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Effortlessly",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Effortlessly"
+                },
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch05a-Mage",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Mage"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Easily-Without-Real": {
         "id": "B2-Ch05a-Easily-Without-Real",
@@ -1648,14 +2710,50 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch05a-Observe",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Observe"
+                },
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B2-Ch05a-Effortlessly",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Effortlessly"
+                },
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 3
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch05a-Mage-Without",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Mage-Without"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch5_strategy": {
+                        "type": "==",
+                        "value": 2
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Mage-Without": {
         "id": "B2-Ch05a-Mage-Without",
@@ -1664,14 +2762,35 @@
             {
                 "code": "Continue",
                 "text": "Continue",
+                "target": "B2-Ch05a-Mage-Helped",
+                "set_variables": {
+                    "v_current_scene": "B2-Ch05a-Mage-Helped"
+                },
+                "conditions": {
+                    "v_b2_ch2_cell": {
+                        "type": "!=",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
                 "target": "B2-Ch05a-Mage-Cell1",
                 "set_variables": {
                     "v_current_scene": "B2-Ch05a-Mage-Cell1"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b2_ch2_cell": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Mage-Helped": {
         "id": "B2-Ch05a-Mage-Helped",
@@ -1687,7 +2806,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Mage-Cell1": {
         "id": "B2-Ch05a-Mage-Cell1",
@@ -1703,7 +2823,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Mage-Rampage": {
         "id": "B2-Ch05a-Mage-Rampage",
@@ -1767,6 +2888,18 @@
                 },
                 "special": "saves"
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_agility": {
+                        "type": "<",
+                        "value": 2
+                    }
+                }
+            }
         ]
     },
     "B2-Ch05a-Troll-dead": {
@@ -1806,7 +2939,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Troll-Aftermath": {
         "id": "B2-Ch05a-Troll-Aftermath",
@@ -1938,7 +3072,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B2-Ch05a-Smoothly": {
         "id": "B2-Ch05a-Smoothly",
@@ -1954,6 +3089,7 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     }
 }

@@ -13,7 +13,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Challenge": {
         "id": "B3-Ch09b-Challenge",
@@ -102,7 +103,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Logical": {
         "id": "B3-Ch09b-Logical",
@@ -172,7 +174,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Impenetrable": {
         "id": "B3-Ch09b-Impenetrable",
@@ -274,7 +277,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Separate": {
         "id": "B3-Ch09b-Separate",
@@ -283,9 +287,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch09b-Invent",
+                "target": "B3-Ch09b-Melding",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch09b-Invent",
+                    "v_current_scene": "B3-Ch09b-Melding",
                     "v_ac_b3_ch9_consolation": "+1"
                 },
                 "conditions": {
@@ -303,9 +307,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch09b-Invent",
+                "target": "B3-Ch09b-Melding",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch09b-Invent",
+                    "v_current_scene": "B3-Ch09b-Melding",
                     "v_ac_b3_ch9_consolation": "+1"
                 },
                 "conditions": {
@@ -325,8 +329,7 @@
                 "text": "Continue",
                 "target": "B3-Ch09b-Invent",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch09b-Invent",
-                    "v_ac_b3_ch9_consolation": "+1"
+                    "v_current_scene": "B3-Ch09b-Invent"
                 },
                 "conditions": {
                     "v_b3_ch9_backup": {
@@ -335,6 +338,36 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch9_assassinate": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch9_assassinate": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
             }
         ]
     },
@@ -370,7 +403,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Blabbering": {
         "id": "B3-Ch09b-Blabbering",
@@ -406,12 +440,142 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Invent": {
         "id": "B3-Ch09b-Invent",
         "text": "<% if((locals.v_b3_ch9_teleport || 0) != 1) {%> As Flower is still putting pressure on the king of the underground with her fire spells, I get in the stance required to cast my previous lightning spell and I do almost exactly the same movements that I did before, except for one small difference in the way I rotate my left hand which changes the flow of the magic completely, allowing me to cast a different spell.<br/>Peter is too busy focusing on his own movements to notice the subtle difference, so by the time I point my finger at him and shoot the lightning, he fully commits to the dispel and he doesn't move a muscle from his position. The electric shock hits him head on, and it even burns through some of his magic shield, because I can see him trembling for a few seconds before he regains his composure.<br/><br/>\"You... tricked me!\" Peter says, as he puts his hand on his chest and begins to cast a healing spell on himself. \"How did you manage to--\"<br/><br/>\"For crying out loud, Peter!\" the king of the underground says, while he is still under assault from Flower. \"The man literally told you he invented that dispelling technique and the next thing you do is use it against him again? What were you even thinking?\"<br/><br/>\"He didn't invent anything!\" Peter says. \"It's Brinhorn's technique, not his! It's even in the name!\"<br/><br/><% } %><% if((locals.v_b3_ch9_teleport || 0) == 1) {%> As the Overseer is still putting pressure on the king of the underground with his fire beam, I get in the stance required to cast my previous lightning spell and I do almost exactly the same movements that I did before, except for one small difference in the way I rotate my left hand which changes the flow of the magic completely, allowing me to cast a different spell.<br/>Peter is too busy focusing on his own movements to notice the subtle difference, so by the time I point my finger at him and shoot the lightning, he fully commits to the dispel and he doesn't move a muscle from his position. The electric shock hits him head on, and it even burns through some of his magic shield, because I can see him trembling for a few seconds before he regains his composure.<br/><br/>\"You... tricked me!\" Peter says, as he puts his hand on his chest and begins to cast a healing spell on himself. \"How did you manage to--\"<br/><br/>\"For crying out loud, Peter!\" the king of the underground says, while he is still under assault from the Overseer. \"The man literally told you he invented that dispelling technique and the next thing you do is use it against him again? What were you even thinking?\"<br/><br/>\"He didn't invent anything!\" Peter says. \"It's Brinhorn's technique, not his! It's even in the name!\"<br/><br/><% } %><% if((locals.v_b3_ch9_element || 0) == 0) {%> \"Well, I don't care who it was named after, just don't use it again, okay?\" the king says. \"You're an ethereal and a generalist. Surely you can think of better ways to engage him than simply cancelling his beginner-level spells!\"<br/>\"Perhaps you are right,\" Peter says, as he finishes his healing spell. \"Let me see if I can try something a little more... overwhelming.\"<br/><br/>He then begins to move his hands very quickly, while he is amassing an insane amount of energy for his next spell. I immediately recognize it as being one of the most complex fire spells that you can learn from the standard manuals, which is meant to summon dozens of fireballs that would follow me around no matter where I'd go.<br/><br/>Without thinking, I start to cast the same spell in reverse, so I can dispel it. Being the first time when I actually used the multi-step dispelling technique in combat, I almost didn't make it, but I managed to pick up the pace towards the end and I barely got to finish my movements, right as the fireballs were beginning to form. <br/><br/>Once the fireballs fade into thin air, I decide to make full use of the training I got from Flower, and I cast three fire spells one after the other in an attempt to catch my enemy off-guard.<br/><br/><% } %><% if((locals.v_b3_ch9_element || 0) == 1) {%> \"Well, I don't care who it was named after, just don't use it again, okay?\" the king says. \"You're an ethereal and a generalist. Surely you can think of better ways to engage him than simply cancelling his beginner-level spells!\"<br/>\"Perhaps you are right,\" Peter says, as he finishes his healing spell. \"Let me see if I can try something a little more... overwhelming.\"<br/><br/>He then begins to move his hands very quickly, while he is amassing an insane amount of energy for his next spell. I immediately recognize it as being one of the most complex fire spells that you can learn from the standard manuals, which is meant to summon dozens of fireballs that would follow me around no matter where I'd go.<br/><br/>Without thinking, I start to cast the same spell in reverse, so I can dispel it. Being the first time when I actually used the multi-step dispelling technique in combat, I almost didn't make it, but I managed to pick up the pace towards the end and I barely got to finish my movements, right as the fireballs were beginning to form. <br/><br/>Once the fireballs fade into thin air, I decide to make full use of the training I got from Illuna, and I cast three water spells one after the other in an attempt to catch my enemy off-guard.<br/><br/><% } %><% if((locals.v_b3_ch9_element || 0) == 2) {%> \"Well, I don't care who it was named after, just don't use it again, okay?\" the king says. \"You're an ethereal and a generalist. Surely you can think of better ways to engage him than simply cancelling his beginner-level spells!\"<br/>\"Perhaps you are right,\" Peter says, as he finishes his healing spell. \"Let me see if I can try something a little more... overwhelming.\"<br/><br/>He then begins to move his hands very quickly, while he is amassing an insane amount of energy for his next spell. I immediately recognize it as being one of the most complex fire spells that you can learn from the standard manuals, which is meant to summon dozens of fireballs that would follow me around no matter where I'd go.<br/><br/>Without thinking, I start to cast the same spell in reverse, so I can dispel it. Being the first time when I actually used the multi-step dispelling technique in combat, I almost didn't make it, but I managed to pick up the pace towards the end and I barely got to finish my movements, right as the fireballs were beginning to form. <br/><br/>Once the fireballs fade into thin air, I decide to make full use of the training I got from Melindra, and I cast three wind spells one after the other in an attempt to catch my enemy off-guard.<br/><br/><% } %><% if((locals.v_b3_ch9_element || 0) == 3) {%> \"Well, I don't care who it was named after, just don't use it again, okay?\" the king says. \"You're an ethereal and a generalist. Surely you can think of better ways to engage him than simply cancelling his beginner-level spells!\"<br/>\"Perhaps you are right,\" Peter says, as he finishes his healing spell. \"Let me see if I can try something a little more... overwhelming.\"<br/><br/>He then begins to move his hands very quickly, while he is amassing an insane amount of energy for his next spell. I immediately recognize it as being one of the most complex fire spells that you can learn from the standard manuals, which is meant to summon dozens of fireballs that would follow me around no matter where I'd go.<br/><br/>Without thinking, I start to cast the same spell in reverse, so I can dispel it. Being the first time when I actually used the multi-step dispelling technique in combat, I almost didn't make it, but I managed to pick up the pace towards the end and I barely got to finish my movements, right as the fireballs were beginning to form. <br/><br/>Once the fireballs fade into thin air, I decide to make full use of the training I got from Kate, and I cast three ice spells one after the other in an attempt to catch my enemy off-guard.<br/><br/><% } %> Just as I thought I was getting the upper hand, the unthinkable happens, and the fireballs from Peter's previous spell quickly start forming around me again, despite my successful dispelling. Knowing that I have only a few seconds to get away from them, I activate the air currents that were lying dormant around me until now and I fly away, trying to put as much distance between me and the fireballs as I can.<br/>\"You won't be able to outrun them,\" Peter tells me, as I am now dodging fireballs left and right. \"Since you knew how to cast the spell in reverse, I assume that you must also be aware of what it does. Those fireballs will follow you to the end of the ethereal plane if they need to. There is no way to stop them.\"<br/><br/>He's right. The only way to counter this spell is to either dispel it in time or to conjure a shield around myself that is powerful enough to withstand the impact of fifty explosions. There's no way I can build a protective layer of earth or ice that is durable enough with the limited spells I have at my disposal. That is the reason why I instinctively tried to dispel it. How did the dispelling not work? I did everything correctly, and I even saw the spell being cancelled. So, then why?... Why are these fireballs still following me?!<br/><br/>",
         "responses": [
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_teleport": {
+                        "type": "!=",
+                        "value": 1
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_teleport": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_element": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_element": {
+                        "type": "==",
+                        "value": 1
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_element": {
+                        "type": "==",
+                        "value": 2
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_element": {
+                        "type": "==",
+                        "value": 3
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
+            {
+                "code": "Continue",
+                "text": "Continue",
+                "target": "B3-Ch09b-Engagement",
+                "set_variables": {
+                    "v_current_scene": "B3-Ch09b-Engagement"
+                },
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                },
+                "special": ""
+            },
             {
                 "code": "Continue",
                 "text": "Continue",
@@ -423,6 +587,10 @@
                     "v_b3_ch9_teleport": {
                         "type": "!=",
                         "value": 1
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -438,6 +606,10 @@
                     "v_b3_ch9_teleport": {
                         "type": "==",
                         "value": 1
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -451,6 +623,10 @@
                 },
                 "conditions": {
                     "v_b3_ch9_element": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_b3_ch9_backup": {
                         "type": "==",
                         "value": 0
                     }
@@ -468,6 +644,10 @@
                     "v_b3_ch9_element": {
                         "type": "==",
                         "value": 1
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -483,6 +663,10 @@
                     "v_b3_ch9_element": {
                         "type": "==",
                         "value": 2
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -498,6 +682,10 @@
                     "v_b3_ch9_element": {
                         "type": "==",
                         "value": 3
+                    },
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
                     }
                 },
                 "special": ""
@@ -509,10 +697,16 @@
                 "set_variables": {
                     "v_current_scene": "B3-Ch09b-Manually"
                 },
-                "conditions": {},
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
+                    }
+                },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Engagement": {
         "id": "B3-Ch09b-Engagement",
@@ -748,7 +942,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Dispel": {
         "id": "B3-Ch09b-Dispel",
@@ -786,7 +981,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Together": {
         "id": "B3-Ch09b-Together",
@@ -852,7 +1048,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Manually": {
         "id": "B3-Ch09b-Manually",
@@ -888,7 +1085,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Roof": {
         "id": "B3-Ch09b-Roof",
@@ -926,7 +1124,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Freezing": {
         "id": "B3-Ch09b-Freezing",
@@ -964,7 +1163,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Counter": {
         "id": "B3-Ch09b-Counter",
@@ -980,7 +1180,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Balance": {
         "id": "B3-Ch09b-Balance",
@@ -996,7 +1197,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Versatile": {
         "id": "B3-Ch09b-Versatile",
@@ -1092,7 +1294,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Adversary": {
         "id": "B3-Ch09b-Adversary",
@@ -1130,7 +1333,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Copy": {
         "id": "B3-Ch09b-Copy",
@@ -1146,7 +1350,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Mistake": {
         "id": "B3-Ch09b-Mistake",
@@ -1184,7 +1389,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Guarantee": {
         "id": "B3-Ch09b-Guarantee",
@@ -1200,7 +1406,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Improvisations": {
         "id": "B3-Ch09b-Improvisations",
@@ -1266,7 +1473,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Poison": {
         "id": "B3-Ch09b-Poison",
@@ -1292,7 +1500,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Struggle": {
         "id": "B3-Ch09b-Struggle",
@@ -1330,7 +1539,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Appreciate": {
         "id": "B3-Ch09b-Appreciate",
@@ -1347,7 +1557,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Puddle": {
         "id": "B3-Ch09b-Puddle",
@@ -1375,7 +1586,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Risky": {
         "id": "B3-Ch09b-Risky",
@@ -1384,9 +1596,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch09b-Illusory",
+                "target": "B3-Ch09b-Melding",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch09b-Illusory",
+                    "v_current_scene": "B3-Ch09b-Melding",
                     "v_ac_b3_ch9_consolation": "+1"
                 },
                 "conditions": {
@@ -1404,9 +1616,9 @@
             {
                 "code": "Continue",
                 "text": "Continue",
-                "target": "B3-Ch09b-Illusory",
+                "target": "B3-Ch09b-Melding",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch09b-Illusory",
+                    "v_current_scene": "B3-Ch09b-Melding",
                     "v_ac_b3_ch9_consolation": "+1"
                 },
                 "conditions": {
@@ -1426,8 +1638,7 @@
                 "text": "Continue",
                 "target": "B3-Ch09b-Illusory",
                 "set_variables": {
-                    "v_current_scene": "B3-Ch09b-Illusory",
-                    "v_ac_b3_ch9_consolation": "+1"
+                    "v_current_scene": "B3-Ch09b-Illusory"
                 },
                 "conditions": {
                     "v_aura_hardening": {
@@ -1436,6 +1647,46 @@
                     }
                 },
                 "special": ""
+            }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch9_assassinate": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_aura_hardening": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch9_assassinate": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_aura_hardening": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
             }
         ]
     },
@@ -1473,7 +1724,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Floating": {
         "id": "B3-Ch09b-Floating",
@@ -1599,6 +1851,68 @@
                 },
                 "special": ""
             }
+        ],
+        "set_variables": [
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch9_assassinate": {
+                        "type": "==",
+                        "value": 0
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 1,
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": "<",
+                        "value": 4
+                    },
+                    "v_b3_ch9_assassinate": {
+                        "type": "==",
+                        "value": 1
+                    }
+                }
+            },
+            {
+                "name": "v_is_dead",
+                "value": 0,
+                "conditions": {
+                    "v_b3_ch9_backup": {
+                        "type": "==",
+                        "value": 0
+                    },
+                    "v_toughness": {
+                        "type": ">=",
+                        "value": 4
+                    }
+                }
+            }
         ]
     },
     "B3-Ch09b-Kill": {
@@ -1669,7 +1983,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Cube": {
         "id": "B3-Ch09b-Cube",
@@ -1803,7 +2118,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Elephant": {
         "id": "B3-Ch09b-Elephant",
@@ -1819,7 +2135,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Visualize": {
         "id": "B3-Ch09b-Visualize",
@@ -1846,7 +2163,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Open": {
         "id": "B3-Ch09b-Open",
@@ -1880,7 +2198,8 @@
                 "conditions": {},
                 "special": "saves"
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Positive": {
         "id": "B3-Ch09b-Positive",
@@ -1896,7 +2215,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Eyelids": {
         "id": "B3-Ch09b-Eyelids",
@@ -1932,7 +2252,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Agreement": {
         "id": "B3-Ch09b-Agreement",
@@ -1998,7 +2319,8 @@
                 },
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Fluke": {
         "id": "B3-Ch09b-Fluke",
@@ -2014,7 +2336,8 @@
                 "conditions": {},
                 "special": ""
             }
-        ]
+        ],
+        "set_variables": []
     },
     "B3-Ch09b-Credits": {
         "id": "B3-Ch09b-Credits",
@@ -2054,6 +2377,7 @@
                 },
                 "special": "checkpoint_save"
             }
-        ]
+        ],
+        "set_variables": []
     }
 }
