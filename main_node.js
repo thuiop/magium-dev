@@ -5,12 +5,16 @@ TODO: Discuss possibilities of alternate logic that do not need inference,
   but can simply be stored in the JSON object itself.
 */
 function get_header_from_id(id) {
-    const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
-    if (result = regex.exec(id)) {
-        let book = result.groups["book"] ? result.groups["book"] : "1"
-        return `Book ${book} - Chapter ${result.groups["chapter"]}`
+    const regex = /(?:B(?<book>[0-9]+)-)?Ch(?<chapter>[0-9]+)[a-c]-.*$/;
+    const result = regex.exec(id);
+
+    if (result) {
+        const book = result.groups.book || "1";
+        const chapter = result.groups.chapter;
+        return `Book ${book} - Chapter ${chapter}`;
     }
 }
+
 
 function render_full(req, callback, header = "") {
     if (req.get("HX-Request")) {
