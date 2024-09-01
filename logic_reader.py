@@ -104,6 +104,11 @@ class Paragraph:
     conditions: dict = field(default_factory=dict)
 
 @dataclass
+class ParagraphGroup:
+    paragraphs: list[tuple[int,int]] = field(default_factory=list) # List of (id,version)
+    conditions: dict = field(default_factory=dict)
+
+@dataclass
 class Response:
     text: str = field(default_factory=str)
     new_scene: str = field(default_factory=str)
@@ -145,10 +150,10 @@ class Path:
 class Scene:
     id: str
     paths: list[Path] = field(default_factory=list) 
-    paragraphs: list = field(default_factory=list) 
-    responses: list = field(default_factory=list) 
-    set_variables: list = field(default_factory=list)
-    stat_checks: list = field(default_factory=list) 
+    paragraphs: list[Paragraph] = field(default_factory=list) 
+    responses: list[Response] = field(default_factory=list) 
+    set_variables: list[SceneVariableSet] = field(default_factory=list)
+    stat_checks: list[StatsCheck] = field(default_factory=list) 
 
     def to_json(self,paragraphs):
         text = ""
@@ -158,7 +163,7 @@ class Scene:
                 text += f"<% if({condition_string}) {{%>"
             text += f"<div class='stat_{'success' if stat_check.successful else 'fail'}'>{stat_check.text}</div>"
             if stat_check.conditions != {}:
-                text += "<% } %>"
+                text += "<% } %>" #} (comment because vim is indent is messed  up)
         for par in self.paragraphs:
             if par.id not in paragraphs[par.version]:
                 print(f"Paragraph {par.id} not found in {par.version}")
@@ -168,7 +173,7 @@ class Scene:
                 text += f"<% if({condition_string}) {{%>"
             text += paragraphs[par.version][par.id]
             if par.conditions != {}:
-                text += "<% } %>"
+                text += "<% } %>" #}
         text = re.sub(r"(\n){2,}", r"\n\n", text)
         text = text.replace("\n","<br/>")
         val = {
@@ -194,6 +199,61 @@ class Scene:
             ]
         }
         return val
+
+    def to_magium(self,paragraphs):
+        text = f"ID: {self.id}\nTEXT: \n\n"
+
+        for set_variable in self.set_variables:
+            text += f'set({set_variable.name},{set_variable.value})'
+            if set_variable.conditions != {}:
+                text += f' if ({", ".join([f"{var} {parse_condition(condition.type)} {condition.value}" for var, condition in set_variable.conditions.items()])})'
+            text += "\n"
+        for stat_check in self.stat_checks:
+            if stat_check.conditions != {}:
+                condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in stat_check.conditions.items()])
+                text += f"#if({condition_string}) {{\n"
+                text += f"{'SUCCESS:' if stat_check.successful else 'FAIL:'}{stat_check.text}\n"
+            if stat_check.conditions != {}:
+                text += "}\n" #} (comment because vim is indent is messed  up)
+
+        paragraph_groups = self.merge_paragraphs()
+        for par_group in paragraph_groups:
+            if par_group.conditions != {}:
+                condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in par_group.conditions.items()])
+                text += f"#if({condition_string}) {{\n"
+            for par_tuple in par_group.paragraphs:
+                if par_tuple[0] not in paragraphs[par_tuple[1]]:
+                    print(f"Paragraph {par_tuple[0]} not found in {par_tuple[1]}")
+                    continue
+                text += paragraphs[par_tuple[1]][par_tuple[0]]
+            if par_group.conditions != {}:
+                text += "}\n" #}
+        text = re.sub(r"(\n){2,}", r"\n\n", text)
+
+        for response in self.responses:
+            text += f'choice("{response.text}", {response.new_scene}, {", ".join([f"{name} = {value}" for name,value in response.set_variables.items()])}'
+            if response.special != "":
+                 text += f", special:{response.special}"
+            text += ")"
+            if response.conditions != {}:
+                text += f' if ({", ".join([f"{name} {parse_condition(cond.type)} {cond.value}" for name,cond in response.conditions.items()])})' 
+            text += "\n"
+
+        return text
+
+    def merge_paragraphs(self):
+        paragraph_groups = {}
+        for paragraph in self.paragraphs:
+            key = str(paragraph.conditions) 
+            if key not in paragraph_groups:
+                paragraph_groups[key] = ParagraphGroup(conditions=paragraph.conditions)
+            paragraph_groups[key].paragraphs.append((paragraph.id,paragraph.version))
+        return paragraph_groups.values()
+
+
+
+        
+
 
 
 class Parser:
@@ -425,6 +485,10 @@ for chapter in chapters:
     json_vals = {id:scene.to_json(paragraphs) for id,scene in scenes.items()}
     with open(root_folder/f"{chapter}.json","w") as f:
         json.dump(json_vals,f,indent=4)
+
+    magium_vals = "\n\n".join(scene.to_magium(paragraphs) for scene in scenes.values())
+    with open(root_folder/f"{chapter}.magium","w") as f:
+        f.write(magium_vals) 
 
 @dataclass
 class Achievement:
