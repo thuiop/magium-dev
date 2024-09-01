@@ -133,7 +133,7 @@ While Melindra heads towards the river bank, I can see the others' lips moving, 
 choice("""Because I didn't want to kick her out like a dog, when she didn't have a place to sleep.""", B2-Ch09a-Dog, v_current_scene = B2-Ch09a-Dog, v_checkpoint_rich = 0, v_b2_ch9_dog = 0) if (v_b2_ch8_energizer == 3)
 choice("""Because I didn't want to waste any more time arguing with her.""", B2-Ch09a-Dog, v_current_scene = B2-Ch09a-Dog, v_checkpoint_rich = 0, v_b2_ch9_dog = 1) if (v_b2_ch8_energizer == 3)
 choice("""Because I figured I may as well come chat with you, given that I was already up.""", B2-Ch09a-Dog, v_current_scene = B2-Ch09a-Dog, v_checkpoint_rich = 0, v_b2_ch9_dog = 2) if (v_b2_ch8_energizer == 3)
-choice("Continue", B2-Ch09a-Energizer4, v_current_scene = B2-Ch09a-Energizer4, v_checkpoint_rich = 0) if (v_b2_ch8_energizer == 1)
+choice("Continue", B2-Ch09a-Energizer4, v_current_scene = B2-Ch09a-Energizer4, v_checkpoint_rich = 0) if (v_b2_ch8_energizer > 0)
 choice("Continue", B2-Ch09a-Sleep2, v_current_scene = B2-Ch09a-Sleep2, v_checkpoint_rich = 0) if (v_b2_ch8_energizer == 2)
 choice("Continue", B2-Ch09a-Kick, v_current_scene = B2-Ch09a-Kick, v_checkpoint_rich = 0) if (v_b2_ch8_energizer == 0)
 
@@ -1659,8 +1659,8 @@ She then quickly utters an incantation and she waves her hands around, as she ca
 }
 choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 == 0)
 choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 == 0)
-choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 == 1)
-choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 == 1)
+choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 > 0)
+choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 > 0)
 
 
 ID: B2-Ch09a-Energizer-path3
@@ -1684,7 +1684,7 @@ As we advance through the storm, the wind finally manages to blow a few trees ou
 We keep pressing forward for another twenty minutes, but the storm still doesn't look like it will be stopping anytime soon. In fact, it's been getting worse by the minute. Every time we hear a thunder, it feels almost as if someone set off a powerful explosion spell in our vicinity. The wind is now almost powerful enough to push us back while we're walking, and the number of rain drops has greatly increased as well. Will this storm never end?
 
 }
-choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying) if (v_b2_ch9_cast2 == 1)
+choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying) if (v_b2_ch9_cast2 > 0)
 
 
 ID: B2-Ch09a-Energizer-stat
@@ -2004,8 +2004,8 @@ I sigh.
 }
 choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure == 0)
 choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure == 0)
-choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure == 1)
-choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure == 1)
+choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure > 0)
+choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure > 0)
 
 
 ID: B2-Ch09a-Biscuits2

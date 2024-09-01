@@ -59,9 +59,9 @@ Before Daren gets to finish what he was saying, Rose disappears from where she s
 "If I will forget how to use my powers, then I'll just have to learn them all over again," Rose says, with a very determined look in her eyes. "I will practice day and night, until I'll be able to use them perfectly. I don't want to go back to the way I was. This time, I want to make a real difference!"
 
 }
-choice("Encourage Rose in her decision", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 1) if (v_ch11_saved_slave != 3)
-choice("Try to convince Rose that her plan is too dangerous", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 0) if (v_ch11_saved_slave != 3)
-choice("Tell Rose that her plan sounds stupid", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 2) if (v_ch11_saved_slave != 3)
+choice("Encourage Rose in her decision", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 1)
+choice("Try to convince Rose that her plan is too dangerous", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 0)
+choice("Tell Rose that her plan sounds stupid", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 2)
 choice("Encourage Rose in her decision", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 1) if (v_ch11_saved_slave == 3)
 choice("Try to convince Rose that her plan is too dangerous", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 0) if (v_ch11_saved_slave == 3)
 choice("Tell Rose that her plan sounds stupid", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 2) if (v_ch11_saved_slave == 3)
@@ -256,7 +256,7 @@ When the light fades away, we all find ourselves in the middle of a city which i
  Leaving these strange, tall buildings aside, what is even more peculiar is what's happening directly above us. Currently, there are hundreds of metal, horseless carriages, flying through the air, with people inside them. While these carriages are flying around, there are large holographic screens floating above us, picturing a man that is relaying the same message, over and over, in the Common language. The holographic screens look just like the ones that were created by Golmyck's illusion-casting device, when he announced our first objectives. The message that keeps getting repeated is: 'All non-lessathi citizens are to present themselves to the military reserve area immediately. We are under attack. I repeat, we are under attack!'.
 
 }
-choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry, v_b2_ch11_echoes = 0) if (v_ch4_spared_dave == 1)
+choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry, v_b2_ch11_echoes = 0) if (v_ch4_spared_dave > 0)
 choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy, v_b2_ch11_echoes = 0) if (v_ch4_spared_dave == 0)
 
 
@@ -859,7 +859,7 @@ When the light fades away, we all find ourselves in the middle of a city which i
  Leaving these strange, tall buildings aside, what is even more peculiar is what's happening directly above us. Currently, there are hundreds of metal, horseless carriages, flying through the air, with people inside them. While these carriages are flying around, there are large holographic screens floating above us, picturing a man that is relaying the same message, over and over, in the Common language. The holographic screens look just like the ones that were created by Golmyck's illusion-casting device, when he announced our first objectives. The message that keeps getting repeated is: 'All non-lessathi citizens are to present themselves to the military reserve area immediately. We are under attack. I repeat, we are under attack!'.
 
 }
-choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry) if (v_ch4_spared_dave == 1)
+choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry) if (v_ch4_spared_dave > 0)
 choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch4_spared_dave == 0)
 
 
@@ -1101,18 +1101,18 @@ choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_sce
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 0)
 choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 0)
 choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 0)
-choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 1)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 1)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 1)
+choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages > 0)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages > 0)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages > 0)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 2)
 choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 2)
 choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 2)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 3)
 choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 3)
 choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 3)
-choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing == 1)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing == 1)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing == 1)
+choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing > 0)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing > 0)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing > 0)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing == 2)
 choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing == 2)
 choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing == 2)

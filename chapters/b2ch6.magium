@@ -642,8 +642,8 @@ Once we wave goodbye to Rose, we start heading towards the castle of Thilias, at
 }
 choice("""What happens to the spirits that you absorb?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 0) if (v_ch11_saved_rose == 0)
 choice("""Is this the reason why you got banned from the magical plane?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 1) if (v_ch11_saved_rose == 0)
-choice("""What happens to the spirits that you absorb?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 0) if (v_ch11_saved_rose == 1)
-choice("""Is this the reason why you got banned from the magical plane?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 1) if (v_ch11_saved_rose == 1)
+choice("""What happens to the spirits that you absorb?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 0) if (v_ch11_saved_rose > 0)
+choice("""Is this the reason why you got banned from the magical plane?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 1) if (v_ch11_saved_rose > 0)
 
 
 ID: B2-Ch06a-Amass
@@ -686,8 +686,8 @@ TEXT:
 }
 choice("""Wait, you have different races in the magical plane?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 0) if (v_b2_ch6_banned == 0)
 choice("""The fox originated from the magical plane? How did she end up here, then?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 1) if (v_b2_ch6_banned == 0)
-choice("""Wait, you have different races in the magical plane?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 0) if (v_b2_ch6_banned == 1)
-choice("""The fox originated from the magical plane? How did she end up here, then?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 1) if (v_b2_ch6_banned == 1)
+choice("""Wait, you have different races in the magical plane?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 0) if (v_b2_ch6_banned > 0)
+choice("""The fox originated from the magical plane? How did she end up here, then?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 1) if (v_b2_ch6_banned > 0)
 
 
 ID: B2-Ch06a-Elf
@@ -1070,10 +1070,10 @@ The advantage of the expensive one is that I can use it to shoot seven bolts bef
 I look around the ranged weapons section one more time to see if there aren't any other repeating crossbows that might interest me, but most of them are either not worth their price, or worse than the one that I already have. I guess I'm going to have to make a choice between the two crossbows that I was looking at earlier, after all.  
 
 }
-choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch3_treasure != 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch3_treasure != 0)
-choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch10_gems == 1)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch10_gems == 1)
+choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1)
+choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch10_gems > 0)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch10_gems > 0)
 choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
 choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
 choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar != 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
@@ -1360,8 +1360,7 @@ I try to jump back, but I suddenly realize that there's an invisible wall behind
 "Because deep down, you know I'm right," I say. "Everything I said about you was true. Otherwise you wouldn't have gotten so pissed off about it. Killing me now would only serve to prove my point, and that's the last thing you want."
 
 }
-choice("Continue", B2-Ch06a-Loopholes, v_current_scene = B2-Ch06a-Loopholes) if (v_ch11_difference != 1)
-choice("Continue", B2-Ch06a-Loopholes, v_current_scene = B2-Ch06a-Loopholes) if (v_ch11_difference == 1)
+choice("Continue", B2-Ch06a-Loopholes, v_current_scene = B2-Ch06a-Loopholes)
 
 
 ID: B2-Ch06a-Avert
@@ -1403,8 +1402,7 @@ I pause for a few seconds before I continue, but I keep looking Eiden straight i
 "Because deep down, you know I'm right," I say. "Everything I said about you was true. Otherwise you wouldn't have gotten so pissed off about it. Killing me now would only serve to prove my point, and that's the last thing you want."
 
 }
-choice("Continue", B2-Ch06a-Loopholes, v_current_scene = B2-Ch06a-Loopholes) if (v_ch11_difference != 1)
-choice("Continue", B2-Ch06a-Loopholes, v_current_scene = B2-Ch06a-Loopholes) if (v_ch11_difference == 1)
+choice("Continue", B2-Ch06a-Loopholes, v_current_scene = B2-Ch06a-Loopholes)
 
 
 ID: B2-Ch06a-Loopholes

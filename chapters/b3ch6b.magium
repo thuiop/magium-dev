@@ -309,9 +309,9 @@ Meanwhile, the other two serpents are not doing so well. The elf air elementalis
 "I agree," Kate says. "We should try to attack the ambassador with everything we've got."
 
 }
-choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 1)
-choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 1)
-choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 1)
+choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie > 0)
+choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie > 0)
+choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie > 0)
 choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
 choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
 choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
@@ -431,7 +431,7 @@ The black-robed man remains completely silent, and it's no wonder. Given the num
 
 }
 choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_focus == 0)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus > 0)
 choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2)
 choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1)
 choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0)
@@ -663,8 +663,7 @@ Oh, boy... there sure are a lot of boulders here, aren't there? I wonder what wo
  Maybe with a little luck, I can bribe or threaten the guy to move the rocks away from the battlefield. If worse comes to worst, I guess I could shout a warning to everyone below as soon as the earth elementalist is dead. That should normally give my friends enough time to defend themselves from the falling rocks in one way or another.
 
 }
-choice("Continue", B3-Ch06b-Earth2, v_current_scene = B3-Ch06b-Earth2) if (v_b3_ch6_selected == 3)
-choice("Continue", B3-Ch06b-Earth2, v_current_scene = B3-Ch06b-Earth2) if (v_b3_ch6_selected != 3)
+choice("Continue", B3-Ch06b-Earth2, v_current_scene = B3-Ch06b-Earth2)
 
 
 ID: B3-Ch06b-Earth2
@@ -1001,9 +1000,9 @@ I barely get to finish what I was saying before I feel an immensely powerful pre
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected == 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected == 3)
 choice("Load game", , , special:saves) if (v_b3_ch6_selected == 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected != 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected != 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_selected != 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
 
 
 ID: B3-Ch06b-Fly
@@ -1041,8 +1040,7 @@ Neither Melindra nor Kelrim can really do much to help them either, and Daren is
 I decide to slightly change my flight direction, trying to somehow end up behind the black robed mage in order to take him by surprise.
 
 }
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch6_selected == 3)
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch6_selected != 3)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed)
 
 
 ID: B3-Ch06b-Robed
@@ -2120,9 +2118,9 @@ Instead of answering the captain's question, Kate sends several icicles his way,
  As our elementalists are firing their projectiles and I am shooting my crossbow, Daren makes a rush towards the captain, stretching his left arm in front of him while making his sword fly away from the royal guard leader and into his hand. When Daren gets closer, the captain puts both his arms in front of him and he pushes his enemy back with his invisible force, not letting him advance any further.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_manipulators != 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_manipulators != 2)
-choice("Load game", , , special:saves) if (v_b3_ch6_manipulators != 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
 choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0)
 choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
 
@@ -2305,9 +2303,9 @@ TEXT:
 choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
 choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
 choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
-choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus != 1)
-choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus != 1)
-choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus != 1)
+choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0)
+choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1)
+choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2)
 choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_selected == 3)
 choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_selected == 3)
 choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_selected == 3)
@@ -3002,8 +3000,8 @@ TEXT:
 "Oh, yeah!" Hadrik says. "Now that you mention it, I think I can sense his aura too! He's not too far from us!"
 
 }
-choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 1)
-choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 1)
+choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing > 0)
+choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing > 0)
 choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 0)
 choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 0)
 

@@ -556,8 +556,8 @@ The channel of communication on her side is now closed.
 }
 choice("Keep the channel open on my side.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 1) if (v_b2_ch8_energizer == 3)
 choice("Close the channel on my side too.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 0) if (v_b2_ch8_energizer == 3)
-choice("Keep the channel open on my side.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 1) if (v_b2_ch8_energizer != 3)
-choice("Close the channel on my side too.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 0) if (v_b2_ch8_energizer != 3)
+choice("Keep the channel open on my side.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 1)
+choice("Close the channel on my side too.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 0)
 
 
 ID: B2-Ch09b-Channel
@@ -676,10 +676,10 @@ I then wait for all the others to reach my position, before continuing to talk.
 "Because no time-freezing spell lasts forever," Melindra says. "No matter how long it takes, the spell would still need to end at some point. But if you don't feel like waiting, and you don't have any direct way of cancelling the spell, you could always try to physically interact with some of the people who are frozen in time. There is one thing that all of the time-freezing spells have in common, and it's that you can't physically interact with any living beings that are frozen in time without triggering the cancellation of your spell."
 
 }
-choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer == 1)
-choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer == 1)
-choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer != 1)
-choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer != 1)
+choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer > 0)
+choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer > 0)
+choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 1)
+choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 0)
 
 
 ID: B2-Ch09b-Energizer-Rose
@@ -934,8 +934,8 @@ It didn't take me long to fall asleep, and I woke up several hours later, at the
 }
 choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 0)
 choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 0)
-choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 1)
-choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 1)
+choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer > 0)
+choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer > 0)
 choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 2)
 choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 2)
 choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 3)
@@ -1048,8 +1048,8 @@ So, the question here is... Did he place down a good card? Or a bad card?
 "I know," Hadrik says. "That's why I tried to arrange that card game before we went to sleep. I was hoping that maybe if they all got to talk to each other more, they'd reach some kind of understanding. I haven't had any luck so far, though."
 
 }
-choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch9_amused == 1)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch9_amused == 1)
+choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch9_amused > 0)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch9_amused > 0)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
 choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 2)

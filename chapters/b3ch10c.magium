@@ -367,7 +367,7 @@ She then turns towards me, giving me a look suggesting that she knows I'm the on
 "You know where to find us," Daren says.
 
 choice("Continue", B3-Ch10c-Revenant, v_current_scene = B3-Ch10c-Revenant) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch10c-Condition, v_current_scene = B3-Ch10c-Condition) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch10c-Condition, v_current_scene = B3-Ch10c-Condition) if (v_ch11_saved_rose > 0)
 
 
 ID: B3-Ch10c-Revenant
@@ -559,8 +559,8 @@ While Kate, Flower and I dismantle the tents, Hadrik helps Daren with putting hi
 "I agree," Kate says. "It would be too risky for all of us to go. Maybe it should be just me. I'm the only one that Meridith specifically asked to meet."
 
 }
-choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose == 1)
-choice("Say nothing, and wait to see how the team reacts to Kate's proposal.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 0) if (v_ch11_saved_rose == 1)
+choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose > 0)
+choice("Say nothing, and wait to see how the team reacts to Kate's proposal.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 0) if (v_ch11_saved_rose > 0)
 choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose == 0)
 choice("Say nothing, and wait to see how the team reacts to Kate's proposal.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 0) if (v_ch11_saved_rose == 0)
 
@@ -1448,8 +1448,8 @@ After walking some more through the corridor, we eventually come upon the door l
 "Right now we're only discussing whether we should mention this detail to Meridith or not," Daren says. "Once we hear her side of the story, we might be able to make a more informed decision, but maybe it would be better to let her bring up the subject on her own. What do you guys think?"
 
 }
-choice("""I think it would be better to mention it to Meridith.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 1) if (v_b3_ch10_node == 1)
-choice("""We should probably avoid mentioning any of this to Meridith, for now.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 0) if (v_b3_ch10_node == 1)
+choice("""I think it would be better to mention it to Meridith.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 1) if (v_b3_ch10_node > 0)
+choice("""We should probably avoid mentioning any of this to Meridith, for now.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 0) if (v_b3_ch10_node > 0)
 choice("""I think it would be better to mention it to Meridith.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 1) if (v_b3_ch10_node == 0)
 choice("""We should probably avoid mentioning any of this to Meridith, for now.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 0) if (v_b3_ch10_node == 0)
 

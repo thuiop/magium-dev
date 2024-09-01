@@ -381,8 +381,8 @@ While Daren was talking, Flower started to shoot fireballs at the three ogres th
 "Good," Daren says. "The ogres are already dead. Let's finish the orcs off quick, and then we'll head for the mages."
 
 }
-choice("Use the crossbow to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 1) if (v_b2_ch5_scimitar != 0)
-choice("Use the scimitar to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 0) if (v_b2_ch5_scimitar != 0)
+choice("Use the crossbow to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 1)
+choice("Use the scimitar to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 0)
 choice("Use the crossbow to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 1) if (v_b2_ch5_scimitar == 0)
 choice("Use the dagger to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 0) if (v_b2_ch5_scimitar == 0)
 
@@ -419,7 +419,7 @@ Meanwhile, Daren and Nolderan have both reached the orcs on the left, and now th
 
 "You may be saying this, but you are clearly enjoying the fight," Nolderan says, with a grin, as he dances away from one enemy, and prepares to engage another. "Here's another reckless move for you, boy. Get ready!"
 
-choice("Continue", B2-Ch10a-Crossbow, v_current_scene = B2-Ch10a-Crossbow) if (v_b2_ch10_crossbow == 1)
+choice("Continue", B2-Ch10a-Crossbow, v_current_scene = B2-Ch10a-Crossbow) if (v_b2_ch10_crossbow > 0)
 choice("Continue", B2-Ch10a-Dagger, v_current_scene = B2-Ch10a-Dagger) if (v_b2_ch10_crossbow == 0)
 
 
@@ -1053,8 +1053,8 @@ Now, then... which one of its weak points should I go for... The eyes? Or its no
 }
 choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_b2_ch10_bribe == 2 && v_ch10_gems == 1)
 choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_b2_ch10_bribe == 2 && v_ch10_gems == 1)
-choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_b2_ch10_bribe != 2)
-choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_b2_ch10_bribe != 2)
+choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0)
+choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1)
 choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_ch10_gems == 0)
 choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_ch10_gems == 0)
 
@@ -1488,10 +1488,10 @@ When they hear Melindra's words, Kate frowns at me, and she leaves for her tent,
 "I don't know what his plan is," Melindra says. "I can't read minds. All I know is that my instincts are telling me not to trust him. Listen, I'm not saying that we shouldn't go with him at all. Believe me, there's nothing that I'd love better than for us to get teleported right at Ollendor's doorstep, without any effort on our part. But I still think we should be cautious. We shouldn't just take everything this guy says for granted. Do you understand what I'm saying?"
 
 }
-choice("""I guess we could ask Arraka to regularly check for traps, on our way to Nolderan's camp.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 0) if (v_b2_ch8_energizer == 1)
-choice("""I think you're worrying over nothing. Nolderan seems alright in my book.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 1) if (v_b2_ch8_energizer == 1)
-choice("""I guess we could ask Arraka to regularly check for traps, on our way to Nolderan's camp.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 0) if (v_b2_ch8_energizer != 1)
-choice("""I think you're worrying over nothing. Nolderan seems alright in my book.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 1) if (v_b2_ch8_energizer != 1)
+choice("""I guess we could ask Arraka to regularly check for traps, on our way to Nolderan's camp.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 0) if (v_b2_ch8_energizer > 0)
+choice("""I think you're worrying over nothing. Nolderan seems alright in my book.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 1) if (v_b2_ch8_energizer > 0)
+choice("""I guess we could ask Arraka to regularly check for traps, on our way to Nolderan's camp.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 0)
+choice("""I think you're worrying over nothing. Nolderan seems alright in my book.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 1)
 
 
 ID: B2-Ch10a-Intimidating

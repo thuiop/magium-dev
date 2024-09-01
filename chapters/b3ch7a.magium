@@ -339,8 +339,8 @@ If our pursuers were to hide their auras properly, then I don't think there woul
 "So it must have been either Hadrik... or Gontrok," Leila writes.
 
 }
-choice("""It was probably Hadrik.""", B3-Ch07a-Hadrik, v_current_scene = B3-Ch07a-Hadrik) if (v_b3_ch6_transceivers != 2)
-choice("""I think it was Gontrok.""", B3-Ch07a-Gontrok, v_current_scene = B3-Ch07a-Gontrok) if (v_b3_ch6_transceivers != 2)
+choice("""It was probably Hadrik.""", B3-Ch07a-Hadrik, v_current_scene = B3-Ch07a-Hadrik)
+choice("""I think it was Gontrok.""", B3-Ch07a-Gontrok, v_current_scene = B3-Ch07a-Gontrok)
 choice("""It was probably Hadrik.""", B3-Ch07a-Hadrik, v_current_scene = B3-Ch07a-Hadrik) if (v_b3_ch6_transceivers == 2)
 choice("""I think it was Gontrok.""", B3-Ch07a-Gontrok, v_current_scene = B3-Ch07a-Gontrok) if (v_b3_ch6_transceivers == 2)
 
@@ -452,10 +452,10 @@ Gontrok laughs, and then he grins maliciously at Leila.
 "We have a deal, then!" he says.
 
 }
-choice("Attack Gontrok together with Leila, while he isn't defending himself.", B3-Ch07a-Attack, v_current_scene = B3-Ch07a-Attack, v_b3_ch7_bet = 0) if (v_b3_ch6_coward != 2)
-choice("Try to convince Gontrok that our weapons are in fact as sharp as Daren's sword.", B3-Ch07a-Convince, v_current_scene = B3-Ch07a-Convince, v_b3_ch7_bet = 1) if (v_b3_ch6_coward != 2)
-choice("Try to find a way to defeat Gontrok without using any of our weapons.", B3-Ch07a-Weapons, v_current_scene = B3-Ch07a-Weapons, v_b3_ch7_bet = 2) if (v_b3_ch6_coward != 2)
-choice("Tell Leila that she shouldn't take the bet and that we should fight Gontrok together instead.", B3-Ch07a-Provoke, v_current_scene = B3-Ch07a-Provoke, v_b3_ch7_bet = 3) if (v_b3_ch6_coward != 2)
+choice("Attack Gontrok together with Leila, while he isn't defending himself.", B3-Ch07a-Attack, v_current_scene = B3-Ch07a-Attack, v_b3_ch7_bet = 0)
+choice("Try to convince Gontrok that our weapons are in fact as sharp as Daren's sword.", B3-Ch07a-Convince, v_current_scene = B3-Ch07a-Convince, v_b3_ch7_bet = 1)
+choice("Try to find a way to defeat Gontrok without using any of our weapons.", B3-Ch07a-Weapons, v_current_scene = B3-Ch07a-Weapons, v_b3_ch7_bet = 2)
+choice("Tell Leila that she shouldn't take the bet and that we should fight Gontrok together instead.", B3-Ch07a-Provoke, v_current_scene = B3-Ch07a-Provoke, v_b3_ch7_bet = 3)
 choice("Attack Gontrok together with Leila, while he isn't defending himself.", B3-Ch07a-Attack, v_current_scene = B3-Ch07a-Attack, v_b3_ch7_bet = 0) if (v_b3_ch6_coward == 2)
 choice("Try to convince Gontrok that our weapons are in fact as sharp as Daren's sword.", B3-Ch07a-Convince, v_current_scene = B3-Ch07a-Convince, v_b3_ch7_bet = 1) if (v_b3_ch6_coward == 2)
 choice("Try to find a way to defeat Gontrok without using any of our weapons.", B3-Ch07a-Weapons, v_current_scene = B3-Ch07a-Weapons, v_b3_ch7_bet = 2) if (v_b3_ch6_coward == 2)
@@ -1004,8 +1004,7 @@ Just like the last time, the royal guard's voice appears to be coming from all a
 Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor.
 
 }
-choice("Continue", B3-Ch07a-Loyrang, v_current_scene = B3-Ch07a-Loyrang) if (v_b3_ch7_massage != 2)
-choice("Continue", B3-Ch07a-Loyrang, v_current_scene = B3-Ch07a-Loyrang) if (v_b3_ch7_massage == 2)
+choice("Continue", B3-Ch07a-Loyrang, v_current_scene = B3-Ch07a-Loyrang)
 
 
 ID: B3-Ch07a-Loyrang
@@ -1149,9 +1148,9 @@ Just like the last time, the royal guard's voice appears to be coming from all a
 choice("""If you want to kill the king, then you'd better wait in line! We were here first!""", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line) if (v_b3_ch7_bet == 2)
 choice("""What a coincidence! We want to kill the king too! Why don't we join forces?""", B3-Ch07a-Join, v_current_scene = B3-Ch07a-Join) if (v_b3_ch7_bet == 2)
 choice("""You're going to kill the king? Perfect! Less work for us, then!""", B3-Ch07a-Work, v_current_scene = B3-Ch07a-Work) if (v_b3_ch7_bet == 2)
-choice("""If you want to kill the king, then you'd better wait in line! We were here first!""", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line) if (v_b3_ch7_bet == 1)
-choice("""What a coincidence! We want to kill the king too! Why don't we join forces?""", B3-Ch07a-Join, v_current_scene = B3-Ch07a-Join) if (v_b3_ch7_bet == 1)
-choice("""You're going to kill the king? Perfect! Less work for us, then!""", B3-Ch07a-Work, v_current_scene = B3-Ch07a-Work) if (v_b3_ch7_bet == 1)
+choice("""If you want to kill the king, then you'd better wait in line! We were here first!""", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line) if (v_b3_ch7_bet > 0)
+choice("""What a coincidence! We want to kill the king too! Why don't we join forces?""", B3-Ch07a-Join, v_current_scene = B3-Ch07a-Join) if (v_b3_ch7_bet > 0)
+choice("""You're going to kill the king? Perfect! Less work for us, then!""", B3-Ch07a-Work, v_current_scene = B3-Ch07a-Work) if (v_b3_ch7_bet > 0)
 choice("""If you want to kill the king, then you'd better wait in line! We were here first!""", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line) if (v_b3_ch7_bet == 6)
 choice("""What a coincidence! We want to kill the king too! Why don't we join forces?""", B3-Ch07a-Join, v_current_scene = B3-Ch07a-Join) if (v_b3_ch7_bet == 6)
 choice("""You're going to kill the king? Perfect! Less work for us, then!""", B3-Ch07a-Work, v_current_scene = B3-Ch07a-Work) if (v_b3_ch7_bet == 6)
@@ -1608,8 +1607,8 @@ TEXT:
 "I'm not sure," I say. "If we close it, then the invisible illusionist likely won't be able to follow us anymore, but we also won't be able to retreat into the tunnels if something goes terribly wrong. I think Illuna had to direct some of her magical energy into the wall to open it when we were here the last time, and neither of us can do that. You only need to touch the wall once to close it, though, so that is something that we can do at least. Let me think about it for a second."
 
 }
-choice("Close the secret door behind us.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 1) if (v_b3_ch7_massage != 2)
-choice("Leave the door open.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 0) if (v_b3_ch7_massage != 2)
+choice("Close the secret door behind us.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 1)
+choice("Leave the door open.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 0)
 choice("Close the secret door behind us.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 1) if (v_b3_ch7_massage == 2)
 choice("Leave the door open.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 0) if (v_b3_ch7_massage == 2)
 
@@ -1718,8 +1717,8 @@ Just as we were hoping, the king is still inside the room, and as far as we can 
 "That is truly unfortunate," the king says. "He was a useful pawn. Very easy to manipulate. But that is enough chit-chat. You've come here with a purpose, haven't you? Go on. Strike me down. Kill this 'evil tyrant' once and for all."
 
 }
-choice("Shoot the king in the head with my crossbow.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 1) if (v_b3_ch4_billy != 0)
-choice("Ask the king where Leila's father is.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 0) if (v_b3_ch4_billy != 0)
+choice("Shoot the king in the head with my crossbow.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 1)
+choice("Ask the king where Leila's father is.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 0)
 choice("Shoot the king in the head with my crossbow.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 1) if (v_b3_ch4_billy == 0)
 choice("Ask the king where Leila's father is.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 0) if (v_b3_ch4_billy == 0)
 

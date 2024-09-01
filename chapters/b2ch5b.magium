@@ -1193,8 +1193,8 @@ I think I'm finally starting to understand how the dragon's fire breathing works
 Tyrath seems to have changed his mind again, and he's now chasing after Hadrik, who is currently in his eagle form. Even with Hadrik's speed, it still seems like the dragon is going to catch up to him soon. Maybe now would be a good time to make use of those acid coated bullets?
 
 }
-choice("Attack the dragon", B2-Ch05b-Pilot, v_current_scene = B2-Ch05b-Pilot) if (v_b2_ch5_pilot == 1)
-choice("Wait for a better moment to attack", B2-Ch05b-Death, v_current_scene = B2-Ch05b-Death) if (v_b2_ch5_pilot == 1)
+choice("Attack the dragon", B2-Ch05b-Pilot, v_current_scene = B2-Ch05b-Pilot) if (v_b2_ch5_pilot > 0)
+choice("Wait for a better moment to attack", B2-Ch05b-Death, v_current_scene = B2-Ch05b-Death) if (v_b2_ch5_pilot > 0)
 choice("Attack the dragon", B2-Ch05b-Gunner, v_current_scene = B2-Ch05b-Gunner) if (v_b2_ch5_pilot == 0)
 choice("Wait for a better moment to attack", B2-Ch05b-Death, v_current_scene = B2-Ch05b-Death) if (v_b2_ch5_pilot == 0)
 
@@ -1231,9 +1231,9 @@ I attempt to shoot at him, but Tyrath adeptly dodges most of my bullets while in
 Golmyck pulls on the control stick as hard as he can, and the plane quickly changes its direction. This does not fool the dragon, however, who immediately matches our trajectory, without falling behind. When he reaches us, Tyrath dives directly towards our cockpit, and he grabs me in his hind claws, crushing me between them, and killing me on the spot.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_pilot == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_pilot == 1)
-choice("Load game", , , special:saves) if (v_b2_ch5_pilot == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_pilot > 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_pilot > 0)
+choice("Load game", , , special:saves) if (v_b2_ch5_pilot > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_pilot == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_pilot == 0)
 choice("Load game", , , special:saves) if (v_b2_ch5_pilot == 0)

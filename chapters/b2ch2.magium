@@ -420,9 +420,7 @@ I remain silent. There would be no point in correcting him. I'd much rather have
 "Now, why would you want to do that?" I ask him. "Aren't we supposed to be part of the same team?"
 
 }
-choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell == 1)
-choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell == 2)
-choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell == 3)
+choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell > 0)
 
 
 ID: B2-Ch02a-Gallows
@@ -750,8 +748,7 @@ The only source of light in the room appears to be coming from a very small wind
 "Get up," the guard says. "It's recreation time. Go recreate. Come on, get out of here!"
 
 }
-choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened == 1)
-choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened > 0)
 
 
 ID: B2-Ch02a-Recreation
@@ -1163,8 +1160,8 @@ The girl then extends her hand towards me.
 "Barry, I have a favor to ask of you," the writing says. "Could we continue our conversation inside my cell? There's something else I want to ask you, and I'd rather do it in private."
 
 }
-choice("Accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 0) if (v_ch11_saved_slave != 3)
-choice("Do not accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 1) if (v_ch11_saved_slave != 3)
+choice("Accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 0)
+choice("Do not accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 1)
 choice("Accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 0) if (v_ch11_saved_slave == 3)
 choice("Do not accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 1) if (v_ch11_saved_slave == 3)
 
@@ -1381,11 +1378,11 @@ The girl gives the device one long pondering look, before she writes again.
 choice("""I wanted to save them for an emergency.""", B2-Ch02a-Emergency, v_current_scene = B2-Ch02a-Emergency) if (v_available_points == 19)
 choice("""I wanted to see how long I could last on my own!""", B2-Ch02a-Last, v_current_scene = B2-Ch02a-Last) if (v_available_points == 19)
 choice("""It's because I'm aiming to complete the 'Average Joe' achievement.""", B2-Ch02a-Average, v_ac_b2_ch2_wall = 1, v_current_scene = B2-Ch02a-Average, special:achievement-Fourth wall breaker-v_ac_b2_ch2_wall) if (v_available_points == 19)
-choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup) if (v_available_points != 19)
+choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup)
 choice("""I wanted to save them for an emergency.""", B2-Ch02a-Emergency, v_current_scene = B2-Ch02a-Emergency) if (v_available_points == 19)
 choice("""I wanted to see how long I could last on my own!""", B2-Ch02a-Last, v_current_scene = B2-Ch02a-Last) if (v_available_points == 19)
 choice("""It's because I'm aiming to complete the 'Average Joe' achievement.""", B2-Ch02a-Average, v_ac_b2_ch2_wall = 1, v_current_scene = B2-Ch02a-Average, special:achievement-Fourth wall breaker-v_ac_b2_ch2_wall) if (v_available_points == 19)
-choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup) if (v_available_points != 19)
+choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup)
 
 
 ID: B2-Ch02a-Emergency
@@ -1570,7 +1567,7 @@ There's no way I could agree to take this deal after I already convinced everyon
 }
 choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_ac_b2_ch2_easy = 1, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3, special:achievement-The easy way out-v_ac_b2_ch2_easy) if (v_b2_ch1_interfere == 0)
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1)
+choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere > 0)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 1)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 1)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 0)
@@ -1621,8 +1618,8 @@ There is a brief pause, during which none of us says anything.
 choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere == 0)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3) if (v_b2_ch1_interfere == 0)
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere == 1)
+choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere > 0)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere > 0)
 
 
 ID: B2-Ch02a-Deal-conclusion
@@ -1682,10 +1679,7 @@ The lessathi doesn't say anything for a few seconds, but then he answers me in t
 With these last words, the lessathi makes his departure. I wait for a minute, to make sure that he's gone for good, and then I get back to reading my notebook.
 
 }
-choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal == 1)
-choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal == 2)
-choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal == 3)
-choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal == 4)
+choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal > 0)
 
 
 ID: B2-Ch02a-Transceivers
@@ -1732,8 +1726,7 @@ Hadrik seemed to be doing a little better. From what he told me, he'd already ma
 I also asked each one of them if they'd heard anything about the rules of the upcoming arena event, but they didn't know anything more than I did. At this point, it would not surprise me if the organizers are planning to keep the rules a secret from us until the very last minute.
 
 }
-choice("Continue", B2-Ch02a-Tactical, v_current_scene = B2-Ch02a-Tactical) if (v_hearing >= 3)
-choice("Continue", B2-Ch02a-Tactical, v_current_scene = B2-Ch02a-Tactical) if (v_hearing < 3)
+choice("Continue", B2-Ch02a-Tactical, v_current_scene = B2-Ch02a-Tactical)
 
 
 ID: B2-Ch02a-Tactical

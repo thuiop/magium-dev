@@ -75,8 +75,7 @@ When I turn to look towards Peter, who was somewhere around ten feet away from u
 "Hold on a moment," the king says. "Don't you think we should be planning our attack a little before charging in like this?"
 
 }
-choice("Continue", B3-Ch09c-Invented, v_current_scene = B3-Ch09c-Invented) if (v_b3_ch9_conclusions == 2)
-choice("Continue", B3-Ch09c-Invented, v_current_scene = B3-Ch09c-Invented) if (v_b3_ch9_conclusions != 2)
+choice("Continue", B3-Ch09c-Invented, v_current_scene = B3-Ch09c-Invented)
 
 
 ID: B3-Ch09c-Invented
@@ -426,7 +425,7 @@ As I was looking at the flying hydra, I could not help but notice that the fire 
 
 choice("Burn it with fire.", B3-Ch09c-Frantically, v_current_scene = B3-Ch09c-Frantically, v_b3_ch9_hydra = 1)
 choice("Stab its heart.", B3-Ch09c-Frantically, v_current_scene = B3-Ch09c-Frantically, v_b3_ch9_hydra = 2)
-choice("Chop all its heads off at once.", B3-Ch09c-Chop, v_current_scene = B3-Ch09c-Chop, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_element != 0)
+choice("Chop all its heads off at once.", B3-Ch09c-Chop, v_current_scene = B3-Ch09c-Chop, v_ac_b3_ch9_consolation = +1)
 choice("Chop all its heads off at once.", B3-Ch09c-Frantically, v_current_scene = B3-Ch09c-Frantically, v_b3_ch9_hydra = 0) if (v_b3_ch9_element == 0)
 
 
@@ -478,9 +477,9 @@ The last thing I get to experience is my ethereal body getting melted by acid sa
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 2)
 choice("Load game", , , special:saves) if (v_b3_ch9_element == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 1)
-choice("Load game", , , special:saves) if (v_b3_ch9_element == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element > 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element > 0)
+choice("Load game", , , special:saves) if (v_b3_ch9_element > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 3)
 choice("Load game", , , special:saves) if (v_b3_ch9_element == 3)
@@ -746,8 +745,8 @@ Meanwhile, on the earthen plane, one of the metal golems has gained a significan
 }
 choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik == 0)
 choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik == 0)
-choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik == 1)
-choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik == 1)
+choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik > 0)
+choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik > 0)
 
 
 ID: B3-Ch09c-Distracted
@@ -786,9 +785,9 @@ As I am struggling to shake off the hydra, the metal golem on the earthen plane 
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 0)
 choice("Load game", , , special:saves) if (v_b3_ch9_element == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 1)
-choice("Load game", , , special:saves) if (v_b3_ch9_element == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element > 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element > 0)
+choice("Load game", , , special:saves) if (v_b3_ch9_element > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 2)
 choice("Load game", , , special:saves) if (v_b3_ch9_element == 2)
@@ -1113,8 +1112,8 @@ Just as I was preparing to engage the metal giants in open combat, I see Daren m
 "Barry, over here!" Daren says. "Come take cover behind my shield!"
 
 }
-choice("Try placing myself between two golems again.", B3-Ch09c-Between, v_current_scene = B3-Ch09c-Between) if (v_b3_ch9_hadrik == 1)
-choice("Try finding a spot in which none of the golems can attack me.", B3-Ch09c-Finding, v_current_scene = B3-Ch09c-Finding) if (v_b3_ch9_hadrik == 1)
+choice("Try placing myself between two golems again.", B3-Ch09c-Between, v_current_scene = B3-Ch09c-Between) if (v_b3_ch9_hadrik > 0)
+choice("Try finding a spot in which none of the golems can attack me.", B3-Ch09c-Finding, v_current_scene = B3-Ch09c-Finding) if (v_b3_ch9_hadrik > 0)
 choice("Take cover behind Daren's shield.", B3-Ch09c-Cover, v_current_scene = B3-Ch09c-Cover, v_b3_ch9_cover = 1) if (v_b3_ch9_hadrik == 0)
 choice("Tell Daren that it would be better if we each fought two golems instead.", B3-Ch09c-Fought, v_current_scene = B3-Ch09c-Fought) if (v_b3_ch9_hadrik == 0)
 

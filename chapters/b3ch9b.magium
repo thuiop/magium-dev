@@ -140,8 +140,8 @@ Following my lead, Flower also commences the attack, by hitting both Peter and t
 }
 choice("""Nobody is trying to kill anyone. All we want is to defeat you and bring this war to an end.""", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 0) if (v_b3_ch9_backup == 0)
 choice("""Of course we're trying to kill you. That's what you get for plotting to assassinate us.""", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 1) if (v_b3_ch9_backup == 0)
-choice("""Nobody is trying to kill anyone. All we want is to defeat you and bring this war to an end.""", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 0) if (v_b3_ch9_backup == 1)
-choice("""Of course we're trying to kill you. That's what you get for plotting to assassinate us.""", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 1) if (v_b3_ch9_backup == 1)
+choice("""Nobody is trying to kill anyone. All we want is to defeat you and bring this war to an end.""", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 0) if (v_b3_ch9_backup > 0)
+choice("""Of course we're trying to kill you. That's what you get for plotting to assassinate us.""", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 1) if (v_b3_ch9_backup > 0)
 
 
 ID: B3-Ch09b-Impenetrable
@@ -176,9 +176,9 @@ As usual, a bright light surrounds us and our bodies start to vibrate loudly. A 
 choice("Tell Flower to teleport us closer to the king and Peter this time.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 0) if (v_b3_ch9_assassinate == 0)
 choice("Tell Flower that we should move in separate directions as soon as we teleport again.", B3-Ch09b-Separate, v_current_scene = B3-Ch09b-Separate, v_b3_ch9_teleport = 1) if (v_b3_ch9_assassinate == 0)
 choice("Ask Flower if she can attack the king with a pillar of fire to break his concentration.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 2) if (v_b3_ch9_assassinate == 0)
-choice("Tell Flower to teleport us closer to the king and Peter this time.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 0) if (v_b3_ch9_assassinate == 1)
-choice("Tell Flower that we should move in separate directions as soon as we teleport again.", B3-Ch09b-Separate, v_current_scene = B3-Ch09b-Separate, v_b3_ch9_teleport = 1) if (v_b3_ch9_assassinate == 1)
-choice("Ask Flower if she can attack the king with a pillar of fire to break his concentration.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 2) if (v_b3_ch9_assassinate == 1)
+choice("Tell Flower to teleport us closer to the king and Peter this time.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 0) if (v_b3_ch9_assassinate > 0)
+choice("Tell Flower that we should move in separate directions as soon as we teleport again.", B3-Ch09b-Separate, v_current_scene = B3-Ch09b-Separate, v_b3_ch9_teleport = 1) if (v_b3_ch9_assassinate > 0)
+choice("Ask Flower if she can attack the king with a pillar of fire to break his concentration.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 2) if (v_b3_ch9_assassinate > 0)
 
 
 ID: B3-Ch09b-Separate
@@ -284,7 +284,7 @@ Oh, boy... I really hope I didn't think all that out loud, or I'll be making a c
 }
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 0)
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_b3_ch9_assassinate == 1)
-choice("Continue", B3-Ch09b-Invent, v_current_scene = B3-Ch09b-Invent) if (v_b3_ch9_backup == 1)
+choice("Continue", B3-Ch09b-Invent, v_current_scene = B3-Ch09b-Invent) if (v_b3_ch9_backup > 0)
 
 
 ID: B3-Ch09b-Melding
@@ -539,14 +539,14 @@ Shortly after the Overseer stops talking, a green light envelops the entire area
 
 "I've heard enough!" Peter tells the Overseer. "You can learn and analyze all you want after you dissolve into the ether. Prepare to die!"
 
-choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch9_teleport != 1)
-choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch9_teleport != 1)
-choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch9_teleport == 1)
-choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch9_teleport == 1)
+choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together)
+choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel)
+choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch9_teleport > 0)
+choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch9_teleport > 0)
 choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch2_name == 0)
 choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch2_name == 0)
-choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch2_name == 1)
-choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch2_name == 1)
+choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch2_name > 0)
+choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch2_name > 0)
 choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch2_name == 2)
 choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-Ch09b-Dispel, v_current_scene = B3-Ch09b-Dispel) if (v_b3_ch2_name == 2)
 choice("Fight Peter together with the Overseer.", B3-Ch09b-Together, v_current_scene = B3-Ch09b-Together) if (v_b3_ch2_name == 3)
@@ -957,9 +957,9 @@ TEXT:
 choice("Counter him by doing exactly what Brinhorn did in the battle against Azarius.", B3-Ch09b-Copy, v_current_scene = B3-Ch09b-Copy) if (v_b3_ch9_backup == 0)
 choice("Use my own spells instead of copying Brinhorn, in order to throw Peter off.", B3-Ch09b-Adversary, v_current_scene = B3-Ch09b-Adversary) if (v_b3_ch9_backup == 0)
 choice("Begin by copying Brinhorn's spells, but switch to my own spells later on.", B3-Ch09b-Guarantee, v_current_scene = B3-Ch09b-Guarantee) if (v_b3_ch9_backup == 0)
-choice("Counter him by doing exactly what Brinhorn did in the battle against Azarius.", B3-Ch09b-Copy, v_current_scene = B3-Ch09b-Copy) if (v_b3_ch9_backup == 1)
-choice("Use my own spells instead of copying Brinhorn, in order to throw Peter off.", B3-Ch09b-Adversary, v_current_scene = B3-Ch09b-Adversary) if (v_b3_ch9_backup == 1)
-choice("Begin by copying Brinhorn's spells, but switch to my own spells later on.", B3-Ch09b-Guarantee, v_current_scene = B3-Ch09b-Guarantee) if (v_b3_ch9_backup == 1)
+choice("Counter him by doing exactly what Brinhorn did in the battle against Azarius.", B3-Ch09b-Copy, v_current_scene = B3-Ch09b-Copy) if (v_b3_ch9_backup > 0)
+choice("Use my own spells instead of copying Brinhorn, in order to throw Peter off.", B3-Ch09b-Adversary, v_current_scene = B3-Ch09b-Adversary) if (v_b3_ch9_backup > 0)
+choice("Begin by copying Brinhorn's spells, but switch to my own spells later on.", B3-Ch09b-Guarantee, v_current_scene = B3-Ch09b-Guarantee) if (v_b3_ch9_backup > 0)
 
 
 ID: B3-Ch09b-Adversary
@@ -1510,8 +1510,8 @@ As expected, the king is having a hard time defending himself on both planes of 
  Taking a look at Peter and the king's unconscious bodies that are floating in the ether, a sudden thought occurs to me. If I were to kill them right now, in this place, there would be no evidence on the earthen plane to point towards me being the murderer. Most of the rebels would probably just assume that they died as a result of the Overseer's soul displacement technique. If I actually wanted them dead, there would be no better opportunity than this to rid myself of them.
 
 }
-choice("Kill Peter and the king of the underground.", B3-Ch09b-Kill, v_current_scene = B3-Ch09b-Kill, v_b3_ch9_enemies = 1) if (v_b3_ch9_backup == 1)
-choice("Spare their lives.", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 0) if (v_b3_ch9_backup == 1)
+choice("Kill Peter and the king of the underground.", B3-Ch09b-Kill, v_current_scene = B3-Ch09b-Kill, v_b3_ch9_enemies = 1) if (v_b3_ch9_backup > 0)
+choice("Spare their lives.", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 0) if (v_b3_ch9_backup > 0)
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 0)
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_backup == 0 && v_toughness < 4 && v_b3_ch9_assassinate == 1)
 choice("Kill Peter and the king of the underground.", B3-Ch09b-Kill, v_current_scene = B3-Ch09b-Kill, v_b3_ch9_enemies = 1) if (v_b3_ch9_backup == 0 && v_toughness >= 4)
@@ -1582,8 +1582,8 @@ She cancels her fire jets a few seconds later when she comes back to her senses,
 }
 choice("""I'll tell him the truth.""", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 2) if (v_b3_ch9_backup == 0)
 choice("""I'll tell him that there was no way to avoid killing them, and that they died in battle.""", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 3) if (v_b3_ch9_backup == 0)
-choice("""I'll tell him the truth.""", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 2) if (v_b3_ch9_backup == 1)
-choice("""I'll tell him that there was no way to avoid killing them, and that they died in battle.""", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 3) if (v_b3_ch9_backup == 1)
+choice("""I'll tell him the truth.""", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 2) if (v_b3_ch9_backup > 0)
+choice("""I'll tell him that there was no way to avoid killing them, and that they died in battle.""", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 3) if (v_b3_ch9_backup > 0)
 
 
 ID: B3-Ch09b-Cube

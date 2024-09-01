@@ -770,8 +770,8 @@ Kate frowns at me.
 }
 choice("""But I want to worry about you!""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 0) if (v_b3_ch1_kate2 == 0)
 choice("""Well, if you're sure you can handle it, then I won't press the issue any further.""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 1) if (v_b3_ch1_kate2 == 0)
-choice("""But I want to worry about you!""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 0) if (v_b3_ch1_kate2 == 1)
-choice("""Well, if you're sure you can handle it, then I won't press the issue any further.""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 1) if (v_b3_ch1_kate2 == 1)
+choice("""But I want to worry about you!""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 0) if (v_b3_ch1_kate2 > 0)
+choice("""Well, if you're sure you can handle it, then I won't press the issue any further.""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 1) if (v_b3_ch1_kate2 > 0)
 choice("""But I want to worry about you!""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 0) if (v_b3_ch1_kate2 == 2)
 choice("""Well, if you're sure you can handle it, then I won't press the issue any further.""", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 1) if (v_b3_ch1_kate2 == 2)
 
@@ -898,8 +898,7 @@ As soon as he does this, the screen of my device turns red, and all it says is '
 "Alright," I say. "Let me just get my crossbow from my tent, and I'll be right with you."
 
 }
-choice("Continue", B3-Ch01a-Oversee, v_current_scene = B3-Ch01a-Oversee) if (v_b3_ch1_unlock == 1)
-choice("Continue", B3-Ch01a-Oversee, v_current_scene = B3-Ch01a-Oversee) if (v_b3_ch1_unlock == 2)
+choice("Continue", B3-Ch01a-Oversee, v_current_scene = B3-Ch01a-Oversee) if (v_b3_ch1_unlock > 0)
 
 
 ID: B3-Ch01a-Complicated
@@ -991,8 +990,7 @@ He pauses, as his gaze now turns to the side.
 "Or how Eiden offered to give me the power to save that slave girl simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
 
 }
-choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity) if (v_ch11_saved_slave != 3)
-choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity) if (v_ch11_saved_slave == 3)
+choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity)
 
 
 ID: B3-Ch01a-Accomplish
@@ -1044,8 +1042,7 @@ He pauses, as his gaze now turns to the side.
 "Or how Eiden offered to give me the power to save that slave girl simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
 
 }
-choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity) if (v_ch11_saved_slave != 3)
-choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity) if (v_ch11_saved_slave == 3)
+choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity)
 
 
 ID: B3-Ch01a-Dance
@@ -1105,8 +1102,7 @@ He pauses, as his gaze now turns to the side.
 "Or how Eiden offered to give me the power to save that slave girl simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
 
 }
-choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity) if (v_ch11_saved_slave != 3)
-choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity) if (v_ch11_saved_slave == 3)
+choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity)
 
 
 ID: B3-Ch01a-Humanity
@@ -1402,5 +1398,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B3-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch1_unlock != 2)
-choice("Go to next chapter", B3-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch1_unlock == 2)
+choice("Go to next chapter", B3-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

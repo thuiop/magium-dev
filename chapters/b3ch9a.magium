@@ -1204,8 +1204,7 @@ For the next few minutes, Illuna shows Daren and Melindra how to will their bodi
 "It's not the same thing!" Flower says, while she is putting the cups on the table. "You and I are living together. They are our guests. It's normal that they get special treatment. And besides, we've been using the same oven almost every day for the past twenty years! You're already used to it!"
 
 }
-choice("Continue", B3-Ch09a-Decades, v_current_scene = B3-Ch09a-Decades) if (v_b3_ch9_premonition != 2)
-choice("Continue", B3-Ch09a-Decades, v_current_scene = B3-Ch09a-Decades) if (v_b3_ch9_premonition == 2)
+choice("Continue", B3-Ch09a-Decades, v_current_scene = B3-Ch09a-Decades)
 
 
 ID: B3-Ch09a-Decades
@@ -1584,9 +1583,9 @@ choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-C
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 == 0)
 choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 == 0)
 choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 == 0)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 == 1)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 == 1)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 == 1)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 > 0)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 > 0)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 > 0)
 
 
 ID: B3-Ch09a-Stance
@@ -1693,10 +1692,10 @@ She pauses.
 choice("Fire", B3-Ch09a-Fire, v_current_scene = B3-Ch09a-Fire, v_b3_ch9_element = 0) if (v_b3_ch9_premonition == 2)
 choice("Water", B3-Ch09a-Water, v_current_scene = B3-Ch09a-Water, v_b3_ch9_element = 1) if (v_b3_ch9_premonition == 2)
 choice("Air", B3-Ch09a-Air, v_current_scene = B3-Ch09a-Air, v_b3_ch9_element = 2) if (v_b3_ch9_premonition == 2)
-choice("Fire", B3-Ch09a-Fire, v_current_scene = B3-Ch09a-Fire, v_b3_ch9_element = 0) if (v_b3_ch9_premonition != 2)
-choice("Water", B3-Ch09a-Water, v_current_scene = B3-Ch09a-Water, v_b3_ch9_element = 1) if (v_b3_ch9_premonition != 2)
-choice("Air", B3-Ch09a-Air, v_current_scene = B3-Ch09a-Air, v_b3_ch9_element = 2) if (v_b3_ch9_premonition != 2)
-choice("Ice", B3-Ch09a-Ice, v_current_scene = B3-Ch09a-Ice, v_b3_ch9_element = 3) if (v_b3_ch9_premonition != 2)
+choice("Fire", B3-Ch09a-Fire, v_current_scene = B3-Ch09a-Fire, v_b3_ch9_element = 0)
+choice("Water", B3-Ch09a-Water, v_current_scene = B3-Ch09a-Water, v_b3_ch9_element = 1)
+choice("Air", B3-Ch09a-Air, v_current_scene = B3-Ch09a-Air, v_b3_ch9_element = 2)
+choice("Ice", B3-Ch09a-Ice, v_current_scene = B3-Ch09a-Ice, v_b3_ch9_element = 3)
 
 
 ID: B3-Ch09a-Fire
@@ -2008,5 +2007,5 @@ As Illuna and Flower are talking, we can hear some grunts in the background from
 }
 choice("Teleport to Peter.", B3-Ch09c-Teleport, v_current_scene = B3-Ch09c-Teleport) if (v_b3_ch8_overseer2 == 0)
 choice("Teleport to the Overseer.", B3-Ch09c-Teaming, v_current_scene = B3-Ch09c-Teaming, v_ac_b3_ch9_consolation = +1) if (v_b3_ch8_overseer2 == 0)
-choice("Teleport to Peter.", B3-Ch09b-Challenge, v_current_scene = B3-Ch09b-Challenge, v_b3_ch9_backup = 0) if (v_b3_ch8_overseer2 == 1)
-choice("Teleport to the Overseer.", B3-Ch09b-Backup, v_current_scene = B3-Ch09b-Backup, v_b3_ch9_backup = 1) if (v_b3_ch8_overseer2 == 1)
+choice("Teleport to Peter.", B3-Ch09b-Challenge, v_current_scene = B3-Ch09b-Challenge, v_b3_ch9_backup = 0) if (v_b3_ch8_overseer2 > 0)
+choice("Teleport to the Overseer.", B3-Ch09b-Backup, v_current_scene = B3-Ch09b-Backup, v_b3_ch9_backup = 1) if (v_b3_ch8_overseer2 > 0)

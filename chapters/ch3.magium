@@ -54,8 +54,7 @@ Daren, Kate and I are sitting in a circle, on the rocky floor of our deer host's
 "Fine, I give up. You win, Barry. So what are these stats of yours, anyway?"
 
 }
-choice("Continue", Ch3-Intro2, v_current_scene = Ch3-Intro2, v_checkpoint_rich = 0) if (v_ch2_deer_interaction != 1)
-choice("Continue", Ch3-Intro2, v_current_scene = Ch3-Intro2, v_checkpoint_rich = 0) if (v_ch2_deer_interaction == 1)
+choice("Continue", Ch3-Intro2, v_current_scene = Ch3-Intro2, v_checkpoint_rich = 0)
 
 
 ID: Ch3-Intro2
@@ -89,12 +88,12 @@ Daren pauses.
 She pushes a big plate of cooked meat towards us with her front hoof. Judging by the looks and smell, it appears to be... deer meat.
 
 }
-choice("Focus on avoiding attacks and baiting opponents", Ch3-Tactics, v_current_scene = Ch3-Tactics, v_ch3_tactics = 1) if (v_ch2_deer_interaction != 1)
-choice("Focus on fighting the enemies head on", Ch3-Tactics, v_current_scene = Ch3-Tactics, v_ch3_tactics = 2) if (v_ch2_deer_interaction != 1)
-choice("Focus on observing the battlefield and providing tactical information", Ch3-Tactics, v_current_scene = Ch3-Tactics, v_ch3_tactics = 3) if (v_ch2_deer_interaction != 1)
-choice("Ask her how she got the plate", Ch3-Plate, v_current_scene = Ch3-Plate) if (v_ch2_deer_interaction == 1)
-choice("Ask her if they're cannibals", Ch3-Cannibals, v_current_scene = Ch3-Cannibals) if (v_ch2_deer_interaction == 1)
-choice("Call out to see if Molan is still alive", Ch3-Molan, v_current_scene = Ch3-Molan) if (v_ch2_deer_interaction == 1)
+choice("Focus on avoiding attacks and baiting opponents", Ch3-Tactics, v_current_scene = Ch3-Tactics, v_ch3_tactics = 1)
+choice("Focus on fighting the enemies head on", Ch3-Tactics, v_current_scene = Ch3-Tactics, v_ch3_tactics = 2)
+choice("Focus on observing the battlefield and providing tactical information", Ch3-Tactics, v_current_scene = Ch3-Tactics, v_ch3_tactics = 3)
+choice("Ask her how she got the plate", Ch3-Plate, v_current_scene = Ch3-Plate) if (v_ch2_deer_interaction > 0)
+choice("Ask her if they're cannibals", Ch3-Cannibals, v_current_scene = Ch3-Cannibals) if (v_ch2_deer_interaction > 0)
+choice("Call out to see if Molan is still alive", Ch3-Molan, v_current_scene = Ch3-Molan) if (v_ch2_deer_interaction > 0)
 
 
 ID: Ch3-Plate
@@ -374,9 +373,7 @@ Daren shrugs.
 I follow Daren out of the cave, and together we start climbing the mountain, to reach a good vantage point. The moon is high in the sky, and the stars are bright. We won't have any trouble spotting enemies if they approach. 
 
 }
-choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage) if (v_ch3_tactics == 1)
-choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage) if (v_ch3_tactics == 2)
-choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage) if (v_ch3_tactics == 3)
+choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage) if (v_ch3_tactics > 0)
 
 
 ID: Ch3-Vantage
@@ -519,9 +516,9 @@ After yet another pause, Daren decides to change the subject.
 "So, how's it going with Kate, then? Are you making any progress with her?"
 
 }
-choice("""I'm not trying to seduce her, Daren.""", Ch3-Seduce, v_current_scene = Ch3-Seduce, v_ch3_seduce = 1, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 1)
-choice("""She still hasn't given in to my charms.""", Ch3-Charm, v_current_scene = Ch3-Charm, v_ch3_seduce = 2, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 1)
-choice("""She's eating out of the palm of my hand!""", Ch3-Palm, v_current_scene = Ch3-Palm, v_ch3_seduce = 3, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 1)
+choice("""I'm not trying to seduce her, Daren.""", Ch3-Seduce, v_current_scene = Ch3-Seduce, v_ch3_seduce = 1, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason > 0)
+choice("""She still hasn't given in to my charms.""", Ch3-Charm, v_current_scene = Ch3-Charm, v_ch3_seduce = 2, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason > 0)
+choice("""She's eating out of the palm of my hand!""", Ch3-Palm, v_current_scene = Ch3-Palm, v_ch3_seduce = 3, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason > 0)
 choice("""I'm not trying to seduce her, Daren.""", Ch3-Seduce, v_current_scene = Ch3-Seduce, v_ch3_seduce = 1, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 2)
 choice("""She still hasn't given in to my charms.""", Ch3-Charm, v_current_scene = Ch3-Charm, v_ch3_seduce = 2, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 2)
 choice("""She's eating out of the palm of my hand!""", Ch3-Palm, v_current_scene = Ch3-Palm, v_ch3_seduce = 3, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 2)
@@ -837,8 +834,7 @@ She stops in front of me, and looks me straight in the eye.
 She stops in front of me, and looks me straight in the eye.
 
 }
-choice("Continue", Ch3-Bugging, v_current_scene = Ch3-Bugging) if (v_ch3_awkward == 1)
-choice("Continue", Ch3-Bugging, v_current_scene = Ch3-Bugging) if (v_ch3_awkward == 2)
+choice("Continue", Ch3-Bugging, v_current_scene = Ch3-Bugging) if (v_ch3_awkward > 0)
 
 
 ID: Ch3-Bugging
@@ -940,10 +936,7 @@ Kate still doesn't trust me. If I tell her I'm the one that convinced Daren to s
 Is that so?...
 
 }
-choice("Continue", Ch3-Born, v_current_scene = Ch3-Born) if (v_ch2_kate_whisper == 1)
-choice("Continue", Ch3-Born, v_current_scene = Ch3-Born) if (v_ch2_kate_whisper == 2)
-choice("Continue", Ch3-Born, v_current_scene = Ch3-Born) if (v_ch2_kate_whisper == 3)
-choice("Continue", Ch3-Born, v_current_scene = Ch3-Born) if (v_ch2_kate_whisper == 4)
+choice("Continue", Ch3-Born, v_current_scene = Ch3-Born) if (v_ch2_kate_whisper > 0)
 
 
 ID: Ch3-Born
@@ -1094,9 +1087,7 @@ Her reaction took me by surprise.
 "What's that supposed to mean?"
 
 }
-choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry == 1)
-choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry == 2)
-choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry == 3)
+choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry > 0)
 
 
 ID: Ch3-Dart
@@ -1355,12 +1346,12 @@ As she finishes her sentence, she lets go of her sword and falls face first on t
 "This kind of damage isn't going to just disappear with a simple healing spell," Daren says. "She'll need quite some time to fully recover. At least she's no longer in any mortal danger. Would you mind telling me how the two of you got the bright idea to wander so far away from our camp without waking me up?" 
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch3_daren_worry != 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch3_daren_worry != 1)
-choice("Load game", , , special:saves) if (v_ch3_daren_worry != 1)
-choice("""She wanted to ask me in private why we didn't try to purify her.""", Ch3-Private, v_current_scene = Ch3-Private) if (v_ch3_daren_worry == 1)
-choice("""We thought we could handle it.""", Ch3-Handle, v_current_scene = Ch3-Handle) if (v_ch3_daren_worry == 1)
-choice("""Kate cast a barrier that prevents enemies from approaching our cave.""", Ch3-Barrier, v_current_scene = Ch3-Barrier) if (v_ch3_daren_worry == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
+choice("""She wanted to ask me in private why we didn't try to purify her.""", Ch3-Private, v_current_scene = Ch3-Private) if (v_ch3_daren_worry > 0)
+choice("""We thought we could handle it.""", Ch3-Handle, v_current_scene = Ch3-Handle) if (v_ch3_daren_worry > 0)
+choice("""Kate cast a barrier that prevents enemies from approaching our cave.""", Ch3-Barrier, v_current_scene = Ch3-Barrier) if (v_ch3_daren_worry > 0)
 
 
 ID: Ch3-Private
@@ -2061,7 +2052,7 @@ TEXT:
 
 ...easy. Easier than I thought it would be. I was afraid I'd hesitate at the very last moment, but the thought never crossed my mind. My hands and my body just instinctively moved the way they should have, and there were no awkward movements. This is a relief. I'll likely have to kill a lot more people before this tournament is over. It's good to know it isn't going to affect me.
 
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_ch3_saved_from_dart == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_ch3_saved_from_dart > 0)
 choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_ch3_saved_from_dart == 0)
 
 
@@ -2070,7 +2061,7 @@ TEXT:
 
 ...necessary. I didn't exactly enjoy it, but it was either them or me. I'm sure they would have done the same to me without so much as the faintest trace of hesitation or remorse. In a battle, even the slightest hint of hesitation can prove fatal. We all joined this tournament knowing this. Knowing that we could die at any moment.
 
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_ch3_saved_from_dart == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_ch3_saved_from_dart > 0)
 choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_ch3_saved_from_dart == 0)
 
 
@@ -2079,7 +2070,7 @@ TEXT:
 
 ...horrifying. As I'm watching these blood stained corpses, I can't help but think that what I've done can never be undone, and I feel like I can almost hear the desperate cries of these men's loved ones, as they would throw themselves over their lifeless bodies. That is to say, if their bodies will ever reach them. No... I can't let these feelings overwhelm me. I did what I had to do. Kate's in danger. I need to go on.
 
-choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_ch3_saved_from_dart == 1)
+choice("Continue", Ch3-Glance, v_current_scene = Ch3-Glance) if (v_ch3_saved_from_dart > 0)
 choice("Continue", Ch3-Decide-Killed, v_current_scene = Ch3-Decide-Killed) if (v_ch3_saved_from_dart == 0)
 
 
@@ -2496,7 +2487,7 @@ I go deeper into the forest, in order to avoid being detected, and I follow the 
 
 As I run through the forest, I get spotted by a group of about ten men. Since they're relatively far away from me, they have to get closer to me in order to be able to aim their shots properly.
 
-choice("Continue", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_ch3_tactic == 1)
+choice("Continue", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_ch3_tactic > 0)
 choice("Continue", Ch3-Snipe-first, v_current_scene = Ch3-Snipe-first) if (v_ch3_tactic == 3)
 choice("Continue", Ch3-Move-first, v_current_scene = Ch3-Move-first) if (v_ch3_tactic == 2)
 choice("Continue", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_ch3_tactic == 4)
@@ -2510,7 +2501,7 @@ I start heading in the opposite direction of where I first heard their leader's 
 
 As I run through the forest, I get spotted by a group of about ten men. Since they're relatively far away from me, they have to get closer to me in order to be able to aim their shots properly.
 
-choice("Continue", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_ch3_tactic == 1)
+choice("Continue", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_ch3_tactic > 0)
 choice("Continue", Ch3-Snipe-first, v_current_scene = Ch3-Snipe-first) if (v_ch3_tactic == 3)
 choice("Continue", Ch3-Move-first, v_current_scene = Ch3-Move-first) if (v_ch3_tactic == 2)
 choice("Continue", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_ch3_tactic == 4)
@@ -2908,9 +2899,9 @@ Two of the other men saw what happened, and are rushing towards their fallen com
 He might be fast, but he cannot escape my sight. I aim my crossbow for him, and shoot him in the back of the head, killing him instantly. 
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch3_prioritize == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch3_prioritize == 1)
-choice("Load game", , , special:saves) if (v_ch3_prioritize == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch3_prioritize > 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch3_prioritize > 0)
+choice("Load game", , , special:saves) if (v_ch3_prioritize > 0)
 choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 2 && v_ch3_final_decision == 2 && v_is_dead == 0)
 choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 3 && v_ch3_final_decision == 2 && v_is_dead == 0)
 choice("Continue", Ch3-Speed-crossbowmen, v_current_scene = Ch3-Speed-crossbowmen) if (v_ch3_prioritize == 4 && v_ch3_final_decision == 2 && v_is_dead == 0)
@@ -3072,7 +3063,7 @@ With the way he's acting, I doubt he'll ever muster up the courage to attack us 
 
 He scrambles to his feet and runs away as fast as he can, without looking back. I watch him go until I make sure he's gone for good, then I grab the bag of coins and head towards Kate.
 
-choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision == 1)
+choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision > 0)
 choice("Continue", Ch3-Alone-Crossbowmen-Return, v_current_scene = Ch3-Alone-Crossbowmen-Return) if (v_ch3_final_decision == 2)
 
 
@@ -3086,7 +3077,7 @@ With the way he's acting, I doubt he'll ever muster up the courage to attack us 
 
 He grabs his bag of money from the ground and runs away as fast as he can, without looking back. I watch him go until I make sure he's gone for good, and then I head towards Kate.
 
-choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision == 1)
+choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision > 0)
 choice("Continue", Ch3-Alone-Crossbowmen-Return, v_current_scene = Ch3-Alone-Crossbowmen-Return) if (v_ch3_final_decision == 2)
 
 
@@ -3095,7 +3086,7 @@ TEXT:
 
 I ignore his plead and shoot him in the head. He would have done the same to me in this situation. I take his money and I head towards Kate.
 
-choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision == 1)
+choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision > 0)
 choice("Continue", Ch3-Alone-Crossbowmen-Return, v_current_scene = Ch3-Alone-Crossbowmen-Return) if (v_ch3_final_decision == 2)
 
 
@@ -3104,7 +3095,7 @@ TEXT:
 
 I ignore his plead and shoot him in the head. He would have done the same to me in this situation. I decide to not take his money, since it's unlikely it will be of any use to me in this tournament and it will just weigh me down. I then head towards Kate.
 
-choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision == 1)
+choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision > 0)
 choice("Continue", Ch3-Alone-Crossbowmen-Return, v_current_scene = Ch3-Alone-Crossbowmen-Return) if (v_ch3_final_decision == 2)
 
 
@@ -3140,7 +3131,7 @@ TEXT:
 
 He scrambles to his feet and runs away as fast as he can, without looking back. I watch him go until I make sure he's gone for good, then I grab the bag of coins and the rest of his treasure and head towards Kate.
 
-choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision == 1)
+choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision > 0)
 choice("Continue", Ch3-Alone-Crossbowmen-Return, v_current_scene = Ch3-Alone-Crossbowmen-Return) if (v_ch3_final_decision == 2)
 
 
@@ -3152,7 +3143,7 @@ TEXT:
 
 I take his bag of coins and the rest of his treasure and head towards Kate.
 
-choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision == 1)
+choice("Continue", Ch3-Alone-Leader-Return, v_current_scene = Ch3-Alone-Leader-Return) if (v_ch3_final_decision > 0)
 choice("Continue", Ch3-Alone-Crossbowmen-Return, v_current_scene = Ch3-Alone-Crossbowmen-Return) if (v_ch3_final_decision == 2)
 
 

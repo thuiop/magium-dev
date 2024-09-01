@@ -845,8 +845,7 @@ TEXT:
 "Oh, no, I can't slow down or reverse time..." Rose says. "I only tried stopping time because this was the spell that I remembered being the least complicated to learn. I wouldn’t even dream of attempting to slow down time at my current level. As for time reversal... that is something that I couldn't do consciously even when I was linked to the Magium. I don't know how I managed to do it that time when you got out of the amulet. Oh, and the premonition just came to me without even having to do anything. I have no idea what triggered it."
 
 }
-choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_b3_ch4_billy == 0)
-choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_b3_ch4_billy != 0)
+choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown)
 
 
 ID: B3-Ch05a-Lockdown
@@ -902,7 +901,7 @@ TEXT:
 
 "Hmm..." Melindra says in a slightly suspicious tone, as she watches me walking out of the room with Illuna.
 
-choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose > 0)
 choice("Continue", B3-Ch05a-Guilty, v_current_scene = B3-Ch05a-Guilty) if (v_ch11_saved_rose == 0)
 
 
@@ -942,7 +941,7 @@ TEXT:
 
 "Hmm..." Melindra says in a slightly suspicious tone, as she watches me walking out of the room with Illuna.
 
-choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose > 0)
 choice("Continue", B3-Ch05a-Guilty, v_current_scene = B3-Ch05a-Guilty) if (v_ch11_saved_rose == 0)
 
 
@@ -982,7 +981,7 @@ TEXT:
 
 "Hmm..." Melindra says in a slightly suspicious tone, as she watches me walking out of the room with Illuna.
 
-choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose > 0)
 choice("Continue", B3-Ch05a-Guilty, v_current_scene = B3-Ch05a-Guilty) if (v_ch11_saved_rose == 0)
 
 
@@ -1094,9 +1093,9 @@ She then walks past us and goes through a tunnel to the left, giving us one last
 "It's because she's not an adult!" Illuna says. "And the rest of you don't consider her to be a grown-up either! You've all called her a nine year old before!"
 
 }
-choice("""Well, then stop feeling guilty!""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 0) if (v_ch11_saved_rose == 1)
-choice("""It doesn't seem to me like Flower is blaming you for what happened.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 1) if (v_ch11_saved_rose == 1)
-choice("""Well, to me it kind of feels like you are letting your guilt cloud your judgment.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 2) if (v_ch11_saved_rose == 1)
+choice("""Well, then stop feeling guilty!""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 0) if (v_ch11_saved_rose > 0)
+choice("""It doesn't seem to me like Flower is blaming you for what happened.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 1) if (v_ch11_saved_rose > 0)
+choice("""Well, to me it kind of feels like you are letting your guilt cloud your judgment.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 2) if (v_ch11_saved_rose > 0)
 choice("""Well, then stop feeling guilty!""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 0) if (v_ch11_saved_rose == 0)
 choice("""It doesn't seem to me like Flower is blaming you for what happened.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 1) if (v_ch11_saved_rose == 0)
 choice("""Well, to me it kind of feels like you are letting your guilt cloud your judgment.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 2) if (v_ch11_saved_rose == 0)
@@ -1386,9 +1385,9 @@ TEXT:
 "She does sleep from time to time, but she usually only needs a few hours a week or less to be well-rested," Flower says. "It's just another one of the perks she gained after she absorbed all those thousands of souls in the magical plane. You know, aside from her overwhelming magical power and her near-immortality."
 
 }
-choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose == 1)
-choice("""So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 1) if (v_ch11_saved_rose == 1)
-choice("""Does this mean that we can draw a fake moustache on her amulet and she won’t notice?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 2) if (v_ch11_saved_rose == 1)
+choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose > 0)
+choice("""So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 1) if (v_ch11_saved_rose > 0)
+choice("""Does this mean that we can draw a fake moustache on her amulet and she won’t notice?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 2) if (v_ch11_saved_rose > 0)
 choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose == 0)
 choice("""So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 1) if (v_ch11_saved_rose == 0)
 choice("""Does this mean that we can draw a fake moustache on her amulet and she won’t notice?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 2) if (v_ch11_saved_rose == 0)

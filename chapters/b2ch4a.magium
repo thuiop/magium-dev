@@ -32,9 +32,9 @@ As both Leila and I turn around, we quickly realize that the elevator did not in
 "Out for a swim?" the mage asks, shocked. "You were trying to escape, weren't you? Give me one good reason why I shouldn't call the guards right now, and tell them what you were doing."
 
 }
-choice("Continue", B2-Ch04a-Technically, v_current_scene = B2-Ch04a-Technically, v_checkpoint_rich = 0) if (v_b2_ch2_cell == 1)
-choice("""If you let us go, I won't ask anything about that thing you are hiding behind your back.""", B2-Ch04a-Hiding, v_current_scene = B2-Ch04a-Hiding, v_checkpoint_rich = 0) if (v_b2_ch2_cell != 1)
-choice("""Go ahead. The arena's owner already knows what happened.""", B2-Ch04a-Owner, v_current_scene = B2-Ch04a-Owner, v_checkpoint_rich = 0) if (v_b2_ch2_cell != 1)
+choice("Continue", B2-Ch04a-Technically, v_current_scene = B2-Ch04a-Technically, v_checkpoint_rich = 0) if (v_b2_ch2_cell > 0)
+choice("""If you let us go, I won't ask anything about that thing you are hiding behind your back.""", B2-Ch04a-Hiding, v_current_scene = B2-Ch04a-Hiding, v_checkpoint_rich = 0)
+choice("""Go ahead. The arena's owner already knows what happened.""", B2-Ch04a-Owner, v_current_scene = B2-Ch04a-Owner, v_checkpoint_rich = 0)
 
 
 ID: B2-Ch04a-Hiding
@@ -429,8 +429,7 @@ I spent my whole day researching this, and all I have to show for it is an outla
 I put my notebook back in my backpack, and I prepare to go to sleep. I'll have more time to study tomorrow.
 
 }
-choice("Continue", B2-Ch04a-Cards, v_current_scene = B2-Ch04a-Cards) if (v_b2_ch2_deal == 3)
-choice("Continue", B2-Ch04a-Cards, v_current_scene = B2-Ch04a-Cards) if (v_b2_ch2_deal != 3)
+choice("Continue", B2-Ch04a-Cards, v_current_scene = B2-Ch04a-Cards)
 
 
 ID: B2-Ch04a-Cards
@@ -548,8 +547,8 @@ choice("Continue", B2-Ch04a-Strategy, v_current_scene = B2-Ch04a-Strategy)
 ID: B2-Ch04a-Strategy
 TEXT: 
 
-choice("Ask Wilhelm if he overheard the guards say anything about the arena event", B2-Ch04a-Overheard, v_current_scene = B2-Ch04a-Overheard, v_b2_ch4_inform2 = 0) if (v_b2_ch2_threatened != 2)
-choice("Tell everyone about what we found out in the caverns", B2-Ch04a-Caverns, v_current_scene = B2-Ch04a-Caverns, v_b2_ch4_inform2 = 1, v_b2_ch4_inform3 = 0) if (v_b2_ch2_threatened != 2)
+choice("Ask Wilhelm if he overheard the guards say anything about the arena event", B2-Ch04a-Overheard, v_current_scene = B2-Ch04a-Overheard, v_b2_ch4_inform2 = 0)
+choice("Tell everyone about what we found out in the caverns", B2-Ch04a-Caverns, v_current_scene = B2-Ch04a-Caverns, v_b2_ch4_inform2 = 1, v_b2_ch4_inform3 = 0)
 choice("Ask if somebody overheard the guards say anything about the arena event", B2-Ch04a-Overheard, v_current_scene = B2-Ch04a-Overheard, v_b2_ch4_inform2 = 0) if (v_b2_ch2_threatened == 2)
 choice("Tell everyone about what we found out in the caverns", B2-Ch04a-Caverns, v_current_scene = B2-Ch04a-Caverns, v_b2_ch4_inform2 = 1, v_b2_ch4_inform3 = 0) if (v_b2_ch2_threatened == 2)
 
@@ -971,8 +970,8 @@ As we all wait for the events to begin, I suddenly hear a familiar beeping noise
 Finally. I've been waiting for this for a while.
 
 }
-choice("Invest points now", B2-Ch04a-Stats-spent, v_current_scene = B2-Ch04a-Stats-spent, special:stats) if (v_ch11_saved_rose == 1)
-choice("Invest points later(by pressing the stats button on the top of the screen)", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private) if (v_ch11_saved_rose == 1)
+choice("Invest points now", B2-Ch04a-Stats-spent, v_current_scene = B2-Ch04a-Stats-spent, special:stats) if (v_ch11_saved_rose > 0)
+choice("Invest points later(by pressing the stats button on the top of the screen)", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private) if (v_ch11_saved_rose > 0)
 choice("Invest points now", B2-Ch04a-Stats-spent, v_current_scene = B2-Ch04a-Stats-spent, special:stats) if (v_ch11_saved_rose == 0)
 choice("Invest points later(by pressing the stats button on the top of the screen)", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private) if (v_ch11_saved_rose == 0)
 
@@ -1110,8 +1109,8 @@ Damn it! If only I hadn't told Daren to secure my backpack, I could have sent Le
 Hold on, I also have another choice! I could send Leila to go read my notebook, and rip the pages I need out of it, so she can bring them back to me. But would she be able to find the pages? I did make a page index at the beginning, but people have had trouble understanding my ugly handwriting in the past. I can't just tell her to bring me the notebook, because then she might not have the time to return it to my backpack before our round begins. Either way, I don't have much time. I'm going to need to decide what I want to do.
 
 }
-choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_ch6_secure == 1)
-choice("Go read the notebook.", B2-Ch04a-Read, v_current_scene = B2-Ch04a-Read, v_b2_ch4_backpack = 2) if (v_ch6_secure == 1)
+choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_ch6_secure > 0)
+choice("Go read the notebook.", B2-Ch04a-Read, v_current_scene = B2-Ch04a-Read, v_b2_ch4_backpack = 2) if (v_ch6_secure > 0)
 choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_ch6_secure == 0)
 choice("Go read the notebook.", B2-Ch04a-Read, v_current_scene = B2-Ch04a-Read, v_b2_ch4_backpack = 2) if (v_ch6_secure == 0)
 choice("Send Leila to bring me the notebook pages.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 3) if (v_ch6_secure == 0)
@@ -1783,7 +1782,4 @@ We all make our way towards the center of the arena, like all the divisions befo
 The crowd watches us in complete silence, as we make our way past all the animal carcasses, in order to reach our destination. It's clear that they do not recognize anyone from our division. They're probably already thinking that we're going to get butchered, like that first division from earlier. I hope we won't end up proving them right.
 
 }
-choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard) if (v_b2_ch2_deal == 1)
-choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard) if (v_b2_ch2_deal == 2)
-choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard) if (v_b2_ch2_deal == 4)
-choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard) if (v_b2_ch2_deal == 3)
+choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard) if (v_b2_ch2_deal > 0)

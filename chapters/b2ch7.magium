@@ -513,9 +513,9 @@ TEXT:
 choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 3)
 choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 3)
 choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 3)
-choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 1)
-choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 1)
-choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 1)
+choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal > 0)
+choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal > 0)
+choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal > 0)
 choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 2)
 choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 2)
 choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 2)
@@ -533,7 +533,7 @@ TEXT:
 He pauses.
 
 choice("Continue", B2-Ch07a-No-Help, v_current_scene = B2-Ch07a-No-Help) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere > 0)
 
 
 ID: B2-Ch07a-Messing
@@ -549,7 +549,7 @@ TEXT:
 He pauses.
 
 choice("Continue", B2-Ch07a-No-Help, v_current_scene = B2-Ch07a-No-Help) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere > 0)
 
 
 ID: B2-Ch07a-Half
@@ -565,7 +565,7 @@ TEXT:
 He pauses.
 
 choice("Continue", B2-Ch07a-No-Help, v_current_scene = B2-Ch07a-No-Help) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere > 0)
 
 
 ID: B2-Ch07a-No-Help
@@ -831,8 +831,8 @@ She then conjures a detailed hologram of the underground tunnels, although the m
 "Yeah, the green tunnels are the ones that I can't actually detect with my magical sense," Arraka says. "I only put them there because they're on the map. They probably have walls and ceilings made of seredium, which block my magical sense. I have no idea if there are people walking through them, or if they can even be accessed at all. The path to your destination doesn't have any seredium on it, though, so at the very least you can be sure that you won't encounter any guards on your way there."
 
 }
-choice("""What about the meeting room? Is there anyone inside it right now?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 0) if (v_b2_ch2_tell_servant == 1)
-choice("""Can you sense any tunnels that are not on the king's map?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 1) if (v_b2_ch2_tell_servant == 1)
+choice("""What about the meeting room? Is there anyone inside it right now?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 0) if (v_b2_ch2_tell_servant > 0)
+choice("""Can you sense any tunnels that are not on the king's map?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 1) if (v_b2_ch2_tell_servant > 0)
 choice("""What about the meeting room? Is there anyone inside it right now?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 0) if (v_b2_ch2_tell_servant == 0)
 choice("""Can you sense any tunnels that are not on the king's map?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 1) if (v_b2_ch2_tell_servant == 0)
 
@@ -973,7 +973,7 @@ The king opens a trapdoor which leads to the underground corridors, and an exten
 
 }
 choice("Continue", B2-Ch07a-Premonition, v_current_scene = B2-Ch07a-Premonition) if (v_b2_ch7_tunnel == 0)
-choice("Continue", B2-Ch07a-Interested, v_current_scene = B2-Ch07a-Interested) if (v_b2_ch7_tunnel == 1)
+choice("Continue", B2-Ch07a-Interested, v_current_scene = B2-Ch07a-Interested) if (v_b2_ch7_tunnel > 0)
 
 
 ID: B2-Ch07a-Interested
@@ -1330,8 +1330,7 @@ As we all lie on the ground, unable to break free from the spell's effects, the 
 "Well, it doesn't matter if you want to speak in Common or not," the soft-spoken lessathi says. "We don't need more than one person to interrogate them anyway."
 
 }
-choice("Continue", B2-Ch07a-Narrow, v_current_scene = B2-Ch07a-Narrow) if (v_ancient_languages < 3)
-choice("Continue", B2-Ch07a-Narrow, v_current_scene = B2-Ch07a-Narrow) if (v_ancient_languages >= 3)
+choice("Continue", B2-Ch07a-Narrow, v_current_scene = B2-Ch07a-Narrow)
 
 
 ID: B2-Ch07a-Narrow
@@ -1363,8 +1362,8 @@ As I lie there on the ground, a very small, barely noticeable, semi-transparent 
 }
 choice("Attack the first lessathi that gets close to me.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 0) if (v_b2_ch7_rock == 0)
 choice("Wait for Leila's signal.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 1) if (v_b2_ch7_rock == 0)
-choice("Attack the first lessathi that gets close to me.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 0) if (v_b2_ch7_rock == 1)
-choice("Wait for Leila's signal.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 1) if (v_b2_ch7_rock == 1)
+choice("Attack the first lessathi that gets close to me.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 0) if (v_b2_ch7_rock > 0)
+choice("Wait for Leila's signal.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 1) if (v_b2_ch7_rock > 0)
 
 
 ID: B2-Ch07a-Amulet
@@ -1383,7 +1382,7 @@ It is unclear to me whether Arraka saw Leila's message and is now trying to buy 
 "This is the one that I'm interested in talking to," the lessathi says, as he gets closer to me. "I honestly wasn't expecting to see you again, fellow lessathi. You are tenacious, I'll give you that. Well, no matter. This isn't important. What's important is how you managed to reach our location in one piece. Tell me, was it Golmyck that gave you the map of the underground tunnels? How were you able to avoid the explosion trap?"
 
 choice("Continue", B2-Ch07a-Attack, v_current_scene = B2-Ch07a-Attack) if (v_b2_ch7_wait == 0)
-choice("Continue", B2-Ch07a-Wait, v_current_scene = B2-Ch07a-Wait) if (v_b2_ch7_wait == 1)
+choice("Continue", B2-Ch07a-Wait, v_current_scene = B2-Ch07a-Wait) if (v_b2_ch7_wait > 0)
 
 
 ID: B2-Ch07a-Attack

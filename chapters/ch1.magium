@@ -77,15 +77,9 @@ I quickly pull my head back behind the tree, and press my back against it, tryin
 "I know you're there, coward. Show yourself, or I'll have one of my knives find you!"
 
 }
-choice("Stay silent", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 1) if (v_ch1_intro_feeling == 1)
-choice("Show myself", Ch1-Cutthroat Dave, v_ac_ch1_coward = 1, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 2, special:achievement-Who are you calling a coward?-v_ac_ch1_coward) if (v_ch1_intro_feeling == 1)
-choice("""I see no reason to show myself to you.""", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 3) if (v_ch1_intro_feeling == 1)
-choice("Stay silent", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 1) if (v_ch1_intro_feeling == 2)
-choice("Show myself", Ch1-Cutthroat Dave, v_ac_ch1_coward = 1, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 2, special:achievement-Who are you calling a coward?-v_ac_ch1_coward) if (v_ch1_intro_feeling == 2)
-choice("""I see no reason to show myself to you.""", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 3) if (v_ch1_intro_feeling == 2)
-choice("Stay silent", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 1) if (v_ch1_intro_feeling == 3)
-choice("Show myself", Ch1-Cutthroat Dave, v_ac_ch1_coward = 1, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 2, special:achievement-Who are you calling a coward?-v_ac_ch1_coward) if (v_ch1_intro_feeling == 3)
-choice("""I see no reason to show myself to you.""", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 3) if (v_ch1_intro_feeling == 3)
+choice("Stay silent", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 1) if (v_ch1_intro_feeling > 0)
+choice("Show myself", Ch1-Cutthroat Dave, v_ac_ch1_coward = 1, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 2, special:achievement-Who are you calling a coward?-v_ac_ch1_coward) if (v_ch1_intro_feeling > 0)
+choice("""I see no reason to show myself to you.""", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 3) if (v_ch1_intro_feeling > 0)
 
 
 ID: Ch1-Cutthroat Dave
@@ -145,12 +139,8 @@ Stillwaters, however, have the same aura as normal humans. And if you were to ru
 "You don't scare me, stillwater! I'm going to fill you with holes and you'll end up begging me for mercy! I bet your legends are no more true than they were for this sad excuse for a mage standing next to me."
 
 }
-choice("Give him until the count of ten to retreat", Ch1-Retreat, v_ac_ch1_die = 1, v_current_scene = Ch1-Retreat, special:achievement-Off to a good start-v_ac_ch1_die) if (v_ch1_show_yourself == 1)
-choice("Imply that I'm the one who destroyed the city of Olmnar", Ch1-Imply, v_current_scene = Ch1-Imply) if (v_ch1_show_yourself == 1)
-choice("Give him until the count of ten to retreat", Ch1-Retreat, v_ac_ch1_die = 1, v_current_scene = Ch1-Retreat, special:achievement-Off to a good start-v_ac_ch1_die) if (v_ch1_show_yourself == 2)
-choice("Imply that I'm the one who destroyed the city of Olmnar", Ch1-Imply, v_current_scene = Ch1-Imply) if (v_ch1_show_yourself == 2)
-choice("Give him until the count of ten to retreat", Ch1-Retreat, v_ac_ch1_die = 1, v_current_scene = Ch1-Retreat, special:achievement-Off to a good start-v_ac_ch1_die) if (v_ch1_show_yourself == 3)
-choice("Imply that I'm the one who destroyed the city of Olmnar", Ch1-Imply, v_current_scene = Ch1-Imply) if (v_ch1_show_yourself == 3)
+choice("Give him until the count of ten to retreat", Ch1-Retreat, v_ac_ch1_die = 1, v_current_scene = Ch1-Retreat, special:achievement-Off to a good start-v_ac_ch1_die) if (v_ch1_show_yourself > 0)
+choice("Imply that I'm the one who destroyed the city of Olmnar", Ch1-Imply, v_current_scene = Ch1-Imply) if (v_ch1_show_yourself > 0)
 
 
 ID: Ch1-Retreat
@@ -179,12 +169,8 @@ Once he's done talking, the mage throws five daggers simultaneously towards me. 
 Once he's done talking, I hear the mage throw several knives towards the forest. They all race past me, but before I get the chance to even think what to do next, the knives suddenly turn in midair and fly towards me, impaling me where I stand. It all ended so fast I barely even had the time to realize I was dead.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, v_ch1_show_yourself = 0, v_ch1_intro_feeling = 0, v_ch1_stillwater = 0, special:restart) if (v_ch1_show_yourself == 1)
-choice("Load game", , , special:saves) if (v_ch1_show_yourself == 1)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, v_ch1_show_yourself = 0, v_ch1_intro_feeling = 0, v_ch1_stillwater = 0, special:restart) if (v_ch1_show_yourself == 2)
-choice("Load game", , , special:saves) if (v_ch1_show_yourself == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, v_ch1_show_yourself = 0, v_ch1_intro_feeling = 0, v_ch1_stillwater = 0, special:restart) if (v_ch1_show_yourself == 3)
-choice("Load game", , , special:saves) if (v_ch1_show_yourself == 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, v_ch1_show_yourself = 0, v_ch1_intro_feeling = 0, v_ch1_stillwater = 0, special:restart) if (v_ch1_show_yourself > 0)
+choice("Load game", , , special:saves) if (v_ch1_show_yourself > 0)
 
 
 ID: Ch1-Imply
@@ -232,8 +218,7 @@ My last sentence seems to have taken him aback.
 "If I have to. Do I have to?"
 
 }
-choice("Continue", Ch1-Imply2, v_current_scene = Ch1-Imply2) if (v_ch1_show_yourself == 2)
-choice("Continue", Ch1-Imply2, v_current_scene = Ch1-Imply2) if (v_ch1_show_yourself != 2)
+choice("Continue", Ch1-Imply2, v_current_scene = Ch1-Imply2)
 
 
 ID: Ch1-Imply2
@@ -311,12 +296,8 @@ He tries to contain his laughter but fails miserably. He was trying to sound sol
 "Now that's the weirdest name for a mage I've heard in my life. Especially for a stillwater. Do you have something you want to tell me, Barry?"
 
 }
-choice("Tell him I'm actually an ordinary human", Ch1-Ordinary, v_current_scene = Ch1-Ordinary, v_ch1_stillwater = 2) if (v_ch1_show_yourself == 1)
-choice("Tell him my parents had a weird sense of humor", Ch1-Humor, v_current_scene = Ch1-Humor, v_ch1_stillwater = 1) if (v_ch1_show_yourself == 1)
-choice("Tell him I'm actually an ordinary human", Ch1-Ordinary, v_current_scene = Ch1-Ordinary, v_ch1_stillwater = 2) if (v_ch1_show_yourself == 2)
-choice("Tell him my parents had a weird sense of humor", Ch1-Humor, v_current_scene = Ch1-Humor, v_ch1_stillwater = 1) if (v_ch1_show_yourself == 2)
-choice("Tell him I'm actually an ordinary human", Ch1-Ordinary, v_current_scene = Ch1-Ordinary, v_ch1_stillwater = 2) if (v_ch1_show_yourself == 3)
-choice("Tell him my parents had a weird sense of humor", Ch1-Humor, v_current_scene = Ch1-Humor, v_ch1_stillwater = 1) if (v_ch1_show_yourself == 3)
+choice("Tell him I'm actually an ordinary human", Ch1-Ordinary, v_current_scene = Ch1-Ordinary, v_ch1_stillwater = 2) if (v_ch1_show_yourself > 0)
+choice("Tell him my parents had a weird sense of humor", Ch1-Humor, v_current_scene = Ch1-Humor, v_ch1_stillwater = 1) if (v_ch1_show_yourself > 0)
 
 
 ID: Ch1-Humor
@@ -366,8 +347,7 @@ He demonstrates it by raising his hands in the air and making a white light appe
 "Pardon me for interrupting," I hear a woman's voice from behind the trees. "But would you by any chance be Daren, the legendary savior of the eastern continent?" 
 
 }
-choice("Next chapter", Ch2-Intro, v_current_scene = Ch2-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch1_show_yourself == 1)
-choice("Next chapter", Ch2-Intro, v_current_scene = Ch2-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch1_show_yourself != 1)
+choice("Next chapter", Ch2-Intro, v_current_scene = Ch2-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
 
 
 ID: Ch1-Ordinary
@@ -499,5 +479,4 @@ He demonstrates it by raising his hands in the air and making a white light appe
 "Pardon me for interrupting," I hear a woman's voice from behind the trees. "But would you by any chance be Daren, the legendary savior of the Eastern Continent?" 
 
 }
-choice("Next chapter", Ch2-Intro, v_current_scene = Ch2-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch1_show_yourself == 1)
-choice("Next chapter", Ch2-Intro, v_current_scene = Ch2-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch1_show_yourself != 1)
+choice("Next chapter", Ch2-Intro, v_current_scene = Ch2-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

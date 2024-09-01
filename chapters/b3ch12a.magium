@@ -121,9 +121,9 @@ If not, then I suppose I could always try the brute force approach, by using my 
 Or... I could just try to bluff him.
 
 }
-choice("Try to predict Hadrik's movements from his aura.", B3-Ch12a-Predict, v_current_scene = B3-Ch12a-Predict, v_b3_ch12_approach = 0) if (v_b3_ch12_invest == 1)
-choice("Attempt to get close to Hadrik so I can aim at him easier.", B3-Ch12a-Brute, v_current_scene = B3-Ch12a-Brute, v_b3_ch12_approach = 1) if (v_b3_ch12_invest == 1)
-choice("Tell Hadrik that him standing in place would make it harder for me to aim at him.", B3-Ch12a-Bluff, v_current_scene = B3-Ch12a-Bluff, v_b3_ch12_approach = 2) if (v_b3_ch12_invest == 1)
+choice("Try to predict Hadrik's movements from his aura.", B3-Ch12a-Predict, v_current_scene = B3-Ch12a-Predict, v_b3_ch12_approach = 0) if (v_b3_ch12_invest > 0)
+choice("Attempt to get close to Hadrik so I can aim at him easier.", B3-Ch12a-Brute, v_current_scene = B3-Ch12a-Brute, v_b3_ch12_approach = 1) if (v_b3_ch12_invest > 0)
+choice("Tell Hadrik that him standing in place would make it harder for me to aim at him.", B3-Ch12a-Bluff, v_current_scene = B3-Ch12a-Bluff, v_b3_ch12_approach = 2) if (v_b3_ch12_invest > 0)
 choice("Try to predict Hadrik's movements from his aura.", B3-Ch12a-Predict, v_current_scene = B3-Ch12a-Predict, v_b3_ch12_approach = 0) if (v_b3_ch12_invest == 0)
 choice("Attempt to get close to Hadrik so I can aim at him easier.", B3-Ch12a-Brute, v_current_scene = B3-Ch12a-Brute, v_b3_ch12_approach = 1) if (v_b3_ch12_invest == 0)
 choice("Tell Hadrik that him standing in place would make it harder for me to aim at him.", B3-Ch12a-Bluff, v_current_scene = B3-Ch12a-Bluff, v_b3_ch12_approach = 2) if (v_b3_ch12_invest == 0)
@@ -802,9 +802,9 @@ Now that I think about it, this wasn't the first time when Diane acted in this m
 choice("""I'm not sure if I should be relieved or worried that you feel comfortable joking about this.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 0) if (v_b3_ch12_chance == 0)
 choice("""That's reassuring, because my next spell does have an unusually high mortality rate.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 1) if (v_b3_ch12_chance == 0)
 choice("""I actually wasn't planning on using any painful spells, but that's good to know.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 2) if (v_b3_ch12_chance == 0)
-choice("""I'm not sure if I should be relieved or worried that you feel comfortable joking about this.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 0) if (v_b3_ch12_chance == 1)
-choice("""That's reassuring, because my next spell does have an unusually high mortality rate.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 1) if (v_b3_ch12_chance == 1)
-choice("""I actually wasn't planning on using any painful spells, but that's good to know.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 2) if (v_b3_ch12_chance == 1)
+choice("""I'm not sure if I should be relieved or worried that you feel comfortable joking about this.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 0) if (v_b3_ch12_chance > 0)
+choice("""That's reassuring, because my next spell does have an unusually high mortality rate.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 1) if (v_b3_ch12_chance > 0)
+choice("""I actually wasn't planning on using any painful spells, but that's good to know.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 2) if (v_b3_ch12_chance > 0)
 
 
 ID: B3-Ch12a-Describe
@@ -975,8 +975,8 @@ I decide to head in the opposite direction, so that I can test out a few more co
 Normally, this wouldn't have been a big deal, but this is the third time in the past two days that I've seen Kate do the exact same thing, despite the fact that she usually takes her aim training very seriously. I think something is up with her. Maybe I should go ask her what's wrong.
 
 }
-choice("Go talk to Kate.", B3-Ch12a-Kate1, v_current_scene = B3-Ch12a-Kate1, v_b3_ch12_kate = 1) if (v_b3_ch12_diane == 1)
-choice("Ignore Kate and go test some spell combinations.", B3-Ch12a-Ignore, v_current_scene = B3-Ch12a-Ignore, v_b3_ch12_kate = 0) if (v_b3_ch12_diane == 1)
+choice("Go talk to Kate.", B3-Ch12a-Kate1, v_current_scene = B3-Ch12a-Kate1, v_b3_ch12_kate = 1) if (v_b3_ch12_diane > 0)
+choice("Ignore Kate and go test some spell combinations.", B3-Ch12a-Ignore, v_current_scene = B3-Ch12a-Ignore, v_b3_ch12_kate = 0) if (v_b3_ch12_diane > 0)
 choice("Go talk to Kate.", B3-Ch12a-Kate1, v_current_scene = B3-Ch12a-Kate1, v_b3_ch12_kate = 1) if (v_b3_ch12_diane == 0)
 choice("Ignore Kate and go test some spell combinations.", B3-Ch12a-Ignore, v_current_scene = B3-Ch12a-Ignore, v_b3_ch12_kate = 0) if (v_b3_ch12_diane == 0)
 

@@ -505,7 +505,7 @@ Now that Leila mentions it, I realize that most of the shopkeepers we've passed 
 As we all look up at the sky, we see a green-eyed drone slowly making its way down towards us.    
 
 choice("Continue", B3-Ch06a-Helpful, v_current_scene = B3-Ch06a-Helpful) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy != 0)
+choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing)
 choice("Continue", B3-Ch06a-Helpful, v_current_scene = B3-Ch06a-Helpful) if (v_b3_ch4_billy == 0 && v_ch11_saved_rose == 0)
 choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy == 7)
 choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy == 8)
@@ -1393,8 +1393,8 @@ TEXT:
 }
 choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 0)
 choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 0)
-choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 1)
-choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 1)
+choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey > 0)
+choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey > 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Awake, v_current_scene = B3-Ch06a-Rose-Awake, v_b3_ch6_plan = 2) if (v_b3_ch6_survey == 0 && v_b3_ch6_sleep == 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Awake, v_current_scene = B3-Ch06a-Rose-Awake, v_b3_ch6_plan = 2) if (v_b3_ch6_survey == 1 && v_b3_ch6_sleep == 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Asleep, v_current_scene = B3-Ch06a-Rose-Asleep, v_b3_ch6_plan = 3) if (v_b3_ch6_survey == 0 && v_b3_ch6_sleep == 1)
@@ -2022,8 +2022,8 @@ choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B
 choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 0)
 choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 0)
-choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 1)
-choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 1)
+choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose > 0)
+choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose > 0)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 0)
 choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 0)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 1)
@@ -2091,8 +2091,7 @@ I then point towards the shelf on which the summerglow grass is placed.
 "Right," Hadrik says, sounding slightly unconvinced, while Pete hands Daren his herbs.
 
 }
-choice("Continue", B3-Ch06a-Labels2, v_current_scene = B3-Ch06a-Labels2) if (v_ancient_languages < 1)
-choice("Continue", B3-Ch06a-Labels2, v_current_scene = B3-Ch06a-Labels2) if (v_ancient_languages >= 1)
+choice("Continue", B3-Ch06a-Labels2, v_current_scene = B3-Ch06a-Labels2)
 
 
 ID: B3-Ch06a-Shelves
@@ -2144,8 +2143,7 @@ I get a little closer to the counter so I can have a better look at the plants o
 "Right," Hadrik says, sounding slightly unconvinced, while Pete hands Daren his herbs.
 
 }
-choice("Continue", B3-Ch06a-Labels2, v_current_scene = B3-Ch06a-Labels2) if (v_perception < 1)
-choice("Continue", B3-Ch06a-Labels2, v_current_scene = B3-Ch06a-Labels2) if (v_perception >= 1)
+choice("Continue", B3-Ch06a-Labels2, v_current_scene = B3-Ch06a-Labels2)
 
 
 ID: B3-Ch06a-Labels2
@@ -2305,8 +2303,8 @@ As we all stop moving, both Daren and Kelrim try to call the teleporter guy one 
 }
 choice("""This is clearly not working. Can't we focus on preparing for the fight instead?""", B3-Ch06a-Focus, v_current_scene = B3-Ch06a-Focus, v_b3_ch6_preparing = 1) if (v_b3_ch6_selected == 3)
 choice("""Maybe we could go a little further down the road and try calling him again from there?""", B3-Ch06a-Further, v_current_scene = B3-Ch06a-Further, v_b3_ch6_preparing = 0) if (v_b3_ch6_selected == 3)
-choice("""This is clearly not working. Can't we focus on preparing for the fight instead?""", B3-Ch06a-Focus, v_current_scene = B3-Ch06a-Focus, v_b3_ch6_preparing = 1) if (v_b3_ch6_selected != 3)
-choice("""Maybe we could go a little further down the road and try calling him again from there?""", B3-Ch06a-Further, v_current_scene = B3-Ch06a-Further, v_b3_ch6_preparing = 0) if (v_b3_ch6_selected != 3)
+choice("""This is clearly not working. Can't we focus on preparing for the fight instead?""", B3-Ch06a-Focus, v_current_scene = B3-Ch06a-Focus, v_b3_ch6_preparing = 1)
+choice("""Maybe we could go a little further down the road and try calling him again from there?""", B3-Ch06a-Further, v_current_scene = B3-Ch06a-Further, v_b3_ch6_preparing = 0)
 
 
 ID: B3-Ch06a-Further
@@ -2417,8 +2415,7 @@ We then hear him pressing a button, and soon afterwards we also hear the sound o
 "The coordinates are set, Albert," the teleporter guy says. "Should I teleport you now?"
 
 }
-choice("Continue", B3-Ch06a-Confession, v_current_scene = B3-Ch06a-Confession) if (v_b3_ch5_fight < 4)
-choice("Continue", B3-Ch06a-Confession, v_current_scene = B3-Ch06a-Confession) if (v_b3_ch5_fight >= 4)
+choice("Continue", B3-Ch06a-Confession, v_current_scene = B3-Ch06a-Confession)
 
 
 ID: B3-Ch06a-Focus

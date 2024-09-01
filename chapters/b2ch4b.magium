@@ -33,9 +33,9 @@ That bastard. Is this his way of telling me that in order to make it out of here
 choice("""Is this really the time and place to be having this argument?""", B2-Ch04b-Argument, v_current_scene = B2-Ch04b-Argument) if (v_b2_ch2_deal == 3)
 choice("""Actually, I think that Bruce would do just fine as leader.""", B2-Ch04b-Bruce, v_current_scene = B2-Ch04b-Bruce) if (v_b2_ch2_deal == 3)
 choice("""I completely agree. I should be the one to lead the team, not Bruce.""", B2-Ch04b-Completely, v_current_scene = B2-Ch04b-Completely) if (v_b2_ch2_deal == 3)
-choice("""Is this really the time and place to be having this argument?""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 1) if (v_b2_ch2_deal != 3)
-choice("""Actually, I think that Bruce would do just fine as leader.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 2) if (v_b2_ch2_deal != 3)
-choice("""I completely agree. I should be the one to lead the team, not Bruce.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 3) if (v_b2_ch2_deal != 3)
+choice("""Is this really the time and place to be having this argument?""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 1)
+choice("""Actually, I think that Bruce would do just fine as leader.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 2)
+choice("""I completely agree. I should be the one to lead the team, not Bruce.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 3)
 
 
 ID: B2-Ch04b-Argument
@@ -290,9 +290,9 @@ The cobras are now trying to get on our right side, while the marauders are comi
 The cobras are now trying to get on our right side, while the marauders are coming from our left. Three tramplers are now also making their way into the fighting area, and they are pawing the ground with their hooves, getting ready to charge. The manticores are still circling the skies, biding their time.
 
 }
-choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument == 1)
-choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument == 1)
-choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument == 1)
+choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument > 0)
+choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument > 0)
+choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument > 0)
 choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument == 2)
 choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument == 2)
 choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument == 2)
@@ -778,15 +778,15 @@ I stop talking, because I suddenly notice that the cobras are getting closer to 
 "Actually, never mind," I say. "Hold on, let me think about this a bit."
 
 }
-choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1) if (v_b2_ch2_fist == 1)
-choice("Ask Leila if she can deal with the tramplers, while we deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist == 1)
-choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3) if (v_b2_ch2_fist == 1)
+choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1) if (v_b2_ch2_fist > 0)
+choice("Ask Leila if she can deal with the tramplers, while we deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist > 0)
+choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3) if (v_b2_ch2_fist > 0)
 choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1) if (v_b2_ch2_fist == 2)
 choice("Ask Leila if she can deal with the tramplers, while we deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist == 2)
 choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3) if (v_b2_ch2_fist == 2)
-choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1) if (v_b2_ch2_fist != 2)
-choice("Ask Leila if she can deal with the tramplers, while I deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist != 2)
-choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3) if (v_b2_ch2_fist != 2)
+choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1)
+choice("Ask Leila if she can deal with the tramplers, while I deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2)
+choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3)
 
 
 ID: B2-Ch04b-Manticore-first
@@ -1334,9 +1334,7 @@ Those few seconds feel almost like an eternity, but when the cobras finally spit
 Only the cobras and the tramplers are now left. The cobras seem to be getting ready for another round, while the tramplers appear to have found a good spot from where they can charge at us, and they're preparing to make a run for it.
 
 }
-choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-check) if (v_b2_ch2_fist != 2)
-choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-check) if (v_b2_ch2_fist == 1)
-choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-check) if (v_b2_ch2_fist == 2)
+choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-check)
 
 
 ID: B2-Ch04b-Barry-tramplers
@@ -1608,8 +1606,7 @@ We all hide behind some marauder corpses, and we keep watching the battlefield, 
 "There are enough monster carcasses between us and the marauders to be able to make it there safely," I say. "We can make quick sprints and take cover behind each one of the corpses until we reach our targets. Then we'll just have to make sure that there's always a marauder between us and the tramplers, and we'll be fine."
 
 }
-choice("Continue", B2-Ch04b-Woman, v_current_scene = B2-Ch04b-Woman) if (v_b2_ch4_backpack == 1)
-choice("Continue", B2-Ch04b-Woman, v_current_scene = B2-Ch04b-Woman) if (v_b2_ch4_backpack != 1)
+choice("Continue", B2-Ch04b-Woman, v_current_scene = B2-Ch04b-Woman)
 
 
 ID: B2-Ch04b-Woman
@@ -1979,9 +1976,7 @@ There's no time to think about that now. I'll figure this out after the battle. 
 "I don't know," I say. "But I don't want to waste time figuring that out now, in the middle of the battle. We're done here. Let's go help the others." 
 
 }
-choice("Continue", B2-Ch04b-Insane, v_current_scene = B2-Ch04b-Insane) if (v_b2_ch2_fist != 2)
-choice("Continue", B2-Ch04b-Insane, v_current_scene = B2-Ch04b-Insane) if (v_b2_ch2_fist == 1)
-choice("Continue", B2-Ch04b-Insane, v_current_scene = B2-Ch04b-Insane) if (v_b2_ch2_fist == 2)
+choice("Continue", B2-Ch04b-Insane, v_current_scene = B2-Ch04b-Insane)
 
 
 ID: B2-Ch04b-Insane
@@ -2679,9 +2674,7 @@ He then jumps off the creature, and he heads towards Kate.
 "Are you alright, milady?" Hadrik says, with a bow.
 
 }
-choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake == 1)
-choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake == 2)
-choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake == 3)
+choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake > 0)
 
 
 ID: B2-Ch04b-Bonus

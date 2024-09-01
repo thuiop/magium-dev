@@ -166,9 +166,9 @@ Seeing the looks on our faces, she decides to give us a bit more context.
 choice("""Live inside your own mind? You mean to say that you space out a lot?""", Ch9-Space-out, v_current_scene = Ch9-Space-out) if (v_ch8_old == 0)
 choice("""Talk about an active imagination!""", Ch9-Imagination, v_current_scene = Ch9-Imagination) if (v_ch8_old == 0)
 choice("""I know a good doctor in the Western Continent, if you are interested.""", Ch9-Doctor, v_current_scene = Ch9-Doctor) if (v_ch8_old == 0)
-choice("""Live inside your own mind? You mean to say that you space out a lot?""", Ch9-Space-out, v_current_scene = Ch9-Space-out) if (v_ch8_old == 1)
-choice("""Talk about an active imagination!""", Ch9-Imagination, v_current_scene = Ch9-Imagination) if (v_ch8_old == 1)
-choice("""I know a good doctor in the Western Continent, if you are interested.""", Ch9-Doctor, v_current_scene = Ch9-Doctor) if (v_ch8_old == 1)
+choice("""Live inside your own mind? You mean to say that you space out a lot?""", Ch9-Space-out, v_current_scene = Ch9-Space-out) if (v_ch8_old > 0)
+choice("""Talk about an active imagination!""", Ch9-Imagination, v_current_scene = Ch9-Imagination) if (v_ch8_old > 0)
+choice("""I know a good doctor in the Western Continent, if you are interested.""", Ch9-Doctor, v_current_scene = Ch9-Doctor) if (v_ch8_old > 0)
 
 
 ID: Ch9-Space-out
@@ -683,10 +683,10 @@ Rose looks like she's somewhat surprised by my question.
 "Do you mean in a general sense?" Rose asks me. "To me, she seems like a charming young girl with a cheerful personality and a kind heart, and I find that she is a really fun person to be around with. What about you? There has to be some reason why you asked me this. What do you think about Flower?"
 
 }
-choice("""I find her a bit annoying, to be frank.""", Ch9-Annoying, v_current_scene = Ch9-Annoying) if (v_ch6_flirt == 1)
-choice("""I just can't bring myself to trust her.""", Ch9-Trust, v_current_scene = Ch9-Trust) if (v_ch6_flirt == 1)
-choice("""I was just thinking about what Daren said this morning.""", Ch9-Morning, v_current_scene = Ch9-Morning) if (v_ch6_flirt == 1)
-choice("""I think she's pretty fun too. I was just curious to see if you thought the same.""", Ch9-Curious, v_current_scene = Ch9-Curious) if (v_ch6_flirt == 1)
+choice("""I find her a bit annoying, to be frank.""", Ch9-Annoying, v_current_scene = Ch9-Annoying) if (v_ch6_flirt > 0)
+choice("""I just can't bring myself to trust her.""", Ch9-Trust, v_current_scene = Ch9-Trust) if (v_ch6_flirt > 0)
+choice("""I was just thinking about what Daren said this morning.""", Ch9-Morning, v_current_scene = Ch9-Morning) if (v_ch6_flirt > 0)
+choice("""I think she's pretty fun too. I was just curious to see if you thought the same.""", Ch9-Curious, v_current_scene = Ch9-Curious) if (v_ch6_flirt > 0)
 choice("""I find her a bit annoying, to be frank.""", Ch9-Annoying, v_current_scene = Ch9-Annoying) if (v_ch6_flirt == 5)
 choice("""I just can't bring myself to trust her.""", Ch9-Trust, v_current_scene = Ch9-Trust) if (v_ch6_flirt == 5)
 choice("""I was just thinking about what Daren said this morning.""", Ch9-Morning, v_current_scene = Ch9-Morning) if (v_ch6_flirt == 5)
@@ -884,9 +884,9 @@ The banshee frowns when she hears my question, and she turns her head towards me
 choice("""Yeah, that's about right.""", Ch9-Right, v_current_scene = Ch9-Right) if (v_ch9_inventory == 0)
 choice("""No, I just wanted to get to know you!""", Ch9-Know, v_current_scene = Ch9-Know) if (v_ch9_inventory == 0)
 choice("""Actually, I just wanted to talk about the weather.""", Ch9-Weather, v_current_scene = Ch9-Weather) if (v_ch9_inventory == 0)
-choice("""Yeah, that's about right.""", Ch9-Right, v_current_scene = Ch9-Right) if (v_ch9_inventory == 1)
-choice("""No, I just wanted to get to know you!""", Ch9-Know, v_current_scene = Ch9-Know) if (v_ch9_inventory == 1)
-choice("""Actually, I just wanted to talk about the weather.""", Ch9-Weather, v_current_scene = Ch9-Weather) if (v_ch9_inventory == 1)
+choice("""Yeah, that's about right.""", Ch9-Right, v_current_scene = Ch9-Right) if (v_ch9_inventory > 0)
+choice("""No, I just wanted to get to know you!""", Ch9-Know, v_current_scene = Ch9-Know) if (v_ch9_inventory > 0)
+choice("""Actually, I just wanted to talk about the weather.""", Ch9-Weather, v_current_scene = Ch9-Weather) if (v_ch9_inventory > 0)
 
 
 ID: Ch9-Right
@@ -1002,7 +1002,7 @@ Seeing that the banshee has no intention of shaking her hand, Rose smiles polite
 
 }
 choice("Continue", Ch9-Multiplied, v_current_scene = Ch9-Multiplied) if (v_ch9_inventory == 0)
-choice("Continue", Ch9-Magic, v_current_scene = Ch9-Magic) if (v_ch9_inventory == 1)
+choice("Continue", Ch9-Magic, v_current_scene = Ch9-Magic) if (v_ch9_inventory > 0)
 
 
 ID: Ch9-Magic
@@ -1622,8 +1622,7 @@ I aim my crossbow forward, and then I shoot an arrow at the empty space in front
 The other ogres are now also slowly appearing out of thin air, and it turns out that there are at least a hundred of them, and they have us all surrounded. Two of the ogres stand out from the crowd, one because of the excessive amount of tattoos on his body, and the other because of his heavy armor. They must be the shaman and the fort captain that we've heard so much about. All of the other ogres are wearing nothing but loincloths and are holding big clubs in their hands, so it's a bit difficult to distinguish their mages from their warriors.
 
 }
-choice("Continue", Ch9-Brave, v_current_scene = Ch9-Brave) if (v_ch9_ogres != 3)
-choice("Continue", Ch9-Brave, v_current_scene = Ch9-Brave) if (v_ch9_ogres == 3)
+choice("Continue", Ch9-Brave, v_current_scene = Ch9-Brave)
 
 
 ID: Ch9-Ignore
@@ -1658,7 +1657,7 @@ Arraka is now shaking the amulet more violently than ever before, as her muffled
 
 }
 choice("Continue", Ch9-Brave, v_current_scene = Ch9-Brave) if (v_ch9_ogres == 3)
-choice("Continue", Ch9-Ogre-club, v_current_scene = Ch9-Ogre-club) if (v_ch9_ogres != 3)
+choice("Continue", Ch9-Ogre-club, v_current_scene = Ch9-Ogre-club)
 
 
 ID: Ch9-Ogre-club

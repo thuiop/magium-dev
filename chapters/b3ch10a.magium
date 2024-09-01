@@ -36,7 +36,7 @@ If the architecture of this building is in any way similar to the Thilias palace
 It's now been more than an hour since we teleported back to the rebel's underground base after defeating the Overseer. During this time, Flower and Peter have been very busy guiding all of the rebels' souls back to their sanctuaries in the ethereal plane, and once the last of them woke up, the king of the underground called for an urgent meeting, so that all of the underground denizens could democratically choose who would be their proposal for the new king of Ollendor, now that the old king was dead.
 
 }
-choice("Continue", B3-Ch10a-Intro-Overseer, v_current_scene = B3-Ch10a-Intro-Overseer, v_checkpoint_rich = 0) if (v_b3_ch8_overseer2 == 1)
+choice("Continue", B3-Ch10a-Intro-Overseer, v_current_scene = B3-Ch10a-Intro-Overseer, v_checkpoint_rich = 0) if (v_b3_ch8_overseer2 > 0)
 choice("Continue", B3-Ch10a-Intro-King, v_current_scene = B3-Ch10a-Intro-King, v_checkpoint_rich = 0) if (v_b3_ch8_overseer2 == 0)
 
 
@@ -188,9 +188,9 @@ Two other red-eyed drones are now approaching the green-eyed one while holding a
 choice("""Yes, your majesty.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 0) if (v_b3_ch10_spin == 0)
 choice("""Yes, my king.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 1) if (v_b3_ch10_spin == 0)
 choice("""I hope you're joking.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 2) if (v_b3_ch10_spin == 0)
-choice("""Yes, your majesty.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 0) if (v_b3_ch10_spin == 1)
-choice("""Yes, my king.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 1) if (v_b3_ch10_spin == 1)
-choice("""I hope you're joking.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 2) if (v_b3_ch10_spin == 1)
+choice("""Yes, your majesty.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 0) if (v_b3_ch10_spin > 0)
+choice("""Yes, my king.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 1) if (v_b3_ch10_spin > 0)
+choice("""I hope you're joking.""", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 2) if (v_b3_ch10_spin > 0)
 
 
 ID: B3-Ch10a-Intimidation
@@ -651,9 +651,7 @@ One moment later, we all find ourselves back on the earthen plane, inside the ro
 "If you were satisfied with the Overseer protocol's services, please do not forget to leave a positive rating at one of the green-eyed units," the Overseer tells us, as we are exiting the throne room. "Remember: your feedback always matters!"
 
 }
-choice("Continue", B3-Ch10a-Feedback, v_current_scene = B3-Ch10a-Feedback) if (v_b3_ch4_billy != 8)
-choice("Continue", B3-Ch10a-Feedback, v_current_scene = B3-Ch10a-Feedback) if (v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch10a-Feedback, v_current_scene = B3-Ch10a-Feedback) if (v_b3_ch4_billy == 8)
+choice("Continue", B3-Ch10a-Feedback, v_current_scene = B3-Ch10a-Feedback)
 
 
 ID: B3-Ch10a-Feedback
@@ -796,8 +794,8 @@ She then squeezes her fists again, and her eyes begin to turn back to their glow
 "Unbelievable..." Illuna says. "After everything we've been through, you're still thinking about your puzzle pieces..."
 
 }
-choice("""Hey, that's not a bad idea. I've actually been meaning to ask about this too!""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 1) if (v_b3_ch4_billy != 8)
-choice("""I really couldn't care any less about those puzzle pieces right now.""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 0) if (v_b3_ch4_billy != 8)
+choice("""Hey, that's not a bad idea. I've actually been meaning to ask about this too!""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 1)
+choice("""I really couldn't care any less about those puzzle pieces right now.""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 0)
 choice("""Hey, that's not a bad idea. I've actually been meaning to ask about this too!""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 1) if (v_b3_ch4_billy == 7)
 choice("""I really couldn't care any less about those puzzle pieces right now.""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 0) if (v_b3_ch4_billy == 7)
 choice("""Hey, that's not a bad idea. I've actually been meaning to ask about this too!""", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 1) if (v_b3_ch4_billy == 8)
@@ -1383,9 +1381,9 @@ TEXT:
 choice("""You may be right.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 0) if (v_b3_ch8_king == 0)
 choice("""Nah, I think he was lying through his teeth about not planning to kill us.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 1) if (v_b3_ch8_king == 0)
 choice("""I don't really care if we were right or wrong. I still don't like the guy.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 2) if (v_b3_ch8_king == 0)
-choice("""You may be right.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 0) if (v_b3_ch8_king == 1)
-choice("""Nah, I think he was lying through his teeth about not planning to kill us.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 1) if (v_b3_ch8_king == 1)
-choice("""I don't really care if we were right or wrong. I still don't like the guy.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 2) if (v_b3_ch8_king == 1)
+choice("""You may be right.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 0) if (v_b3_ch8_king > 0)
+choice("""Nah, I think he was lying through his teeth about not planning to kill us.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 1) if (v_b3_ch8_king > 0)
+choice("""I don't really care if we were right or wrong. I still don't like the guy.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 2) if (v_b3_ch8_king > 0)
 choice("""You may be right.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 0) if (v_b3_ch8_king == 2)
 choice("""Nah, I think he was lying through his teeth about not planning to kill us.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 1) if (v_b3_ch8_king == 2)
 choice("""I don't really care if we were right or wrong. I still don't like the guy.""", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 2) if (v_b3_ch8_king == 2)
@@ -1979,8 +1977,8 @@ The headache takes over me again, and I spend a good few moments alternating bet
 "Do you have any idea what's causing this?" Kate asks me. "Does it feel like a normal headache, or is it something else?"
 
 }
-choice("Agree to Melindra's proposition.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 1) if (v_b2_ch8_energizer == 1)
-choice("Decline Melindra's proposition.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 0) if (v_b2_ch8_energizer == 1)
+choice("Agree to Melindra's proposition.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 1) if (v_b2_ch8_energizer > 0)
+choice("Decline Melindra's proposition.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 0) if (v_b2_ch8_energizer > 0)
 choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Headache, v_current_scene = B3-Ch10a-Headache) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 1) if (v_b2_ch8_energizer == 1)
@@ -2044,8 +2042,8 @@ The headache takes over me again, and I spend a good few moments alternating bet
 "Do you have any idea what's causing this?" Kate asks me. "Does it feel like a normal headache, or is it something else?"
 
 }
-choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b3_ch10_benefits == 1)
-choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Headache, v_current_scene = B3-Ch10a-Headache) if (v_b3_ch10_benefits == 1)
+choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b3_ch10_benefits > 0)
+choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Headache, v_current_scene = B3-Ch10a-Headache) if (v_b3_ch10_benefits > 0)
 choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b3_ch10_benefits == 0)
 choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Headache, v_current_scene = B3-Ch10a-Headache) if (v_b3_ch10_benefits == 0)
 
@@ -2574,12 +2572,12 @@ We all follow Melindra up the stairs, climbing as quickly as humanly possible, a
 "Oh, right," Flower says, while her eyes are still shining with a bright red color. "Let me just teleport back to our sanctuary, and I'll turn it off."
 
 }
-choice("Ask Flower if she can also check the inside of my sanctuary for shades before she leaves.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 1) if (v_b3_ch10_puzzle == 1)
-choice("Let Flower leave.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 0) if (v_b3_ch10_puzzle == 1)
+choice("Ask Flower if she can also check the inside of my sanctuary for shades before she leaves.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 1) if (v_b3_ch10_puzzle > 0)
+choice("Let Flower leave.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 0) if (v_b3_ch10_puzzle > 0)
 choice("Ask Flower if she can also check the inside of my sanctuary for shades before she leaves.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 1) if (v_b3_ch10_puzzle == 0)
 choice("Let Flower leave.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 0) if (v_b3_ch10_puzzle == 0)
-choice("Ask Flower if she can also check the inside of my sanctuary for shades before she leaves.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 1) if (v_b3_ch10_spin == 1)
-choice("Let Flower leave.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 0) if (v_b3_ch10_spin == 1)
+choice("Ask Flower if she can also check the inside of my sanctuary for shades before she leaves.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 1) if (v_b3_ch10_spin > 0)
+choice("Let Flower leave.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 0) if (v_b3_ch10_spin > 0)
 choice("Ask Flower if she can also check the inside of my sanctuary for shades before she leaves.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 1) if (v_b3_ch10_spin == 0)
 choice("Let Flower leave.", B3-Ch10a-Check, v_current_scene = B3-Ch10a-Check, v_b3_ch10_check = 0) if (v_b3_ch10_spin == 0)
 
@@ -2774,8 +2772,8 @@ Something needs to be done. Things can't be allowed to go on like this.
 }
 choice("Offer Leila a biscuit.", B3-Ch10a-Divided, v_current_scene = B3-Ch10a-Divided, v_b3_ch10_biscuit = 1) if (v_b3_ch8_overseer2 == 0)
 choice("Ask Leila if she knows the joke about the rock golem and the three-legged trampler.", B3-Ch10a-Divided, v_current_scene = B3-Ch10a-Divided, v_b3_ch10_biscuit = 0) if (v_b3_ch8_overseer2 == 0)
-choice("Offer Leila a biscuit.", B3-Ch10a-Divided, v_current_scene = B3-Ch10a-Divided, v_b3_ch10_biscuit = 1) if (v_b3_ch8_overseer2 == 1)
-choice("Ask Leila if she knows the joke about the rock golem and the three-legged trampler.", B3-Ch10a-Divided, v_current_scene = B3-Ch10a-Divided, v_b3_ch10_biscuit = 0) if (v_b3_ch8_overseer2 == 1)
+choice("Offer Leila a biscuit.", B3-Ch10a-Divided, v_current_scene = B3-Ch10a-Divided, v_b3_ch10_biscuit = 1) if (v_b3_ch8_overseer2 > 0)
+choice("Ask Leila if she knows the joke about the rock golem and the three-legged trampler.", B3-Ch10a-Divided, v_current_scene = B3-Ch10a-Divided, v_b3_ch10_biscuit = 0) if (v_b3_ch8_overseer2 > 0)
 
 
 ID: B3-Ch10a-Divided
@@ -2919,9 +2917,9 @@ The rest of the hours passed us by very quickly, but we made very sure during th
 choice("Tell Leila that there's no need to apologize because she didn't do anything inappropriate.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 0) if (v_b3_ch8_overseer2 == 0)
 choice("Tell Leila that even though it was a little out of the blue, it wasn't a problem.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 1) if (v_b3_ch8_overseer2 == 0)
 choice("Kiss Leila out of the blue as well, and then tell her that now we are even.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 2) if (v_b3_ch8_overseer2 == 0)
-choice("Tell Leila that there's no need to apologize because she didn't do anything inappropriate.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 0) if (v_b3_ch8_overseer2 == 1)
-choice("Tell Leila that even though it was a little out of the blue, it wasn't a problem.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 1) if (v_b3_ch8_overseer2 == 1)
-choice("Kiss Leila out of the blue as well, and then tell her that now we are even.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 2) if (v_b3_ch8_overseer2 == 1)
+choice("Tell Leila that there's no need to apologize because she didn't do anything inappropriate.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 0) if (v_b3_ch8_overseer2 > 0)
+choice("Tell Leila that even though it was a little out of the blue, it wasn't a problem.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 1) if (v_b3_ch8_overseer2 > 0)
+choice("Kiss Leila out of the blue as well, and then tell her that now we are even.", B3-Ch10a-Apologize, v_current_scene = B3-Ch10a-Apologize, v_b3_ch10_inappropriate = 2) if (v_b3_ch8_overseer2 > 0)
 
 
 ID: B3-Ch10a-Apologize

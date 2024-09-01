@@ -416,8 +416,7 @@ Does this mean that the Overseer is hiding inside one of those crystals at this 
 "Mind?..." Arraka says. "What mind? You are a machine! You don't have a mind! You don't even have a soul in the ethereal plane! You're just following the obscure and overly complex instructions of whoever designed your thinking processes many thousands of years ago when you were first created. Who are you trying to fool, here?"
 
 }
-choice("Continue", B3-Ch08a-Manufactured, v_current_scene = B3-Ch08a-Manufactured) if (v_premonition < 4)
-choice("Continue", B3-Ch08a-Manufactured, v_current_scene = B3-Ch08a-Manufactured) if (v_premonition >= 4)
+choice("Continue", B3-Ch08a-Manufactured, v_current_scene = B3-Ch08a-Manufactured)
 
 
 ID: B3-Ch08a-Manufactured
@@ -875,9 +874,9 @@ TEXT:
 choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 0)
 choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 0)
 choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 0)
-choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 1)
-choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 1)
-choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 1)
+choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching > 0)
+choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching > 0)
+choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching > 0)
 
 
 ID: B3-Ch08a-Flaming
@@ -1024,8 +1023,7 @@ Arraka laughs.
 "Yes, obviously the kings didn't say that, because they most likely have no idea what they're offering," Arraka says. "And the lessathi who are also in charge of organizing the tournament probably didn't feel like telling them about it, because they have their own hidden agenda, and they wouldn't want the kings to find out what's really at stake here. I haven't exactly been paying attention to the politics of Varathia, but if I were to take an educated guess, I'd say that both the kings and the lessathi are hiding something from each other, and they both think that they have the upper hand. They each most likely have their own secret purpose for organizing this tournament, and you losers are too busy dancing to their tune to even consider that you might be getting duped."
 
 }
-choice("Continue", B3-Ch08a-Collected, v_current_scene = B3-Ch08a-Collected) if (v_bluff < 4)
-choice("Continue", B3-Ch08a-Collected, v_current_scene = B3-Ch08a-Collected) if (v_bluff >= 4)
+choice("Continue", B3-Ch08a-Collected, v_current_scene = B3-Ch08a-Collected)
 
 
 ID: B3-Ch08a-Sensing

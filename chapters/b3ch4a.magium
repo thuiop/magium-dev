@@ -101,8 +101,8 @@ While we're walking down the corridors, I suddenly hear a long beep coming from 
 It looks like I won't be able to see any of my stats until I answer the question on this screen.
 
 }
-choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 1)
-choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 1)
+choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose > 0)
+choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose > 0)
 choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 0)
 choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 0)
 
@@ -126,7 +126,7 @@ As I press the button on the right side of my device, I get a new text that desc
 When I press the button on my device once more, the text for the third experimental stat appears on the screen.
 
 choice("Continue", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0)
-choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v_agility = 0, v_agility_aux = 0, v_toughness = 0, v_toughness_aux = 0, v_reflexes = 0, v_reflexes_aux = 0, v_hearing = 0, v_hearing_aux = 0, v_perception = 0, v_perception_aux = 0, v_ancient_languages = 0, v_ancient_languages_aux = 0, v_combat_technique = 0, v_combat_technique_aux = 0, v_premonition = 0, v_premonition_aux = 0, v_available_points = 25, v_available_points_aux = 25, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0) if (v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v_agility = 0, v_agility_aux = 0, v_toughness = 0, v_toughness_aux = 0, v_reflexes = 0, v_reflexes_aux = 0, v_hearing = 0, v_hearing_aux = 0, v_perception = 0, v_perception_aux = 0, v_ancient_languages = 0, v_ancient_languages_aux = 0, v_combat_technique = 0, v_combat_technique_aux = 0, v_premonition = 0, v_premonition_aux = 0, v_available_points = 25, v_available_points_aux = 25, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0)
 choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v_agility = 0, v_agility_aux = 0, v_toughness = 0, v_toughness_aux = 0, v_reflexes = 0, v_reflexes_aux = 0, v_hearing = 0, v_hearing_aux = 0, v_perception = 0, v_perception_aux = 0, v_ancient_languages = 0, v_ancient_languages_aux = 0, v_combat_technique = 0, v_combat_technique_aux = 0, v_premonition = 0, v_premonition_aux = 0, v_available_points = 26, v_available_points_aux = 26, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0) if (v_b3_ch1_unlock == 2)
 
 
@@ -2681,8 +2681,8 @@ TEXT:
 }
 choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 0)
 choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 0)
-choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 1)
-choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 1)
+choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose > 0)
+choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose > 0)
 
 
 ID: B3-Ch04a-Teach
@@ -3031,7 +3031,7 @@ Once all their preparations are complete, Illuna and Breynan finally begin their
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch11_saved_rose == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch11_saved_rose == 0)
 choice("Load game", , , special:saves) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch04a-Cooperate2, v_current_scene = B3-Ch04a-Cooperate2) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch04a-Cooperate2, v_current_scene = B3-Ch04a-Cooperate2) if (v_ch11_saved_rose > 0)
 
 
 ID: B3-Ch04a-Cooperate2
@@ -3310,8 +3310,8 @@ That scream... I've heard that scream before. And the rattling sound of the chai
 }
 choice("Cut the chains with my dagger and free Alice's father.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 1) if (v_b3_ch3_chains == 0)
 choice("Don't cut the chains and leave Alice's father on the metal table.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 0) if (v_b3_ch3_chains == 0)
-choice("Cut the chains with my dagger.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 1) if (v_b3_ch3_chains == 1)
-choice("Ask Melindra what's wrong.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 0) if (v_b3_ch3_chains == 1)
+choice("Cut the chains with my dagger.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 1) if (v_b3_ch3_chains > 0)
+choice("Ask Melindra what's wrong.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 0) if (v_b3_ch3_chains > 0)
 
 
 ID: B3-Ch04a-Container

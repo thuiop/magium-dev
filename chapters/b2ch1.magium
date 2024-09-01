@@ -14,7 +14,7 @@ Golmyck makes a short pause before he continues.
 "What?!" Hadrik shouts. "He can't be serious! How can they even call this a mage tournament with objectives like that? What's next, are they going to tell us to go pick some flowers?"
 
 choice("Continue", B2-Ch01a-Intro2-dead, v_current_scene = B2-Ch01a-Intro2-dead, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch01a-Intro2-alive, v_current_scene = B2-Ch01a-Intro2-alive, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch01a-Intro2-alive, v_current_scene = B2-Ch01a-Intro2-alive, v_checkpoint_rich = 0) if (v_ch11_saved_rose > 0)
 
 
 ID: B2-Ch01a-Intro2-dead
@@ -139,8 +139,8 @@ Arraka's shouting is still audible, but it's more of a mild annoyance now that t
 }
 choice("""Sure, why not?""", B2-Ch01a-Sure-dead, v_current_scene = B2-Ch01a-Sure-dead, v_b2_ch1_spin = 1) if (v_ch11_saved_rose == 0)
 choice("""I think I'll pass, thanks.""", B2-Ch01a-Pass-dead, v_current_scene = B2-Ch01a-Pass-dead, v_b2_ch1_spin = 0) if (v_ch11_saved_rose == 0)
-choice("""Sure, why not?""", B2-Ch01a-Sure-alive, v_current_scene = B2-Ch01a-Sure-alive, v_b2_ch1_spin = 1) if (v_ch11_saved_rose == 1)
-choice("""I think I'll pass, thanks.""", B2-Ch01a-Pass-alive, v_current_scene = B2-Ch01a-Pass-alive, v_b2_ch1_spin = 0) if (v_ch11_saved_rose == 1)
+choice("""Sure, why not?""", B2-Ch01a-Sure-alive, v_current_scene = B2-Ch01a-Sure-alive, v_b2_ch1_spin = 1) if (v_ch11_saved_rose > 0)
+choice("""I think I'll pass, thanks.""", B2-Ch01a-Pass-alive, v_current_scene = B2-Ch01a-Pass-alive, v_b2_ch1_spin = 0) if (v_ch11_saved_rose > 0)
 
 
 ID: B2-Ch01a-Sure-dead
@@ -425,7 +425,7 @@ Hadrik then shakes Enrique's hand and he introduces the rest of us in turn.
 
 "Well, in that case she will always be welcome here, banshee or no," Enrique says. "Ah, here comes our wine!"
 
-choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella) if (v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella)
 choice("Continue", B2-Ch01a-No-Ella, v_current_scene = B2-Ch01a-No-Ella) if (v_ch11_saved_slave == 3)
 
 
@@ -452,7 +452,7 @@ Hadrik then shakes Enrique's hand and he introduces the rest of us in turn.
 
 "Well, in that case she will always be welcome here, banshee or no," Enrique says. "Ah, here comes our wine!"
 
-choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella) if (v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella)
 choice("Continue", B2-Ch01a-No-Ella, v_current_scene = B2-Ch01a-No-Ella) if (v_ch11_saved_slave == 3)
 
 
@@ -475,7 +475,7 @@ Hadrik then shakes Enrique's hand and he introduces the rest of us in turn.
 
 "Well, in that case she will always be welcome here, banshee or no," Enrique says. "Ah, here comes our wine!"
 
-choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella) if (v_ch11_saved_slave != 3)
+choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella)
 choice("Continue", B2-Ch01a-No-Ella, v_current_scene = B2-Ch01a-No-Ella) if (v_ch11_saved_slave == 3)
 
 
@@ -704,7 +704,7 @@ He then goes to Daren and shakes his hand.
 "You must be Rose's new lover!" Enrique tells Daren. "Take good care of her, my friend. She is an extraordinary woman!"
 
 choice("Continue", B2-Ch01a-Unfair, v_current_scene = B2-Ch01a-Unfair) if (v_ch11_romance_rose == 0)
-choice("Continue", B2-Ch01a-Offend, v_current_scene = B2-Ch01a-Offend) if (v_ch11_romance_rose == 1)
+choice("Continue", B2-Ch01a-Offend, v_current_scene = B2-Ch01a-Offend) if (v_ch11_romance_rose > 0)
 
 
 ID: B2-Ch01a-Unfair

@@ -57,9 +57,9 @@ Kate doesn't let me finish my sentence and suddenly makes an ice dagger appear i
 choice("""Yes.""", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0)
 choice("""If you wanted to borrow some money from me, you could have just asked nicely.""", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0)
 choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt == 0)
-choice("""Yes.""", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 1)
-choice("""If you wanted to borrow some money from me, you could have just asked nicely.""", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 1)
-choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt == 1)
+choice("""Yes.""", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt > 0)
+choice("""If you wanted to borrow some money from me, you could have just asked nicely.""", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt > 0)
+choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt > 0)
 
 
 ID: Ch7-Yes
@@ -166,8 +166,8 @@ TEXT:
 }
 choice("""Because I'm in love with you!""", Ch7-Love, v_current_scene = Ch7-Love) if (v_ch7_tap == 0)
 choice("""Because I helped you when we were attacked by the crossbowmen.""", Ch7-Helped, v_current_scene = Ch7-Helped) if (v_ch7_tap == 0)
-choice("""I didn't call him here to kill you.""", Ch7-Kill, v_current_scene = Ch7-Kill) if (v_ch7_tap == 1)
-choice("""Please, calm down. We can still talk things through.""", Ch7-Calm, v_current_scene = Ch7-Calm) if (v_ch7_tap == 1)
+choice("""I didn't call him here to kill you.""", Ch7-Kill, v_current_scene = Ch7-Kill) if (v_ch7_tap > 0)
+choice("""Please, calm down. We can still talk things through.""", Ch7-Calm, v_current_scene = Ch7-Calm) if (v_ch7_tap > 0)
 
 
 ID: Ch7-Love
@@ -835,8 +835,8 @@ I tap the transceiver again, in order to deactivate it, and we start heading tow
 }
 choice("""I'm not going to tell him anything.""", Ch7-Trust-anything, v_current_scene = Ch7-Trust-anything) if (v_ch7_tap == 0)
 choice("""I'm going to tell him the truth.""", Ch7-Trust-truth, v_current_scene = Ch7-Trust-truth) if (v_ch7_tap == 0)
-choice("""I'm going to tell him the truth.""", Ch7-Tap-truth, v_current_scene = Ch7-Tap-truth) if (v_ch7_tap == 1)
-choice("""Don't worry, I'll find a way to make him drop the subject.""", Ch7-Tap-drop, v_current_scene = Ch7-Tap-drop) if (v_ch7_tap == 1)
+choice("""I'm going to tell him the truth.""", Ch7-Tap-truth, v_current_scene = Ch7-Tap-truth) if (v_ch7_tap > 0)
+choice("""Don't worry, I'll find a way to make him drop the subject.""", Ch7-Tap-drop, v_current_scene = Ch7-Tap-drop) if (v_ch7_tap > 0)
 
 
 ID: Ch7-Trust-anything
@@ -1120,9 +1120,9 @@ The stillwater smiles again, and he starts to slowly descend towards the dwarf. 
 "This is it!" Daren tells me. "This is our chance. Let's get out of here while everyone else is watching the fight."
 
 choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-not-call, v_current_scene = Ch7-Watch-not-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 0)
-choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 1)
+choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose > 0)
 choice("""Alright, let's go.""", Ch7-Go-not-call, v_current_scene = Ch7-Go-not-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 0)
-choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 1)
+choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose > 0)
 
 
 ID: Ch7-Okay2
@@ -1153,9 +1153,9 @@ I realize I must have spaced out while looking at the old sage, because I have n
 "I was saying that this is the perfect opportunity to make our way out of here. They won't pay any attention to us because they're too focused on watching the fight."
 
 choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-not-call, v_current_scene = Ch7-Watch-not-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 0)
-choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 1)
+choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose > 0)
 choice("""Alright, let's go.""", Ch7-Go-not-call, v_current_scene = Ch7-Go-not-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 0)
-choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 1)
+choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose > 0)
 
 
 ID: Ch7-Watch-not-call
@@ -1376,8 +1376,8 @@ For a moment, her words confused me, but then I realized she must be trying to p
 }
 choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap == 0)
 choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap == 0)
-choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap == 1)
-choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap == 1)
+choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap > 0)
+choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap > 0)
 
 
 ID: Ch7-Help

@@ -2,12 +2,14 @@ from collections import defaultdict
 from copy import deepcopy
 from dataclasses import dataclass, field
 from itertools import groupby
+import itertools
 import json
 import pathlib
 import pprint
 import re
 from typing import Any
 import warnings
+import sympy as sp
 
 root_folder = pathlib.Path("./chapters")
 pp = pprint.PrettyPrinter(2)
@@ -44,6 +46,27 @@ def parse_condition(t: str):
         return "!="
     else:
         raise ValueError(t)
+
+def groupby_unsorted(input, key=lambda x:x):
+  yielded = set()
+  keys = [ key(element) for element in input ]
+  for i, wantedKey in enumerate(keys):
+    if wantedKey not in yielded:
+      yield (wantedKey,
+          (input[j] for j in range(i, len(input)) if keys[j] == wantedKey))
+    yielded.add(wantedKey)
+
+@dataclass
+class Event:
+    type: str = ""
+    conditions: dict[str,Any] = field(default_factory=lambda:{"variables":{}})
+    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[],"stat_checks":[]})
+
+
+@dataclass
+class Comparison:
+    type: str
+    value: int
 
 def compare(value,comparison):
     return eval(f"{value} {parse_condition(comparison.type)} {comparison.value}")
@@ -85,17 +108,27 @@ def is_compatible(comp1,comp2):
 def all_is_compatible(comp_set1,comp_set2):
     return all(is_compatible(comp_set1[key],comp_set2.get(key)) for key in comp_set1)
 
-@dataclass
-class Event:
-    type: str = ""
-    conditions: dict[str,Any] = field(default_factory=lambda:{"variables":{}})
-    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[],"stat_checks":[]})
+def apply_condition_to_sympy(x,cond):
+    if cond.type == ">":
+        return x > cond.value
+    elif cond.type == "<":
+        return x < cond.value
+    elif cond.type == ">=":
+        return x >= cond.value
+    elif cond.type == "<=":
+        return x <= cond.value
+    elif cond.type == "=":
+        return x == cond.value
+    elif cond.type == "<>":
+        return x != cond.value
+    else:
+        raise ValueError
 
-
-@dataclass
-class Comparison:
-    type: str
-    value: int
+def is_total_pattern(conditions: list[Comparison]):
+    x = sp.symbols('x')
+    combined_condition = sp.Or(*[apply_condition_to_sympy(x,condition) for condition in conditions])
+    simplified_condition = sp.simplify(combined_condition)
+    return simplified_condition == True
 
 @dataclass
 class Paragraph:
@@ -230,7 +263,8 @@ class Scene:
                 text += "}\n" #}
         text = re.sub(r"(\n){2,}", r"\n\n", text)
 
-        for response in self.responses:
+        responses = self.merge_responses()
+        for response in responses:
             text += f'choice("{response.text}", {response.new_scene}, {", ".join([f"{name} = {value}" for name,value in response.set_variables.items()])}'
             if response.special != "":
                  text += f", special:{response.special}"
@@ -251,10 +285,32 @@ class Scene:
         return paragraph_groups.values()
 
 
-
-        
-
-
+    def merge_responses(self):
+        grouped_responses = groupby_unsorted(self.responses,key=lambda r:(r.text,str(r.set_variables),r.special))
+        new_responses = []
+        for test,group in grouped_responses:
+            group = list(group)
+            print("Print",test,group)
+            conditions = defaultdict(list)
+            for response in group:
+                for var,condition in response.conditions.items():
+                    conditions[var].append(condition)
+            if len(conditions.keys()) == 1:
+                var = list(conditions.keys())[0]
+            else:
+                new_responses += group
+                continue
+            if is_total_pattern(conditions[var]):
+                new_response = deepcopy(group[0])
+                new_response.conditions = {}
+                new_responses.append(new_response)
+            elif all([c.type == "=" for c in conditions[var]]) and sorted([c.value for c in conditions[var]]) in [[1],[1,2],[1,2,3],[1,2,3,4]]:
+                new_response = deepcopy(group[0])
+                new_response.conditions = {var: Comparison(">",0)}
+                new_responses.append(new_response)
+            else:
+                new_responses += group
+        return new_responses
 
 class Parser:
     def __init__(self, lexer) -> None:
@@ -331,6 +387,7 @@ chapters = (
     + [f"b2ch{num}" for num in [1,2,3,"4a","4b","5a","5b",6,7,8,"9a","9b","10a","10b","11a","11b","11c"]]
     + [f"b3ch{num}" for num in [1,"2a","2b","2c","3a","3b","4a","4b","5a","5b","6a","6b","6c","7a","8a","8b","9a","9b","9c","10a","10b","10c","11a","12a","12b"]]
 )
+chapters = ["ch1"]
 verbose = False
 for chapter in chapters:
     filename = root_folder/chapter/"logic.txt"

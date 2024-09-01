@@ -71,8 +71,8 @@ TEXT:
 }
 choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 0)
 choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 0)
-choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 1)
-choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 1)
+choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control > 0)
+choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control > 0)
 
 
 ID: B3-Ch04b-Passage
@@ -966,9 +966,9 @@ When we turn around, we see that there are three men dressed in uniforms with sw
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch11_saved_rose == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch11_saved_rose == 0)
 choice("Load game", , , special:saves) if (v_ch11_saved_rose == 0)
-choice("Try to convince them that we are the new guards tasked to defend this corridor.", B3-Ch04b-Tasked, v_current_scene = B3-Ch04b-Tasked) if (v_ch11_saved_rose == 1)
-choice("Try to convince them that we are the new cleaners.", B3-Ch04b-Cleaners, v_current_scene = B3-Ch04b-Cleaners) if (v_ch11_saved_rose == 1)
-choice("Tell them that it's none of their business.", B3-Ch04b-Business, v_current_scene = B3-Ch04b-Business, v_b3_ch4_tasked = 3) if (v_ch11_saved_rose == 1)
+choice("Try to convince them that we are the new guards tasked to defend this corridor.", B3-Ch04b-Tasked, v_current_scene = B3-Ch04b-Tasked) if (v_ch11_saved_rose > 0)
+choice("Try to convince them that we are the new cleaners.", B3-Ch04b-Cleaners, v_current_scene = B3-Ch04b-Cleaners) if (v_ch11_saved_rose > 0)
+choice("Tell them that it's none of their business.", B3-Ch04b-Business, v_current_scene = B3-Ch04b-Business, v_b3_ch4_tasked = 3) if (v_ch11_saved_rose > 0)
 
 
 ID: B3-Ch04b-Tasked
@@ -1321,8 +1321,8 @@ Just as the lessathi stops talking, the whole section in front of the staircase 
 "Last time you talked to her, Rose said she had a premonition in which she saw me almost get killed," Illuna says. "It's possible that she's actually been making a little more progress than what she told you so far. We already know that there aren't enough seredium walls between her and us to block our communication completely, given that she's situated on the surface, so contacting her could be worth a try."
 
 }
-choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact) if (v_b3_ch4_tasked != 5)
-choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze) if (v_b3_ch4_tasked != 5)
+choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact)
+choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze)
 choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact) if (v_b3_ch4_tasked == 2)
 choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze) if (v_b3_ch4_tasked == 2)
 choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact) if (v_b3_ch4_tasked == 3)

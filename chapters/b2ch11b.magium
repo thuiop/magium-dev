@@ -140,9 +140,9 @@ The lessathi are currently talking among themselves, but the orphans are all dea
 choice("""What kind of test are you talking about?""", B2-Ch11b-Test, v_current_scene = B2-Ch11b-Test) if (v_b2_ch11_skip1 == 2)
 choice("""Why would the lessathi have direct access to the Magium?""", B2-Ch11b-Direct, v_current_scene = B2-Ch11b-Direct) if (v_b2_ch11_skip1 == 2)
 choice("""How do you think the lessathi might have gotten subconsciously linked to the Magium?""", B2-Ch11b-Subconsciously, v_current_scene = B2-Ch11b-Subconsciously) if (v_b2_ch11_skip1 == 2)
-choice("""What kind of test are you talking about?""", B2-Ch11b-Test, v_current_scene = B2-Ch11b-Test) if (v_b2_ch11_skip1 != 2)
-choice("""Why would the lessathi have direct access to the Magium?""", B2-Ch11b-Direct, v_current_scene = B2-Ch11b-Direct) if (v_b2_ch11_skip1 != 2)
-choice("""How do you think the lessathi might have gotten subconsciously linked to the Magium?""", B2-Ch11b-Subconsciously, v_current_scene = B2-Ch11b-Subconsciously) if (v_b2_ch11_skip1 != 2)
+choice("""What kind of test are you talking about?""", B2-Ch11b-Test, v_current_scene = B2-Ch11b-Test)
+choice("""Why would the lessathi have direct access to the Magium?""", B2-Ch11b-Direct, v_current_scene = B2-Ch11b-Direct)
+choice("""How do you think the lessathi might have gotten subconsciously linked to the Magium?""", B2-Ch11b-Subconsciously, v_current_scene = B2-Ch11b-Subconsciously)
 
 
 ID: B2-Ch11b-Test
@@ -585,7 +585,7 @@ It took Kate many tries to finally find a way to get everyone on her side, and t
 
 }
 choice("Continue", B2-Ch11b-Denial, v_current_scene = B2-Ch11b-Denial) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_ch11_saved_rose > 0)
 choice("Continue", B2-Ch11b-Denial, v_current_scene = B2-Ch11b-Denial) if (v_b2_ch11_skip2 == 0 && v_ch11_saved_rose == 0)
 choice("Continue", B2-Ch11b-Denial, v_current_scene = B2-Ch11b-Denial) if (v_b2_ch11_skip2 == 1 && v_ch11_saved_rose == 0)
 choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_b2_ch11_skip2 == 0 && v_ch11_saved_rose == 1)
@@ -869,8 +869,7 @@ Not long after we finish our conversation, Daren's eyes lose their bright yellow
 Daren chooses to completely ignore Arraka's question, and he turns to me, instead.
 
 }
-choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue) if (v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue) if (v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue)
 
 
 ID: B2-Ch11b-Panicking
@@ -934,8 +933,7 @@ Daren chooses to completely ignore Arraka's question, and he turns to me, instea
 "More than you think, dwarf," Arraka says. "And I'm not talking only about your trial from the God of Time. I've looked through some of your memories too, since they were pretty much out in the open, when you were trapped in there. I saw some very interesting things, while I was looking through the memories that were related to your ritual. Want me to tell you what I found out?"
 
 }
-choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue) if (v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue) if (v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue)
 
 
 ID: B2-Ch11b-Uneasy
@@ -999,8 +997,7 @@ Daren chooses to completely ignore Arraka's question, and he turns to me, instea
 "More than you think, dwarf," Arraka says. "And I'm not talking only about your trial from the God of Time. I've looked through some of your memories too, since they were pretty much out in the open, when you were trapped in there. I saw some very interesting things, while I was looking through the memories that were related to your ritual. Want me to tell you what I found out?"
 
 }
-choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue) if (v_ch11_saved_slave != 3)
-choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue) if (v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch11b-Fatigue, v_current_scene = B2-Ch11b-Fatigue)
 
 
 ID: B2-Ch11b-Fatigue
@@ -1070,5 +1067,5 @@ We'd all been ignoring the revenant until this point, but now that she spoke to 
 "Because this ritual is as much a problem for me as it is for you," the revenant says. "...And also because as much as I've tried to avoid it, there are traces of your friend Rose within me that will always be a part of who I am. At the very least, I know that Rose would have wanted us to work together, despite our differences, since nothing would have been more important to her in this situation than to make sure that you are safe."
 
 }
-choice("Continue", B2-Ch11c-Herbalist, v_current_scene = B2-Ch11c-Herbalist) if (v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11c-Herbalist, v_current_scene = B2-Ch11c-Herbalist) if (v_ch11_saved_rose > 0)
 choice("Continue", B2-Ch11c-Hesitation, v_current_scene = B2-Ch11c-Hesitation) if (v_ch11_saved_rose == 0)

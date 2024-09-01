@@ -332,8 +332,8 @@ TEXT:
 "Isn't the entrance to that corridor clearly marked as leading to the Heksol faction area, in the common language?" Diane says. "Surely, the dwarf must have read that and decided to take the other path, right?"
 
 }
-choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 1)
-choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 1)
+choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node > 0)
+choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node > 0)
 choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 0)
 choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 0)
 
@@ -724,8 +724,7 @@ The two of them now clink their glasses and then they have a good long drink, be
 "All the time," the lessathi guard says, and then he takes a sip from his filled glass.
 
 }
-choice("Continue", B3-Ch11a-Fellow, v_current_scene = B3-Ch11a-Fellow) if (v_hearing >= 2)
-choice("Continue", B3-Ch11a-Fellow, v_current_scene = B3-Ch11a-Fellow) if (v_hearing < 2)
+choice("Continue", B3-Ch11a-Fellow, v_current_scene = B3-Ch11a-Fellow)
 
 
 ID: B3-Ch11a-Went
@@ -879,9 +878,9 @@ TEXT:
 choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 0)
 choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 0)
 choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 0)
-choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 1)
-choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 1)
-choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 1)
+choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 > 0)
+choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 > 0)
+choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 > 0)
 
 
 ID: B3-Ch11a-Exchange
@@ -1662,8 +1661,8 @@ As soon as I do that, I immediately understand what Daren was talking about. I a
  I'm starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
-choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 1)
-choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 1)
+choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node > 0)
+choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node > 0)
 choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 0)
 choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 0)
 

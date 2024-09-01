@@ -144,9 +144,9 @@ Great. I'm wondering if he plans to blow my cover to every single person we meet
 "Is that what he told you?" the woman asks. "And you believe him? He's just trying to get you to lower your guard!" 
 
 }
-choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater == 1)
-choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater == 1)
-choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater == 1)
+choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater > 0)
+choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater > 0)
+choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater > 0)
 choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater == 2)
 choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater == 2)
 choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater == 2)
@@ -357,7 +357,7 @@ Suddenly, one of the two younger mages that were standing next to the mage with 
 
 }
 choice("Continue", Ch2-Battle-human, v_current_scene = Ch2-Battle-human, v_ch2_toughness_happened = 0) if (v_ch1_stillwater == 2)
-choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwater) if (v_ch1_stillwater == 1)
+choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwater) if (v_ch1_stillwater > 0)
 
 
 ID: Ch2-Battle-stillwater
@@ -779,7 +779,7 @@ After finishing his healing spell, he walks over to Kate.
 "Yes... I suppose you're right."
 
 }
-choice("Continue", Ch2-Confession, v_current_scene = Ch2-Confession) if (v_ch1_stillwater == 1)
+choice("Continue", Ch2-Confession, v_current_scene = Ch2-Confession) if (v_ch1_stillwater > 0)
 choice("Continue", Ch2-Battle-end2, v_current_scene = Ch2-Battle-end2) if (v_ch1_stillwater == 2)
 
 
@@ -908,9 +908,9 @@ I start to follow him, but Kate stops me in my tracks. She has that very serious
 }
 choice("""Crystal.""", Ch2-Crystal, v_current_scene = Ch2-Crystal) if (v_ch2_kate_debt == 0)
 choice("""Not really, could you elaborate some more?""", Ch2-Elaborate, v_current_scene = Ch2-Elaborate) if (v_ch2_kate_debt == 0)
-choice("""Don't worry, I always pay my debts.""", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt == 1)
-choice("""Yes, we're clear.""", Ch2-Clear, v_current_scene = Ch2-Clear) if (v_ch2_kate_debt == 1)
-choice("""I don't owe you anything.""", Ch2-No-debt, v_current_scene = Ch2-No-debt, v_ch2_not_owe_debt = 1) if (v_ch2_kate_debt == 1)
+choice("""Don't worry, I always pay my debts.""", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt > 0)
+choice("""Yes, we're clear.""", Ch2-Clear, v_current_scene = Ch2-Clear) if (v_ch2_kate_debt > 0)
+choice("""I don't owe you anything.""", Ch2-No-debt, v_current_scene = Ch2-No-debt, v_ch2_not_owe_debt = 1) if (v_ch2_kate_debt > 0)
 
 
 ID: Ch2-Crystal
