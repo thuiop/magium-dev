@@ -1,7 +1,7 @@
 ID: B3-Ch04a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(checkpoint,1)
 #if(v_ch11_saved_rose == 1) {
  
 "Barry!" I hear Rose's voice through the transceiver. "--happened-- everyone alright?--"
@@ -101,9 +101,9 @@ While we're walking down the corridors, I suddenly hear a long beep coming from 
 It looks like I won't be able to see any of my stats until I answer the question on this screen.
 
 }
-choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose > 0)
-choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose > 0)
+choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 1)
 choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 0)
+choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 1)
 choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 0)
 
 
@@ -126,7 +126,7 @@ As I press the button on the right side of my device, I get a new text that desc
 When I press the button on my device once more, the text for the third experimental stat appears on the screen.
 
 choice("Continue", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0)
-choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v_agility = 0, v_agility_aux = 0, v_toughness = 0, v_toughness_aux = 0, v_reflexes = 0, v_reflexes_aux = 0, v_hearing = 0, v_hearing_aux = 0, v_perception = 0, v_perception_aux = 0, v_ancient_languages = 0, v_ancient_languages_aux = 0, v_combat_technique = 0, v_combat_technique_aux = 0, v_premonition = 0, v_premonition_aux = 0, v_available_points = 25, v_available_points_aux = 25, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0)
+choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v_agility = 0, v_agility_aux = 0, v_toughness = 0, v_toughness_aux = 0, v_reflexes = 0, v_reflexes_aux = 0, v_hearing = 0, v_hearing_aux = 0, v_perception = 0, v_perception_aux = 0, v_ancient_languages = 0, v_ancient_languages_aux = 0, v_combat_technique = 0, v_combat_technique_aux = 0, v_premonition = 0, v_premonition_aux = 0, v_available_points = 25, v_available_points_aux = 25, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0) if (v_b3_ch1_unlock != 2)
 choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v_agility = 0, v_agility_aux = 0, v_toughness = 0, v_toughness_aux = 0, v_reflexes = 0, v_reflexes_aux = 0, v_hearing = 0, v_hearing_aux = 0, v_perception = 0, v_perception_aux = 0, v_ancient_languages = 0, v_ancient_languages_aux = 0, v_combat_technique = 0, v_combat_technique_aux = 0, v_premonition = 0, v_premonition_aux = 0, v_available_points = 26, v_available_points_aux = 26, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch3_stats_unavailable = 0) if (v_b3_ch1_unlock == 2)
 
 
@@ -2680,9 +2680,9 @@ TEXT:
 
 }
 choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 0)
+choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 1)
 choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 0)
-choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose > 0)
-choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose > 0)
+choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Teach
@@ -3039,8 +3039,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_magical_sense < 3)
 set(v_is_dead,0) if (v_magical_sense >= 3)
-FAIL:[ Magical sense check failed - level 3 ] if (v_magical_sense < 3)}
-SUCCESS:[ Magical sense check successful - level 3 ] if (v_magical_sense >= 3)}
+stat_check(v_magical_sense,3)
 #if(v_magical_sense < 3) {
  
 For the first few spells, everything goes smoothly. Both Illuna and Breynan are executing their movements perfectly, and the trap is reacting exactly how it should. As they keep casting their spells, however, I can't help but feel that something is wrong. But how can that be? They are not making any mistakes. Their movements are all flawless. Surely it must all be my imagination.

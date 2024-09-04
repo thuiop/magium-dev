@@ -1,7 +1,7 @@
 ID: B2-Ch07a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
 #if(v_b2_ch1_interfere == 1) {
  
 "Barry, how long are you planning to stare at that piece of paper?" Daren says. "I told you, there are no conflicts between my protection spells. No matter how many times you check, you can't find something that is not there."
@@ -30,8 +30,7 @@ Flower has also tried to look at the paper and at my notebook a few times, but s
 "Oh, come on!" Daren says, exasperated. "Hasn't it crossed your mind that maybe Eiden was just pulling your leg back there? Why would he even tell you his weakness? What possible reason could he have to do such a thing?"
 
 }
-choice("Continue", B2-Ch07a-Intro2, v_current_scene = B2-Ch07a-Intro2, v_checkpoint_rich = 0) if (v_b2_ch1_interfere == 1)
-choice("Continue", B2-Ch07a-Intro2, v_current_scene = B2-Ch07a-Intro2, v_checkpoint_rich = 0) if (v_b2_ch1_interfere == 0)
+choice("Continue", B2-Ch07a-Intro2, v_current_scene = B2-Ch07a-Intro2, v_checkpoint_rich = 0) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch07a-Intro2
@@ -296,8 +295,7 @@ As soon as Daren is done with the backpack and Leila puts all of her clothes ins
 As soon as Daren is done with the backpack and Leila puts all of her clothes inside it, we all leave the market area, and we make our way towards the castle of Thilias once more. As we walk, we begin to tell Kate and Leila about everything that happened with Eiden while they were shopping. I also take this opportunity to give everyone more details about my private discussion with Eiden, during his time freezing spell.
 
 }
-choice("Continue", B2-Ch07a-Clashing, v_current_scene = B2-Ch07a-Clashing) if (v_b2_ch7_dizziness == 0)
-choice("Continue", B2-Ch07a-Clashing, v_current_scene = B2-Ch07a-Clashing) if (v_b2_ch7_dizziness == 1)
+choice("Continue", B2-Ch07a-Clashing, v_current_scene = B2-Ch07a-Clashing) if (v_b2_ch7_dizziness == 0 || v_b2_ch7_dizziness == 1)
 
 
 ID: B2-Ch07a-Clashing
@@ -510,18 +508,9 @@ TEXT:
 "Then why is he so fixated on you, and not on any of the other participants?" Golmyck says. "Surely you cannot be the only unique group that has joined this tournament?"
 
 }
-choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 3)
-choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 3)
-choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 3)
-choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal > 0)
-choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal > 0)
-choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal > 0)
-choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 2)
-choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 2)
-choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 2)
-choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 4)
-choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 4)
-choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 4)
+choice("""Actually, for all we know, he may also be visiting other groups of mages.""", B2-Ch07a-Visiting, v_current_scene = B2-Ch07a-Visiting) if (v_b2_ch2_deal == 1 || v_b2_ch2_deal == 2 || v_b2_ch2_deal == 3 || v_b2_ch2_deal == 4)
+choice("""He seems to really enjoy messing with Daren's head.""", B2-Ch07a-Messing, v_current_scene = B2-Ch07a-Messing) if (v_b2_ch2_deal == 1 || v_b2_ch2_deal == 2 || v_b2_ch2_deal == 3 || v_b2_ch2_deal == 4)
+choice("""From what I understand, it may be because I'm a half-lessathi.""", B2-Ch07a-Half, v_current_scene = B2-Ch07a-Half) if (v_b2_ch2_deal == 1 || v_b2_ch2_deal == 2 || v_b2_ch2_deal == 3 || v_b2_ch2_deal == 4)
 
 
 ID: B2-Ch07a-Visiting
@@ -533,7 +522,7 @@ TEXT:
 He pauses.
 
 choice("Continue", B2-Ch07a-No-Help, v_current_scene = B2-Ch07a-No-Help) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere > 0)
+choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch07a-Messing
@@ -549,7 +538,7 @@ TEXT:
 He pauses.
 
 choice("Continue", B2-Ch07a-No-Help, v_current_scene = B2-Ch07a-No-Help) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere > 0)
+choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch07a-Half
@@ -565,7 +554,7 @@ TEXT:
 He pauses.
 
 choice("Continue", B2-Ch07a-No-Help, v_current_scene = B2-Ch07a-No-Help) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere > 0)
+choice("Continue", B2-Ch07a-Help, v_current_scene = B2-Ch07a-Help) if (v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch07a-No-Help
@@ -734,8 +723,7 @@ TEXT:
 "Uh," Hadrik says, "not that I want to interrupt you or anything, but we should really hurry up if we want to finish the game before Rose is done with the feast preparations. We likely only have about twenty minutes left until the food is done, and everyone except Leila still has at least five cards left in their hands."
 
 }
-choice("Continue", B2-Ch07a-Mansion2, v_current_scene = B2-Ch07a-Mansion2) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch07a-Mansion2, v_current_scene = B2-Ch07a-Mansion2) if (v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch07a-Mansion2, v_current_scene = B2-Ch07a-Mansion2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch07a-Help
@@ -831,10 +819,8 @@ She then conjures a detailed hologram of the underground tunnels, although the m
 "Yeah, the green tunnels are the ones that I can't actually detect with my magical sense," Arraka says. "I only put them there because they're on the map. They probably have walls and ceilings made of seredium, which block my magical sense. I have no idea if there are people walking through them, or if they can even be accessed at all. The path to your destination doesn't have any seredium on it, though, so at the very least you can be sure that you won't encounter any guards on your way there."
 
 }
-choice("""What about the meeting room? Is there anyone inside it right now?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 0) if (v_b2_ch2_tell_servant > 0)
-choice("""Can you sense any tunnels that are not on the king's map?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 1) if (v_b2_ch2_tell_servant > 0)
-choice("""What about the meeting room? Is there anyone inside it right now?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 0) if (v_b2_ch2_tell_servant == 0)
-choice("""Can you sense any tunnels that are not on the king's map?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 1) if (v_b2_ch2_tell_servant == 0)
+choice("""What about the meeting room? Is there anyone inside it right now?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 0) if (v_b2_ch2_tell_servant == 0 || v_b2_ch2_tell_servant == 1)
+choice("""Can you sense any tunnels that are not on the king's map?""", B2-Ch07a-Papers, v_current_scene = B2-Ch07a-Papers, v_b2_ch7_tunnel = 1) if (v_b2_ch2_tell_servant == 0 || v_b2_ch2_tell_servant == 1)
 
 
 ID: B2-Ch07a-Papers
@@ -904,8 +890,7 @@ We spend the next hour or so playing a card game that Hadrik learned from dwarve
 "Hey, Daren," I say, after reading through the notebook for some time. "Remember that one time when Eiden paralyzed every one of you? Right before he teleported us in front of Thilias?"
 
 }
-choice("Continue", B2-Ch07a-Unconscious, v_current_scene = B2-Ch07a-Unconscious) if (v_b2_ch7_tunnel == 0)
-choice("Continue", B2-Ch07a-Unconscious, v_current_scene = B2-Ch07a-Unconscious) if (v_b2_ch7_tunnel == 1)
+choice("Continue", B2-Ch07a-Unconscious, v_current_scene = B2-Ch07a-Unconscious) if (v_b2_ch7_tunnel == 0 || v_b2_ch7_tunnel == 1)
 
 
 ID: B2-Ch07a-Unconscious
@@ -973,7 +958,7 @@ The king opens a trapdoor which leads to the underground corridors, and an exten
 
 }
 choice("Continue", B2-Ch07a-Premonition, v_current_scene = B2-Ch07a-Premonition) if (v_b2_ch7_tunnel == 0)
-choice("Continue", B2-Ch07a-Interested, v_current_scene = B2-Ch07a-Interested) if (v_b2_ch7_tunnel > 0)
+choice("Continue", B2-Ch07a-Interested, v_current_scene = B2-Ch07a-Interested) if (v_b2_ch7_tunnel == 1)
 
 
 ID: B2-Ch07a-Interested
@@ -1009,12 +994,9 @@ choice("Continue", B2-Ch07a-Premonition, v_current_scene = B2-Ch07a-Premonition)
 ID: B2-Ch07a-Premonition
 TEXT: 
 
-set(v_is_dead,1) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
-set(v_is_dead,1) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
+set(v_is_dead,1) if ((v_b2_ch7_tunnel == 0 || v_b2_ch7_tunnel == 1) && v_premonition < 4)
 set(v_is_dead,0) if (v_premonition == 4)
-FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_b2_ch7_tunnel == 1)}
-FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_b2_ch7_tunnel == 0)}
-SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition == 4)}
+stat_check(v_premonition,4)
 #if(v_premonition < 4 && v_b2_ch7_tunnel == 1) {
  
 As we make our way further into the tunnel, I begin to ask myself if not choosing to enter that secret corridor really was the best decision. This tunnel is still as empty as ever, and I cannot deny that I'm also starting to get a bit of an eerie feeling as we get closer to our destination. I do not have the time to ask myself these questions much longer, because a few seconds later, the whole area around us is covered in a huge explosion, which sends the ceiling crashing down upon us and kills me in an instant.
@@ -1046,10 +1028,10 @@ As we make our way further into the tunnel, I suddenly get a vision of our group
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
-choice("Load game", , , special:saves) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
+choice("Load game", , , special:saves) if (v_premonition < 4 && v_b2_ch7_tunnel == 1)
 choice("Load game", , , special:saves) if (v_premonition < 4 && v_b2_ch7_tunnel == 0)
 choice("""Well, why don't you throw a rock, and see for yourself if it explodes, then?""", B2-Ch07a-Secret, v_current_scene = B2-Ch07a-Secret, v_b2_ch7_rock = 1) if (v_premonition == 4)
 choice("""It's certainly reliable enough to not want to risk my life by ignoring it.""", B2-Ch07a-Secret, v_current_scene = B2-Ch07a-Secret, v_b2_ch7_rock = 0) if (v_premonition == 4)
@@ -1205,14 +1187,10 @@ choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing)
 ID: B2-Ch07a-Hearing
 TEXT: 
 
-set(v_b2_ch7_overheard,0) if (v_hearing < 2)
-set(v_b2_ch7_overheard,0) if (v_hearing >= 2 && v_ancient_languages < 3)
-set(v_b2_ch7_overheard,1) if (v_hearing >= 2 && v_ancient_languages >= 3)
-FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
-FAIL:[ Ancient languages check failed - level 3 ] if (v_hearing >= 2 && v_ancient_languages < 3)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_ancient_languages < 3)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_ancient_languages >= 3)}
-SUCCESS:[ Ancient languages check successful - level 3 ] if (v_hearing >= 2 && v_ancient_languages >= 3)}
+set(v_b2_ch7_overheard,0) if (v_ancient_languages < 3 || v_hearing < 2)
+set(v_b2_ch7_overheard,1) if (v_ancient_languages >= 3 && v_hearing >= 2)
+stat_check(v_hearing,2)
+stat_check(v_ancient_languages,3)
 #if(v_hearing < 2) {
  
 We travel through the secret tunnel without encountering any form of resistance. When we reach the end of it, Hadrik takes a quick glance towards the rest of us, and then he punches through the wall, clearing our way to the seredium corridor. As we look around us, we see that this tunnel is just as empty as the other ones.
@@ -1292,8 +1270,7 @@ choice("Continue", B2-Ch07a-Welcome, v_current_scene = B2-Ch07a-Welcome) if (v_h
 ID: B2-Ch07a-Welcome
 TEXT: 
 
-FAIL:[ Ancient languages check failed - level 3 ] if (v_ancient_languages < 3)}
-SUCCESS:[ Ancient languages check successful - level 3 ] if (v_ancient_languages >= 3)}
+stat_check(v_ancient_languages,3)
 #if(v_ancient_languages < 3) {
  
 Just as we prepare to charge into their headquarters, I suddenly feel an electric shock all throughout my body, and I fall to the ground, unable to move. The same thing apparently happened to all of my friends, because they're now also lying on the ground beside me.
@@ -1360,10 +1337,8 @@ As I lie there on the ground, a very small, barely noticeable, semi-transparent 
 "Don't free yourself yet," Leila's text says. "Wait for the others to get accustomed to the shocks. I'm also sending this message to everyone else. I'll give the signal, so we can all free ourselves together, at the exact same moment."
 
 }
-choice("Attack the first lessathi that gets close to me.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 0) if (v_b2_ch7_rock == 0)
-choice("Wait for Leila's signal.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 1) if (v_b2_ch7_rock == 0)
-choice("Attack the first lessathi that gets close to me.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 0) if (v_b2_ch7_rock > 0)
-choice("Wait for Leila's signal.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 1) if (v_b2_ch7_rock > 0)
+choice("Attack the first lessathi that gets close to me.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 0) if (v_b2_ch7_rock == 0 || v_b2_ch7_rock == 1)
+choice("Wait for Leila's signal.", B2-Ch07a-Amulet, v_current_scene = B2-Ch07a-Amulet, v_b2_ch7_wait = 1) if (v_b2_ch7_rock == 0 || v_b2_ch7_rock == 1)
 
 
 ID: B2-Ch07a-Amulet
@@ -1382,25 +1357,17 @@ It is unclear to me whether Arraka saw Leila's message and is now trying to buy 
 "This is the one that I'm interested in talking to," the lessathi says, as he gets closer to me. "I honestly wasn't expecting to see you again, fellow lessathi. You are tenacious, I'll give you that. Well, no matter. This isn't important. What's important is how you managed to reach our location in one piece. Tell me, was it Golmyck that gave you the map of the underground tunnels? How were you able to avoid the explosion trap?"
 
 choice("Continue", B2-Ch07a-Attack, v_current_scene = B2-Ch07a-Attack) if (v_b2_ch7_wait == 0)
-choice("Continue", B2-Ch07a-Wait, v_current_scene = B2-Ch07a-Wait) if (v_b2_ch7_wait > 0)
+choice("Continue", B2-Ch07a-Wait, v_current_scene = B2-Ch07a-Wait) if (v_b2_ch7_wait == 1)
 
 
 ID: B2-Ch07a-Attack
 TEXT: 
 
-set(v_is_dead,0) if (v_strength >= 3)
-set(v_is_dead,0) if (v_strength < 3 && v_combat_technique >= 3)
-set(v_is_dead,0) if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)
-set(v_is_dead,1) if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
-SUCCESS:[ Combat technique check successful - level 3 ] if (v_strength < 3 && v_combat_technique >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_combat_technique >= 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)}
-FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)}
-FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_strength < 3 && v_combat_technique < 3 && v_agility < 3)}
+set(v_is_dead,0) if (v_agility >= 3 && v_strength < 3 || v_combat_technique >= 3 && v_strength < 3 || v_strength >= 3)
+set(v_is_dead,1) if (v_agility < 3 && v_combat_technique < 3 && v_strength < 3)
+stat_check(v_strength,3)
+stat_check(v_combat_technique,3)
+stat_check(v_agility,3)
 #if(v_strength >= 3) {
  
 As he was talking, I was busy counting the seconds until the next electric shock.
@@ -1475,11 +1442,8 @@ ID: B2-Ch07a-Trident
 TEXT: 
 
 set(v_is_dead,1) if (v_toughness < 4)
-set(v_is_dead,0) if (v_toughness == 4 && v_b2_ch7_wait == 0)
-set(v_is_dead,0) if (v_toughness == 4 && v_b2_ch7_wait == 1)
-FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_b2_ch7_wait == 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_b2_ch7_wait == 1)}
+set(v_is_dead,0) if (v_toughness == 4 && (v_b2_ch7_wait == 0 || v_b2_ch7_wait == 1))
+stat_check(v_toughness,4)
 #if(v_toughness < 4) {
  
 "Damn it!" one of the other lessathi says, as he sticks a trident-like weapon into a wall.
@@ -1972,5 +1936,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch08a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch08a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

@@ -1,7 +1,7 @@
 ID: B3-Ch08a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(checkpoint,1)
  
 "Okay, so let me see if I got this straight..." Daren says, while our group is standing in the middle of the room from the rebel base where we slept last night. "These blue crystals that keep shining and vibrating every now and then are in fact made up of crystalized Magium essence, correct?"
 
@@ -356,8 +356,7 @@ TEXT:
 
 set(v_b3_ch8_watching,0) if (v_premonition < 4)
 set(v_b3_ch8_watching,1) if (v_premonition >= 4)
-FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4)}
-SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition >= 4)}
+stat_check(v_premonition,4)
 #if(v_premonition < 4) {
  "Indeed," we suddenly hear the Overseer's metallic voice coming from one of the blue crystals lodged into the walls, which is now shining brightly. "The Overseer protocol would be most interested to know what conclusion you will reach in regards to this particular matter."
 "What the--" Arraka says. "Why is-- How did a simple machine figure out a way to use crystalized Magium essence as a listening device? And why was I not able to detect the Overseer's presence through the crystals? What is going on, here?!
@@ -872,11 +871,11 @@ TEXT:
 
 }
 choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 0)
+choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 1)
 choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 0)
+choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 1)
 choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 0)
-choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching > 0)
-choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching > 0)
-choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching > 0)
+choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 1)
 
 
 ID: B3-Ch08a-Flaming
@@ -961,8 +960,7 @@ TEXT:
 
 set(v_b3_ch8_precisely,1) if (v_bluff < 4)
 set(v_b3_ch8_precisely,2) if (v_bluff >= 4)
-FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff >= 4)}
+stat_check(v_bluff,4)
 #if(v_bluff < 4) {
  "Ahem!" Leila's father says. "If I may... I just wanted to tell you all how fascinating I found your discussion about the Magium from earlier to be! As a lower-ranked lessathi, my knowledge about the Magium was limited only to fairy-tales, so it was most exhilarating for me to be a participant of your spirited debate, even if only as a spectator!" 
 "Oh," Daren says. "Well, I wish I could share your sentiment, doctor. Unfortunately, for me, personally, this whole ordeal with the Magium 'fragments' has done nothing but to cast further doubts in my mind about whether or not this prize that they're offering at the end of the tournament would be of any use to me."

@@ -1,7 +1,7 @@
 ID: Ch7-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
 #if(v_ch3_kate_badly_hurt == 0) {
  
 "Barry, I would like to have a word with you, in private," Kate tells me, as the four of us are taking a small break near a river.
@@ -54,12 +54,9 @@ Kate doesn't let me finish my sentence and suddenly makes an ice dagger appear i
 "If you make any kind of noise, I will slit your throat here and now. Do you understand?"
 
 }
-choice("""Yes.""", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0)
-choice("""If you wanted to borrow some money from me, you could have just asked nicely.""", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0)
-choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt == 0)
-choice("""Yes.""", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt > 0)
-choice("""If you wanted to borrow some money from me, you could have just asked nicely.""", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt > 0)
-choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt > 0)
+choice("""Yes.""", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("""If you wanted to borrow some money from me, you could have just asked nicely.""", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
 
 
 ID: Ch7-Yes
@@ -166,8 +163,8 @@ TEXT:
 }
 choice("""Because I'm in love with you!""", Ch7-Love, v_current_scene = Ch7-Love) if (v_ch7_tap == 0)
 choice("""Because I helped you when we were attacked by the crossbowmen.""", Ch7-Helped, v_current_scene = Ch7-Helped) if (v_ch7_tap == 0)
-choice("""I didn't call him here to kill you.""", Ch7-Kill, v_current_scene = Ch7-Kill) if (v_ch7_tap > 0)
-choice("""Please, calm down. We can still talk things through.""", Ch7-Calm, v_current_scene = Ch7-Calm) if (v_ch7_tap > 0)
+choice("""I didn't call him here to kill you.""", Ch7-Kill, v_current_scene = Ch7-Kill) if (v_ch7_tap == 1)
+choice("""Please, calm down. We can still talk things through.""", Ch7-Calm, v_current_scene = Ch7-Calm) if (v_ch7_tap == 1)
 
 
 ID: Ch7-Love
@@ -835,8 +832,8 @@ I tap the transceiver again, in order to deactivate it, and we start heading tow
 }
 choice("""I'm not going to tell him anything.""", Ch7-Trust-anything, v_current_scene = Ch7-Trust-anything) if (v_ch7_tap == 0)
 choice("""I'm going to tell him the truth.""", Ch7-Trust-truth, v_current_scene = Ch7-Trust-truth) if (v_ch7_tap == 0)
-choice("""I'm going to tell him the truth.""", Ch7-Tap-truth, v_current_scene = Ch7-Tap-truth) if (v_ch7_tap > 0)
-choice("""Don't worry, I'll find a way to make him drop the subject.""", Ch7-Tap-drop, v_current_scene = Ch7-Tap-drop) if (v_ch7_tap > 0)
+choice("""I'm going to tell him the truth.""", Ch7-Tap-truth, v_current_scene = Ch7-Tap-truth) if (v_ch7_tap == 1)
+choice("""Don't worry, I'll find a way to make him drop the subject.""", Ch7-Tap-drop, v_current_scene = Ch7-Tap-drop) if (v_ch7_tap == 1)
 
 
 ID: Ch7-Trust-anything
@@ -1120,9 +1117,9 @@ The stillwater smiles again, and he starts to slowly descend towards the dwarf. 
 "This is it!" Daren tells me. "This is our chance. Let's get out of here while everyone else is watching the fight."
 
 choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-not-call, v_current_scene = Ch7-Watch-not-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 0)
-choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose > 0)
+choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 1)
 choice("""Alright, let's go.""", Ch7-Go-not-call, v_current_scene = Ch7-Go-not-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 0)
-choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose > 0)
+choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 1)
 
 
 ID: Ch7-Okay2
@@ -1153,9 +1150,9 @@ I realize I must have spaced out while looking at the old sage, because I have n
 "I was saying that this is the perfect opportunity to make our way out of here. They won't pay any attention to us because they're too focused on watching the fight."
 
 choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-not-call, v_current_scene = Ch7-Watch-not-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 0)
-choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose > 0)
+choice("""Actually, I think we should watch the fight too.""", Ch7-Watch-call, v_current_scene = Ch7-Watch-call, v_ch7_watch_fight = 1) if (v_ch7_call_rose == 1)
 choice("""Alright, let's go.""", Ch7-Go-not-call, v_current_scene = Ch7-Go-not-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 0)
-choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose > 0)
+choice("""Alright, let's go.""", Ch7-Go-call, v_current_scene = Ch7-Go-call, v_ch7_watch_fight = 0) if (v_ch7_call_rose == 1)
 
 
 ID: Ch7-Watch-not-call
@@ -1374,10 +1371,8 @@ For a moment, her words confused me, but then I realized she must be trying to p
 "Hey, now, let's not get ahead of ourselves," he whispers to me. "Why should we risk our lives just because she refuses to get purified? We can't go on like this forever."
 
 }
-choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap == 0)
-choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap == 0)
-choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap > 0)
-choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap > 0)
+choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap == 0 || v_ch7_tap == 1)
+choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap == 0 || v_ch7_tap == 1)
 
 
 ID: Ch7-Help
@@ -1571,8 +1566,8 @@ His laugh is just as crazy as the look in his eyes. Daren does not say anything,
 
 }
 choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 0)
-choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 0)
 choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
+choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 0)
 choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
 
 
@@ -1618,14 +1613,10 @@ choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scen
 ID: Ch7-Surprise
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 3)
-set(v_is_dead,0) if (v_agility < 3 && v_premonition >= 3)
-set(v_is_dead,1) if (v_premonition < 3 && v_agility < 3)
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
-SUCCESS:[ Premonition check successful - level 3 ] if (v_agility < 3 && v_premonition >= 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_premonition >= 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_premonition < 3 && v_agility < 3)}
-FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3 && v_agility < 3)}
+set(v_is_dead,0) if (v_premonition >= 3 && v_agility < 3 || v_agility >= 3)
+set(v_is_dead,1) if (v_agility < 3 && v_premonition < 3)
+stat_check(v_agility,3)
+stat_check(v_premonition,3)
 #if(v_agility >= 3) {
  
 "Alright," I tell him. "Then, I'll just go kill the healer real quick."
@@ -1691,8 +1682,8 @@ As I try to retreat, I suddenly feel a sharp pain in my chest, and when I look d
 
 }
 choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility >= 3)
-choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility >= 3)
 choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility < 3 && v_premonition >= 3)
+choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility >= 3)
 choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility < 3 && v_premonition >= 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 3 && v_agility < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 3 && v_agility < 3)
@@ -1731,29 +1722,12 @@ choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scen
 ID: Ch7-Fight
 TEXT: 
 
-set(v_is_dead,0) if (v_strength < 3 && v_agility >= 2)
-set(v_is_dead,1) if (v_strength < 3 && v_agility < 2)
-set(v_is_dead,0) if (v_strength >= 3 && v_toughness == 4)
-set(v_is_dead,0) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)
-set(v_is_dead,0) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)
-set(v_is_dead,1) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
-SUCCESS:[ Speed check successful - level 2 ] if (v_strength < 3 && v_agility >= 2)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility >= 2)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility < 2)}
-FAIL:[ Speed check failed- level 2 ] if (v_strength < 3 && v_agility < 2)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness == 4)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_strength >= 3 && v_toughness == 4)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)}
-SUCCESS:[ Combat technique check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)}
-FAIL:[ Toughness check failed - level 4 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
-SUCCESS:[ Speed check successful - level 2 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
-FAIL:[ Toughness check failed - level 4 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
-FAIL:[ Combat technique check failed - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
-FAIL:[ Toughness check failed - level 4 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
-FAIL:[ Combat technique check failed - level 3 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
-FAIL:[ Speed check failed - level 2 ] if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)}
+set(v_is_dead,0) if (v_toughness == 4 && v_strength >= 3 || v_agility >= 2 && v_strength < 3 || v_agility >= 2 && v_toughness < 4 || v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4)
+set(v_is_dead,1) if ((v_combat_technique < 3 || v_strength < 3) && (v_strength < 3 || v_toughness < 4) && v_agility < 2)
+stat_check(v_agility,2)
+stat_check(v_strength,3)
+stat_check(v_toughness,4)
+stat_check(v_combat_technique,3)
 #if(v_strength < 3 && v_agility >= 2) {
  
 
@@ -1851,28 +1825,24 @@ There was no time for me to react. There was barely even enough time for me to f
 
 }
 choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength < 3 && v_agility >= 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength < 3 && v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3 && v_agility < 2)
-choice("Load game", , , special:saves) if (v_strength < 3 && v_agility < 2)
 choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness == 4)
 choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)
 choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)
+choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength < 3 && v_agility < 2)
 choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3 && v_agility < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
+choice("Load game", , , special:saves) if (v_strength < 3 && v_agility < 2)
 choice("Load game", , , special:saves) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
 
 
 ID: Ch7-Avoid
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 1)
-set(v_is_dead,0) if (v_agility == 0 && v_perception >= 2)
-set(v_is_dead,1) if (v_perception < 2 && v_agility == 0)
-SUCCESS:[ Speed check successful - level 1 ] if (v_agility >= 1)}
-SUCCESS:[ Observation check successful - level 2 ] if (v_agility == 0 && v_perception >= 2)}
-FAIL:[ Speed check failed - level 1 ] if (v_agility == 0 && v_perception >= 2)}
-FAIL:[ Speed check failed - level 1 ] if (v_perception < 2 && v_agility == 0)}
-FAIL:[ Observation check failed - level 2 ] if (v_perception < 2 && v_agility == 0)}
+set(v_is_dead,0) if (v_agility == 0 && v_perception >= 2 || v_agility >= 1)
+set(v_is_dead,1) if (v_agility == 0 && v_perception < 2)
+stat_check(v_agility,1)
+stat_check(v_observation,2)
 #if(v_agility >= 1) {
  
 I'm not going to win an arm wrestling match against one of these monsters anytime soon. There's no use trying to fight them head on. I'll just let Daren do his thing and try to avoid getting hit as long as possible.
@@ -1970,8 +1940,7 @@ The summoner mage is beyond himself with joy thanks to this latest turn of event
 "Aye! And I never expected that old saying about elves never leaving home without a stick up their arse to turn out to be true, either. It's a crazy world we're living in, I'll tell you that!"
 
 }
-choice("Continue", Ch7-Azarius-vs-summoner, v_current_scene = Ch7-Azarius-vs-summoner) if (v_ch7_intimidate == 0)
-choice("Continue", Ch7-Azarius-vs-summoner, v_current_scene = Ch7-Azarius-vs-summoner) if (v_ch7_intimidate == 1)
+choice("Continue", Ch7-Azarius-vs-summoner, v_current_scene = Ch7-Azarius-vs-summoner) if (v_ch7_intimidate == 0 || v_ch7_intimidate == 1)
 
 
 ID: Ch7-Azarius-vs-summoner
@@ -2014,8 +1983,8 @@ The summoner looks as if he were about to explode, but he ultimately decides to 
 "I am deeply sorry for not stopping this ridiculous fight sooner, my friends," Azarius says, looking at all four of us, in turn. "I'm afraid that curiosity got the better of me and I couldn't bring myself to end this before getting the rare opportunity to see the great hero Daren in action!"
 
 choice("""Why are you helping us?""", Ch7-Azarius-why, v_current_scene = Ch7-Azarius-why)
-choice("""You've got this all wrong, we're not allied with the banshee!""", Ch7-Wrong-stay, v_current_scene = Ch7-Wrong-stay)
 choice("""Why are you helping us?""", Ch7-Azarius-why, v_current_scene = Ch7-Azarius-why)
+choice("""You've got this all wrong, we're not allied with the banshee!""", Ch7-Wrong-stay, v_current_scene = Ch7-Wrong-stay)
 choice("""You've got this all wrong, we're not allied with the banshee!""", Ch7-Wrong-stay, v_current_scene = Ch7-Wrong-stay)
 
 
@@ -2158,8 +2127,7 @@ A mage who is wearing a silver circlet on his head and green robes grabs the nec
 "Unhand me, fool! I'm only travelling with you because my god ordered me to. Do not presume to tell me what to do! This matter has nothing to do with you or your God of Fate."
 
 }
-choice("Continue", Ch7-God-of-death, v_current_scene = Ch7-God-of-death) if (v_ch7_help_kate == 0)
-choice("Continue", Ch7-God-of-death, v_current_scene = Ch7-God-of-death) if (v_ch7_help_kate == 1)
+choice("Continue", Ch7-God-of-death, v_current_scene = Ch7-God-of-death) if (v_ch7_help_kate == 0 || v_ch7_help_kate == 1)
 
 
 ID: Ch7-God-of-death
@@ -2569,19 +2537,11 @@ choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_ro
 ID: Ch7-Accept2
 TEXT: 
 
-set(v_ch7_win_vs_hadrik,0) if (v_reflexes < 3)
-set(v_ch7_win_vs_hadrik,0) if (v_reflexes >= 3 && v_combat_technique < 4)
-set(v_ch7_win_vs_hadrik,0) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
-set(v_ch7_win_vs_hadrik,1) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
-FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3)}
-FAIL:[ Combat technique check failed - level 4 ] if (v_reflexes >= 3 && v_combat_technique < 4)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3 && v_combat_technique < 4)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)}
-SUCCESS:[ Combat technique check successful - level 4 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)}
-FAIL:[ Strength check failed - level 2 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)}
-SUCCESS:[ Combat technique check successful - level 4 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)}
+set(v_ch7_win_vs_hadrik,0) if (v_combat_technique == 4 && v_strength < 2 || v_combat_technique < 4 || v_reflexes < 3)
+set(v_ch7_win_vs_hadrik,1) if (v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2)
+stat_check(v_reflexes,3)
+stat_check(v_combat_technique,4)
+stat_check(v_strength,2)
 #if(v_reflexes < 3) {
  
 Even for a prod, his strike was so fast that I couldn't even dream of dodging it. Instead, I get thrown back about four feet before falling to the ground with a big thump.
@@ -2634,10 +2594,10 @@ Kate looks as if she's about to cry.
 
 }
 choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes < 3)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes < 3)
 choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3 && v_combat_technique < 4)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique < 4)
 choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
+choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes < 3)
+choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique < 4)
 choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
 choice("""You're welcome.""", Ch7-Welcome, v_current_scene = Ch7-Welcome) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
 choice("""No need to thank me. I was just looking for an opportunity to test my skills.""", Ch7-Opportunity, v_current_scene = Ch7-Opportunity) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)

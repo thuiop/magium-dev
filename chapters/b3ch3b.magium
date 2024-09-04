@@ -611,20 +611,12 @@ TEXT:
 
 }
 choice("""Yes, can you stop calling us Felran?""", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 0)
-choice("""Why are you helping us assassinate your own king?""", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name == 0)
-choice("""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?""", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name == 0)
-choice("""Yes, can you stop calling us Cutthroat Dave?""", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name > 0)
-choice("""Why are you helping us assassinate your own king?""", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name > 0)
-choice("""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?""", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name > 0)
+choice("""Why are you helping us assassinate your own king?""", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
+choice("""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?""", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
+choice("""Yes, can you stop calling us Cutthroat Dave?""", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 1)
 choice("""Yes, can you stop calling us Barry?""", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 2)
-choice("""Why are you helping us assassinate your own king?""", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name == 2)
-choice("""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?""", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name == 2)
 choice("""Yes, can you stop calling us Unidentified?""", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 3)
-choice("""Why are you helping us assassinate your own king?""", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name == 3)
-choice("""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?""", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name == 3)
 choice("""Yes, can you stop calling us Daren?""", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 4)
-choice("""Why are you helping us assassinate your own king?""", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name == 4)
-choice("""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?""", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name == 4)
 
 
 ID: B3-Ch03b-Calling
@@ -745,11 +737,7 @@ Breynan suddenly interrupts himself, because right before we reach the end of th
 "Let's go this way," Breynan says, and then he heads back the way we came.
 
 }
-choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 0)
-choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 1)
-choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 2)
-choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 3)
-choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 4)
+choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
 
 
 ID: B3-Ch03b-Helping
@@ -955,9 +943,7 @@ The boy then grips his father's shirt tightly with both hands, as he is trying v
 When I turn my head back towards him, I see that the boy is now looking directly into my eyes, with a pained but determined look on his face. As he keeps staring at me, I suddenly realize that I am still holding the crossbow that fired the bolt which is now lodged in his father's chest.
 
 }
-choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms) if (v_b3_ch3_civilians == 0)
-choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms) if (v_b3_ch3_civilians == 1)
-choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms) if (v_b3_ch3_civilians == 2)
+choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms) if (v_b3_ch3_civilians == 0 || v_b3_ch3_civilians == 1 || v_b3_ch3_civilians == 2)
 
 
 ID: B3-Ch03b-Uniforms
@@ -1085,9 +1071,9 @@ All of a sudden, four icicles penetrate the remaining metal balls, which get sen
 "What are you two doing?!" the man with the trident says. "Why are you still fighting those manticore illusions? Don't you understand that they're not real? Just stop moving around and let them hit you!"
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch7_dizziness > 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch7_dizziness > 0)
-choice("Load game", , , special:saves) if (v_b2_ch7_dizziness > 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch7_dizziness == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch7_dizziness == 1)
+choice("Load game", , , special:saves) if (v_b2_ch7_dizziness == 1)
 choice("Continue", B3-Ch03b-Nonsense, v_current_scene = B3-Ch03b-Nonsense) if (v_b2_ch7_dizziness == 0)
 
 
@@ -1209,7 +1195,7 @@ TEXT:
 "We can't be calmer than this!" Breynan says. "The royal guards are breathing down our necks. You need to teleport us out now!"
 
 choice("Continue", B3-Ch03b-Headache, v_current_scene = B3-Ch03b-Headache) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch03b-Transceiver, v_current_scene = B3-Ch03b-Transceiver) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch03b-Transceiver, v_current_scene = B3-Ch03b-Transceiver) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch03b-Look
@@ -1228,7 +1214,7 @@ TEXT:
 "We can't be calmer than this!" Breynan says. "The royal guards are breathing down our necks. You need to teleport us out now!"
 
 choice("Continue", B3-Ch03b-Headache, v_current_scene = B3-Ch03b-Headache) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch03b-Transceiver, v_current_scene = B3-Ch03b-Transceiver) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch03b-Transceiver, v_current_scene = B3-Ch03b-Transceiver) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch03b-Attack
@@ -1247,7 +1233,7 @@ TEXT:
 "We can't be calmer than this!" Breynan says. "The royal guards are breathing down our necks. You need to teleport us out now!"
 
 choice("Continue", B3-Ch03b-Headache, v_current_scene = B3-Ch03b-Headache) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch03b-Transceiver, v_current_scene = B3-Ch03b-Transceiver) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch03b-Transceiver, v_current_scene = B3-Ch03b-Transceiver) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch03b-Headache
@@ -1349,5 +1335,4 @@ Tap on the button below to proceed.
 Tap on the button below to proceed.
 
 }
-choice("Proceed towards next chapter", B3-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0)
-choice("Proceed towards next chapter", B3-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 1)
+choice("Proceed towards next chapter", B3-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)

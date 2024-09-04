@@ -1,7 +1,7 @@
 ID: Ch11a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
  
 "You're the stillwater who obliterated the entire city of Olmnar with one flick of his fingers?" I ask Eiden.
 
@@ -532,10 +532,8 @@ I waste no time and I run towards the noble, while I ready up my right fist. As 
 "Do you think you can afford to act cocky just because you somehow managed to break through the tournament's protection spell?" the noble says. "You have no idea who you're dealing with here, boy. Being eliminated from the mage tournament will be the least of your worries when I'm done with you."
 
 }
-choice("Kill the noble and be done with it.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 1) if (v_ch11_saved_slave > 0)
-choice("Tell him to get out of here and to leave the slave with us.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 0) if (v_ch11_saved_slave > 0)
-choice("Kill the noble and be done with it.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 1) if (v_ch11_saved_slave == 2)
-choice("Tell him to get out of here and to leave the slave with us.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 0) if (v_ch11_saved_slave == 2)
+choice("Kill the noble and be done with it.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 1) if (v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2)
+choice("Tell him to get out of here and to leave the slave with us.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 0) if (v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2)
 
 
 ID: Ch11a-Thousands
@@ -623,14 +621,14 @@ Eiden smiles widely.
 "Unless of course, you only plan on saving the ones that cross your path, so you can pat yourself on the back, and pretend that you made a difference."
 
 }
-choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble > 0)
-choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble > 0)
-choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble > 0)
+choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 1)
 choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
-choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
-choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
 choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2)
+choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 1)
+choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
 choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2)
+choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 1)
+choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
 choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2)
 
 
@@ -691,15 +689,9 @@ As I turn around, the girl takes a bow, and then she introduces herself.
 "My name is Ella," she says, "but most of my masters simply called me 'slave girl'. I know I may not look like much, but if you will have me, I vow to serve you to the best of my ability, until the day I die. Just give me my first order, and our contract will be complete."
 
 }
-choice("""Sure thing! I guess you can start by shining my boots! They're a little dirty.""", Ch11a-Boots, v_current_scene = Ch11a-Boots) if (v_ch11_difference > 0)
-choice("""Wait, I didn't mean to become your new master. I only meant to set you free!""", Ch11a-Free, v_current_scene = Ch11a-Free) if (v_ch11_difference > 0)
-choice("""Uh, okay. How about coming with us to Rose's house, for the time being?""", Ch11a-House, v_current_scene = Ch11a-House) if (v_ch11_difference > 0)
-choice("""Sure thing! I guess you can start by shining my boots! They're a little dirty.""", Ch11a-Boots, v_current_scene = Ch11a-Boots) if (v_ch11_difference == 2)
-choice("""Wait, I didn't mean to become your new master. I only meant to set you free!""", Ch11a-Free, v_current_scene = Ch11a-Free) if (v_ch11_difference == 2)
-choice("""Uh, okay. How about coming with us to Rose's house, for the time being?""", Ch11a-House, v_current_scene = Ch11a-House) if (v_ch11_difference == 2)
-choice("""Sure thing! I guess you can start by shining my boots! They're a little dirty.""", Ch11a-Boots, v_current_scene = Ch11a-Boots) if (v_ch11_difference == 3)
-choice("""Wait, I didn't mean to become your new master. I only meant to set you free!""", Ch11a-Free, v_current_scene = Ch11a-Free) if (v_ch11_difference == 3)
-choice("""Uh, okay. How about coming with us to Rose's house, for the time being?""", Ch11a-House, v_current_scene = Ch11a-House) if (v_ch11_difference == 3)
+choice("""Sure thing! I guess you can start by shining my boots! They're a little dirty.""", Ch11a-Boots, v_current_scene = Ch11a-Boots) if (v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3)
+choice("""Wait, I didn't mean to become your new master. I only meant to set you free!""", Ch11a-Free, v_current_scene = Ch11a-Free) if (v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3)
+choice("""Uh, okay. How about coming with us to Rose's house, for the time being?""", Ch11a-House, v_current_scene = Ch11a-House) if (v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3)
 
 
 ID: Ch11a-Boots
@@ -1513,13 +1505,8 @@ She places the tray on a small table near my bed, and she seats herself on the b
 
 "Oh, there's no need to thank me for that!" I say. "I only did it because it felt right to me at the time, not because I wanted any reward."
 
-choice("Continue", Ch11a-Feelings, v_current_scene = Ch11a-Feelings) if (v_ch6_flirt == 2)
-choice("Continue", Ch11a-Feelings, v_current_scene = Ch11a-Feelings) if (v_ch6_flirt == 2)
-choice("Continue", Ch11a-Feelings, v_current_scene = Ch11a-Feelings) if (v_ch6_flirt == 3)
-choice("Continue", Ch11a-Feelings, v_current_scene = Ch11a-Feelings) if (v_ch6_flirt == 4)
-choice("Continue", Ch11a-Feelings, v_current_scene = Ch11a-Feelings) if (v_ch6_flirt == 6)
-choice("Continue", Ch11a-Racing, v_current_scene = Ch11a-Racing) if (v_ch6_flirt == 1)
-choice("Continue", Ch11a-Racing, v_current_scene = Ch11a-Racing) if (v_ch6_flirt == 5)
+choice("Continue", Ch11a-Feelings, v_current_scene = Ch11a-Feelings) if (v_ch6_flirt == 2 || v_ch6_flirt == 3 || v_ch6_flirt == 4 || v_ch6_flirt == 6)
+choice("Continue", Ch11a-Racing, v_current_scene = Ch11a-Racing) if (v_ch6_flirt == 1 || v_ch6_flirt == 5)
 
 
 ID: Ch11a-Feelings
@@ -1551,8 +1538,6 @@ Rose pauses.
 "Do you... still feel the same way about me now as you did back then?"
 
 }
-choice("""Of course not! I like you a lot more now than I did back then!""", Ch11a-Feelings2, v_current_scene = Ch11a-Feelings2, v_ch11_romance_rose = 1) if (v_ch6_flirt == 2)
-choice("""No, that was just a spur of the moment thing. Don't worry about it!""", Ch11a-Feelings2, v_current_scene = Ch11a-Feelings2, v_ch11_romance_rose = 0) if (v_ch6_flirt == 2)
 choice("""Of course not! I like you a lot more now than I did back then!""", Ch11a-Feelings2, v_current_scene = Ch11a-Feelings2, v_ch11_romance_rose = 1)
 choice("""No, that was just a spur of the moment thing. Don't worry about it!""", Ch11a-Feelings2, v_current_scene = Ch11a-Feelings2, v_ch11_romance_rose = 0)
 
@@ -1653,7 +1638,7 @@ As Daren leaves, I take a look outside my window, and I see that the sun had onl
 
 }
 choice("Continue", Ch11a-Incriminated, v_current_scene = Ch11a-Incriminated) if (v_ch11_romance_rose == 0)
-choice("Continue", Ch11a-Romance, v_current_scene = Ch11a-Romance) if (v_ch11_romance_rose > 0)
+choice("Continue", Ch11a-Romance, v_current_scene = Ch11a-Romance) if (v_ch11_romance_rose == 1)
 
 
 ID: Ch11a-Feelings2
@@ -1736,7 +1721,7 @@ As Daren leaves, I take a look outside my window, and I see that the sun had onl
 
 }
 choice("Continue", Ch11a-Incriminated, v_current_scene = Ch11a-Incriminated) if (v_ch11_romance_rose == 0)
-choice("Continue", Ch11a-Romance, v_current_scene = Ch11a-Romance) if (v_ch11_romance_rose > 0)
+choice("Continue", Ch11a-Romance, v_current_scene = Ch11a-Romance) if (v_ch11_romance_rose == 1)
 
 
 ID: Ch11a-Romance

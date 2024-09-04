@@ -1,8 +1,7 @@
 ID: B2-Ch10b-Blame
 TEXT: 
 
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2)}
-FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
+stat_check(v_hearing,2)
 #if(v_hearing >= 2) {
  
 As we get closer to our destination, I notice that there are no sounds whatsoever coming from the camp, even though with the level I have in my Hearing stat, I would have expected to hear people talking by now. I can only suspect that they must have cast a silencing spell around their base of operations, similar to the spell that Melindra cast when she came into my tent the other night.
@@ -75,10 +74,8 @@ We all exchange a few looks, and then we get ready to traverse the large, empty 
 "After I snap my fingers, I'm going to need you two to pull me out," Melindra tells us, in a low voice. "Do you understand?"
 
 }
-choice("""I guess so...""", B2-Ch10b-Guess, v_current_scene = B2-Ch10b-Guess) if (v_hearing >= 2)
-choice("""Pull you out of what?...""", B2-Ch10b-Pull, v_current_scene = B2-Ch10b-Pull) if (v_hearing >= 2)
-choice("""I guess so...""", B2-Ch10b-Guess, v_current_scene = B2-Ch10b-Guess) if (v_hearing < 2)
-choice("""Pull you out of what?...""", B2-Ch10b-Pull, v_current_scene = B2-Ch10b-Pull) if (v_hearing < 2)
+choice("""I guess so...""", B2-Ch10b-Guess, v_current_scene = B2-Ch10b-Guess)
+choice("""Pull you out of what?...""", B2-Ch10b-Pull, v_current_scene = B2-Ch10b-Pull)
 
 
 ID: B2-Ch10b-Guess
@@ -270,9 +267,7 @@ He then stops suppressing his magical power, and for a moment, it feels like the
 "These two fools have already sealed their fate!" Talmak shouts, as he faces the other members of our team. "But the rest of you do not need to die together with them. If you join my side now, you will be allowed to live."
 
 }
-choice("Continue", B2-Ch10b-Denied, v_current_scene = B2-Ch10b-Denied) if (v_b2_ch10_advisor == 0)
-choice("Continue", B2-Ch10b-Denied, v_current_scene = B2-Ch10b-Denied) if (v_b2_ch10_advisor == 1)
-choice("Continue", B2-Ch10b-Denied, v_current_scene = B2-Ch10b-Denied) if (v_b2_ch10_advisor == 2)
+choice("Continue", B2-Ch10b-Denied, v_current_scene = B2-Ch10b-Denied) if (v_b2_ch10_advisor == 0 || v_b2_ch10_advisor == 1 || v_b2_ch10_advisor == 2)
 
 
 ID: B2-Ch10b-Denied
@@ -509,22 +504,10 @@ choice("Go attack the sage, together with Hadrik", B2-Ch10b-Dwarf, v_current_sce
 ID: B2-Ch10b-Dwarf
 TEXT: 
 
-set(v_is_dead,1) if (v_toughness < 4 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,1) if (v_toughness < 4 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar != 0)
-FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4 && v_b2_ch5_scimitar == 0)}
-FAIL:[ Strength check failed - level 4 ] if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar == 0)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar == 0)}
-FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4 && v_b2_ch5_scimitar != 0)}
-FAIL:[ Strength check failed - level 4 ] if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar != 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar != 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar != 0)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar != 0)}
+set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 || v_toughness < 4)
+set(v_is_dead,0) if (v_strength == 4 && v_toughness == 4)
+stat_check(v_toughness,4)
+stat_check(v_strength,4)
 #if(v_toughness < 4 && v_b2_ch5_scimitar == 0) {
  
 Trying to attack Talmak with my crossbow would be meaningless, since I already know for a fact that the magical protection against physical damage that he's using is powerful enough to make crossbow bolts bounce right off him. I'll need to attack him from close range if I want to have a chance.
@@ -650,18 +633,18 @@ As I find myself stuck between the two large stone slates, I push one of them aw
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness < 4 && v_b2_ch5_scimitar == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4 && v_b2_ch5_scimitar == 0)
-choice("Load game", , , special:saves) if (v_toughness < 4 && v_b2_ch5_scimitar == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)
-choice("Load game", , , special:saves) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)
-choice("Continue", B2-Ch10b-Trouble, v_current_scene = B2-Ch10b-Trouble) if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness < 4 && v_b2_ch5_scimitar != 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4 && v_b2_ch5_scimitar != 0)
-choice("Load game", , , special:saves) if (v_toughness < 4 && v_b2_ch5_scimitar != 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar != 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4 && v_b2_ch5_scimitar == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness < 4 && v_b2_ch5_scimitar != 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar != 0)
+choice("Load game", , , special:saves) if (v_toughness < 4 && v_b2_ch5_scimitar == 0)
+choice("Load game", , , special:saves) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar == 0)
+choice("Load game", , , special:saves) if (v_toughness < 4 && v_b2_ch5_scimitar != 0)
 choice("Load game", , , special:saves) if (v_toughness == 4 && v_strength < 4 && v_b2_ch5_scimitar != 0)
+choice("Continue", B2-Ch10b-Trouble, v_current_scene = B2-Ch10b-Trouble) if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar == 0)
 choice("Continue", B2-Ch10b-Trouble, v_current_scene = B2-Ch10b-Trouble) if (v_toughness == 4 && v_strength == 4 && v_b2_ch5_scimitar != 0)
 
 
@@ -683,8 +666,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 4)
 set(v_is_dead,0) if (v_combat_technique == 4)
-FAIL:[ Combat technique check failed - level 4 ] if (v_combat_technique < 4)}
-SUCCESS:[ Combat technique check successful - level 4 ] if (v_combat_technique == 4)}
+stat_check(v_combat_technique,4)
 #if(v_combat_technique < 4) {
  
 It's time to stop playing games, and to start going on the offensive. Let's see... What can I use against him?
@@ -736,8 +718,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 4)
 set(v_is_dead,0) if (v_reflexes == 4)
-FAIL:[ Reflexes check failed - level 4 ] if (v_reflexes < 4)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_reflexes == 4)}
+stat_check(v_reflexes,4)
 #if(v_reflexes < 4) {
  
 It's time to stop playing games, and to start going on the offensive. If I just keep looking out for every single rock, I'll never reach Talmak. Let's see how well I can handle myself when I take a few more risks.
@@ -776,8 +757,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 4)
 set(v_is_dead,0) if (v_perception == 4)
-FAIL:[ Observation check failed - level 4 ] if (v_perception < 4)}
-SUCCESS:[ Observation check successful - level 4 ] if (v_perception == 4)}
+stat_check(v_observation,4)
 #if(v_perception < 4) {
  
 It's time to stop playing games, and to start going on the offensive. But in order to do that, I'm going to need to pay a little more attention to my surroundings.
@@ -983,14 +963,10 @@ choice("Fly towards the mages, and focus on attacking the dwarves", B2-Ch10b-Fly
 ID: B2-Ch10b-Run-dwarves
 TEXT: 
 
-set(v_is_dead,1) if (v_agility < 3)
-set(v_is_dead,1) if (v_agility >= 3 && v_reflexes < 3)
+set(v_is_dead,1) if (v_agility < 3 || v_reflexes < 3)
 set(v_is_dead,0) if (v_agility >= 3 && v_reflexes >= 3)
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_agility >= 3 && v_reflexes < 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3 && v_reflexes < 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3 && v_reflexes >= 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_agility >= 3 && v_reflexes >= 3)}
+stat_check(v_agility,3)
+stat_check(v_reflexes,3)
 #if(v_agility < 3) {
  
 "I'm on it," Leila writes.
@@ -1062,10 +1038,10 @@ Somewhere below, at a much lower altitude, Illuna and Flower are still busy figh
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3)
-choice("Load game", , , special:saves) if (v_agility < 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_agility < 3)
 choice("Load game", , , special:saves) if (v_agility >= 3 && v_reflexes < 3)
 choice("Continue", B2-Ch10b-Specialty, v_current_scene = B2-Ch10b-Specialty) if (v_agility >= 3 && v_reflexes >= 3)
 
@@ -1075,8 +1051,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 3)
 set(v_is_dead,0) if (v_reflexes >= 3)
-FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes >= 3)}
+stat_check(v_reflexes,3)
 #if(v_reflexes < 3) {
  
 "I'm on it," Leila writes.
@@ -1141,8 +1116,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_agility < 3)
 set(v_is_dead,0) if (v_agility >= 3)
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+stat_check(v_agility,3)
 #if(v_agility < 3) {
  
 "I'm on it," Leila writes.
@@ -1442,10 +1416,8 @@ All of a sudden, Melindra loses control of one of her wind blades, which flies a
 "Damn..." Daren says, as he looks at the hole in the ground left by the blade from earlier. "I really hope that my barrier is strong enough to protect us from one of these, if it hits us..."
 
 }
-choice("""Would your barrier work more effectively if we huddled closer together?""", B2-Ch10b-Huddled, v_current_scene = B2-Ch10b-Huddled) if (v_b2_ch10_target == 0)
-choice("""Maybe you could try to use your sword to absorb the wind blades.""", B2-Ch10b-Absorb, v_current_scene = B2-Ch10b-Absorb) if (v_b2_ch10_target == 0)
-choice("""Would your barrier work more effectively if we huddled closer together?""", B2-Ch10b-Huddled, v_current_scene = B2-Ch10b-Huddled) if (v_b2_ch10_target > 0)
-choice("""Maybe you could try to use your sword to absorb the wind blades.""", B2-Ch10b-Absorb, v_current_scene = B2-Ch10b-Absorb) if (v_b2_ch10_target > 0)
+choice("""Would your barrier work more effectively if we huddled closer together?""", B2-Ch10b-Huddled, v_current_scene = B2-Ch10b-Huddled) if (v_b2_ch10_target == 0 || v_b2_ch10_target == 1)
+choice("""Maybe you could try to use your sword to absorb the wind blades.""", B2-Ch10b-Absorb, v_current_scene = B2-Ch10b-Absorb) if (v_b2_ch10_target == 0 || v_b2_ch10_target == 1)
 
 
 ID: B2-Ch10b-Huddled
@@ -1577,8 +1549,7 @@ Before she gets to finish what she had to say, the banshee gets teleported out o
 "They're just trying to be nice, Melindra," I say. "There's no need to act so shocked about it. Also, could we maybe move away from this camp? I have a feeling that we're going to start getting attacked by a hundred pinecone-collecting underlings if we stay in this place much longer..."
 
 }
-choice("Continue", B2-Ch10b-Empty, v_current_scene = B2-Ch10b-Empty, v_b2_ch11_added_hearing = 0) if (v_b2_ch10_target == 0)
-choice("Continue", B2-Ch10b-Empty, v_current_scene = B2-Ch10b-Empty, v_b2_ch11_added_hearing = 0) if (v_b2_ch10_target == 1)
+choice("Continue", B2-Ch10b-Empty, v_current_scene = B2-Ch10b-Empty, v_b2_ch11_added_hearing = 0) if (v_b2_ch10_target == 0 || v_b2_ch10_target == 1)
 
 
 ID: B2-Ch10b-Empty
@@ -1775,9 +1746,7 @@ Before I get to finish my train of thought, Hadrik is the one to hit the nail on
 "So, I've been wondering about something for a while... maybe you guys can clear it up for me," Hadrik says. "Does the time look frozen to anyone else? Or is it just me?..."
 
 }
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch4_spared_dave == 0)
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch4_spared_dave == 1)
+choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1)
 
 
 ID: B2-Ch10b-Except
@@ -1816,9 +1785,7 @@ Before I get to finish my train of thought, Hadrik is the one to hit the nail on
 "So, I've been wondering about something for a while... maybe you guys can clear it up for me," Hadrik says. "Does the time look frozen to anyone else? Or is it just me?..."
 
 }
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch4_spared_dave == 0)
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch4_spared_dave == 1)
+choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1)
 
 
 ID: B2-Ch10b-Credits
@@ -1834,5 +1801,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

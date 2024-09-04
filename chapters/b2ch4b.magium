@@ -33,9 +33,9 @@ That bastard. Is this his way of telling me that in order to make it out of here
 choice("""Is this really the time and place to be having this argument?""", B2-Ch04b-Argument, v_current_scene = B2-Ch04b-Argument) if (v_b2_ch2_deal == 3)
 choice("""Actually, I think that Bruce would do just fine as leader.""", B2-Ch04b-Bruce, v_current_scene = B2-Ch04b-Bruce) if (v_b2_ch2_deal == 3)
 choice("""I completely agree. I should be the one to lead the team, not Bruce.""", B2-Ch04b-Completely, v_current_scene = B2-Ch04b-Completely) if (v_b2_ch2_deal == 3)
-choice("""Is this really the time and place to be having this argument?""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 1)
-choice("""Actually, I think that Bruce would do just fine as leader.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 2)
-choice("""I completely agree. I should be the one to lead the team, not Bruce.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 3)
+choice("""Is this really the time and place to be having this argument?""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 1) if (v_b2_ch2_deal != 3)
+choice("""Actually, I think that Bruce would do just fine as leader.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 2) if (v_b2_ch2_deal != 3)
+choice("""I completely agree. I should be the one to lead the team, not Bruce.""", B2-Ch04b-Argument2, v_current_scene = B2-Ch04b-Argument2, v_b2_ch4_argument = 3) if (v_b2_ch2_deal != 3)
 
 
 ID: B2-Ch04b-Argument
@@ -290,15 +290,9 @@ The cobras are now trying to get on our right side, while the marauders are comi
 The cobras are now trying to get on our right side, while the marauders are coming from our left. Three tramplers are now also making their way into the fighting area, and they are pawing the ground with their hooves, getting ready to charge. The manticores are still circling the skies, biding their time.
 
 }
-choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument > 0)
-choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument > 0)
-choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument > 0)
-choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument == 2)
-choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument == 2)
-choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument == 2)
-choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument == 3)
-choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument == 3)
-choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument == 3)
+choice("Charge at the creatures all by myself", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 1) if (v_b2_ch4_argument == 1 || v_b2_ch4_argument == 2 || v_b2_ch4_argument == 3)
+choice("Charge at the creatures and ask Leila to join me", B2-Ch04b-Charge, v_current_scene = B2-Ch04b-Charge, v_b2_ch4_charge = 2) if (v_b2_ch4_argument == 1 || v_b2_ch4_argument == 2 || v_b2_ch4_argument == 3)
+choice("Wait for the creatures to get further away from each other before attacking", B2-Ch04b-Further, v_current_scene = B2-Ch04b-Further, v_b2_ch4_charge = 3) if (v_b2_ch4_argument == 1 || v_b2_ch4_argument == 2 || v_b2_ch4_argument == 3)
 
 
 ID: B2-Ch04b-Charge
@@ -341,8 +335,7 @@ choice("Continue", B2-Ch04b-Specific, v_current_scene = B2-Ch04b-Specific) if (v
 ID: B2-Ch04b-Speed
 TEXT: 
 
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
+stat_check(v_agility,3)
 #if(v_agility < 3) {
  
 Now, if my information is correct, when a giant scorpion-like creature gets attacked directly from the front, and it does not consider itself overwhelmed by a large number of attackers, its first reaction should be to attack me with its tail, instead of blocking me with its claws. This means that the way to its head will remain clear, as long as I'm fast enough to evade the tail.
@@ -379,14 +372,10 @@ choice("Continue", B2-Ch04b-Marauder, v_current_scene = B2-Ch04b-Marauder)
 ID: B2-Ch04b-Marauder
 TEXT: 
 
-set(v_is_dead,0) if (v_strength >= 3)
-set(v_is_dead,0) if (v_strength < 3 && v_reflexes >= 3)
-set(v_is_dead,1) if (v_strength < 3 && v_reflexes < 3)
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_reflexes >= 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_strength < 3 && v_reflexes >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_reflexes < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_strength < 3 && v_reflexes < 3)}
+set(v_is_dead,0) if (v_reflexes >= 3 && v_strength < 3 || v_strength >= 3)
+set(v_is_dead,1) if (v_reflexes < 3 && v_strength < 3)
+stat_check(v_strength,3)
+stat_check(v_reflexes,3)
 #if(v_strength >= 3) {
  
 I'm so glad that Daren enchanted this dagger before the arena. I wouldn't even have imagined myself cutting off a giant scorpion's claw in a single strike before I experienced the sharpness of this blade first hand. Now that one of its claws is gone, the scorpion can no longer block me from approaching. I attack the marauder from the right side, where its claw is missing, and I dash for its head. The scorpion tail is not made to defend from lateral attacks, so the creature does not manage to fend me off before I stab it in its right eye. As the scorpion-like creature retracts in pain, I take the opportunity to run my knife through the back of its head, finishing it off in one strike. 
@@ -422,41 +411,11 @@ choice("Load game", , , special:saves) if (v_strength < 3 && v_reflexes < 3)
 ID: B2-Ch04b-Manticore
 TEXT: 
 
-set(v_is_dead,0) if (v_b2_ch4_backpack == 1)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 3)
-set(v_is_dead,0) if (v_premonition >= 1 && v_b2_ch4_backpack == 2)
-set(v_is_dead,1) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2)
-set(v_is_dead,1) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 1 && v_is_dead == 0 && v_b2_ch4_charge == 1)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 3 && v_is_dead == 0 && v_b2_ch4_charge == 1)
-set(v_is_dead,0) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_is_dead == 0 && v_b2_ch4_charge == 1)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_is_dead == 0 && v_b2_ch4_charge == 1)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 1 && v_is_dead == 0 && v_b2_ch4_charge == 2)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 3 && v_is_dead == 0 && v_b2_ch4_charge == 2)
-set(v_is_dead,0) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_is_dead == 0 && v_b2_ch4_charge == 2)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_is_dead == 0 && v_b2_ch4_charge == 2)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-set(v_is_dead,0) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-set(v_is_dead,0) if (v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-set(v_is_dead,0) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-set(v_is_dead,0) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-SUCCESS:[ Premonition check successful - level 1 ] if (v_premonition >= 1 && v_b2_ch4_backpack == 2)}
-FAIL:[ Premonition check failed - level 1 ] if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)}
-FAIL:[ Hearing check failed- level 2 ] if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2)}
-FAIL:[ Premonition check failed - level 1 ] if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)}
-FAIL:[ Premonition check failed - level 1 ] if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)}
-FAIL:[ Reflexes check failed - level 2 ] if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)}
+set(v_is_dead,0) if (v_b2_ch4_backpack == 2 && v_premonition >= 1 || v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 1 && v_is_dead == 0 || v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 2 && v_is_dead == 0 || v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0 || v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 1 && v_is_dead == 0 || v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 2 && v_is_dead == 0 || v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_cell != 1 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 1 && v_is_dead == 0 && v_premonition >= 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 2 && v_is_dead == 0 && v_premonition >= 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_premonition >= 1 && v_b2_ch2_threatened != 0 || v_b2_ch4_backpack == 2 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_premonition >= 1 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing < 2 && v_premonition < 1 && v_b2_ch2_threatened != 0 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing < 2 && v_premonition < 1 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 1 && v_is_dead == 0 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 2 && v_is_dead == 0 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 && v_b2_ch2_threatened != 0 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_premonition < 1 && v_reflexes < 2 && v_b2_ch2_threatened != 0 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 && v_b2_ch2_cell != 1 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_premonition < 1 && v_reflexes < 2 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 1 || v_b2_ch4_backpack == 3)
+set(v_is_dead,1) if (v_b2_ch4_backpack == 2 && (v_hearing < 2 || v_reflexes < 2) && v_premonition < 1)
+stat_check(v_premonition,1)
+stat_check(v_hearing,2)
+stat_check(v_reflexes,2)
 #if(v_b2_ch4_backpack == 1) {
  No, wait... this isn't over, yet. 
 I look up, and I see that one of the manticores is now diving straight at me. I knew it! The manticore was waiting for me to kill something before attacking me. They were doing the same thing in Hadrik's fight, and in the one before.
@@ -502,10 +461,10 @@ I suddenly hear the sound of something flying through the air very fast, above m
  I try to jump out of the way, but I'm not fast enough. The manticore buries its claws deep into my chest, and then it sinks its fangs into my neck. I die almost instantly.
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)
-choice("Load game", , , special:saves) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)
+choice("Load game", , , special:saves) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2)
 choice("Load game", , , special:saves) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2)
 choice("Continue", B2-Ch04b-Wilhelm-charge, v_current_scene = B2-Ch04b-Wilhelm-charge) if (v_b2_ch4_backpack == 1 && v_is_dead == 0 && v_b2_ch4_charge == 1)
 choice("Continue", B2-Ch04b-Wilhelm-charge, v_current_scene = B2-Ch04b-Wilhelm-charge) if (v_b2_ch4_backpack == 3 && v_is_dead == 0 && v_b2_ch4_charge == 1)
@@ -518,20 +477,20 @@ choice("Continue", B2-Ch04b-Wilhelm-charge, v_current_scene = B2-Ch04b-Wilhelm-c
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
-choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
-choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
 choice("Continue", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
+choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
+choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0)
+choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
 choice("Restart game", B2-Ch04b-Wilhelm-team, v_current_scene = B2-Ch04b-Wilhelm-team, special:restart) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell != 1)
 choice("Continue", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks) if (v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
 choice("Continue", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks) if (v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
 choice("Continue", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks) if (v_premonition >= 1 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
-choice("Restart game", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
 choice("Continue", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes >= 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
+choice("Restart game", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks, special:restart) if (v_premonition < 1 && v_hearing < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
 choice("Restart game", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-checks, special:restart) if (v_premonition < 1 && v_hearing >= 2 && v_reflexes < 2 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened == 0 && v_b2_ch2_cell == 1)
 
 
@@ -778,35 +737,17 @@ I stop talking, because I suddenly notice that the cobras are getting closer to 
 "Actually, never mind," I say. "Hold on, let me think about this a bit."
 
 }
-choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1) if (v_b2_ch2_fist > 0)
-choice("Ask Leila if she can deal with the tramplers, while we deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist > 0)
-choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3) if (v_b2_ch2_fist > 0)
-choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1) if (v_b2_ch2_fist == 2)
-choice("Ask Leila if she can deal with the tramplers, while we deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist == 2)
-choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3) if (v_b2_ch2_fist == 2)
 choice("Try to bait the cobras into spitting acid on the marauders", B2-Ch04b-Lure, v_current_scene = B2-Ch04b-Lure, v_b2_ch4_tactic = 1)
-choice("Ask Leila if she can deal with the tramplers, while I deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2)
+choice("Ask Leila if she can deal with the tramplers, while we deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist == 1 || v_b2_ch2_fist == 2)
 choice("Focus on killing the manticore, first", B2-Ch04b-Manticore-first, v_current_scene = B2-Ch04b-Manticore-first, v_b2_ch4_tactic = 3)
+choice("Ask Leila if she can deal with the tramplers, while I deal with the cobras", B2-Ch04b-Leila-tramplers, v_current_scene = B2-Ch04b-Leila-tramplers, v_b2_ch4_tactic = 2) if (v_b2_ch2_fist != 2)
 
 
 ID: B2-Ch04b-Manticore-first
 TEXT: 
 
-FAIL:[ Strength check failed - level 1 ] if (v_strength < 1 && v_b2_ch2_fist != 2)}
-FAIL:[ Strength check failed - level 1 ] if (v_strength < 1 && v_b2_ch2_fist == 1)}
-FAIL:[ Strength check failed - level 1 ] if (v_strength < 1 && v_b2_ch2_fist == 2)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_strength >= 1 && v_combat_technique < 1 && v_b2_ch2_fist != 2)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1 && v_combat_technique < 1 && v_b2_ch2_fist != 2)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_strength >= 1 && v_combat_technique < 1 && v_b2_ch2_fist == 1)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1 && v_combat_technique < 1 && v_b2_ch2_fist == 1)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_strength >= 1 && v_combat_technique < 1 && v_b2_ch2_fist == 2)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1 && v_combat_technique < 1 && v_b2_ch2_fist == 2)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1 && v_combat_technique >= 1 && v_b2_ch2_fist != 2)}
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_strength >= 1 && v_combat_technique >= 1 && v_b2_ch2_fist != 2)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1 && v_combat_technique >= 1 && v_b2_ch2_fist == 1)}
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_strength >= 1 && v_combat_technique >= 1 && v_b2_ch2_fist == 1)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1 && v_combat_technique >= 1 && v_b2_ch2_fist == 2)}
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_strength >= 1 && v_combat_technique >= 1 && v_b2_ch2_fist == 2)}
+stat_check(v_strength,1)
+stat_check(v_combat_technique,1)
 #if(v_strength < 1 && v_b2_ch2_fist != 2) {
  
 "We should kill that manticore, first," I say. "We can't concentrate on killing the other monsters if we always have to worry about being attacked from above."
@@ -1011,10 +952,7 @@ choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-
 ID: B2-Ch04b-Strength-check
 TEXT: 
 
-FAIL:[ Strength check failed - level 2 ] if (v_strength < 2)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_strength >= 2 && v_b2_ch2_fist != 2)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_strength >= 2 && v_b2_ch2_fist == 1)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_strength >= 2 && v_b2_ch2_fist == 2)}
+stat_check(v_strength,2)
 #if(v_strength < 2) {
  
 "Leila," I say. "Could you take care of the tramplers? With your strength level, you should be able to break through their tough hides. I'll go deal with those two cobras in the meantime."
@@ -1233,11 +1171,11 @@ After a while, the announcer finally asks us to clear the fighting area, and we 
 }
 choice("Continue", B2-Ch04b-Signal, v_current_scene = B2-Ch04b-Signal) if (v_b2_ch4_tactic == 3 && v_b2_ch2_fist != 2)
 choice("Continue", B2-Ch04b-Signal, v_current_scene = B2-Ch04b-Signal) if (v_b2_ch4_tactic == 2 && v_b2_ch2_fist != 2)
-choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_tactic == 1 && v_b2_ch2_fist != 2)
 choice("Continue", B2-Ch04b-Signal, v_current_scene = B2-Ch04b-Signal) if (v_b2_ch4_tactic == 3 && v_b2_ch2_fist == 1)
 choice("Continue", B2-Ch04b-Signal, v_current_scene = B2-Ch04b-Signal) if (v_b2_ch4_tactic == 3 && v_b2_ch2_fist == 2)
 choice("Continue", B2-Ch04b-Signal, v_current_scene = B2-Ch04b-Signal) if (v_b2_ch4_tactic == 2 && v_b2_ch2_fist == 1)
 choice("Continue", B2-Ch04b-Signal, v_current_scene = B2-Ch04b-Signal) if (v_b2_ch4_tactic == 2 && v_b2_ch2_fist == 2)
+choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_tactic == 1 && v_b2_ch2_fist != 2)
 choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_tactic == 1 && v_b2_ch2_fist == 1)
 choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_tactic == 1 && v_b2_ch2_fist == 2)
 
@@ -1710,14 +1648,10 @@ choice("Continue", B2-Ch04b-Manticore, v_current_scene = B2-Ch04b-Manticore) if 
 ID: B2-Ch04b-Marauder2
 TEXT: 
 
-set(v_is_dead,0) if (v_strength >= 3)
-set(v_is_dead,0) if (v_strength < 3 && v_reflexes >= 3)
-set(v_is_dead,1) if (v_strength < 3 && v_reflexes < 3)
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_reflexes >= 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_strength < 3 && v_reflexes >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_reflexes < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_strength < 3 && v_reflexes < 3)}
+set(v_is_dead,0) if (v_reflexes >= 3 && v_strength < 3 || v_strength >= 3)
+set(v_is_dead,1) if (v_reflexes < 3 && v_strength < 3)
+stat_check(v_strength,3)
+stat_check(v_reflexes,3)
 #if(v_strength >= 3) {
  
 This isn't working. Why am I even doing this? With my level of strength, and this dagger enchanted by Daren, brute force should be more than enough to break through these armored scales. 
@@ -1866,23 +1800,11 @@ choice("Continue", B2-Ch04b-Insane, v_current_scene = B2-Ch04b-Insane) if (v_b2_
 ID: B2-Ch04b-Wilhelm-checks
 TEXT: 
 
-set(v_is_dead,0) if (v_perception >= 1 && v_reflexes >= 1)
-set(v_is_dead,0) if (v_perception < 1 && v_hearing >= 1 && v_reflexes >= 1)
-set(v_is_dead,1) if (v_perception < 1 && v_hearing < 1)
-set(v_is_dead,1) if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)
-set(v_is_dead,1) if (v_perception >= 1 && v_reflexes < 1)
-SUCCESS:[ Observation check successful - level 1 ] if (v_perception >= 1 && v_reflexes >= 1)}
-SUCCESS:[ Reflexes check successful - level 1 ] if (v_perception >= 1 && v_reflexes >= 1)}
-SUCCESS:[ Hearing check successful - level 1 ] if (v_perception < 1 && v_hearing >= 1 && v_reflexes >= 1)}
-SUCCESS:[ Reflexes check successful - level 1 ] if (v_perception < 1 && v_hearing >= 1 && v_reflexes >= 1)}
-FAIL:[ Observation check failed - level 1 ] if (v_perception < 1 && v_hearing >= 1 && v_reflexes >= 1)}
-FAIL:[ Observation check failed - level 1 ] if (v_perception < 1 && v_hearing < 1)}
-FAIL:[ Hearing check failed - level 1 ] if (v_perception < 1 && v_hearing < 1)}
-SUCCESS:[ Hearing check successful - level 1 ] if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)}
-FAIL:[ Observation check failed - level 1 ] if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)}
-SUCCESS:[ Observation check successful - level 1 ] if (v_perception >= 1 && v_reflexes < 1)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_perception >= 1 && v_reflexes < 1)}
+set(v_is_dead,0) if (v_reflexes >= 1 && (v_hearing >= 1 || v_perception >= 1))
+set(v_is_dead,1) if (v_hearing < 1 && v_perception < 1 || v_reflexes < 1)
+stat_check(v_observation,1)
+stat_check(v_reflexes,1)
+stat_check(v_hearing,1)
 #if(v_perception >= 1 && v_reflexes >= 1) {
  
 
@@ -1936,13 +1858,13 @@ The dagger goes straight through my heart, and it kills me instantly. I never ev
 choice("Continue", B2-Ch04b-Smiley, v_current_scene = B2-Ch04b-Smiley) if (v_perception >= 1 && v_reflexes >= 1)
 choice("Continue", B2-Ch04b-Smiley, v_current_scene = B2-Ch04b-Smiley) if (v_perception < 1 && v_hearing >= 1 && v_reflexes >= 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 1 && v_hearing < 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 1 && v_hearing < 1)
-choice("Load game", , , special:saves) if (v_perception < 1 && v_hearing < 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)
-choice("Load game", , , special:saves) if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception >= 1 && v_reflexes < 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 1 && v_hearing < 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception >= 1 && v_reflexes < 1)
+choice("Load game", , , special:saves) if (v_perception < 1 && v_hearing < 1)
+choice("Load game", , , special:saves) if (v_perception < 1 && v_hearing >= 1 && v_reflexes < 1)
 choice("Load game", , , special:saves) if (v_perception >= 1 && v_reflexes < 1)
 
 
@@ -2035,8 +1957,7 @@ As soon as she gets away from the dying creature, the last remaining manticore m
 "See?" I say to Bruce. "I told you we didn't have anything to worry about. Now let's hurry up and kill those cobras before she gets here!"
 
 }
-choice("Continue", B2-Ch04b-Counting, v_current_scene = B2-Ch04b-Counting) if (v_b2_ch4_backup == 0)
-choice("Continue", B2-Ch04b-Counting, v_current_scene = B2-Ch04b-Counting) if (v_b2_ch4_backup == 1)
+choice("Continue", B2-Ch04b-Counting, v_current_scene = B2-Ch04b-Counting) if (v_b2_ch4_backup == 0 || v_b2_ch4_backup == 1)
 
 
 ID: B2-Ch04b-Counting
@@ -2169,8 +2090,7 @@ After a while, the announcer finally asks us to clear the fighting area, and we 
 I bait the cobra by standing in one place for two seconds, and then I jump out of the way, making the creature miss its shot, and waste its acid. While the snake is busy gathering up more acid in its glands, I make a dash towards it, and I stab it in the head, killing it in one strike. 
 
 }
-choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_backup == 0)
-choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_backup == 1)
+choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-final) if (v_b2_ch4_backup == 0 || v_b2_ch4_backup == 1)
 
 
 ID: B2-Ch04b-Wilhelm-final
@@ -2290,19 +2210,19 @@ He then goes to open the door, and he exits the room, without saying another wor
 
 }
 choice("""Was that all? I was hoping to see a more impressive collection of creatures.""", B2-Ch04b-Collection, v_current_scene = B2-Ch04b-Collection) if (v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 2)
-choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 2)
-choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 2)
 choice("""Was that all? I was hoping to see a more impressive collection of creatures.""", B2-Ch04b-Collection, v_current_scene = B2-Ch04b-Collection) if (v_b2_ch4_charge == 3 && v_b2_ch2_lessathi != 0)
-choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge == 3 && v_b2_ch2_lessathi != 0)
-choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge == 3 && v_b2_ch2_lessathi != 0)
 choice("""Was that all? I was hoping to see a more impressive collection of creatures.""", B2-Ch04b-Collection, v_current_scene = B2-Ch04b-Collection) if (v_b2_ch4_charge != 3 && v_b2_ch2_threatened != 2)
-choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge != 3 && v_b2_ch2_threatened != 2)
-choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge != 3 && v_b2_ch2_threatened != 2)
 choice("""Was that all? I was hoping to see a more impressive collection of creatures.""", B2-Ch04b-Collection, v_current_scene = B2-Ch04b-Collection) if (v_b2_ch4_charge != 3 && v_b2_ch2_lessathi != 0)
-choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge != 3 && v_b2_ch2_lessathi != 0)
-choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge != 3 && v_b2_ch2_lessathi != 0)
 choice("""Was that all? I was hoping to see a more impressive collection of creatures.""", B2-Ch04b-Collection, v_current_scene = B2-Ch04b-Collection) if (v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
+choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 2)
+choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge == 3 && v_b2_ch2_lessathi != 0)
+choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge != 3 && v_b2_ch2_threatened != 2)
+choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch4_charge != 3 && v_b2_ch2_lessathi != 0)
 choice("""I don't think they're done. I haven't even seen any griffins, yet.""", B2-Ch04b-Griffins, v_current_scene = B2-Ch04b-Griffins) if (v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
+choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 2)
+choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge == 3 && v_b2_ch2_lessathi != 0)
+choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge != 3 && v_b2_ch2_threatened != 2)
+choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch4_charge != 3 && v_b2_ch2_lessathi != 0)
 choice("""Or maybe they're only done with the small fry, and the show is just beginning.""", B2-Ch04b-Fry, v_current_scene = B2-Ch04b-Fry) if (v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
 
 
@@ -2358,18 +2278,9 @@ choice("Continue", B2-Ch04b-Hearing2, v_current_scene = B2-Ch04b-Hearing2) if (v
 ID: B2-Ch04b-Hearing2
 TEXT: 
 
-set(v_b2_ch4_hearing2,0) if (v_hearing < 2)
-set(v_b2_ch4_hearing2,1) if (v_hearing >= 2 && v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)
-set(v_b2_ch4_hearing2,1) if (v_hearing >= 2 && v_b2_ch2_threatened != 2)
-set(v_b2_ch4_hearing2,1) if (v_hearing >= 2 && v_b2_ch2_lessathi != 0)
-set(v_b2_ch4_hearing2,0) if (v_hearing < 2 && v_b2_ch2_creatures == 1)
-set(v_b2_ch4_hearing2,0) if (v_hearing >= 2 && v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0 && v_b2_ch2_creatures == 1)
-set(v_b2_ch4_hearing2,0) if (v_hearing >= 2 && v_b2_ch2_threatened != 2 && v_b2_ch2_creatures == 1)
-set(v_b2_ch4_hearing2,0) if (v_hearing >= 2 && v_b2_ch2_lessathi != 0 && v_b2_ch2_creatures == 1)
-FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_b2_ch2_threatened == 2 && v_b2_ch2_lessathi == 0)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_b2_ch2_threatened != 2)}
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2 && v_b2_ch2_lessathi != 0)}
+set(v_b2_ch4_hearing2,0) if (v_b2_ch2_creatures == 1 || v_hearing < 2)
+set(v_b2_ch4_hearing2,1) if (v_hearing >= 2)
+stat_check(v_hearing,2)
 #if(v_hearing < 2) {
  
 After a few minutes of silence, the announcer finally picks his voice magnifier back up, and he gets ready to make another announcement.
@@ -2496,8 +2407,7 @@ Kate manages to make her way out of the wolf encirclement, and she tries to retr
 Now that Kate's teammates have finally joined the battle, and that the wolves and lions have scattered, it doesn't take the gladiators long until they hunt down their remaining enemies, and finish them all off.
 
 }
-choice("Continue", B2-Ch04b-Killed3, v_current_scene = B2-Ch04b-Killed3) if (v_ch11_saved_rose == 1)
-choice("Continue", B2-Ch04b-Killed3, v_current_scene = B2-Ch04b-Killed3) if (v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch04b-Killed3, v_current_scene = B2-Ch04b-Killed3) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch04b-Killed3
@@ -2537,8 +2447,7 @@ The people in the crowd are not looking very convinced, and they are muttering b
 As the owner turns to leave, Kate and the others also head towards their division area, while the warriors of the sixth division are preparing to enter the battlefield.
 
 }
-choice("Continue", B2-Ch04b-Ending, v_current_scene = B2-Ch04b-Ending) if (v_ch11_saved_rose == 1)
-choice("Continue", B2-Ch04b-Ending, v_current_scene = B2-Ch04b-Ending) if (v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch04b-Ending, v_current_scene = B2-Ch04b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch04b-Spared1
@@ -2674,7 +2583,7 @@ He then jumps off the creature, and he heads towards Kate.
 "Are you alright, milady?" Hadrik says, with a bow.
 
 }
-choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake > 0)
+choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake == 1 || v_b2_ch4_forsake == 2 || v_b2_ch4_forsake == 3)
 
 
 ID: B2-Ch04b-Bonus
@@ -2799,5 +2708,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch05a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch05a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch05a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch05a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch05a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch05a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

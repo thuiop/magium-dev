@@ -59,18 +59,18 @@ When I take a look around, I suddenly realize that we had already reached the wa
 
 }
 choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
-choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
-choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
-choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
-choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_kelrim > 0)
-choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim > 0)
-choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim > 0)
-choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_kelrim > 0)
-choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 4) if (v_b3_ch6_kelrim > 0)
+choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_kelrim == 1)
 choice("""How about Albert?""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 0) if (v_b3_ch6_plan == 3)
+choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_kelrim == 1)
 choice("""I think Peter would make a fine king.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 1) if (v_b3_ch6_plan == 3)
+choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_kelrim == 1)
 choice("""In that case, my vote goes for Breynan.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 2) if (v_b3_ch6_plan == 3)
+choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_kelrim == 1)
 choice("""If you ask me, I think the king of the underground would be the best pick.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 3) if (v_b3_ch6_plan == 3)
+choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 4) if (v_b3_ch6_kelrim == 1)
 choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-King, v_current_scene = B3-Ch08b-King, v_b3_ch8_king = 4) if (v_b3_ch6_plan == 3)
 choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_kelrim == 1 && v_b3_ch6_password == 3)
 choice("""If a trustworthy king is what you're looking for, then Kelrim would be my choice.""", B3-Ch08b-Kelrim, v_current_scene = B3-Ch08b-Kelrim) if (v_b3_ch6_plan == 3 && v_b3_ch6_password == 3)
@@ -438,10 +438,10 @@ As Horace and Kelrim are moving towards the quarantine area, the crowd is slowly
 
 }
 choice("""Actually, I was hoping we could talk some more about your humiliating defeat.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 0)
-choice("""Just one quick question. Did you and Horace serve as royal guards at the same time?""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 1)
-choice("""Yeah, we should probably talk about that.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 2)
 choice("""Actually, I was hoping we could talk some more about your humiliating defeat.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 0) if (v_b3_ch8_next == 2)
+choice("""Just one quick question. Did you and Horace serve as royal guards at the same time?""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 1)
 choice("""Just one quick question. Did you and Horace serve as royal guards at the same time?""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 1) if (v_b3_ch8_next == 2)
+choice("""Yeah, we should probably talk about that.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 2)
 choice("""Yeah, we should probably talk about that.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 2) if (v_b3_ch8_next == 2)
 
 
@@ -539,12 +539,12 @@ TEXT:
 
 }
 choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 0)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 0)
 choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 1)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 1)
 choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 0)
-choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 0)
 choice("""You're right about the Overseer. We detected him through one of the crystals, earlier.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 1)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 0)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king != 5 && v_b3_ch8_watching == 1)
+choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 0)
 choice("""That's good to know. We'll try to be more careful around these crystals from now on.""", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_king == 5 && v_b3_ch8_watching == 1)
 
 
@@ -1043,7 +1043,7 @@ After her writing disappears, there is a brief pause during which it feels like 
 As Leila is done writing her words, I notice that her hand is trembling slightly and that she has a somewhat anxious look in her eyes.
 
 choice("Reassure her that I'm not going anywhere, but don't hold her hand.", B3-Ch08b-Skeptical, v_current_scene = B3-Ch08b-Skeptical, v_b3_ch8_heartfelt = 0)
-choice("Hold her hand and reassure her that I'm not going anywhere.", B3-Ch08b-Skeptical, v_current_scene = B3-Ch08b-Skeptical, v_b3_ch8_heartfelt = 1)
+choice("Hold her hand and reassure her that I'm not going anywhere.", B3-Ch08b-Skeptical, v_current_scene = B3-Ch08b-Skeptical, v_b3_ch8_heartfelt = 1) if (v_b3_ch3_plans != 5)
 choice("Hold her hand and reassure her that I'm not going anywhere.", B3-Ch08b-Oblivious, v_current_scene = B3-Ch08b-Oblivious) if (v_b3_ch3_plans == 5)
 
 

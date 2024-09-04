@@ -1,7 +1,7 @@
 ID: B2-Ch01a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
  
 "Our first objectives?" Hadrik asks. "Did I hear him right?"
 
@@ -14,7 +14,7 @@ Golmyck makes a short pause before he continues.
 "What?!" Hadrik shouts. "He can't be serious! How can they even call this a mage tournament with objectives like that? What's next, are they going to tell us to go pick some flowers?"
 
 choice("Continue", B2-Ch01a-Intro2-dead, v_current_scene = B2-Ch01a-Intro2-dead, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch01a-Intro2-alive, v_current_scene = B2-Ch01a-Intro2-alive, v_checkpoint_rich = 0) if (v_ch11_saved_rose > 0)
+choice("Continue", B2-Ch01a-Intro2-alive, v_current_scene = B2-Ch01a-Intro2-alive, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch01a-Intro2-dead
@@ -139,8 +139,8 @@ Arraka's shouting is still audible, but it's more of a mild annoyance now that t
 }
 choice("""Sure, why not?""", B2-Ch01a-Sure-dead, v_current_scene = B2-Ch01a-Sure-dead, v_b2_ch1_spin = 1) if (v_ch11_saved_rose == 0)
 choice("""I think I'll pass, thanks.""", B2-Ch01a-Pass-dead, v_current_scene = B2-Ch01a-Pass-dead, v_b2_ch1_spin = 0) if (v_ch11_saved_rose == 0)
-choice("""Sure, why not?""", B2-Ch01a-Sure-alive, v_current_scene = B2-Ch01a-Sure-alive, v_b2_ch1_spin = 1) if (v_ch11_saved_rose > 0)
-choice("""I think I'll pass, thanks.""", B2-Ch01a-Pass-alive, v_current_scene = B2-Ch01a-Pass-alive, v_b2_ch1_spin = 0) if (v_ch11_saved_rose > 0)
+choice("""Sure, why not?""", B2-Ch01a-Sure-alive, v_current_scene = B2-Ch01a-Sure-alive, v_b2_ch1_spin = 1) if (v_ch11_saved_rose == 1)
+choice("""I think I'll pass, thanks.""", B2-Ch01a-Pass-alive, v_current_scene = B2-Ch01a-Pass-alive, v_b2_ch1_spin = 0) if (v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch01a-Sure-dead
@@ -362,8 +362,7 @@ As we turn around, we see that the man who spoke is almost as tall as Daren, wit
 "Did these mean people upset you, my dear Suzie?" the man asks her.
 
 }
-choice("Continue", B2-Ch01a-Bottle, v_current_scene = B2-Ch01a-Bottle) if (v_b2_ch1_volunteer == 0)
-choice("Continue", B2-Ch01a-Bottle, v_current_scene = B2-Ch01a-Bottle) if (v_b2_ch1_volunteer == 1)
+choice("Continue", B2-Ch01a-Bottle, v_current_scene = B2-Ch01a-Bottle) if (v_b2_ch1_volunteer == 0 || v_b2_ch1_volunteer == 1)
 
 
 ID: B2-Ch01a-Bottle
@@ -425,7 +424,7 @@ Hadrik then shakes Enrique's hand and he introduces the rest of us in turn.
 
 "Well, in that case she will always be welcome here, banshee or no," Enrique says. "Ah, here comes our wine!"
 
-choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella)
+choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella) if (v_ch11_saved_slave != 3)
 choice("Continue", B2-Ch01a-No-Ella, v_current_scene = B2-Ch01a-No-Ella) if (v_ch11_saved_slave == 3)
 
 
@@ -452,7 +451,7 @@ Hadrik then shakes Enrique's hand and he introduces the rest of us in turn.
 
 "Well, in that case she will always be welcome here, banshee or no," Enrique says. "Ah, here comes our wine!"
 
-choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella)
+choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella) if (v_ch11_saved_slave != 3)
 choice("Continue", B2-Ch01a-No-Ella, v_current_scene = B2-Ch01a-No-Ella) if (v_ch11_saved_slave == 3)
 
 
@@ -475,7 +474,7 @@ Hadrik then shakes Enrique's hand and he introduces the rest of us in turn.
 
 "Well, in that case she will always be welcome here, banshee or no," Enrique says. "Ah, here comes our wine!"
 
-choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella)
+choice("Continue", B2-Ch01a-Ella, v_current_scene = B2-Ch01a-Ella) if (v_ch11_saved_slave != 3)
 choice("Continue", B2-Ch01a-No-Ella, v_current_scene = B2-Ch01a-No-Ella) if (v_ch11_saved_slave == 3)
 
 
@@ -676,8 +675,7 @@ Once we all said our goodbyes to Enrique and to Rose's siblings, we went on our 
 It took us a little less than two hours to reach the castle of Thilias from Rose's mansion. When we reached the front gates, Daren signaled the guards to let us through, and once they confirmed our identities, they opened the doors. We all step inside, slowly, as the gates slam shut behind us.
 
 }
-choice("Continue", B2-Ch01a-Hallway, v_current_scene = B2-Ch01a-Hallway) if (v_b2_ch1_truth == 1)
-choice("Continue", B2-Ch01a-Hallway, v_current_scene = B2-Ch01a-Hallway) if (v_b2_ch1_truth == 0)
+choice("Continue", B2-Ch01a-Hallway, v_current_scene = B2-Ch01a-Hallway) if (v_b2_ch1_truth == 0 || v_b2_ch1_truth == 1)
 
 
 ID: B2-Ch01a-Lover
@@ -704,7 +702,7 @@ He then goes to Daren and shakes his hand.
 "You must be Rose's new lover!" Enrique tells Daren. "Take good care of her, my friend. She is an extraordinary woman!"
 
 choice("Continue", B2-Ch01a-Unfair, v_current_scene = B2-Ch01a-Unfair) if (v_ch11_romance_rose == 0)
-choice("Continue", B2-Ch01a-Offend, v_current_scene = B2-Ch01a-Offend) if (v_ch11_romance_rose > 0)
+choice("Continue", B2-Ch01a-Offend, v_current_scene = B2-Ch01a-Offend) if (v_ch11_romance_rose == 1)
 
 
 ID: B2-Ch01a-Unfair
@@ -1002,8 +1000,7 @@ Shortly after I stop talking, the girl takes out a brick from the wall, and then
 "Well, we did first meet her while she was doing morning exercises in some trap filled ruins," Hadrik says.
 
 }
-choice("Continue", B2-Ch01a-Bricks2, v_current_scene = B2-Ch01a-Bricks2) if (v_b2_ch1_puzzle2 == 1)
-choice("Continue", B2-Ch01a-Bricks2, v_current_scene = B2-Ch01a-Bricks2) if (v_b2_ch1_puzzle2 == 0)
+choice("Continue", B2-Ch01a-Bricks2, v_current_scene = B2-Ch01a-Bricks2) if (v_b2_ch1_puzzle2 == 0 || v_b2_ch1_puzzle2 == 1)
 
 
 ID: B2-Ch01a-Bricks2
@@ -1228,8 +1225,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 1)
+choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 || v_b2_ch1_spin == 1)
 
 
 ID: B2-Ch01a-Value
@@ -1295,8 +1291,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 1)
+choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 || v_b2_ch1_spin == 1)
 
 
 ID: B2-Ch01a-Innocent
@@ -1820,8 +1815,7 @@ He takes a few moments to clear his thoughts before he continues.
 "Very well, then," Golmyck says. "I will think about what you've said. We will continue this discussion further, once you return from the arena. After you manage to earn your freedom, you will need to stop by my castle again, in order to receive some documents which will prove that you've served your sentence for your crimes. While these documents will most likely not be needed in Thilias, they should help you deal with guards that might try to have you arrested in other cities, for the murder of the earl of Ollendor. Now, unless you have anything else to discuss with me, I will start writing on that letter of admission for the dwarf, and then you can be on your way."
 
 }
-choice("Continue", B2-Ch01a-Ending, v_current_scene = B2-Ch01a-Ending) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch01a-Ending, v_current_scene = B2-Ch01a-Ending) if (v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch01a-Ending, v_current_scene = B2-Ch01a-Ending) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch01a-Ending
@@ -1859,5 +1853,4 @@ Press the button below to proceed to the next chapter.
 Press the button below to proceed to the next chapter.
 
 }
-choice("Go to next chapter", B2-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

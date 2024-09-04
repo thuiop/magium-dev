@@ -1,9 +1,8 @@
 ID: B3-Ch03a-Intro
 TEXT: 
 
-set(v_b3_ch3_stats_unavailable,0)
-set(v_b3_ch3_stats_unavailable,0) if (v_checkpoint_rich == 1)
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+set(v_b3_ch3_stats_unavailable,0) if (True)
+stat_check(v_checkpoint_rich,1)
  
 "Please make yourselves at home," the king of the underground says, as soon as we all enter the throne room. "I've prepared a few chairs for you, but you can also stand, if you want."
 
@@ -100,8 +99,7 @@ The king picks up the device and then presses on one of the buttons. Immediately
 "This is a conversation between Billy Bob and the Overseer," the king says. "The Overseer is the one with the more metallic-sounding voice, in case you couldn't tell. Please tell me what you think of this discussion, once you're done listening to it."
 
 }
-choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 0)
-choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 1)
+choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1)
 
 
 ID: B3-Ch03a-Assistance
@@ -236,12 +234,12 @@ He then limps ahead of us and we all follow him, except for Albert, who seems to
 Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
 
 }
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0)
-choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins > 0)
-choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins > 0)
-choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins > 0)
-choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins > 0)
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0)
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
+choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
+choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 
 
 ID: B3-Ch03a-Roam
@@ -302,12 +300,12 @@ He then limps ahead of us and we all follow him, except for Albert, who seems to
 Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
 
 }
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0)
-choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins > 0)
-choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins > 0)
-choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins > 0)
-choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins > 0)
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0)
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
+choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
+choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 
 
 ID: B3-Ch03a-Guided
@@ -368,12 +366,12 @@ He then limps ahead of us and we all follow him, except for Albert, who seems to
 Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
 
 }
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0)
-choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins > 0)
-choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins > 0)
-choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins > 0)
-choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins > 0)
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0)
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
+choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
+choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 
 
 ID: B3-Ch03a-Goblins
@@ -624,35 +622,25 @@ TEXT:
 "Oh, I see!" Leila's father says, as he seems to have finally found the key he was looking for. "My mistake, then!"
 
 }
-choice("""Melindra and I are not in a relationship.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 0) if (v_b2_ch8_energizer > 0)
-choice("""Uh, yes... of course! A relationship is exactly what we are in, Melindra and I!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 1) if (v_b2_ch8_energizer > 0)
+choice("""Melindra and I are not in a relationship.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 0) if (v_b2_ch8_energizer == 1)
+choice("""Uh, yes... of course! A relationship is exactly what we are in, Melindra and I!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 1) if (v_b2_ch8_energizer == 1)
 choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("""Well, technically it's just a vague promise. Anything could still happen!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
-choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
-choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
 choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
 choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
 choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
 
 
 ID: B3-Ch03a-Plans
 TEXT: 
 
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 0)
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 1)
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 2)
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 3)
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 4)
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 5)
-set(v_b3_ch3_chains,0) if (v_b3_ch3_plans == 6)
-set(v_b3_ch3_chains,0) if (v_b3_ch1_unlock == 2)
-set(v_b3_ch3_chains,0) if (v_premonition < 4 && v_b3_ch1_unlock != 2)
+set(v_b3_ch3_chains,0) if (True)
 set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
-set(v_b3_ch3_chains,0)
-FAIL:[ Stat device locked - check failed ] if (v_b3_ch1_unlock == 2)}
-FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4 && v_b3_ch1_unlock != 2)}
-SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition == 4 && v_b3_ch1_unlock != 2)}
+stat_check(stat_device_locked,1)
+stat_check(v_premonition,4)
 #if(v_b3_ch3_plans == 0) {
  
 "Melindra and I are not in a relationship," I say, as Leila's father takes a key out of his pocket and finally unlocks the door. 
@@ -926,9 +914,7 @@ Leila and I both say goodbye to doctor Reidzek, and then we head back towards ou
 On our way back we run into Peter and also into a few other people that we don't recognize, who were using the same corridor to arrive in different areas from the underground rebel base, and while we're walking, Leila takes the opportunity to ask me a few more questions about my past. After walking for a few minutes, we finally make it back to the waiting room, where we see that Daren and Hadrik have already been healed, and that they were now waiting for us to return.
 
 }
-choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 0)
-choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 1)
-choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 2)
+choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2)
 
 
 ID: B3-Ch03a-Technique
@@ -1570,15 +1556,9 @@ It doesn't take us too long to reach the throne room, and once we're inside, we 
  "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
 
 }
-choice("""Does this whole situation seem familiar to anyone else, or is it just me?""", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 0)
-choice("""We know him, but we wouldn't really call him a friend.""", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend) if (v_b3_ch3_assassin == 0)
-choice("""He's helped us before, but he mostly does it on a whim.""", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim) if (v_b3_ch3_assassin == 0)
-choice("""Does this whole situation seem familiar to anyone else, or is it just me?""", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin > 0)
-choice("""We know him, but we wouldn't really call him a friend.""", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend) if (v_b3_ch3_assassin > 0)
-choice("""He's helped us before, but he mostly does it on a whim.""", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim) if (v_b3_ch3_assassin > 0)
-choice("""Does this whole situation seem familiar to anyone else, or is it just me?""", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 2)
-choice("""We know him, but we wouldn't really call him a friend.""", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend) if (v_b3_ch3_assassin == 2)
-choice("""He's helped us before, but he mostly does it on a whim.""", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim) if (v_b3_ch3_assassin == 2)
+choice("""Does this whole situation seem familiar to anyone else, or is it just me?""", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
+choice("""We know him, but we wouldn't really call him a friend.""", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
+choice("""He's helped us before, but he mostly does it on a whim.""", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
 
 
 ID: B3-Ch03a-Familiar

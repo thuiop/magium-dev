@@ -70,9 +70,9 @@ TEXT:
 
 }
 choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 0)
+choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 1)
 choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 0)
-choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control > 0)
-choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control > 0)
+choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 1)
 
 
 ID: B3-Ch04b-Passage
@@ -283,11 +283,8 @@ TEXT:
 set(v_is_dead,0) if (v_premonition >= 3)
 set(v_is_dead,0) if (v_premonition < 3 && v_aura_hardening >= 3)
 set(v_is_dead,1) if (v_premonition < 3 && v_aura_hardening < 3)
-SUCCESS:[ Premonition check successful - level 3 ] if (v_premonition >= 3)}
-FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3 && v_aura_hardening >= 3)}
-SUCCESS:[ Aura hardening check successful - level 3 ] if (v_premonition < 3 && v_aura_hardening >= 3)}
-FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3 && v_aura_hardening < 3)}
-FAIL:[ Aura hardening check failed - level 3 ] if (v_premonition < 3 && v_aura_hardening < 3)}
+stat_check(v_premonition,3)
+stat_check(v_aura_hardening,3)
 #if(v_premonition >= 3) {
  
 "Alright, Billy Bob," I say. "I'm coming over."
@@ -442,11 +439,8 @@ set(v_is_dead,0) if (v_premonition < 3 && v_aura_hardening >= 3)
 set(v_is_dead,1) if (v_premonition < 3 && v_aura_hardening < 3)
 set(v_is_dead,0) if (v_premonition >= 3 && v_is_dead == 0 && v_b3_ch4_control == 0)
 set(v_is_dead,0) if (v_premonition < 3 && v_aura_hardening >= 3 && v_is_dead == 0 && v_b3_ch4_control == 0)
-SUCCESS:[ Premonition check successful - level 3 ] if (v_premonition >= 3)}
-FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3 && v_aura_hardening >= 3)}
-SUCCESS:[ Aura hardening check successful - level 3 ] if (v_premonition < 3 && v_aura_hardening >= 3)}
-FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3 && v_aura_hardening < 3)}
-FAIL:[ Aura hardening check failed - level 3 ] if (v_premonition < 3 && v_aura_hardening < 3)}
+stat_check(v_premonition,3)
+stat_check(v_aura_hardening,3)
 #if(v_premonition >= 3) {
  
 "Kate, wait, don't kill him yet!" I say.
@@ -976,8 +970,7 @@ TEXT:
 
 set(v_b3_ch4_tasked,5) if (v_bluff < 4)
 set(v_b3_ch4_tasked,1) if (v_bluff >= 4)
-FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff >= 4)}
+stat_check(v_bluff,4)
 #if(v_bluff < 4) {
  
 "We are the new guards," I say. "We came here to relieve you of your duties."
@@ -1048,8 +1041,7 @@ TEXT:
 
 set(v_b3_ch4_tasked,5) if (v_bluff < 2)
 set(v_b3_ch4_tasked,2) if (v_bluff >= 2)
-FAIL:[ Bluff check failed - level 2 ] if (v_bluff < 2)}
-SUCCESS:[ Bluff check successful - level 2 ] if (v_bluff >= 2)}
+stat_check(v_bluff,2)
 #if(v_bluff < 2) {
  
 "We're the new cleaners!" I say. "We were sent here to wash the prisoners downstairs."
@@ -1149,8 +1141,7 @@ TEXT:
 
 set(v_b3_ch4_tasked,0) if (v_bluff < 3)
 set(v_b3_ch4_tasked,4) if (v_bluff >= 3)
-FAIL:[ Aura concealment check failed - level 3 ] if (v_bluff < 3)}
-SUCCESS:[ Aura concealment check successful - level 3 ] if (v_bluff >= 3)}
+stat_check(v_aura_concealment,3)
 #if(v_bluff < 3) {
  
 No matter how hard I try, I just can't seem to be able to fully conceal it.
@@ -1189,8 +1180,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_hearing < 3)
 set(v_is_dead,0) if (v_hearing >= 3)
-FAIL:[ Hearing check failed - level 3 ] if (v_hearing < 3)}
-SUCCESS:[ Hearing check successful - level 3 ] if (v_hearing >= 3)}
+stat_check(v_hearing,3)
 #if(v_hearing < 3) {
  
 When we reach the top of the stairs, we enter a new hallway and we begin to advance through it at a rapid pace. All of a sudden, the corridor that we are currently in gets filled with magical electric currents that are visible even with the naked eye. The electric shock surging through my body is so powerful that I barely get another second of consciousness before everything completely fades to black.
@@ -1323,12 +1313,6 @@ Just as the lessathi stops talking, the whole section in front of the staircase 
 }
 choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact)
 choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze)
-choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact) if (v_b3_ch4_tasked == 2)
-choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze) if (v_b3_ch4_tasked == 2)
-choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact) if (v_b3_ch4_tasked == 3)
-choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze) if (v_b3_ch4_tasked == 3)
-choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact) if (v_b3_ch4_tasked == 5)
-choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze) if (v_b3_ch4_tasked == 5)
 
 
 ID: B3-Ch04b-Froze
@@ -1491,8 +1475,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_magical_sense < 4)
 set(v_is_dead,0) if (v_magical_sense >= 4)
-FAIL:[ Magical sense check failed - level 4 ] if (v_magical_sense < 4)}
-SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense >= 4)}
+stat_check(v_magical_sense,4)
 #if(v_magical_sense < 4) {
  
 Kate, Flower and Illuna are now using every magical attack that they can think of, but the drones don't seem bothered at all, and they just keep gathering energy for their spell. After a while, it becomes clear that there is no way for us to stop the incoming attack, so Melindra tries to cast individual wind barriers around each of us, in the hopes that this will somehow be enough to absorb all of the damage.
@@ -1529,8 +1512,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_aura_hardening < 4)
 set(v_is_dead,0) if (v_aura_hardening >= 4)
-FAIL:[ Aura hardening check failed - level 4 ] if (v_aura_hardening < 4)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_aura_hardening >= 4)}
+stat_check(v_aura_hardening,4)
 #if(v_aura_hardening < 4) {
  
 "Melindra, can you cast your air currents on me?" I say. "I want to try and stab the drones in their eyes while they are stunned."
@@ -1578,11 +1560,8 @@ TEXT:
 set(v_is_dead,0) if (v_strength >= 3)
 set(v_is_dead,0) if (v_strength < 3 && v_aura_hardening >= 4)
 set(v_is_dead,1) if (v_strength < 3 && v_aura_hardening < 4)
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_aura_hardening >= 4)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_strength < 3 && v_aura_hardening >= 4)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_aura_hardening < 4)}
-FAIL:[ Aura hardening check failed - level 4 ] if (v_strength < 3 && v_aura_hardening < 4)}
+stat_check(v_strength,3)
+stat_check(v_aura_hardening,4)
 #if(v_strength >= 3) {
  
 I take a rock from the ground, and I throw it at one of the drones.
@@ -1662,8 +1641,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 2)
 set(v_is_dead,0) if (v_perception >= 2)
-FAIL:[ Observation check failed - level 2 ] if (v_perception < 2)}
-SUCCESS:[ Observation check successful - level 2 ] if (v_perception >= 2)}
+stat_check(v_observation,2)
 #if(v_perception < 2) {
  
 I take out my crossbow and I try to shoot one of the drones in its eye. Just like it happened with Kate's icicles earlier, my crossbow bolt simply bounces off the metal ball's magical barrier, leaving it completely unharmed.

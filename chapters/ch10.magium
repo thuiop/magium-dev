@@ -1,7 +1,7 @@
 ID: Ch10-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
  
 "I can't believe that we managed to get ourselves imprisoned twice in two days," Hadrik says. "And by animals and ogres, to boot. If word gets out, we're going to become the laughing stock of the tournament."
 
@@ -399,8 +399,7 @@ After a few seconds, the water inside it starts to radiate magic, and then it be
 She then grabs it off the pedestal and empties it of water, as we all look around us, to see if any traps get activated. 
 
 }
-choice("Continue", Ch10-Ambush2, v_current_scene = Ch10-Ambush2) if (v_ch10_gems == 1)
-choice("Continue", Ch10-Ambush2, v_current_scene = Ch10-Ambush2) if (v_ch10_gems == 0)
+choice("Continue", Ch10-Ambush2, v_current_scene = Ch10-Ambush2) if (v_ch10_gems == 0 || v_ch10_gems == 1)
 
 
 ID: Ch10-Ambush2
@@ -439,14 +438,10 @@ choice("Tell Rose and Kate that we need to maintain our position.", Ch10-Maintai
 ID: Ch10-Rush
 TEXT: 
 
-set(v_is_dead,0) if (v_premonition >= 2)
-set(v_is_dead,0) if (v_premonition < 2 && v_perception >= 2)
-set(v_is_dead,1) if (v_premonition < 2 && v_perception < 2)
-SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2)}
-SUCCESS:[ Observation check successful - level 2 ] if (v_premonition < 2 && v_perception >= 2)}
-FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_perception >= 2)}
-FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_perception < 2)}
-FAIL:[ Observation check failed - level 2 ] if (v_premonition < 2 && v_perception < 2)}
+set(v_is_dead,0) if (v_perception >= 2 && v_premonition < 2 || v_premonition >= 2)
+set(v_is_dead,1) if (v_perception < 2 && v_premonition < 2)
+stat_check(v_premonition,2)
+stat_check(v_observation,2)
 #if(v_premonition >= 2) {
  
 As Kate, Rose and I hurry to reach Illuna's position, the ogre captain smashes his club into the ground and the floor begins to shatter.
@@ -719,8 +714,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_premonition < 3)
 set(v_is_dead,0) if (v_premonition >= 3)
-FAIL:[ Premonition check failed - level 3 ] if (v_premonition < 3)}
-SUCCESS:[ Premonition check successful - level 3 ] if (v_premonition >= 3)}
+stat_check(v_premonition,3)
 #if(v_premonition < 3) {
  
 "Screw Arraka! We can't afford to waste any more time here."
@@ -887,14 +881,10 @@ choice("Let someone else volunteer for the job", Ch10-Someone-else, v_current_sc
 ID: Ch10-Volunteer
 TEXT: 
 
-set(v_is_dead,0) if (v_perception >= 3)
-set(v_is_dead,0) if (v_perception < 3 && v_reflexes >= 3)
+set(v_is_dead,0) if (v_reflexes >= 3 && v_perception < 3 || v_perception >= 3)
 set(v_is_dead,1) if (v_perception < 3 && v_reflexes < 3)
-SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_perception < 3 && v_reflexes >= 3)}
-FAIL:[ Observation check failed - level 3 ] if (v_perception < 3 && v_reflexes >= 3)}
-FAIL:[ Observation check failed - level 3 ] if (v_perception < 3 && v_reflexes < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_perception < 3 && v_reflexes < 3)}
+stat_check(v_observation,3)
+stat_check(v_reflexes,3)
 #if(v_perception >= 3) {
  
 "I volunteer for the job," I say. "I should be able to handle the shaman by myself if he can only cast spells from his staff."
@@ -967,14 +957,10 @@ choice("Load game", , , special:saves) if (v_perception < 3 && v_reflexes < 3)
 ID: Ch10-Volunteer2
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2)
-set(v_is_dead,0) if (v_agility < 2 && v_strength >= 3)
+set(v_is_dead,0) if (v_strength >= 3 && v_agility < 2 || v_agility >= 2)
 set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_agility < 2 && v_strength >= 3)}
-FAIL:[ Speed check failed - level 2 ] if (v_agility < 2 && v_strength >= 3)}
-FAIL:[ Speed check failed - level 2 ] if (v_agility < 2 && v_strength < 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_agility < 2 && v_strength < 3)}
+stat_check(v_agility,2)
+stat_check(v_strength,3)
 #if(v_agility >= 2) {
  
 His staff takes too long to charge up, and I manage to stick my knife in his chest. The shaman spits out blood, and as I prepare to land the finishing blow, the world suddenly starts spinning around me, and then I soon find myself standing in the middle of a cave again, with all of my friends besides me. They also seem to have just woken up, because they are now looking around themselves to confirm that we are indeed back in the abandoned mines below the ogre fort.
@@ -1062,8 +1048,7 @@ choice("Continue", Ch10-Catch, v_current_scene = Ch10-Catch)
 ID: Ch10-Catch
 TEXT: 
 
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3)}
+stat_check(v_agility,3)
 #if(v_agility >= 3) {
  
 I succeed in taking it by surprise, as I cut its throat and then quickly remove my knife, while the beast takes a few more steps and then falls on the ground in a pool of its own blood. At the same time, Kate gets behind another wolf, and she sticks her knife into the back of its head, killing it instantly.  
@@ -1093,19 +1078,15 @@ Illuna catches it from the air, and she quickly slides below one of the wolves, 
 In the meantime, three of the wolves have managed to get past Daren, and are now steadily approaching me and Kate. 
 
 }
-choice("Give Kate my dagger", Ch10-Dagger, v_current_scene = Ch10-Dagger, v_ch10_kate_scratched = 1) if (v_agility >= 3)
-choice("Keep my dagger and fight the wolves myself", Ch10-Keep, v_current_scene = Ch10-Keep, v_ch10_kate_scratched = 0) if (v_agility >= 3)
-choice("Give Kate my dagger and help her by throwing rocks at the wolves", Ch10-Rocks, v_current_scene = Ch10-Rocks, v_ch10_kate_scratched = 0) if (v_agility >= 3)
-choice("Give Kate my dagger", Ch10-Dagger, v_current_scene = Ch10-Dagger, v_ch10_kate_scratched = 1) if (v_agility < 3)
-choice("Keep my dagger and fight the wolves myself", Ch10-Keep, v_current_scene = Ch10-Keep, v_ch10_kate_scratched = 0) if (v_agility < 3)
-choice("Give Kate my dagger and help her by throwing rocks at the wolves", Ch10-Rocks, v_current_scene = Ch10-Rocks, v_ch10_kate_scratched = 0) if (v_agility < 3)
+choice("Give Kate my dagger", Ch10-Dagger, v_current_scene = Ch10-Dagger, v_ch10_kate_scratched = 1)
+choice("Keep my dagger and fight the wolves myself", Ch10-Keep, v_current_scene = Ch10-Keep, v_ch10_kate_scratched = 0)
+choice("Give Kate my dagger and help her by throwing rocks at the wolves", Ch10-Rocks, v_current_scene = Ch10-Rocks, v_ch10_kate_scratched = 0)
 
 
 ID: Ch10-Rocks
 TEXT: 
 
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength >= 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3)}
+stat_check(v_strength,3)
 #if(v_strength >= 3) {
  
 "Here, take this," I tell Kate as I hand her my dagger. "You'll probably put it to better use than me. I'll try to provide support by throwing rocks at the wolves."
@@ -1178,14 +1159,10 @@ choice("Continue", Ch10-Curse, v_current_scene = Ch10-Curse)
 ID: Ch10-Keep
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 3)
-set(v_is_dead,0) if (v_agility < 3 && v_reflexes >= 4)
+set(v_is_dead,0) if (v_reflexes >= 4 && v_agility < 3 || v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 4)
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_agility < 3 && v_reflexes >= 4)}
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes >= 4)}
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_reflexes < 4)}
-FAIL:[ Reflexes check failed - level 4 ] if (v_agility < 3 && v_reflexes < 4)}
+stat_check(v_agility,3)
+stat_check(v_reflexes,4)
 #if(v_agility >= 3) {
  
 I rush towards one of the wolves, and I slit its throat before it has a chance to react. One of the other two lunges for me, but I dash out of its way, and circle around the third wolf in order to stab it in the back of its neck. Once I kill my second wolf, the last one standing pounces towards me again, but I step to the side and run my knife through its skull.
@@ -1368,8 +1345,7 @@ Once we dig up all of our belongings and Illuna heals Kate's leg injury, we wast
 "I see," Illuna says, eying him suspiciously.
 
 }
-choice("Continue", Ch10-Toast, v_current_scene = Ch10-Toast) if (v_ch10_kate_scratched == 0)
-choice("Continue", Ch10-Toast, v_current_scene = Ch10-Toast) if (v_ch10_kate_scratched == 1)
+choice("Continue", Ch10-Toast, v_current_scene = Ch10-Toast) if (v_ch10_kate_scratched == 0 || v_ch10_kate_scratched == 1)
 
 
 ID: Ch10-Kill
@@ -1403,8 +1379,7 @@ Once we dig up all of our belongings and Illuna heals Kate's leg injury, we wast
 "I see," Illuna says, eying him suspiciously.
 
 }
-choice("Continue", Ch10-Toast, v_current_scene = Ch10-Toast) if (v_ch10_kate_scratched == 0)
-choice("Continue", Ch10-Toast, v_current_scene = Ch10-Toast) if (v_ch10_kate_scratched == 1)
+choice("Continue", Ch10-Toast, v_current_scene = Ch10-Toast) if (v_ch10_kate_scratched == 0 || v_ch10_kate_scratched == 1)
 
 
 ID: Ch10-Toast
@@ -1778,12 +1753,7 @@ After she's done searching her backpack, she comes back with a fistful of red le
 "Yeah, I remember."
 
 }
-choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 1)
-choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 2)
-choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 3)
-choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 4)
-choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 5)
-choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 6)
+choice("Continue", Ch10-Unconscious, v_current_scene = Ch10-Unconscious) if (v_ch10_magium == 1 || v_ch10_magium == 2 || v_ch10_magium == 3 || v_ch10_magium == 4 || v_ch10_magium == 5 || v_ch10_magium == 6)
 
 
 ID: Ch10-Other-time
@@ -1890,8 +1860,8 @@ Throughout our journey back to the ruins, Daren had tried on multiple occasions 
 
  The fox was quite surprised when she learned that we’d returned with the chalice. I don’t think she was really expecting us to pull it off. However, she kept her word and removed all of our collars upon confirmation that the artifact we’d brought her was indeed the one she was looking for. Since we didn’t really feel like spending any more time than necessary in this place, we waved goodbye to the fox and the leopard, we started heading out of the forbidden forest, and we prayed that we’d never see either of them again for the rest of our lives.
 
-choice("Continue", Ch10-Elaria, v_current_scene = Ch10-Elaria) if (v_ch2_deer_interaction > 0)
-choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize)
+choice("Continue", Ch10-Elaria, v_current_scene = Ch10-Elaria) if (v_ch2_deer_interaction == 1)
+choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch2_deer_interaction != 1)
 
 
 ID: Ch10-Subconsciously
@@ -1917,8 +1887,8 @@ Throughout our journey back to the ruins, Daren had tried on multiple occasions 
 
  The fox was quite surprised when she learned that we’d returned with the chalice. I don’t think she was really expecting us to pull it off. However, she kept her word and removed all of our collars upon confirmation that the artifact we’d brought her was indeed the one she was looking for. Since we didn’t really feel like spending any more time than necessary in this place, we waved goodbye to the fox and the leopard, we started heading out of the forbidden forest, and we prayed that we’d never see either of them again for the rest of our lives.
 
-choice("Continue", Ch10-Elaria, v_current_scene = Ch10-Elaria) if (v_ch2_deer_interaction > 0)
-choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize)
+choice("Continue", Ch10-Elaria, v_current_scene = Ch10-Elaria) if (v_ch2_deer_interaction == 1)
+choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch2_deer_interaction != 1)
 
 
 ID: Ch10-Apologize
@@ -1940,8 +1910,8 @@ Throughout our journey back to the ruins, Daren had tried on multiple occasions 
 
  The fox was quite surprised when she learned that we’d returned with the chalice. I don’t think she was really expecting us to pull it off. However, she kept her word and removed all of our collars upon confirmation that the artifact we’d brought her was indeed the one she was looking for. Since we didn’t really feel like spending any more time than necessary in this place, we waved goodbye to the fox and the leopard, we started heading out of the forbidden forest, and we prayed that we’d never see either of them again for the rest of our lives.
 
-choice("Continue", Ch10-Elaria, v_current_scene = Ch10-Elaria) if (v_ch2_deer_interaction > 0)
-choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize)
+choice("Continue", Ch10-Elaria, v_current_scene = Ch10-Elaria) if (v_ch2_deer_interaction == 1)
+choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch2_deer_interaction != 1)
 
 
 ID: Ch10-Elaria
@@ -2001,8 +1971,7 @@ When the doe finishes talking, Rose approaches her and gives her a big hug.
 She waves goodbye to the doe, and then we all resume our journey, while Rose looks as if a great burden had been lifted off her chest.
 
 }
-choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch6_rose_deer == 0)
-choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch6_rose_deer == 1)
+choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch6_rose_deer == 0 || v_ch6_rose_deer == 1)
 
 
 ID: Ch10-Minimize

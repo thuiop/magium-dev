@@ -1,7 +1,7 @@
 ID: B2-Ch09a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
 #if(v_b2_ch8_energizer == 3) {
  
 "Barry?" Kate asks me, as she sees me head towards her. "What are you doing? Didn't you go to sleep?"
@@ -133,7 +133,7 @@ While Melindra heads towards the river bank, I can see the others' lips moving, 
 choice("""Because I didn't want to kick her out like a dog, when she didn't have a place to sleep.""", B2-Ch09a-Dog, v_current_scene = B2-Ch09a-Dog, v_checkpoint_rich = 0, v_b2_ch9_dog = 0) if (v_b2_ch8_energizer == 3)
 choice("""Because I didn't want to waste any more time arguing with her.""", B2-Ch09a-Dog, v_current_scene = B2-Ch09a-Dog, v_checkpoint_rich = 0, v_b2_ch9_dog = 1) if (v_b2_ch8_energizer == 3)
 choice("""Because I figured I may as well come chat with you, given that I was already up.""", B2-Ch09a-Dog, v_current_scene = B2-Ch09a-Dog, v_checkpoint_rich = 0, v_b2_ch9_dog = 2) if (v_b2_ch8_energizer == 3)
-choice("Continue", B2-Ch09a-Energizer4, v_current_scene = B2-Ch09a-Energizer4, v_checkpoint_rich = 0) if (v_b2_ch8_energizer > 0)
+choice("Continue", B2-Ch09a-Energizer4, v_current_scene = B2-Ch09a-Energizer4, v_checkpoint_rich = 0) if (v_b2_ch8_energizer == 1)
 choice("Continue", B2-Ch09a-Sleep2, v_current_scene = B2-Ch09a-Sleep2, v_checkpoint_rich = 0) if (v_b2_ch8_energizer == 2)
 choice("Continue", B2-Ch09a-Kick, v_current_scene = B2-Ch09a-Kick, v_checkpoint_rich = 0) if (v_b2_ch8_energizer == 0)
 
@@ -471,10 +471,10 @@ She then conjures an ice dagger out of thin air, and she starts flinging it upwa
 
 }
 choice("""I don't know. I wouldn't be so sure about that.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 1) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
-choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("""I don't know. I wouldn't be so sure about that.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 1) if (v_ch11_saved_rose == 0)
-choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 0)
 choice("""I don't know. I wouldn't be so sure about that.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 1) if (v_ch11_romance_rose == 0)
+choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
+choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 0)
 choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0) if (v_ch11_romance_rose == 0)
 
 
@@ -567,8 +567,7 @@ She then starts heading towards her own tent, as Daren and I head towards his, i
 "You can sleep as much as you want in your own tent, but not here," I say.
 
 }
-choice("Continue", B2-Ch09a-Dismantling, v_current_scene = B2-Ch09a-Dismantling) if (v_b2_ch9_defeat == 1)
-choice("Continue", B2-Ch09a-Dismantling, v_current_scene = B2-Ch09a-Dismantling) if (v_b2_ch9_defeat == 0)
+choice("Continue", B2-Ch09a-Dismantling, v_current_scene = B2-Ch09a-Dismantling) if (v_b2_ch9_defeat == 0 || v_b2_ch9_defeat == 1)
 
 
 ID: B2-Ch09a-Dismantling
@@ -753,8 +752,7 @@ TEXT:
 "I'll go get Flower, then," Melindra says, as she moves away from me. "This discussion has made me even hungrier than before. I really hope that those delicacies that she was bragging about yesterday are as good as she said they'd be."
 
 }
-choice("Continue", B2-Ch09a-Panicked, v_current_scene = B2-Ch09a-Panicked) if (v_b2_ch9_amused == 1)
-choice("Continue", B2-Ch09a-Panicked, v_current_scene = B2-Ch09a-Panicked) if (v_b2_ch9_amused == 0)
+choice("Continue", B2-Ch09a-Panicked, v_current_scene = B2-Ch09a-Panicked) if (v_b2_ch9_amused == 0 || v_b2_ch9_amused == 1)
 
 
 ID: B2-Ch09a-Panicked
@@ -860,8 +858,7 @@ Not long after we start walking, Hadrik pulls me over to the back of the group, 
 With these last words, he goes to catch up with the rest of the group, and I soon follow him as well.
 
 }
-choice("Continue", B2-Ch09a-Pinecones, v_current_scene = B2-Ch09a-Pinecones) if (v_b2_ch9_cast1 == 1)
-choice("Continue", B2-Ch09a-Pinecones, v_current_scene = B2-Ch09a-Pinecones) if (v_b2_ch9_cast1 == 0)
+choice("Continue", B2-Ch09a-Pinecones, v_current_scene = B2-Ch09a-Pinecones) if (v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1)
 
 
 ID: B2-Ch09a-Sleep2
@@ -1381,20 +1378,20 @@ Once it got past noon, we decided to take a small break to eat some lunch. This 
 
 }
 choice("""I'd rather hold onto it, if you don't mind.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 0) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
-choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
 choice("""I'd rather hold onto it, if you don't mind.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 0) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1)
-choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1)
-choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1)
-choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1)
 choice("""I'd rather hold onto it, if you don't mind.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 0) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
-choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
 choice("""I'd rather hold onto it, if you don't mind.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 0) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1)
+choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
+choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1)
+choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
 choice("""You can have it, if you want.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1)
+choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
+choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1)
+choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
 choice("""Why do you care about these puzzle pieces so much?""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1)
+choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
+choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer == 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1)
+choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
 choice("""Sounds like a good idea. Good luck.""", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch8_energizer != 0 && v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1)
 
 
@@ -1657,10 +1654,8 @@ She then quickly utters an incantation and she waves her hands around, as she ca
 "I do," Daren says, "but I'm not going to risk casting any kind of healing spell on you right now, unless we're talking about a life-threatening emergency. Casting healing spells on someone who's recently had his heart weakened by an energizer spell is asking for all kinds of trouble. Honestly, you'd be better off just letting Melindra cast that second energizer spell on you. It would still strain your heart, but at least it would do it more gradually, and the risk of heart failure when you've only used this spell once before in your entire life is almost non-existent."
 
 }
-choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 == 0)
-choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 == 0)
-choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 > 0)
-choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 > 0)
+choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1)
+choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1)
 
 
 ID: B2-Ch09a-Energizer-path3
@@ -1684,7 +1679,7 @@ As we advance through the storm, the wind finally manages to blow a few trees ou
 We keep pressing forward for another twenty minutes, but the storm still doesn't look like it will be stopping anytime soon. In fact, it's been getting worse by the minute. Every time we hear a thunder, it feels almost as if someone set off a powerful explosion spell in our vicinity. The wind is now almost powerful enough to push us back while we're walking, and the number of rain drops has greatly increased as well. Will this storm never end?
 
 }
-choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying) if (v_b2_ch9_cast2 > 0)
+choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying) if (v_b2_ch9_cast2 == 1)
 
 
 ID: B2-Ch09a-Energizer-stat
@@ -1692,8 +1687,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 4)
 set(v_is_dead,0) if (v_reflexes == 4)
-FAIL:[ Reflexes check failed - level 4 ] if (v_reflexes < 4)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_reflexes == 4)}
+stat_check(v_reflexes,4)
 #if(v_reflexes < 4) {
  
 "I'd rather stay with the headache, actually," I say. "I heard the headaches would get worse if I tried to postpone them with an energizer spell, so I'd prefer to wait it out."
@@ -1878,10 +1872,10 @@ She then conjures an ice dagger out of thin air, and she starts flinging it upwa
 
 }
 choice("""I don't know. I wouldn't be so sure about that.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 1) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
-choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("""I don't know. I wouldn't be so sure about that.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 1) if (v_ch11_saved_rose == 0)
-choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 0)
 choice("""I don't know. I wouldn't be so sure about that.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 1) if (v_ch11_romance_rose == 0)
+choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
+choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0) if (v_ch11_saved_rose == 0)
 choice("""Yeah, I probably couldn't last ten seconds against you in an actual fight.""", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0) if (v_ch11_romance_rose == 0)
 
 
@@ -2002,10 +1996,8 @@ I sigh.
 "Of course!" Melindra says. "As soon as you apologize for what you've done, I'd be more than happy to call a truce."
 
 }
-choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure == 0)
-choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure == 0)
-choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure > 0)
-choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure > 0)
+choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure == 0 || v_ch6_secure == 1)
+choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure == 0 || v_ch6_secure == 1)
 
 
 ID: B2-Ch09a-Biscuits2
@@ -2234,8 +2226,7 @@ I shrug.
 "Fair enough," Hadrik says. "So, what if we tried to uncover stuff about his past, instead? Or his motivations. Maybe that could help us fight him somehow. Like, for example, maybe we could find out the reason why he's filling the whole continent with those weird invisible spells."
 
 }
-choice("Continue", B2-Ch09a-Downhill, v_current_scene = B2-Ch09a-Downhill) if (v_b2_ch9_oath == 0)
-choice("Continue", B2-Ch09a-Downhill, v_current_scene = B2-Ch09a-Downhill) if (v_b2_ch9_oath == 1)
+choice("Continue", B2-Ch09a-Downhill, v_current_scene = B2-Ch09a-Downhill) if (v_b2_ch9_oath == 0 || v_b2_ch9_oath == 1)
 
 
 ID: B2-Ch09a-Downhill

@@ -92,9 +92,7 @@ Kate frowns at her, but she doesn't say anything.
 "Uh... maybe it's about time we changed the subject," Hadrik says, in an attempt to avoid another argument breaking out between Kate and Melindra. "Like for instance, did you guys also notice that we haven't really encountered a lot of animals while we've been walking through these forests? I would have expected these places to be teeming with wildlife, but we've mostly only run into monsters and other mages."
 
 }
-choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles) if (v_b2_ch9_tyrath == 0)
-choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles) if (v_b2_ch9_tyrath == 1)
-choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles) if (v_b2_ch9_tyrath == 2)
+choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles) if (v_b2_ch9_tyrath == 0 || v_b2_ch9_tyrath == 1 || v_b2_ch9_tyrath == 2)
 
 
 ID: B2-Ch09b-Circles
@@ -246,7 +244,7 @@ choice("Continue", B2-Ch09b-Success, v_current_scene = B2-Ch09b-Success, v_b2_ch
 ID: B2-Ch09b-Failed
 TEXT: 
 
-FAIL:[ Ancient languages check failed - level 2 ]}
+stat_check(v_ancient_languages,2)
  
 "Hold on," Flower tells us. "I can understand a little of their language. I'll try to communicate with them."
 
@@ -273,7 +271,7 @@ choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila)
 ID: B2-Ch09b-Success
 TEXT: 
 
-SUCCESS:[ Ancient languages check successful - level 2 ]}
+stat_check(v_ancient_languages,2)
  
 "Wait," I tell them, in the ancient language of the animals. "We're here to help!"
 
@@ -344,8 +342,7 @@ We do as Flower says, and wait for a while, until the wolves and the bear go pas
 "Alright," Daren says. "Let's get going, then. Preferably in a direction that leads us away from the forest fire."
 
 }
-choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila) if (v_b2_ch9_spell == 1)
-choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila) if (v_b2_ch9_spell == 0)
+choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila) if (v_b2_ch9_spell == 0 || v_b2_ch9_spell == 1)
 
 
 ID: B2-Ch09b-Leila
@@ -554,8 +551,6 @@ Calm down, Barry. This isn't Rose. You know very well who it is. It's the revena
 The channel of communication on her side is now closed.
 
 }
-choice("Keep the channel open on my side.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 1) if (v_b2_ch8_energizer == 3)
-choice("Close the channel on my side too.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 0) if (v_b2_ch8_energizer == 3)
 choice("Keep the channel open on my side.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 1)
 choice("Close the channel on my side too.", B2-Ch09b-Channel, v_current_scene = B2-Ch09b-Channel, v_b2_ch9_channel = 0)
 
@@ -591,8 +586,7 @@ TEXT:
 "Huh..." Hadrik says. "Well, I don't know about the rest of you guys, but this whole thing kind of killed the mood for me. I think I'm going to gather up the cards for now, and we'll finish the game some other time."
 
 }
-choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch9_channel == 1)
-choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch9_channel == 0)
+choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch9_channel == 0 || v_b2_ch9_channel == 1)
 
 
 ID: B2-Ch09b-Freezing
@@ -676,10 +670,10 @@ I then wait for all the others to reach my position, before continuing to talk.
 "Because no time-freezing spell lasts forever," Melindra says. "No matter how long it takes, the spell would still need to end at some point. But if you don't feel like waiting, and you don't have any direct way of cancelling the spell, you could always try to physically interact with some of the people who are frozen in time. There is one thing that all of the time-freezing spells have in common, and it's that you can't physically interact with any living beings that are frozen in time without triggering the cancellation of your spell."
 
 }
-choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer > 0)
-choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer > 0)
-choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 1)
-choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 0)
+choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer == 1)
+choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer == 1)
+choice("""Could you at least tell us what you know about time weavers in general?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer != 1)
+choice("""Rose, do you remember what you were doing before the time froze?""", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer != 1)
 
 
 ID: B2-Ch09b-Energizer-Rose
@@ -808,8 +802,7 @@ TEXT:
 "Agreed," Hadrik says. "So, how are things going in Thilias?"
 
 }
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 1)
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0 || v_b2_ch9_weavers == 1)
 
 
 ID: B2-Ch09b-Thilias
@@ -932,14 +925,8 @@ It didn't take me long to fall asleep, and I woke up several hours later, at the
 "Come on, Barry," Hadrik says. "We're up next. I hope you're in the mood for drinking tonight, because I've got these dwarven ale bottles with me that are just begging to be emptied."
 
 }
-choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 0)
-choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 0)
-choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer > 0)
-choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer > 0)
-choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 2)
-choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 2)
-choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 3)
-choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 3)
+choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 1 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3)
+choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 1 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3)
 
 
 ID: B2-Ch09b-Met-zek
@@ -997,8 +984,7 @@ At any rate, there is at least one thing I know for sure, and it's the fact that
 "So, Barry," Hadrik says, as he places a card on the ground, facing up. "I've been meaning to ask... What is your opinion on Melindra so far? You've had that little episode with her in your tent, and aside from Flower, you seem to be the only other person that she's talked with, in private. Be honest, do you think that she'll ever manage to fit in the group?"
 
 }
-choice("Continue", B2-Ch09b-Interrupt, v_current_scene = B2-Ch09b-Interrupt) if (v_b2_ch9_drink == 1)
-choice("Continue", B2-Ch09b-Interrupt, v_current_scene = B2-Ch09b-Interrupt) if (v_b2_ch9_drink == 0)
+choice("Continue", B2-Ch09b-Interrupt, v_current_scene = B2-Ch09b-Interrupt) if (v_b2_ch9_drink == 0 || v_b2_ch9_drink == 1)
 
 
 ID: B2-Ch09b-Interrupt
@@ -1048,15 +1034,15 @@ So, the question here is... Did he place down a good card? Or a bad card?
 "I know," Hadrik says. "That's why I tried to arrange that card game before we went to sleep. I was hoping that maybe if they all got to talk to each other more, they'd reach some kind of understanding. I haven't had any luck so far, though."
 
 }
-choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch9_amused > 0)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch9_amused > 0)
+choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch9_amused == 1)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 2)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 2)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 3)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 3)
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 0)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch9_amused == 1)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 2)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 3)
 choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 0)
 
 
@@ -1190,5 +1176,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch10a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch10a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch10a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

@@ -1,7 +1,7 @@
 ID: B2-Ch06a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
  
 The girl dressed in pajamas is looking at us with a victorious smile on her face. She seems very pleased with herself for having managed to finally get our attention. Despite the fact that she is clearly the one who has magically suspended us into the air, her aura is showing no traces of magic whatsoever. Even when Kate and Flower hide their auras, you can still tell that they are mages if you inspect their auras very closely. The girl in front of us, however, seems no different from a regular human. This can mean one of two things. Either she is much better at hiding her aura than Flower and Kate, or...
 
@@ -212,8 +212,7 @@ TEXT:
 "She's telling the truth," Leila writes. "Ollendor is something of a rogue kingdom these days. Neither the lessathi nor the other kings have any influence anymore on what happens within their borders. Everyone pretty much ignores them, and many of the kingdoms have already kicked their ambassadors out of their territories. This is why my father went there, after he escaped from Thilias. Because it's a kingdom where nobody would be able to find him."
 
 }
-choice("Continue", B2-Ch06a-Motives, v_current_scene = B2-Ch06a-Motives) if (v_b2_ch6_person == 1)
-choice("Continue", B2-Ch06a-Motives, v_current_scene = B2-Ch06a-Motives) if (v_b2_ch6_person == 0)
+choice("Continue", B2-Ch06a-Motives, v_current_scene = B2-Ch06a-Motives) if (v_b2_ch6_person == 0 || v_b2_ch6_person == 1)
 
 
 ID: B2-Ch06a-Motives
@@ -344,8 +343,7 @@ As soon as Daren is done confirming the first vow, he urges Melindra to continue
 "Okay, uh..." Melindra says. "I swear that as soon as you kill the king of Ollendor, I will begin leading you towards the person who has the pinecone detector that I told you about earlier, and I will not take any breaks unless you specifically ask me to."
 
 }
-choice("Continue", B2-Ch06a-Pajama, v_current_scene = B2-Ch06a-Pajama) if (v_b2_ch6_hurt == 0)
-choice("Continue", B2-Ch06a-Pajama, v_current_scene = B2-Ch06a-Pajama) if (v_b2_ch6_hurt == 1)
+choice("Continue", B2-Ch06a-Pajama, v_current_scene = B2-Ch06a-Pajama) if (v_b2_ch6_hurt == 0 || v_b2_ch6_hurt == 1)
 
 
 ID: B2-Ch06a-Pajama
@@ -401,8 +399,7 @@ Seeing the girl up-close, I can't help but notice that she has a rather cute fac
 "Hmm..." Melindra says again, this time bringing her face much closer to mine, with the same pondering look in her eyes, as she strokes her chin with her right hand.
 
 }
-choice("Continue", B2-Ch06a-Mixture, v_current_scene = B2-Ch06a-Mixture) if (v_b2_ch6_hurt == 0)
-choice("Continue", B2-Ch06a-Mixture, v_current_scene = B2-Ch06a-Mixture) if (v_b2_ch6_hurt == 1)
+choice("Continue", B2-Ch06a-Mixture, v_current_scene = B2-Ch06a-Mixture) if (v_b2_ch6_hurt == 0 || v_b2_ch6_hurt == 1)
 
 
 ID: B2-Ch06a-Mixture
@@ -640,10 +637,8 @@ Once we wave goodbye to Rose, we start heading towards the castle of Thilias, at
 "Of course they did," Arraka says. "But I was only getting stronger with each spirit that I absorbed, and by the time the really strong spirits figured out what I was doing, I was already too much for them to handle."
 
 }
-choice("""What happens to the spirits that you absorb?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 0) if (v_ch11_saved_rose == 0)
-choice("""Is this the reason why you got banned from the magical plane?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 1) if (v_ch11_saved_rose == 0)
-choice("""What happens to the spirits that you absorb?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 0) if (v_ch11_saved_rose > 0)
-choice("""Is this the reason why you got banned from the magical plane?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 1) if (v_ch11_saved_rose > 0)
+choice("""What happens to the spirits that you absorb?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("""Is this the reason why you got banned from the magical plane?""", B2-Ch06a-Amass, v_current_scene = B2-Ch06a-Amass, v_b2_ch6_banned = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch06a-Amass
@@ -684,10 +679,8 @@ TEXT:
 "No, it was some time after that," Arraka says. "When they realized that they couldn't amass their followers with the speed that I was absorbing other spirits, they had some sort of a meeting, where they invited all of the powerful spirits in the realm, including the ones who did not call themselves gods, like the golden fox, who was still in the magical plane at the time. In that meeting, they decided to ban me from their realm, along with every other female spirit that belonged to what you people call 'civilized races' here on the earthen plane. You know, like humans, elves, gnomes and the like."
 
 }
-choice("""Wait, you have different races in the magical plane?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 0) if (v_b2_ch6_banned == 0)
-choice("""The fox originated from the magical plane? How did she end up here, then?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 1) if (v_b2_ch6_banned == 0)
-choice("""Wait, you have different races in the magical plane?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 0) if (v_b2_ch6_banned > 0)
-choice("""The fox originated from the magical plane? How did she end up here, then?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 1) if (v_b2_ch6_banned > 0)
+choice("""Wait, you have different races in the magical plane?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 0) if (v_b2_ch6_banned == 0 || v_b2_ch6_banned == 1)
+choice("""The fox originated from the magical plane? How did she end up here, then?""", B2-Ch06a-Elf, v_current_scene = B2-Ch06a-Elf, v_b2_ch6_fox = 1) if (v_b2_ch6_banned == 0 || v_b2_ch6_banned == 1)
 
 
 ID: B2-Ch06a-Elf
@@ -755,8 +748,7 @@ TEXT:
 "Petal's an elf?" Flower asks, shocked.
 
 }
-choice("Continue", B2-Ch06a-Funnel, v_current_scene = B2-Ch06a-Funnel) if (v_b2_ch6_fox == 0)
-choice("Continue", B2-Ch06a-Funnel, v_current_scene = B2-Ch06a-Funnel) if (v_b2_ch6_fox == 1)
+choice("Continue", B2-Ch06a-Funnel, v_current_scene = B2-Ch06a-Funnel) if (v_b2_ch6_fox == 0 || v_b2_ch6_fox == 1)
 
 
 ID: B2-Ch06a-Funnel
@@ -1026,9 +1018,7 @@ Leila then turns around, and Kate starts filling her in on the details regarding
 I then point towards Kate and Leila, who are still engaged in conversation, except the subject of their talk seems to have changed from Eiden and his plans to how much of an idiot I am.
 
 }
-choice("Continue", B2-Ch06a-Crossbow, v_current_scene = B2-Ch06a-Crossbow) if (v_b2_ch5_scimitar == 2)
-choice("Continue", B2-Ch06a-Crossbow, v_current_scene = B2-Ch06a-Crossbow) if (v_b2_ch5_scimitar == 1)
-choice("Continue", B2-Ch06a-Crossbow, v_current_scene = B2-Ch06a-Crossbow) if (v_b2_ch5_scimitar == 0)
+choice("Continue", B2-Ch06a-Crossbow, v_current_scene = B2-Ch06a-Crossbow) if (v_b2_ch5_scimitar == 0 || v_b2_ch5_scimitar == 1 || v_b2_ch5_scimitar == 2)
 
 
 ID: B2-Ch06a-Crossbow
@@ -1070,13 +1060,13 @@ The advantage of the expensive one is that I can use it to shoot seven bolts bef
 I look around the ranged weapons section one more time to see if there aren't any other repeating crossbows that might interest me, but most of them are either not worth their price, or worse than the one that I already have. I guess I'm going to have to make a choice between the two crossbows that I was looking at earlier, after all.  
 
 }
-choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1)
-choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch10_gems > 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch10_gems > 0)
+choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch3_treasure != 0)
+choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch10_gems == 1)
 choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
 choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_b2_ch5_scimitar != 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch3_treasure != 0)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch10_gems == 1)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_b2_ch5_scimitar == 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
 choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_ac_b2_ch6_edge = 1, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1, special:achievement-Living on the edge-v_ac_b2_ch6_edge) if (v_b2_ch5_scimitar != 2 && v_ch3_treasure == 0 && v_ch10_gems == 0)
 
 
@@ -1123,8 +1113,7 @@ I pay the shopkeeper ten copper pieces for the anti-poison elixir and a silver c
 "Listen," Hadrik tells Daren, as we get closer, "I know that Azarius can cast a lot of spells. That's not the point. What I'm saying is that in terms of raw power, Talmak is way above the Sage of the West. Plus, he's an earth elementalist! What use are a bunch of spells, when he's just going to crush you between two huge layers of rock?"
 
 }
-choice("Continue", B2-Ch06a-Complex, v_current_scene = B2-Ch06a-Complex) if (v_b2_ch6_crossbow == 0)
-choice("Continue", B2-Ch06a-Complex, v_current_scene = B2-Ch06a-Complex) if (v_b2_ch6_crossbow == 1)
+choice("Continue", B2-Ch06a-Complex, v_current_scene = B2-Ch06a-Complex) if (v_b2_ch6_crossbow == 0 || v_b2_ch6_crossbow == 1)
 
 
 ID: B2-Ch06a-Complex
@@ -1275,8 +1264,7 @@ TEXT:
 "Actually, that's a common misconception," Eiden says. "While the people of this land may call me the Creator, the island of Varathia has been around for much longer than my lifespan. The only reason why people started to call me the Creator all those years ago was because they wanted someone to replace the old Creator, to symbolize the beginning of a new age, and they chose me to take this role because I was practically the founder of the new civilization that came after the still winter, together with the golden fox. Oh, and I think you might have slightly misunderstood what I said earlier. I will by no means stand idly by while this calamity occurs. In fact, the eradication of these cities will happen as a direct result of my own actions."
 
 }
-choice("Continue", B2-Ch06a-Tantrum, v_current_scene = B2-Ch06a-Tantrum) if (v_b2_ch1_interfere == 0)
-choice("Continue", B2-Ch06a-Tantrum, v_current_scene = B2-Ch06a-Tantrum) if (v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch06a-Tantrum, v_current_scene = B2-Ch06a-Tantrum) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch06a-Tantrum

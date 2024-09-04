@@ -2,6 +2,8 @@
 const ejs = require('ejs');
 const path = require('path');
 
+const parser = require('./parser.js')
+
 let port = process.env.PORT || 3000;
 if (!isNaN(parseInt(process.argv[2]))) {
     port = parseInt(process.argv[2]);
@@ -30,13 +32,51 @@ const stats_variables = [
 
 /// ---
 
-let json_data = {}
+let magiumData = {}
 const chapters = (
     ["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9","ch10","ch11a","ch11b",
         'b2ch1', 'b2ch2', 'b2ch3', 'b2ch4a', 'b2ch4b', 'b2ch5a', 'b2ch5b', 'b2ch6', 'b2ch7','b2ch8', 'b2ch9a', 'b2ch9b', 'b2ch10a', 'b2ch10b', 'b2ch11a', 'b2ch11b', 'b2ch11c',
         'b3ch1', 'b3ch2a', 'b3ch2b', 'b3ch2c', 'b3ch3a', 'b3ch3b', 'b3ch4a', 'b3ch4b', 'b3ch5a', 'b3ch5b', 'b3ch6a', 'b3ch6b', 'b3ch6c', 'b3ch7a', 'b3ch8a', 'b3ch8b', 'b3ch9a', 'b3ch9b', 'b3ch9c', 'b3ch10a', 'b3ch10b', 'b3ch10c', 'b3ch11a', 'b3ch12a', 'b3ch12b']
 )
 
+
+function apply_condition(entry,values){
+    if (!entry) {
+        return true
+    }
+    if (match=entry.match(/(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9])/)) {
+        var variable = match.groups.varName;
+        var condType = match.groups.condType;
+        var value = parseInt(match.groups.value);
+    }
+    else{
+        console.log("Condition fail")
+        console.log(entry)
+        return
+    }
+    if (condType == ">") {
+        return (values[variable] || 0) > value
+    }
+    else if (condType == "<") {
+        return (values[variable] || 0) < value
+    }
+    else if (condType == "<=") {
+        return (values[variable] || 0) <= value
+    }
+    else if (condType == ">=") {
+        return (values[variable] || 0) >= value
+    }
+    else if (condType == "!=") {
+        return (values[variable] || 0) != value
+    }
+    else if (condType == "==") {
+        return (values[variable] || 0) == value
+    }
+}
+
+function apply_conditions(conditions,values){
+    return !conditions || conditions.some((conds)=>conds.every((cond) => apply_condition(cond,values)))
+}
 
 /* Initial Logic to get the header from the id.
 TODO: Discuss possibilities of alternate logic that do not need inference, 
@@ -60,9 +100,14 @@ function render_full(req,callback,header=""){
     }
 }
 
-function render_scene(req,json_data,id) {
-    let data = Object.assign({},json_data,{"id":id},req.cookies);
-    data.text = ejs.render(data.text,req.cookies);
+function render_scene(req,magiumData,id) {
+    let cookieData = Object.assign({},req.cookies);
+    let sceneData = Object.assign({},magiumData)
+    sceneData.setVariables = sceneData.setVariables.filter((setVariable) => apply_conditions(setVariable.conditions,cookieData))
+    sceneData.setVariables.forEach((setVariable) => cookieData[setVariable.name] = setVariable.value)
+    sceneData.choices = sceneData.choices.filter((choice) => apply_conditions(choice.conditions,cookieData))
+    sceneData.paragraphs = sceneData.paragraphs.filter((paragraph) => apply_conditions(paragraph.conditions,cookieData))
+    let data = Object.assign({},{"id":id,"scene":sceneData},cookieData);
     return ejs.renderFile(path.join(dirname,"templates/main.ejs"),data)
 }
 
@@ -100,7 +145,7 @@ function render_saves(req) {
 /// ---
 
 for (chapter of chapters) {
-    json_data = Object.assign(json_data,require(path.join(dirname,`chapters/${chapter}.json`)))
+    parser.parse(path.join(dirname,`chapters/${chapter}.magium`)).then((val)=>magiumData = Object.assign(magiumData,val))
 }
 
 let achievements_data = {}
@@ -121,7 +166,7 @@ expressApp.use(express.static(path.join(dirname, 'public')));
 // TODO: Move those inside `main_setup.js`?
 expressApp.get('/', (req, res) => {
     const id = req.cookies.v_current_scene ? req.cookies.v_current_scene : "Ch1-Intro1"
-    render_full(req,(r) => render_scene(r,json_data[id],get_header_from_id(id)),get_header_from_id(id)).then((rendered) => res.send(rendered))
+    render_full(req,(r) => render_scene(r,magiumData[id],get_header_from_id(id)),get_header_from_id(id)).then((rendered) => res.send(rendered))
 })
 
 expressApp.get('/menu', (req, res) => {
@@ -129,7 +174,7 @@ expressApp.get('/menu', (req, res) => {
 })
 
 expressApp.get('/scene/:id', (req, res) => {
-    const callback = (r) => render_scene(r,json_data[req.params.id],get_header_from_id(req.params.id));
+    const callback = (r) => render_scene(r,magiumData[req.params.id],get_header_from_id(req.params.id));
     render_full(req,callback,get_header_from_id(req.params.id)).then((rendered) => res.send(rendered));
 })
 

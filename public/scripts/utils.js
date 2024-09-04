@@ -43,7 +43,7 @@ function navigateTo(url) {
 
 
 function setResponseCookies(response) {
-  for (const [key, value] of Object.entries(response.set_variables)) {
+  for (const [key, value] of Object.entries(response.setVariables)) {
       if (value.startsWith("+")){
           cookieAdd(key,value.slice(1))
       }

@@ -1,7 +1,7 @@
 ID: B3-Ch11a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(checkpoint,1)
  
 "Let me see if I got this straight..." Hadrik tells Meridith. "You people have been gathering a huge amount of energy from mages since the beginning of this tournament, all for the purpose of killing Eiden..."
 
@@ -332,9 +332,9 @@ TEXT:
 "Isn't the entrance to that corridor clearly marked as leading to the Heksol faction area, in the common language?" Diane says. "Surely, the dwarf must have read that and decided to take the other path, right?"
 
 }
-choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node > 0)
-choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node > 0)
+choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 1)
 choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 0)
+choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 1)
 choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 0)
 
 
@@ -345,8 +345,7 @@ set(v_b3_ch11_hear,1) if (v_hearing >= 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2 && v_perception_aux >= 4)
 set(v_b3_ch11_hear,0) if (v_hearing < 2 && v_perception_aux < 4)
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2)}
-FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
+stat_check(v_hearing,2)
 #if(v_hearing >= 2) {
  
 "Yeah, if it's marked like you say, then he probably avoided that tunnel."
@@ -457,7 +456,7 @@ choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_per
 ID: B3-Ch11a-Observation
 TEXT: 
 
-SUCCESS:[ Observation check successful - level 4 ]}
+stat_check(v_observation,4)
  
 Just as we were about to leave, I notice that a small area from one of the tunnel walls looks slightly out of place, compared to the rest of the black seredium surface. For some reason, this bothers me, so I walk closer to it, so that I can get a better look.
 
@@ -597,7 +596,7 @@ choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch
 ID: B3-Ch11a-Behind
 TEXT: 
 
-FAIL:[ Observation check failed - level 4 ]}
+stat_check(v_observation,4)
  
 Once we leave the lessathi guard behind, it doesn't take us long to reach the entrance of the tunnel, and then to go through the other corridor, in order to head towards the main quarters of Meridith's opposing faction.
 
@@ -643,8 +642,7 @@ TEXT:
 
 set(v_b3_ch11_hear,1) if (v_hearing >= 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2)
-SUCCESS:[ Hearing check successful - level 2 ] if (v_hearing >= 2)}
-FAIL:[ Hearing check failed - level 2 ] if (v_hearing < 2)}
+stat_check(v_hearing,2)
 #if(v_hearing >= 2) {
  
 "Actually, he might have had even more of a reason to go there, if it's marked."
@@ -876,11 +874,11 @@ TEXT:
 
 }
 choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 0)
+choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 1)
 choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 0)
+choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 1)
 choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 0)
-choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 > 0)
-choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 > 0)
-choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 > 0)
+choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 1)
 
 
 ID: B3-Ch11a-Exchange
@@ -1661,9 +1659,9 @@ As soon as I do that, I immediately understand what Daren was talking about. I a
  I'm starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
-choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node > 0)
-choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node > 0)
+choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 1)
 choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 0)
+choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 1)
 choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 0)
 
 
@@ -1913,16 +1911,16 @@ The Overseer then begins playing the conversation that he recorded, by using the
 
 }
 choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 0)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 0)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 0)
 choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
 choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
 choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 0)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
 choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 0)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
 choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
 
 

@@ -1,7 +1,7 @@
 ID: Ch2-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
 
 Both Daren and I turn around at the same time. We see a slim, tall figure standing behind us, with long black hair, fair skin, and a very serious look on her face. She is wearing leather pants, a long sleeved white blouse, and a green, hooded cloak. She appears to be somewhere in her early twenties. 
 
@@ -144,12 +144,9 @@ Great. I'm wondering if he plans to blow my cover to every single person we meet
 "Is that what he told you?" the woman asks. "And you believe him? He's just trying to get you to lower your guard!" 
 
 }
-choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater > 0)
-choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater > 0)
-choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater > 0)
-choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater == 2)
-choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater == 2)
-choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater == 2)
+choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater == 1 || v_ch1_stillwater == 2)
+choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater == 1 || v_ch1_stillwater == 2)
+choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater == 1 || v_ch1_stillwater == 2)
 
 
 ID: Ch2-Against
@@ -357,29 +354,19 @@ Suddenly, one of the two younger mages that were standing next to the mage with 
 
 }
 choice("Continue", Ch2-Battle-human, v_current_scene = Ch2-Battle-human, v_ch2_toughness_happened = 0) if (v_ch1_stillwater == 2)
-choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwater) if (v_ch1_stillwater > 0)
+choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwater) if (v_ch1_stillwater == 1)
 
 
 ID: Ch2-Battle-stillwater
 TEXT: 
 
-set(v_ch2_toughness_happened,0) if (v_premonition > 0)
-set(v_is_dead,0) if (v_premonition > 0)
-set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0)
-set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0)
+set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness < 3 || v_premonition > 0)
 set(v_ch2_toughness_happened,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
+set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 set(v_is_dead,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
-set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
-SUCCESS:[ Premonition check successful - level 1 ] if (v_premonition > 0)}
-SUCCESS:[ Reflexes check successful - level 1 ] if (v_premonition == 0 && v_reflexes > 0)}
-FAIL:[ Premonition check failed - level 1 ] if (v_premonition == 0 && v_reflexes > 0)}
-SUCCESS:[ Toughness check successful - level 3 ] if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)}
-FAIL:[ Premonition check failed - level 1 ] if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)}
-FAIL:[ Premonition check failed - level 1 ] if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)}
-FAIL:[ Toughness check failed - level 3 ] if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)}
+stat_check(v_premonition,1)
+stat_check(v_reflexes,1)
+stat_check(v_toughness,3)
 #if(v_premonition > 0) {
 
 Shortly after the young mage appears behind me, I see a vision of him slashing his dagger towards my neck. Was that... a premonition?
@@ -537,22 +524,11 @@ choice("Continue", Ch2-Avoid2, v_current_scene = Ch2-Avoid2)
 ID: Ch2-Avoid2
 TEXT: 
 
-set(v_is_dead,0) if (v_agility > 0)
-set(v_is_dead,0) if (v_agility == 0 && v_reflexes > 0)
-set(v_is_dead,0) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)
-set(v_is_dead,1) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
-set(v_is_dead,1) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)
-SUCCESS:[ Speed check successful - level 1 ] if (v_agility > 0)}
-SUCCESS:[ Reflexes check successful - level 1 ] if (v_agility == 0 && v_reflexes > 0)}
-FAIL:[ Speed check failed - level 1 ] if (v_agility == 0 && v_reflexes > 0)}
-SUCCESS:[ Toughness check successful - level 3 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)}
-FAIL:[ Speed check failed - level 1 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)}
-FAIL:[ Speed check failed - level 1 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)}
-FAIL:[ Speed check failed - level 1 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)}
-FAIL:[ Toughness check failed - level 3 ] if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)}
+set(v_is_dead,0) if (v_agility == 0 && v_reflexes > 0 || v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2 || v_agility > 0)
+set(v_is_dead,1) if (v_agility == 0 && v_reflexes == 0 && (v_ch2_toughness_happened == 1 || v_toughness < 3) && (v_toughness > 2 || v_toughness < 3))
+stat_check(v_agility,1)
+stat_check(v_reflexes,1)
+stat_check(v_toughness,3)
 #if(v_agility > 0) {
 
 My plan to lure the younger mage away is working far better than I expected. The mage keeps teleporting after me, and trying to catch me off guard, but every time he thinks he's got me in a pinch, I simply dash away with ease. I knew that stat device would come in handy, but I never dared to dream it would be so useful. I feel like I could just keep running like this for hours and not get tired.
@@ -629,10 +605,10 @@ choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_agili
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_agility == 0 && v_reflexes > 0)
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
-choice("Load game", , , special:saves) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)
+choice("Load game", , , special:saves) if (v_agility == 0 && v_reflexes == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
 choice("Load game", , , special:saves) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3)
 
 
@@ -661,16 +637,10 @@ choice("Continue", Ch2-Fight2, v_current_scene = Ch2-Fight2)
 ID: Ch2-Fight2
 TEXT: 
 
-set(v_is_dead,0) if (v_combat_technique > 0)
-set(v_is_dead,0) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)
-set(v_is_dead,1) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
-set(v_is_dead,1) if (v_combat_technique == 0 && v_toughness < 3)
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_combat_technique > 0)}
-SUCCESS:[ Toughness check successful - level 3 ] if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0 && v_toughness < 3)}
-FAIL:[ Toughness check failed - level 3 ] if (v_combat_technique == 0 && v_toughness < 3)}
+set(v_is_dead,0) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2 || v_combat_technique > 0)
+set(v_is_dead,1) if (v_combat_technique == 0 && (v_ch2_toughness_happened == 1 || v_toughness < 3) && (v_toughness > 2 || v_toughness < 3))
+stat_check(v_combat_technique,1)
+stat_check(v_toughness,3)
 #if(v_combat_technique > 0) {
 
 Once I'm far enough away from Daren and his opponent, I turn back towards the mage with the dagger and assume my fighting stance. I realize I am feeling quite confident in my fighting skills all of a sudden. Is it because of that stat device? The mage tries to surprise me again by teleporting behind me, but I manage to stop his arm as he flings it towards me. Keeping a firm hold of his arm, I pull back his wrist, forcing him to let go of the dagger. As I take his weapon, he quickly pulls out another dagger from his sleeve, and makes a lunge towards me. Our two daggers clash and we start to fight.
@@ -726,10 +696,10 @@ The last thing I see is the mage's dagger descending towards me as he lands the 
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_combat_technique > 0)
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
-choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0 && v_toughness < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_toughness < 3)
+choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_toughness > 2 && v_ch2_toughness_happened == 1)
 choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_toughness < 3)
 
 
@@ -779,7 +749,7 @@ After finishing his healing spell, he walks over to Kate.
 "Yes... I suppose you're right."
 
 }
-choice("Continue", Ch2-Confession, v_current_scene = Ch2-Confession) if (v_ch1_stillwater > 0)
+choice("Continue", Ch2-Confession, v_current_scene = Ch2-Confession) if (v_ch1_stillwater == 1)
 choice("Continue", Ch2-Battle-end2, v_current_scene = Ch2-Battle-end2) if (v_ch1_stillwater == 2)
 
 
@@ -908,9 +878,9 @@ I start to follow him, but Kate stops me in my tracks. She has that very serious
 }
 choice("""Crystal.""", Ch2-Crystal, v_current_scene = Ch2-Crystal) if (v_ch2_kate_debt == 0)
 choice("""Not really, could you elaborate some more?""", Ch2-Elaborate, v_current_scene = Ch2-Elaborate) if (v_ch2_kate_debt == 0)
-choice("""Don't worry, I always pay my debts.""", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt > 0)
-choice("""Yes, we're clear.""", Ch2-Clear, v_current_scene = Ch2-Clear) if (v_ch2_kate_debt > 0)
-choice("""I don't owe you anything.""", Ch2-No-debt, v_current_scene = Ch2-No-debt, v_ch2_not_owe_debt = 1) if (v_ch2_kate_debt > 0)
+choice("""Don't worry, I always pay my debts.""", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt == 1)
+choice("""Yes, we're clear.""", Ch2-Clear, v_current_scene = Ch2-Clear) if (v_ch2_kate_debt == 1)
+choice("""I don't owe you anything.""", Ch2-No-debt, v_current_scene = Ch2-No-debt, v_ch2_not_owe_debt = 1) if (v_ch2_kate_debt == 1)
 
 
 ID: Ch2-Crystal
@@ -971,12 +941,10 @@ choice("Continue", Ch2-Deer, v_current_scene = Ch2-Deer)
 ID: Ch2-Deer
 TEXT: 
 
+set(v_ch2_deer_interaction,0) if (True)
 set(v_ch2_understood_deer,0) if (v_ancient_languages < 2)
-set(v_ch2_deer_interaction,0) if (v_ancient_languages < 2)
 set(v_ch2_understood_deer,1) if (v_ancient_languages >= 2)
-set(v_ch2_deer_interaction,0) if (v_ancient_languages >= 2)
-FAIL:[ Ancient languages check failed - level 2 ] if (v_ancient_languages < 2)}
-SUCCESS:[ Ancient languages check successful - level 2 ] if (v_ancient_languages >= 2)}
+stat_check(v_ancient_languages,2)
 #if(v_ancient_languages < 2) {
 
 As we approach the forest, I see a female deer and her fawn appear from behind the trees. They make some noise when they see us, and then they hurry back into the woods.

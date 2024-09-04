@@ -1,7 +1,7 @@
 ID: B2-Ch02a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
  
 "Listen, Arraka," Daren says, as we walk towards the arena. "Are you absolutely sure that the Eiden you've fought during the still winter is the same person as the one we're dealing with now? I mean, it's been six hundred years, right? No one would blame you if you were to make a confusion after all this time!"
 
@@ -93,10 +93,10 @@ TEXT:
 
 }
 choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 0)
-choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 0)
 choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
-choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 0)
+choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
 choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
 
 
@@ -273,8 +273,7 @@ It took us about two more hours to get from the marketplace to the arenas. Once 
 "I see," the desk worker says, after he reads the letter. "Very well, then. Given that I am the only one who is still working at this late hour, I will have to ask you to wait patiently in this lobby, while I lead each one of you to your individual cells."
 
 }
-choice("Continue", B2-Ch02a-Cell, v_current_scene = B2-Ch02a-Cell) if (v_ch10_gems == 1)
-choice("Continue", B2-Ch02a-Cell, v_current_scene = B2-Ch02a-Cell) if (v_ch10_gems == 0)
+choice("Continue", B2-Ch02a-Cell, v_current_scene = B2-Ch02a-Cell) if (v_ch10_gems == 0 || v_ch10_gems == 1)
 
 
 ID: B2-Ch02a-Cell
@@ -420,7 +419,7 @@ I remain silent. There would be no point in correcting him. I'd much rather have
 "Now, why would you want to do that?" I ask him. "Aren't we supposed to be part of the same team?"
 
 }
-choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell > 0)
+choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell == 1 || v_b2_ch2_cell == 2 || v_b2_ch2_cell == 3)
 
 
 ID: B2-Ch02a-Gallows
@@ -451,24 +450,14 @@ ID: B2-Ch02a-Fist
 TEXT: 
 
 set(v_b2_ch2_fist,1) if (v_toughness >= 2)
-set(v_b2_ch2_fist,2) if (v_toughness < 2 && v_strength >= 2)
-set(v_b2_ch2_fist,3) if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)
-set(v_b2_ch2_fist,4) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)
-set(v_b2_ch2_fist,5) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)
-SUCCESS:[ Toughness check successful - level 2 ] if (v_toughness >= 2)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_toughness < 2 && v_strength >= 2)}
-FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength >= 2)}
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)}
-FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)}
-FAIL:[ Strength check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)}
-FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
-FAIL:[ Strength check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)}
-FAIL:[ Toughness check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
-FAIL:[ Strength check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
-FAIL:[ Reflexes check failed - level 2 ] if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes < 2)}
+set(v_b2_ch2_fist,2) if (v_strength >= 2 && v_toughness < 2)
+set(v_b2_ch2_fist,3) if (v_combat_technique >= 2 && v_strength < 2 && v_toughness < 2)
+set(v_b2_ch2_fist,4) if (v_reflexes >= 2 && v_combat_technique < 2 && v_strength < 2 && v_toughness < 2)
+set(v_b2_ch2_fist,5) if (v_combat_technique < 2 && v_reflexes < 2 && v_strength < 2 && v_toughness < 2)
+stat_check(v_toughness,2)
+stat_check(v_strength,2)
+stat_check(v_combat_technique,2)
+stat_check(v_reflexes,2)
 #if(v_toughness >= 2) {
  
 I make no attempt to dodge his strike, as the man's fist hits me in the bridge of my nose. The impact from the blow made me feel almost no pain, and it didn't even make me move an inch from my original position. As the bulky man retracts his arm, I look at him with the same disinterested expression in my eyes as the one that the desk worker had when he looked at me.
@@ -564,8 +553,8 @@ The bulky man then turns away from me, and he starts to head back towards his ce
 
 }
 choice("""Well, we are part of the same team.""", B2-Ch02a-Team, v_current_scene = B2-Ch02a-Team) if (v_toughness >= 2)
-choice("""How about you apologize for attacking me, first?""", B2-Ch02a-Apologize, v_current_scene = B2-Ch02a-Apologize) if (v_toughness >= 2)
 choice("""Well, we are part of the same team.""", B2-Ch02a-Team, v_current_scene = B2-Ch02a-Team) if (v_toughness < 2 && v_strength >= 2)
+choice("""How about you apologize for attacking me, first?""", B2-Ch02a-Apologize, v_current_scene = B2-Ch02a-Apologize) if (v_toughness >= 2)
 choice("""How about you apologize for attacking me, first?""", B2-Ch02a-Apologize, v_current_scene = B2-Ch02a-Apologize) if (v_toughness < 2 && v_strength >= 2)
 choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2 && v_strength < 2 && v_combat_technique >= 2)
 choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual) if (v_toughness < 2 && v_strength < 2 && v_combat_technique < 2 && v_reflexes >= 2)
@@ -614,8 +603,7 @@ choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual)
 ID: B2-Ch02a-Unusual
 TEXT: 
 
-FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2)}
-SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2)}
+stat_check(v_premonition,2)
 #if(v_premonition < 2) {
  
 "Yeah, it's Barry," I say.
@@ -748,7 +736,7 @@ The only source of light in the room appears to be coming from a very small wind
 "Get up," the guard says. "It's recreation time. Go recreate. Come on, get out of here!"
 
 }
-choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened > 0)
+choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened == 1 || v_b2_ch2_threatened == 2)
 
 
 ID: B2-Ch02a-Recreation
@@ -1162,8 +1150,6 @@ The girl then extends her hand towards me.
 }
 choice("Accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 0)
 choice("Do not accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 1)
-choice("Accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 0) if (v_ch11_saved_slave == 3)
-choice("Do not accept to go inside her cell.", B2-Ch02a-Private, v_current_scene = B2-Ch02a-Private, v_b2_ch2_lessathi = 1) if (v_ch11_saved_slave == 3)
 
 
 ID: B2-Ch02a-Private
@@ -1232,8 +1218,7 @@ Leila sighs, and she goes to sit on her bed.
 "In that case," Leila writes, "you'd better take care to also not harm the organizers or any of the spectators. That is against the rules, as well."
 
 }
-choice("Continue", B2-Ch02a-Outcasts, v_current_scene = B2-Ch02a-Outcasts) if (v_b2_ch2_lessathi == 0)
-choice("Continue", B2-Ch02a-Outcasts, v_current_scene = B2-Ch02a-Outcasts) if (v_b2_ch2_lessathi == 1)
+choice("Continue", B2-Ch02a-Outcasts, v_current_scene = B2-Ch02a-Outcasts) if (v_b2_ch2_lessathi == 0 || v_b2_ch2_lessathi == 1)
 
 
 ID: B2-Ch02a-Outcasts
@@ -1378,11 +1363,8 @@ The girl gives the device one long pondering look, before she writes again.
 choice("""I wanted to save them for an emergency.""", B2-Ch02a-Emergency, v_current_scene = B2-Ch02a-Emergency) if (v_available_points == 19)
 choice("""I wanted to see how long I could last on my own!""", B2-Ch02a-Last, v_current_scene = B2-Ch02a-Last) if (v_available_points == 19)
 choice("""It's because I'm aiming to complete the 'Average Joe' achievement.""", B2-Ch02a-Average, v_ac_b2_ch2_wall = 1, v_current_scene = B2-Ch02a-Average, special:achievement-Fourth wall breaker-v_ac_b2_ch2_wall) if (v_available_points == 19)
-choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup)
-choice("""I wanted to save them for an emergency.""", B2-Ch02a-Emergency, v_current_scene = B2-Ch02a-Emergency) if (v_available_points == 19)
-choice("""I wanted to see how long I could last on my own!""", B2-Ch02a-Last, v_current_scene = B2-Ch02a-Last) if (v_available_points == 19)
-choice("""It's because I'm aiming to complete the 'Average Joe' achievement.""", B2-Ch02a-Average, v_ac_b2_ch2_wall = 1, v_current_scene = B2-Ch02a-Average, special:achievement-Fourth wall breaker-v_ac_b2_ch2_wall) if (v_available_points == 19)
-choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup)
+choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup) if (v_available_points != 19)
+choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup) if (v_available_points != 19)
 
 
 ID: B2-Ch02a-Emergency
@@ -1565,9 +1547,8 @@ The voice laughs softly.
 There's no way I could agree to take this deal after I already convinced everyone to help me rid the king of the lessathi in his city. Then again, this guy is saying that all I need to do in order to get my reward is to agree to help him. Since I'm going to attack them later anyway, I guess I wouldn't have much to lose if I lied to him now.
 
 }
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0)
+choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_ac_b2_ch2_easy = 1, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3, special:achievement-The easy way out-v_ac_b2_ch2_easy) if (v_b2_ch1_interfere == 0)
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere > 0)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 1)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 1)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 0)
@@ -1615,11 +1596,9 @@ There is a brief pause, during which none of us says anything.
 "I never said that it's illegal," the lessathi says. "I only said that we would have the guards confiscate it. A little chat with the arena's owner should be enough to bend the rules for this one special occasion. Now, do we have an agreement, or not?"
 
 }
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere == 0)
+choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3) if (v_b2_ch1_interfere == 0)
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere > 0)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere > 0)
 
 
 ID: B2-Ch02a-Deal-conclusion
@@ -1679,7 +1658,7 @@ The lessathi doesn't say anything for a few seconds, but then he answers me in t
 With these last words, the lessathi makes his departure. I wait for a minute, to make sure that he's gone for good, and then I get back to reading my notebook.
 
 }
-choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal > 0)
+choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal == 1 || v_b2_ch2_deal == 2 || v_b2_ch2_deal == 3 || v_b2_ch2_deal == 4)
 
 
 ID: B2-Ch02a-Transceivers
@@ -1687,8 +1666,7 @@ TEXT:
 
 set(v_b2_ch2_heard,1) if (v_hearing >= 3)
 set(v_b2_ch2_heard,0) if (v_hearing < 3)
-SUCCESS:[ Hearing check successful - level 3 ] if (v_hearing >= 3)}
-FAIL:[ Hearing check failed - level 3 ] if (v_hearing < 3)}
+stat_check(v_hearing,3)
 #if(v_hearing >= 3) {
  
 Not long after the lessathi leaves, I start to hear some voices in a distant hallway outside my cell. I recognize one of the voices as that of the guard who woke me up this morning.
@@ -1961,8 +1939,7 @@ Leila nods, and we both start to walk towards the cabin. There's something that'
 As we reach the cabin, I go inside carefully, making sure that there are no traps. The cabin doesn't have any fireplace or chimney, but there's some firewood inside, and also some flint. I take the firewood and the flint outside, and then I take some of the dried up moss from the cave's walls to provide a bit of kindling. Once we've set up the fire, Leila and I sit ourselves down next to it, trying to get as close to the heat as we can.
 
 }
-choice("Continue", B2-Ch02a-Natural, v_current_scene = B2-Ch02a-Natural) if (v_b2_ch2_elevator == 1)
-choice("Continue", B2-Ch02a-Natural, v_current_scene = B2-Ch02a-Natural) if (v_b2_ch2_elevator == 0)
+choice("Continue", B2-Ch02a-Natural, v_current_scene = B2-Ch02a-Natural) if (v_b2_ch2_elevator == 0 || v_b2_ch2_elevator == 1)
 
 
 ID: B2-Ch02a-Natural
@@ -2036,8 +2013,7 @@ Leila shakes her head.
  "Wait, you just said that you used to call him your father," I say. "But you said yesterday that the reason why you were brought here was because you saved your father from slavery. This person you saved... is he someone other than your natural father?"
 
 }
-choice("Continue", B2-Ch02a-Hiding, v_current_scene = B2-Ch02a-Hiding) if (v_b2_ch2_upset == 0)
-choice("Continue", B2-Ch02a-Hiding, v_current_scene = B2-Ch02a-Hiding) if (v_b2_ch2_upset == 1)
+choice("Continue", B2-Ch02a-Hiding, v_current_scene = B2-Ch02a-Hiding) if (v_b2_ch2_upset == 0 || v_b2_ch2_upset == 1)
 
 
 ID: B2-Ch02a-Hiding
@@ -2127,8 +2103,7 @@ Leila nods.
 Leila nods hesitantly, as she grabs my hand, and I help her up. We leave the fire behind, and we head towards the tunnels beyond the wooden cabin. For the next twenty minutes or so, we walk in silence through the underground caverns, using a long stick that I'd gotten from the cabin to test the ground for traps. In the areas that were completely dark, we had to rely on our stat devices to light the way before us, but luckily the glowing blue crystals that we'd seen before were also scattered throughout these tunnels, embedded into the walls, so we didn't have to worry about the lighting, most of the time.
 
 }
-choice("Continue", B2-Ch02a-Creatures, v_current_scene = B2-Ch02a-Creatures) if (v_b2_ch2_kate == 1)
-choice("Continue", B2-Ch02a-Creatures, v_current_scene = B2-Ch02a-Creatures) if (v_b2_ch2_kate == 0)
+choice("Continue", B2-Ch02a-Creatures, v_current_scene = B2-Ch02a-Creatures) if (v_b2_ch2_kate == 0 || v_b2_ch2_kate == 1)
 
 
 ID: B2-Ch02a-Creatures
@@ -2168,19 +2143,11 @@ choice("Continue", B2-Ch02a-Gargoyles, v_current_scene = B2-Ch02a-Gargoyles)
 ID: B2-Ch02a-Gargoyles
 TEXT: 
 
-set(v_is_dead,0) if (v_strength >= 2)
-set(v_is_dead,0) if (v_strength < 2 && v_combat_technique >= 3)
-set(v_is_dead,0) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)
-set(v_is_dead,1) if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)
-SUCCESS:[ Strength check successful - level 2 ] if (v_strength >= 2)}
-SUCCESS:[ Combat technique check successful - level 3 ] if (v_strength < 2 && v_combat_technique >= 3)}
-FAIL:[ Strength check failed - level 2 ] if (v_strength < 2 && v_combat_technique >= 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)}
-FAIL:[ Strength check failed - level 2 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)}
-FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes >= 3)}
-FAIL:[ Strength check failed - level 2 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)}
-FAIL:[ Combat technique check failed - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_strength < 2 && v_combat_technique < 3 && v_reflexes < 3)}
+set(v_is_dead,0) if (v_combat_technique >= 3 && v_strength < 2 || v_reflexes >= 3 && v_strength < 2 || v_strength >= 2)
+set(v_is_dead,1) if (v_combat_technique < 3 && v_reflexes < 3 && v_strength < 2)
+stat_check(v_strength,2)
+stat_check(v_combat_technique,3)
+stat_check(v_reflexes,3)
 #if(v_strength >= 2) {
  
 The rock smashes the gargoyle's head, which makes it fall on the ground. I proceed to kill the second gargoyle in the same way, but before I can find a third rock, all of the iron gratings suddenly open at the same time, and the beasts slowly start coming out of their cells.
@@ -2261,8 +2228,7 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
-SUCCESS:[ Toughness check successful - level 3 ] if (v_toughness >= 3)}
-FAIL:[ Toughness check failed - level 3 ] if (v_toughness < 3)}
+stat_check(v_toughness,3)
 #if(v_toughness >= 3) {
  
 I retreat inside the gargoyle cell, and I post myself in front of the door, with my dagger at the ready. As expected, the griffins follow me, and the first one to enter through the door blocks the way for all the others. I lunge at its chest with my dagger, but the beast blocks my strike with one of its front claws. As I struggle to get the knife out of its claw, the griffin brings its beak down upon me, aiming for my chest. 
@@ -2290,14 +2256,10 @@ choice("Load game", , , special:saves) if (v_toughness < 3)
 ID: B2-Ch02a-Space
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 3)
-set(v_is_dead,0) if (v_agility < 3 && v_strength >= 3)
+set(v_is_dead,0) if (v_strength >= 3 && v_agility < 3 || v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_strength < 3)
-SUCCESS:[ Speed check successful - level 3 ] if (v_agility >= 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_strength >= 3)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_agility < 3 && v_strength >= 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_agility < 3 && v_strength < 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_agility < 3 && v_strength < 3)}
+stat_check(v_agility,3)
+stat_check(v_strength,3)
 #if(v_agility >= 3) {
  
 I decide that it's too risky to allow myself to get cornered inside one room, so I prepare to engage all of the beasts at the same time.
@@ -2356,8 +2318,7 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
-SUCCESS:[ Toughness check successful - level 3 ] if (v_toughness >= 3)}
-FAIL:[ Toughness check failed - level 3 ] if (v_toughness < 3)}
+stat_check(v_toughness,3)
 #if(v_toughness >= 3) {
  
 Alright, here we go!
@@ -2505,5 +2466,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch03a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch03a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch03a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch03a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch03a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch03a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

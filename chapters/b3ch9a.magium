@@ -1,7 +1,7 @@
 ID: B3-Ch09a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(checkpoint,1)
  
 "Albert, you're back," the king of the underground says. "What news do you bring?"
 
@@ -247,14 +247,14 @@ TEXT:
 
 }
 choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
 choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king != 5 && v_b3_ch6_kelrim == 1)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5 && v_b3_ch6_kelrim == 1)
 choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king == 5 && v_b3_ch6_kelrim == 1)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5 && v_b3_ch6_kelrim == 1)
 choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king != 5 && v_b3_ch6_plan == 3)
-choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5 && v_b3_ch6_plan == 3)
 choice("""Fine, I'll have the stable air currents then, please.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1) if (v_b3_ch8_king == 5 && v_b3_ch6_plan == 3)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5 && v_b3_ch6_kelrim == 1)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5 && v_b3_ch6_kelrim == 1)
+choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king != 5 && v_b3_ch6_plan == 3)
 choice("""It's okay, you can cast the same air currents as always. I'll handle it.""", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0) if (v_b3_ch8_king == 5 && v_b3_ch6_plan == 3)
 
 
@@ -427,8 +427,7 @@ TEXT:
 set(v_b3_ch9_conclusions,0) if (v_b3_ch8_overseer2 == 0)
 set(v_b3_ch9_conclusions,3) if (v_b3_ch8_overseer2 == 1 && v_bluff < 3)
 set(v_b3_ch9_conclusions,0) if (v_b3_ch8_overseer2 == 1 && v_bluff >= 3)
-FAIL:[ Bluff check failed - level 3 ] if (v_b3_ch8_overseer2 == 1 && v_bluff < 3)}
-SUCCESS:[ Bluff check successful - level 3 ] if (v_b3_ch8_overseer2 == 1 && v_bluff >= 3)}
+stat_check(v_bluff,3)
 #if(v_b3_ch8_overseer2 == 0) {
  "Okay, so there's actually something we haven't told you," I say.
 "We're listening," the king says.
@@ -639,8 +638,7 @@ set(v_b3_ch9_premonition,0) if (v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions 
 set(v_b3_ch9_premonition,0) if (v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions != 2)
 set(v_b3_ch9_premonition,2) if (v_b3_ch8_overseer2 == 1 && v_premonition < 4)
 set(v_b3_ch9_premonition,1) if (v_b3_ch8_overseer2 == 1 && v_premonition >= 4)
-FAIL:[ Premonition check failed - level 4 ] if (v_b3_ch8_overseer2 == 1 && v_premonition < 4)}
-SUCCESS:[ Premonition check successful - level 4 ] if (v_b3_ch8_overseer2 == 1 && v_premonition >= 4)}
+stat_check(v_premonition,4)
 #if(v_b3_ch8_overseer2 == 0 && v_b3_ch9_conclusions == 2) {
  "Watch out!" Daren shouts to us, as dozens of flaming metal carcasses are dropping on top of us and all of the king's men are running around frantically, trying to avoid getting hit by them.
 As we step aside from the falling metal balls, we see a new wave of drones quickly approaching the king, while a few dozen other drones are moving in to attack the troops on the ground.
@@ -1563,29 +1561,29 @@ As Hadrik is teaching Daren how to avoid thinking out loud, the rest of us take 
 
 }
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 == 0)
+choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 == 1)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
 choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 == 0)
+choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 == 1)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 0)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 1)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice == 1 && v_b3_ch9_food == 2)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 0)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 1)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch9_advice != 1 && v_b3_ch9_food == 2)
 choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 == 0)
-choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 > 0)
-choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 > 0)
-choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 > 0)
+choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 == 1)
 
 
 ID: B3-Ch09a-Stance
@@ -1689,13 +1687,10 @@ She pauses.
  "That's what I thought," Illuna says. "Our time is limited, so I suggest that you focus on only one element if you want to actually become semi-competent in a fight. You can learn water magic from me, fire magic from Flower, air magic from Melindra or ice magic from Kate. Which element would you prefer?"
 
 }
-choice("Fire", B3-Ch09a-Fire, v_current_scene = B3-Ch09a-Fire, v_b3_ch9_element = 0) if (v_b3_ch9_premonition == 2)
-choice("Water", B3-Ch09a-Water, v_current_scene = B3-Ch09a-Water, v_b3_ch9_element = 1) if (v_b3_ch9_premonition == 2)
-choice("Air", B3-Ch09a-Air, v_current_scene = B3-Ch09a-Air, v_b3_ch9_element = 2) if (v_b3_ch9_premonition == 2)
 choice("Fire", B3-Ch09a-Fire, v_current_scene = B3-Ch09a-Fire, v_b3_ch9_element = 0)
 choice("Water", B3-Ch09a-Water, v_current_scene = B3-Ch09a-Water, v_b3_ch9_element = 1)
 choice("Air", B3-Ch09a-Air, v_current_scene = B3-Ch09a-Air, v_b3_ch9_element = 2)
-choice("Ice", B3-Ch09a-Ice, v_current_scene = B3-Ch09a-Ice, v_b3_ch9_element = 3)
+choice("Ice", B3-Ch09a-Ice, v_current_scene = B3-Ch09a-Ice, v_b3_ch9_element = 3) if (v_b3_ch9_premonition != 2)
 
 
 ID: B3-Ch09a-Fire

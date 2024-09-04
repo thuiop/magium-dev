@@ -1,7 +1,7 @@
 ID: B2-Ch10a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
  
 "Hey, Kate," Hadrik says. "Come over here, for a second! We have someone that we'd like you to meet!"
 
@@ -382,8 +382,7 @@ While Daren was talking, Flower started to shoot fireballs at the three ogres th
 
 }
 choice("Use the crossbow to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 1)
-choice("Use the scimitar to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 0)
-choice("Use the crossbow to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 1) if (v_b2_ch5_scimitar == 0)
+choice("Use the scimitar to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 0) if (v_b2_ch5_scimitar != 0)
 choice("Use the dagger to fight the orcs", B2-Ch10a-Splitting, v_current_scene = B2-Ch10a-Splitting, v_b2_ch10_crossbow = 0) if (v_b2_ch5_scimitar == 0)
 
 
@@ -419,17 +418,14 @@ Meanwhile, Daren and Nolderan have both reached the orcs on the left, and now th
 
 "You may be saying this, but you are clearly enjoying the fight," Nolderan says, with a grin, as he dances away from one enemy, and prepares to engage another. "Here's another reckless move for you, boy. Get ready!"
 
-choice("Continue", B2-Ch10a-Crossbow, v_current_scene = B2-Ch10a-Crossbow) if (v_b2_ch10_crossbow > 0)
+choice("Continue", B2-Ch10a-Crossbow, v_current_scene = B2-Ch10a-Crossbow) if (v_b2_ch10_crossbow == 1)
 choice("Continue", B2-Ch10a-Dagger, v_current_scene = B2-Ch10a-Dagger) if (v_b2_ch10_crossbow == 0)
 
 
 ID: B2-Ch10a-Crossbow
 TEXT: 
 
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_combat_technique == 1 && v_b2_ch6_crossbow == 1)}
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_combat_technique == 1 && v_b2_ch6_crossbow == 0)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique == 0)}
+stat_check(v_combat_technique,1)
 #if(v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1) {
  
 He then runs full speed ahead, towards an orc that is too busy fighting Daren to pay attention to Nolderan, and he makes a horizontal jump, rotating himself to the side in mid-air, and propelling his feet into the monster's back. As the orc gets knocked off-balance, the ex-sage falls to the ground, on his left shoulder. Daren immediately seizes the opportunity, and he drives his sword through the monster's head, while Nolderan quickly rolls to the side, in order to avoid getting bludgeoned by another orc's mace. As soon as the ex-sage gets up, he feints an attack with one of his swords, pretending to do a full swing from the left side, and just as the orc raises his shield to defend himself, Nolderan's second sword comes swinging for the monster's neck from the right, cutting his head off in one move.
@@ -527,25 +523,9 @@ choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_i
 ID: B2-Ch10a-Dagger
 TEXT: 
 
-set(v_is_dead,0) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_b2_ch9_drink == 0 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_b2_ch9_drink == 0 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_b2_ch10_toast == 0 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_b2_ch10_toast == 0 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,1) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
-set(v_is_dead,1) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
-set(v_is_dead,1) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
-set(v_is_dead,0) if (v_reflexes >= 1 && v_b2_ch9_drink == 0)
-set(v_is_dead,0) if (v_reflexes >= 1 && v_b2_ch10_toast == 0)
-set(v_is_dead,0) if (v_is_dead == 0)
-FAIL:[ Reflexes check failed - level 2 ] if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_b2_ch9_drink == 0 && v_reflexes < 1)}
-FAIL:[ Reflexes check failed - level 1 ] if (v_b2_ch10_toast == 0 && v_reflexes < 1)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)}
-SUCCESS:[ Reflexes check successful - level 1 ] if (v_reflexes >= 1 && v_b2_ch9_drink == 0)}
-SUCCESS:[ Reflexes check successful - level 1 ] if (v_reflexes >= 1 && v_b2_ch10_toast == 0)}
+set(v_is_dead,0) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_is_dead == 0)
+set(v_is_dead,1) if ((v_b2_ch10_toast == 1 || v_reflexes < 1) && (v_b2_ch9_drink == 1 || v_reflexes < 1) && (v_reflexes < 1 || v_reflexes < 2) && (v_b2_ch10_toast == 0 || v_b2_ch10_toast == 1 || v_b2_ch9_drink == 0) && (v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_b2_ch9_drink == 1) && (v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_reflexes < 2))
+stat_check(v_reflexes,1)
 #if(v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_b2_ch5_scimitar == 0) {
  
 He then runs full speed ahead, towards an orc that is too busy fighting Daren to pay attention to Nolderan, and he makes a horizontal jump, rotating himself to the side in mid-air, and propelling his feet into the monster's back. As the orc gets knocked off-balance, the ex-sage falls to the ground, on his left shoulder. Daren immediately seizes the opportunity, and he drives his sword through the monster's head, while Nolderan quickly rolls to the side, in order to avoid getting bludgeoned by another orc's mace. As soon as the ex-sage gets up, he feints an attack with one of his swords, pretending to do a full swing from the left side, and just as the orc raises his shield to defend himself, Nolderan's second sword comes swinging for the monster's neck from the right, cutting his head off in one move.
@@ -672,19 +652,19 @@ choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b2_ch9_drink == 0 && v_b2_ch5_scimitar != 0)
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b2_ch10_toast == 0 && v_b2_ch5_scimitar == 0)
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b2_ch10_toast == 0 && v_b2_ch5_scimitar != 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
-choice("Load game", , , special:saves) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
-choice("Load game", , , special:saves) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_reflexes >= 2 && v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_reflexes >= 1 && v_b2_ch9_drink == 0)
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_reflexes >= 1 && v_b2_ch10_toast == 0)
 choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_is_dead == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
+choice("Load game", , , special:saves) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_b2_ch9_drink == 0 && v_reflexes < 1)
+choice("Load game", , , special:saves) if (v_b2_ch10_toast == 0 && v_reflexes < 1)
 
 
 ID: B2-Ch10a-Mammoth
@@ -861,13 +841,13 @@ As I look up, I suddenly notice that two of the wyvern riders are currently divi
 
 }
 choice("Try to attack the wyverns", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns, v_b2_ch10_bribe = 0) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
-choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
-choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
 choice("Try to attack the wyverns", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns, v_b2_ch10_bribe = 0) if (v_b2_ch9_drink == 0)
-choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1) if (v_b2_ch9_drink == 0)
-choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2) if (v_b2_ch9_drink == 0)
 choice("Try to attack the wyverns", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns, v_b2_ch10_bribe = 0) if (v_b2_ch10_toast == 0)
+choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
+choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1) if (v_b2_ch9_drink == 0)
 choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1) if (v_b2_ch10_toast == 0)
+choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2) if (v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1)
+choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2) if (v_b2_ch9_drink == 0)
 choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2) if (v_b2_ch10_toast == 0)
 
 
@@ -949,9 +929,8 @@ choice("Continue", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns) if (v_b
 choice("Continue", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns) if (v_ch3_treasure != 0 && v_ch10_gems == 0)
 choice("Continue", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns) if (v_b2_ch6_crossbow == 0 && v_ch10_gems == 0)
 choice("Continue", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns) if (v_b2_ch5_scimitar == 2 && v_ch10_gems == 0)
-choice("Continue", B2-Ch10a-Bribe2, v_current_scene = B2-Ch10a-Bribe2) if (v_ch10_gems == 1)
-choice("Continue", B2-Ch10a-Bribe2, v_current_scene = B2-Ch10a-Bribe2) if (v_ch10_gems == 1)
 choice("Continue", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns) if (v_ch10_gems == 0)
+choice("Continue", B2-Ch10a-Bribe2, v_current_scene = B2-Ch10a-Bribe2) if (v_ch10_gems == 1)
 
 
 ID: B2-Ch10a-Bribe2
@@ -985,8 +964,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 3)
 set(v_is_dead,0) if (v_combat_technique >= 3)
-FAIL:[ Combat technique check failed - level 3 ] if (v_combat_technique < 3)}
-SUCCESS:[ Combat technique check successful - level 3 ] if (v_combat_technique >= 3)}
+stat_check(v_combat_technique,3)
 #if(v_combat_technique < 3) {
  Unfortunately, aiming at very rapidly moving targets, while I'm flying myself, is not as easy as it may sound. I somehow manage to waste every one of my shots, and I don't have the time to reload. I try to outmaneuver the wyverns, so I can get on top of them, in order to attack the riders, directly, but the flight spell provided to me by Melindra is neither fast nor responsive enough for me to be able to compare myself with these creatures that have been flying for as long as they can remember.
 I attempt to parry one of the orc's spears and to make a rush for him, but the second wyvern rider takes advantage of my momentary distraction, and he dives with his spear right into my stomach, temporarily freezing my movements, because of the pain. As I am still standing there, floating in mid-air, the orc quickly takes his spear out of me, and then he drives it through my throat, killing me a few moments afterwards.
@@ -1008,8 +986,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_strength == 0)
 set(v_is_dead,0) if (v_strength >= 1)
-FAIL:[ Strength check failed - level 1 ] if (v_strength == 0)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_strength >= 1)}
+stat_check(v_strength,1)
 #if(v_strength == 0) {
  Its neck muscles are a little tougher than they look, however, and my knife does not go all the way through. Before I can pull my weapon out, the creature bites my arm, and it does not let go, until the orc riding on its back drives his spear through my head, killing me on the spot.
 
@@ -1052,10 +1029,10 @@ Now, then... which one of its weak points should I go for... The eyes? Or its no
 
 }
 choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_b2_ch10_bribe == 2 && v_ch10_gems == 1)
-choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_b2_ch10_bribe == 2 && v_ch10_gems == 1)
-choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0)
-choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1)
+choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_b2_ch10_bribe != 2)
 choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_ch10_gems == 0)
+choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_b2_ch10_bribe == 2 && v_ch10_gems == 1)
+choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_b2_ch10_bribe != 2)
 choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_ch10_gems == 0)
 
 
@@ -1124,8 +1101,6 @@ Apparently, Hadrik has turned himself into a giant snail... And he's just crawli
 }
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_toast == 0)
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch9_drink == 0)
-choice("Continue", B2-Ch10a-Drunk, v_current_scene = B2-Ch10a-Drunk) if (v_b2_ch10_weakpoint == 0 && v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1)
-choice("Continue", B2-Ch10a-Drunk, v_current_scene = B2-Ch10a-Drunk) if (v_b2_ch10_weakpoint == 1 && v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1)
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_weakpoint == 0 && v_b2_ch10_toast == 0)
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_weakpoint == 1 && v_b2_ch10_toast == 0)
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch9_drink == 0 && v_b2_ch10_toast == 0)
@@ -1134,6 +1109,8 @@ choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_toast == 0 && v_b2_ch9_drink == 0)
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_weakpoint == 0 && v_b2_ch10_toast == 0 && v_b2_ch9_drink == 0)
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_weakpoint == 1 && v_b2_ch10_toast == 0 && v_b2_ch9_drink == 0)
+choice("Continue", B2-Ch10a-Drunk, v_current_scene = B2-Ch10a-Drunk) if (v_b2_ch10_weakpoint == 0 && v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1)
+choice("Continue", B2-Ch10a-Drunk, v_current_scene = B2-Ch10a-Drunk) if (v_b2_ch10_weakpoint == 1 && v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1)
 
 
 ID: B2-Ch10a-Drunk
@@ -1141,8 +1118,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 4)
 set(v_is_dead,0) if (v_reflexes == 4)
-FAIL:[ Reflexes check failed - level 4 ] if (v_reflexes < 4)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_reflexes == 4)}
+stat_check(v_reflexes,4)
 #if(v_reflexes < 4) {
  
 After flying out of the trunk's way a few more times, the alcohol-induced nausea finally starts to get to me, and it really messes up my sense of balance for a moment. By the time I recover, the mammoth's trunk is already less than a second away from hitting me.
@@ -1168,19 +1144,10 @@ choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_refle
 ID: B2-Ch10a-Breed
 TEXT: 
 
-set(v_is_dead,1) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,1) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_strength == 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_strength == 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,1) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
-set(v_is_dead,0) if (v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar != 0)
-FAIL:[ Strength check failed - level 4 ] if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)}
-FAIL:[ Strength check failed - level 4 ] if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_strength == 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_strength == 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)}
-FAIL:[ Reflexes check failed - level 2 ] if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)}
+set(v_is_dead,1) if ((v_b2_ch10_weakpoint == 0 || v_b2_ch10_weakpoint == 1) && (v_b2_ch10_weakpoint == 0 || v_b2_ch5_scimitar == 0) && (v_b2_ch10_weakpoint == 0 || v_reflexes < 2) && (v_b2_ch10_weakpoint == 1 || v_strength < 4) && (v_b2_ch5_scimitar == 0 || v_strength < 4) && (v_reflexes < 2 || v_strength < 4))
+set(v_is_dead,0) if (v_b2_ch10_weakpoint == 0 && v_strength == 4 || v_b2_ch10_weakpoint == 1 && v_reflexes >= 2 || v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar != 0)
+stat_check(v_strength,4)
+stat_check(v_reflexes,2)
 #if(v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0) {
  I reach the eyes as fast as I can, and I attempt to shoot at them with my crossbow, in the hopes that I can catch the monster by surprise, before it closes its eyes. Unfortunately, all that the mammoth needed to do was to instinctively blink, and the crossbow bolts simply bounced off its eyelid. I try to shoot a few more bolts, but the creature just closes its eyes, which makes my efforts completely pointless. It looks like I'll need to use my dagger for this to work. 
 I dive into one of the mammoth's eyes at full speed, and I thrust my dagger into it, with as much force as I could possibly muster.
@@ -1229,16 +1196,16 @@ I take my scimitar out of the monster and I fly away, while the mammoth is still
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
-choice("Load game", , , special:saves) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
+choice("Load game", , , special:saves) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
 choice("Load game", , , special:saves) if (v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)
+choice("Load game", , , special:saves) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
 choice("Continue", B2-Ch10a-Arena, v_current_scene = B2-Ch10a-Arena) if (v_strength == 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0)
 choice("Continue", B2-Ch10a-Arena, v_current_scene = B2-Ch10a-Arena) if (v_strength == 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar != 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
-choice("Load game", , , special:saves) if (v_reflexes < 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
 choice("Continue", B2-Ch10a-Arena, v_current_scene = B2-Ch10a-Arena) if (v_reflexes >= 2 && v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0)
 choice("Continue", B2-Ch10a-Arena, v_current_scene = B2-Ch10a-Arena) if (v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar != 0)
 
@@ -1488,8 +1455,6 @@ When they hear Melindra's words, Kate frowns at me, and she leaves for her tent,
 "I don't know what his plan is," Melindra says. "I can't read minds. All I know is that my instincts are telling me not to trust him. Listen, I'm not saying that we shouldn't go with him at all. Believe me, there's nothing that I'd love better than for us to get teleported right at Ollendor's doorstep, without any effort on our part. But I still think we should be cautious. We shouldn't just take everything this guy says for granted. Do you understand what I'm saying?"
 
 }
-choice("""I guess we could ask Arraka to regularly check for traps, on our way to Nolderan's camp.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 0) if (v_b2_ch8_energizer > 0)
-choice("""I think you're worrying over nothing. Nolderan seems alright in my book.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 1) if (v_b2_ch8_energizer > 0)
 choice("""I guess we could ask Arraka to regularly check for traps, on our way to Nolderan's camp.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 0)
 choice("""I think you're worrying over nothing. Nolderan seems alright in my book.""", B2-Ch10a-Intimidating, v_current_scene = B2-Ch10a-Intimidating, v_b2_ch10_traps = 1)
 
@@ -1705,5 +1670,4 @@ As Kate finishes her question, I see Melindra right behind her, staring straight
 "I still think that she's hiding something," Illuna says. "But I suppose that we won't find out what exactly that is until we reach our destination and see for ourselves. Let's catch up with the others. We're starting to look a little suspicious."
 
 }
-choice("Continue", B2-Ch10b-Blame, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux, v_current_scene = B2-Ch10b-Blame) if (v_b2_ch10_traps == 0)
-choice("Continue", B2-Ch10b-Blame, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux, v_current_scene = B2-Ch10b-Blame) if (v_b2_ch10_traps == 1)
+choice("Continue", B2-Ch10b-Blame, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux, v_current_scene = B2-Ch10b-Blame) if (v_b2_ch10_traps == 0 || v_b2_ch10_traps == 1)

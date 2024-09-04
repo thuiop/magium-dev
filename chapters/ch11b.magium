@@ -36,8 +36,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_premonition < 4)
 set(v_is_dead,0) if (v_premonition >= 4)
-FAIL:[ Premonition check failed - level 4 ] if (v_premonition < 4)}
-SUCCESS:[ Premonition check successful - level 4 ] if (v_premonition >= 4)}
+stat_check(v_premonition,4)
 #if(v_premonition < 4) {
  
 "Kate," I say, "could you freeze the whole area around us in order to take care of all the clones at the same time?"
@@ -629,14 +628,10 @@ choice("Continue", Ch11b-Civilians2, v_current_scene = Ch11b-Civilians2)
 ID: Ch11b-Civilians2
 TEXT: 
 
-set(v_is_dead,0) if (v_perception >= 2)
-set(v_is_dead,0) if (v_perception < 2 && v_hearing >= 3)
-set(v_is_dead,1) if (v_perception < 2 && v_hearing < 3)
-SUCCESS:[ Observation check successful - level 2 ] if (v_perception >= 2)}
-SUCCESS:[ Hearing check successful - level 3 ] if (v_perception < 2 && v_hearing >= 3)}
-FAIL:[ Observation check failed - level 2 ] if (v_perception < 2 && v_hearing >= 3)}
-FAIL:[ Observation check failed - level 2 ] if (v_perception < 2 && v_hearing < 3)}
-FAIL:[ Hearing check failed - level 3 ] if (v_perception < 2 && v_hearing < 3)}
+set(v_is_dead,0) if (v_hearing >= 3 && v_perception < 2 || v_perception >= 2)
+set(v_is_dead,1) if (v_hearing < 3 && v_perception < 2)
+stat_check(v_observation,2)
+stat_check(v_hearing,3)
 #if(v_perception >= 2) {
  
 As the steam surrounds me, I suddenly notice some barely visible sparks starting to form next to me. This doesn't seem right. I need to get away from here, quick.
@@ -899,18 +894,9 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 "Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
 
 }
-choice("""Put her down, Hadrik. It's not worth the bother.""", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy > 0)
-choice("""I suppose she does deserve this after all she's done.""", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy > 0)
-choice("""Can I spin her next?""", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy > 0)
-choice("""Put her down, Hadrik. It's not worth the bother.""", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 2)
-choice("""I suppose she does deserve this after all she's done.""", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy == 2)
-choice("""Can I spin her next?""", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy == 2)
-choice("""Put her down, Hadrik. It's not worth the bother.""", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 3)
-choice("""I suppose she does deserve this after all she's done.""", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy == 3)
-choice("""Can I spin her next?""", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy == 3)
-choice("""Put her down, Hadrik. It's not worth the bother.""", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 4)
-choice("""I suppose she does deserve this after all she's done.""", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy == 4)
-choice("""Can I spin her next?""", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy == 4)
+choice("""Put her down, Hadrik. It's not worth the bother.""", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
+choice("""I suppose she does deserve this after all she's done.""", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
+choice("""Can I spin her next?""", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
 
 
 ID: Ch11b-Bother
@@ -955,19 +941,11 @@ choice("Continue", Ch11b-Hole, v_current_scene = Ch11b-Hole)
 ID: Ch11b-Hole
 TEXT: 
 
-set(v_ch11_saved_rose,0) if (v_hearing < 4)
-set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4)
-set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception == 4 && v_agility < 4)
-set(v_ch11_saved_rose,1) if (v_hearing == 4 && v_perception == 4 && v_agility == 4)
-FAIL:[ Hearing check failed - level 4 ] if (v_hearing < 4)}
-FAIL:[ Observation failed - level 4 ] if (v_hearing == 4 && v_perception < 4)}
-SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_perception < 4)}
-SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility < 4)}
-SUCCESS:[ Observation check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility < 4)}
-FAIL:[ Speed check failed - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility < 4)}
-SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility == 4)}
-SUCCESS:[ Observation check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility == 4)}
-SUCCESS:[ Speed check successful - level 4 ] if (v_hearing == 4 && v_perception == 4 && v_agility == 4)}
+set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
+set(v_ch11_saved_rose,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
+stat_check(v_hearing,4)
+stat_check(v_observation,4)
+stat_check(v_agility,4)
 #if(v_hearing < 4) {
  
 While Hadrik and Arraka are talking, I hear the sound of stones smashing against the ground somewhere on the opposite side of the market square. As I turn around to identify the source of the sound, it takes me a few seconds to fully process the scene unfolding before my eyes.

@@ -35,7 +35,11 @@ def is_condition(line):
     return line[0] in ["+","*"]
 
 def transform_var_name(var_name):
-    return "v_"+var_name.lower().replace(" ","_")
+    new_name = "v_"+var_name.lower().replace(" ","_")
+    if new_name == "v_speed":
+        return "v_agility"
+    else:
+        return new_name
 
 def parse_condition(t: str):
     if t in [">","<",">=","<="]:
@@ -63,10 +67,6 @@ class Event:
     results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[],"stat_checks":[]})
 
 
-@dataclass
-class Comparison:
-    type: str
-    value: int
 
 def compare(value,comparison):
     return eval(f"{value} {parse_condition(comparison.type)} {comparison.value}")
@@ -74,6 +74,7 @@ def compare(value,comparison):
 def is_compatible(comp1,comp2):
     if comp1 is None or comp2 is None:
         return False
+    return sp.simplify(sp.And(comp1,comp2)) != False
     if comp1.type == "=": 
         return compare(comp1.value,comp2)
     elif comp2.type == "=": 
@@ -108,27 +109,27 @@ def is_compatible(comp1,comp2):
 def all_is_compatible(comp_set1,comp_set2):
     return all(is_compatible(comp_set1[key],comp_set2.get(key)) for key in comp_set1)
 
-def apply_condition_to_sympy(x,cond):
-    if cond.type == ">":
-        return x > cond.value
-    elif cond.type == "<":
-        return x < cond.value
-    elif cond.type == ">=":
-        return x >= cond.value
-    elif cond.type == "<=":
-        return x <= cond.value
-    elif cond.type == "=":
-        return x == cond.value
-    elif cond.type == "<>":
-        return x != cond.value
+def apply_condition_to_sympy(x,cond_type,cond_value):
+    if cond_type == ">":
+        return x > cond_value
+    elif cond_type == "<":
+        return x < cond_value
+    elif cond_type == ">=":
+        return x >= cond_value
+    elif cond_type == "<=":
+        return x <= cond_value
+    elif cond_type == "=":
+        return sp.Eq(x,cond_value)
+    elif cond_type == "<>":
+        return sp.Ne(x,cond_value)
     else:
         raise ValueError
 
-def is_total_pattern(conditions: list[Comparison]):
-    x = sp.symbols('x')
-    combined_condition = sp.Or(*[apply_condition_to_sympy(x,condition) for condition in conditions])
+def is_total_pattern(conditions: list):
+    combined_condition = sp.Or(*conditions)
     simplified_condition = sp.simplify(combined_condition)
-    return simplified_condition == True
+    return simplified_condition
+
 
 @dataclass
 class Paragraph:
@@ -236,23 +237,21 @@ class Scene:
     def to_magium(self,paragraphs):
         text = f"ID: {self.id}\nTEXT: \n\n"
 
-        for set_variable in self.set_variables:
+        set_variables = self.merge_set_variables()
+        for set_variable in set_variables:
             text += f'set({set_variable.name},{set_variable.value})'
             if set_variable.conditions != {}:
-                text += f' if ({" && ".join([f"{var} {parse_condition(condition.type)} {condition.value}" for var, condition in set_variable.conditions.items()])})'
+                text += f' if ({sp.jscode(set_variable.conditions)})'
             text += "\n"
-        for stat_check in self.stat_checks:
-            stat_check_text = stat_check.text.replace('\n','')
-            text += f"{'SUCCESS:' if stat_check.successful else 'FAIL:'}{stat_check_text}"
-            if stat_check.conditions != {}:
-                condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in stat_check.conditions.items()])
-                text += f" if ({condition_string})"
-            text += "}\n"
+
+        stat_checks = self.parse_stat_checks()
+        for var, level in stat_checks.items():
+            text += f"stat_check({var},{level})\n"
 
         paragraph_groups = self.merge_paragraphs()
         for par_group in paragraph_groups:
             if par_group.conditions != {}:
-                condition_string = ' && '.join([f"{var} {parse_condition(cond.type)} {cond.value}" for var,cond in par_group.conditions.items()])
+                condition_string = ' && '.join([str(sp.jscode(cond)) for var,cond in par_group.conditions.items()])
                 text += f"#if({condition_string}) {{\n"
             for par_tuple in par_group.paragraphs:
                 if par_tuple[0] not in paragraphs[par_tuple[1]]:
@@ -270,7 +269,7 @@ class Scene:
                  text += f", special:{response.special}"
             text += ")"
             if response.conditions != {}:
-                text += f' if ({" && ".join([f"{name} {parse_condition(cond.type)} {cond.value}" for name,cond in response.conditions.items()])})' 
+                text += f' if ({" && ".join([str(sp.jscode(cond)) for name,cond in response.conditions.items()])})' 
             text += "\n"
 
         return text
@@ -290,7 +289,7 @@ class Scene:
         new_responses = []
         for test,group in grouped_responses:
             group = list(group)
-            print("Print",test,group)
+            #print("Print",test,group)
             conditions = defaultdict(list)
             for response in group:
                 for var,condition in response.conditions.items():
@@ -300,17 +299,40 @@ class Scene:
             else:
                 new_responses += group
                 continue
-            if is_total_pattern(conditions[var]):
+            if is_total_pattern(conditions[var]) == True:
                 new_response = deepcopy(group[0])
                 new_response.conditions = {}
                 new_responses.append(new_response)
-            elif all([c.type == "=" for c in conditions[var]]) and sorted([c.value for c in conditions[var]]) in [[1],[1,2],[1,2,3],[1,2,3,4]]:
+            elif all([isinstance(c,sp.Eq) for c in conditions[var]]):
                 new_response = deepcopy(group[0])
-                new_response.conditions = {var: Comparison(">",0)}
+                new_response.conditions = {var: sp.Or(*[sp.Eq(sp.symbols(var),int(c.rhs)) for c in conditions[var]])}
                 new_responses.append(new_response)
             else:
                 new_responses += group
         return new_responses
+
+
+    def merge_set_variables(self):
+        grouped_set_variables = groupby_unsorted(self.set_variables,key=lambda r:(r.name,r.value))
+        new_set_variables = []
+        for (name,value),group in grouped_set_variables:
+            group = list(group)
+            new_conditions = sp.simplify(sp.Or(*[sp.And(*set_variable.conditions.values()) for set_variable in group]))
+            new_set_variables.append(SceneVariableSet(name,value,new_conditions))
+        return sorted(new_set_variables,key=lambda r:r.name)
+
+    def parse_stat_checks(self):
+        new_stat_checks = {}
+        for stat_check in self.stat_checks:
+            if match := re.match(r"\[ (?P<stat_name>.*) check (successful|failed) - level (?P<level>[1-9]) \]",stat_check.text):
+                new_stat_checks[transform_var_name(match.group("stat_name"))] = int(match.group("level"))
+            elif "[ Stat device locked - check failed ]" in stat_check.text:
+                new_stat_checks["stat_device_locked"] = "1"
+            elif "Checkpoint" in stat_check.text:
+                new_stat_checks["v_checkpoint_rich"] = "1"
+            else:
+                print("NOT PARSED",stat_check.text)
+        return new_stat_checks
 
 class Parser:
     def __init__(self, lexer) -> None:
@@ -331,7 +353,8 @@ class Parser:
                     event.conditions["button_id"] = int(match.group("button"))-1
                 elif match := re.search('(?P<variable>.*) (?P<comparison>=|<|>|<>|>=|<=) (?P<value>.*)',current[2:]):
                     if "counter" not in match.group("variable").lower():
-                        event.conditions["variables"][transform_var_name(match.group("variable"))] = Comparison(match.group("comparison"),int(match.group("value")))
+                        var_name = transform_var_name(match.group("variable"))
+                        event.conditions["variables"][var_name] = apply_condition_to_sympy(sp.symbols(var_name),match.group("comparison"),int(match.group("value")))
 
             else:
                 if match := re.search('List : Add line "(?P<button_name>.*)"',current):
@@ -345,9 +368,11 @@ class Parser:
                 elif match := re.search('Special : Set chapter load to 1',current):
                     event.results["special"] = "checkpoint_load"
                 elif match := re.search('Special : Set (?P<variable>.*) to (?P<value>.*)',current):
-                    event.results["set_variables"][transform_var_name(match.group("variable"))] = match.group("value")
+                    var_name = transform_var_name(match.group("variable"))
+                    event.results["set_variables"][var_name] = match.group("value")
                 elif match := re.search('Special : Add (?P<value>.*) to (?P<variable>.*)',current):
-                    event.results["set_variables"][transform_var_name(match.group("variable"))] = "+"+match.group("value")
+                    var_name = transform_var_name(match.group("variable"))
+                    event.results["set_variables"][var_name] = "+"+match.group("value")
                 elif match := re.search('Scene text : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraphs"].append((int(match.group("paragraph")),1))
                 elif match := re.search('Scene text 2 : Display paragraph (?P<paragraph>.*)',current):
@@ -387,7 +412,6 @@ chapters = (
     + [f"b2ch{num}" for num in [1,2,3,"4a","4b","5a","5b",6,7,8,"9a","9b","10a","10b","11a","11b","11c"]]
     + [f"b3ch{num}" for num in [1,"2a","2b","2c","3a","3b","4a","4b","5a","5b","6a","6b","6c","7a","8a","8b","9a","9b","9c","10a","10b","10c","11a","12a","12b"]]
 )
-chapters = ["ch1"]
 verbose = False
 for chapter in chapters:
     filename = root_folder/chapter/"logic.txt"
@@ -449,7 +473,7 @@ for chapter in chapters:
                 print("Button id:",event.conditions["button_id"])
             fake_scene_conditions = (
                 path.conditions
-                | {scene_set_variable.name: Comparison("=",scene_set_variable.value) for scene_set_variable in path.set_variables}
+                | {scene_set_variable.name: apply_condition_to_sympy(sp.symbols(scene_set_variable.name),"=",scene_set_variable.value) for scene_set_variable in path.set_variables}
                 #| {scene_set_variable_name: Comparison("=",0) for scene_set_variable_name in set_variable_names if scene_set_variable_name not in [v.name for v in path.set_variables]}
             )
 
@@ -539,9 +563,9 @@ for chapter in chapters:
                 current_par += line
         paragraphs[i][current_par_index] = current_par
 
-    json_vals = {id:scene.to_json(paragraphs) for id,scene in scenes.items()}
-    with open(root_folder/f"{chapter}.json","w") as f:
-        json.dump(json_vals,f,indent=4)
+    #json_vals = {id:scene.to_json(paragraphs) for id,scene in scenes.items()}
+    #with open(root_folder/f"{chapter}.json","w") as f:
+    #    json.dump(json_vals,f,indent=4)
 
     magium_vals = "\n\n".join(scene.to_magium(paragraphs) for scene in scenes.values())
     with open(root_folder/f"{chapter}.magium","w") as f:

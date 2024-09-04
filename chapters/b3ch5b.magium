@@ -55,9 +55,6 @@ We walk down the corridors a bit more until we reach the waiting room. The commo
 "The king of the underground has requested a meeting with you," Albert says, trying to act politely, although you can clearly tell from his tone of voice that he is forcing himself to talk like this. "He is waiting for you in the throne room. Follow me."
 
 }
-choice("""Sure thing. Let's go.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 0) if (v_b3_ch5_moustache == 2)
-choice("""Psst, Albert! You forgot to put on your fake smile when you asked us to come with you.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 1) if (v_b3_ch5_moustache == 2)
-choice("""Your king can wait. First, we need to find Kelrim.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 2) if (v_b3_ch5_moustache == 2)
 choice("""Sure thing. Let's go.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 0)
 choice("""Psst, Albert! You forgot to put on your fake smile when you asked us to come with you.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 1)
 choice("""Your king can wait. First, we need to find Kelrim.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 2)
@@ -453,11 +450,7 @@ TEXT:
 set(v_b3_ch5_fight,0) if (v_hearing < 4)
 set(v_b3_ch5_fight,0) if (v_hearing >= 4 && v_b2_ch6_stat != 1)
 set(v_b3_ch5_fight,4) if (v_hearing >= 4 && v_b2_ch6_stat == 1)
-FAIL:[ Hearing check failed - level 4 ] if (v_hearing < 4)}
-FAIL:[ Hearing check failed - level 7 ] if (v_hearing >= 4 && v_b2_ch6_stat != 1)}
-SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing >= 4 && v_b2_ch6_stat != 1)}
-SUCCESS:[ Hearing check successful - level 4 ] if (v_hearing >= 4 && v_b2_ch6_stat == 1)}
-SUCCESS:[ Hearing check successful - level 7 ] if (v_hearing >= 4 && v_b2_ch6_stat == 1)}
+stat_check(v_hearing,7)
 #if(v_hearing < 4) {
  
 No matter how skilled Albert is, his feet still need to touch the ground when he is walking from one place to another. If I listen really carefully, maybe I'll be able to figure out where he'll strike next.
@@ -511,8 +504,7 @@ TEXT:
 
 set(v_b3_ch5_fight,0) if (v_bluff < 4)
 set(v_b3_ch5_fight,5) if (v_bluff >= 4)
-FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff >= 4)}
+stat_check(v_bluff,4)
 #if(v_bluff < 4) {
  
 "Hey, Albert, you do realize that I can tell where you are, right?" I say. "You might want to try making some less obvious movements, because right now it's like you're begging to be shot with a crossbow in the chest."
@@ -550,11 +542,8 @@ TEXT:
 set(v_b3_ch5_fight,0) if (v_magical_sense < 4)
 set(v_b3_ch5_fight,0) if (v_magical_sense >= 4 && v_perception < 4)
 set(v_b3_ch5_fight,6) if (v_magical_sense >= 4 && v_perception >= 4)
-FAIL:[ Magical sense check failed - level 4 ] if (v_magical_sense < 4)}
-FAIL:[ Observation check failed - level 4 ] if (v_magical_sense >= 4 && v_perception < 4)}
-SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense >= 4 && v_perception < 4)}
-SUCCESS:[ Magical sense check successful - level 4 ] if (v_magical_sense >= 4 && v_perception >= 4)}
-SUCCESS:[ Observation check successful - level 4 ] if (v_magical_sense >= 4 && v_perception >= 4)}
+stat_check(v_magical_sense,4)
+stat_check(v_observation,4)
 #if(v_magical_sense < 4) {
  
 The king said that Albert is concealing his aura, but maybe if I concentrate as hard as I can I'll be able to catch a glimpse of it. I attempt to block most of my other senses from my mind and I concentrate only on reading the auras around me.
@@ -615,12 +604,8 @@ set(v_b3_ch5_fight,0) if (v_premonition < 2 && v_toughness == 0)
 set(v_b3_ch5_fight,0) if (v_premonition < 2 && v_toughness > 0)
 set(v_b3_ch5_fight,0) if (v_premonition >= 2 && v_aura_hardening < 4)
 set(v_b3_ch5_fight,7) if (v_premonition >= 2 && v_aura_hardening >= 4)
-FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_toughness == 0)}
-FAIL:[ Premonition check failed - level 2 ] if (v_premonition < 2 && v_toughness > 0)}
-FAIL:[ Aura hardening check failed - level 4 ] if (v_premonition >= 2 && v_aura_hardening < 4)}
-SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2 && v_aura_hardening < 4)}
-SUCCESS:[ Premonition check successful - level 2 ] if (v_premonition >= 2 && v_aura_hardening >= 4)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_premonition >= 2 && v_aura_hardening >= 4)}
+stat_check(v_premonition,2)
+stat_check(v_aura_hardening,4)
 #if(v_premonition < 2 && v_toughness == 0) {
  
 While I stand there, thinking of what to do next, Hadrik decides that he's done waiting and he chooses to taunt his opponent instead.
@@ -770,12 +755,9 @@ Once again, the king pushes every one of us except Melindra and Leila into the g
 "Indeed," the king of the underground says. "Now, I do not want to be rude, but Albert, Peter and I still have some things that we need to discuss in private in regards to our current refugee situation, so if you have any more questions, I would appreciate it if you could keep them brief."
 
 }
-choice("""Why did none of you attack Melindra and Leila during the test?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 0) if (v_b3_ch5_fight < 4)
-choice("""Why did you become a royal guard?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 1) if (v_b3_ch5_fight < 4)
-choice("""Do you and the royal guard captain have mage specializations aside from aura manipulation?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 2) if (v_b3_ch5_fight < 4)
-choice("""Why did none of you attack Melindra and Leila during the test?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 0) if (v_b3_ch5_fight >= 4)
-choice("""Why did you become a royal guard?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 1) if (v_b3_ch5_fight >= 4)
-choice("""Do you and the royal guard captain have mage specializations aside from aura manipulation?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 2) if (v_b3_ch5_fight >= 4)
+choice("""Why did none of you attack Melindra and Leila during the test?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 0)
+choice("""Why did you become a royal guard?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 1)
+choice("""Do you and the royal guard captain have mage specializations aside from aura manipulation?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 2)
 
 
 ID: B3-Ch05b-Tunnel

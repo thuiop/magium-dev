@@ -309,14 +309,14 @@ Meanwhile, the other two serpents are not doing so well. The elf air elementalis
 "I agree," Kate says. "We should try to attack the ambassador with everything we've got."
 
 }
-choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie > 0)
-choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie > 0)
-choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie > 0)
+choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 1)
 choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
-choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
-choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
 choice("""You guys take care of him. I'll go deal with the earth elementalist in the sky.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret == 0)
+choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 1)
+choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
 choice("""Okay. I'll take care of the air elementalist elf in the meantime.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret == 0)
+choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 1)
+choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0)
 choice("""Alright, I'll focus my attacks on him too, then.""", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 && v_b3_ch6_secret == 0)
 
 
@@ -431,16 +431,16 @@ The black-robed man remains completely silent, and it's no wonder. Given the num
 
 }
 choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_focus == 0)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus > 0)
-choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0)
 choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
-choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 1)
 choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
 choice("Continue", B3-Ch06b-Earth, v_current_scene = B3-Ch06b-Earth) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 0)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
+choice("Continue", B3-Ch06b-Air, v_current_scene = B3-Ch06b-Air) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 1)
+choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2)
+choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1)
 choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
 choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) if (v_b3_ch6_preparing == 0 && v_b3_ch6_focus == 2)
 
@@ -452,11 +452,8 @@ set(v_is_dead,1) if (v_perception < 3)
 set(v_is_dead,1) if (v_perception >= 3 && v_reflexes < 3)
 set(v_is_dead,0) if (v_perception >= 3 && v_reflexes >= 3)
 set(v_is_dead,0) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected == 3 && v_is_dead == 0)
-FAIL:[ Observation check failed - level 3 ] if (v_perception < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_perception >= 3 && v_reflexes < 3)}
-SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3 && v_reflexes < 3)}
-SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3 && v_reflexes >= 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_perception >= 3 && v_reflexes >= 3)}
+stat_check(v_observation,3)
+stat_check(v_reflexes,3)
 #if(v_perception < 3) {
  
 When I get closer to him, I suddenly feel myself starting to spin in place in mid-air, faster and faster. I try to free myself, but it's no use. The whirlwind that is spinning me is simply too strong.
@@ -491,10 +488,10 @@ Just as I am done talking, the elf launches a wind blade towards me, which I som
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 3)
-choice("Load game", , , special:saves) if (v_perception < 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception >= 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception >= 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_perception < 3)
 choice("Load game", , , special:saves) if (v_perception >= 3 && v_reflexes < 3)
 choice("Continue", B3-Ch06b-Rating, v_current_scene = B3-Ch06b-Rating) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected == 3 && v_is_dead == 0)
 choice("Continue", B3-Ch06b-Echoing, v_current_scene = B3-Ch06b-Echoing) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected != 3 && v_is_dead == 0)
@@ -553,8 +550,7 @@ set(v_b3_ch6_air,0) if (v_ancient_languages < 2 && v_b3_ch6_tie == 0)
 set(v_b3_ch6_air,0) if (v_ancient_languages < 2 && v_b3_ch6_tie == 1)
 set(v_b3_ch6_air,0) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 0)
 set(v_b3_ch6_air,0) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 1)
-FAIL:[ Ancient languages check failed - level 2 ] if (v_ancient_languages < 2)}
-SUCCESS:[ Ancient languages check successful - level 2 ] if (v_ancient_languages >= 2)}
+stat_check(v_ancient_languages,2)
 #if(v_ancient_languages < 2) {
  We do what Daren says and then he charges at the hydra, swinging his sword at it as hard as he can. Unfortunately, instead of absorbing anything, the sword simply passes through the semi-transparent hydra as if he were just using some normal weapon to cut through non-magical air.
 "Damn, it's not working!" Daren says. "Get back from the hydra. Get back now!"
@@ -676,19 +672,8 @@ set(v_is_dead,0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >
 set(v_is_dead,0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
 set(v_is_dead,0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
 set(v_is_dead,0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
-FAIL:[ Magical sense check failed - level 2 ] if (v_magical_sense < 2)}
-FAIL:[ Aura concealment check failed - level 3 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)}
-SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)}
-FAIL:[ Aura concealment check failed - level 3 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)}
-SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)}
-SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
-SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
-SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
-SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)}
-SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
-SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
-SUCCESS:[ Magical sense check successful - level 2 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
-SUCCESS:[ Aura concealment check successful - level 3 ] if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)}
+stat_check(v_magical_sense,2)
+stat_check(v_aura_concealment,3)
 #if(v_magical_sense < 2) {
  
 After flying around aimlessly for a few more seconds, I realize that I'm not making any progress like this, so I decide to close my eyes and to focus only on finding the mage's aura.
@@ -810,21 +795,21 @@ It's working! He doesn't know where I am anymore, but I still know where he is. 
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_magical_sense < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_magical_sense < 2)
-choice("Load game", , , special:saves) if (v_magical_sense < 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_magical_sense < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
+choice("Load game", , , special:saves) if (v_magical_sense < 2)
+choice("Load game", , , special:saves) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
 choice("Load game", , , special:saves) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
 choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
 choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
 choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
 choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
 choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
 
 
@@ -860,10 +845,7 @@ set(v_is_dead,1) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
 set(v_is_dead,0) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
 set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
-FAIL:[ Strength check failed - level 3 ] if (v_b2_ch5_scimitar != 0 && v_strength < 3)}
-SUCCESS:[ Strength check successful - level 3 ] if (v_b2_ch5_scimitar != 0 && v_strength >= 3)}
-FAIL:[ Strength check failed - level 4 ] if (v_b2_ch5_scimitar == 0 && v_strength < 4)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_b2_ch5_scimitar == 0 && v_strength >= 4)}
+stat_check(v_strength,4)
 #if(v_b2_ch5_scimitar != 0 && v_strength < 3) {
  
 I doubt I'm going to get a better chance than this to deal with the earth elementalist, so I should probably keep chasing him. I'm sure that my friends will be fine without me for a while longer.
@@ -917,14 +899,14 @@ When I see him, I quickly fly behind him and then I put my blade at his throat j
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
-choice("Load game", , , special:saves) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
-choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
-choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
 choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
+choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
 choice("Kill him.", B3-Ch06b-Retaliate, v_current_scene = B3-Ch06b-Retaliate) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
+choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
 choice("Try to convince him to make the boulders disappear.", B3-Ch06b-Convince, v_current_scene = B3-Ch06b-Convince) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
 
 
@@ -997,9 +979,6 @@ I shoot a few bolts at him and one of them actually gets through the barrier, hi
 I barely get to finish what I was saying before I feel an immensely powerful pressure pushing me down, making me fall with my back against the captain's semi-transparent barrier and completely restricting all of my movements. As I am trying to break myself free from the aura manipulation technique, the captain pulls out a heavily enchanted dagger and he uses it to stab me in the back of the head from below. His magically sharpened weapon passes through my skull with ease, killing me on the spot.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_selected == 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_selected == 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_selected == 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
 choice("Load game", , , special:saves)
@@ -1058,12 +1037,7 @@ set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_f
 set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
 set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
 set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
-FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)}
-FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)}
-FAIL:[ Aura hardening check failed - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)}
-SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)}
-SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)}
-SUCCESS:[ Aura hardening check successful - level 3 ] if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)}
+stat_check(v_aura_hardening,3)
 #if(v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1) {
  Kate manages to get out of the way in time, but now the black-robed man is creating weapons out of thin air and making them fly towards her and Illuna while he keeps teleporting around, waving his dagger at them. As Kate is busy blocking the flying weapons, she is also making sure to keep the pressure on the ambassador, so that he doesn't get a chance to escape during all the confusion.
 After dodging the black-robed man's attacks a few times, Illuna suddenly decides to stop moving and she just stands there for a few seconds, while the man swings his dagger towards her. Seeing that she is not planning to evade his strike, the man stops his slash right as he was about to cut through her arm, and then he teleports next to Kate instead. Realizing what's going on, Kate stops moving as well, and as she does this, the man in black robes simply stops doing anything, while his flying weapons also appear to be frozen in mid-air.
@@ -1354,32 +1328,32 @@ As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begi
 
 }
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
-choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
-choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
 choice("""I say it's still worth it. We're going to need every possible defense against that many rocks.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
+choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
 choice("""Alright. Let's keep the ice dome as a last alternative, then.""", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
 
 
 ID: B3-Ch06b-Dome
@@ -1472,8 +1446,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_toughness < 4)
 set(v_is_dead,0) if (v_toughness >= 4)
-FAIL:[ Toughness check failed - level 4 ] if (v_toughness < 4)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_toughness >= 4)}
+stat_check(v_toughness,4)
 #if(v_toughness < 4) {
  
 Before I get to finish my train of thought, two smaller boulders pass through both Daren and Melindra's barriers with ease, and one of them hits me in the head before I even get the time to realize what's going on.
@@ -1696,12 +1669,12 @@ He waits for a few seconds, but he gets no answer.
 
 }
 choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0)
 choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
 choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 0)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 0)
 choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 1)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 0)
 choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air >= 1 && v_b3_ch6_tie == 1)
 
 
@@ -1738,8 +1711,7 @@ set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan != 3 && v_premoni
 set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
 set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
 set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-FAIL:[ Combat technique check failed - level 2 ] if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2)}
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2)}
+stat_check(v_combat_technique,2)
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0) {
  
 "Hey, Arraka," I say in a low voice, "could you highlight the aura technique's weak points again like yesterday, so that Kate can hit them with her icicles?"
@@ -2038,7 +2010,7 @@ choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v
 ID: B3-Ch06b-Nausea
 TEXT: 
 
-SUCCESS:[ Premonition check successful - level 2 ]}
+stat_check(v_premonition,2)
  
 While all this is happening, I get a sudden premonition in which I see the captain getting a headache that makes him lose control of his aura manipulation technique, and immediately afterwards I see another vision of Daren carrying Kelrim's lifeless corpse with a very grim expression in his eyes.
 
@@ -2118,9 +2090,9 @@ Instead of answering the captain's question, Kate sends several icicles his way,
  As our elementalists are firing their projectiles and I am shooting my crossbow, Daren makes a rush towards the captain, stretching his left arm in front of him while making his sword fly away from the royal guard leader and into his hand. When Daren gets closer, the captain puts both his arms in front of him and he pushes his enemy back with his invisible force, not letting him advance any further.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
-choice("Load game", , , special:saves)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_manipulators != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_manipulators != 2)
+choice("Load game", , , special:saves) if (v_b3_ch6_manipulators != 2)
 choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0)
 choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
 
@@ -2170,7 +2142,7 @@ choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v
 ID: B3-Ch06b-Panic
 TEXT: 
 
-FAIL:[ Premonition check failed - level 2 ] if (v_b3_ch6_kelrim != 2)}
+stat_check(v_premonition,2)
 #if(v_b3_ch6_kelrim != 2) {
  
 After enduring the pain for a while longer, I suddenly feel the pressure above me disappearing, as the captain seems to be experiencing a very strong headache. When he realizes that he lost control of his aura technique, he tries to push us down again, but he can't make the invisible force strong enough to pin us to the ground anymore, so he eventually gives up, making a barrier in front of him instead.
@@ -2301,13 +2273,13 @@ TEXT:
 
 }
 choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
-choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
-choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
-choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0)
-choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1)
-choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2)
+choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_focus != 1)
 choice("""Then how about you actually avenge your captain instead of hiding like a wimp?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 0) if (v_b3_ch6_selected == 3)
+choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
+choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_focus != 1)
 choice("""Can't you just use your own teleportation device to cancel what Gontrok's doing?""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 1) if (v_b3_ch6_selected == 3)
+choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus == 1 && v_b3_ch6_selected != 3)
+choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_focus != 1)
 choice("""Yeah, Gontrok, don't be a coward! Stay here and fight like a man!""", B3-Ch06b-Tamper, v_current_scene = B3-Ch06b-Tamper, v_b3_ch6_coward = 2) if (v_b3_ch6_selected == 3)
 
 
@@ -3000,9 +2972,9 @@ TEXT:
 "Oh, yeah!" Hadrik says. "Now that you mention it, I think I can sense his aura too! He's not too far from us!"
 
 }
-choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing > 0)
-choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing > 0)
+choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 1)
 choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 0)
+choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 1)
 choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 0)
 
 

@@ -76,9 +76,7 @@ Instead of the scenery changing, this time, we remain in the same room, but Dian
 "Well that was, uh... interesting," Arraka says. "Anyway, let's get back to the stuff that's actually somewhat relevant to this ritual."
 
 }
-choice("Continue", B2-Ch11b-Olivia, v_current_scene = B2-Ch11b-Olivia) if (v_b2_ch11_skip1 == 0)
-choice("Continue", B2-Ch11b-Olivia, v_current_scene = B2-Ch11b-Olivia) if (v_b2_ch11_skip1 == 1)
-choice("Continue", B2-Ch11b-Olivia, v_current_scene = B2-Ch11b-Olivia) if (v_b2_ch11_skip1 == 2)
+choice("Continue", B2-Ch11b-Olivia, v_current_scene = B2-Ch11b-Olivia) if (v_b2_ch11_skip1 == 0 || v_b2_ch11_skip1 == 1 || v_b2_ch11_skip1 == 2)
 
 
 ID: B2-Ch11b-Olivia
@@ -137,9 +135,6 @@ The lessathi are currently talking among themselves, but the orphans are all dea
 "Of course not," Arraka says. "What kind of logic is that? Wasn't the exact wording of the tournament organizers that they would give you 'access' to the Magium if you win? That has nothing to do with simply having an affinity towards it. Leaving aside the fact that you are probably getting far less information from the Magium than a regular lessathi, due to being half human, most of that information is completely useless to you, because you have no way to process it. On the other hand, if you have a way to access the Magium directly, from the earthen plane, then that natural affinity of yours will suddenly become a lot more useful. The lessathi on this continent already HAVE direct access to the Magium. That's why an affinity to it would be helpful for them. But again, this is all just a theory, until I make my test."
 
 }
-choice("""What kind of test are you talking about?""", B2-Ch11b-Test, v_current_scene = B2-Ch11b-Test) if (v_b2_ch11_skip1 == 2)
-choice("""Why would the lessathi have direct access to the Magium?""", B2-Ch11b-Direct, v_current_scene = B2-Ch11b-Direct) if (v_b2_ch11_skip1 == 2)
-choice("""How do you think the lessathi might have gotten subconsciously linked to the Magium?""", B2-Ch11b-Subconsciously, v_current_scene = B2-Ch11b-Subconsciously) if (v_b2_ch11_skip1 == 2)
 choice("""What kind of test are you talking about?""", B2-Ch11b-Test, v_current_scene = B2-Ch11b-Test)
 choice("""Why would the lessathi have direct access to the Magium?""", B2-Ch11b-Direct, v_current_scene = B2-Ch11b-Direct)
 choice("""How do you think the lessathi might have gotten subconsciously linked to the Magium?""", B2-Ch11b-Subconsciously, v_current_scene = B2-Ch11b-Subconsciously)
@@ -324,8 +319,7 @@ As the whole room stays silent, I can see that Kate's whole body is now shiverin
 "I was hoping that it would not come to this..." the lessathi says. "Very well, then. If you insist on disobeying us even now, then I have no choice but to call your names myself. First of all, I would like to introduce to you the person who has played the most crucial role in allowing us to find all of the culprits. Olivia, will you please step forward?"
 
 }
-choice("Continue", B2-Ch11b-Secretly, v_current_scene = B2-Ch11b-Secretly) if (v_b2_ch11_skip2 == 0)
-choice("Continue", B2-Ch11b-Secretly, v_current_scene = B2-Ch11b-Secretly) if (v_b2_ch11_skip2 == 1)
+choice("Continue", B2-Ch11b-Secretly, v_current_scene = B2-Ch11b-Secretly) if (v_b2_ch11_skip2 == 0 || v_b2_ch11_skip2 == 1)
 
 
 ID: B2-Ch11b-Secretly
@@ -585,9 +579,9 @@ It took Kate many tries to finally find a way to get everyone on her side, and t
 
 }
 choice("Continue", B2-Ch11b-Denial, v_current_scene = B2-Ch11b-Denial) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_ch11_saved_rose > 0)
 choice("Continue", B2-Ch11b-Denial, v_current_scene = B2-Ch11b-Denial) if (v_b2_ch11_skip2 == 0 && v_ch11_saved_rose == 0)
 choice("Continue", B2-Ch11b-Denial, v_current_scene = B2-Ch11b-Denial) if (v_b2_ch11_skip2 == 1 && v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_ch11_saved_rose == 1)
 choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_b2_ch11_skip2 == 0 && v_ch11_saved_rose == 1)
 choice("Continue", B2-Ch11b-Switching, v_current_scene = B2-Ch11b-Switching) if (v_b2_ch11_skip2 == 1 && v_ch11_saved_rose == 1)
 
@@ -1067,5 +1061,5 @@ We'd all been ignoring the revenant until this point, but now that she spoke to 
 "Because this ritual is as much a problem for me as it is for you," the revenant says. "...And also because as much as I've tried to avoid it, there are traces of your friend Rose within me that will always be a part of who I am. At the very least, I know that Rose would have wanted us to work together, despite our differences, since nothing would have been more important to her in this situation than to make sure that you are safe."
 
 }
-choice("Continue", B2-Ch11c-Herbalist, v_current_scene = B2-Ch11c-Herbalist) if (v_ch11_saved_rose > 0)
+choice("Continue", B2-Ch11c-Herbalist, v_current_scene = B2-Ch11c-Herbalist) if (v_ch11_saved_rose == 1)
 choice("Continue", B2-Ch11c-Hesitation, v_current_scene = B2-Ch11c-Hesitation) if (v_ch11_saved_rose == 0)

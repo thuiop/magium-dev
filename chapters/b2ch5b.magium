@@ -244,20 +244,10 @@ choice("Wait for him to make mistakes, then attack him directly", B2-Ch05b-Tacti
 ID: B2-Ch05b-Tactic1
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
-set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
-set(v_is_dead,1) if (v_agility < 2)
-set(v_is_dead,1) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-set(v_is_dead,1) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
-FAIL:[ Speed check failed - level 2 ] if (v_agility < 2)}
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
-FAIL:[ Strength check failed - level 1 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
-FAIL:[ Strength check failed - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
+set(v_is_dead,0) if (v_agility >= 2 && (v_b2_ch5_scimitar == 0 || v_strength >= 1) && (v_strength >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_agility < 2)
+stat_check(v_agility,2)
+stat_check(v_strength,2)
 #if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
  
 
@@ -324,29 +314,23 @@ I somehow manage to surprise him even when he was the one who initiated the atta
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
-choice("Load game", , , special:saves) if (v_agility < 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load game", , , special:saves) if (v_agility < 2)
+choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
 choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
 
 
 ID: B2-Ch05b-Tactic2
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
-set(v_is_dead,1) if (v_agility < 2)
-set(v_is_dead,1) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar != 0)}
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
-FAIL:[ Speed check failed - level 2 ] if (v_agility < 2)}
-SUCCESS:[ Speed check successful - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
+set(v_is_dead,0) if (v_agility >= 2 && (v_combat_technique >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_agility < 2)
+stat_check(v_agility,2)
+stat_check(v_combat_technique,2)
 #if(v_agility >= 2 && v_b2_ch5_scimitar != 0) {
  
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -396,30 +380,20 @@ I somehow manage to surprise him even when he was the one who initiated the atta
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar != 0)
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
-choice("Load game", , , special:saves) if (v_agility < 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load game", , , special:saves) if (v_agility < 2)
 choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
 
 
 ID: B2-Ch05b-Tactic3
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
-set(v_is_dead,1) if (v_reflexes < 2)
-set(v_is_dead,1) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-set(v_is_dead,1) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
-SUCCESS:[ Strength check successful - level 1 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
-SUCCESS:[ Strength check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)}
-FAIL:[ Reflexes check failed - level 2 ] if (v_reflexes < 2)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
-FAIL:[ Strength check failed - level 1 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
-FAIL:[ Strength check failed - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)}
+set(v_is_dead,0) if (v_reflexes >= 2 && (v_b2_ch5_scimitar == 0 || v_strength >= 1) && (v_strength >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_reflexes < 2)
+stat_check(v_reflexes,2)
+stat_check(v_strength,2)
 #if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
  
 
@@ -490,29 +464,23 @@ I dance around the warrior enough to get him a bit tired, and as soon as I catch
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_reflexes < 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Load game", , , special:saves) if (v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
 choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
 
 
 ID: B2-Ch05b-Tactic4
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
-set(v_is_dead,1) if (v_reflexes < 2)
-set(v_is_dead,1) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)}
-FAIL:[ Reflexes check failed - level 2 ] if (v_reflexes < 2)}
-SUCCESS:[ Reflexes check successful - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)}
+set(v_is_dead,0) if (v_reflexes >= 2 && (v_combat_technique >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_reflexes < 2)
+stat_check(v_reflexes,2)
+stat_check(v_combat_technique,2)
 #if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0) {
  
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -568,10 +536,10 @@ I dance around the warrior enough to get him a bit tired, and as soon as I catch
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
 choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_reflexes < 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Load game", , , special:saves) if (v_reflexes < 2)
 choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
 
 
@@ -633,8 +601,7 @@ Unsurprisingly, as soon as I finish my speech, the booing from the crowd gets lo
 "Yeah," I say, simply, and then we both watch the next fights in silence.
 
 }
-choice("Continue", B2-Ch05b-Undesirables, v_current_scene = B2-Ch05b-Undesirables) if (v_b2_ch5_spare == 0)
-choice("Continue", B2-Ch05b-Undesirables, v_current_scene = B2-Ch05b-Undesirables) if (v_b2_ch5_spare == 1)
+choice("Continue", B2-Ch05b-Undesirables, v_current_scene = B2-Ch05b-Undesirables) if (v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1)
 
 
 ID: B2-Ch05b-Refuse
@@ -798,8 +765,7 @@ Hearing the gladiator's speech, the few other warriors who were planning to join
 "Numbers don't mean anything when you're up against enemies of that caliber," one of the gladiators says.
 
 }
-choice("Continue", B2-Ch05b-Cancelled, v_current_scene = B2-Ch05b-Cancelled) if (v_b2_ch5_spare == 0)
-choice("Continue", B2-Ch05b-Cancelled, v_current_scene = B2-Ch05b-Cancelled) if (v_b2_ch5_spare == 1)
+choice("Continue", B2-Ch05b-Cancelled, v_current_scene = B2-Ch05b-Cancelled) if (v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1)
 
 
 ID: B2-Ch05b-Cancelled
@@ -1111,8 +1077,7 @@ The gnome looks up at the dragon trapped in the golden cage, with a thoughtful e
 Golmyck gives me a pair of protective goggles, which I immediately put on, and then I enter the cockpit, strapping myself in. There are only two chairs in the cockpit, one for the gunner and one for the pilot, back to back. The gnome enters the cockpit as well, seating himself on the chair behind me and then putting on his straps.
 
 }
-choice("Continue", B2-Ch05b-Cargo, v_current_scene = B2-Ch05b-Cargo) if (v_b2_ch5_pilot == 1)
-choice("Continue", B2-Ch05b-Cargo, v_current_scene = B2-Ch05b-Cargo) if (v_b2_ch5_pilot == 0)
+choice("Continue", B2-Ch05b-Cargo, v_current_scene = B2-Ch05b-Cargo) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
 
 
 ID: B2-Ch05b-Cargo
@@ -1154,8 +1119,7 @@ The gnome pulls on a lever to his left side in order to increase the pitch for t
 "And what if the dragon starts breathing fire at us?" I say.
 
 }
-choice("Continue", B2-Ch05b-Barrier, v_current_scene = B2-Ch05b-Barrier) if (v_b2_ch5_pilot == 1)
-choice("Continue", B2-Ch05b-Barrier, v_current_scene = B2-Ch05b-Barrier) if (v_b2_ch5_pilot == 0)
+choice("Continue", B2-Ch05b-Barrier, v_current_scene = B2-Ch05b-Barrier) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
 
 
 ID: B2-Ch05b-Barrier
@@ -1193,10 +1157,9 @@ I think I'm finally starting to understand how the dragon's fire breathing works
 Tyrath seems to have changed his mind again, and he's now chasing after Hadrik, who is currently in his eagle form. Even with Hadrik's speed, it still seems like the dragon is going to catch up to him soon. Maybe now would be a good time to make use of those acid coated bullets?
 
 }
-choice("Attack the dragon", B2-Ch05b-Pilot, v_current_scene = B2-Ch05b-Pilot) if (v_b2_ch5_pilot > 0)
-choice("Wait for a better moment to attack", B2-Ch05b-Death, v_current_scene = B2-Ch05b-Death) if (v_b2_ch5_pilot > 0)
+choice("Attack the dragon", B2-Ch05b-Pilot, v_current_scene = B2-Ch05b-Pilot) if (v_b2_ch5_pilot == 1)
+choice("Wait for a better moment to attack", B2-Ch05b-Death, v_current_scene = B2-Ch05b-Death) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
 choice("Attack the dragon", B2-Ch05b-Gunner, v_current_scene = B2-Ch05b-Gunner) if (v_b2_ch5_pilot == 0)
-choice("Wait for a better moment to attack", B2-Ch05b-Death, v_current_scene = B2-Ch05b-Death) if (v_b2_ch5_pilot == 0)
 
 
 ID: B2-Ch05b-Death
@@ -1231,12 +1194,9 @@ I attempt to shoot at him, but Tyrath adeptly dodges most of my bullets while in
 Golmyck pulls on the control stick as hard as he can, and the plane quickly changes its direction. This does not fool the dragon, however, who immediately matches our trajectory, without falling behind. When he reaches us, Tyrath dives directly towards our cockpit, and he grabs me in his hind claws, crushing me between them, and killing me on the spot.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_pilot > 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_pilot > 0)
-choice("Load game", , , special:saves) if (v_b2_ch5_pilot > 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_pilot == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_pilot == 0)
-choice("Load game", , , special:saves) if (v_b2_ch5_pilot == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
+choice("Load game", , , special:saves) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
 
 
 ID: B2-Ch05b-Pilot
@@ -1272,8 +1232,7 @@ TEXT:
 
 set(v_is_dead,0) if (v_combat_technique >= 2)
 set(v_is_dead,1) if (v_combat_technique < 2)
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2)}
+stat_check(v_combat_technique,2)
 #if(v_combat_technique >= 2) {
  
 "I'm about to attack Tyrath," I tell Golmyck. "Get ready."
@@ -1370,8 +1329,7 @@ The rope that was tying the dragon's wings has already been burned into ashes by
 "This is all my fault," Tyrath says, in an unusually calm tone. "I alone am to blame for having given you the illusion that you could actually stand a chance against me. I am now going to fix that mistake. Instead of continuing to fight you individually, I will simply destroy this whole city and everyone in it with a single spell. This way, there will be no more misunderstandings."
 
 }
-choice("Continue", B2-Ch05b-Serious, v_current_scene = B2-Ch05b-Serious) if (v_b2_ch5_pilot == 1)
-choice("Continue", B2-Ch05b-Serious, v_current_scene = B2-Ch05b-Serious) if (v_b2_ch5_pilot == 0)
+choice("Continue", B2-Ch05b-Serious, v_current_scene = B2-Ch05b-Serious) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
 
 
 ID: B2-Ch05b-Serious
@@ -1507,8 +1465,7 @@ He then turns his back on her and heads towards Rose who was waiting for us not 
 "Oh, yeah, yeah, I'll be right there," I say, as I throw the young girl one last hesitant look, and then I head towards Daren.
 
 }
-choice("Continue", B2-Ch05b-Ending, v_current_scene = B2-Ch05b-Ending) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch05b-Ending, v_current_scene = B2-Ch05b-Ending) if (v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch05b-Ending, v_current_scene = B2-Ch05b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch05b-Ending
@@ -1546,8 +1503,7 @@ TEXT:
 "Well, then!" the girl says, with a smile, while clapping her hands together. "Now that I've got your attention, perhaps we could have a little chat? I promise you that this won't take any longer than a few minutes!"
 
 }
-choice("Next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0)
-choice("Next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 1)
+choice("Next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch05b-Credits
@@ -1563,5 +1519,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0)
-choice("Go to next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)

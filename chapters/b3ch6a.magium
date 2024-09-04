@@ -1,7 +1,7 @@
 ID: B3-Ch06a-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(checkpoint,1)
  
 "Daren?..." Hadrik says. "Are you okay there, buddy?"
 
@@ -383,8 +383,7 @@ set(v_b3_ch6_concealed,0) if (v_b3_ch6_slowpoke == 2)
 set(v_b3_ch6_concealed,0) if (v_bluff < 3)
 set(v_b3_ch6_concealed,1) if (v_bluff >= 3)
 set(v_b3_ch6_concealed,0)
-FAIL:[ Aura concealment check failed - level 3 ] if (v_bluff < 3)}
-SUCCESS:[ Aura concealment check successful - level 3 ] if (v_bluff >= 3)}
+stat_check(v_aura_concealment,3)
 #if(v_b3_ch6_slowpoke == 0) {
  
 "Don't let her get to you, slowpoke! She's only trying to annoy you!"
@@ -505,8 +504,8 @@ Now that Leila mentions it, I realize that most of the shopkeepers we've passed 
 As we all look up at the sky, we see a green-eyed drone slowly making its way down towards us.    
 
 choice("Continue", B3-Ch06a-Helpful, v_current_scene = B3-Ch06a-Helpful) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing)
 choice("Continue", B3-Ch06a-Helpful, v_current_scene = B3-Ch06a-Helpful) if (v_b3_ch4_billy == 0 && v_ch11_saved_rose == 0)
+choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy != 0)
 choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy == 7)
 choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy == 8)
 choice("Continue", B3-Ch06a-Complaint, v_current_scene = B3-Ch06a-Complaint) if (v_b3_ch4_billy == 0 && v_ch11_saved_rose == 1)
@@ -547,10 +546,7 @@ set(v_b3_ch6_betrayed,3) if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)
 set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 3 && v_bluff < 4)
 set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 3 && v_bluff >= 4)
 set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 2)
-FAIL:[ Bluff check failed - level 4 ] if (v_b3_ch6_betrayed == 1 && v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)}
-FAIL:[ Bluff check failed - level 4 ] if (v_b3_ch6_betrayed == 3 && v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_b3_ch6_betrayed == 3 && v_bluff >= 4)}
+stat_check(v_bluff,4)
 #if(v_b3_ch6_betrayed == 0) {
  "Actually, I think you should study this phenomenon right now and let us be on our way."
 "Request denied," the Overseer says. "Now calculating the most efficient way in which to end your lives. Please wait. We will get back to you shortly."
@@ -872,10 +868,7 @@ set(v_b3_ch6_password,0) if (v_b3_ch6_password == 2 && v_bluff < 4)
 set(v_b3_ch6_password,3) if (v_b3_ch6_password == 2 && v_bluff >= 4)
 set(v_b3_ch6_password,0) if (v_b3_ch6_password == 3 && v_bluff < 4)
 set(v_b3_ch6_password,0) if (v_b3_ch6_password == 3 && v_bluff >= 4)
-FAIL:[ Bluff check failed - level 4 ] if (v_b3_ch6_password == 2 && v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_b3_ch6_password == 2 && v_bluff >= 4)}
-FAIL:[ Bluff check failed - level 4 ] if (v_b3_ch6_password == 3 && v_bluff < 4)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_b3_ch6_password == 3 && v_bluff >= 4)}
+stat_check(v_bluff,4)
 #if(v_b3_ch6_password == 0) {
  "The password is to shut your whore mouth and to open the door before we blow it open," I shout loudly, so the shopkeeper can hear me.
 "You've got some nerve to threaten me like that on my own shop's doorstep," the shopkeeper says. "Do you want to know what happened to the last guy who said those words to me?"
@@ -1392,9 +1385,9 @@ TEXT:
 
 }
 choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 0)
+choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 1)
 choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 0)
-choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey > 0)
-choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey > 0)
+choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 1)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Awake, v_current_scene = B3-Ch06a-Rose-Awake, v_b3_ch6_plan = 2) if (v_b3_ch6_survey == 0 && v_b3_ch6_sleep == 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Awake, v_current_scene = B3-Ch06a-Rose-Awake, v_b3_ch6_plan = 2) if (v_b3_ch6_survey == 1 && v_b3_ch6_sleep == 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Asleep, v_current_scene = B3-Ch06a-Rose-Asleep, v_b3_ch6_plan = 3) if (v_b3_ch6_survey == 0 && v_b3_ch6_sleep == 1)
@@ -1414,11 +1407,8 @@ set(v_is_dead,0)
 set(v_is_dead,0) if (v_combat_technique >= 1)
 set(v_is_dead,0) if (v_combat_technique < 1 && v_aura_hardening >= 2)
 set(v_is_dead,1) if (v_combat_technique < 1 && v_aura_hardening < 2)
-SUCCESS:[ Combat technique check successful - level 1 ] if (v_combat_technique >= 1)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique < 1 && v_aura_hardening >= 2)}
-SUCCESS:[ Aura hardening check successful - level 2 ] if (v_combat_technique < 1 && v_aura_hardening >= 2)}
-FAIL:[ Combat technique check failed - level 1 ] if (v_combat_technique < 1 && v_aura_hardening < 2)}
-FAIL:[ Aura hardening check failed - level 2 ] if (v_combat_technique < 1 && v_aura_hardening < 2)}
+stat_check(v_combat_technique,1)
+stat_check(v_aura_hardening,2)
 #if(v_combat_technique >= 1 && v_b3_ch6_plan == 0) {
  
 "Melindra's powers are unreliable, though," I say. "The fact that she managed to keep control of that barrier yesterday does not mean she can do it again today. I think it might be better to let Hadrik handle this."
@@ -1585,11 +1575,8 @@ TEXT:
 set(v_is_dead,0) if (v_combat_technique >= 2)
 set(v_is_dead,0) if (v_combat_technique < 2 && v_aura_hardening >= 3)
 set(v_is_dead,1) if (v_combat_technique < 2 && v_aura_hardening < 3)
-SUCCESS:[ Combat technique check successful - level 2 ] if (v_combat_technique >= 2)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2 && v_aura_hardening >= 3)}
-SUCCESS:[ Aura hardening check successful - level 3 ] if (v_combat_technique < 2 && v_aura_hardening >= 3)}
-FAIL:[ Combat technique check failed - level 2 ] if (v_combat_technique < 2 && v_aura_hardening < 3)}
-FAIL:[ Aura hardening check failed - level 3 ] if (v_combat_technique < 2 && v_aura_hardening < 3)}
+stat_check(v_combat_technique,2)
+stat_check(v_aura_hardening,3)
 #if(v_combat_technique >= 2) {
  My combat technique stat allows me to predict the movements of the flying metal balls well enough to avoid getting outmaneuvered. Even though we appear to be doing a pretty good job of keeping our enemies at bay, there's still a large number of drones coming our way, which means that we can't really move from our position and because of this Daren and the others are getting further away from us the more we fight. Fortunately, I see Daren waving at me from a distance, and once I wave back, he goes inside one of the buildings along with Kelrim, Leila and Hadrik.
 Perfect. Now that I know where the shop is, we can keep fighting these drones without any worries of getting left behind.
@@ -2019,16 +2006,16 @@ As the shopkeeper goes to the room in the back of the shop, I take a better look
 
 }
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1)
-choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 0)
-choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 0)
-choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose > 0)
-choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose > 0)
+choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 1)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 0)
-choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 0)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 1)
-choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 1)
 choice("Take a closer look at the labels.", B3-Ch06a-Labels, v_current_scene = B3-Ch06a-Labels, v_b3_ch6_labels = 1) if (v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 0)
+choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0)
+choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 0)
+choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 1)
+choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 0)
+choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 1)
 choice("Take a closer look at the plants on the shelves instead.", B3-Ch06a-Shelves, v_current_scene = B3-Ch06a-Shelves, v_b3_ch6_labels = 0) if (v_ch11_saved_rose == 1 && v_b3_ch6_sleep == 0)
 
 
@@ -2037,8 +2024,7 @@ TEXT:
 
 set(v_b3_ch6_labels,0) if (v_ancient_languages < 1)
 set(v_b3_ch6_labels,3) if (v_ancient_languages >= 1)
-FAIL:[ Ancient languages check failed - level 1 ] if (v_ancient_languages < 1)}
-SUCCESS:[ Ancient languages check successful - level 1 ] if (v_ancient_languages >= 1)}
+stat_check(v_ancient_languages,1)
 #if(v_ancient_languages < 1) {
  
 I get closer to one of the shelves so I can see the writing on one of the labels a little better. Unfortunately, no matter how close I am, there's still no way for me to understand any of the words. Even if it appears to be written in the Common language, the handwriting itself is so ugly that it's completely unreadable. Seeing that I'm making no progress, I eventually decide to step back and to return where my friends are waiting behind the counter.
@@ -2099,8 +2085,7 @@ TEXT:
 
 set(v_b3_ch6_labels,0) if (v_perception < 1)
 set(v_b3_ch6_labels,2) if (v_perception >= 1)
-FAIL:[ Observation check failed - level 1 ] if (v_perception < 1)}
-SUCCESS:[ Observation check successful - level 1 ] if (v_perception >= 1)}
+stat_check(v_observation,1)
 #if(v_perception < 1) {
  
 I get a little closer to the counter so I can have a better look at the plants on the shelves, but with my limited knowledge of herbs in general, I do not find anything that could be of interest to us.
@@ -2301,8 +2286,6 @@ Once more, the transceiver remains silent.
 As we all stop moving, both Daren and Kelrim try to call the teleporter guy one more time, but to no avail. Barry Thundercloud is still just as unreachable.
 
 }
-choice("""This is clearly not working. Can't we focus on preparing for the fight instead?""", B3-Ch06a-Focus, v_current_scene = B3-Ch06a-Focus, v_b3_ch6_preparing = 1) if (v_b3_ch6_selected == 3)
-choice("""Maybe we could go a little further down the road and try calling him again from there?""", B3-Ch06a-Further, v_current_scene = B3-Ch06a-Further, v_b3_ch6_preparing = 0) if (v_b3_ch6_selected == 3)
 choice("""This is clearly not working. Can't we focus on preparing for the fight instead?""", B3-Ch06a-Focus, v_current_scene = B3-Ch06a-Focus, v_b3_ch6_preparing = 1)
 choice("""Maybe we could go a little further down the road and try calling him again from there?""", B3-Ch06a-Further, v_current_scene = B3-Ch06a-Further, v_b3_ch6_preparing = 0)
 

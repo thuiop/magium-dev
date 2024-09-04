@@ -1,7 +1,7 @@
 ID: Ch4-Intro
 TEXT: 
 
-SUCCESS:Checkpoint reached: Game saved. if (v_checkpoint_rich == 1)}
+stat_check(v_checkpoint_rich,1)
 #if(v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 0) {
 
 Daren was waiting for us in front of our cave. The moment we got in hearing range of him, he started to rant about how we shouldn't have gone off on our own, and about how we should stick together at all times.
@@ -50,14 +50,14 @@ As we stand guard, we start discussing about the tournament, and its organizatio
 
 }
 choice("""Maybe there are no objectives.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 1) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 0)
-choice("""Maybe they encountered some unexpected technical difficulties.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 0)
-choice("""Maybe they're waiting for our numbers to decrease.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 0)
 choice("""Maybe there are no objectives.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 1) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 1)
+choice("""Maybe there are no objectives.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 1) if (v_ch3_kate_badly_hurt == 1)
+choice("""Maybe they encountered some unexpected technical difficulties.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 0)
 choice("""Maybe they encountered some unexpected technical difficulties.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 1)
+choice("""Maybe they encountered some unexpected technical difficulties.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2) if (v_ch3_kate_badly_hurt == 1)
+choice("""Maybe they're waiting for our numbers to decrease.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 0)
 choice("""Maybe they're waiting for our numbers to decrease.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3) if (v_ch3_kate_badly_hurt == 0 && v_ch3_bloodied == 1)
-choice("""Maybe there are no objectives.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 1) if (v_ch3_kate_badly_hurt > 0)
-choice("""Maybe they encountered some unexpected technical difficulties.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2) if (v_ch3_kate_badly_hurt > 0)
-choice("""Maybe they're waiting for our numbers to decrease.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3) if (v_ch3_kate_badly_hurt > 0)
+choice("""Maybe they're waiting for our numbers to decrease.""", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3) if (v_ch3_kate_badly_hurt == 1)
 
 
 ID: Ch4-Intro2
@@ -141,12 +141,8 @@ Seeing that I don't say anything, Daren replies in my stead.
 "Oh? Then you must be the healer in armor I've been hearing so much about! And it seems that you also have a third member in your party. A survivor of the Beacon of Hope, no less. I did not know any of them were still alive."
 
 }
-choice("""What's the Beacon of Hope?""", Ch4-Beacon, v_current_scene = Ch4-Beacon) if (v_ch4_objectives > 0)
-choice("""Why is she a survivor? Did the Beacon of Hope burn down?""", Ch4-Survivor, v_current_scene = Ch4-Survivor) if (v_ch4_objectives > 0)
-choice("""What's the Beacon of Hope?""", Ch4-Beacon, v_current_scene = Ch4-Beacon) if (v_ch4_objectives == 2)
-choice("""Why is she a survivor? Did the Beacon of Hope burn down?""", Ch4-Survivor, v_current_scene = Ch4-Survivor) if (v_ch4_objectives == 2)
-choice("""What's the Beacon of Hope?""", Ch4-Beacon, v_current_scene = Ch4-Beacon) if (v_ch4_objectives == 3)
-choice("""Why is she a survivor? Did the Beacon of Hope burn down?""", Ch4-Survivor, v_current_scene = Ch4-Survivor) if (v_ch4_objectives == 3)
+choice("""What's the Beacon of Hope?""", Ch4-Beacon, v_current_scene = Ch4-Beacon) if (v_ch4_objectives == 1 || v_ch4_objectives == 2 || v_ch4_objectives == 3)
+choice("""Why is she a survivor? Did the Beacon of Hope burn down?""", Ch4-Survivor, v_current_scene = Ch4-Survivor) if (v_ch4_objectives == 1 || v_ch4_objectives == 2 || v_ch4_objectives == 3)
 
 
 ID: Ch4-Beacon
@@ -325,7 +321,7 @@ He turns to leave.
 
 He smiles again, and then he heads towards the woods.
 
-choice("Continue", Ch4-Dave-vs-Eiden, v_current_scene = Ch4-Dave-vs-Eiden)
+choice("Continue", Ch4-Dave-vs-Eiden, v_current_scene = Ch4-Dave-vs-Eiden) if (v_ch1_show_yourself != 2)
 choice("Continue", Ch4-Face-shown, v_current_scene = Ch4-Face-shown) if (v_ch1_show_yourself == 2)
 
 
@@ -735,12 +731,8 @@ Daren shakes his head in disapproval and hands me a dagger from his belt.
 "Really, Barry. There were dozens of daggers on the ground you could have picked on our way here. Try to take this more seriously."
 
 }
-choice("Try to keep Cutthroat Dave busy while Daren defeats the others", Ch4-Busy, v_current_scene = Ch4-Busy) if (v_ch3_tactics > 0)
-choice("Try to defeat Cutthroat Dave", Ch4-Defeat, v_current_scene = Ch4-Defeat) if (v_ch3_tactics > 0)
-choice("Try to keep Cutthroat Dave busy while Daren defeats the others", Ch4-Busy, v_current_scene = Ch4-Busy) if (v_ch3_tactics == 2)
-choice("Try to defeat Cutthroat Dave", Ch4-Defeat, v_current_scene = Ch4-Defeat) if (v_ch3_tactics == 2)
-choice("Try to keep Cutthroat Dave busy while Daren defeats the others", Ch4-Busy, v_current_scene = Ch4-Busy) if (v_ch3_tactics == 3)
-choice("Try to defeat Cutthroat Dave", Ch4-Defeat, v_current_scene = Ch4-Defeat) if (v_ch3_tactics == 3)
+choice("Try to keep Cutthroat Dave busy while Daren defeats the others", Ch4-Busy, v_current_scene = Ch4-Busy) if (v_ch3_tactics == 1 || v_ch3_tactics == 2 || v_ch3_tactics == 3)
+choice("Try to defeat Cutthroat Dave", Ch4-Defeat, v_current_scene = Ch4-Defeat) if (v_ch3_tactics == 1 || v_ch3_tactics == 2 || v_ch3_tactics == 3)
 
 
 ID: Ch4-Busy
@@ -798,19 +790,11 @@ choice("Continue", Ch4-Busy2, v_current_scene = Ch4-Busy2)
 ID: Ch4-Busy2
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes == 3)
-set(v_is_dead,0) if (v_reflexes < 3 && v_agility == 3)
-set(v_is_dead,0) if (v_reflexes < 3 && v_agility < 3 && v_perception == 3)
-set(v_is_dead,1) if (v_reflexes < 3 && v_agility < 3 && v_perception < 3)
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_reflexes == 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_reflexes < 3 && v_agility == 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3 && v_agility == 3)}
-SUCCESS:[ Observation check successful - level 3 ] if (v_reflexes < 3 && v_agility < 3 && v_perception == 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3 && v_agility < 3 && v_perception == 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_reflexes < 3 && v_agility < 3 && v_perception == 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_reflexes < 3 && v_agility < 3 && v_perception < 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_reflexes < 3 && v_agility < 3 && v_perception < 3)}
-FAIL:[ Observation check failed - level 3 ] if (v_reflexes < 3 && v_agility < 3 && v_perception < 3)}
+set(v_is_dead,0) if (v_agility == 3 && v_reflexes < 3 || v_perception == 3 && v_agility < 3 && v_reflexes < 3 || v_reflexes == 3)
+set(v_is_dead,1) if (v_agility < 3 && v_perception < 3 && v_reflexes < 3)
+stat_check(v_reflexes,3)
+stat_check(v_agility,3)
+stat_check(v_observation,3)
 #if(v_reflexes == 3) {
 
 The knives are incredibly fast, but my sharp reflexes help me get out of their way just in time, even when they catch me by surprise. 
@@ -894,10 +878,10 @@ As I turn back, I find to my surprise that Eiden is nowhere to be seen. He must 
 
 }
 choice("Try to persuade Daren to kill him instead", Ch4-Daren-kill, v_next_chapter_crash = 1, v_current_scene = Ch4-Daren-kill) if (v_reflexes == 3)
-choice("Agree to spare Dave's life", Ch4-Daren-spare, v_current_scene = Ch4-Daren-spare) if (v_reflexes == 3)
 choice("Try to persuade Daren to kill him instead", Ch4-Daren-kill, v_next_chapter_crash = 1, v_current_scene = Ch4-Daren-kill) if (v_reflexes < 3 && v_agility == 3)
-choice("Agree to spare Dave's life", Ch4-Daren-spare, v_current_scene = Ch4-Daren-spare) if (v_reflexes < 3 && v_agility == 3)
 choice("Try to persuade Daren to kill him instead", Ch4-Daren-kill, v_next_chapter_crash = 1, v_current_scene = Ch4-Daren-kill) if (v_reflexes < 3 && v_agility < 3 && v_perception == 3)
+choice("Agree to spare Dave's life", Ch4-Daren-spare, v_current_scene = Ch4-Daren-spare) if (v_reflexes == 3)
+choice("Agree to spare Dave's life", Ch4-Daren-spare, v_current_scene = Ch4-Daren-spare) if (v_reflexes < 3 && v_agility == 3)
 choice("Agree to spare Dave's life", Ch4-Daren-spare, v_current_scene = Ch4-Daren-spare) if (v_reflexes < 3 && v_agility < 3 && v_perception == 3)
 choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_ending = 4, special:checkpoint_save) if (v_reflexes < 3 && v_agility < 3 && v_perception < 3)
 
@@ -1056,22 +1040,14 @@ ID: Ch4-Defeat2
 TEXT: 
 
 set(v_ch4_dave_defeat,1) if (v_strength == 3)
-set(v_is_dead,0) if (v_strength == 3)
-set(v_ch4_dave_defeat,2) if (v_strength < 3 && v_agility == 3)
-set(v_is_dead,0) if (v_strength < 3 && v_agility == 3)
-set(v_ch4_dave_defeat,3) if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)
-set(v_is_dead,0) if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)
-set(v_is_dead,1) if (v_strength < 3 && v_agility < 3 && v_reflexes < 3)
-set(v_ch4_dave_defeat,0) if (v_strength < 3 && v_agility < 3 && v_reflexes < 3)
-SUCCESS:[ Strength check successful - level 3 ] if (v_strength == 3)}
-SUCCESS:[ Speed check successful - level 3 ] if (v_strength < 3 && v_agility == 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility == 3)}
-SUCCESS:[ Reflexes check successful - level 3 ] if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)}
-FAIL:[ Strength check failed - level 3 ] if (v_strength < 3 && v_agility < 3 && v_reflexes < 3)}
-FAIL:[ Speed check failed - level 3 ] if (v_strength < 3 && v_agility < 3 && v_reflexes < 3)}
-FAIL:[ Reflexes check failed - level 3 ] if (v_strength < 3 && v_agility < 3 && v_reflexes < 3)}
+set(v_ch4_dave_defeat,2) if (v_agility == 3 && v_strength < 3)
+set(v_ch4_dave_defeat,3) if (v_reflexes == 3 && v_agility < 3 && v_strength < 3)
+set(v_ch4_dave_defeat,0) if (v_agility < 3 && v_reflexes < 3 && v_strength < 3)
+set(v_is_dead,0) if (v_agility == 3 && v_strength < 3 || v_reflexes == 3 && v_agility < 3 && v_strength < 3 || v_strength == 3)
+set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 3 && v_strength < 3)
+stat_check(v_strength,3)
+stat_check(v_agility,3)
+stat_check(v_reflexes,3)
 #if(v_strength == 3) {
 
 I pick up a rock from the ground and throw it at Cutthroat Dave as hard as I can.
@@ -1189,8 +1165,8 @@ Once Eiden's outline is barely visible anymore, I hear his voice echo from the t
 choice("Attempt to kill him", Ch4-Defeat-kill, v_current_scene = Ch4-Defeat-kill) if (v_strength == 3)
 choice("Attempt to knock him out", Ch4-Defeat-spare, v_current_scene = Ch4-Defeat-spare) if (v_strength == 3)
 choice("Aim for the kill", Ch4-Defeat-kill, v_current_scene = Ch4-Defeat-kill) if (v_strength < 3 && v_agility == 3)
-choice("Aim to neutralize him, but don't kill him", Ch4-Defeat-spare, v_current_scene = Ch4-Defeat-spare) if (v_strength < 3 && v_agility == 3)
 choice("Aim for the kill", Ch4-Defeat-kill, v_current_scene = Ch4-Defeat-kill) if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)
+choice("Aim to neutralize him, but don't kill him", Ch4-Defeat-spare, v_current_scene = Ch4-Defeat-spare) if (v_strength < 3 && v_agility == 3)
 choice("Aim to neutralize him, but don't kill him", Ch4-Defeat-spare, v_current_scene = Ch4-Defeat-spare) if (v_strength < 3 && v_agility < 3 && v_reflexes == 3)
 choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_ending = 6, special:checkpoint_save) if (v_strength < 3 && v_agility < 3 && v_reflexes < 3)
 
@@ -1296,7 +1272,7 @@ He smiles.
 With these last words he turns his back to me, and he disappears into the darkness of the forest.
 
 }
-choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_ending = 5, v_ch4_spared_dave = 0, special:checkpoint_save) if (v_ch4_dave_defeat > 0)
+choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_ending = 5, v_ch4_spared_dave = 0, special:checkpoint_save) if (v_ch4_dave_defeat == 1 || v_ch4_dave_defeat == 2 || v_ch4_dave_defeat == 3)
 
 
 ID: Ch4-Defeat-spare
@@ -1413,4 +1389,4 @@ He smiles.
 With these last words he turns his back to me, and he disappears into the darkness of the forest.
 
 }
-choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_spared_dave = 1, v_ch4_ending = 5, special:checkpoint_save) if (v_ch4_dave_defeat > 0)
+choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_spared_dave = 1, v_ch4_ending = 5, special:checkpoint_save) if (v_ch4_dave_defeat == 1 || v_ch4_dave_defeat == 2 || v_ch4_dave_defeat == 3)

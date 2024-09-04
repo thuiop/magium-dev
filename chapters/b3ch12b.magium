@@ -28,9 +28,7 @@ set(v_b3_ch12_scout,0) if (v_b3_ch11_red == 1)
 set(v_b3_ch12_scout,0) if (v_perception < 2)
 set(v_b3_ch12_scout,2) if (v_perception == 2)
 set(v_b3_ch12_scout,3) if (v_perception >= 3)
-FAIL:[ Observation check failed - level 3 ] if (v_perception < 2)}
-FAIL:[ Observation check failed - level 3 ] if (v_perception == 2)}
-SUCCESS:[ Observation check successful - level 3 ] if (v_perception >= 3)}
+stat_check(v_observation,3)
 #if(v_b3_ch11_red == 0) {
  
 "Yeah, but maybe I could tell what kind of mages they are from their clothes and their equipment," I say. "That could give us a little time to plan our actions against them. If you're worried that I'll get attacked, I'll try to keep as much distance as I can from them and be very aware of my surroundings. I'm sure it'll be fine."
@@ -576,9 +574,6 @@ I think Kate might also be seeing the same thing as me, because she is now smili
 "Yes, but I was only teasing you!" Diane says. "The old Kate from the Beacon would have never accepted my challenge so directly. You used to be so shy! I think I like this new version of Kate!"
 
 }
-choice("""If you liked that throw, wait till you feel one of her punches!""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 0) if (v_ch3_kate_badly_hurt > 0)
-choice("""Kate being shy? Are you sure you're talking about the same person?""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 1) if (v_ch3_kate_badly_hurt > 0)
-choice("""I don't understand how you thought you could beat Kate in hand-to-hand combat.""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 2) if (v_ch3_kate_badly_hurt > 0)
 choice("""If you liked that throw, wait till you feel one of her punches!""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 0)
 choice("""Kate being shy? Are you sure you're talking about the same person?""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 1)
 choice("""I don't understand how you thought you could beat Kate in hand-to-hand combat.""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 2)
@@ -918,8 +913,7 @@ TEXT:
 
 set(v_b3_ch12_languages,0) if (v_ancient_languages < 2)
 set(v_b3_ch12_languages,1) if (v_ancient_languages >= 2)
-FAIL:[ Ancient languages check failed - level 2 ] if (v_ancient_languages < 2)}
-SUCCESS:[ Ancient languages check successful - level 2 ] if (v_ancient_languages >= 2)}
+stat_check(v_ancient_languages,2)
 #if(v_ancient_languages < 2) {
  
 We wait for a few minutes in front of the sacred woods entrance, just like the fox asked, until she finally teleports back together with Leo the leopard.
@@ -1396,34 +1390,24 @@ Just as I thought I was safe, I can feel Eiden's invisible hand grabbing my head
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)
-choice("Load game", , , special:saves) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_scout != 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_scout != 0)
+choice("Load game", , , special:saves) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)
 choice("Load game", , , special:saves) if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
-choice("Load game", , , special:saves)
+choice("Load game", , , special:saves) if (v_b3_ch12_scout != 0)
 
 
 ID: B3-Ch12b-Allout1
 TEXT: 
 
-SUCCESS:[ Speed check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 0)}
-SUCCESS:[ Speed check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_b3_ch12_scout == 0 && v_b3_ch11_red == 1)}
-SUCCESS:[ Speed check successful - level 4 ] if (v_b3_ch12_scout != 0)}
-SUCCESS:[ Toughness check successful - level 4 ] if (v_b3_ch12_scout != 0)}
-SUCCESS:[ Strength check successful - level 4 ] if (v_b3_ch12_scout != 0)}
-SUCCESS:[ Reflexes check successful - level 4 ] if (v_b3_ch12_scout != 0)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_b3_ch12_scout != 0)}
+stat_check(v_agility,4)
+stat_check(v_toughness,4)
+stat_check(v_strength,4)
+stat_check(v_reflexes,4)
+stat_check(v_aura_hardening,4)
 #if(v_b3_ch12_scout == 0 && v_b3_ch11_red == 0) {
  
 
@@ -1686,18 +1670,18 @@ choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden == 0)
 choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden == 0)
 choice("Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.", B3-Ch12b-Orangutan, v_current_scene = B3-Ch12b-Orangutan, v_b3_ch12_eiden = 0) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 0 && v_b3_ch10_eiden != 0)
-choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 0 && v_b3_ch10_eiden != 0)
-choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 0 && v_b3_ch10_eiden != 0)
 choice("Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.", B3-Ch12b-Orangutan, v_current_scene = B3-Ch12b-Orangutan, v_b3_ch12_eiden = 0) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
-choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
-choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
-choice("Temporarily steal Eiden's energy with my stat device.", B3-Ch12b-Steal, v_current_scene = B3-Ch12b-Steal, v_b3_ch12_eiden = 3) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
 choice("Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.", B3-Ch12b-Orangutan, v_current_scene = B3-Ch12b-Orangutan, v_b3_ch12_eiden = 0) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 0)
-choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 0)
-choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 0)
 choice("Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.", B3-Ch12b-Orangutan, v_current_scene = B3-Ch12b-Orangutan, v_b3_ch12_eiden = 0) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 1)
+choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 0 && v_b3_ch10_eiden != 0)
+choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
+choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 0)
 choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 1)
+choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 0 && v_b3_ch10_eiden != 0)
+choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
+choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 0)
 choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 1)
+choice("Temporarily steal Eiden's energy with my stat device.", B3-Ch12b-Steal, v_current_scene = B3-Ch12b-Steal, v_b3_ch12_eiden = 3) if (v_b3_ch12_hadrik == 0 && v_b3_ch11_transferred == 1 && v_b3_ch10_eiden != 0)
 choice("Temporarily steal Eiden's energy with my stat device.", B3-Ch12b-Steal, v_current_scene = B3-Ch12b-Steal, v_b3_ch12_eiden = 3) if (v_b3_ch12_hadrik == 1 && v_b3_ch11_transferred == 1)
 
 
@@ -1708,10 +1692,7 @@ set(v_is_dead,1) if (v_bluff < 4 && v_b3_ch12_hadrik == 0)
 set(v_is_dead,1) if (v_bluff < 4 && v_b3_ch12_hadrik == 1)
 set(v_is_dead,1) if (v_bluff == 4 && v_b3_ch12_hadrik == 0)
 set(v_is_dead,0) if (v_bluff == 4 && v_b3_ch12_hadrik == 1)
-FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4 && v_b3_ch12_hadrik == 0)}
-FAIL:[ Bluff check failed - level 4 ] if (v_bluff < 4 && v_b3_ch12_hadrik == 1)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff == 4 && v_b3_ch12_hadrik == 0)}
-SUCCESS:[ Bluff check successful - level 4 ] if (v_bluff == 4 && v_b3_ch12_hadrik == 1)}
+stat_check(v_bluff,4)
 #if(v_bluff < 4 && v_b3_ch12_hadrik == 0) {
  
 "Eiden, watch out!" I shout. "There's a drunken flying orangutan wearing a party hat behind you!"
@@ -1780,13 +1761,13 @@ As Eiden cancels the tornado, he falls to the ground again and then puts his han
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_bluff < 4 && v_b3_ch12_hadrik == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_bluff < 4 && v_b3_ch12_hadrik == 0)
-choice("Load game", , , special:saves) if (v_bluff < 4 && v_b3_ch12_hadrik == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_bluff < 4 && v_b3_ch12_hadrik == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_bluff < 4 && v_b3_ch12_hadrik == 1)
-choice("Load game", , , special:saves) if (v_bluff < 4 && v_b3_ch12_hadrik == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_bluff == 4 && v_b3_ch12_hadrik == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_bluff < 4 && v_b3_ch12_hadrik == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_bluff < 4 && v_b3_ch12_hadrik == 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_bluff == 4 && v_b3_ch12_hadrik == 0)
+choice("Load game", , , special:saves) if (v_bluff < 4 && v_b3_ch12_hadrik == 0)
+choice("Load game", , , special:saves) if (v_bluff < 4 && v_b3_ch12_hadrik == 1)
 choice("Load game", , , special:saves) if (v_bluff == 4 && v_b3_ch12_hadrik == 0)
 choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_bluff == 4 && v_b3_ch12_hadrik == 1)
 
@@ -1837,9 +1818,9 @@ I then begin to fly towards Eiden, slashing my dagger at him, while he dodges ev
 
 }
 choice("Fly straight at Eiden while he's overconfident and stab him with my dagger.", B3-Ch12b-Overconfident, v_current_scene = B3-Ch12b-Overconfident) if (v_b3_ch12_hadrik == 0)
+choice("Fly straight at Eiden while he's overconfident and stab him with my dagger.", B3-Ch12b-Overconfident, v_current_scene = B3-Ch12b-Overconfident) if (v_b3_ch12_hadrik == 1)
 choice("Fly away from Eiden and try to think of a different plan.", B3-Ch12b-Away, v_current_scene = B3-Ch12b-Away) if (v_b3_ch12_hadrik == 0)
-choice("Fly straight at Eiden while he's overconfident and stab him with my dagger.", B3-Ch12b-Overconfident, v_current_scene = B3-Ch12b-Overconfident) if (v_b3_ch12_hadrik > 0)
-choice("Fly away from Eiden and try to think of a different plan.", B3-Ch12b-Away, v_current_scene = B3-Ch12b-Away) if (v_b3_ch12_hadrik > 0)
+choice("Fly away from Eiden and try to think of a different plan.", B3-Ch12b-Away, v_current_scene = B3-Ch12b-Away) if (v_b3_ch12_hadrik == 1)
 
 
 ID: B3-Ch12b-Away
@@ -1893,9 +1874,9 @@ Eiden may have been caught by surprise a little, but he is by no means defensele
 As Eiden cancels the tornado, he falls to the ground again and then puts his hand on his forehead, without doing anything else for a few seconds. His head must be spinning like crazy right now. This is the moment I've been waiting for. It's now or never!
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
-choice("Load game", , , special:saves)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch9_animals != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch9_animals != 2)
+choice("Load game", , , special:saves) if (v_b2_ch9_animals != 2)
 choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_b2_ch9_animals == 2)
 
 
@@ -1990,13 +1971,13 @@ As Eiden cancels the tornado, he falls to the ground and then puts his hand on h
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout != 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout != 3)
-choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout != 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3)
-choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout == 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout != 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout == 3)
+choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout != 3)
+choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3)
 choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_scout == 3)
 choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout == 3)
 
@@ -2007,8 +1988,7 @@ TEXT:
 set(v_is_dead,1) if (v_aura_hardening < 4 && v_b3_ch11_red == 0)
 set(v_is_dead,0) if (v_aura_hardening == 4 && v_b3_ch11_red == 0)
 set(v_is_dead,0) if (v_b3_ch11_red == 1)
-FAIL:[ Aura hardening check failed - level 4 ] if (v_aura_hardening < 4 && v_b3_ch11_red == 0)}
-SUCCESS:[ Aura hardening check successful - level 4 ] if (v_aura_hardening == 4 && v_b3_ch11_red == 0)}
+stat_check(v_aura_hardening,4)
 #if(v_aura_hardening < 4 && v_b3_ch11_red == 0) {
  Unfortunately, due to the imperfect nature of my air currents, I do not manage to fly out of the way fast enough, and the flames cover my entire body. Unable to withstand the heat, I quickly burn to a crisp and die in the next few moments.
 

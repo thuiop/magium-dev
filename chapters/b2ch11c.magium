@@ -62,9 +62,6 @@ Before Daren gets to finish what he was saying, Rose disappears from where she s
 choice("Encourage Rose in her decision", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 1)
 choice("Try to convince Rose that her plan is too dangerous", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 0)
 choice("Tell Rose that her plan sounds stupid", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 2)
-choice("Encourage Rose in her decision", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 1) if (v_ch11_saved_slave == 3)
-choice("Try to convince Rose that her plan is too dangerous", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 0) if (v_ch11_saved_slave == 3)
-choice("Tell Rose that her plan sounds stupid", B2-Ch11c-Encourage, v_current_scene = B2-Ch11c-Encourage, v_b2_ch11_encourage = 2) if (v_ch11_saved_slave == 3)
 
 
 ID: B2-Ch11c-Encourage
@@ -163,9 +160,7 @@ She then closes her eyes and tries to concentrate, as the rest of us fall comple
 "Yes," Melindra says. "You are only the first group to be visited by the time weaver. Once the God of Time is done with his ritual, you will be frozen in time once more, and then the prophecy and the ritual will be repeated for other groups of people as well. Not only that, but this same prophecy will be delivered to you and the others at least two more times, before the events prophesized will come to pass, in order to announce you if any progress has been made, towards your goal of averting the disaster. The reason why Arraka said that you were the most likely ones to influence the prophecy is because the time weavers always visit their targets in order of priority, which means that your group may have the most decisive role in the events to come, depending on your choices."
 
 }
-choice("Continue", B2-Ch11c-Practice, v_current_scene = B2-Ch11c-Practice) if (v_b2_ch11_encourage == 1)
-choice("Continue", B2-Ch11c-Practice, v_current_scene = B2-Ch11c-Practice) if (v_b2_ch11_encourage == 0)
-choice("Continue", B2-Ch11c-Practice, v_current_scene = B2-Ch11c-Practice) if (v_b2_ch11_encourage == 2)
+choice("Continue", B2-Ch11c-Practice, v_current_scene = B2-Ch11c-Practice) if (v_b2_ch11_encourage == 0 || v_b2_ch11_encourage == 1 || v_b2_ch11_encourage == 2)
 
 
 ID: B2-Ch11c-Practice
@@ -256,7 +251,7 @@ When the light fades away, we all find ourselves in the middle of a city which i
  Leaving these strange, tall buildings aside, what is even more peculiar is what's happening directly above us. Currently, there are hundreds of metal, horseless carriages, flying through the air, with people inside them. While these carriages are flying around, there are large holographic screens floating above us, picturing a man that is relaying the same message, over and over, in the Common language. The holographic screens look just like the ones that were created by Golmyck's illusion-casting device, when he announced our first objectives. The message that keeps getting repeated is: 'All non-lessathi citizens are to present themselves to the military reserve area immediately. We are under attack. I repeat, we are under attack!'.
 
 }
-choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry, v_b2_ch11_echoes = 0) if (v_ch4_spared_dave > 0)
+choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry, v_b2_ch11_echoes = 0) if (v_ch4_spared_dave == 1)
 choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy, v_b2_ch11_echoes = 0) if (v_ch4_spared_dave == 0)
 
 
@@ -359,8 +354,7 @@ She then disappears again, but this time, she reappears right behind Daren, hold
 "Do you surrender, healer, or do we need to continue?" the revenant says.
 
 }
-choice("Continue", B2-Ch11c-Asleep, v_current_scene = B2-Ch11c-Asleep) if (v_b2_ch11_defend == 1)
-choice("Continue", B2-Ch11c-Asleep, v_current_scene = B2-Ch11c-Asleep) if (v_b2_ch11_defend == 0)
+choice("Continue", B2-Ch11c-Asleep, v_current_scene = B2-Ch11c-Asleep) if (v_b2_ch11_defend == 0 || v_b2_ch11_defend == 1)
 
 
 ID: B2-Ch11c-Asleep
@@ -531,17 +525,9 @@ She then flies all the way up to where the God of Time was floating when he firs
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch9_channel == 0)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 0)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 1 && v_b2_ch10_activate == 0)
-choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 0 && v_hearing_aux == 7)
-choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 1 && v_hearing_aux == 7)
-choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 2 && v_hearing_aux == 7)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch9_channel == 0 && v_hearing_aux == 7)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 0 && v_hearing_aux == 7)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 1 && v_b2_ch10_activate == 0 && v_hearing_aux == 7)
-choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 1 && v_b2_ch10_activate == 1 && v_hearing_aux == 7)
-choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch11_paranoid == 0 && v_hearing_aux < 7 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_b2_ch10_activate == 1)
-choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch11_paranoid == 1 && v_hearing_aux < 7 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_b2_ch10_activate == 1)
-choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch11_paranoid == 2 && v_hearing_aux < 7 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_b2_ch10_activate == 1)
-choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 1 && v_b2_ch10_activate == 1 && v_hearing_aux < 7)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0)
@@ -592,12 +578,20 @@ choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch11_paranoid == 0 && v_hearing_aux == 7 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_b2_ch10_activate == 0)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch11_paranoid == 1 && v_hearing_aux == 7 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_b2_ch10_activate == 0)
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch11_paranoid == 2 && v_hearing_aux == 7 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_b2_ch10_activate == 0)
+choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 0 && v_hearing_aux == 7)
+choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 1 && v_hearing_aux == 7)
+choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 2 && v_hearing_aux == 7)
+choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 1 && v_b2_ch10_activate == 1 && v_hearing_aux == 7)
+choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch11_paranoid == 0 && v_hearing_aux < 7 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_b2_ch10_activate == 1)
+choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch11_paranoid == 1 && v_hearing_aux < 7 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_b2_ch10_activate == 1)
+choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch11_paranoid == 2 && v_hearing_aux < 7 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_b2_ch10_activate == 1)
+choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch9_channel == 1 && v_b2_ch6_stat == 1 && v_b2_ch10_activate == 1 && v_hearing_aux < 7)
 
 
 ID: B2-Ch11c-Enough
 TEXT: 
 
-SUCCESS:[ Hearing check successful - level 7 ]}
+stat_check(v_hearing,7)
  
 "Yes, that was the reason," the revenant says. "Like I said before, the spell that brought me into this world was designed to implant a lot of the God of Death's knowledge into my mind, and amongst that knowledge, there was also some information about the stat devices, and how they work. In short, the temporary stat boost that gets activated with your secret code is entirely dependent upon a brief timer which won't set itself off as long as the world is frozen in time. However, since you managed to activate it right before the time froze, the timer has frozen as well, thus granting you extra hearing capabilities for the whole duration of this time-freezing spell."
 
@@ -624,7 +618,7 @@ choice("Continue", B2-Ch11c-Enough2, v_current_scene = B2-Ch11c-Enough2)
 ID: B2-Ch11c-Maximum
 TEXT: 
 
-FAIL:[ Hearing check failed - level 7 ]}
+stat_check(v_hearing,7)
  
 "Yes, that was the reason," the revenant says. "Like I said before, the spell that brought me into this world was designed to implant a lot of the God of Death's knowledge into my mind, and amongst that knowledge, there was also some information about the stat devices, and how they work. In short, the temporary stat boost that gets activated with your secret code is entirely dependent upon a brief timer which won't set itself off as long as the world is frozen in time. However, since you managed to activate it right before the time froze, the timer has frozen as well, thus granting you extra hearing capabilities for the whole duration of this time-freezing spell."
 
@@ -808,8 +802,7 @@ Since Leila didn't really feel like talking at the moment, I decided to give her
 "No, we didn't need to do that," Kate says. "We left them with Enrique. He offered to move in with the children, after he found out about Rose's death, so he will be taking care of them, from now on."
 
 }
-choice("Continue", B2-Ch11c-Anxiousness, v_current_scene = B2-Ch11c-Anxiousness) if (v_b2_ch11_explain == 1)
-choice("Continue", B2-Ch11c-Anxiousness, v_current_scene = B2-Ch11c-Anxiousness) if (v_b2_ch11_explain == 0)
+choice("Continue", B2-Ch11c-Anxiousness, v_current_scene = B2-Ch11c-Anxiousness) if (v_b2_ch11_explain == 0 || v_b2_ch11_explain == 1)
 
 
 ID: B2-Ch11c-Anxiousness
@@ -859,7 +852,7 @@ When the light fades away, we all find ourselves in the middle of a city which i
  Leaving these strange, tall buildings aside, what is even more peculiar is what's happening directly above us. Currently, there are hundreds of metal, horseless carriages, flying through the air, with people inside them. While these carriages are flying around, there are large holographic screens floating above us, picturing a man that is relaying the same message, over and over, in the Common language. The holographic screens look just like the ones that were created by Golmyck's illusion-casting device, when he announced our first objectives. The message that keeps getting repeated is: 'All non-lessathi citizens are to present themselves to the military reserve area immediately. We are under attack. I repeat, we are under attack!'.
 
 }
-choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry) if (v_ch4_spared_dave > 0)
+choice("Continue", B2-Ch11c-Jewelry, v_current_scene = B2-Ch11c-Jewelry) if (v_ch4_spared_dave == 1)
 choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch4_spared_dave == 0)
 
 
@@ -1008,34 +1001,17 @@ Just as the cutthroat was finishing his sentence, a bright white light covers ou
 Leaving these strange, tall buildings aside, what is even more peculiar is what's happening directly above us. Currently, there are hundreds of metal, horseless carriages, flying through the air, with people inside them. While these carriages are flying around, there are large holographic screens floating above us, picturing a man that is relaying the same message, over and over, in the Common language. The holographic screens look just like the ones that were created by Golmyck's illusion-casting device, when he announced our first objectives. The message that keeps getting repeated is: 'All non-lessathi citizens are to present themselves to the military reserve area immediately. We are under attack. I repeat, we are under attack!'.
 
 }
-choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch11_saved_rose == 1)
-choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch11c-Frenzy
 TEXT: 
 
 set(v_b2_ch11_district,1) if (v_ancient_languages == 4)
-set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 4)
-set(v_b2_ch11_district,0) if (v_ancient_languages == 0)
-set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 0)
-set(v_b2_ch11_district,0) if (v_ancient_languages == 1)
-set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 1)
-set(v_b2_ch11_district,0) if (v_ancient_languages == 2)
-set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 2)
-set(v_b2_ch11_district,0) if (v_ancient_languages == 3)
-set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 3)
+set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 2)
+set(v_b2_ch11_district,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
 set(v_b2_ch11_added_hearing,2) if (v_b2_ch11_added_hearing == 1)
-set(v_b2_ch11_district,0) if (v_b2_ch11_added_hearing == 1)
-set(v_b2_ch11_district,0) if (v_b2_ch11_added_hearing == 2)
-set(v_b2_ch11_added_hearing,0) if (v_b2_ch11_added_hearing == 2)
-set(v_b2_ch11_district,0) if (v_b2_ch11_added_hearing == 0)
-set(v_b2_ch11_added_hearing,0) if (v_b2_ch11_added_hearing == 0)
-SUCCESS:[ Ancient languages check successful - level 4 ] if (v_ancient_languages == 4)}
-FAIL:[ Ancient languages check failed - level 4 ] if (v_ancient_languages == 0)}
-FAIL:[ Ancient languages check failed - level 4 ] if (v_ancient_languages == 1)}
-FAIL:[ Ancient languages check failed - level 4 ] if (v_ancient_languages == 2)}
-FAIL:[ Ancient languages check failed - level 4 ] if (v_ancient_languages == 3)}
+stat_check(v_ancient_languages,4)
 #if(v_ancient_languages == 4) {
  
 The flying carriages are moving in a frenzy, while people around us are all hurrying in the same direction, which I'm guessing is the way to the military reserve area. As if this wasn't already unsettling enough, I can't help but notice that the whole city is filled to the brim with dark blue banners, having a hawk holding the sun in its talons drawn on each of them.
@@ -1096,28 +1072,28 @@ I'm not really sure what kind of an attacker could make a whole city panic like 
 
 }
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 4)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 4)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 4)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 0)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 0)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 0)
-choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages > 0)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages > 0)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages > 0)
+choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 1)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 2)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 2)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 2)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 3)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 3)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 3)
-choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing > 0)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing > 0)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing > 0)
+choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing == 1)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing == 2)
-choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing == 2)
-choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing == 2)
 choice("""Never mind the history lesson. Any idea who might be attacking the city?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_b2_ch11_added_hearing == 0)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 4)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 0)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 1)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 2)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 3)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing == 1)
+choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing == 2)
 choice("""Should I take it that we are still in Varathia, then?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_b2_ch11_added_hearing == 0)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 4)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 0)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 1)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 2)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 3)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing == 1)
+choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing == 2)
 choice("""How do these towers work, exactly?""", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_b2_ch11_added_hearing == 0)
 
 
@@ -1238,12 +1214,7 @@ choice("Try to stall for time, in the hopes that the others can come up with a p
 ID: B2-Ch11c-Shelter
 TEXT: 
 
-set(v_is_dead,0) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 1)
-set(v_is_dead,0) if (v_b2_ch11_dagger == 0 && v_b2_ch11_echoes == 1)
-set(v_is_dead,0) if (v_b2_ch11_echoes == 1 && v_ch4_spared_dave == 1)
-set(v_is_dead,0) if (v_b2_ch11_echoes == 1 && v_ch4_spared_dave == 0)
-set(v_is_dead,0) if (v_b2_ch11_echoes == 1)
-set(v_is_dead,0) if (v_b2_ch11_dagger == 0 && v_b2_ch11_echoes == 0)
+set(v_is_dead,0) if (v_b2_ch11_dagger == 0 && v_b2_ch11_echoes == 0 || v_b2_ch11_echoes == 1)
 set(v_is_dead,1) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 0)
 #if(v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 1) {
  "You won't be able to take us down that easily," I say, as I take out my dagger and begin to approach her.
@@ -1595,8 +1566,7 @@ While we were still being pressed against the ground, Rose's eyes suddenly becam
 As everyone goes to find a place where they can be alone, for a while, Daren goes to sit on a tree stump, and begins to sharpen his blade, in order to make himself look busy.
 
 }
-choice("Continue", B2-Ch11c-Ending, v_current_scene = B2-Ch11c-Ending) if (v_ch11_saved_rose == 0)
-choice("Continue", B2-Ch11c-Ending, v_current_scene = B2-Ch11c-Ending) if (v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11c-Ending, v_current_scene = B2-Ch11c-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch11c-Ending
