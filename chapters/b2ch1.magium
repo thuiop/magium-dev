@@ -1021,6 +1021,8 @@ She puts her palm on the pedestal again, but this time, nothing happens.
 
 "Hey, Barry, can you hear me?" I hear Daren's voice, coming from the transceiver.
 
+}
+#if(v_b2_ch1_puzzle2 == 1) {
  "Yeah, I hear you," I say, as I grab the transceiver in my right hand.
 Flower frowns at me, for ignoring her, and she takes my left hand herself, placing it on the pedestal. Just like before, the base of the pedestal opens up and throws out another puzzle piece and parchment. Flower takes both items and puts them in her pocket.
 
@@ -1055,57 +1057,6 @@ She puts her palm on the pedestal again, but this time, nothing happens.
 
 "Hey, Barry, can you hear me?" I hear Daren's voice, coming from the transceiver.
 
- "Yeah, I hear you," I say, as I grab the transceiver in my right hand.
-Flower frowns at me, for ignoring her, and she takes my left hand herself, placing it on the pedestal. Just like before, the base of the pedestal opens up and throws out another puzzle piece and parchment. Flower takes both items and puts them in her pocket.
-
-"The castle servant came back," Daren says. "He said the king will see us now. Hurry up and get back here, will you?"
-
-"Yeah, we're on our way," I say. 
-
-After we make our way out of the dark room behind the wall, Flower pulls on the lever again, and the bricks go back into their original position. She then grabs the brick off the ground, and carefully places it back into the wall.
-
-"We wouldn't want anyone else to discover the secret before us, would we, Barry?" Flower says, with a smile.
-
-"I suppose not," I say, as we start to head back to where everyone else was waiting for us.
-
-"Well?" Daren says when we reach them. "Did you find what you were looking for?"
-
-"Yep!" Flower says, with a cheerful smile.
-
-"Spectacular," Daren says. "Now, let's get moving."
-
- Suddenly, a hole appears at the base of the pedestal, and two small objects get thrown out of it. As I reach to get them, the hole closes itself back up again. Getting a closer look at the two items, I see that one of them is a piece of a puzzle, while the other one is a small parchment. I hold the parchment in my hand, so that both Flower and I can see what's written on it.
-As I read the text on the parchment, I notice that it's written in the Common language as well, and that it says: "Find all of the pieces of the puzzle, and I will share with you my greatest secret. I've left one of these in each of the buildings I've designed."
-
-The parchment is then signed as simply: "This building's architect."
-
-"Hey, this sounds like fun!" Flower says. "I want one too!"
-
-She puts her palm on the pedestal again, but this time, nothing happens.
-
-"It doesn't let me get another one!" Flower says. "Barry, you try it!"
-
-"Hey, Barry, can you hear me?" I hear Daren's voice, coming from the transceiver.
-
- "Yeah, I hear you," I say, as I grab the transceiver in my right hand.
-Flower frowns at me, for ignoring her, and she takes my left hand herself, placing it on the pedestal. Just like before, the base of the pedestal opens up and throws out another puzzle piece and parchment. Flower takes both items and puts them in her pocket.
-
-"The castle servant came back," Daren says. "He said the king will see us now. Hurry up and get back here, will you?"
-
-"Yeah, we're on our way," I say. 
-
-After we make our way out of the dark room behind the wall, Flower pulls on the lever again, and the bricks go back into their original position. She then grabs the brick off the ground, and carefully places it back into the wall.
-
-"We wouldn't want anyone else to discover the secret before us, would we, Barry?" Flower says, with a smile.
-
-"I suppose not," I say, as we start to head back to where everyone else was waiting for us.
-
-"Well?" Daren says when we reach them. "Did you find what you were looking for?"
-
-"Yep!" Flower says, with a cheerful smile.
-
-"Spectacular," Daren says. "Now, let's get moving."
-
 }
 #if(v_b2_ch1_puzzle2 == 0) {
  While Flower is still inside the wall, the door in front of us opens again, and the same castle servant appears before us.  
@@ -1131,10 +1082,7 @@ While the bricks move back into place, the girl picks up the brick she pulled ou
 "Whatever," Daren says. "Come on, let's get moving!"
 
 }
-choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
-choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
-choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 0)
+choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 0 || v_b2_ch1_puzzle2 == 1)
 
 
 ID: B2-Ch01a-Reason
@@ -1416,7 +1364,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-#if(v_b2_ch1_spin == 0 && v_ch11_saved_slave != 3 && v_ch11_kill_noble == 0) {
+#if(v_b2_ch1_spin == 0 && v_ch11_kill_noble == 0 && v_ch11_saved_slave != 3) {
  "We didn't kill him! We're innocent!" 
 "Innocent, you say?" Golmyck says, while stroking his chin. "Now that I think about it, our reports did show that there was also another person there with you, when you attacked the earl. Are you saying that this other person is in fact responsible for the earl of Ollendor's death?"
 
@@ -1459,7 +1407,7 @@ As we all turn around, Eiden starts to walk slowly towards the ambassador, and h
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-#if(v_b2_ch1_spin == 1 && v_ch11_saved_slave != 3 && v_ch11_kill_noble == 0) {
+#if(v_b2_ch1_spin == 1 && v_ch11_kill_noble == 0 && v_ch11_saved_slave != 3) {
  We didn't kill him! We're innocent!" 
 "Innocent, you say?" Golmyck says, while stroking his chin. "Now that I think about it, our reports did show that there was also another person there with you, when you attacked the earl. Are you saying that this other person is in fact responsible for the earl of Ollendor's death?"
 
@@ -1498,12 +1446,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 && v_ch11_kill_noble == 1)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 1 && v_ch11_kill_noble == 1)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 && v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 1 && v_ch11_saved_slave == 3)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 && v_ch11_saved_slave != 3 && v_ch11_kill_noble == 0)
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 1 && v_ch11_saved_slave != 3 && v_ch11_kill_noble == 0)
+choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 && v_ch11_kill_noble == 0 || v_b2_ch1_spin == 0 && v_ch11_kill_noble == 1 || v_b2_ch1_spin == 0 && v_ch11_saved_slave == 3 || v_b2_ch1_spin == 1 && v_ch11_kill_noble == 0 || v_b2_ch1_spin == 1 && v_ch11_kill_noble == 1 || v_b2_ch1_spin == 1 && v_ch11_saved_slave == 3)
 
 
 ID: B2-Ch01a-Creator
@@ -1556,7 +1499,7 @@ The ambassador is now sweating even harder than before, and he seems to be too a
 
 "No..." the ambassador says. "No, of course not..."
 
-#if(v_ch11_saved_slave != 3 && v_ch11_kill_noble == 0) {
+#if(v_ch11_kill_noble == 0 && v_ch11_saved_slave != 3) {
  "Oh?" Eiden says, with an evil smile. "And what if I told you that I was in fact both the one who gave them the ability to hurt the people of Varathia, and the one who killed your beloved earl?"
 The ambassador is now sweating even harder than before, and he seems to be too afraid to give Eiden an answer. Seeing the expression on his face, Eiden starts to laugh.
 
@@ -1574,7 +1517,6 @@ The ambassador is now sweating even harder than before, and he seems to be too a
 
 }
 choice("Continue", B2-Ch01a-Creator3, v_current_scene = B2-Ch01a-Creator3)
-choice("Continue", B2-Ch01a-Creator3, v_current_scene = B2-Ch01a-Creator3) if (v_ch11_saved_slave != 3 && v_ch11_kill_noble == 0)
 
 
 ID: B2-Ch01a-Creator3

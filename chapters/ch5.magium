@@ -67,7 +67,7 @@ She's hiding something again. I just know it.
 "They're being backed by the kings?" Daren asks. "What would Eiden want with these hotshots? You simply have to tell them to remember the still winter, right? I wonder what that's supposed to mean?"
 
 }
-#if(v_ch4_ending == 3) {
+#if(v_ch4_ending == 5 && v_ch4_dave_defeat != 1 || v_ch4_ending == 3) {
 
 "Daren!"
 
@@ -107,28 +107,7 @@ He enters the forest, and starts looking around for Cutthroat Dave.
 "Wait, you're saying he used fire magic? Didn't he use air magic that time when he pinned me to the ground? Normally it takes a lifetime to master even a single element!"
 
 }
-#if(v_ch4_ending == 5 && v_ch4_dave_defeat != 1) {
-
-"Daren!"
-
-There's no answer.
-
-"Hey, Daren!"
-
-Daren suddenly wakes up and starts looking around him, confused.
-
-"What happened? Where's the stillwater?" he asks me.
-
-"That's the second time you ask me these exact questions. He's gone. He vanished right after he put you to sleep."
-
-"Put me to sleep?... No, that can't be! I have so much protection against sleep spells that I should be almost immune. At the very least I should be able to keep my consciousness!"
-
-"Well I'm just telling you what I saw. I don't claim to understand it either. At any rate, I think we should wake up Kate. She needs to hear what happened, and we could use another strategy meeting right about now."
-
-The two of us head for our cave and proceed to wake Kate from her slumber.
-
-}
-#if(v_ch4_ending == 5 && v_ch4_dave_defeat == 1) {
+#if(v_ch4_dave_defeat == 1 && v_ch4_ending == 5) {
 
 "Daren!"
 
@@ -198,9 +177,7 @@ choice("""Maybe he's older than he looks?""", Ch5-Older, v_current_scene = Ch5-O
 choice("""Maybe he made a pact with some god?""", Ch5-Pact, v_current_scene = Ch5-Pact, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
 choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch4_ending == 2)
 choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch4_ending == 2)
-choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 3)
-choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 5 && v_ch4_dave_defeat != 1)
-choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 5 && v_ch4_dave_defeat == 1)
+choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 3 || v_ch4_ending == 5)
 
 
 ID: Ch5-Artifact
@@ -317,12 +294,8 @@ She's hiding something again. I just know it.
 "They're being backed by the kings?" Daren asks. "What would Eiden want with these hotshots? You simply have to tell them to remember the still winter, right? I wonder what that's supposed to mean?"
 
 }
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_kate_badly_hurt == 1)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_kate_badly_hurt == 1)
+choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
 
 
 ID: Ch5-Threat
@@ -866,7 +839,7 @@ choice("Continue", Ch5-Goblins, v_current_scene = Ch5-Goblins)
 ID: Ch5-Goblins
 TEXT: 
 
-set(v_ch5_goblins,0) if (v_ancient_languages <= 3)
+set(v_ch5_goblins,0) if (v_ancient_languages == 3 || v_ancient_languages < 3)
 #if(v_ancient_languages < 3) {
 
 As soon as they see us, one of them yells something to his allies in a language I don't understand, and then they all quickly make themselves scarce. Visibly, they were not prepared for an actual fight.

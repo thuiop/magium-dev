@@ -244,9 +244,9 @@ choice("Wait for him to make mistakes, then attack him directly", B2-Ch05b-Tacti
 ID: B2-Ch05b-Tactic1
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2 && (v_b2_ch5_scimitar == 0 || v_strength >= 1) && (v_strength >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_agility >= 2 && v_strength >= 2 || v_agility >= 2 && v_strength >= 1 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_agility < 2)
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
+#if(v_agility >= 2 && v_strength >= 1 && v_b2_ch5_scimitar != 0) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -260,7 +260,7 @@ I somehow manage to surprise him even when he was the one who initiated the atta
 Once my opponent gets disarmed, I make a quick rush towards him with my weapon, and in an attempt to dodge me, he falls on his back. I then immediately put my blade to his throat, not giving him a chance to get back up.
 
 }
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2) {
+#if(v_b2_ch5_scimitar == 0 && v_agility >= 2 && v_strength >= 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -285,7 +285,7 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 Rushing straight into the enemy's attack was not one of my better ideas. Instead of surprising him, I ended up right where he wanted me, and the gladiator swung his axe straight at me, killing me in one blow.
 
 }
-#if(v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0) {
+#if(v_strength == 0 && v_agility >= 2 && v_b2_ch5_scimitar != 0) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -297,7 +297,7 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 I somehow manage to surprise him even when he was the one who initiated the attack, and I try using my scimitar like a hook, in order to pull his battle-axe out of his hands by its head, but I'm not strong enough to pull it out of his grasp. The loss of momentum from my failed attack is enough for the warrior to swing his axe straight at me, and he kills me in one blow.
 
 }
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2) {
+#if(v_b2_ch5_scimitar == 0 && v_agility >= 2 && v_strength < 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -309,23 +309,16 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 I somehow manage to surprise him even when he was the one who initiated the attack, and I slash at his battle-axe's handle with my dagger as hard as I can, but it is not enough to knock it out of his hands. The loss of momentum from my failed attack is enough for the warrior to swing his axe straight at me, and he kills me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
-choice("Load game", , , special:saves) if (v_agility < 2)
-choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_b2_ch5_scimitar == 0 && v_agility >= 2 && v_strength >= 2 || v_agility >= 2 && v_strength >= 1 && v_b2_ch5_scimitar != 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_agility < 2)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_agility < 2)
 
 
 ID: B2-Ch05b-Tactic2
 TEXT: 
 
-set(v_is_dead,0) if (v_agility >= 2 && (v_combat_technique >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,0) if (v_agility >= 2 && v_combat_technique >= 2 || v_agility >= 2 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_agility < 2)
 #if(v_agility >= 2 && v_b2_ch5_scimitar != 0) {
  
@@ -338,7 +331,7 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 I somehow manage to surprise him even when he was the one who initiated the attack, and I use my scimitar to stab him between his ribs. Given the curved nature of my weapon, the cut does not go very deep, but it is enough for the gladiator to panic and to jump back, in order to get away from my blade. I quickly follow him, and I slash at him again, which makes him trip and fall on his back, while dropping the battle-axe from his hands. I then kick the weapon away from him, and I put my scimitar to his throat, to make sure that he won't try to get up anymore.
 
 }
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2) {
+#if(v_b2_ch5_scimitar == 0 && v_agility >= 2 && v_combat_technique >= 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -361,7 +354,7 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 Rushing straight into the enemy's attack was not one of my better ideas. Instead of surprising him, I ended up right where he wanted me, and the gladiator swung his axe straight at me, killing me in one blow.
 
 }
-#if(v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2) {
+#if(v_b2_ch5_scimitar == 0 && v_agility >= 2 && v_combat_technique < 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -373,22 +366,18 @@ It's going to be a bit hard to take him by surprise, when he's trying to do the 
 I somehow manage to surprise him even when he was the one who initiated the attack, and I attempt to stab him in the chest with my dagger. To my shock and dismay, in a miraculous turn of events, the gladiator manages to parry my hit with the handle of his axe at the very last moment, and then he uses it to hit me in the head, stunning me for a brief moment. That one moment was all he needed, and he quickly brings down his battle-axe upon me, killing me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar != 0)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
-choice("Load game", , , special:saves) if (v_agility < 2)
-choice("Load game", , , special:saves) if (v_agility >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_agility >= 2 && v_combat_technique >= 2 || v_agility >= 2 && v_b2_ch5_scimitar != 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_agility < 2)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_agility < 2)
 
 
 ID: B2-Ch05b-Tactic3
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 2 && (v_b2_ch5_scimitar == 0 || v_strength >= 1) && (v_strength >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_reflexes >= 2 && v_strength >= 2 || v_reflexes >= 2 && v_strength >= 1 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_reflexes < 2)
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1) {
+#if(v_reflexes >= 2 && v_strength >= 1 && v_b2_ch5_scimitar != 0) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -402,7 +391,7 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 Once my opponent gets disarmed, I make a quick rush towards him with my weapon, and in an attempt to dodge me, he falls on his back. I then immediately put my blade to his throat, not giving him a chance to get back up.
 
 }
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2) {
+#if(v_b2_ch5_scimitar == 0 && v_reflexes >= 2 && v_strength >= 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -427,7 +416,7 @@ I wait for him to reach me, and I begin dodging his attacks, trying to find the 
 Unfortunately, dodging a large battle-axe wielded by a seasoned warrior proved to be a little more difficult than I was hoping. I do not even manage to evade the gladiator's first strike properly, and he finishes me off in one blow.
 
 }
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0) {
+#if(v_strength == 0 && v_reflexes >= 2 && v_b2_ch5_scimitar != 0) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -441,7 +430,7 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 As soon as I catch my opponent on the wrong footing, I try using my scimitar like a hook, in order to pull his battle-axe out of his hands by its head, but I'm not strong enough to pull it out of his grasp. The loss of momentum from my failed attack is enough for the warrior to swing his axe straight at me, and he kills me in one blow.
 
 }
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2) {
+#if(v_b2_ch5_scimitar == 0 && v_reflexes >= 2 && v_strength < 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -455,23 +444,16 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 I dance around the warrior enough to get him a bit tired, and as soon as I catch him on the wrong footing, I slash at his battle-axe's handle with my dagger as hard as I can, in an attempt to disarm him, but the force of the blow is not enough to knock the weapon out of his hands. The loss of momentum from my failed attack is enough for the warrior to swing his axe straight at me, and he kills me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength >= 1)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength >= 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
-choice("Load game", , , special:saves) if (v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0 && v_strength == 0)
-choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_strength < 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_b2_ch5_scimitar == 0 && v_reflexes >= 2 && v_strength >= 2 || v_reflexes >= 2 && v_strength >= 1 && v_b2_ch5_scimitar != 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0 && v_strength < 2 || v_strength == 0 && v_b2_ch5_scimitar != 0 || v_reflexes < 2)
 
 
 ID: B2-Ch05b-Tactic4
 TEXT: 
 
-set(v_is_dead,0) if (v_reflexes >= 2 && (v_combat_technique >= 2 || v_b2_ch5_scimitar != 0))
+set(v_is_dead,0) if (v_combat_technique >= 2 && v_reflexes >= 2 || v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_reflexes < 2)
 #if(v_reflexes >= 2 && v_b2_ch5_scimitar != 0) {
  
@@ -486,7 +468,7 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 As soon as I catch my opponent on the wrong footing, I use my scimitar to stab him in an undefended area to the right side of his chest. Given the curved nature of my weapon, the cut does not go very deep, but it is enough for the gladiator to panic and to jump back, in order to get away from my blade. I quickly follow him, and I slash at him again, which makes him trip and fall on his back, while dropping the battle-axe from his hands. I then kick the weapon away from him, and I put my scimitar to his throat, to make sure that he won't try to get up anymore.
 
 }
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2) {
+#if(v_b2_ch5_scimitar == 0 && v_combat_technique >= 2 && v_reflexes >= 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -511,7 +493,7 @@ I wait for him to reach me, and I begin dodging his attacks, trying to find the 
 Unfortunately, dodging a large battle-axe wielded by a seasoned warrior proved to be a little more difficult than I was hoping. I do not even manage to evade the gladiator's first strike properly, and he finishes me off in one blow.
 
 }
-#if(v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2) {
+#if(v_b2_ch5_scimitar == 0 && v_reflexes >= 2 && v_combat_technique < 2) {
  
 
 As I finish planning my attack, the man reaches my position, and he stops about a dozen feet away from me, measuring me up with an arrogant smile on his face. He doesn't say anything, but it's pretty obvious what he's thinking. He clearly cannot picture himself losing this fight. 
@@ -525,14 +507,10 @@ Evading the warrior's attacks is definitely not easy, due to the large size of h
 I dance around the warrior enough to get him a bit tired, and as soon as I catch him on the wrong footing, I attempt to stab him in the chest with my dagger. Unfortunately, even from his unfavorable position, the warrior still manages to parry my hit with the handle of his axe, and then he uses the same handle to hit me in the head, stunning me for a brief moment. That one moment was all he needed, and he quickly brings down his battle-axe upon me, killing me in one blow.
 
 }
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
-choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique >= 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 2)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
-choice("Load game", , , special:saves) if (v_reflexes < 2)
-choice("Load game", , , special:saves) if (v_reflexes >= 2 && v_b2_ch5_scimitar == 0 && v_combat_technique < 2)
+choice("Continue", B2-Ch05b-Mercy, v_current_scene = B2-Ch05b-Mercy) if (v_combat_technique >= 2 && v_reflexes >= 2 || v_reflexes >= 2 && v_b2_ch5_scimitar != 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_b2_ch5_scimitar == 0 && v_combat_technique < 2 || v_reflexes < 2)
 
 
 ID: B2-Ch05b-Mercy
@@ -608,7 +586,7 @@ choice("Continue", B2-Ch05b-Undesirables, v_current_scene = B2-Ch05b-Undesirable
 ID: B2-Ch05b-Undesirables
 TEXT: 
 
-#if(v_b2_ch5_wilhelm == 0 && v_b2_ch2_creatures == 0) {
+#if(v_b2_ch2_creatures == 0 && v_b2_ch5_wilhelm == 0 || v_b2_ch2_creatures == 0 && v_b2_ch5_wilhelm == 1 || v_b2_ch2_creatures == 1 && v_b2_ch5_wilhelm == 0 || v_b2_ch2_creatures == 1 && v_b2_ch5_wilhelm == 1) {
  The rest of the battles went by without any particular incidents, and without any of the gladiators standing out in any way. However, there seemed to be something of a pattern forming with the scheduling of the duels. First of all, neither me, nor Daren, nor Hadrik were being called anymore for any of the fights. Kate was scheduled to fight a few times, but she refused every time, taking full advantage of her undesirable status. Secondly, there have been no more fights to the death whatsoever, after my last battle. Most of the battles ended with light scratches, or with gladiators surrendering before the fight even began, due to obvious differences in power levels.
 By the time the third round ended, it was getting pretty obvious that these changes had been specifically requested by the ambassador, with the purpose of keeping as many of the gladiators alive as possible, in order to get us to fight them all in the penalty round.
 
@@ -616,6 +594,8 @@ The winner of the third round was some guy from the seventh division that didn't
 
 "Will the undesirables please form a line and face the rest of the gladiators?" the announcer says.
 
+}
+#if(v_b2_ch2_creatures == 0 && v_b2_ch5_wilhelm == 0) {
  Daren, Hadrik, Kate and I all head towards the center of the arena, and we stand side by side, preparing our weapons. 
 "Now, who is ready to participate in the final--" the announcer starts to say, but he stops, when he sees Leila and Bruce both move at the same time, in order to join our side.
 
@@ -630,7 +610,7 @@ The winner of the third round was some guy from the seventh division that didn't
 Wilhelm frowns at Bruce, who was looking straight at him when he said those last words. The assassin, however, chooses not to respond to Bruce's provocation, and he remains in his spot.
 
 }
-#if(v_b2_ch5_wilhelm == 1 && v_b2_ch2_creatures == 0) {
+#if(v_b2_ch2_creatures == 0 && v_b2_ch5_wilhelm == 1) {
  Daren, Hadrik, Kate and I all head towards the center of the arena, and we stand side by side, preparing our weapons. 
 "Now, who is ready to participate in the final--" the announcer starts to say, but he stops, when he sees Leila and Bruce both move at the same time, in order to join our side.
 
@@ -644,15 +624,8 @@ Wilhelm frowns at Bruce, who was looking straight at him when he said those last
 
 Wilhelm frowns at Bruce, who was looking straight at him when he said those last words. After a few seconds of silence, the assassin moves from his spot and then joins our side as well.
 
- The rest of the battles went by without any particular incidents, and without any of the gladiators standing out in any way. However, there seemed to be something of a pattern forming with the scheduling of the duels. First of all, neither me, nor Daren, nor Hadrik were being called anymore for any of the fights. Kate was scheduled to fight a few times, but she refused every time, taking full advantage of her undesirable status. Secondly, there have been no more fights to the death whatsoever, after my last battle. Most of the battles ended with light scratches, or with gladiators surrendering before the fight even began, due to obvious differences in power levels.
-By the time the third round ended, it was getting pretty obvious that these changes had been specifically requested by the ambassador, with the purpose of keeping as many of the gladiators alive as possible, in order to get us to fight them all in the penalty round.
-
-The winner of the third round was some guy from the seventh division that didn't really do anything special, but had the luck of running into a lot of cowards who surrendered before their fights even began. Once the winner received his prize, the announcer called for all the gladiators to assemble in the fighting area one last time, so the penalty round could finally begin.
-
-"Will the undesirables please form a line and face the rest of the gladiators?" the announcer says.
-
 }
-#if(v_b2_ch5_wilhelm == 0 && v_b2_ch2_creatures == 1) {
+#if(v_b2_ch2_creatures == 1 && v_b2_ch5_wilhelm == 0) {
  Daren, Kate and I all head towards the center of the arena, and we stand side by side, preparing our weapons. 
 "Now, who is ready to participate in the final--" the announcer starts to say, but he stops, when he sees Hadrik, Leila and Bruce all move at the same time, in order to join our side.
 
@@ -670,15 +643,8 @@ Wilhelm frowns at Bruce, who was looking straight at him when he said those last
 
 "Well, you know me," Hadrik says. "I always like a good challenge!"
 
- The rest of the battles went by without any particular incidents, and without any of the gladiators standing out in any way. However, there seemed to be something of a pattern forming with the scheduling of the duels. First of all, neither me, nor Daren, nor Hadrik were being called anymore for any of the fights. Kate was scheduled to fight a few times, but she refused every time, taking full advantage of her undesirable status. Secondly, there have been no more fights to the death whatsoever, after my last battle. Most of the battles ended with light scratches, or with gladiators surrendering before the fight even began, due to obvious differences in power levels.
-By the time the third round ended, it was getting pretty obvious that these changes had been specifically requested by the ambassador, with the purpose of keeping as many of the gladiators alive as possible, in order to get us to fight them all in the penalty round.
-
-The winner of the third round was some guy from the seventh division that didn't really do anything special, but had the luck of running into a lot of cowards who surrendered before their fights even began. Once the winner received his prize, the announcer called for all the gladiators to assemble in the fighting area one last time, so the penalty round could finally begin.
-
-"Will the undesirables please form a line and face the rest of the gladiators?" the announcer says.
-
 }
-#if(v_b2_ch5_wilhelm == 1 && v_b2_ch2_creatures == 1) {
+#if(v_b2_ch2_creatures == 1 && v_b2_ch5_wilhelm == 1) {
  Daren, Kate and I all head towards the center of the arena, and we stand side by side, preparing our weapons. 
 "Now, who is ready to participate in the final--" the announcer starts to say, but he stops, when he sees Hadrik, Leila and Bruce all move at the same time, in order to join our side.
 
@@ -696,18 +662,8 @@ Wilhelm frowns at Bruce, who was looking straight at him when he said those last
 
 "Well, you know me," Hadrik says. "I always like a good challenge!"
 
- The rest of the battles went by without any particular incidents, and without any of the gladiators standing out in any way. However, there seemed to be something of a pattern forming with the scheduling of the duels. First of all, neither me, nor Daren, nor Hadrik were being called anymore for any of the fights. Kate was scheduled to fight a few times, but she refused every time, taking full advantage of her undesirable status. Secondly, there have been no more fights to the death whatsoever, after my last battle. Most of the battles ended with light scratches, or with gladiators surrendering before the fight even began, due to obvious differences in power levels.
-By the time the third round ended, it was getting pretty obvious that these changes had been specifically requested by the ambassador, with the purpose of keeping as many of the gladiators alive as possible, in order to get us to fight them all in the penalty round.
-
-The winner of the third round was some guy from the seventh division that didn't really do anything special, but had the luck of running into a lot of cowards who surrendered before their fights even began. Once the winner received his prize, the announcer called for all the gladiators to assemble in the fighting area one last time, so the penalty round could finally begin.
-
-"Will the undesirables please form a line and face the rest of the gladiators?" the announcer says.
-
 }
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 0 && v_b2_ch2_creatures == 0)
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 1 && v_b2_ch2_creatures == 0)
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 0 && v_b2_ch2_creatures == 1)
-choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch5_wilhelm == 1 && v_b2_ch2_creatures == 1)
+choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b2_ch2_creatures == 0 && v_b2_ch5_wilhelm == 0 || v_b2_ch2_creatures == 0 && v_b2_ch5_wilhelm == 1 || v_b2_ch2_creatures == 1 && v_b2_ch5_wilhelm == 0 || v_b2_ch2_creatures == 1 && v_b2_ch5_wilhelm == 1)
 
 
 ID: B2-Ch05b-Caliber
@@ -725,6 +681,8 @@ One of the gladiators begins to move forward, but another one pulls him back, fr
 
 Hearing the gladiator's speech, the few other warriors who were planning to join the final round are now all starting to have second thoughts.
 
+}
+#if(v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1) {
  "Really?" the announcer asks, shocked, as he sees that none of the gladiators are volunteering to fight. "No one? Do you people realize what you can gain if you kill either one of those warriors in front of you? You can be freed just like that, or get showered with riches!"
 "Better to be poor than dead," one of the gladiators says, while many of the others nod in agreement.
 
@@ -748,13 +706,6 @@ One of the gladiators begins to move forward, but another one pulls him back, fr
 "Do you have a death wish?" the gladiator from behind says. "Don't you see who you're up against? That dwarf pulverized half of the manticores and the scorpions all by himself! And that healer in armor pretty much fought all the monsters by himself too, and he doesn't even have a scratch. You'd have to be insane to want to fight them!"
 
 Hearing the gladiator's speech, the few other warriors who were planning to join the final round are now all starting to have second thoughts.
-
- "Really?" the announcer asks, shocked, as he sees that none of the gladiators are volunteering to fight. "No one? Do you people realize what you can gain if you kill either one of those warriors in front of you? You can be freed just like that, or get showered with riches!"
-"Better to be poor than dead," one of the gladiators says, while many of the others nod in agreement.
-
-"What do you all think you are doing?" the ambassador shouts furiously, as he comes running into the fighting area once more. "Why aren't you fighting them? There are dozens of you! Dozens!"
-
-"Numbers don't mean anything when you're up against enemies of that caliber," one of the gladiators says.
 
 }
 choice("Continue", B2-Ch05b-Cancelled, v_current_scene = B2-Ch05b-Cancelled) if (v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1)
@@ -1290,6 +1241,8 @@ While Tyrath is busy heating up his body, Golmyck and I manage to position ourse
 
 He then pulls on a lever to his right, and the cargo hold opens below us, dropping the rope.
 
+}
+#if(v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1) {
  Just as the gnome said, the rope unfurls as it falls, and then it starts spinning by itself. The dragon is too busy catching his breath to look above him, and as soon as the rope reaches him, it ties itself around his wings, preventing him from flapping them any further. Tyrath looks shocked, as he starts falling towards the ground, and his first reaction is to try and break free from the rope by using the force of his wings. Failing that, he begins to chew on the rope with his fangs, while also attempting to cut it with his claws, but it's no use. As he gets closer to the ground, the dragon tries using the last of his magic energy reserves to slow down his momentum by teleporting a few dozen feet above his position a few times in a row. This does not slow down his falling speed at all, however, and eventually he hits the ground, with an extremely loud noise, creating a crater in the middle of the arena's fighting area, and sending large clouds of dust all around him.
 "The dragon is grounded!" Golmyck shouts, suddenly, to everyone in the area. "Finish him off, now!"
 
@@ -1308,16 +1261,6 @@ While Tyrath is busy heating up his body, Golmyck and I manage to position ourse
 "Now!" Golmyck says, as we watch the dragon gasp for air.
 
 "Aye, aye, sir!" I say, and I pull on the lever to my right, which opens the cargo hold below us, dropping the rope.
-
- Just as the gnome said, the rope unfurls as it falls, and then it starts spinning by itself. The dragon is too busy catching his breath to look above him, and as soon as the rope reaches him, it ties itself around his wings, preventing him from flapping them any further. Tyrath looks shocked, as he starts falling towards the ground, and his first reaction is to try and break free from the rope by using the force of his wings. Failing that, he begins to chew on the rope with his fangs, while also attempting to cut it with his claws, but it's no use. As he gets closer to the ground, the dragon tries using the last of his magic energy reserves to slow down his momentum by teleporting a few dozen feet above his position a few times in a row. This does not slow down his falling speed at all, however, and eventually he hits the ground, with an extremely loud noise, creating a crater in the middle of the arena's fighting area, and sending large clouds of dust all around him.
-"The dragon is grounded!" Golmyck shouts, suddenly, to everyone in the area. "Finish him off, now!"
-
-"ENOUGH!" Tyrath shouts loudly, and a very powerful explosion of hot air originating from his position suddenly hits us all in the face.
-
- Following the explosion, the dragon's body changes completely, and it starts looking like it is now covered by molten lava, and not by regular scales anymore. He is also now emanating an intimidating fiery aura that is completely different from the one he had before. But that is not all. The magic power that I am now sensing from him is simply insane. If I were to compare it with anything I've felt before, I'd say that it's on a pretty similar level to the magical power of the golden fox. Is this seriously the true form of the red dragon, Tyrath? The one that Arraka was talking about earlier, before we began the fight? How are we even supposed to fight something like this? 
-The rope that was tying the dragon's wings has already been burned into ashes by the dragon's transformation. Tyrath now soars back into the sky, looking more menacing than ever before.
-
-"This is all my fault," Tyrath says, in an unusually calm tone. "I alone am to blame for having given you the illusion that you could actually stand a chance against me. I am now going to fix that mistake. Instead of continuing to fight you individually, I will simply destroy this whole city and everyone in it with a single spell. This way, there will be no more misunderstandings."
 
 }
 choice("Continue", B2-Ch05b-Serious, v_current_scene = B2-Ch05b-Serious) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
@@ -1434,6 +1377,8 @@ We all exit through the gate, trying to find Enrique , but before we get to even
 
 He then turns his back on her and heads towards Enrique who was waiting for us not far from the gate. The girl looks mildly irritated by Daren's remark, but it does not look like she's planning to give up just yet. Taking a better look at her, I notice that her clothes, while aesthetically pleasing, do not look much different from the pajamas that they sell on the Western Continent. They remind me quite a lot of the type of clothing that Eiden likes to wear.
 
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  Wait a minute... This girl knows Eiden... And she wears similar clothing to him... So, does this mean that... No, no, no, what am I even thinking about? It's just a coincidence. There's no way that this girl could be a--
 "Hey, Barry, are you coming?" Daren tells me.
 
@@ -1449,11 +1394,6 @@ We all exit through the gate, trying to find Rose , but before we get to even lo
 "Sorry, kid," Daren says, as he pats the girl on the shoulder, briefly. "We're not giving autographs."
 
 He then turns his back on her and heads towards Rose who was waiting for us not far from the gate. The girl looks mildly irritated by Daren's remark, but it does not look like she's planning to give up just yet. Taking a better look at her, I notice that her clothes, while aesthetically pleasing, do not look much different from the pajamas that they sell on the Western Continent. They remind me quite a lot of the type of clothing that Eiden likes to wear.
-
- Wait a minute... This girl knows Eiden... And she wears similar clothing to him... So, does this mean that... No, no, no, what am I even thinking about? It's just a coincidence. There's no way that this girl could be a--
-"Hey, Barry, are you coming?" Daren tells me.
-
-"Oh, yeah, yeah, I'll be right there," I say, as I throw the young girl one last hesitant look, and then I head towards Daren.
 
 }
 choice("Continue", B2-Ch05b-Ending, v_current_scene = B2-Ch05b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -1474,6 +1414,8 @@ TEXT:
 
 "Damn it, Hadrik!" Daren says. "You are the last person that I want to hear this from. You don't even care about winning the tournament! Didn't you say that you only came here for the challenge? I bet you're only trying to postpone this because you hate the idea of having to go search for pine cones."
 
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  All of a sudden, Kate, Daren and I slowly begin to get raised from the ground, and as we are floating, we all get turned around, simultaneously, to face the opposite way. Standing in front of us now is the young girl in pajamas from before, smiling pleasantly at us.
 "Well, then!" the girl says, with a smile, while clapping her hands together. "Now that I've got your attention, perhaps we could have a little chat? I promise you that this won't take any longer than a few minutes!"
 
@@ -1489,9 +1431,6 @@ TEXT:
 "The king?" Rose asks Daren, shocked.
 
 "Yeah, I couldn't believe my eyes, either," Daren says. "I think I'm slowly starting to understand why this guy got elected as your king by such a large majority."
-
- All of a sudden, Kate, Daren and I slowly begin to get raised from the ground, and as we are floating, we all get turned around, simultaneously, to face the opposite way. Standing in front of us now is the young girl in pajamas from before, smiling pleasantly at us.
-"Well, then!" the girl says, with a smile, while clapping her hands together. "Now that I've got your attention, perhaps we could have a little chat? I promise you that this won't take any longer than a few minutes!"
 
 }
 choice("Next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)

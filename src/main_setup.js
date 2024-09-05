@@ -115,14 +115,22 @@ function parseStatCheck(condition,values) {
         return
     }
 
-    if (condType == "<" || (condType == "==" && value == 0)) {
+    if (condType == "<") {
         success = false;
+    }
+    else if (condType == "==" && value == 0) {
+        success = false;
+        value = 1
     }
     else if (condType == ">=" || (condType == "==" && value != 0) ) {
         success = true;
     }
+    else if (condType == ">") {
+        success = true;
+        value += 1;
+    }
     else {
-        console.log(condType)
+        console.log("Unmatched condition type",condType)
     }
     return {"variable":varToStat(variable),"value":value,"success":success}
 }

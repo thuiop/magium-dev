@@ -1564,10 +1564,8 @@ His laugh is just as crazy as the look in his eyes. Daren does not say anything,
  "You're all just playing into his hands," says a mage in white robes and with long blond hair who appears to be some sort of a healer. "Stillwater or no, the fact remains that he hasn't cast any sort of spell since we laid eyes on him. Do you think that's a coincidence? No one can possibly fully replenish their magical energy in just over two hours after a fight with a dragon. He must be in a vulnerable state. Now is the best time to strike!"
 
 }
-choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 0)
-choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
-choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 0)
-choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
+choice("""Are you willing to bet your life on that, white mage?""", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1 || v_ch7_call_rose == 0)
+choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1 || v_ch7_call_rose == 0)
 
 
 ID: Ch7-Bet-your-life
@@ -1612,7 +1610,7 @@ choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scen
 ID: Ch7-Surprise
 TEXT: 
 
-set(v_is_dead,0) if (v_premonition >= 3 && v_agility < 3 || v_agility >= 3)
+set(v_is_dead,0) if (v_agility >= 3 || v_premonition >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_premonition < 3)
 #if(v_agility >= 3) {
  
@@ -1636,7 +1634,7 @@ So there was also a powerful summoner amongst these mages. I was careless to let
 This isn't good. Daren won't be able to fight all these golems by himself while also defending me. I need to do something.
 
 }
-#if(v_agility < 3 && v_premonition >= 3) {
+#if(v_premonition >= 3 && v_agility < 3) {
  
 
 "Alright," I tell him. "Then, I'll just go kill the healer real quick."
@@ -1664,7 +1662,7 @@ So there was also a powerful summoner amongst these mages. I was careless to let
 This isn't good. Daren won't be able to fight all these golems by himself while also defending me. I need to do something.
 
 }
-#if(v_premonition < 3 && v_agility < 3) {
+#if(v_agility < 3 && v_premonition < 3) {
  
 
 "Alright," I tell him. "Then, I'll just go kill the healer real quick."
@@ -1678,13 +1676,11 @@ Unfortunately, I was too slow, and one of the healer's henchmen managed to place
 As I try to retreat, I suddenly feel a sharp pain in my chest, and when I look down, I can see a knife's blade sticking out of it, all covered in blood. Before I even get the chance to scream in pain, the henchman in front of me rushes towards me with his dagger in hand and impales me in the head, killing me on the spot.
 
 }
-choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility >= 3)
-choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility < 3 && v_premonition >= 3)
-choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility >= 3)
-choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility < 3 && v_premonition >= 3)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 3 && v_agility < 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 3 && v_agility < 3)
-choice("Load game", , , special:saves) if (v_premonition < 3 && v_agility < 3)
+choice("Try to fight the golems head on", Ch7-Fight, v_current_scene = Ch7-Fight) if (v_agility >= 3 || v_premonition >= 3)
+choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scene = Ch7-Avoid) if (v_agility >= 3 || v_premonition >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_premonition < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_premonition < 3)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_premonition < 3)
 
 
 ID: Ch7-Assist
@@ -1720,8 +1716,8 @@ ID: Ch7-Fight
 TEXT: 
 
 set(v_is_dead,0) if (v_toughness == 4 && v_strength >= 3 || v_agility >= 2 && v_strength < 3 || v_agility >= 2 && v_toughness < 4 || v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4)
-set(v_is_dead,1) if ((v_combat_technique < 3 || v_strength < 3) && (v_strength < 3 || v_toughness < 4) && v_agility < 2)
-#if(v_strength < 3 && v_agility >= 2) {
+set(v_is_dead,1) if (v_agility < 2 && v_strength < 3 || v_agility < 2 && v_combat_technique < 3 && v_toughness < 4)
+#if(v_agility >= 2 && v_strength < 3) {
  
 
 It's all or nothing. I take out my dagger and lunge at one of the golems in front of me.
@@ -1738,7 +1734,7 @@ There's several loud and painful bird screams coming from above us and almost im
 "Shut up!" Daren says as he cuts through another rock golem. "I was going to deal with those birds once they came down. Not everyone has fancy unlimited ranged attacks to use at their leisure."
 
 }
-#if(v_strength < 3 && v_agility < 2) {
+#if(v_agility < 2 && v_strength < 3) {
  
 
 It's all or nothing. I take out my dagger and lunge at one of the golems in front of me.
@@ -1748,7 +1744,7 @@ My dagger barely even scratches the surface of the golem's rock hide. There was 
 There was no time for me to react. There was barely even enough time for me to feel the immense power behind the creature's strike, as it smashed me against the ground, and then casually moved away from me as if nothing had happened.
 
 }
-#if(v_strength >= 3 && v_toughness == 4) {
+#if(v_toughness == 4 && v_strength >= 3) {
  
 
 It's all or nothing. I take out my dagger and lunge at one of the golems in front of me.
@@ -1769,7 +1765,7 @@ Kate is standing behind us, with her hood off her head, and her signature cold l
 "Shut up!" Daren says as he cuts through another rock golem. "I was going to deal with those birds once they came down. Not everyone has fancy unlimited ranged attacks to use at their leisure."
 
 }
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3) {
+#if(v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4) {
  
 
 It's all or nothing. I take out my dagger and lunge at one of the golems in front of me.
@@ -1790,7 +1786,7 @@ Kate is standing behind us, with her hood off her head, and her signature cold l
 "Shut up!" Daren says as he cuts through another rock golem. "I was going to deal with those birds once they came down. Not everyone has fancy unlimited ranged attacks to use at their leisure."
 
 }
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2) {
+#if(v_agility >= 2 && v_strength >= 3 && v_combat_technique < 3 && v_toughness < 4) {
  
 
 It's all or nothing. I take out my dagger and lunge at one of the golems in front of me.
@@ -1807,7 +1803,7 @@ There's several loud and painful bird screams coming from above us and almost im
 "Shut up!" Daren says as he cuts through another rock golem. "I was going to deal with those birds once they came down. Not everyone has fancy unlimited ranged attacks to use at their leisure."
 
 }
-#if(v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2) {
+#if(v_strength >= 3 && v_agility < 2 && v_combat_technique < 3 && v_toughness < 4) {
  
 
 It's all or nothing. I take out my dagger and lunge at one of the golems in front of me.
@@ -1817,16 +1813,10 @@ My strike was definitely powerful enough to cut through the golem's rock hide, b
 There was no time for me to react. There was barely even enough time for me to feel the immense power behind the creature's strike, as it smashed me against the ground, and then casually moved away from me as if nothing had happened.
 
 }
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength < 3 && v_agility >= 2)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness == 4)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique >= 3)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility >= 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength < 3 && v_agility < 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 3 && v_agility < 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
-choice("Load game", , , special:saves) if (v_strength < 3 && v_agility < 2)
-choice("Load game", , , special:saves) if (v_strength >= 3 && v_toughness < 4 && v_combat_technique < 3 && v_agility < 2)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_toughness == 4 && v_strength >= 3 || v_agility >= 2 && v_strength < 3 || v_agility >= 2 && v_toughness < 4 || v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4)
+choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_agility < 2 && v_strength < 3 || v_agility < 2 && v_combat_technique < 3 && v_toughness < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2 && v_strength < 3 || v_agility < 2 && v_combat_technique < 3 && v_toughness < 4)
+choice("Load game", , , special:saves) if (v_agility < 2 && v_strength < 3 || v_agility < 2 && v_combat_technique < 3 && v_toughness < 4)
 
 
 ID: Ch7-Avoid
@@ -1867,7 +1857,7 @@ There's several loud and painful bird screams coming from above us and almost im
 "Shut up!" Daren says as he cuts through another rock golem. "I was going to deal with those birds once they came down. Not everyone has fancy unlimited ranged attacks to use at their leisure."
 
 }
-#if(v_perception < 2 && v_agility == 0) {
+#if(v_agility == 0 && v_perception < 2) {
  
 
 I'm not going to win an arm wrestling match against one of these monsters anytime soon. There's no use trying to fight them head on. I'll just let Daren do his thing and try to avoid getting hit as long as possible.
@@ -1877,11 +1867,10 @@ As I start moving around to dodge the golems, I realize that this isn't nearly a
 I suddenly see an opening in their formation, probably made when Daren killed one of them. I rush towards it with all the speed I can muster, but one of the golems sees me and intercepts me before I escape. One punch is all it took to completely smash my skull, as my body fell to the ground, lifeless. 
 
 }
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_agility >= 1)
-choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_agility == 0 && v_perception >= 2)
-choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_perception < 2 && v_agility == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 2 && v_agility == 0)
-choice("Load game", , , special:saves) if (v_perception < 2 && v_agility == 0)
+choice("Continue", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf) if (v_agility == 0 && v_perception >= 2 || v_agility >= 1)
+choice("Restart game", Ch7-Summoner-vs-dwarf, v_current_scene = Ch7-Summoner-vs-dwarf, special:restart) if (v_agility == 0 && v_perception < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_perception < 2)
+choice("Load game", , , special:saves) if (v_agility == 0 && v_perception < 2)
 
 
 ID: Ch7-Summoner-vs-dwarf
@@ -1955,27 +1944,7 @@ The summoner looks as if he were about to explode, but he ultimately decides to 
 
 "I am deeply sorry for not stopping this ridiculous fight sooner, my friends," Azarius says, looking at all four of us, in turn. "I'm afraid that curiosity got the better of me and I couldn't bring myself to end this before getting the rare opportunity to see the great hero Daren in action!"
 
- The summoner scowls upon hearing the dwarf's words.
-"That 'lady' you are so keen to protect is a banshee. She is a plague upon this land which must be dealt with immediately."
-
-"Oh?" Hadrik says, with a smug grin on his face. "Is she, now?"
-
-"If you're not going to get out of my way, then you can join these fools in their deaths. I've heard enough of your idiocy for one day."
-
-Just as the summoner and all of the other mages are preparing to attack, a loud shout from Azarius the sage freezes everyone in place.
-
-"Enough!" he shouts. "There will be no more bloodshed this day. If any of you toddlers still feel like raising a ruckus, I am the one that you'll be fighting next. Do I make myself clear?"
-
- "What?!" asks the elf. "Have you gone mad?! Do you realize what will happen if we let this evil monster roam free?"
-"I am well aware of the consequences, and I am willing to take full responsibility for my actions. You are, however, free to challenge me to a duel if you believe your cause to be the righteous one."
-
-The summoner looks as if he were about to explode, but he ultimately decides to simply turn around and leave, without saying another word. The other mages who were about to join the fight are now all sheathing their weapons.
-
-"I am deeply sorry for not stopping this ridiculous fight sooner, my friends," Azarius says, looking at all four of us, in turn. "I'm afraid that curiosity got the better of me and I couldn't bring myself to end this before getting the rare opportunity to see the great hero Daren in action!"
-
 choice("""Why are you helping us?""", Ch7-Azarius-why, v_current_scene = Ch7-Azarius-why)
-choice("""Why are you helping us?""", Ch7-Azarius-why, v_current_scene = Ch7-Azarius-why)
-choice("""You've got this all wrong, we're not allied with the banshee!""", Ch7-Wrong-stay, v_current_scene = Ch7-Wrong-stay)
 choice("""You've got this all wrong, we're not allied with the banshee!""", Ch7-Wrong-stay, v_current_scene = Ch7-Wrong-stay)
 
 
@@ -2442,33 +2411,7 @@ choice("Refuse the challenge", Ch7-Refuse, v_current_scene = Ch7-Refuse)
 ID: Ch7-Accept
 TEXT: 
 
-#if(v_ch7_call_rose == 0) {
- "Sure, why not? I'll give it a shot."
-"Hah! That's the spirit!" Hadrik says.
-
-"Barry, wait!" Kate says. "You'll get yourself killed!"
-
-"I'll be fine!" I tell her as I move to align myself with the dwarf, leaving about twenty feet of distance between us.
-
-Kate doesn't try to stop me anymore, but I can see that she has an uneasy look in her eyes. The others are now stepping aside in order to give us the space we need to begin our fight. 
-
-There's something that's been bothering me ever since we got teleported here. I'm not sure if anyone else noticed this, but the dwarf has been shapeshifting this entire time. I can tell by the feel of his magical aura. This is not his original form. As far as I know, shapeshifting magic can only be used to change your size, or to transform yourself into another creature. It cannot be used to disguise yourself as someone else. What possible benefit could Hadrik get from transforming himself into a dwarf?
-
-I then suddenly remember his first appearance. Of course! Now it all makes sense! Why didn't I realize this sooner? Shapeshifting magic cannot be used to turn yourself into a giant, but it can be used to turn yourself into a dwarf. He didn't use magic to become fifty foot tall, he just reverted to his original form. Hadrik is a giant! The reason he is masquerading as a dwarf is likely because giants were never invited to this tournament, and he fears that they will kick him out if they find out the truth.  
-
- This must mean that he has inhuman strength! When shapeshifting into something smaller than yourself, you usually retain a small part of your original mass and most of your original strength. A single punch from him could blow me to bits. I need to be extra careful here. Even if he said this was going to be a sparring match, he doesn't really look like the kind of guy who knows how to hold back.
-Now that I know that he is a giant, I can use this information to my advantage! Since he chose to transform into a dwarf and not a human, his body proportions are completely different from those of his normal body. He even said himself that he wasn't used to running with short legs. I'm willing to bet that this is affecting his sense of balance somehow. I just need to use techniques that aim specifically to knock him off balance.
-
-Hadrik is now grinning and cracking his knuckles.
-
-"Well, Barry," he says after a while. "Here I come!"
-
-The dwarf comes charging directly towards me, without bothering to use any evasive maneuvers. Just before he reaches me, he picks up speed and appears right in front of me, almost as if he'd used teleportation. 
-
-Instead of going for a punch, however, he attempts to prod me with his index finger. 
-
-}
-#if(v_ch7_call_rose == 1 && v_ch7_watch_fight == 0) {
+#if(v_ch7_call_rose == 1 && v_ch7_watch_fight == 0 || v_ch7_call_rose == 0) {
  "Sure, why not? I'll give it a shot."
 "Hah! That's the spirit!" Hadrik says.
 
@@ -2520,9 +2463,7 @@ The dwarf comes charging directly towards me, without bothering to use any evasi
 Instead of going for a punch, however, he attempts to prod me with his index finger. 
 
 }
-choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 0)
-choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 0)
-choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1)
+choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 0 || v_ch7_call_rose == 1 && v_ch7_watch_fight == 1 || v_ch7_call_rose == 0)
 
 
 ID: Ch7-Accept2
@@ -2553,7 +2494,7 @@ Prod or no, if that hit connects it will most certainly throw me off my feet. I 
 "Well, that was underwhelming," Hadrik says, disappointed. "I guess I was getting my hopes up a little too much for this fight."
 
 }
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2) {
+#if(v_combat_technique == 4 && v_reflexes >= 3 && v_strength < 2) {
  
 
 Prod or no, if that hit connects it will most certainly throw me off my feet. I manage to sidestep away at the last moment, I pull his right arm with my left hand and then I push his left shoulder with my right hand in order to make him lose his balance. Hadrik was almost about to fall for a moment there, but he managed to regain his balance by grabbing onto me. As he keeps a good grip on me, the dwarf starts spinning himself, and then he throws me to the ground, sending me rolling for about two seconds before I come to a full stop.
@@ -2565,7 +2506,7 @@ Prod or no, if that hit connects it will most certainly throw me off my feet. I 
 "Well, that was underwhelming," Hadrik says, disappointed. "I guess I was getting my hopes up a little too much for this fight."
 
 }
-#if(v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2) {
+#if(v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2) {
  
 
 Prod or no, if that hit connects it will most certainly throw me off my feet. I manage to sidestep away at the last moment, I pull his right arm with my left hand and then I push his left shoulder with my right hand in order to make him lose his balance. As he trips over his feet, Hadrik tries to grab onto me in order to regain his balance, but he can't latch on in time. Without any way to stop his momentum, the dwarf falls on his back with a loud thump.
@@ -2581,14 +2522,10 @@ Kate looks as if she's about to cry.
 "Barry, I don't know what to say," she says. "Thank you so much..."
 
 }
-choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes < 3)
-choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3 && v_combat_technique < 4)
-choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes < 3)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique < 4)
-choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength < 2)
-choice("""You're welcome.""", Ch7-Welcome, v_current_scene = Ch7-Welcome) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
-choice("""No need to thank me. I was just looking for an opportunity to test my skills.""", Ch7-Opportunity, v_current_scene = Ch7-Opportunity) if (v_reflexes >= 3 && v_combat_technique == 4 && v_strength >= 2)
+choice("""How about a rematch?""", Ch7-Rematch, v_current_scene = Ch7-Rematch) if (v_combat_technique == 4 && v_strength < 2 || v_combat_technique < 4 || v_reflexes < 3)
+choice("""I was just caught off guard by your speed. Normally, I'm not so weak.""", Ch7-Caught, v_current_scene = Ch7-Caught) if (v_combat_technique == 4 && v_strength < 2 || v_combat_technique < 4 || v_reflexes < 3)
+choice("""You're welcome.""", Ch7-Welcome, v_current_scene = Ch7-Welcome) if (v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2)
+choice("""No need to thank me. I was just looking for an opportunity to test my skills.""", Ch7-Opportunity, v_current_scene = Ch7-Opportunity) if (v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2)
 
 
 ID: Ch7-Refuse

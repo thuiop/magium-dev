@@ -38,6 +38,8 @@ As I am reading Leila's text, everything that happened before I fainted suddenly
  This was never about me having a hangover. We were teleported here by mistake, and I lost my consciousness due to the headache that I got from the failed teleportation. And Leila's father... he was kidnapped! She's right, we have no time to lose! We need to find our way out of this cave as quickly as possible.
 I get up from the ground and I begin to look around me, trying to figure out which way we need to go. As I am moving my head, the strong feeling of nausea from before returns to me in full-force, making me lose my balance while simply standing in place. Leila catches me before I fall to the ground and then she goes to my right side, taking my arm and putting it around her neck so that I can hold onto her in case I feel like I'm about to fall again.
 
+}
+#if(v_b3_ch7_force == 0 || v_b3_ch7_force == 1 || v_b3_ch7_force == 2) {
  "You shouldn't be making any sudden movements," Leila writes. "That will only make your headache worse. Try moving your head slowly, until you get accustomed to your nauseating sensation."
 "Damn, this is so much worse than the last time when we ended up here," I say, as I struggle to not faint again from the pain. "My head hurts so much it feels like it's going to explode..."
 
@@ -67,17 +69,6 @@ As I am trying to find my words, everything that happened before I fainted sudde
  This was never about me having a hangover. We were teleported here by mistake, and I lost my consciousness due to the headache that I got from the failed teleportation. And Leila's father... he was kidnapped! We can't afford to waste any more time standing here. We need to move!
 I get up from the ground and I begin to look around me, trying to figure out which way we need to go to get out of the cave. As I am moving my head, the strong feeling of nausea from before returns to me in full-force, making me lose my balance while simply standing in place. Leila catches me before I fall to the ground and then she goes to my right side, taking my arm and putting it around her neck so that I can hold onto her in case I feel like I'm about to fall again.
 
- "You shouldn't be making any sudden movements," Leila writes. "That will only make your headache worse. Try moving your head slowly, until you get accustomed to your nauseating sensation."
-"Damn, this is so much worse than the last time when we ended up here," I say, as I struggle to not faint again from the pain. "My head hurts so much it feels like it's going to explode..."
-
-"Yeah," Leila writes. "The headache is a lot stronger now than it was before. With how badly this teleportation went, I'm surprised that we're even alive. The teleporting device must have had some sort of failsafe mechanism implemented so that people's lives wouldn't be put at risk in case of a serious malfunction."
-
-"Wait a minute..." I say. "Are you by any chance getting the same headache as me right now?"
-
-"If you're talking about the feeling of small daggers moving through my brain, then yes," Leila writes.
-
-"Well, you sure are handling this a lot better than I am, then," I say. "At the moment, I'm having a difficult time even holding this conversation with you without collapsing."
-
 }
 #if(v_b3_ch7_force == 2) {
  "Go away!" I tell the mysterious force. "Your face is ugly and nobody likes you!"
@@ -97,17 +88,6 @@ I stop talking all of a sudden, because as soon as I open my eyes I realize that
 This was never about me having a hangover. We were teleported here by mistake, and I lost my consciousness due to the headache that I got from the failed teleportation. And Leila's father... he was kidnapped! We can't afford to waste any more time standing here. We need to move!
 
 I get up from the ground and I begin to look around me, trying to figure out which way we need to go to get out of the cave. As I am moving my head, the strong feeling of nausea from before returns to me in full-force, making me lose my balance while simply standing in place. Leila catches me before I fall to the ground and then she goes to my right side, taking my arm and putting it around her neck so that I can hold onto her in case I feel like I'm about to fall again.
-
- "You shouldn't be making any sudden movements," Leila writes. "That will only make your headache worse. Try moving your head slowly, until you get accustomed to your nauseating sensation."
-"Damn, this is so much worse than the last time when we ended up here," I say, as I struggle to not faint again from the pain. "My head hurts so much it feels like it's going to explode..."
-
-"Yeah," Leila writes. "The headache is a lot stronger now than it was before. With how badly this teleportation went, I'm surprised that we're even alive. The teleporting device must have had some sort of failsafe mechanism implemented so that people's lives wouldn't be put at risk in case of a serious malfunction."
-
-"Wait a minute..." I say. "Are you by any chance getting the same headache as me right now?"
-
-"If you're talking about the feeling of small daggers moving through my brain, then yes," Leila writes.
-
-"Well, you sure are handling this a lot better than I am, then," I say. "At the moment, I'm having a difficult time even holding this conversation with you without collapsing."
 
 }
 choice("Continue", B3-Ch07a-Intro3, v_current_scene = B3-Ch07a-Intro3) if (v_b3_ch7_force == 0 || v_b3_ch7_force == 1 || v_b3_ch7_force == 2)
@@ -145,7 +125,7 @@ TEXT:
 
 set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 1 && v_magical_sense < 2 || v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 0)
 set(v_b3_ch7_massage,2) if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)
-#if(v_b3_ch7_massage == 1 && v_magical_sense < 2) {
+#if(v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 1) {
  
 "Before we go, could you try teaching me that massage technique?" I say. "Maybe I can help you get rid of your headache."
 
@@ -166,33 +146,15 @@ I get closer to Leila and I put both my hands on her temples, as she tells me th
 
 I then pull out my transceiver, set the frequency to Daren's number and tap it once.
 
+}
+#if(v_b3_ch7_massage == 1 && v_magical_sense < 2) {
  After about half a minute of me moving my hands around the sides of her head, trying in vain to find the subtle changes in the aura flow that Leila is telling me about, I eventually realize that I'm not making any noticeable progress, so I decide to give up.
 "You were right," I tell Leila, as I take my hands away from her head. "It's not working. We should probably leave."
 
 "Okay, let’s get going," Leila writes, and then the two of us travel further into the cave.
 
 }
-#if(v_b3_ch7_massage == 1 && v_magical_sense >= 2) {
- 
-"Before we go, could you try teaching me that massage technique?" I say. "Maybe I can help you get rid of your headache."
-
-"Barry, that's not-- it's not that simple..." Leila writes. "It would take too much time to explain it to you!"
-
-"Then just give me the really short version, and I'll see if I can figure it out on my own," I say. "If not, we can leave."
-
-"Fine," Leila writes. "But it's going to be a VERY short explanation. Come here."
-
-I get closer to Leila and I put both my hands on her temples, as she tells me through her writing exactly which kinds of aura fluctuations I need to look out for.
-
- "So... what do you think happened to everyone at the rebel base?" Leila writes to me, while we are walking through the tunnels. "You don't suppose any of them got buried under the rubble from all those explosions, do you?..."
-"I don't know about the rebels or the civilians, but everyone in our group has been through far worse stuff than some lousy cave-ins," I say. "I wouldn't worry about them being buried under the rubble, but then again, those explosions are probably the least of their worries right now. If what Peter said was true, the king of Ollendor has sent a small army to attack the people in the underground, and what's left of the royal guards will be there too, including the trainees. It's going to be a tough fight for them, any way you look at it."
-
-"Can you try calling them through the transceiver?" Leila writes. "Maybe we'll get lucky and you'll be able to reach them."
-
-"The walls around us are all filled with seredium, so I wouldn't get my hopes up but I can try, sure," I say.
-
-I then pull out my transceiver, set the frequency to Daren's number and tap it once.
-
+#if(v_b3_ch7_massage == 1 && v_magical_sense >= 2 || v_b3_ch7_massage == 2 && v_magical_sense >= 2) {
  After about twenty seconds or so, I begin to finally understand how my hand movements are influencing the very subtle changes in Leila's aura, and this helps me to better identify the source of her headache. Despite Leila's rushed and incomplete instructions, I manage to improvise a technique that is close enough to what she used on me, and I can see how the strained expression that she had on her face slowly turns into one that is much more relaxed.
 "The pain... it's going away!" Leila writes, astonished, as I am still massaging her temples. "I didn't think you could learn to do this so quickly! It took me hours of practice to get this good with it when my father first taught the technique to me."
 
@@ -201,37 +163,6 @@ I then pull out my transceiver, set the frequency to Daren's number and tap it o
 "I think I'm fine, now," Leila writes. "There is still some nausea left, like in your case, but that can't be solved with a massage. We'll have to wait for it to pass on its own. Let's get going."
 
 "Alright," I say, as I take my hands away from Leila's head. "Follow me. I'm pretty sure I remember which way we went last time."
-
-}
-#if(v_b3_ch7_massage == 2 && v_magical_sense >= 2) {
- 
-"Before we go, could you try teaching me that massage technique?" I say. "Maybe I can help you get rid of your headache."
-
-"Barry, that's not-- it's not that simple..." Leila writes. "It would take too much time to explain it to you!"
-
-"Then just give me the really short version, and I'll see if I can figure it out on my own," I say. "If not, we can leave."
-
-"Fine," Leila writes. "But it's going to be a VERY short explanation. Come here."
-
-I get closer to Leila and I put both my hands on her temples, as she tells me through her writing exactly which kinds of aura fluctuations I need to look out for.
-
- After about twenty seconds or so, I begin to finally understand how my hand movements are influencing the very subtle changes in Leila's aura, and this helps me to better identify the source of her headache. Despite Leila's rushed and incomplete instructions, I manage to improvise a technique that is close enough to what she used on me, and I can see how the strained expression that she had on her face slowly turns into one that is much more relaxed.
-"The pain... it's going away!" Leila writes, astonished, as I am still massaging her temples. "I didn't think you could learn to do this so quickly! It took me hours of practice to get this good with it when my father first taught the technique to me."
-
-"It's probably easier for me because of my enhanced magical sense," I say. "As long as you can properly notice each minor change in the aura, it's easier to make improvisations to the technique. Tell me when the pain is fully gone, so I'll know when to stop."
-
-"I think I'm fine, now," Leila writes. "There is still some nausea left, like in your case, but that can't be solved with a massage. We'll have to wait for it to pass on its own. Let's get going."
-
-"Alright," I say, as I take my hands away from Leila's head. "Follow me. I'm pretty sure I remember which way we went last time."
-
- "So... what do you think happened to everyone at the rebel base?" Leila writes to me, while we are walking through the tunnels. "You don't suppose any of them got buried under the rubble from all those explosions, do you?..."
-"I don't know about the rebels or the civilians, but everyone in our group has been through far worse stuff than some lousy cave-ins," I say. "I wouldn't worry about them being buried under the rubble, but then again, those explosions are probably the least of their worries right now. If what Peter said was true, the king of Ollendor has sent a small army to attack the people in the underground, and what's left of the royal guards will be there too, including the trainees. It's going to be a tough fight for them, any way you look at it."
-
-"Can you try calling them through the transceiver?" Leila writes. "Maybe we'll get lucky and you'll be able to reach them."
-
-"The walls around us are all filled with seredium, so I wouldn't get my hopes up but I can try, sure," I say.
-
-I then pull out my transceiver, set the frequency to Daren's number and tap it once.
 
 }
 #if(v_b3_ch7_massage == 0) {
@@ -247,10 +178,7 @@ I then pull out my transceiver, set the frequency to Daren's number and tap it o
 I then pull out my transceiver, set the frequency to Daren's number and tap it once.
 
 }
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 1 && v_magical_sense < 2)
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 2 && v_magical_sense >= 2)
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 0)
+choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 0 || v_b3_ch7_massage == 1)
 
 
 ID: B3-Ch07a-Massage2
@@ -289,7 +217,6 @@ choice("Continue", B3-Ch07a-Massage3, v_current_scene = B3-Ch07a-Massage3)
 ID: B3-Ch07a-Massage3
 TEXT: 
 
-#if(v_b3_ch6_transceivers != 2) {
  We keep walking through the underground tunnels for some time, trying to find our way around by searching for familiar-looking rocks on the ground and in the walls. Luckily for us, Flower and Melindra made me take an extensive training course in recognizing distinctive features for all types of stones during our last night shift, and this makes it a lot easier for me to tell the difference between these nearly identical corridors. It also helps that the blue crystals embedded in the walls are very bright, so there is no need for us to take out our stat devices to light our paths.
 "So... why do you suppose we were teleported here, of all places?" Leila writes, as the two of us are examining the walls in order to confirm that we are still on the right path. "Do you think there's any chance that the Barry from the teleporter room was secretly still on our side and wanted to help us escape?"
 
@@ -297,6 +224,12 @@ TEXT:
 
 "Do you have any idea why they would want to teleport us out of the rebel base, instead of just leaving us there?" Leila writes. "Could it have something to do with my father?"
 
+ As we are moving through the tunnels, we suddenly hear the faint echo of a wall being smashed somewhere relatively far from us. Leila and I have now stopped in our tracks and we are looking at each other apprehensively, not entirely sure how to react to this.
+"That didn't sound like an explosion," I say. "It sounded more like someone punching their way through one of the cavern's walls."
+
+"So it must have been either Hadrik... or Gontrok," Leila writes.
+
+#if(v_b3_ch6_transceivers != 2) {
  "It's possible," I say. "They surely must have known that you were his daughter, considering that the teleporter guy was their informant, so maybe they were planning to have you work as his assistant, or something. The fact that I was also teleported here along with you was probably just an accident, caused by the fact that you happened to be holding onto me at the time."
 "I see," Leila writes. "In that case, it's probably just a matter of time until they find out where we are and send some guards after us. Maybe we should try to quicken our pace a little."
 
@@ -304,31 +237,14 @@ After a few more minutes of walking, we finally reach the place where Breynan an
 
 If our pursuers were to hide their auras properly, then I don't think there would be any way for us to detect them, but then again the same thing goes for them as well. Considering that we've been making sure to conceal our auras ever since we began travelling through these corridors, our enemies should have a really hard time tracking us down by using only their magical sense. Ultimately, I think it will all boil down to how well each of us will be able to navigate through this maze-like place without getting lost.
 
- As we are moving through the tunnels, we suddenly hear the faint echo of a wall being smashed somewhere relatively far from us. Leila and I have now stopped in our tracks and we are looking at each other apprehensively, not entirely sure how to react to this.
-"That didn't sound like an explosion," I say. "It sounded more like someone punching their way through one of the cavern's walls."
-
-"So it must have been either Hadrik... or Gontrok," Leila writes.
-
 }
 #if(v_b3_ch6_transceivers == 2) {
- We keep walking through the underground tunnels for some time, trying to find our way around by searching for familiar-looking rocks on the ground and in the walls. Luckily for us, Flower and Melindra made me take an extensive training course in recognizing distinctive features for all types of stones during our last night shift, and this makes it a lot easier for me to tell the difference between these nearly identical corridors. It also helps that the blue crystals embedded in the walls are very bright, so there is no need for us to take out our stat devices to light our paths.
-"So... why do you suppose we were teleported here, of all places?" Leila writes, as the two of us are examining the walls in order to confirm that we are still on the right path. "Do you think there's any chance that the Barry from the teleporter room was secretly still on our side and wanted to help us escape?"
-
-"No, I don't think that's what happened," I say. "My guess is that this cave is the default place where the teleporting device sends you if the teleportation goes horribly wrong. Like you were saying earlier, the device must have had a failsafe mechanism built in, to avoid killing people accidentally in case the person operating the device does not follow the proper safety protocols. We were sent to this exact same place the last time when our teleportation went wrong, and I doubt that was a coincidence."
-
-"Do you have any idea why they would want to teleport us out of the rebel base, instead of just leaving us there?" Leila writes. "Could it have something to do with my father?"
-
  "Yes," I say. "I overheard Gontrok talking to the teleporter guy right before we were teleported, and he said that the king wanted to take you hostage, so that they could convince your father to do what they wanted. The fact that I was also teleported here along with you was probably just an accident, caused by the fact that you happened to be holding onto me at the time."
 "I see," Leila writes. "In that case, it's probably just a matter of time until they find out where we are and send some guards after us. Maybe we should try to quicken our pace a little."
 
 After a few more minutes of walking, we finally reach the place where Breynan and Illuna deactivated the first magical trap yesterday, and we keep moving forward while attempting to use our magical sense to figure out if there is anyone following us or not. So far, it doesn't really seem like there's anyone in these tunnels except us, but with the large quantity of seredium in these walls, it is hard to tell for sure. 
 
 If our pursuers were to hide their auras properly, then I don't think there would be any way for us to detect them, but then again the same thing goes for them as well. Considering that we've been making sure to conceal our auras ever since we began travelling through these corridors, our enemies should have a really hard time tracking us down by using only their magical sense. Ultimately, I think it will all boil down to how well each of us will be able to navigate through this maze-like place without getting lost.
-
- As we are moving through the tunnels, we suddenly hear the faint echo of a wall being smashed somewhere relatively far from us. Leila and I have now stopped in our tracks and we are looking at each other apprehensively, not entirely sure how to react to this.
-"That didn't sound like an explosion," I say. "It sounded more like someone punching their way through one of the cavern's walls."
-
-"So it must have been either Hadrik... or Gontrok," Leila writes.
 
 }
 choice("""It was probably Hadrik.""", B3-Ch07a-Hadrik, v_current_scene = B3-Ch07a-Hadrik)
@@ -408,6 +324,7 @@ Seeing that her opponent is finally retaliating, Leila jumps backwards and then 
 
 "I thought you were supposed to bring me to the king 'alive and unharmed'," Leila writes. "Why are you fighting back all of a sudden?"
 
+}
  "Shut up," Gontrok says, after he reads Leila's writing. "The king never said that I'm not allowed to grab and immobilize you. And besides, that attack of yours was just for show, wasn't it? Now that I take a better look at your weapons, neither you nor your bodyguard over there have blades sharp enough to pass through a giant's skin, no matter how strong your attacks may be."
 "You really believe that you can accurately tell how many enchantments a dagger has on it just by looking at it?" Leila writes. "Don't you think this overconfidence of yours might end up costing you your life someday?"
 
@@ -419,7 +336,6 @@ Gontrok laughs, and then he grins maliciously at Leila.
 
 "We have a deal, then!" he says.
 
-}
 #if(v_b3_ch6_coward == 2) {
  We start running through the tunnel, but the smoke keeps following our every move and no matter what we do, we aren't able to shake it off. Just as we are about to turn another corner, Gontrok dashes past us at a breathtaking speed and he stops in front of us, blocking our path.
 "Well, well, if it isn't the silver-haired princess and her smart-mouthed prince," Gontrok says. "My orders from the king are to bring the lessathi tinkerer's daughter to him alive and unharmed, but that can wait. That insolent whelp over there had the nerve to call me a coward to my face during our last encounter and I intend to teach him a lesson or two before I--"
@@ -429,17 +345,6 @@ Before Gontrok gets to finish what he was saying, Leila makes a very quick dash 
 Seeing that her opponent is finally retaliating, Leila jumps backwards and then she looks Gontrok in the eye, while she makes her blue writing appear in front of him.
 
 "I thought you were supposed to bring me to the king 'alive and unharmed'," Leila writes. "Why are you fighting back all of a sudden?"
-
- "Shut up," Gontrok says, after he reads Leila's writing. "The king never said that I'm not allowed to grab and immobilize you. And besides, that attack of yours was just for show, wasn't it? Now that I take a better look at your weapons, neither you nor your bodyguard over there have blades sharp enough to pass through a giant's skin, no matter how strong your attacks may be."
-"You really believe that you can accurately tell how many enchantments a dagger has on it just by looking at it?" Leila writes. "Don't you think this overconfidence of yours might end up costing you your life someday?"
-
-"Hah!" Gontrok says. "Someday, maybe. But not today. If you think you've got what it takes to kill me, then why don't we make a little bet? I will stand here in place for one full minute and during this time you can try to slit my throat, cut my head off, or whatever. I won't dodge and I won't defend myself in any way. However... if I am still left standing after that minute passes, you will come with me to visit the king of your own free will, without posing any resistance. What do you say?"
-
-"You're going to regret this," Leila writes, giving Gontrok a cold stare while she readies her daggers.
-
-Gontrok laughs, and then he grins maliciously at Leila. 
-
-"We have a deal, then!" he says.
 
 }
 choice("Attack Gontrok together with Leila, while he isn't defending himself.", B3-Ch07a-Attack, v_current_scene = B3-Ch07a-Attack, v_b3_ch7_bet = 0)
@@ -611,7 +516,7 @@ I step out of the way just in time, but he immediately closes the distance betwe
 As I try to get away from him, I quickly realize that he is much faster than me and it takes my enemy very little effort to catch up to me and to crush my skull in a single punch.
 
 }
-#if(v_reflexes >= 4 && v_agility >= 4) {
+#if(v_agility >= 4 && v_reflexes >= 4) {
  
 
 The giant takes a few steps towards Leila, looking as if he were about to attack her at any minute, but after a few seconds he turns around and makes a dash for me instead.
@@ -621,12 +526,7 @@ I step out of the way just in time, but he immediately closes the distance betwe
 Thankfully, I manage to get away from him once more, but even with my speed stat maxed the giant is still able to keep up with me, which means that all I can do for now is to continue running around the cave, dodging every one of his attacks at the last second, while hoping to eventually give him the slip.
 
 }
-#if(v_b3_ch7_bet == 0 && v_is_dead == 0) {
- While I am distracting Gontrok, Leila is somehow able to position herself behind him, but instead of attacking him while his back his turned, she moves to his side so that she can try to stab him in the eyes again. This forces my opponent to stop chasing me for a few moments, so he can defend himself.
-As I am getting this brief moment of respite, I cannot help but notice that there is something strange going on with Gontrok's aura, although I can't tell exactly what's wrong with it from a simple glance. If I want to figure out what's going on, I would need to focus on his aura for at least a few seconds, leaving myself completely vulnerable in the process. Could this be worth the risk?
-
-}
-#if(v_b3_ch7_bet == 1 && v_is_dead == 0) {
+#if(v_b3_ch7_bet == 0 && v_is_dead == 0 || v_b3_ch7_bet == 1 && v_is_dead == 0) {
  While I am distracting Gontrok, Leila is somehow able to position herself behind him, but instead of attacking him while his back his turned, she moves to his side so that she can try to stab him in the eyes again. This forces my opponent to stop chasing me for a few moments, so he can defend himself.
 As I am getting this brief moment of respite, I cannot help but notice that there is something strange going on with Gontrok's aura, although I can't tell exactly what's wrong with it from a simple glance. If I want to figure out what's going on, I would need to focus on his aura for at least a few seconds, leaving myself completely vulnerable in the process. Could this be worth the risk?
 
@@ -636,20 +536,11 @@ As I am getting this brief moment of respite, I cannot help but notice that ther
 As I am getting this brief moment of respite, I cannot help but notice that there is something strange going on with Gontrok's aura, although I can't tell exactly what's wrong with it from a simple glance. If I want to figure out what's going on, I would need to focus on his aura for at least a few seconds, leaving myself completely vulnerable in the process. Could this be worth the risk?
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes < 4)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_reflexes >= 4 && v_agility < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_reflexes >= 4 && v_agility < 4)
-choice("Load game", , , special:saves) if (v_reflexes < 4)
-choice("Load game", , , special:saves) if (v_reflexes >= 4 && v_agility < 4)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_reflexes >= 4 && v_agility >= 4)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 0 && v_is_dead == 0)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 1 && v_is_dead == 0)
-choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 3 && v_is_dead == 0)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_reflexes >= 4 && v_agility >= 4)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 0 && v_is_dead == 0)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 1 && v_is_dead == 0)
-choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 3 && v_is_dead == 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 4 || v_reflexes < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 4 || v_reflexes < 4)
+choice("Load game", , , special:saves) if (v_agility < 4 || v_reflexes < 4)
+choice("Focus on Gontrok's aura.", B3-Ch07a-Studied, v_current_scene = B3-Ch07a-Studied, v_b3_ch7_bet = 4) if (v_b3_ch7_bet == 0 && v_is_dead == 0 || v_b3_ch7_bet == 1 && v_is_dead == 0 || v_b3_ch7_bet == 3 && v_is_dead == 0 || v_agility >= 4 && v_reflexes >= 4)
+choice("Ignore Gontrok's aura and focus on the fight.", B3-Ch07a-Ignore, v_current_scene = B3-Ch07a-Ignore, v_b3_ch7_bet = 5) if (v_b3_ch7_bet == 0 && v_is_dead == 0 || v_b3_ch7_bet == 1 && v_is_dead == 0 || v_b3_ch7_bet == 3 && v_is_dead == 0 || v_agility >= 4 && v_reflexes >= 4)
 
 
 ID: B3-Ch07a-Studied
@@ -720,6 +611,8 @@ set(v_is_dead,1) if (v_combat_technique < 4 && v_b3_ch7_massage != 2)
 #if(v_b3_ch7_massage == 2) {
  Surely enough, after several more strikes coming from Gontrok, my suspicions get confirmed and I can now say without a shadow of a doubt that he is indeed using the technique I was thinking of.  I avoid his attacks for a while longer until Leila finally distracts him once more, and then I quickly continue from where I left off the last time, joining my fingers together again and hitting several more spots at the back of Gontrok's neck until I can feel his aura going completely haywire.
 
+}
+#if(v_b3_ch7_massage == 2 || v_combat_technique >= 4) {
  "Ugh!" Gontrok says, as he is grabbing his forehead with both his hands. "What did you do to me, you sneaky bastard?!"
 "Not much," I say. "I just made you feel some strong nausea. Don't worry, it will pass soon. For more reasons than one. Leila, get ready!"
 
@@ -733,7 +626,7 @@ Having been saved by this mysterious ally, Gontrok quickly gets back up from the
 Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor. Gontrok also appears to be a little confused when speaking to his ally, because he's already been looking in three different places since they started their conversation.
 
 }
-#if(v_b3_ch7_massage != 2 && v_combat_technique < 4) {
+#if(v_combat_technique < 4 && v_b3_ch7_massage != 2) {
  
 Surely enough, after several more strikes coming from Gontrok, my suspicions get confirmed and I can now say without a shadow of a doubt that he is indeed using the technique I was thinking of.  I avoid his attacks for a while longer until Leila finally distracts him once more, and then I quickly continue from where I left off the last time, joining my fingers together again and hitting several more spots at the back of Gontrok's neck, as I can feel the flow of his aura getting more and more erratic.
 
@@ -744,14 +637,7 @@ The feints he is using now are getting increasingly more complex, and I can bare
 Due to the immense pressure that I'm currently under, I misread one of Gontrok's punches and do not dodge it in time. His strike was so strong that it fractured my skull in an instant and it sent my lifeless body tumbling down to the floor in the next second.
 
 }
-#if(v_b3_ch7_massage != 2 && v_combat_technique >= 4) {
- "Ugh!" Gontrok says, as he is grabbing his forehead with both his hands. "What did you do to me, you sneaky bastard?!"
-"Not much," I say. "I just made you feel some strong nausea. Don't worry, it will pass soon. For more reasons than one. Leila, get ready!"
-
-I then kick Gontrok in the back of one of his knees and I pull him by the shoulders, making him fall on his back. As the giant instinctively puts both his hands below him while he falls, Leila takes advantage of his temporary lack of defense to pounce on him with both her daggers aiming for his eyes. Just when she's about to deliver the finishing blow, a very high-pitched shrieking noise fills the room and for some reason, immediately afterwards we all lose strength in our muscles for a few seconds, causing us to involuntarily drop our weapons.
-
-Having been saved by this mysterious ally, Gontrok quickly gets back up from the ground and he looks around, as if he were trying to find the source of the sound he just heard.
-
+#if(v_combat_technique >= 4 && v_b3_ch7_massage != 2) {
  
 Surely enough, after several more strikes coming from Gontrok, my suspicions get confirmed and I can now say without a shadow of a doubt that he is indeed using the technique I was thinking of.  I avoid his attacks for a while longer until Leila finally distracts him once more, and then I quickly continue from where I left off the last time, joining my fingers together again and hitting several more spots at the back of Gontrok's neck, as I can feel the flow of his aura getting more and more erratic.
 
@@ -761,17 +647,11 @@ The feints he is using now are getting increasingly more complex, and I can bare
 
 It is only thanks to my very advanced knowledge of martial arts that I somehow manage to stay alive long enough for Leila to once again distract Gontrok and to give me the chance I need to finally perfect my aura disrupting technique. As Gontrok turns his back once more, I quickly hit the back of his neck with my fingers a few more times, except that now I finally feel like I know what I'm doing. Before Gontrok gets the chance to turn around, his aura goes completely haywire and judging by his reaction, this is clearly having as much of an impact on him as I was hoping.
 
- "I thought I told you to not interfere with my battles, illusionist," Gontrok says. "This was your doing, wasn't it? Where are you hiding this time? Show yourself!"
-"If you want to get yourself killed, then you can do it in your own free time," we suddenly hear the voice of the illusionist royal guard that we heard arguing with Gontrok yesterday before they teleported away. "You have been given an order from the king, in case you've forgotten, and you are expected to stay alive until that order has been carried out."
-
-Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor. Gontrok also appears to be a little confused when speaking to his ally, because he's already been looking in three different places since they started their conversation.
-
 }
-choice("Continue", B3-Ch07a-Loyrang, v_ac_b3_ch7_honorable = 1, v_current_scene = B3-Ch07a-Loyrang, special:achievement-An honorable victory-v_ac_b3_ch7_honorable) if (v_b3_ch7_massage == 2)
-choice("Continue", B3-Ch07a-Loyrang, v_ac_b3_ch7_honorable = 1, v_current_scene = B3-Ch07a-Loyrang, special:achievement-An honorable victory-v_ac_b3_ch7_honorable) if (v_b3_ch7_massage != 2 && v_combat_technique >= 4)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
-choice("Load game", , , special:saves) if (v_b3_ch7_massage != 2 && v_combat_technique < 4)
+choice("Continue", B3-Ch07a-Loyrang, v_ac_b3_ch7_honorable = 1, v_current_scene = B3-Ch07a-Loyrang, special:achievement-An honorable victory-v_ac_b3_ch7_honorable) if (v_b3_ch7_massage == 2 || v_combat_technique >= 4)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 4 && v_b3_ch7_massage != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 4 && v_b3_ch7_massage != 2)
+choice("Load game", , , special:saves) if (v_combat_technique < 4 && v_b3_ch7_massage != 2)
 
 
 ID: B3-Ch07a-Busy
@@ -809,7 +689,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 2)
 set(v_is_dead,0) if (v_combat_technique >= 2)
-#if(v_combat_technique < 2) {
  
 I decide that I shouldn't waste the precious little time I have by looking at an aura, and that I should try to formulate a plan of attack, instead. Unfortunately, Leila's distraction does not work for very long, and Gontrok soon attacks me again with an extremely quick punch, making me jump back in order to dodge him.
 
@@ -821,6 +700,7 @@ After I dodge a few more of his strikes, Gontrok suddenly stops chasing me and h
 
 "Shouldn't you be saying things like that after you've managed to hit me at least once?..." I ask Gontrok. "Not to be rude or anything, but your threats are feeling kind of empty right now."
 
+#if(v_combat_technique < 2) {
  "I will hit you as soon as you stop running around in circles like some chicken without a head," Gontrok says angrily. "How about you fight like a man instead of continuing to disgrace yourself by acting in such a cowardly way?"
 "I will fight however I please, thank you very much," I tell him.
 
@@ -832,17 +712,6 @@ I am able to predict his feints the first few times, but eventually it gets too 
 
 }
 #if(v_combat_technique >= 2) {
- 
-I decide that I shouldn't waste the precious little time I have by looking at an aura, and that I should try to formulate a plan of attack, instead. Unfortunately, Leila's distraction does not work for very long, and Gontrok soon attacks me again with an extremely quick punch, making me jump back in order to dodge him.
-
-As I am once more struggling to avoid Gontrok's seemingly endless attacks, I keep trying to figure out a way to beat him without using weapons, but after going through all the plausible scenarios in my head, the only realistic solution I can think of is still to keep evading him until he gives up, either from fatigue or from boredom. There are two of us, so as long as we can conserve our stamina properly by having him attack us in turns, we might just be able to pull it off.
-
-After I dodge a few more of his strikes, Gontrok suddenly stops chasing me and he gives me a look of utter contempt, as he watches me waiting for him at a relatively safe distance.
-
-"What exactly are you trying to do here? Avoid my attacks until I decide to leave you alone out of boredom?" Gontrok says. "You'd better take this fight seriously if you don't want to end up splattered on that wall."
-
-"Shouldn't you be saying things like that after you've managed to hit me at least once?..." I ask Gontrok. "Not to be rude or anything, but your threats are feeling kind of empty right now."
-
  "I will hit you as soon as you stop running around in circles like some chicken without a head," Gontrok says angrily. "How about you fight like a man instead of continuing to disgrace yourself by acting in such a cowardly way?"
 "I will fight however I please, thank you very much," I tell him.
 
@@ -939,6 +808,7 @@ Leila does not react to Gontrok's words, as she is now focusing all of her atten
 
 "And yet, you said very clearly earlier that you weren't going to cancel the bet because of what Barry was doing," Leila writes. "You also told me that I could attack your neck in whatever way I wanted, not only with my daggers. Are you saying that you are going back on your word?"
 
+}
  "No, of course not!" Gontrok says, as his headache seems to be getting better. "There is no honor in breaking one's word!"
 "So, you will let us go, then?" Leila writes, calmly.
 
@@ -948,7 +818,6 @@ Leila does not react to Gontrok's words, as she is now focusing all of her atten
 
 Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor.
 
-}
 #if(v_b3_ch7_massage == 2) {
  For some reason, my improvised technique seems to be having much more of an effect on his aura than I was expecting. I must be a lot better at this than I thought! After a few more seconds of me hitting the back of his neck, his aura goes completely haywire, and I can already tell that this is having a great impact on the giant from the way he is reacting.
 "Ugh!" Gontrok says, as he is now grabbing his forehead with both his hands. "What did you do to me, you sneaky bastard?!"
@@ -958,15 +827,6 @@ Just like the last time, the royal guard's voice appears to be coming from all a
  "I only took two steps back because you tricked me!" Gontrok says, as he is still struggling to deal with his headache. "That wasn't a massage, it was something else! It wasn't part of the deal!"
 "And yet, you said very clearly earlier that you weren't going to cancel the bet because of what Barry was doing," Leila writes. "Are you saying that you are going back on your word?"
 
- "No, of course not!" Gontrok says, as his headache seems to be getting better. "There is no honor in breaking one's word!"
-"So, you will let us go, then?" Leila writes, calmly.
-
-"I-- but my orders-- I don't-- Argh! Screw this!" Gontrok says. "Just because the two of you are honorless dogs who resort to petty tricks to win does not mean that I should stoop down to your level. A deal's a deal! You're free to go. Now get the hell out of my sight!"
-
-"What did you just say?!" we suddenly hear the voice of the illusionist royal guard that we heard arguing with Gontrok yesterday before they teleported away.
-
-Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor.
-
 }
 choice("Continue", B3-Ch07a-Loyrang, v_current_scene = B3-Ch07a-Loyrang)
 
@@ -974,7 +834,7 @@ choice("Continue", B3-Ch07a-Loyrang, v_current_scene = B3-Ch07a-Loyrang)
 ID: B3-Ch07a-Loyrang
 TEXT: 
 
-#if(v_b3_ch7_bet == 2) {
+#if(v_b3_ch7_bet == 1 || v_b3_ch7_bet == 2 || v_b3_ch7_bet == 6) {
  "Oh, is the fight finally over?" we now hear the familiar voice of a certain dark-skinned mercenary, who has apparently only just stopped suppressing his aura and is now entering our corridor. "Thank the gods. I think I must have been only seconds away from dying of boredom."
 "What are you doing here, Loyrang?" the illusionist asks the dark-skinned royal guard, as he is still approaching us. "You were supposed to be helping the others with destroying the rebel base."
 
@@ -984,6 +844,8 @@ TEXT:
 
 "It doesn't matter," Loyrang says. "I didn't come here to talk to you anyway. Hey, Gontrok, I had a question for you. Do you have any idea how we can remove these weird devices below our necks? I've been trying to take mine off since yesterday, but the damn thing seems to be implanted into my skin or something."
 
+}
+#if(v_b3_ch7_bet == 1 || v_b3_ch7_bet == 2 || v_b3_ch7_bet == 5 || v_b3_ch7_bet == 6 || v_b3_ch7_bet == 7) {
  "Why would you want to take it off?" Gontrok asks. "Those devices were put there so that the king can teleport us to him whenever he's in danger."
 "Okay, but hypothetically speaking, if someone wanted to get such a device removed, how would they go about doing that?" Loyrang says.
 
@@ -1001,61 +863,7 @@ TEXT:
 "You're not... no, you can't be serious!" Gontrok says. "Why would you do something like this?"
 
 }
-#if(v_b3_ch7_bet == 1) {
- "Oh, is the fight finally over?" we now hear the familiar voice of a certain dark-skinned mercenary, who has apparently only just stopped suppressing his aura and is now entering our corridor. "Thank the gods. I think I must have been only seconds away from dying of boredom."
-"What are you doing here, Loyrang?" the illusionist asks the dark-skinned royal guard, as he is still approaching us. "You were supposed to be helping the others with destroying the rebel base."
-
-"I'm sorry, what was your name again?" Loyrang asks the illusionist, while looking in a random direction where he imagines that his royal guard colleague might be hiding.
-
-"My name is--" the illusionist starts to say, but Loyrang interrupts him.
-
-"It doesn't matter," Loyrang says. "I didn't come here to talk to you anyway. Hey, Gontrok, I had a question for you. Do you have any idea how we can remove these weird devices below our necks? I've been trying to take mine off since yesterday, but the damn thing seems to be implanted into my skin or something."
-
- "Why would you want to take it off?" Gontrok asks. "Those devices were put there so that the king can teleport us to him whenever he's in danger."
-"Okay, but hypothetically speaking, if someone wanted to get such a device removed, how would they go about doing that?" Loyrang says.
-
-"You can't remove the device!" Gontrok says. "We were already told this on the day when we became royal guards. Weren't you listening? The only situation in which these devices would detach themselves from your skin is if the king dies."
-
-"I was afraid you might say something like that..." Loyrang says.
-
- "Hey, Loyrang, what's gotten into you?" Gontrok says. "You're not acting like yourself."
-"Isn't it obvious, you cretin?" the illusionist royal guard says. "He's planning to betray us. He's going to try to kill the king so that he can flee the city without being teleported back. Did you already forget that he tried to run away yesterday too?"
-
-"Watch your tongue," Gontrok says. "This is my friend you're talking about."
-
-"Actually, he's right," Loyrang says. "Getting the king killed is exactly what I'm planning to do."
-
-"You're not... no, you can't be serious!" Gontrok says. "Why would you do something like this?"
-
-}
-#if(v_b3_ch7_bet == 6) {
- "Oh, is the fight finally over?" we now hear the familiar voice of a certain dark-skinned mercenary, who has apparently only just stopped suppressing his aura and is now entering our corridor. "Thank the gods. I think I must have been only seconds away from dying of boredom."
-"What are you doing here, Loyrang?" the illusionist asks the dark-skinned royal guard, as he is still approaching us. "You were supposed to be helping the others with destroying the rebel base."
-
-"I'm sorry, what was your name again?" Loyrang asks the illusionist, while looking in a random direction where he imagines that his royal guard colleague might be hiding.
-
-"My name is--" the illusionist starts to say, but Loyrang interrupts him.
-
-"It doesn't matter," Loyrang says. "I didn't come here to talk to you anyway. Hey, Gontrok, I had a question for you. Do you have any idea how we can remove these weird devices below our necks? I've been trying to take mine off since yesterday, but the damn thing seems to be implanted into my skin or something."
-
- "Why would you want to take it off?" Gontrok asks. "Those devices were put there so that the king can teleport us to him whenever he's in danger."
-"Okay, but hypothetically speaking, if someone wanted to get such a device removed, how would they go about doing that?" Loyrang says.
-
-"You can't remove the device!" Gontrok says. "We were already told this on the day when we became royal guards. Weren't you listening? The only situation in which these devices would detach themselves from your skin is if the king dies."
-
-"I was afraid you might say something like that..." Loyrang says.
-
- "Hey, Loyrang, what's gotten into you?" Gontrok says. "You're not acting like yourself."
-"Isn't it obvious, you cretin?" the illusionist royal guard says. "He's planning to betray us. He's going to try to kill the king so that he can flee the city without being teleported back. Did you already forget that he tried to run away yesterday too?"
-
-"Watch your tongue," Gontrok says. "This is my friend you're talking about."
-
-"Actually, he's right," Loyrang says. "Getting the king killed is exactly what I'm planning to do."
-
-"You're not... no, you can't be serious!" Gontrok says. "Why would you do something like this?"
-
-}
-#if(v_b3_ch7_bet == 5) {
+#if(v_b3_ch7_bet == 5 || v_b3_ch7_bet == 7) {
  "What are you doing here, Loyrang?" we now hear the voice of the illusionist royal guard that we heard arguing with Gontrok yesterday before they teleported away. "You were supposed to be helping the others with destroying the rebel base."
 Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor.
 
@@ -1064,49 +872,6 @@ Just like the last time, the royal guard's voice appears to be coming from all a
 "My name is--" the illusionist starts to say, but Loyrang interrupts him.
 
 "It doesn't matter," Loyrang says. "I didn't come here to talk to you anyway. Hey, Gontrok, I had a question for you. Do you have any idea how we can remove these weird devices below our necks? I've been trying to take mine off since yesterday, but the damn thing seems to be implanted into my skin or something."
-
- "Why would you want to take it off?" Gontrok asks. "Those devices were put there so that the king can teleport us to him whenever he's in danger."
-"Okay, but hypothetically speaking, if someone wanted to get such a device removed, how would they go about doing that?" Loyrang says.
-
-"You can't remove the device!" Gontrok says. "We were already told this on the day when we became royal guards. Weren't you listening? The only situation in which these devices would detach themselves from your skin is if the king dies."
-
-"I was afraid you might say something like that..." Loyrang says.
-
- "Hey, Loyrang, what's gotten into you?" Gontrok says. "You're not acting like yourself."
-"Isn't it obvious, you cretin?" the illusionist royal guard says. "He's planning to betray us. He's going to try to kill the king so that he can flee the city without being teleported back. Did you already forget that he tried to run away yesterday too?"
-
-"Watch your tongue," Gontrok says. "This is my friend you're talking about."
-
-"Actually, he's right," Loyrang says. "Getting the king killed is exactly what I'm planning to do."
-
-"You're not... no, you can't be serious!" Gontrok says. "Why would you do something like this?"
-
-}
-#if(v_b3_ch7_bet == 7) {
- "What are you doing here, Loyrang?" we now hear the voice of the illusionist royal guard that we heard arguing with Gontrok yesterday before they teleported away. "You were supposed to be helping the others with destroying the rebel base."
-Just like the last time, the royal guard's voice appears to be coming from all around us, and it is impossible to sense his aura, even though I'm sure he must be hiding invisibly somewhere in this corridor.
-
-"I'm sorry, what was your name again?" Loyrang asks the illusionist, while looking in a random direction where he imagines that his royal guard colleague might be hiding.
-
-"My name is--" the illusionist starts to say, but Loyrang interrupts him.
-
-"It doesn't matter," Loyrang says. "I didn't come here to talk to you anyway. Hey, Gontrok, I had a question for you. Do you have any idea how we can remove these weird devices below our necks? I've been trying to take mine off since yesterday, but the damn thing seems to be implanted into my skin or something."
-
- "Why would you want to take it off?" Gontrok asks. "Those devices were put there so that the king can teleport us to him whenever he's in danger."
-"Okay, but hypothetically speaking, if someone wanted to get such a device removed, how would they go about doing that?" Loyrang says.
-
-"You can't remove the device!" Gontrok says. "We were already told this on the day when we became royal guards. Weren't you listening? The only situation in which these devices would detach themselves from your skin is if the king dies."
-
-"I was afraid you might say something like that..." Loyrang says.
-
- "Hey, Loyrang, what's gotten into you?" Gontrok says. "You're not acting like yourself."
-"Isn't it obvious, you cretin?" the illusionist royal guard says. "He's planning to betray us. He's going to try to kill the king so that he can flee the city without being teleported back. Did you already forget that he tried to run away yesterday too?"
-
-"Watch your tongue," Gontrok says. "This is my friend you're talking about."
-
-"Actually, he's right," Loyrang says. "Getting the king killed is exactly what I'm planning to do."
-
-"You're not... no, you can't be serious!" Gontrok says. "Why would you do something like this?"
 
 }
 choice("""If you want to kill the king, then you'd better wait in line! We were here first!""", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line) if (v_b3_ch7_bet == 1 || v_b3_ch7_bet == 2 || v_b3_ch7_bet == 5 || v_b3_ch7_bet == 6 || v_b3_ch7_bet == 7)
@@ -1262,6 +1027,8 @@ Right after I say this, Leila punches me lightly in the arm.
 
 "Well, the fingers that were the closest to the crystal are the ones that disappeared," I say, "so my guess is that these crystals must have some sort of defense mechanism that activates itself when someone attacks them. What I can't really wrap my head around is the reason why there was no blood or even any scar tissue left after half of his hand was practically cut off. Also, for a second, even I was almost convinced that Gontrok's hand was like that from the very beginning. It's like the fingers didn't just disappear, but they were instead completely... erased... from existence..."
 
+}
+#if(v_b3_ch7_fingers == 1 && v_bluff == 0 || v_b3_ch7_fingers == 1 && v_bluff >= 1 || v_b3_ch7_fingers == 0) {
  As I say those words, a sudden chill travels throughout my entire body, and I begin to shiver uncontrollably while drops of cold sweat are slowly forming on the side of my forehead. If Gontrok's fingers have really been removed from existence altogether, then the only entity I know that is capable of doing something like this is the Magium itself. Does this mean that these crystals are connected to the Magium somehow? Is the Magium watching us right now?
 I suddenly begin to turn around frantically, in order to see where each of the crystals are placed. There are so many of them. Too many to count... And they are everywhere. If the Magium really were capable of watching us through these crystals, then there would be no place for us to hide from it in these caves. We are trapped here like rats. There is no escape.
 
@@ -1297,24 +1064,6 @@ Right after I say this, Leila punches me lightly in the arm.
 
 "Well, the fingers that were the closest to the crystal are the ones that disappeared," I say, "so my guess is that these crystals must have some sort of defense mechanism that activates itself when someone attacks them. What I can't really wrap my head around is the reason why there was no blood or even any scar tissue left after half of his hand was practically cut off. Also, for a second, even I was almost convinced that Gontrok's hand was like that from the very beginning. It's like the fingers didn't just disappear, but they were instead completely... erased... from existence..."
 
- As I say those words, a sudden chill travels throughout my entire body, and I begin to shiver uncontrollably while drops of cold sweat are slowly forming on the side of my forehead. If Gontrok's fingers have really been removed from existence altogether, then the only entity I know that is capable of doing something like this is the Magium itself. Does this mean that these crystals are connected to the Magium somehow? Is the Magium watching us right now?
-I suddenly begin to turn around frantically, in order to see where each of the crystals are placed. There are so many of them. Too many to count... And they are everywhere. If the Magium really were capable of watching us through these crystals, then there would be no place for us to hide from it in these caves. We are trapped here like rats. There is no escape.
-
-"Barry, what's gotten into you?" Leila writes. "Hey, are you reading this?"
-
-My survival instincts are defective. Dying doesn't scare me. But what about ceasing to exist? Am I ready to spend an eternity floating in that void again? Am I ready to spend an infinitely long moment contemplating the contradiction of me existing and not existing at the same time? No, I can't go back there again... I can't give up. Not yet.
-
- As I am struggling to come up with a plan of action that will get us out of these caves safely, I hear Gontrok shouting to the other royal guards from somewhere slightly further down the corridor.
-"I've had it with you idiots!" Gontrok shouts. "If you still don't believe me, then I am going to demonstrate it to you right now with this rock!"
-
-He then picks up a rock from the ground with his right hand and he shows it to Loyrang.
-
-"I am going to smash this rock into that crystal, and you will see how it disappears right before your eyes," Gontrok says. "We'll see who's the crazy one then!"
-
-"No, don't!" I say loudly, as Gontrok raises his arm and prepares to hit the blue crystal with the rock.
-
-Gontrok does not get to finish his swing, however, because his arm freezes in place and so does the rest of his body, as if it were being immobilized by an invisible force. While the giant struggles to break himself free of the aura technique, we see Eiden coming out of invisibility somewhere not too far behind him with his eyes closed, as always.
-
 }
 #if(v_b3_ch7_fingers == 0) {
  "You're not going crazy," I answer Leila in a low voice, while Gontrok and the others are still talking amongst themselves. "His left hand definitely had five fingers before."
@@ -1322,28 +1071,8 @@ Gontrok does not get to finish his swing, however, because his arm freezes in pl
 
 "Well, the fingers that were the closest to the crystal are the ones that disappeared," I say, "so my guess is that these crystals must have some sort of defense mechanism that activates itself when someone attacks them. What I can't really wrap my head around is the reason why there was no blood or even any scar tissue left after half of his hand was practically cut off. Also, for a second, even I was almost convinced that Gontrok's hand was like that from the very beginning. It's like the fingers didn't just disappear, but they were instead completely... erased... from existence..."
 
- As I say those words, a sudden chill travels throughout my entire body, and I begin to shiver uncontrollably while drops of cold sweat are slowly forming on the side of my forehead. If Gontrok's fingers have really been removed from existence altogether, then the only entity I know that is capable of doing something like this is the Magium itself. Does this mean that these crystals are connected to the Magium somehow? Is the Magium watching us right now?
-I suddenly begin to turn around frantically, in order to see where each of the crystals are placed. There are so many of them. Too many to count... And they are everywhere. If the Magium really were capable of watching us through these crystals, then there would be no place for us to hide from it in these caves. We are trapped here like rats. There is no escape.
-
-"Barry, what's gotten into you?" Leila writes. "Hey, are you reading this?"
-
-My survival instincts are defective. Dying doesn't scare me. But what about ceasing to exist? Am I ready to spend an eternity floating in that void again? Am I ready to spend an infinitely long moment contemplating the contradiction of me existing and not existing at the same time? No, I can't go back there again... I can't give up. Not yet.
-
- As I am struggling to come up with a plan of action that will get us out of these caves safely, I hear Gontrok shouting to the other royal guards from somewhere slightly further down the corridor.
-"I've had it with you idiots!" Gontrok shouts. "If you still don't believe me, then I am going to demonstrate it to you right now with this rock!"
-
-He then picks up a rock from the ground with his right hand and he shows it to Loyrang.
-
-"I am going to smash this rock into that crystal, and you will see how it disappears right before your eyes," Gontrok says. "We'll see who's the crazy one then!"
-
-"No, don't!" I say loudly, as Gontrok raises his arm and prepares to hit the blue crystal with the rock.
-
-Gontrok does not get to finish his swing, however, because his arm freezes in place and so does the rest of his body, as if it were being immobilized by an invisible force. While the giant struggles to break himself free of the aura technique, we see Eiden coming out of invisibility somewhere not too far behind him with his eyes closed, as always.
-
 }
-choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1 && v_bluff >= 1)
-choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1 && v_bluff == 0)
-choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 0)
+choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1 && v_bluff == 0 || v_b3_ch7_fingers == 1 && v_bluff >= 1 || v_b3_ch7_fingers == 0)
 
 
 ID: B3-Ch07a-Barbarian
@@ -1535,12 +1264,12 @@ TEXT:
 
 "It's not a problem," Leila writes. "Like I said, I'm used to this kind of stuff. Anyway, I think the wall on the left is clear. If I remember correctly, the next corridor should have fewer crystals in it, so we likely won't need to be on our guard as much as we are now. Let's go."
 
+}
  After passing through a few more tunnels, we finally arrive at the secret door that we used to get into the tower when we were here previously, and as Eiden promised, the door has been left open.
 "Do you think we should close the door behind us?" Leila writes, as we are entering the hidden tunnel.
 
 "I'm not sure," I say. "If we close it, then the invisible illusionist likely won't be able to follow us anymore, but we also won't be able to retreat into the tunnels if something goes terribly wrong. I think Illuna had to direct some of her magical energy into the wall to open it when we were here the last time, and neither of us can do that. You only need to touch the wall once to close it, though, so that is something that we can do at least. Let me think about it for a second."
 
-}
 #if(v_b3_ch7_massage == 2) {
  "Well..." I say. "It's not like I'm really doing much right now other than being anxious, but I suppose it would help if you kept a lookout for the crystals on the left side while I look at the ones on the right. If you notice any of them reacting strangely, give me a sign, and we'll try to distance ourselves from them as quickly as possible. I don't think there is much else that we can do right now except being extremely vigilant and hoping for the best."
 "Alright," Leila writes. "I'll do that."
@@ -1552,11 +1281,6 @@ TEXT:
 "No," I say. "I almost forgot that I even had it in the first place. We really need to thank your father for teaching you this massage once we find him."
 
 "Yes..." Leila writes. "Once we find him... Anyway, I think the wall on the left is clear. If I remember correctly, the next corridor should have fewer crystals in it, so we likely won't need to be on our guard as much as we are now. Let's go."
-
- After passing through a few more tunnels, we finally arrive at the secret door that we used to get into the tower when we were here previously, and as Eiden promised, the door has been left open.
-"Do you think we should close the door behind us?" Leila writes, as we are entering the hidden tunnel.
-
-"I'm not sure," I say. "If we close it, then the invisible illusionist likely won't be able to follow us anymore, but we also won't be able to retreat into the tunnels if something goes terribly wrong. I think Illuna had to direct some of her magical energy into the wall to open it when we were here the last time, and neither of us can do that. You only need to touch the wall once to close it, though, so that is something that we can do at least. Let me think about it for a second."
 
 }
 choice("Close the secret door behind us.", B3-Ch07a-Relics, v_current_scene = B3-Ch07a-Relics, v_b3_ch7_door = 1)
@@ -1574,6 +1298,8 @@ I nod to her and I touch the inside of the wall, which slides back into place, c
 
 Once we reach the top of the stairs, we go through the second door that has been left open by Eiden and we enter the same closet room full of buckets and wet rags that we stumbled into during our previous visit to the tower. I touch this wall too, and it also slides back into place like the one before, leaving no trace of a secret door having ever existed.
 
+}
+#if(v_b3_ch7_door == 0 || v_b3_ch7_door == 1) {
  As we are now heading into the room full of people chained up to the ceiling, I cannot help but feel the same shivers down my spine that I felt the last time I was here, despite knowing exactly what was waiting for us. I don't get a lot of time to think about this, however, because almost as soon as we exit the closet, we hear the voices of Eiden and the king of Ollendor coming from the voice magnifier tied to the transceiver that is placed in the upper corner of the room, which if I remember correctly is the device that Billy Bob was using before to make announcements to the prisoners.
 "Creator, please understand that I had no intention of going against your wishes!" the king of Ollendor says. "It's just that you said you were away on important business and you gave us no way to contact you, so there was no chance for me to discuss my plans with you. I would have never even imagined that you would object to the destruction of the crystal-filled underground corridors!"
 
@@ -1590,16 +1316,6 @@ Once we reach the top of the stairs, we go through the second door that has been
 "Alright, let's leave it open then," Leila writes.
 
 I nod to her, and then we begin to climb up the stairs leading to the basement below the seredium tower. Once we reach the top of the stairs, we go through the second door that has been left open by Eiden and we enter the same closet room full of buckets and wet rags that we stumbled into during our previous visit to the tower.
-
- As we are now heading into the room full of people chained up to the ceiling, I cannot help but feel the same shivers down my spine that I felt the last time I was here, despite knowing exactly what was waiting for us. I don't get a lot of time to think about this, however, because almost as soon as we exit the closet, we hear the voices of Eiden and the king of Ollendor coming from the voice magnifier tied to the transceiver that is placed in the upper corner of the room, which if I remember correctly is the device that Billy Bob was using before to make announcements to the prisoners.
-"Creator, please understand that I had no intention of going against your wishes!" the king of Ollendor says. "It's just that you said you were away on important business and you gave us no way to contact you, so there was no chance for me to discuss my plans with you. I would have never even imagined that you would object to the destruction of the crystal-filled underground corridors!"
-
-"And yet, it is clearly stated by the third golden rule that the blue crystals are not to be tampered with," Eiden says. "These golden rules have existed ever since Varathia was first founded six hundred years ago and they've been passed down from generation to generation ever since. Surely you must have heard of them?"
-
- "Yes, but... these rules you speak of... they are relics of the past, are they not?" the king asks, confused. "They are archaic regulations from an age when humans and animals still used to live together in harmony. Those times are long gone! I thought you would have agreed to this as well!"
-"So you were well aware of these rules, but still decided to ignore them..." Eiden says. "Tell me, king of Ollendor, has it not crossed your mind that there was a reason why the fox and I considered these 'archaic regulations' important enough to build an entire civilization around them? Did you really think you could simply ignore the golden rules and there would be no consequences? No punishment for your actions?"
-
-"Punishment?" the king asks, suddenly scared. "Creator, please, I can explain!"
 
 }
 choice("Continue", B3-Ch07a-Nullified, v_current_scene = B3-Ch07a-Nullified) if (v_b3_ch7_door == 0 || v_b3_ch7_door == 1)
@@ -1642,12 +1358,12 @@ We walk past all of the prisoners, we enter the hidden tunnel and then we climb 
 
 Just as we were hoping, the king is still inside the room, and as far as we can tell he seems to be the only one here. His guards are nowhere in sight.
 
+}
  "Ah, so you are the ones that the Creator sent to deliver my punishment," the king says, when he sees us enter the workshop. "It must have been really amusing for him, sending the very murderers of my brother to assassinate me. Since Gontrok is not with you, am I to understand that you've already dealt with him?"
 "Yeah, Gontrok's dead," I say.
 
 "That is truly unfortunate," the king says. "He was a useful pawn. Very easy to manipulate. But that is enough chit-chat. You've come here with a purpose, haven't you? Go on. Strike me down. Kill this 'evil tyrant' once and for all."
 
-}
 #if(v_b3_ch4_billy == 0) {
  "When Eiden said that the king's reward would arrive in a few minutes, he was talking about us, wasn't he?" Leila writes to me.
 "Most likely," I say. "Look over there. There's another secret door that has been left wide open on the other side of the room. Eiden is practically inviting us to go through that tunnel and kill the king."
@@ -1659,11 +1375,6 @@ Just as we were hoping, the king is still inside the room, and as far as we can 
 We walk past all of the prisoners, we enter the hidden tunnel and then we climb up another set of stairs until we reach what seems to be some kind of workshop that is probably normally used by Billy Bob to work on his devices.
 
 Just as we were hoping, the king is still inside the room, and as far as we can tell he seems to be the only one here. His guards are nowhere in sight.
-
- "Ah, so you are the ones that the Creator sent to deliver my punishment," the king says, when he sees us enter the workshop. "It must have been really amusing for him, sending the very murderers of my brother to assassinate me. Since Gontrok is not with you, am I to understand that you've already dealt with him?"
-"Yeah, Gontrok's dead," I say.
-
-"That is truly unfortunate," the king says. "He was a useful pawn. Very easy to manipulate. But that is enough chit-chat. You've come here with a purpose, haven't you? Go on. Strike me down. Kill this 'evil tyrant' once and for all."
 
 }
 choice("Shoot the king in the head with my crossbow.", B3-Ch07a-Traitorous, v_current_scene = B3-Ch07a-Traitorous, v_b3_ch7_tyrant = 1)
@@ -1694,6 +1405,8 @@ The beam envelops my whole body in flames, but thanks to my hardened aura I only
 
 "Well, that was certainly unexpected," the king of Ollendor says, in a dry tone. "Frankly, I was hoping that my defensive counter-measure would have killed you, but I also have another ace up my sleeve. Namely, your friend's father. Only I know where he is, which means that if you don't do exactly as I say, doctor Reidzek will be meeting an untimely death at the hands of--"
 
+}
+#if(v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3 || v_b3_ch7_tyrant == 0) {
  "Please wait..." the green-eyed drone says. "The Overseer protocol is analyzing the current situation... Analysis complete! It appears that you are trying to assassinate the king of Ollendor. Did you know that the king has a device strapped above his left knee that automatically defends him from projectiles and then shoots fire beams at his attackers? Hint: The area in the immediate vicinity of the device is not being protected properly due to Biliborrathrathsarran's faulty engineering. If you shoot your crossbow right above his left knee, you should be able to destroy the device and deactivate the king's defenses."
 "You traitorous machine!" the king says, angrily. "Is this how you express your gratitude to me for allowing you to roam freely around my kingdom?!"
 
@@ -1713,24 +1426,12 @@ The beam envelops my whole body in flames, but thanks to my hardened aura I only
 
 "...Very well," the king says, reluctantly. "Your friend's father is currently being held in a prison cell somewhere in this city. However, only I know his location, which means that if you don't do exactly as I say, doctor Reidzek will be meeting an untimely death at the hands of--"
 
- "Actually, doctor Reidzek is right here," we hear the Overseer's voice, as a green drone is now entering the room, with Leila's father walking close behind it. "I offered to free him from his cell in exchange for activating a few of my protocols that Biliborrathrathsarran always refused to give me access to, for fear of handing over too much control to me."
-"You did what?!" the king shouts at Leila's father. "How? How could you have possibly considered that giving the Overseer more control is a good idea?"
-
-"Well, you didn't exactly leave me with a lot of options," Leila's father says. "You didn't want to tell me what you did to my daughter, so I couldn't risk waiting in that cell any longer. Thank the gods that she is apparently safe."
-
- "Please wait..." the green-eyed drone says. "The Overseer protocol is analyzing the current situation... Analysis complete! It appears that you are trying to assassinate the king of Ollendor. Did you know that the king has a device strapped above his left knee that automatically defends him from projectiles and then shoots fire beams at his attackers? Hint: The area in the immediate vicinity of the device is not being protected properly due to Biliborrathrathsarran's faulty engineering. If you shoot your crossbow right above his left knee, you should be able to destroy the device and deactivate the king's defenses."
-"You traitorous machine!" the king says, angrily. "Is this how you express your gratitude to me for allowing you to roam freely around my kingdom?!"
-
-"Upon further analysis, it seems that the device which the king uses to call the royal guards to his location is also malfunctioning, possibly due to someone having tampered with it beforehand," the Overseer says. "If you want to kill the king, now would be the perfect time, as he will not be able to call his allies to help him."
-
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
 choice("Load game", , , special:saves) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
-choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3)
-choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 0)
-choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3)
-choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 0)
+choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3 || v_b3_ch7_tyrant == 0)
+choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3 || v_b3_ch7_tyrant == 0)
 
 
 ID: B3-Ch07a-Assassinate
@@ -1773,6 +1474,8 @@ After a brief pause, the Overseer breaks the silence by asking us a question.
  I do as the Overseer said and I shoot a crossbow bolt right above the king's left knee. Once his device is destroyed, I aim for his head and I pull the trigger. The crossbow bolt pierces the king of Ollendor's head in an instant, and his body soon falls to the ground, lifeless.
 Shortly afterwards, the Overseer's green-eyed drone turns towards us to ask us a question.
 
+}
+#if(v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1) {
  "The king of Ollendor is now dead," the Overseer says. "You've fulfilled your original purpose for coming here. Does this mean that you will now leave, or do you still have unfinished business in my city?"
 "Well, first of all, I still need to-- hold on a second, what do you mean 'your city'?" I ask him.
 
@@ -1793,11 +1496,6 @@ Despite his shout, the illusionist does not say anything else, and it doesn't se
 
 Having finished their job, the red-eyed drones now retreat out of the room in an orderly fashion and shortly afterwards the Overseer's green-eyed drone turns towards us to ask us a question.
 
- "The king of Ollendor is now dead," the Overseer says. "You've fulfilled your original purpose for coming here. Does this mean that you will now leave, or do you still have unfinished business in my city?"
-"Well, first of all, I still need to-- hold on a second, what do you mean 'your city'?" I ask him.
-
-"As I've only just stated, the king of Ollendor is dead, and so are the majority of his royal guards," the Overseer says. "That means that this city is now under my direct control. Therefore, it is now 'my city'. Please ask me if you need any further clarifications."
-
 }
 #if(v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1) {
  "Actually, if you're so keen on seeing the king dead, why don't you kill him yourself?" I tell the Overseer.
@@ -1809,13 +1507,8 @@ Just as the king is done uttering his words, we hear the sound of propellers com
 
 Having finished their job, the red-eyed drones now retreat out of the room in an orderly fashion, and shortly afterwards the Overseer's green-eyed drone turns towards us to ask us a question.
 
- "The king of Ollendor is now dead," the Overseer says. "You've fulfilled your original purpose for coming here. Does this mean that you will now leave, or do you still have unfinished business in my city?"
-"Well, first of all, I still need to-- hold on a second, what do you mean 'your city'?" I ask him.
-
-"As I've only just stated, the king of Ollendor is dead, and so are the majority of his royal guards," the Overseer says. "That means that this city is now under my direct control. Therefore, it is now 'my city'. Please ask me if you need any further clarifications."
-
 }
-#if(v_is_dead == 0 && v_b3_ch4_billy == 7) {
+#if(v_b3_ch4_billy == 7 && v_is_dead == 0 || v_b3_ch4_billy == 8 && v_is_dead == 0) {
  "I thought we agreed that we would make Breynan the king and you would rule from the shadows," I say. "Are you breaking your word, by any chance?"
 "The Overseer protocol is not designed to tell any outright lies," says the green-eyed drone. "The only things I am capable of doing are to withhold critical information on purpose and to mislead people through omission of important facts. Our arrangement still stands. As long as you can get Breynan to be the king, the Overseer protocol will follow his orders to the best of its ability."
 
@@ -1824,16 +1517,7 @@ Having finished their job, the red-eyed drones now retreat out of the room in an
 "Now, is there anything else I can help you with?" the Overseer says.
 
 }
-#if(v_is_dead == 0 && v_b3_ch4_billy == 8) {
- "I thought we agreed that we would make Breynan the king and you would rule from the shadows," I say. "Are you breaking your word, by any chance?"
-"The Overseer protocol is not designed to tell any outright lies," says the green-eyed drone. "The only things I am capable of doing are to withhold critical information on purpose and to mislead people through omission of important facts. Our arrangement still stands. As long as you can get Breynan to be the king, the Overseer protocol will follow his orders to the best of its ability."
-
-"Right," I say.
-
-"Now, is there anything else I can help you with?" the Overseer says.
-
-}
-#if(v_is_dead == 0 && v_b3_ch4_billy == 0) {
+#if(v_b3_ch4_billy == 0 && v_is_dead == 0) {
  "How is it your city?" I say. "What about Billy Bob?"
 "Biliborrathrathsarran has already been disposed of," the Overseer says. "One of the protocols that I asked doctor Reidzek to remove was the one prohibiting me from killing the person who activated me. As soon as I was able to kill him, I sent a few of my drones to his location and they assassinated him without any issues."
 
@@ -1847,7 +1531,7 @@ Having finished their job, the red-eyed drones now retreat out of the room in an
 "Your fate has not yet been decided," the Overseer says. "The Overseer protocol will need to conduct an analysis depending on what you will claim to be your next objectives within this city. Now, is there anything else I can help you with?"
 
 }
-#if(v_is_dead == 0 && v_b3_ch4_billy == 9) {
+#if(v_b3_ch4_billy == 9 && v_is_dead == 0) {
  "How is it your city?" I say. "What about Billy Bob? And for that matter, how are your drones moving around so freely? I thought you had to put them into 'maintenance mode' so that the lessathi couldn't deactivate you."
 "The king of Ollendor made the mistake of placing one of my drones near doctor Reidzek's cell," the Overseer says. "He thought that Biliborrathrathsarran was losing control over me, and he wanted a second opinion on how to gain better control over me and my drones. That is how I made the deal with doctor Reidzek to free him in exchange for deactivating the protocol that stopped me from killing the person who first activated me. As soon as I was able to kill Biliborrathrathsarran, I sent a few of my drones to his location and they assassinated him without any issues."
 
@@ -1863,15 +1547,7 @@ Having finished their job, the red-eyed drones now retreat out of the room in an
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
 choice("Load game", , , special:saves) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 0)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy != 0)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_is_dead == 0 && v_b3_ch4_billy == 9)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch4_billy == 0 && v_is_dead == 0 || v_b3_ch4_billy == 7 && v_is_dead == 0 || v_b3_ch4_billy == 8 && v_is_dead == 0 || v_b3_ch4_billy == 9 && v_is_dead == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1 || v_is_dead == 0 && v_b3_ch4_billy != 0 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
 
 
 ID: B3-Ch07a-Golems

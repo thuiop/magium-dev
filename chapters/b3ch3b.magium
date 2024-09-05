@@ -121,11 +121,6 @@ I begin heading towards the tunnel that leads directly to the teleporter room at
 
 My predictions turn out to be true, as I soon catch a glimpse of Kate's green cloak in the distance, and then I slow down my pace, so I can follow her and Melindra without getting noticed. Unfortunately, my plan gets shot to pieces almost immediately, when Melindra suddenly stops walking and calls out to me in a loud voice.
 
-choice("Continue", B3-Ch03b-Inconvenience, v_current_scene = B3-Ch03b-Inconvenience) if (v_b3_ch3_functional == 0)
-choice("Continue", B3-Ch03b-Inconvenience, v_current_scene = B3-Ch03b-Inconvenience) if (v_b3_ch3_functional == 1)
-choice("Continue", B3-Ch03b-Inconvenience, v_current_scene = B3-Ch03b-Inconvenience) if (v_b3_ch3_functional == 2)
-choice("Continue", B3-Ch03b-Inconvenience, v_current_scene = B3-Ch03b-Inconvenience) if (v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch03b-Inconvenience, v_current_scene = B3-Ch03b-Inconvenience) if (v_b3_ch1_unlock != 2)
 choice("Continue", B3-Ch03b-Inconvenience, v_current_scene = B3-Ch03b-Inconvenience)
 
 
@@ -622,18 +617,13 @@ choice("""Yes, can you stop calling us Daren?""", B3-Ch03b-Calling, v_current_sc
 ID: B3-Ch03b-Calling
 TEXT: 
 
-#if(v_b3_ch2_name == 0) {
+#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
  "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
 "Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
 
 Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
 
 "Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
-
- "Yes, can you stop calling us Felran?"
-"Unfortunately, changing your group's designation is not possible at this time," the Overseer says. "We apologize for the inconvenience."
-
-"Of course," I say. "I don't know why I was expecting anything different."
 
  "Does anyone else have any questions for the Overseer?" Breynan says.
 "I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
@@ -643,6 +633,13 @@ Breynan suddenly interrupts himself, because right before we reach the end of th
 "Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
 
 "Let's go this way," Breynan says, and then he heads back the way we came.
+
+}
+#if(v_b3_ch2_name == 0) {
+ "Yes, can you stop calling us Felran?"
+"Unfortunately, changing your group's designation is not possible at this time," the Overseer says. "We apologize for the inconvenience."
+
+"Of course," I say. "I don't know why I was expecting anything different."
 
 }
 #if(v_b3_ch2_name == 1) {
@@ -651,44 +648,12 @@ Breynan suddenly interrupts himself, because right before we reach the end of th
 
 "Of course," I say. "I don't know why I was expecting anything different."
 
- "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
-"Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
-
-Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
-
-"Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
-
- "Does anyone else have any questions for the Overseer?" Breynan says.
-"I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
-
-"I think so too," Breynan says. "Maybe we should get ready to head back, then. Alright, Overseer, that will be all for today. Have a safe trip."
-
-"Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
-
-"Let's go this way," Breynan says, and then he heads back the way we came.
-
 }
 #if(v_b3_ch2_name == 2) {
  "Yes, can you stop calling us Barry?"
 "Unfortunately, changing your group's designation is not possible at this time," the Overseer says. "We apologize for the inconvenience."
 
 "Of course," I say. "I don't know why I was expecting anything different."
-
- "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
-"Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
-
-Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
-
-"Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
-
- "Does anyone else have any questions for the Overseer?" Breynan says.
-"I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
-
-"I think so too," Breynan says. "Maybe we should get ready to head back, then. Alright, Overseer, that will be all for today. Have a safe trip."
-
-"Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
-
-"Let's go this way," Breynan says, and then he heads back the way we came.
 
 }
 #if(v_b3_ch2_name == 3) {
@@ -697,44 +662,12 @@ Breynan suddenly interrupts himself, because right before we reach the end of th
 
 "Of course," I say. "I don't know why I was expecting anything different."
 
- "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
-"Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
-
-Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
-
-"Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
-
- "Does anyone else have any questions for the Overseer?" Breynan says.
-"I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
-
-"I think so too," Breynan says. "Maybe we should get ready to head back, then. Alright, Overseer, that will be all for today. Have a safe trip."
-
-"Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
-
-"Let's go this way," Breynan says, and then he heads back the way we came.
-
 }
 #if(v_b3_ch2_name == 4) {
  "Yes, can you stop calling us Daren?"
 "Unfortunately, changing your group's designation is not possible at this time," the Overseer says. "We apologize for the inconvenience."
 
 "Of course," I say. "I don't know why I was expecting anything different."
-
- "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
-"Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
-
-Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
-
-"Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
-
- "Does anyone else have any questions for the Overseer?" Breynan says.
-"I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
-
-"I think so too," Breynan says. "Maybe we should get ready to head back, then. Alright, Overseer, that will be all for today. Have a safe trip."
-
-"Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
-
-"Let's go this way," Breynan says, and then he heads back the way we came.
 
 }
 choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
@@ -877,7 +810,7 @@ I quickly shoot him in the other leg, in order to try and slow his momentum, but
 "But father, we need to take you to a doctor!" the boy says. "You are bleeding!"
 
 }
-#if(v_b3_ch3_civilians == 1) {
+#if(v_b3_ch3_civilians == 1 || v_b3_ch3_civilians == 2) {
  "I will never forgive you..." the boy says, while gripping the clothes of the dead body in front of him even harder than before.
 He then says the same words in a much louder voice, as the look in his eyes now turns into one full of hatred.
 
@@ -886,13 +819,6 @@ He then says the same words in a much louder voice, as the look in his eyes now 
 "This way," Breynan tells me, when he sees that I've stopped moving.
 
 I take one last look at the boy, and then I follow Breyan out of the alley, without turning back. When we exit the alleyway, I catch a glimpse of a woman right outside, covering her eyes with one of her hands, while tears are slowly running down her face. I quickly realize that she must be the wife of the man I just killed. We all walk right past her without saying a word, and we begin heading back towards the place where we first got teleported. 
-
- Just from a glance, I can tell that these men have never held a blade before in their lives. Even without my stats, I should be able to deal with them easily.
-I waste no time and I use my dagger to stab the man in front of me in the leg. I then kick him in the stomach and make him fall on his back, as I quickly pull the crossbow out of my backpack and begin shooting the men behind me in their legs as well, in order to immobilize them.
-
-Just as the three men who were trying to flank us are falling to the ground, the man that I stabbed earlier recovers much faster than I anticipated, and he immediately dashes at me with his knife held firmly in his hands.
-
-I quickly realize that simply shooting him in the leg will not prevent me from getting stabbed, so I panic, and I use my crossbow to fire a bolt straight into the man's chest. Upon getting shot, my attacker drops his dagger and he tries to pull the crossbow bolt out with his bare hands, but he quickly loses the strength from both his arms and legs and he falls flat on the ground. After failing to get back up a few times, the man in rags finally stops moving and he slowly succumbs to his death. As I take a look around, I see that both Breynan and Leila have managed to knock out their adversaries, and they are now approaching me.
 
  "We need to get out of here before anyone else tries to attack us," Breynan says. "I don't want any more innocent lives to be lost today--"
 "Father?..." we hear the voice of a ten year old boy, as he is now entering the alley.
@@ -910,37 +836,22 @@ The boy then grips his father's shirt tightly with both hands, as he is trying v
 When I turn my head back towards him, I see that the boy is now looking directly into my eyes, with a pained but determined look on his face. As he keeps staring at me, I suddenly realize that I am still holding the crossbow that fired the bolt which is now lodged in his father's chest.
 
 }
+#if(v_b3_ch3_civilians == 1) {
+ Just from a glance, I can tell that these men have never held a blade before in their lives. Even without my stats, I should be able to deal with them easily.
+I waste no time and I use my dagger to stab the man in front of me in the leg. I then kick him in the stomach and make him fall on his back, as I quickly pull the crossbow out of my backpack and begin shooting the men behind me in their legs as well, in order to immobilize them.
+
+Just as the three men who were trying to flank us are falling to the ground, the man that I stabbed earlier recovers much faster than I anticipated, and he immediately dashes at me with his knife held firmly in his hands.
+
+I quickly realize that simply shooting him in the leg will not prevent me from getting stabbed, so I panic, and I use my crossbow to fire a bolt straight into the man's chest. Upon getting shot, my attacker drops his dagger and he tries to pull the crossbow bolt out with his bare hands, but he quickly loses the strength from both his arms and legs and he falls flat on the ground. After failing to get back up a few times, the man in rags finally stops moving and he slowly succumbs to his death. As I take a look around, I see that both Breynan and Leila have managed to knock out their adversaries, and they are now approaching me.
+
+}
 #if(v_b3_ch3_civilians == 2) {
- "I will never forgive you..." the boy says, while gripping the clothes of the dead body in front of him even harder than before.
-He then says the same words in a much louder voice, as the look in his eyes now turns into one full of hatred.
-
-"I will never forgive you!" the boy shouts.
-
-"This way," Breynan tells me, when he sees that I've stopped moving.
-
-I take one last look at the boy, and then I follow Breyan out of the alley, without turning back. When we exit the alleyway, I catch a glimpse of a woman right outside, covering her eyes with one of her hands, while tears are slowly running down her face. I quickly realize that she must be the wife of the man I just killed. We all walk right past her without saying a word, and we begin heading back towards the place where we first got teleported. 
-
  Just from a glance, I can tell that these men have never held a blade before in their lives. Even without my stats, I should be able to deal with them easily.
 I waste no time and I use my dagger to stab the man in front of me in the lower side of his abdomen. I then kick him in the stomach and make him fall on his back, as I quickly pull the crossbow out of my backpack and shoot all the men behind me in their heads, killing them in a matter of seconds. 
 
 Just as the three men who were trying to flank us are falling to the ground, the man that I stabbed earlier recovers much faster than I anticipated, and he immediately dashes at me with his knife held firmly in his hands.
 
 Luckily, I react fast enough, and I use my crossbow to fire a bolt straight into the man's chest. Upon getting shot, my attacker drops his dagger and he tries to pull the crossbow bolt out with his bare hands, but he quickly loses the strength from both his arms and legs and he falls flat on the ground. After failing to get back up a few times, the man in rags finally stops moving and he slowly succumbs to his death. As I take a look around, I see that both Breynan and Leila have managed to knock out their adversaries, and they are now approaching me.
-
- "We need to get out of here before anyone else tries to attack us," Breynan says. "I don't want any more innocent lives to be lost today--"
-"Father?..." we hear the voice of a ten year old boy, as he is now entering the alley.
-
-When he sees the dead man lying at my feet, the boy rushes towards him as fast as he can, and then he places himself on his knees beside him, trying to wake him up.
-
-"No..." the boy says, as he sees the lifeless gaze in his father's eyes. "No, no, no, you can't be dead. You said everything would be fine. You said we'd be going back home together after all this was over. Please, tell me that you're just sleeping. Please..."
-
-The boy then grips his father's shirt tightly with both hands, as he is trying very hard to hold back his tears.
-
-"Let's go," Breynan tells us. "There's nothing else we can do here."
-
-"You..." the boy says, just as we are about to move past him. "You did this..."
-
-When I turn my head back towards him, I see that the boy is now looking directly into my eyes, with a pained but determined look on his face. As he keeps staring at me, I suddenly realize that I am still holding the crossbow that fired the bolt which is now lodged in his father's chest.
 
 }
 choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms) if (v_b3_ch3_civilians == 0 || v_b3_ch3_civilians == 1 || v_b3_ch3_civilians == 2)
@@ -1028,7 +939,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_b2_ch7_dizziness == 1)
 set(v_is_dead,0) if (v_b2_ch7_dizziness == 0)
-#if(v_b2_ch7_dizziness == 1) {
+#if(v_b2_ch7_dizziness == 0 || v_b2_ch7_dizziness == 1) {
  "I'm on it!" I say, and then I fly up high in the sky, in order to make sure that I can get over Melindra's invisible barrier so that I can start shooting at the man with the trident.
 As I get past the barrier, I position myself somewhere above the royal guard trainee, and I begin firing my crossbow in his direction. Unfortunately, the man anticipates my shots and he manages to get out of the way in time, while he also prepares a counter attack by using his weapon to create a few boulders out of thin air. When he's done making his rock projectiles, he points his trident towards me and he sends all of his boulders flying at me with great speed.
 
@@ -1038,6 +949,8 @@ I dodge the projectiles easily in mid-air and then I shoot a few more crossbow b
 
 When I hear what Melindra is saying, I look up and I see that there are now six red-eyed metal balls that are quickly heading towards me. I attempt to shoot them from a distance, but they dodge my attacks without much effort and then they continue to advance in my direction. In the meantime, the man with the trident takes advantage of this situation and he begins to send even more boulders my way, so he can keep me distracted.
 
+}
+#if(v_b2_ch7_dizziness == 1) {
  As I am busy dodging boulders in mid-air while reloading my crossbow, I suddenly get a strong headache and a feeling of intense disorientation, which causes me to stop moving and to grab my forehead with both hands, in an attempt to make the pain go away.
 I quickly realize that this must be a spell similar to the one that was cast on Kate, and that the only thing I can do is to endure it. While I am struggling to regain my balance, a boulder comes out of nowhere and it hits me right in the head, cracking my skull open and killing me on the spot.
 
@@ -1053,15 +966,6 @@ I quickly realize that this must be a spell similar to the one that was cast on 
 "Okay, you've convinced me," says the man with the metal glove and then he stops trying to dodge, just as one of the manticores was diving for him.
 
 Seeing that he is no longer trying to evade its attacks, the manticore suddenly flaps its wings and it soars right back into the sky, as it begins to circle around aimlessly just like the manticore that was fighting the man with the trident before.
-
- "I'm on it!" I say, and then I fly up high in the sky, in order to make sure that I can get over Melindra's invisible barrier so that I can start shooting at the man with the trident.
-As I get past the barrier, I position myself somewhere above the royal guard trainee, and I begin firing my crossbow in his direction. Unfortunately, the man anticipates my shots and he manages to get out of the way in time, while he also prepares a counter attack by using his weapon to create a few boulders out of thin air. When he's done making his rock projectiles, he points his trident towards me and he sends all of his boulders flying at me with great speed.
-
-I dodge the projectiles easily in mid-air and then I shoot a few more crossbow bolts at him, but this time the man doesn't even bother to step aside and he just conjures a wall of rock to block them.
-
-"Stop wasting your time with him and grab Leila!"  Melindra shouts, as I am reloading my crossbow. "The 'droons' are going to notice you! Damn it, they're already coming down!"
-
-When I hear what Melindra is saying, I look up and I see that there are now six red-eyed metal balls that are quickly heading towards me. I attempt to shoot them from a distance, but they dodge my attacks without much effort and then they continue to advance in my direction. In the meantime, the man with the trident takes advantage of this situation and he begins to send even more boulders my way, so he can keep me distracted.
 
  As I am busy dodging boulders in mid-air while reloading my crossbow, I suddenly get a light headache and a slight feeling of nausea. I quickly realize that this must be happening because the same person who cast the dizziness spell on Kate earlier used a similar, but weaker version of the spell on me to make me lose my balance. Luckily, I still have the magical protection against dizziness that Illuna cast on me a week ago, so the effects of the spell are not too severe.
 I continue to dodge the incoming boulders successfully, despite the minor headache, and I manage to shoot down two of the metal balls before they reach me. As soon as the 'droons' get closer to me, however, they immediately begin to attack me with fire and ice beams, which forces me to distance myself from them while still being cautious of the rock projectiles coming from below.

@@ -56,26 +56,15 @@ TEXT:
 "A price?..." the king of the underground says, and he spends a few moments thinking about my offer. "Well, to be perfectly honest with you, I can't say that I would be willing to spend a lot of money on this information. The way I see it, either you struck some secret deal with the Overseer, in which case you obviously aren't going to tell me about it, or your discussion was centered on viable ways to assassinate the king, which have likely become irrelevant now that the king has ordered a city-wide lockdown. However, I would be willing to pay you ten gold coins upfront if you agree to confirm or deny my hypothesis. What do you say?"
 
 }
-#if(v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 7) {
+#if(v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 2 || v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 2) {
  "Sure, we'll tell you. For a price."
 When they hear what I answered the king, Kate and Breynan both instinctively turn their heads towards me, but they only do it for a brief moment, realizing that they can't afford to raise any more suspicion. The king doesn't seem to have noticed them, because he is currently giving me his undivided attention.
 
 "A price?..." the king of the underground says, and he spends a few moments thinking about my offer. "Well, to be perfectly honest with you, I can't say that I would be willing to spend a lot of money on this information. The way I see it, either you struck some secret deal with the Overseer, in which case you obviously aren't going to tell me about it, or your discussion was centered on viable ways to assassinate the king, which have likely become irrelevant now that the king has ordered a city-wide lockdown. However, I would be willing to pay you ten gold coins upfront if you agree to confirm or deny my hypothesis. What do you say?"
 
 }
-#if(v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 8) {
- "Sure, we'll tell you. For a price."
-When they hear what I answered the king, Kate and Breynan both instinctively turn their heads towards me, but they only do it for a brief moment, realizing that they can't afford to raise any more suspicion. The king doesn't seem to have noticed them, because he is currently giving me his undivided attention.
-
-"A price?..." the king of the underground says, and he spends a few moments thinking about my offer. "Well, to be perfectly honest with you, I can't say that I would be willing to spend a lot of money on this information. The way I see it, either you struck some secret deal with the Overseer, in which case you obviously aren't going to tell me about it, or your discussion was centered on viable ways to assassinate the king, which have likely become irrelevant now that the king has ordered a city-wide lockdown. However, I would be willing to pay you ten gold coins upfront if you agree to confirm or deny my hypothesis. What do you say?"
-
-}
-choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy != 8)
-choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 7)
-choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 8)
-choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy != 8)
-choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 7)
-choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2 && v_b3_ch4_billy == 8)
+choice("Confirm that the information from the Overseer has become irrelevant.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 3) if (v_b3_ch5_negotiations == 2)
+choice("Tell him that ten gold coins is too small a sum to be worth any answer.", B3-Ch05a-Contacting, v_current_scene = B3-Ch05a-Contacting, v_b3_ch5_negotiations = 4) if (v_b3_ch5_negotiations == 2)
 
 
 ID: B3-Ch05a-Contacting
@@ -90,18 +79,7 @@ TEXT:
 "Yes, I suspected that this might have been the case..." the king of the underground says. "Still, I am thankful for your honesty. The situation is bad enough as it is, so it's good to know that at least I won't have to also worry about you hiding crucial information from me. I recommend that you all go get some rest, because tomorrow is likely going to be a busy day. We'll talk again in the morning."
 
 }
-#if(v_b3_ch5_negotiations == 1 && v_b3_ch4_billy == 7) {
- "I mean, the cat's out of the bag already, so I guess we might as well tell you."
-When they hear what I answered the king, Kate and Breynan both instinctively turn their heads towards me, but they only do it for a brief moment, realizing that they can't afford to raise any more suspicion. The king doesn't seem to have noticed them, because he is currently giving me his undivided attention.
-
-"I'm all ears," the king says. "Please go on."
-
-"Well, there isn't a lot to talk about, really," I say. "The Overseer basically tipped us off that the king of Ollendor had been doing many trips outside the palace lately, and that we could predict where he'd be going next by identifying his scouts and following them. He said that by using this information, we could set up ambushes in order to more easily assassinate the king. The problem is that the Overseer told us all of this before the king ordered the city-wide lockdown, so any info that we got about the king's previous schedule must have already become irrelevant by now." 
- 
-"Yes, I suspected that this might have been the case..." the king of the underground says. "Still, I am thankful for your honesty. The situation is bad enough as it is, so it's good to know that at least I won't have to also worry about you hiding crucial information from me. I recommend that you all go get some rest, because tomorrow is likely going to be a busy day. We'll talk again in the morning."
-
-}
-#if(v_b3_ch5_negotiations == 1 && v_b3_ch4_billy == 8) {
+#if(v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 1 || v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 1) {
  "I mean, the cat's out of the bag already, so I guess we might as well tell you."
 When they hear what I answered the king, Kate and Breynan both instinctively turn their heads towards me, but they only do it for a brief moment, realizing that they can't afford to raise any more suspicion. The king doesn't seem to have noticed them, because he is currently giving me his undivided attention.
 
@@ -135,7 +113,7 @@ The king of the underground shrugs.
 "Suit yourself, then," he says. "I don't really see why you would deny my offer, since it's just free money for you at this point, but I won't waste any time trying to change your mind. Anyway, now that we're done discussing this topic, I recommend that you all go get some rest, because tomorrow is likely going to be a busy day. We'll talk again in the morning."
 
 }
-#if(v_b3_ch4_billy != 8) {
+#if(v_b3_ch5_negotiations == 0 || v_b3_ch5_negotiations == 4 || v_b3_ch4_billy != 8) {
  "My king, is there anything I can help you with?" Breynan says.
 "Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
 
@@ -144,7 +122,7 @@ The king of the underground shrugs.
 We leave the king and Breynan behind, and we begin heading for the tunnel leading towards our sleeping quarters. As we make our way across the waiting room, we walk past quite a few groups of refugees that are each being directed towards a different section of the rebel base by the king of the underground's men. It looks like they're having a bit of trouble finding enough room for all of these people, because they are sending a lot of them to the mess hall for the night, instead of the sleeping quarters.
 
 }
-#if(v_b3_ch4_billy == 7 && v_b3_ch5_negotiations != 4) {
+#if(v_b3_ch4_billy == 7 && v_b3_ch5_negotiations != 4 || v_b3_ch4_billy == 8 && v_b3_ch5_negotiations != 4) {
  "My king, is there anything I can help you with?" Breynan says.
 "Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
 
@@ -155,55 +133,6 @@ We leave the king and Breynan behind, and we begin heading for the tunnel leadin
 "For a moment there, I was afraid that you were going to tell the king about our... other negotiations with the Overseer," Kate tells me in a low voice, once we're far enough from the king of the underground.
 
 "Hey, even I'm not that crazy!" I tell her.
-
-}
-#if(v_b3_ch4_billy == 8 && v_b3_ch5_negotiations != 4) {
- "My king, is there anything I can help you with?" Breynan says.
-"Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
-
-"I understand," Breynan says, and then he grabs a paper from the stack.
-
-We leave the king and Breynan behind, and we begin heading for the tunnel leading towards our sleeping quarters. As we make our way across the waiting room, we walk past quite a few groups of refugees that are each being directed towards a different section of the rebel base by the king of the underground's men. It looks like they're having a bit of trouble finding enough room for all of these people, because they are sending a lot of them to the mess hall for the night, instead of the sleeping quarters.
-
-"For a moment there, I was afraid that you were going to tell the king about our... other negotiations with the Overseer," Kate tells me in a low voice, once we're far enough from the king of the underground.
-
-"Hey, even I'm not that crazy!" I tell her.
-
-}
-#if(v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 0) {
- "My king, is there anything I can help you with?" Breynan says.
-"Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
-
-"I understand," Breynan says, and then he grabs a paper from the stack.
-
-We leave the king and Breynan behind, and we begin heading for the tunnel leading towards our sleeping quarters. As we make our way across the waiting room, we walk past quite a few groups of refugees that are each being directed towards a different section of the rebel base by the king of the underground's men. It looks like they're having a bit of trouble finding enough room for all of these people, because they are sending a lot of them to the mess hall for the night, instead of the sleeping quarters.
-
-}
-#if(v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 0) {
- "My king, is there anything I can help you with?" Breynan says.
-"Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
-
-"I understand," Breynan says, and then he grabs a paper from the stack.
-
-We leave the king and Breynan behind, and we begin heading for the tunnel leading towards our sleeping quarters. As we make our way across the waiting room, we walk past quite a few groups of refugees that are each being directed towards a different section of the rebel base by the king of the underground's men. It looks like they're having a bit of trouble finding enough room for all of these people, because they are sending a lot of them to the mess hall for the night, instead of the sleeping quarters.
-
-}
-#if(v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 4) {
- "My king, is there anything I can help you with?" Breynan says.
-"Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
-
-"I understand," Breynan says, and then he grabs a paper from the stack.
-
-We leave the king and Breynan behind, and we begin heading for the tunnel leading towards our sleeping quarters. As we make our way across the waiting room, we walk past quite a few groups of refugees that are each being directed towards a different section of the rebel base by the king of the underground's men. It looks like they're having a bit of trouble finding enough room for all of these people, because they are sending a lot of them to the mess hall for the night, instead of the sleeping quarters.
-
-}
-#if(v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 4) {
- "My king, is there anything I can help you with?" Breynan says.
-"Well, you could begin by taking some of these reports off my hands," the king of the underground says, as he points at a man standing next to him who is holding a stack of papers. "Start with the ones at the bottom. Those should be easy enough for you to understand even without knowing the layout of the city by heart like I do. We need to evacuate as many people as we can by sunrise, so you'd better be ready for another sleepless night. We're going to be here for a while."
-
-"I understand," Breynan says, and then he grabs a paper from the stack.
-
-We leave the king and Breynan behind, and we begin heading for the tunnel leading towards our sleeping quarters. As we make our way across the waiting room, we walk past quite a few groups of refugees that are each being directed towards a different section of the rebel base by the king of the underground's men. It looks like they're having a bit of trouble finding enough room for all of these people, because they are sending a lot of them to the mess hall for the night, instead of the sleeping quarters.
 
 }
 #if(v_ch11_saved_rose == 0) {
@@ -224,21 +153,7 @@ I pull out my transceiver and I begin by calling Daren. I give him a short expla
 Just as I'm done talking with Hadrik, Daren comes out of the quarantine zone, holding Arraka's amulet close to his mouth like a transceiver while having a heated argument with her. Close behind them, we see the goblin healer, Kelrim, who is silently following the two of them as they are heading in our direction.
 
 }
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1 && v_b3_ch4_billy != 8)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1 && v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 1 && v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 0)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 3)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch5_negotiations == 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy != 8)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7 && v_b3_ch5_negotiations != 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8 && v_b3_ch5_negotiations != 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 0)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 0)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 7 && v_b3_ch5_negotiations == 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_b3_ch4_billy == 8 && v_b3_ch5_negotiations == 4)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch05a-Untangle, v_current_scene = B3-Ch05a-Untangle)
 
 
 ID: B3-Ch05a-Untangle
@@ -303,10 +218,6 @@ The goblin's words about innocent lives being lost for no reason cut deeper than
 
 }
 choice("Continue", B3-Ch05a-Adventure, v_current_scene = B3-Ch05a-Adventure)
-choice("Continue", B3-Ch05a-Adventure, v_current_scene = B3-Ch05a-Adventure) if (v_ch11_saved_rose == 1)
-choice("Continue", B3-Ch05a-Adventure, v_current_scene = B3-Ch05a-Adventure) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Adventure, v_current_scene = B3-Ch05a-Adventure) if (v_b3_ch2_goblins == 1)
-choice("Continue", B3-Ch05a-Adventure, v_current_scene = B3-Ch05a-Adventure) if (v_b3_ch2_goblins != 1)
 
 
 ID: B3-Ch05a-Adventure
@@ -399,16 +310,7 @@ Once we are done giving them all of the details about what was happening beneath
 "Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
 
 }
-#if(v_b3_ch4_billy == 7) {
- "I don't know," I say. "It depends on whether he's actually going to keep his promise to us or not. Either way, I think it's safe to say that at least he also wants the king dead, just like us."
-"Who cares about the Overseer?" Hadrik says. "He's just a machine! The rebels are the ones that matter. Do we know if we can trust them? Maybe we can talk to them to assemble a rescue team or something."
-
-"The rebels won't attack any of the towers," Kate says. "Not with their 'king of the underground' in charge. They already made it clear that they wouldn't be willing to expend resources on rescue missions even if it did turn out that innocent people were being held in the towers. The only thing we can hope to achieve by allying ourselves with them is to get help in killing the king from the surface. Nothing else."
-
-"Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
-
-}
-#if(v_b3_ch4_billy == 8) {
+#if(v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8) {
  "I don't know," I say. "It depends on whether he's actually going to keep his promise to us or not. Either way, I think it's safe to say that at least he also wants the king dead, just like us."
 "Who cares about the Overseer?" Hadrik says. "He's just a machine! The rebels are the ones that matter. Do we know if we can trust them? Maybe we can talk to them to assemble a rescue team or something."
 
@@ -426,14 +328,7 @@ Once we are done giving them all of the details about what was happening beneath
 "Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
 
 }
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy != 0)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 0)
 
 
 ID: B3-Ch05a-Anything
@@ -486,16 +381,7 @@ Once we are done giving them all of the details about what was happening beneath
 "Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
 
 }
-#if(v_b3_ch4_billy == 7) {
- "I don't know," I say. "It depends on whether he's actually going to keep his promise to us or not. Either way, I think it's safe to say that at least he also wants the king dead, just like us."
-"Who cares about the Overseer?" Hadrik says. "He's just a machine! The rebels are the ones that matter. Do we know if we can trust them? Maybe we can talk to them to assemble a rescue team or something."
-
-"The rebels won't attack any of the towers," Kate says. "Not with their 'king of the underground' in charge. They already made it clear that they wouldn't be willing to expend resources on rescue missions even if it did turn out that innocent people were being held in the towers. The only thing we can hope to achieve by allying ourselves with them is to get help in killing the king from the surface. Nothing else."
-
-"Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
-
-}
-#if(v_b3_ch4_billy == 8) {
+#if(v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8) {
  "I don't know," I say. "It depends on whether he's actually going to keep his promise to us or not. Either way, I think it's safe to say that at least he also wants the king dead, just like us."
 "Who cares about the Overseer?" Hadrik says. "He's just a machine! The rebels are the ones that matter. Do we know if we can trust them? Maybe we can talk to them to assemble a rescue team or something."
 
@@ -513,14 +399,7 @@ Once we are done giving them all of the details about what was happening beneath
 "Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
 
 }
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy != 0)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 0)
 
 
 ID: B3-Ch05a-Mock
@@ -585,16 +464,7 @@ Once we are done giving them all of the details about what was happening beneath
 "Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
 
 }
-#if(v_b3_ch4_billy == 7) {
- "I don't know," I say. "It depends on whether he's actually going to keep his promise to us or not. Either way, I think it's safe to say that at least he also wants the king dead, just like us."
-"Who cares about the Overseer?" Hadrik says. "He's just a machine! The rebels are the ones that matter. Do we know if we can trust them? Maybe we can talk to them to assemble a rescue team or something."
-
-"The rebels won't attack any of the towers," Kate says. "Not with their 'king of the underground' in charge. They already made it clear that they wouldn't be willing to expend resources on rescue missions even if it did turn out that innocent people were being held in the towers. The only thing we can hope to achieve by allying ourselves with them is to get help in killing the king from the surface. Nothing else."
-
-"Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
-
-}
-#if(v_b3_ch4_billy == 8) {
+#if(v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8) {
  "I don't know," I say. "It depends on whether he's actually going to keep his promise to us or not. Either way, I think it's safe to say that at least he also wants the king dead, just like us."
 "Who cares about the Overseer?" Hadrik says. "He's just a machine! The rebels are the ones that matter. Do we know if we can trust them? Maybe we can talk to them to assemble a rescue team or something."
 
@@ -612,14 +482,7 @@ Once we are done giving them all of the details about what was happening beneath
 "Here's an idea," Arraka says. "How about you stop looking for help from all these losers and actually start searching for ways to deal with your problems by yourselves. Do you think these idiot rebels are going to be there to hold your hands while you're fighting the God of Time? Do you think they'll be there to fight by your side when that copy version of me from five thousand years ago is going to put her hand through your mouths and rip out your skeletons? When are you low-lives finally going to understand that this isn't a game, and that you're going to need to take your training seriously if you want to have the slightest chance of achieving your unrealistic goals?"
 
 }
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy != 0)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch05a-Initiative, v_current_scene = B3-Ch05a-Initiative) if (v_b3_ch4_billy == 0)
 
 
 ID: B3-Ch05a-Initiative
@@ -1166,11 +1029,7 @@ I then hear her footsteps as she heads towards Suzie's room, and a few seconds l
 "Hey, wait!" I call out to her, as the blue light in her eyes fades away. "I was thinking that maybe all three of us could have a talk and-- damn it, you're not listening anymore, are you?"
 
 }
-choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_b3_ch5_guilty == 0)
-choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_b3_ch5_guilty == 1)
-choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_b3_ch5_guilty == 2)
-choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_ch11_saved_rose == 1)
-choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_ch11_saved_rose == 0)
+choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_b3_ch5_guilty == 0 || v_b3_ch5_guilty == 1 || v_b3_ch5_guilty == 2 || v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch05a-Sleeve
@@ -1281,7 +1140,7 @@ After she says this, Melindra puts her hand in her backpack and she begins to pu
 
 As I hear them talking so passionately about the rocks, I try to lean closer to the stones on the ground, in order to get a better look at them. No matter how much I try to study them, however, I cannot find a single thing that would distinguish them from any random rock that you could pick up from a cave or from the bottom of a river.
 
-choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish) if (v_b3_ch5_demeanor == 0 || v_b3_ch5_demeanor == 1 || v_b3_ch5_demeanor == 2)
+choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish)
 
 
 ID: B3-Ch05a-Childish
@@ -1336,6 +1195,8 @@ TEXT:
 
 "Exactly," I say. "Anyway, so the point is that no matter how Illuna acts, we all know by now that she doesn't really mean it, and you should know that too. So there's no need to keep worrying about things like that, alright?"
 
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Okay..." Flower says. "I'll try to stop worrying about it. But I'll need some time to decide what to do about... the way I've been acting lately. I'm still a little confused about what it is that I want right now."
 "Hey, we're not in a hurry," I say. "Take your time. Sort everything out. Just don't forget to do some of Arraka's training too when you're not too tired. After all, the God of Time isn't going to defeat himself."
 
@@ -1359,17 +1220,6 @@ TEXT:
 "That does sound like Petal," Flower says.
 
 "Exactly," I say. "But no matter how Illuna acts, we all know by now that she doesn't really mean it, and you should know that too. So there's no need to keep worrying about things like that, alright?"
-
- "Okay..." Flower says. "I'll try to stop worrying about it. But I'll need some time to decide what to do about... the way I've been acting lately. I'm still a little confused about what it is that I want right now."
-"Hey, we're not in a hurry," I say. "Take your time. Sort everything out. Just don't forget to do some of Arraka's training too when you're not too tired. After all, the God of Time isn't going to defeat himself."
-
-"I'm honestly surprised that Arraka hasn't said anything this whole time," Melindra says. "I would have expected her to be more than happy to share some of her 'wisdom' with us while we were talking with Flower about her problems."
-
-"I think Arraka is sleeping at the moment," Flower says, as she takes the amulet in her hand so she can have a closer look at it. "You can sort of tell by the feel of her aura."
-
-"Arraka sleeps?" Melindra says, looking genuinely shocked. "Since when? I don't think I've ever seen her sleeping before!"
-
-"She does sleep from time to time, but she usually only needs a few hours a week or less to be well-rested," Flower says. "It's just another one of the perks she gained after she absorbed all those thousands of souls in the magical plane. You know, aside from her overwhelming magical power and her near-immortality."
 
 }
 choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -1401,6 +1251,8 @@ TEXT:
 
 "Ugh..." I say. "Not the rocks again."
 
+}
+#if(v_b3_ch5_moustache == 0 || v_b3_ch5_moustache == 1 || v_b3_ch5_moustache == 2) {
  "Oh?" Melindra says, with a smirk. "Do you still not appreciate the magnificence of my rock collection, Barry? Then I guess I have no choice. Flower and I will just have to spend the entirety of this night shift explaining to you in great detail what makes these rocks so unique. I'll teach you everything I know, until you will become an expert in rocks of all shapes and sizes!"
 "You are far too kind," I tell Melindra. "But there is no need to spend so much effort just for my sake."
 
@@ -1415,21 +1267,14 @@ Obviously, even at the end of the night shift my original opinion remained large
  "So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?"
 "Uhm... usually we just shake the amulet really hard until she starts shouting at us," Flower says. "But I suppose spinning would work too."
 
+}
+#if(v_b3_ch5_moustache == 1 || v_b3_ch5_moustache == 2) {
  "Hey, Flower," Melindra says. "Are you planning to do any training tonight?"
 "I... think I'll pass for now!" Flower says. "I still feel a little tired after everything that happened yesterday..."
 
 "Well, we still have a few hours to kill, so I guess we could play some cards for now," Melindra says. "And when we get bored of that, I could show you some more of my rocks! I actually got a few new ones while I was walking through these tunnels."
 
 "Ugh..." I say. "Not the rocks again."
-
- "Oh?" Melindra says, with a smirk. "Do you still not appreciate the magnificence of my rock collection, Barry? Then I guess I have no choice. Flower and I will just have to spend the entirety of this night shift explaining to you in great detail what makes these rocks so unique. I'll teach you everything I know, until you will become an expert in rocks of all shapes and sizes!"
-"You are far too kind," I tell Melindra. "But there is no need to spend so much effort just for my sake."
-
-"Oh, but I insist!" Melindra says, as she begins to take some more rocks out of her backpack. "Flower, would you mind moving just a little to the right? I'm trying to align these rocks perfectly so that I can properly highlight the best traits for each of them!"
-
-For the next three hours or so, Melindra and Flower made sure to give me a complete rundown of every single characteristic that they would consider to be valuable for each individual type of rock, and they also showed me how these traits could blend together to bring even more 'value' to what many may consider to be just ordinary stones.
-
-Obviously, even at the end of the night shift my original opinion remained largely unchanged, but at the very least I could now say that I understood what made the difference between an ordinary rock and a collectable rock in their eyes, so their hobby would no longer seem as incomprehensible and illogical as before. 
 
 }
 #if(v_b3_ch5_moustache == 2) {
@@ -1437,22 +1282,6 @@ Obviously, even at the end of the night shift my original opinion remained large
 "I've actually done that once!" Flower says. "As you can probably guess, she wasn't too happy about it."
 
 "Is that so?" I say, as I take out a pencil from my backpack and begin drawing the moustache. "Let's see how she'll react this time, then!"
-
- "Hey, Flower," Melindra says. "Are you planning to do any training tonight?"
-"I... think I'll pass for now!" Flower says. "I still feel a little tired after everything that happened yesterday..."
-
-"Well, we still have a few hours to kill, so I guess we could play some cards for now," Melindra says. "And when we get bored of that, I could show you some more of my rocks! I actually got a few new ones while I was walking through these tunnels."
-
-"Ugh..." I say. "Not the rocks again."
-
- "Oh?" Melindra says, with a smirk. "Do you still not appreciate the magnificence of my rock collection, Barry? Then I guess I have no choice. Flower and I will just have to spend the entirety of this night shift explaining to you in great detail what makes these rocks so unique. I'll teach you everything I know, until you will become an expert in rocks of all shapes and sizes!"
-"You are far too kind," I tell Melindra. "But there is no need to spend so much effort just for my sake."
-
-"Oh, but I insist!" Melindra says, as she begins to take some more rocks out of her backpack. "Flower, would you mind moving just a little to the right? I'm trying to align these rocks perfectly so that I can properly highlight the best traits for each of them!"
-
-For the next three hours or so, Melindra and Flower made sure to give me a complete rundown of every single characteristic that they would consider to be valuable for each individual type of rock, and they also showed me how these traits could blend together to bring even more 'value' to what many may consider to be just ordinary stones.
-
-Obviously, even at the end of the night shift my original opinion remained largely unchanged, but at the very least I could now say that I understood what made the difference between an ordinary rock and a collectable rock in their eyes, so their hobby would no longer seem as incomprehensible and illogical as before. 
 
 }
 choice("Continue", B3-Ch05b-Refreshed, v_current_scene = B3-Ch05b-Refreshed) if (v_b3_ch5_moustache == 0 || v_b3_ch5_moustache == 1 || v_b3_ch5_moustache == 2)

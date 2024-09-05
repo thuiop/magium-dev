@@ -1,7 +1,7 @@
 ID: B3-Ch03a-Intro
 TEXT: 
 
-set(v_b3_ch3_stats_unavailable,0) if (True)
+set(v_b3_ch3_stats_unavailable,0)
  
 "Please make yourselves at home," the king of the underground says, as soon as we all enter the throne room. "I've prepared a few chairs for you, but you can also stand, if you want."
 
@@ -46,6 +46,8 @@ TEXT:
 
 "So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
 
+}
+#if(v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1) {
  "That would be the main gist of it, yes," the king of the underground says. "However, I would first like to ask you one important question. How exactly were you planning to get past all of the defenses the king has in place, before you could get close enough to assassinate him?"
 "Uh... we didn't really know much about this city's defenses before we came here, so we couldn't make any preparations in advance," Hadrik says. "Our plan was more or less to head straight for the palace, and then to just wing it."
 
@@ -78,24 +80,6 @@ The king picks up the device and then presses on one of the buttons. Immediately
 "Well, no... not necessarily," the king of the underground says. "There are many good people here, both among my followers and among the rebels, who would make suitable candidates. We could even try to elect a council, in order to avoid giving one person too much power again. However, these matters will be discussed in more detail once we achieve our primary goal of dethroning the mad king. Everything else comes second."
 
 "So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
-
- "That would be the main gist of it, yes," the king of the underground says. "However, I would first like to ask you one important question. How exactly were you planning to get past all of the defenses the king has in place, before you could get close enough to assassinate him?"
-"Uh... we didn't really know much about this city's defenses before we came here, so we couldn't make any preparations in advance," Hadrik says. "Our plan was more or less to head straight for the palace, and then to just wing it."
-
-"I suspected that this might have been the case," the king of the underground says. "Unfortunately, as you may have already found out, trying to simply fight your way to the palace is not the wisest solution. You've only had to fight against three of the royal guards so far, and still you were unable to defeat them. Imagine what would happen if you had to fight all of them at once."
-
-"Actually, your majesty," Albert says, "the outsiders only fought two of the royal guards. The mercenary did not join the battle."
-
-"That makes things even worse," the king of the underground says. "Remember that the king has the ability to instantly summon all of the royal guards to his position in case of an emergency. It is unlikely that you will ever be able to touch him without defeating all of his guards beforehand. Then there are also the Overseer's pawns that are always circling the skies, watching your every movement. You can't hope to win against such odds without at least some inside information."
-
- "So, what do you propose, then?" Melindra says.
-"We propose that you follow one of our plans, instead," the king says. "Recently, our listening devices from the palace picked up an interesting conversation that I think you might want to hear. Albert, do you still have the recording from yesterday?"
-
-"Yes, your majesty," Albert says, as he approaches the king and then hands him a small metal cube-shaped device with several buttons on it.
-
-The king picks up the device and then presses on one of the buttons. Immediately afterwards, we begin to hear two voices coming from the cube, although we can't really make out what they are saying just yet.
-
-"This is a conversation between Billy Bob and the Overseer," the king says. "The Overseer is the one with the more metallic-sounding voice, in case you couldn't tell. Please tell me what you think of this discussion, once you're done listening to it."
 
 }
 choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1)
@@ -234,7 +218,6 @@ Kate isn't saying anything, but she's looking away from us. She seems to be more
 
 }
 choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
 choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
 choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
@@ -299,7 +282,6 @@ He then limps ahead of us and we all follow him, except for Albert, who seems to
 Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
 
 }
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
 choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
 choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
@@ -366,7 +348,6 @@ Kate isn't saying anything, but she's looking away from us. She seems to be more
 
 }
 choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
-choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
 choice("""Listen, there was no way we could have known those were good goblins!""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 choice("""All we can really do now is try and make it up to him in some way.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
 choice("""Does it really matter that much? They were all monsters, after all.""", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
@@ -392,6 +373,8 @@ TEXT:
 
 "Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
 
+}
+#if(v_b3_ch3_monsters == 0 || v_b3_ch3_monsters == 1 || v_b3_ch3_monsters == 2) {
  "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
 "Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
 
@@ -422,17 +405,6 @@ TEXT:
 
 "Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
 
- "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
-"Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
-
-"And how are we supposed to do that?" I say.
-
-"With training, obviously," Arraka says. "I'm going to hammer that knowledge into your useless heads, even if it kills me. Mark my words!"
-
-"Right," I say. "Speaking of training, I just remembered that I had something important to discuss with Leila's father about my stat device."
-
-"Yes, Barry, what is it?" Leila's father says.
-
 }
 #if(v_b3_ch3_monsters == 2) {
  "Does it really matter that much? They were all monsters, after all."
@@ -449,17 +421,6 @@ TEXT:
 "We'll explain later," I tell Leila's father.
 
 "Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
-
- "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
-"Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
-
-"And how are we supposed to do that?" I say.
-
-"With training, obviously," Arraka says. "I'm going to hammer that knowledge into your useless heads, even if it kills me. Mark my words!"
-
-"Right," I say. "Speaking of training, I just remembered that I had something important to discuss with Leila's father about my stat device."
-
-"Yes, Barry, what is it?" Leila's father says.
 
 }
 #if(v_b3_ch1_unlock == 2) {
@@ -488,11 +449,7 @@ TEXT:
 "Alright," I say, and then I turn to the others. "I'll see you all around in a bit!"
 
 }
-choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane) if (v_b3_ch3_monsters == 0)
-choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane) if (v_b3_ch3_monsters == 1)
-choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane) if (v_b3_ch3_monsters == 2)
-choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane) if (v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane) if (v_b3_ch1_unlock != 2)
+choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane)
 
 
 ID: B3-Ch03a-Hag
@@ -588,7 +545,7 @@ TEXT:
 "Father!" Leila writes, with her eyebrows furrowed. "It's not like that! Barry is just a friend. And besides, he's already in a relationship with Melindra."
 
 }
-#if(v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1) {
+#if(v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1) {
  "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
 "Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
 
@@ -599,18 +556,7 @@ TEXT:
 "Oh, I see!" Leila's father says, as he seems to have finally found the key he was looking for. "My mistake, then!"
 
 }
-#if(v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0) {
- "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
-"Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
-
-"Right, right..." Leila's father says, as he is now looking for an additional key that he seems to have misplaced. "So, have you made any plans for the wedding, yet?"
-
-"Father!" Leila writes, with her eyebrows furrowed. "It's not like that! Barry likes Kate. You know... my friend from the Beacon with the long black hair and the ice magic."
-
-"Oh, I see!" Leila's father says, as he seems to have finally found the key he was looking for. "My mistake, then!"
-
-}
-#if(v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0) {
+#if(v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1) {
  "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
 "Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
 
@@ -623,20 +569,17 @@ TEXT:
 }
 choice("""Melindra and I are not in a relationship.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 0) if (v_b2_ch8_energizer == 1)
 choice("""Uh, yes... of course! A relationship is exactly what we are in, Melindra and I!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 1) if (v_b2_ch8_energizer == 1)
-choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
-choice("""Well, technically it's just a vague promise. Anything could still happen!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 1)
-choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
-choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
-choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
-choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
-choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 0)
-choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_b2_ch8_energizer != 1 && v_ch11_saved_rose == 1 && v_ch11_romance_rose == 0)
+choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice("""Well, technically it's just a vague promise. Anything could still happen!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice("""It's no problem!""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice("""Actually, Kate and I are just friends.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice("""Actually, I'd prefer to focus on winning the Magium, without any distractions.""", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
 
 
 ID: B3-Ch03a-Plans
 TEXT: 
 
-set(v_b3_ch3_chains,0) if (True)
+set(v_b3_ch3_chains,0)
 set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
 #if(v_b3_ch3_plans == 0) {
  
@@ -747,14 +690,7 @@ As doctor Reidzek closes the door behind us, I take a quick look around, and I s
 Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
 
 }
-#if(v_b3_ch1_unlock == 2) {
- Once I take it out of my pocket and hand it to him, he places it on the workbench and he pulls out two sharp metal enchanting tools from under the table, which he then uses to carefully manipulate the aura around the device.
-"Hmm..." Leila's father says. "It has been a while since I've worked with a non-modified stat device. It's going to take me a bit of time to get used to it again. Barry, would you mind if I worked on Leila's stat booster before yours? I only need to do a few minor adjustments for her device, but it's going to take at least a few hours to finish working on yours."
-
-"It's alright, you can work on Leila's device first," I say. "I'm not in that much of a hurry."
-
-}
-#if(v_premonition < 4 && v_b3_ch1_unlock != 2) {
+#if(v_b3_ch1_unlock == 2 || v_premonition < 4) {
  Once I take it out of my pocket and hand it to him, he places it on the workbench and he pulls out two sharp metal enchanting tools from under the table, which he then uses to carefully manipulate the aura around the device.
 "Hmm..." Leila's father says. "It has been a while since I've worked with a non-modified stat device. It's going to take me a bit of time to get used to it again. Barry, would you mind if I worked on Leila's stat booster before yours? I only need to do a few minor adjustments for her device, but it's going to take at least a few hours to finish working on yours."
 
@@ -787,16 +723,6 @@ As soon as Leila gives her stat booster to her father, he puts it on the table a
 
 "I think you're only saying this because you've been reading too many mage stories," Leila writes. "By most people's standards, even the fact of getting out of your own hometown and exploring the world is an adventure in itself. Here, let me help you. Why don't you tell us more about those mages to whom you've served as an apprentice? There has to be at least one interesting story you could tell us from the time when you were working for them, right?"
 
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 0)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 1)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 2)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 3)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 4)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 5)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch3_plans == 6)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_b3_ch1_unlock == 2)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_premonition < 4 && v_b3_ch1_unlock != 2)
-choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
 choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1)
 
 
@@ -854,6 +780,8 @@ TEXT:
   
 "Let's hope we are really lucky, then..." I say.
 
+}
+#if(v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2) {
  "May I ask one question?" Leila's father says. "Why do you need to unlock the magical stats? As far as I am aware, only half-lessathi are able to use them."
 "Oh, it's because I actually am a half-lessathi," I say. "I've even had the chance to use these stats before, when I activated the device's emergency mode, so I already know that they work for me."
 
@@ -875,40 +803,12 @@ On our way back we run into Peter and also into a few other people that we don't
 
 "Yeah, I figured this might be the case," I say. "Thanks, anyway!"
 
- "May I ask one question?" Leila's father says. "Why do you need to unlock the magical stats? As far as I am aware, only half-lessathi are able to use them."
-"Oh, it's because I actually am a half-lessathi," I say. "I've even had the chance to use these stats before, when I activated the device's emergency mode, so I already know that they work for me."
-
-"You are a half-lessathi?..." Leila's father says. "Leila, did you know about this?"
-
-"Yes, I found out at the same time as him," Leila writes. "He didn't know that he was a half-lessathi either until recently. In fact, he didn't even know that he had lessathi blood in his veins at all until he joined this tournament."
-
-"The more I find out about you, the more it intrigues me, Barry," Leila's father says. "To be honest, there would be many more questions I'd like to ask of you, but I wouldn't want to take up too much of your time just for the sake of my curiosity. I am done with Leila's device, for now, but in order to work on yours, I'm going to need some time to work alone and concentrate. Could you come back here in a few hours or so? Normally, I should be done by then."
-
- "Of course," Leila writes, as she picks up her stat device from the workbench. "In that case, we'll leave you to your work. Come on, Barry, let's go back to the waiting room, for now."
-Leila and I both say goodbye to doctor Reidzek, and then we head back towards our friends, through the same corridor that we used to come here. 
-
-On our way back we run into Peter and also into a few other people that we don't recognize, who were using the same corridor to arrive in different areas from the underground rebel base, and while we're walking, Leila takes the opportunity to ask me a few more questions about my past. After walking for a few minutes, we finally make it back to the waiting room, where we see that Daren and Hadrik have already been healed, and that they were now waiting for us to return.
-
 }
 #if(v_b3_ch3_magical == 2) {
  "Why do you think the aura stats are less protected than the magical stats?"
 "These devices were made a very long time ago, so I couldn't tell you for sure," Leila's father says, "but if I were to take a guess, I'd say it's likely because they were locked away for different reasons. The magical stats were probably first created in the hopes that they would work for regular lessathi. Half-lessathi were never really seen as equal to pure-blood lessathi, so the locking of the magical stats was almost certainly put in place in order to make sure that a half-lessathi would never get access to these stats by accident. On the other hand, the aura stats were hidden as a safety precaution, because they were still in an experimental state when the lessathi stopped working on these devices, and they never got to finish all the tests. That being said, from what I could gather, the three stats seemed for the most part functional, so you shouldn't worry too much about them failing on you in a crucial moment."
 
 "Right..." I say, in a not entirely convinced tone.
-
- "May I ask one question?" Leila's father says. "Why do you need to unlock the magical stats? As far as I am aware, only half-lessathi are able to use them."
-"Oh, it's because I actually am a half-lessathi," I say. "I've even had the chance to use these stats before, when I activated the device's emergency mode, so I already know that they work for me."
-
-"You are a half-lessathi?..." Leila's father says. "Leila, did you know about this?"
-
-"Yes, I found out at the same time as him," Leila writes. "He didn't know that he was a half-lessathi either until recently. In fact, he didn't even know that he had lessathi blood in his veins at all until he joined this tournament."
-
-"The more I find out about you, the more it intrigues me, Barry," Leila's father says. "To be honest, there would be many more questions I'd like to ask of you, but I wouldn't want to take up too much of your time just for the sake of my curiosity. I am done with Leila's device, for now, but in order to work on yours, I'm going to need some time to work alone and concentrate. Could you come back here in a few hours or so? Normally, I should be done by then."
-
- "Of course," Leila writes, as she picks up her stat device from the workbench. "In that case, we'll leave you to your work. Come on, Barry, let's go back to the waiting room, for now."
-Leila and I both say goodbye to doctor Reidzek, and then we head back towards our friends, through the same corridor that we used to come here. 
-
-On our way back we run into Peter and also into a few other people that we don't recognize, who were using the same corridor to arrive in different areas from the underground rebel base, and while we're walking, Leila takes the opportunity to ask me a few more questions about my past. After walking for a few minutes, we finally make it back to the waiting room, where we see that Daren and Hadrik have already been healed, and that they were now waiting for us to return.
 
 }
 choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2)
@@ -1501,6 +1401,8 @@ TEXT:
 
 Albert nods to me, with the same smile as before, and then he walks past me. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
 
+}
+#if(v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2) {
  After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
 It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
 
@@ -1521,15 +1423,6 @@ It doesn't take us too long to reach the throne room, and once we're inside, we 
 
 He then smiles politely and he walks past me, without saying another word. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
 
- After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
-It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
-
-"Thank you for coming here on such short notice," the king of the underground tells us, as he sits on the throne in front of us. "I know that you are all busy people, so I'm going to try and keep this brief. Tell me... in what way is your team associated with this 'Creator' who goes by the name of Eiden?"
-
-"Uh... Why do you ask?" Daren says.
-
- "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
-
 }
 #if(v_b3_ch3_assassin == 2) {
  "There were far bigger threats than an assassin on that battlefield, I assure you."
@@ -1542,15 +1435,6 @@ Albert laughs.
 "Only if you force me to, Barry," he says. "However, at this point in time we are allies, not enemies, so you don't need to worry about such things. Anyway, I think I've held you long enough. Have fun with your exploring. I'm sure that we will be seeing each other again soon."
 
 Albert then smiles politely and he walks past me, without saying another word. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
-
- After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
-It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
-
-"Thank you for coming here on such short notice," the king of the underground tells us, as he sits on the throne in front of us. "I know that you are all busy people, so I'm going to try and keep this brief. Tell me... in what way is your team associated with this 'Creator' who goes by the name of Eiden?"
-
-"Uh... Why do you ask?" Daren says.
-
- "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
 
 }
 choice("""Does this whole situation seem familiar to anyone else, or is it just me?""", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)

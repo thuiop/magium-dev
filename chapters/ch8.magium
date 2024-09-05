@@ -245,10 +245,8 @@ As we step over the rubble and take a good look outside of our cell, we see that
 "Barry," Daren says, "didn't that trinket of yours have a stat named 'ancient languages'? Come over here and see if you can translate this!"
 
 }
-choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 1 && v_ancient_languages < 3)
-choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 0 && v_ancient_languages < 3)
-choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 1 && v_ancient_languages >= 3)
-choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 0 && v_ancient_languages >= 3)
+choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 0 && v_ancient_languages < 3 || v_ch8_talk == 1 && v_ancient_languages < 3)
+choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 0 && v_ancient_languages >= 3 || v_ch8_talk == 1 && v_ancient_languages >= 3)
 
 
 ID: Ch8-Languages-failed
@@ -1415,9 +1413,9 @@ choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_c
 ID: Ch8-Wasp
 TEXT: 
 
-set(v_is_dead,1) if ((v_ch8_talk == 0 || v_ch8_talk == 1) && v_premonition < 4)
-set(v_is_dead,0) if (v_premonition == 4 && (v_ch8_talk == 0 || v_ch8_talk == 1))
-#if(v_premonition < 4 && v_ch8_talk == 0) {
+set(v_is_dead,1) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
+set(v_is_dead,0) if (v_ch8_talk == 0 && v_premonition == 4 || v_ch8_talk == 1 && v_premonition == 4)
+#if(v_ch8_talk == 0 && v_premonition < 4) {
  
 "If we know that at least one of these paths is the correct one, then we may as well just pick one at random and if we trigger any traps, we get out of there as soon as possible. I say we try the corridor marked with a wasp first."
 
@@ -1434,7 +1432,7 @@ We all start looking around ourselves, trying to figure out where the traps will
 Immediately after finishing his question, the floor crumbles beneath us, and we all start falling into the pit below. At the very bottom of the pit, a hundred sharp spikes were waiting for us. I was impaled by five of them as I fell. I only had a few seconds to feel the pain before everything slowly started to fade away, and I began to lose my consciousness for good.
 
 }
-#if(v_premonition < 4 && v_ch8_talk == 1) {
+#if(v_ch8_talk == 1 && v_premonition < 4) {
  
 "To me, it sounds like the leopard is trying to lure us into a trap," I say. "At least that only leaves us with two other corridors to choose from. I say we just go with the wasp corridor, and if we trigger any traps, we get out of there as soon as possible."
 
@@ -1451,7 +1449,7 @@ We all start looking around ourselves, trying to figure out where the traps will
 Immediately after finishing his question, the floor crumbles beneath us, and we all start falling into the pit below. At the very bottom of the pit, a hundred sharp spikes were waiting for us. I was impaled by five of them as I fell. I only had a few seconds to feel the pain before everything slowly started to fade away, and I began to lose my consciousness for good.
 
 }
-#if(v_premonition == 4 && v_ch8_talk == 0) {
+#if(v_ch8_talk == 0 && v_premonition == 4) {
  
 "If we know that at least one of these paths is the correct one, then we may as well just pick one at random and if we trigger any traps, we get out of there as soon as possible. I say we try the corridor marked with a wasp first."
 
@@ -1502,7 +1500,7 @@ After a few minutes of walking through the corridor, we finally start to see som
 "This is it!" Flower says, excited, as she points towards the exit. "I remember this part! Once we're past that door, nothing will stand between us and the control room! I told you we'd make it there safely! Come on, follow me!"
 
 }
-#if(v_premonition == 4 && v_ch8_talk == 1) {
+#if(v_ch8_talk == 1 && v_premonition == 4) {
  
 "To me, it sounds like the leopard is trying to lure us into a trap," I say. "At least that only leaves us with two other corridors to choose from. I say we just go with the wasp corridor, and if we trigger any traps, we get out of there as soon as possible."
 
@@ -1553,14 +1551,10 @@ After a few minutes of walking through the corridor, we finally start to see som
 "This is it!" Flower says, excited, as she points towards the exit. "I remember this part! Once we're past that door, nothing will stand between us and the control room! I told you we'd make it there safely! Come on, follow me!"
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_ch8_talk == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4 && v_ch8_talk == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_ch8_talk == 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4 && v_ch8_talk == 1)
-choice("Load game", , , special:saves) if (v_premonition < 4 && v_ch8_talk == 0)
-choice("Load game", , , special:saves) if (v_premonition < 4 && v_ch8_talk == 1)
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4 && v_ch8_talk == 0)
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4 && v_ch8_talk == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
+choice("Load game", , , special:saves) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
+choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_ch8_talk == 0 && v_premonition == 4 || v_ch8_talk == 1 && v_premonition == 4)
 
 
 ID: Ch8-Beetle

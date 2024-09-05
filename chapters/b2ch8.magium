@@ -573,7 +573,7 @@ If I stay here, I'm probably not going to get much use out of this crossbow agai
 I could fight the orcs at close range, but would it be a good idea to let those mages unchecked? I'm going to have to think carefully about this.
 
 }
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 1) {
+#if(v_b2_ch6_crossbow == 1 && v_combat_technique == 0) {
  
 My aim was a little off, and the crossbow bolt didn't go exactly where I wanted, but it still hit the monster's head, and due to the power behind the shot, it passed right through the orc's helmet and through his skull, making him stop his movements and drop to the ground like a log.
 
@@ -584,7 +584,7 @@ If I stay here, I'm probably not going to get much use out of this crossbow agai
 I could fight the orcs at close range, but would it be a good idea to let those mages unchecked? I'm going to have to think carefully about this.
 
 }
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2) {
+#if(v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2) {
  
 
 Unfortunately, I miss my shot, and the crossbow bolt bounces right off his enchanted helmet.
@@ -600,7 +600,7 @@ If I stay here, I'm probably not going to get much use out of this crossbow agai
 I could fight the orcs at close range, but would it be a good idea to let those mages unchecked? I'm going to have to think carefully about this.
 
 }
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0) {
+#if(v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 && v_reflexes < 2) {
  
 
 Unfortunately, I miss my shot, and the crossbow bolt bounces right off his enchanted helmet.
@@ -619,7 +619,7 @@ If I stay here, I'm probably not going to get much use out of this crossbow agai
 I could fight the orcs at close range, but would it be a good idea to let those mages unchecked? I'm going to have to think carefully about this.
 
 }
-#if(v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1) {
+#if(v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2) {
  
 
 Unfortunately, I miss my shot, and the crossbow bolt bounces right off his enchanted helmet.
@@ -633,17 +633,11 @@ I stumble out of his way clumsily, managing to avoid getting hit, but falling on
 Just as she is about to take the shot, the girl suddenly loses her balance, and she almost faints, just like she did earlier, after she cast that tornado. I don't get to see if she managed to regain her consciousness, because this window of opportunity was all the orc needed to swing his sword at me and to slice my head straight off my shoulders.
 
 }
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique >= 1)
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique >= 1)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 1)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes >= 2)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
-choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_b2_ch6_crossbow == 0 && v_reflexes < 2 && v_b2_ch8_tornado == 1)
+choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
+choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
+choice("Load game", , , special:saves) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
 
 
 ID: B2-Ch08a-Assess
@@ -773,6 +767,7 @@ As I take a look towards the three orcs that were fighting Leila, all of the com
 
 "Leila, step away from the orcs," I say.
 
+}
  Leila complies right away, and she puts as much distance as she can between herself and the two remaining mace-wielding orcs, although one of them immediately begins to follow her. I swing my tree like a club, and I hit the orc that stayed behind from the side, completely crushing his internal organs, and killing him before he hits the ground. Seeing that there is only one orc left aside from the captain, Leila stops moving away from the battlefield, and she dashes straight for her pursuer, slicing his neck wide open, without giving him any time to react.
 "HAHAHAHA!" Hadrik laughs, all of a sudden. "What a great idea! Why didn't I think of that?"
 
@@ -785,7 +780,6 @@ He then dashes towards a tree behind him and he pulls it straight out of the gro
 
 Instead of engaging me, however, the orc captain reaches for a horn that he was wearing around his neck, and he blows in it as loud as he can. As soon as he does this, the ogres step back from Hadrik, and a very bright white light begins to engulf all of the monsters, while their bodies start to vibrate loudly.
 
-}
 #if(v_b2_ch5_scimitar == 0) {
  
 "Flower! Illuna!" I say. "Could you go see why the two goblin mages haven't attacked us yet? You should be able to find where they're hiding, with a little help from Arraka."
@@ -800,18 +794,6 @@ As I take a look towards the three orcs that were fighting Leila, all of the com
 
 "Leila, step away from the orcs," I say.
 
- Leila complies right away, and she puts as much distance as she can between herself and the two remaining mace-wielding orcs, although one of them immediately begins to follow her. I swing my tree like a club, and I hit the orc that stayed behind from the side, completely crushing his internal organs, and killing him before he hits the ground. Seeing that there is only one orc left aside from the captain, Leila stops moving away from the battlefield, and she dashes straight for her pursuer, slicing his neck wide open, without giving him any time to react.
-"HAHAHAHA!" Hadrik laughs, all of a sudden. "What a great idea! Why didn't I think of that?"
-
-He then dashes towards a tree behind him and he pulls it straight out of the ground, roots and all. As soon as he acquires his new weapon, Hadrik tries to squash one of the ogres underneath its weight, but the monster simply blocks the tree with his club, as the force of the blow pushes him one foot into the ground. 
-
-"Daren, you might want to move away from there..." I say, as Daren jumps away from the orc captain, and I swing my tree at him, in an attempt to squash him like I did with his companions.
-
- The orc does not let himself get intimidated, and he swings his flaming axes so fast that he cuts my tree into six pieces before it even reaches him. As the now burning pieces of wood fall on the ground beside him, the orc is looking straight at me, with a very pissed off look on his face.
-"Damn..." I say, as I look at the big chunk of wood that I still have left in my hands.
-
-Instead of engaging me, however, the orc captain reaches for a horn that he was wearing around his neck, and he blows in it as loud as he can. As soon as he does this, the ogres step back from Hadrik, and a very bright white light begins to engulf all of the monsters, while their bodies start to vibrate loudly.
-
 }
 choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat)
 
@@ -821,7 +803,7 @@ TEXT:
 
 set(v_is_dead,0) if (v_agility >= 3 || v_reflexes >= 2)
 set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 2)
-#if(v_agility >= 3 && v_b2_ch5_scimitar == 0) {
+#if(v_b2_ch5_scimitar == 0 && v_agility >= 3) {
  
 
 "Flower! Illuna!" I say. "Could you go see why the two goblin mages haven't attacked us yet? You should be able to find where they're hiding, with a little help from Arraka."
@@ -849,7 +831,7 @@ I specifically target the orc that had already been injured by Leila, and I make
 As soon as the orc drops to the ground, one of the other orcs that were attacking Leila jumps straight at me, with his mace high in the air, ready to bring it down upon my head.
 
 }
-#if(v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2) {
+#if(v_b2_ch5_scimitar == 0 && v_reflexes >= 2 && v_agility < 3) {
  
 
 "Flower! Illuna!" I say. "Could you go see why the two goblin mages haven't attacked us yet? You should be able to find where they're hiding, with a little help from Arraka."
@@ -865,7 +847,7 @@ For a moment, it feels like the whole world suddenly went in slow-motion, as I d
 As soon as the orc drops to the ground as well, one of the other orcs that were attacking Leila jumps straight at me, with his mace high in the air, ready to bring it down upon my head.
 
 }
-#if(v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2) {
+#if(v_reflexes >= 2 && v_agility < 3 && v_b2_ch5_scimitar != 0) {
  
 
 "Flower! Illuna!" I say. "Could you go see why the two goblin mages haven't attacked us yet? You should be able to find where they're hiding, with a little help from Arraka."
@@ -895,10 +877,7 @@ I specifically target the orc that had already been injured by Leila, and I make
 I try to jump out of its way, but I am not able to react fast enough, and his weapon bashes my head in, killing me instantly.
 
 }
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3 && v_b2_ch5_scimitar == 0)
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3 && v_b2_ch5_scimitar != 0)
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility < 3 && v_b2_ch5_scimitar == 0 && v_reflexes >= 2)
-choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility < 3 && v_b2_ch5_scimitar != 0 && v_reflexes >= 2)
+choice("Continue", B2-Ch08a-Fight2, v_current_scene = B2-Ch08a-Fight2) if (v_agility >= 3 || v_reflexes >= 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_reflexes < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_reflexes < 2)
 choice("Load game", , , special:saves) if (v_agility < 3 && v_reflexes < 2)
@@ -907,7 +886,7 @@ choice("Load game", , , special:saves) if (v_agility < 3 && v_reflexes < 2)
 ID: B2-Ch08a-Fight2
 TEXT: 
 
-set(v_is_dead,0) if (v_toughness >= 3 && v_combat_technique < 2 || v_combat_technique >= 2)
+set(v_is_dead,0) if (v_combat_technique >= 2 || v_toughness >= 3)
 set(v_is_dead,1) if (v_combat_technique < 2 && v_toughness < 3)
 #if(v_combat_technique >= 2) {
  
@@ -918,7 +897,7 @@ Being left with only one enemy to fight, Leila immediately goes on the offensive
 When he sees what happened with his underlings, the orc captain pushes Daren away from him, he takes a few steps back, he reaches for a horn that he was wearing around his neck, and he blows in it as loud as he can. As soon as he does this, the ogres also step back from Hadrik, and a very bright white light begins to engulf all of the monsters, while their bodies start to vibrate loudly.
 
 }
-#if(v_combat_technique < 2 && v_toughness >= 3) {
+#if(v_toughness >= 3 && v_combat_technique < 2) {
  
 
 I try to get out of his mace's way, but I realize too late that his first attack was only a feint, meant to leave me vulnerable to a second attack, with his shield.
@@ -938,8 +917,7 @@ I try to get out of his mace's way, but I realize too late that his first attack
 As the orc hits me hard in the head with his shield, I can feel my skull crack under the pressure, and then I immediately lose my consciousness for good.
 
 }
-choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_combat_technique >= 2)
-choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_combat_technique < 2 && v_toughness >= 3)
+choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat) if (v_combat_technique >= 2 || v_toughness >= 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 2 && v_toughness < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 2 && v_toughness < 3)
 choice("Load game", , , special:saves) if (v_combat_technique < 2 && v_toughness < 3)
@@ -1315,6 +1293,8 @@ TEXT:
 
 "Okay..." I say. "Then let me ask you something else. Why exactly did you need to bend your knees and to keep your elbows close to your body when you cast the spell that blew away the orc who was attacking you? Because as far as I'm aware, that stance is what they teach novice elementalists at the very beginning of their training, in order to help them better control their powers, when they are still getting accustomed to them. Are you still getting accustomed to your powers, after six hundred years, Melindra?"
 
+}
+#if(v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1) {
  "I..." Melindra starts to say, but she hesitates, and I interrupt her.
 "Or is it perhaps that Arraka was speaking literally, when she said that you don't know how to hold back?..." I say. "Those crazy stillwater powers must surely come with some sort of drawbacks, no? I would expect someone like Eiden, who knows all the ins and outs of magic to find a way around such a problem, but you don't seem like the type. You still haven't learned how to control your stillwater powers properly, have you? It's too much for you to handle, and you're afraid that you'll accidentally put too much power behind one of your spells, and blow us all away, while also killing yourself in the process because of that oath you made."
 
@@ -1330,9 +1310,6 @@ TEXT:
 "I don't KNOW!" Melindra says. "I just did it on a whim!"
 
 "Okay..." I say. "Then let me ask you something else. Why exactly did you need to bend your knees and to keep your elbows close to your body when you cast the spell that blew away the orc who was attacking you? Because as far as I'm aware, that stance is what they teach novice elementalists at the very beginning of their training, in order to help them better control their powers, when they are still getting accustomed to them. Are you still getting accustomed to your powers, after six hundred years, Melindra?"
-
- "I..." Melindra starts to say, but she hesitates, and I interrupt her.
-"Or is it perhaps that Arraka was speaking literally, when she said that you don't know how to hold back?..." I say. "Those crazy stillwater powers must surely come with some sort of drawbacks, no? I would expect someone like Eiden, who knows all the ins and outs of magic to find a way around such a problem, but you don't seem like the type. You still haven't learned how to control your stillwater powers properly, have you? It's too much for you to handle, and you're afraid that you'll accidentally put too much power behind one of your spells, and blow us all away, while also killing yourself in the process because of that oath you made."
 
 }
 choice("Continue", B2-Ch08a-Image, v_current_scene = B2-Ch08a-Image) if (v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1)
@@ -1351,6 +1328,8 @@ Melindra frowns at me, but she doesn't say anything.
 
 "I swear..." Melindra says, with a menacing look in her eyes. "If you plan on telling anyone about this..."
 
+}
+#if(v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1) {
  "You'll what?" I ask her. "Pat me slightly on the back? Caress me softly? Because that's about the most you can do to me after that vow you made. I bet you must be regretting your decision to make that oath life-binding now, huh?"
 "A little..." Melindra says.
 
@@ -1366,11 +1345,6 @@ Melindra frowns at me, but she doesn't say anything.
 "What I don't understand is why you would purposely avoid telling us about it," I say. "Do you really care about your image that much? Is it really so important for you to be known as this perfect and all-powerful stillwater that can do no wrong, that you'd be willing to risk this entire mission?"
 
 "I swear..." Melindra says, with a menacing look in her eyes. "If you plan on telling anyone about this..."
-
- "You'll what?" I ask her. "Pat me slightly on the back? Caress me softly? Because that's about the most you can do to me after that vow you made. I bet you must be regretting your decision to make that oath life-binding now, huh?"
-"A little..." Melindra says.
-
-"Relax," I tell her. "I don't have any reason to tell anyone about this. It's not like you could help us if you wanted to. If you want to appear as even more unlikeable than you already are, then who am I to stop you?"
 
 }
 choice("Continue", B2-Ch08a-Unlikeable, v_current_scene = B2-Ch08a-Unlikeable) if (v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1)
@@ -1632,6 +1606,8 @@ TEXT:
 
 "No," Leila says. "My father once told me that the physical stats from the device enhance the physical abilities that you already have, and that the more fit you are, physically, the more effect those stats will have on you. Given that I've always had a very frail constitution, this is the most I can get out of my stat device, at my current levels."
 
+}
+#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "Huh..." I say. "Well, then, I guess that all those months I've spent doing physical training in preparation for this tournament were not wasted after all."
 "You did physical training?" Kate says, shocked. "And this is the result? I bet I could beat you in an arm-wrestling match if I tried hard enough."
 
@@ -1657,19 +1633,6 @@ We decide to take Kate's advice, and we each head towards our tents. Once I get 
 "I just remembered that there was something else that I wanted to ask about the stat device," I say. "Leila, you told me that you had level three in both strength and speed, but when you were fighting in the arena, you didn't seem to be much stronger or faster than that troll with the high regeneration. Is your device defective by any chance?"
 
 "No," Leila says. "My father once told me that the physical stats from the device enhance the physical abilities that you already have, and that the more fit you are, physically, the more effect those stats will have on you. Given that I've always had a very frail constitution, this is the most I can get out of my stat device, at my current levels."
-
- "Huh..." I say. "Well, then, I guess that all those months I've spent doing physical training in preparation for this tournament were not wasted after all."
-"You did physical training?" Kate says, shocked. "And this is the result? I bet I could beat you in an arm-wrestling match if I tried hard enough."
-
-"I said that I only did it for a few months," I tell Kate. "And it's not like that was the only thing that I did during that time. I also needed to do my research. The research that I'm now using to figure out Eiden's weaknesses so we can finally-- hold on a second... Where is Melindra? I could swear that I saw her by the river bank just a minute ago."
-
-"Who cares about Melindra?" Kate says.
-
-"Well, I didn't see her set up her tent," I say. "Do you think that she's not planning to spend the night at our camp?"
-
-"Melindra can go sleep in the river, for all I care," Kate says. "It's not like she's going to help guard the camp in any way. Which reminds me that I should be preparing to take the first shift. You guys should go get some sleep. Neither of you are scheduled to take any shifts tonight, so you might as well enjoy your rest."
-
-We decide to take Kate's advice, and we each head towards our tents. Once I get inside, I place my notebook in my backpack and I prepare to go to bed. I still have some stuff that I'd want to read, but I can do that in the morning. 
 
 }
 choice("Continue", B2-Ch08a-Unnoticed, v_current_scene = B2-Ch08a-Unnoticed) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)

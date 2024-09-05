@@ -1,7 +1,6 @@
 ID: B3-Ch05b-Refreshed
 TEXT: 
 
-#if(v_b3_ch5_moustache == 2) {
  When our four hours were up, we went back to our room to wake up Kate and Leila. As the two of them were getting ready to take the next shift, Hadrik got up from his bed as well, saying that he wanted to practice his new techniques for a few hours in one of the emptier corridors. Once Hadrik, Kate and Leila left, Flower, Melindra and I went to sleep and we didn't wake up again until roughly four hours later, when everyone was already packing their bags and getting ready to leave. 
 After quickly packing our bags as well, we called Hadrik on the transceiver and then we all met with him outside our room, so that we could head for the waiting room together.
 
@@ -13,6 +12,10 @@ After quickly packing our bags as well, we called Hadrik on the transceiver and 
 
 "Are Illuna and Arraka with us too, or do we need to wake them up?" I say. "I haven't heard a word from either of them this morning."
 
+ Albert seems to have been waiting for us to arrive, because as soon as he saw us walking out of the corridor, he immediately rushed in our direction. He is now standing in front of us, looking both tired and irritable. He must have been busy guiding refugees all night, without getting any time to sleep.
+"The king of the underground has requested a meeting with you," Albert says, trying to act politely, although you can clearly tell from his tone of voice that he is forcing himself to talk like this. "He is waiting for you in the throne room. Follow me."
+
+#if(v_b3_ch5_moustache == 2) {
  "Yeah, yeah, I'm awake," Arraka says. "Oh and I've already used a water spell to clean up that fake moustache, in case you were looking for it. Very amusing, by the way. I'm glad to know that you're putting all that free time to good use. Really looking forward to seeing you use these new skills of yours against Selkram in our final confrontation."
 "Is that a challenge?" I ask Arraka.
 
@@ -26,22 +29,8 @@ After quickly packing our bags as well, we called Hadrik on the transceiver and 
 
 We walk down the corridors a bit more until we reach the waiting room. The commotion from nine hours ago seems to have died down a little, but I'm not sure if this is because they are done with the evacuation or because the rebels no longer have enough space in their base to offer shelter for all the refugees. Judging by all the civilians who are still in the waiting room, my guess would be that they really did run out of places where they could send people to sleep.
 
- Albert seems to have been waiting for us to arrive, because as soon as he saw us walking out of the corridor, he immediately rushed in our direction. He is now standing in front of us, looking both tired and irritable. He must have been busy guiding refugees all night, without getting any time to sleep.
-"The king of the underground has requested a meeting with you," Albert says, trying to act politely, although you can clearly tell from his tone of voice that he is forcing himself to talk like this. "He is waiting for you in the throne room. Follow me."
-
 }
 #if(v_b3_ch5_moustache != 2) {
- When our four hours were up, we went back to our room to wake up Kate and Leila. As the two of them were getting ready to take the next shift, Hadrik got up from his bed as well, saying that he wanted to practice his new techniques for a few hours in one of the emptier corridors. Once Hadrik, Kate and Leila left, Flower, Melindra and I went to sleep and we didn't wake up again until roughly four hours later, when everyone was already packing their bags and getting ready to leave. 
-After quickly packing our bags as well, we called Hadrik on the transceiver and then we all met with him outside our room, so that we could head for the waiting room together.
-
-"You doing okay, Hadrik?" Daren says, as he pats Hadrik on the shoulder while we are walking through one of the corridors. "Don't forget that you can always talk to us if you feel like there's something you need to get off your chest."
-
-"I appreciate the concern, Daren, but you don't need to worry about me," Hadrik says. "I was having a bit of a bad day yesterday, but after a good night's sleep I feel completely refreshed and I'm all ready for a rematch! When are we leaving for the surface?"
-
-"We'll leave as soon as we meet up with Kelrim," Daren says. "He's probably in the quarantine zone already, so I'll go get him as soon as we reach the waiting room."
-
-"Are Illuna and Arraka with us too, or do we need to wake them up?" I say. "I haven't heard a word from either of them this morning."
-
  "Yeah, yeah, I'm awake," Arraka says.
 "What about Illuna?" I ask.
 
@@ -50,9 +39,6 @@ After quickly packing our bags as well, we called Hadrik on the transceiver and 
 "A new spell, huh?" I say. "Maybe it's something that can help us against the royal guards. Alright, let's leave her to it, then."
 
 We walk down the corridors a bit more until we reach the waiting room. The commotion from nine hours ago seems to have died down a little, but I'm not sure if this is because they are done with the evacuation or because the rebels no longer have enough space in their base to offer shelter for all the refugees. Judging by all the civilians who are still in the waiting room, my guess would be that they really did run out of places where they could send people to sleep.
-
- Albert seems to have been waiting for us to arrive, because as soon as he saw us walking out of the corridor, he immediately rushed in our direction. He is now standing in front of us, looking both tired and irritable. He must have been busy guiding refugees all night, without getting any time to sleep.
-"The king of the underground has requested a meeting with you," Albert says, trying to act politely, although you can clearly tell from his tone of voice that he is forcing himself to talk like this. "He is waiting for you in the throne room. Follow me."
 
 }
 choice("""Sure thing. Let's go.""", B3-Ch05b-Tension, v_current_scene = B3-Ch05b-Tension, v_b3_ch5_follow = 0)
@@ -69,6 +55,8 @@ Albert nods and then he begins to walk towards the throne room, as the rest of u
 
 After walking for a while, we finally reach the room where the king was waiting for us and we seat ourselves down on the empty chairs that are facing the throne. As we are taking our seats, Albert walks past us and he goes to join Peter, who is currently standing behind the king's throne. It seems that the two guards that are usually by the king's side have not been invited this time around. The only people here except for our group are the king of the underground, Albert and Peter.
 
+}
+#if(v_b3_ch5_follow == 0 || v_b3_ch5_follow == 1 || v_b3_ch5_follow == 2) {
  All three of them seem very tired, and the king even has visible bags under his eyes. However, aside from the fatigue, I can also feel a certain... tension in the air that I haven't felt in our last two meetings. Hopefully it's just my imagination.
 "Good morning, friends," the king says. "I hope you've slept well. My apologies for calling you to yet another meeting out of the blue, but there are quite a few things I need to discuss with you that can't be delayed any longer. First, allow me to give you a bit of context."
 
@@ -106,32 +94,6 @@ Albert nods and then he begins to walk towards the throne room, as the rest of u
 
 After walking for a while, we finally reach the room where the king was waiting for us and we seat ourselves down on the empty chairs that are facing the throne. As we are taking our seats, Albert walks past us and he goes to join Peter, who is currently standing behind the king's throne. It seems that the two guards that are usually by the king's side have not been invited this time around. The only people here except for our group are the king of the underground, Albert and Peter.
 
- All three of them seem very tired, and the king even has visible bags under his eyes. However, aside from the fatigue, I can also feel a certain... tension in the air that I haven't felt in our last two meetings. Hopefully it's just my imagination.
-"Good morning, friends," the king says. "I hope you've slept well. My apologies for calling you to yet another meeting out of the blue, but there are quite a few things I need to discuss with you that can't be delayed any longer. First, allow me to give you a bit of context."
-
-He then takes a small metal cube out of his pocket, just like the one that he used in our first meeting with him, and he holds it in front of us. 
-
-"Your friend Eiden went out of his way again to lure some people into one of the few rooms from the palace in which we had recording devices," the king says. "I am assuming that he did this because he wanted you to listen to this conversation, so I will respect his wishes. The discussion that you are about to hear happened yesterday, shortly after the majority of you were mistakenly teleported to the trap-filled caverns below the city. I believe that you should be able to easily recognize most of, if not all the participants in this conversation. Let us begin."
-
-He then presses one of the buttons from the metal cube device and we begin to hear voices coming out of it, just like the last time. As soon as I recognize the first voice, I immediately understand what this conversation is going to be about.
-
-"Is this the room that you wanted to bring us to?..." the ambassador of Ollendor says.
-
- "Yes," Eiden says. "In here we should be safe from any spies that might be trying to listen to our conversation."
-"I assure you, Creator, that there are no spies in this palace!" the king of Ollendor says. "There would be no way for them to get past our guards!"
-
-"I do not doubt your guards' competence, great king," Eiden says. "But still, it is better to be safe than sorry."
-
-"What is it that you wanted to speak to us about, ambassador?" the captain of the royal guards says.
-
-"I... do not know where to begin..." the ambassador says. "It's just so hard for me to put this into words. My king, it is with a heavy heart that I've come to bring you the news that your brother... our beloved earl has been murdered in Thilias."
-
-The king does not answer the ambassador in any way, and neither do any of the others. After more than five seconds of silence, the ambassador speaks again.
-
-"My king?..." the ambassador says, in a slightly uneasy voice.
-
-"Ambassador, I want you to think very carefully about your next words," the king of Ollendor says, in a frighteningly calm tone.  "What you are about to say from now on may well decide whether you live or die today. First of all, I want you to confirm to me one more time what you just told me. Are you absolutely certain that my brother is dead?"
-
 }
 #if(v_b3_ch5_follow == 2) {
  "Your king can wait. First, we need to find Kelrim."
@@ -150,32 +112,6 @@ When he hears me, Albert gets an angry look in his eyes and he begins to walk to
 Albert nods and then he begins to walk towards the throne room, as the rest of us move to follow him.
 
 After walking for a while, we finally reach the room where the king was waiting for us and we seat ourselves down on the empty chairs that are facing the throne. As we are taking our seats, Albert walks past us and he goes to join Peter, who is currently standing behind the king's throne. It seems that the two guards that are usually by the king's side have not been invited this time around. The only people here except for our group are the king of the underground, Albert and Peter.
-
- All three of them seem very tired, and the king even has visible bags under his eyes. However, aside from the fatigue, I can also feel a certain... tension in the air that I haven't felt in our last two meetings. Hopefully it's just my imagination.
-"Good morning, friends," the king says. "I hope you've slept well. My apologies for calling you to yet another meeting out of the blue, but there are quite a few things I need to discuss with you that can't be delayed any longer. First, allow me to give you a bit of context."
-
-He then takes a small metal cube out of his pocket, just like the one that he used in our first meeting with him, and he holds it in front of us. 
-
-"Your friend Eiden went out of his way again to lure some people into one of the few rooms from the palace in which we had recording devices," the king says. "I am assuming that he did this because he wanted you to listen to this conversation, so I will respect his wishes. The discussion that you are about to hear happened yesterday, shortly after the majority of you were mistakenly teleported to the trap-filled caverns below the city. I believe that you should be able to easily recognize most of, if not all the participants in this conversation. Let us begin."
-
-He then presses one of the buttons from the metal cube device and we begin to hear voices coming out of it, just like the last time. As soon as I recognize the first voice, I immediately understand what this conversation is going to be about.
-
-"Is this the room that you wanted to bring us to?..." the ambassador of Ollendor says.
-
- "Yes," Eiden says. "In here we should be safe from any spies that might be trying to listen to our conversation."
-"I assure you, Creator, that there are no spies in this palace!" the king of Ollendor says. "There would be no way for them to get past our guards!"
-
-"I do not doubt your guards' competence, great king," Eiden says. "But still, it is better to be safe than sorry."
-
-"What is it that you wanted to speak to us about, ambassador?" the captain of the royal guards says.
-
-"I... do not know where to begin..." the ambassador says. "It's just so hard for me to put this into words. My king, it is with a heavy heart that I've come to bring you the news that your brother... our beloved earl has been murdered in Thilias."
-
-The king does not answer the ambassador in any way, and neither do any of the others. After more than five seconds of silence, the ambassador speaks again.
-
-"My king?..." the ambassador says, in a slightly uneasy voice.
-
-"Ambassador, I want you to think very carefully about your next words," the king of Ollendor says, in a frighteningly calm tone.  "What you are about to say from now on may well decide whether you live or die today. First of all, I want you to confirm to me one more time what you just told me. Are you absolutely certain that my brother is dead?"
 
 }
 choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass) if (v_b3_ch5_follow == 0 || v_b3_ch5_follow == 1 || v_b3_ch5_follow == 2)
@@ -464,7 +400,7 @@ I attempt to focus on any sound that may resemble footsteps, blocking all other 
 If only I would have some sort of way to temporarily increase my hearing stat beyond its current maximum level, things might be different, but I don't think my stat device is capable of anything like that.
 
 }
-#if(v_hearing >= 4 && v_b2_ch6_stat == 1) {
+#if(v_b2_ch6_stat == 1 && v_hearing >= 4) {
  
 
 No matter how skilled Albert is, his feet still need to touch the ground when he is walking from one place to another. If I listen really carefully, maybe I'll be able to figure out where he'll strike next.
@@ -490,9 +426,8 @@ I can hear the steps now. They're barely audible even with this stat level, but 
 As Daren was talking, Peter changed his mind and decided to target him instead of Hadrik, casting a lightning spell on Daren as soon as he exposed his back to him.
 
 }
-choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_hearing < 4)
-choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_hearing >= 4 && v_b2_ch6_stat != 1)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_hearing >= 4 && v_b2_ch6_stat == 1)
+choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_hearing < 4 || v_b2_ch6_stat != 1)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_b2_ch6_stat == 1 && v_hearing >= 4)
 
 
 ID: B3-Ch05b-Bluff
@@ -576,8 +511,7 @@ All of a sudden, Peter extends his hands towards Hadrik and he shoots a powerful
 As Daren was talking, Peter changed his mind and decided to target him instead of Hadrik, casting a lightning spell on Daren as soon as he exposed his back to him.
 
 }
-choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_magical_sense < 4)
-choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_magical_sense >= 4 && v_perception < 4)
+choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition) if (v_magical_sense < 4 || v_perception < 4)
 choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_magical_sense >= 4 && v_perception >= 4)
 
 
@@ -594,7 +528,7 @@ TEXT:
 
 set(v_b3_ch5_fight,0) if (v_toughness == 0 && v_premonition < 2 || v_premonition >= 2 && v_aura_hardening < 4 || v_toughness > 0 && v_premonition < 2)
 set(v_b3_ch5_fight,7) if (v_aura_hardening >= 4 && v_premonition >= 2)
-#if(v_premonition < 2 && v_toughness == 0) {
+#if(v_toughness == 0 && v_premonition < 2) {
  
 While I stand there, thinking of what to do next, Hadrik decides that he's done waiting and he chooses to taunt his opponent instead.
 
@@ -613,7 +547,7 @@ As he was finishing his sentence, Daren got blasted by a powerful bolt of lightn
 "Hey, that's not fair!" Hadrik says. "Since when is Peter a part of the test?"
 
 }
-#if(v_premonition < 2 && v_toughness > 0) {
+#if(v_toughness > 0 && v_premonition < 2) {
  
 While I stand there, thinking of what to do next, Hadrik decides that he's done waiting and he chooses to taunt his opponent instead.
 
@@ -640,6 +574,8 @@ Damn it, I lost sight of him again. How is he still fine after getting shocked l
 
 As Daren was talking, Albert apparently took advantage of his confusion to stab him in the back of his knee, because I can see some blood dripping along his ankle.
 
+}
+#if(v_premonition >= 2) {
  
 
 While I stand there, thinking of what to do next, I suddenly get a premonition in which I see myself being stabbed in the right side of the abdomen by an invisible blade. I'm also pretty sure that Hadrik was about to say something right before I got attacked in the vision.
@@ -655,21 +591,7 @@ As soon as I hear Hadrik's words, I know exactly what will happen next, and I im
 "Lose an arm?" I say. "In a mock battle? Don't you think you're taking this a little too personally?"
 
 }
-#if(v_premonition >= 2 && v_aura_hardening >= 4) {
- 
-
-While I stand there, thinking of what to do next, I suddenly get a premonition in which I see myself being stabbed in the right side of the abdomen by an invisible blade. I'm also pretty sure that Hadrik was about to say something right before I got attacked in the vision.
-
-My attacker should be coming from the right side, so as long as I can figure out when exactly he will strike, I should be able to--
-
-"What's the matter, Albert?" Hadrik asks all of a sudden. "Scared already?"
-
-As soon as I hear Hadrik's words, I know exactly what will happen next, and I immediately turn to my right, extending my arms in front of me in order to grab onto Albert right before he attacks me. My attempt is successful, as the assassin is now slowly turning visible again, while trying to break free of my grasp.
-
-"You'd better let go of me if you don't want to lose an arm," Albert says, in a menacing tone. "I'm warning you."
-
-"Lose an arm?" I say. "In a mock battle? Don't you think you're taking this a little too personally?"
-
+#if(v_aura_hardening >= 4 && v_premonition >= 2) {
  All of a sudden, I feel a powerful electric current passing through my body. While this may be a rather painful sensation, it is definitely not unmanageable. I probably have my aura hardening stat to thank for my increased resistance to lightning attacks.
 While I'm still being shocked, Albert tries to free himself again but I hold onto him tight and do not let him go. The assassin does not seem to be affected at all by the electric attack, even if I'm holding him by the arms. Does this mean that he has some sort of item granting him immunity against electricity?
 
@@ -678,10 +600,7 @@ While I'm still being shocked, Albert tries to free himself again but I hold ont
 As Daren was talking, Peter changed his mind and decided to target him instead of me, casting a lightning spell on Daren as soon as he exposed his back to him.
 
 }
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition < 2 && v_toughness == 0)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition < 2 && v_toughness > 0)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition >= 2 && v_aura_hardening < 4)
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_premonition >= 2 && v_aura_hardening >= 4)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_toughness == 0 || v_premonition >= 2 || v_toughness > 0)
 
 
 ID: B3-Ch05b-Obscure
@@ -706,6 +625,7 @@ Once again, the king pushes every one of us except Melindra and Leila into the g
 
 "Thank you for the hint," Daren says. "I'll see if I can figure it out."
 
+}
  "If you don't mind me asking," Hadrik says, as he looks at the king, "how exactly did you come to learn a technique as obscure as aura manipulation? And how did you get so good at it?"
 "He most likely learned it from the captain of the royal guards," Kate says. "Their techniques are much too similar for it to be a coincidence."
 
@@ -715,7 +635,6 @@ Once again, the king pushes every one of us except Melindra and Leila into the g
 
 "Indeed," the king of the underground says. "Now, I do not want to be rude, but Albert, Peter and I still have some things that we need to discuss in private in regards to our current refugee situation, so if you have any more questions, I would appreciate it if you could keep them brief."
 
-}
 #if(v_b3_ch5_fight >= 4) {
  "Surely you didn't think that you would only be fighting Albert in the second phase of the test, did you?" the king of the underground says. "Peter was obviously only giving you a head start. That is the only reason why he hadn't attacked you until now."
 When Kate hears what the king had to say, she immediately conjures three ice cones out of thin air and she sends them flying towards him. Sadly, the icicles don't even get close to their target, as they are all easily deflected by an invisible force.
@@ -733,15 +652,6 @@ Once again, the king pushes every one of us except Melindra and Leila into the g
 
 "Huh," Daren says. "I never actually tried doing anything of the sort, but I guess it's worth a shot. Thanks."
 
- "If you don't mind me asking," Hadrik says, as he looks at the king, "how exactly did you come to learn a technique as obscure as aura manipulation? And how did you get so good at it?"
-"He most likely learned it from the captain of the royal guards," Kate says. "Their techniques are much too similar for it to be a coincidence."
-
-"Your friend is correct," the king of the underground tells Hadrik. "The current guard captain and I both used to serve as royal guards a long time ago, and he was the one who taught me everything I know regarding aura manipulation. Sadly, I couldn't convince him to come with me and help me form this underground kingdom when I left the royal guards some twenty-five years ago, so we are not exactly on friendly terms anymore nowadays. From what I've heard, he's still searching for pupils, but to this day he hasn't managed to find anyone else that was talented enough to learn anything beyond the most basic aura manipulation techniques."
-
-"Well, that's definitely good news for us," Daren says. "We wouldn't have stood a chance against them if they had a whole army of skilled aura manipulators on their side."
-
-"Indeed," the king of the underground says. "Now, I do not want to be rude, but Albert, Peter and I still have some things that we need to discuss in private in regards to our current refugee situation, so if you have any more questions, I would appreciate it if you could keep them brief."
-
 }
 choice("""Why did none of you attack Melindra and Leila during the test?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 0)
 choice("""Why did you become a royal guard?""", B3-Ch05b-Tunnel, v_current_scene = B3-Ch05b-Tunnel, v_b3_ch5_brief = 1)
@@ -755,9 +665,6 @@ TEXT:
  "Why did none of you attack Melindra and Leila during the test?"
 "Well, Melindra invited you here specifically because she couldn't hurt locals herself," the king says, "so testing her would have been a little pointless, don't you think? And as for Leila, she is not one of the people that were involved in the murder of the Earl of Ollendor as far as I am aware, so we were never going to kick her out, especially since she's also the daughter of doctor Reidzek. Whether she wants to stay here or join you in the battle against the king of Ollendor is of course another matter altogether. Anyway, I believe you should all know the way to the teleporter room by now, so hopefully you'll forgive us for not escorting you on your way out. I bid you farewell!"
 
-  "Right, right," I say. "Goodbye, I guess."
-As we are about to exit the throne room, we hear some whispers behind us, and soon afterwards the king calls out to us.
-
 }
 #if(v_b3_ch5_brief == 1) {
  "Why did you become a royal guard?"
@@ -769,12 +676,12 @@ As we are about to exit the throne room, we hear some whispers behind us, and so
 "Not necessarily specializations, but we can use regular spells like other mages," the king of the underground says. "The captain of the guards likes to use his aura manipulation most of the time, because it's very effective and hard to counter, but he's been known to also use other types of spells whenever he felt like he was being cornered. We don't know exactly how many spells he can cast, so I recommend being careful when you fight with him, even if it feels like you are gaining the upper hand during a battle. Anyway, I hope this has answered your question. I believe you should all know the way to the teleporter room by now, so hopefully you'll forgive us for not escorting you on your way out. I bid you farewell!" 
 
 }
-#if(v_b3_ch5_fight >= 4) {
+#if(v_b3_ch5_brief == 0 || v_b3_ch5_fight >= 4) {
   "Right, right," I say. "Goodbye, I guess."
 As we are about to exit the throne room, we hear some whispers behind us, and soon afterwards the king calls out to us.
 
 }
-#if(v_b3_ch5_brief != 0 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch5_fight < 4 && v_b3_ch5_brief != 0) {
  "Right, right," I say. "Goodbye, I guess."
 "Oh, and just to be clear..." the king of the underground says. "Leila was not being tested along with the rest of you earlier. As far as I know, she was not involved in the murder of the Earl of Ollendor, so there is no reason for us to kick her out of our base, especially since she is also the daughter of doctor Reidzek. That being said, she can obviously still join you in the fight against the king of Ollendor, if that is her wish."
 
@@ -790,21 +697,7 @@ As we are about to exit the throne room, we hear some whispers behind us, and so
 We then go out through the door and into the tunnel outside, as we begin to head for the waiting room.
 
 }
-#if(v_b3_ch4_billy != 0) {
- "One moment, please…" the king says. "Peter has just reminded me of something that I think you might want to know about before you return to the surface. In short, we've noticed that the flying metal balls have no longer been following their usual patrol routes since yesterday evening, and they've also been behaving quite erratically. I heard from Breynan that you killed Billy Bob yesterday, so this may be a part of the reason, but I would be careful if I were you. Something tells me that the Overseer is planning something big, and you might not want to be caught in the middle of it."
-"Alright," Daren says. "We'll try to be careful. Farewell!"
-
-We then go out through the door and into the tunnel outside, as we begin to head for the waiting room.
-
-}
-#if(v_b3_ch4_billy == 7) {
- "One moment, please…" the king says. "Peter has just reminded me of something that I think you might want to know about before you return to the surface. In short, we've noticed that the flying metal balls have no longer been following their usual patrol routes since yesterday evening, and they've also been behaving quite erratically. I heard from Breynan that you killed Billy Bob yesterday, so this may be a part of the reason, but I would be careful if I were you. Something tells me that the Overseer is planning something big, and you might not want to be caught in the middle of it."
-"Alright," Daren says. "We'll try to be careful. Farewell!"
-
-We then go out through the door and into the tunnel outside, as we begin to head for the waiting room.
-
-}
-#if(v_b3_ch4_billy == 8) {
+#if(v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy != 0) {
  "One moment, please…" the king says. "Peter has just reminded me of something that I think you might want to know about before you return to the surface. In short, we've noticed that the flying metal balls have no longer been following their usual patrol routes since yesterday evening, and they've also been behaving quite erratically. I heard from Breynan that you killed Billy Bob yesterday, so this may be a part of the reason, but I would be careful if I were you. Something tells me that the Overseer is planning something big, and you might not want to be caught in the middle of it."
 "Alright," Daren says. "We'll try to be careful. Farewell!"
 
@@ -818,17 +711,7 @@ We then go out through the door and into the tunnel outside, as we begin to head
 We then go out through the door and into the tunnel outside, as we begin to head for the waiting room.
 
 }
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief == 0)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief == 1)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief == 2)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief == 0)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_fight >= 4)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch5_brief != 0 && v_b3_ch5_fight < 4)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy != 0)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop) if (v_b3_ch4_billy == 0)
+choice("Continue", B3-Ch05b-Workshop, v_current_scene = B3-Ch05b-Workshop)
 
 
 ID: B3-Ch05b-Workshop
@@ -896,6 +779,8 @@ Once she is done counting them the first time, she starts to count them again bu
 
 "No, this does not mean that I now consider you to be an adult," Illuna says. "And no matter how many times you will call me Illuna or act as if you were a grown-up, that is still not going to change. However... I've given this some more thought, and I've... arrived at the conclusion that I CAN make a concession and accept to call you a thirty-year-old, if it really means that much to you... It will still take a little bit of time getting used to the idea, but--"
 
+}
+#if(v_b3_ch5_breath == 0 || v_b3_ch5_breath == 1) {
  "Oh Petal, thank you so much!" Flower says in a very loud voice, as she now looks like she is hugging herself.
 "Can you at least control your body when you hug me inside your mind?" Illuna says. "Or do you not realize how ridiculous we both look right now?"
 
@@ -943,19 +828,6 @@ Once she is done counting them the first time, she starts to count them again bu
 
 "No, this does not mean that I now consider you to be an adult," Illuna says. "And no matter how many times you will call me Illuna or act as if you were a grown-up, that is still not going to change. However... I've given this some more thought, and I've... arrived at the conclusion that I CAN make a concession and accept to call you a thirty-year-old, if it really means that much to you... It will still take a little bit of time getting used to the idea, but--"
 
- "Oh Petal, thank you so much!" Flower says in a very loud voice, as she now looks like she is hugging herself.
-"Can you at least control your body when you hug me inside your mind?" Illuna says. "Or do you not realize how ridiculous we both look right now?"
-
-"I don't care!" Flower says, as she still continues to hug herself. "I don't want to let you go. I don't want to fight with you anymore. Please, please promise me that we won't ever have another fight like this for as long as we live! I swear that I won't try to act like someone I'm not anymore. I won't call you Illuna anymore. Just say that we will never have to go through something like this ever again!"
-
-"We were not fight--" Illuna begins to say, but then she interrupts herself. "Ugh... fine, I give up... You win. I promise that we will never have a fight again. Are you happy now?"
-
-"Yes!" Flower says, beaming, as she finally stops hugging herself. "You have no idea how happy! Thank you!"
-
-She then comes closer to me and Melindra and she grabs our hands, as she smiles at us.
-
-"And thank you both!" Flower says. "Thank you for all that you did for us!"
-
 }
 choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2) if (v_b3_ch5_breath == 0 || v_b3_ch5_breath == 1)
 
@@ -963,7 +835,7 @@ choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2) if 
 ID: B3-Ch05b-Birthday2
 TEXT: 
 
-#if(v_ch11_saved_rose == 1) {
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Hey, cut it out!" Melindra says, pulling her hand away, as I see her getting flustered for the first time since I've met her. "There's no need to thank me! We're friends, remember? And besides, I barely even did anything!"
 "That's not true!" Flower says. "You helped us a lot! You both did! Petal and I might have still been fighting today if it weren't for you! Thank you so much!"
 
@@ -977,6 +849,23 @@ It looks like while the rest of us were busy talking, Hadrik used a tinderbox th
 
 She then leans forward and she blows on the candles as hard as she can, until none of them are burning anymore. After we all wish her a happy birthday, she begins to cut slices of the cake and to share them with everyone around.
 
+ "Alright, I've served all the cake slices now," Flower tells us. "Let's get going!"
+"Huh?" Hadrik says, confused. "But we're not done eating yet."
+
+"You can finish eating while we walk!" Flower says. "Come on! I don't want anyone in the quarantine zone to die waiting for the cure because of me!"
+
+"Fine, fine," Hadrik says. "Let's head for the teleporter, then."
+
+We do what Flower says, and we take the small plates with us, as we walk towards the teleporter room. While we are travelling through the corridor, Hadrik pulls out a few very small mugs from his backpack with his free hand and he puts them on his plate, near the cake. He then takes out a bottle of dwarven ale and he begins to fill the mugs.
+
+"Can't have a birthday without dwarven ale, right?" Hadrik says, and once he is done filling them up, he starts handing each of us a mug. "I've only poured a few sips' worth of ale for each of you. Wouldn't want you all to be getting drunk before a battle! Daren, I'm guessing that you're still not drinking during the day?"
+
+"Of course not!" Daren says.
+
+"As always!" Hadrik says, while he hands me one of the mugs.
+
+}
+#if(v_ch11_saved_rose == 1) {
  "It's too bad that Rose isn't here with us," I say. "It would have been nice to give her a slice of cake, considering that she helped out too last night."
 "I know..." Flower says, as she is cutting another slice of cake. "I'll make sure to conjure another cake just for her the next time we meet. Here's your slice, Kelrim!"
 
@@ -996,36 +885,8 @@ As Flower is returning to us, Desmond calls out to her in a loud voice.
 
 "Thank you!" Flower says, as she waves at him happily, and then she comes back to us.
 
- "Alright, I've served all the cake slices now," Flower tells us. "Let's get going!"
-"Huh?" Hadrik says, confused. "But we're not done eating yet."
-
-"You can finish eating while we walk!" Flower says. "Come on! I don't want anyone in the quarantine zone to die waiting for the cure because of me!"
-
-"Fine, fine," Hadrik says. "Let's head for the teleporter, then."
-
-We do what Flower says, and we take the small plates with us, as we walk towards the teleporter room. While we are travelling through the corridor, Hadrik pulls out a few very small mugs from his backpack with his free hand and he puts them on his plate, near the cake. He then takes out a bottle of dwarven ale and he begins to fill the mugs.
-
-"Can't have a birthday without dwarven ale, right?" Hadrik says, and once he is done filling them up, he starts handing each of us a mug. "I've only poured a few sips' worth of ale for each of you. Wouldn't want you all to be getting drunk before a battle! Daren, I'm guessing that you're still not drinking during the day?"
-
-"Of course not!" Daren says.
-
-"As always!" Hadrik says, while he hands me one of the mugs.
-
 }
 #if(v_ch11_saved_rose == 0) {
- "Hey, cut it out!" Melindra says, pulling her hand away, as I see her getting flustered for the first time since I've met her. "There's no need to thank me! We're friends, remember? And besides, I barely even did anything!"
-"That's not true!" Flower says. "You helped us a lot! You both did! Petal and I might have still been fighting today if it weren't for you! Thank you so much!"
-
-"Ahem!" we hear Hadrik's voice, who is standing near the plates.
-
-It looks like while the rest of us were busy talking, Hadrik used a tinderbox that he had in his backpack to light all of the candles on the cake.
-
-"So, are you going to blow out these candles or what?" Hadrik asks Flower, as he is now holding the plate with the cake in his hands.
-
- "Yes!" Flower says, excited, as she runs towards the cake. "Yes, of course!"
-
-She then leans forward and she blows on the candles as hard as she can, until none of them are burning anymore. After we all wish her a happy birthday, she begins to cut slices of the cake and to share them with everyone around.
-
  "Here is your slice, Kelrim!" Flower says, as she offers the second to last slice of the cake to the goblin.
 "Oh," Kelrim says, as he takes the plate with the slice of cake. "Thank you!"
 
@@ -1042,21 +903,6 @@ As Flower is returning to us, Desmond calls out to her in a loud voice.
 "Hey!" Desmond says. "Happy birthday!"
 
 "Thank you!" Flower says, as she waves at him happily, and then she comes back to us.
-
- "Alright, I've served all the cake slices now," Flower tells us. "Let's get going!"
-"Huh?" Hadrik says, confused. "But we're not done eating yet."
-
-"You can finish eating while we walk!" Flower says. "Come on! I don't want anyone in the quarantine zone to die waiting for the cure because of me!"
-
-"Fine, fine," Hadrik says. "Let's head for the teleporter, then."
-
-We do what Flower says, and we take the small plates with us, as we walk towards the teleporter room. While we are travelling through the corridor, Hadrik pulls out a few very small mugs from his backpack with his free hand and he puts them on his plate, near the cake. He then takes out a bottle of dwarven ale and he begins to fill the mugs.
-
-"Can't have a birthday without dwarven ale, right?" Hadrik says, and once he is done filling them up, he starts handing each of us a mug. "I've only poured a few sips' worth of ale for each of you. Wouldn't want you all to be getting drunk before a battle! Daren, I'm guessing that you're still not drinking during the day?"
-
-"Of course not!" Daren says.
-
-"As always!" Hadrik says, while he hands me one of the mugs.
 
 }
 choice("Continue", B3-Ch05b-Ending, v_current_scene = B3-Ch05b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)

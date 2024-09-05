@@ -45,6 +45,8 @@ TEXT:
 
 I let Arraka focus on researching her new spell while I head to a more isolated part of our camp, which is perfect for me letting loose a little and experimenting with my newly acquired magic. During the two days since we've left the lessathi base, I've been spending as much time as possible cataloguing my available spells in my notebook and testing each one of them out, to make sure that I could indeed use them when required.
 
+}
+#if(v_b3_ch12_believe == 0 || v_b3_ch12_believe == 1) {
  I've also tried out quite a few combinations of spells that I'd discovered while doing research with Brinhorn back in the days, but some of these turned out to be trickier than I thought. Unsurprisingly, it turns out that it's much easier to theorize on the effects of a spell combination than to actually manage to use it in practice. Combining spells is a really advanced technique, after all, and the stat device doesn't really have any built-in features to help me with this, since it was designed to cast the spells separately.
 
  The only way in which I can become accustomed to this is through repeated experimentation, just as I would have done if I were a regular mage. I suppose this is one rare thing for which Brinhorn genuinely deserves some praise. Whenever I came up with an outlandish idea for combining two or more spells, he almost always managed to make it work nearly effortlessly, and could follow my instructions perfectly. You could easily tell that he had spent countless amounts of hours practicing his magic, all for the purpose of one day surpassing Azarius.
@@ -57,10 +59,6 @@ I let Arraka focus on researching her new spell while I head to a more isolated 
 "As if I wasn't going to do exactly that even without you telling me..." I say. "If you need me, I'll be over there, by those rocks."
 
 I let Arraka focus on researching her new spell while I head to a more isolated part of our camp, which is perfect for me letting loose a little and experimenting with my newly acquired magic. During the two days since we've left the lessathi base, I've been spending as much time as possible cataloguing my available spells in my notebook and testing each one of them out, to make sure that I could indeed use them when required.
-
- I've also tried out quite a few combinations of spells that I'd discovered while doing research with Brinhorn back in the days, but some of these turned out to be trickier than I thought. Unsurprisingly, it turns out that it's much easier to theorize on the effects of a spell combination than to actually manage to use it in practice. Combining spells is a really advanced technique, after all, and the stat device doesn't really have any built-in features to help me with this, since it was designed to cast the spells separately.
-
- The only way in which I can become accustomed to this is through repeated experimentation, just as I would have done if I were a regular mage. I suppose this is one rare thing for which Brinhorn genuinely deserves some praise. Whenever I came up with an outlandish idea for combining two or more spells, he almost always managed to make it work nearly effortlessly, and could follow my instructions perfectly. You could easily tell that he had spent countless amounts of hours practicing his magic, all for the purpose of one day surpassing Azarius.
 
 }
 choice("Continue", B3-Ch12a-Practicing, v_current_scene = B3-Ch12a-Practicing, v_available_points = +4, v_available_points_aux = +4) if (v_b3_ch12_believe == 0 || v_b3_ch12_believe == 1)
@@ -103,6 +101,8 @@ TEXT:
 
 Now, then... Let's see if I can find a quick way to deal with this before Hadrik gets too bored to act as my test subject anymore.
 
+}
+#if(v_b3_ch12_invest == 0 || v_b3_ch12_invest == 1) {
  I remember Arraka saying that Daren was using the flow of Hadrik's aura to predict his movements when they were dueling. It might be difficult for me to do the same thing, considering that I didn't get any aura training from Arraka, but maybe I can supplement some of her training with the stats from my device?
 If not, then I suppose I could always try the brute force approach, by using my speed to close in on Hadrik and my reflexes to cast a spell at him before he dashes away. As long as I'm close enough, it should be easier to target him.
 
@@ -112,11 +112,6 @@ Or... I could just try to bluff him.
 #if(v_b3_ch12_invest == 0) {
  I take out my stat device to stop the beeping, and then I put it back in my pocket again. While I was doing this, Hadrik was dashing repeatedly left and right, taunting me to make my move.
 Now, then... Let's see if I can find a quick way to deal with this before Hadrik gets too bored to act as my test subject anymore.
-
- I remember Arraka saying that Daren was using the flow of Hadrik's aura to predict his movements when they were dueling. It might be difficult for me to do the same thing, considering that I didn't get any aura training from Arraka, but maybe I can supplement some of her training with the stats from my device?
-If not, then I suppose I could always try the brute force approach, by using my speed to close in on Hadrik and my reflexes to cast a spell at him before he dashes away. As long as I'm close enough, it should be easier to target him.
-
-Or... I could just try to bluff him.
 
 }
 choice("Try to predict Hadrik's movements from his aura.", B3-Ch12a-Predict, v_current_scene = B3-Ch12a-Predict, v_b3_ch12_approach = 0) if (v_b3_ch12_invest == 0 || v_b3_ch12_invest == 1)
@@ -144,6 +139,8 @@ After just staring blankly at Hadrik for about thirty seconds, trying to figure 
 
 Realizing that I won't get any more help from him, I decide to pull out my notebook again and to go back to cataloguing my available spells.
 
+}
+#if(v_magical_sense == 4 && v_perception == 4 || v_magical_sense == 4 && v_perception < 4 || v_magical_sense < 4) {
  About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
 "Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
 
@@ -175,21 +172,6 @@ After about thirty seconds of just staring at Hadrik, trying to figure out where
 "Some other time, Barry," Hadrik says, and then he takes his leave.
 
 Realizing that I won't get any more help from him, I decide to pull out my notebook again and to go back to cataloguing my available spells.
-
- About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
-"Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
-
-"It's not going to work," I tell her. "I know what you're trying to do, but it's just not happening."
-
-"Okay, I'll ask you one more time," Arraka says. "Did you or did you not cast spells in the ethereal plane by imagining the exact flow and intensity of each individual magical particle and then controlling them flawlessly?"
-
-"Yes, but that is an entirely different plane of--"
-
-"A simple 'yes' will suffice," Arraka interrupts me. "Now, can you think of a spell with an easier flow to control than 'fire arrow'?"
-
-"Not really, but--"
-
-"Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
 
 }
 #if(v_magical_sense == 4 && v_perception == 4) {
@@ -224,25 +206,8 @@ Still, that went much better than I thought it would. After only a few adjustmen
 
 "Later," I say, simply, and then I pull out my notebook again, so I can get back to cataloguing my available spells.
 
- About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
-"Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
-
-"It's not going to work," I tell her. "I know what you're trying to do, but it's just not happening."
-
-"Okay, I'll ask you one more time," Arraka says. "Did you or did you not cast spells in the ethereal plane by imagining the exact flow and intensity of each individual magical particle and then controlling them flawlessly?"
-
-"Yes, but that is an entirely different plane of--"
-
-"A simple 'yes' will suffice," Arraka interrupts me. "Now, can you think of a spell with an easier flow to control than 'fire arrow'?"
-
-"Not really, but--"
-
-"Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
-
 }
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4 && v_perception < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4 && v_perception == 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4 && v_perception == 4 || v_magical_sense == 4 && v_perception < 4 || v_magical_sense < 4)
 
 
 ID: B3-Ch12a-Brute
@@ -265,6 +230,8 @@ I try to catch up to him a few more times, but the result is the same. He is jus
 
 As I watch Hadrik leave, I realize that I won't get any more help from him, so I decide to pull out my notebook again and to go back to cataloguing my available spells.
 
+}
+#if(v_agility == 4 && v_reflexes == 4 || v_agility == 4 && v_reflexes < 4 || v_agility < 4) {
  About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
 "Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
 
@@ -297,21 +264,6 @@ For the next thirty seconds or so, I attempt the same strategy, but now that Had
 
 As I watch Hadrik leave, I realize that I won't get any more help from him, so I decide to pull out my notebook again and to go back to cataloguing my available spells.
 
- About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
-"Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
-
-"It's not going to work," I tell her. "I know what you're trying to do, but it's just not happening."
-
-"Okay, I'll ask you one more time," Arraka says. "Did you or did you not cast spells in the ethereal plane by imagining the exact flow and intensity of each individual magical particle and then controlling them flawlessly?"
-
-"Yes, but that is an entirely different plane of--"
-
-"A simple 'yes' will suffice," Arraka interrupts me. "Now, can you think of a spell with an easier flow to control than 'fire arrow'?"
-
-"Not really, but--"
-
-"Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
-
 }
 #if(v_agility == 4 && v_reflexes == 4) {
  
@@ -337,25 +289,8 @@ Instead of dashing away again, Hadrik just stands there for a few moments and pl
 
 "Later," I say, simply, and then I pull out my notebook again, so I can get back to cataloguing my available spells.
 
- About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
-"Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
-
-"It's not going to work," I tell her. "I know what you're trying to do, but it's just not happening."
-
-"Okay, I'll ask you one more time," Arraka says. "Did you or did you not cast spells in the ethereal plane by imagining the exact flow and intensity of each individual magical particle and then controlling them flawlessly?"
-
-"Yes, but that is an entirely different plane of--"
-
-"A simple 'yes' will suffice," Arraka interrupts me. "Now, can you think of a spell with an easier flow to control than 'fire arrow'?"
-
-"Not really, but--"
-
-"Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
-
 }
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4 && v_reflexes < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4 && v_reflexes == 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4 && v_reflexes == 4 || v_agility == 4 && v_reflexes < 4 || v_agility < 4)
 
 
 ID: B3-Ch12a-Bluff
@@ -378,6 +313,8 @@ set(v_b3_ch12_hadrik,1) if (v_bluff == 4)
 
 Realizing that I won't get any more help from him, I decide to pull out my notebook again and to go back to cataloguing my available spells.
 
+}
+#if(v_bluff == 4 || v_bluff < 4) {
  About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
 "Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
 
@@ -423,24 +360,8 @@ As he gets hit by the spell, Hadrik puts his hand on his head for several second
 
 Realizing that I won't get any more help from him, I decide to pull out my notebook again and to go back to cataloguing my available spells.
 
- About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
-"Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
-
-"It's not going to work," I tell her. "I know what you're trying to do, but it's just not happening."
-
-"Okay, I'll ask you one more time," Arraka says. "Did you or did you not cast spells in the ethereal plane by imagining the exact flow and intensity of each individual magical particle and then controlling them flawlessly?"
-
-"Yes, but that is an entirely different plane of--"
-
-"A simple 'yes' will suffice," Arraka interrupts me. "Now, can you think of a spell with an easier flow to control than 'fire arrow'?"
-
-"Not really, but--"
-
-"Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
-
 }
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_bluff < 4)
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_bluff == 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_bluff == 4 || v_bluff < 4)
 
 
 ID: B3-Ch12a-Hermit
@@ -535,6 +456,8 @@ TEXT:
 
 "Dear gods, not the light flash again," Kate says. "Haven't you had enough?"
 
+}
+#if(v_b3_ch12_spell == 0 || v_b3_ch12_spell == 1 || v_b3_ch12_spell == 2 || v_b3_ch12_spell == 3) {
  "Look, I know that you all hate it," I say, "but it's important for our timing to be perfect if we want to use this in battle effectively. As soon as I say the code words 'Daren, catch!' you all need to close your eyes for exactly one second, no matter what you are doing on the battlefield, or else you'll get blinded along with the enemy. This is a very old spell that they don't really teach anymore nowadays, so most people won't be expecting it the first time when I use it against them. That's why it's necessary for us to do it well from the very first try, before we lose the element of surprise."
 "Listen, Barry..." Hadrik says, "I get that you're really excited about finally obtaining your magical stats, but it feels like this is the only thing you've been talking about for two days straight. Maybe it wouldn't be such a bad idea to forget about your magic for an hour or two and do something else for a change."
 
@@ -555,13 +478,6 @@ TEXT:
 
 "Dear gods, not the light flash again," Kate says. "Haven't you had enough?"
 
- "Look, I know that you all hate it," I say, "but it's important for our timing to be perfect if we want to use this in battle effectively. As soon as I say the code words 'Daren, catch!' you all need to close your eyes for exactly one second, no matter what you are doing on the battlefield, or else you'll get blinded along with the enemy. This is a very old spell that they don't really teach anymore nowadays, so most people won't be expecting it the first time when I use it against them. That's why it's necessary for us to do it well from the very first try, before we lose the element of surprise."
-"Listen, Barry..." Hadrik says, "I get that you're really excited about finally obtaining your magical stats, but it feels like this is the only thing you've been talking about for two days straight. Maybe it wouldn't be such a bad idea to forget about your magic for an hour or two and do something else for a change."
-
-"Come on, Hadrik, don't be like that!" Daren says. "Let Barry have his moment. The man's been dreaming of becoming a mage his entire life. It's perfectly fine for him to get a little over-excited. And it's not like we mind, with the exception of his blinding light spell. That one is admittedly getting a little obnoxious."
-
-"Maybe Barry could show off some of the other new spells that he's learned today!" Diane says. "How about it?"
-
 }
 #if(v_b3_ch12_spell == 2) {
  "Okay, I think I've made my decision," I say, not paying any mind to Arraka. "I will be testing the fireworks spell first."
@@ -574,13 +490,6 @@ TEXT:
 "NO!" Daren, Kate and Illuna all shout in unison.
 
 "Dear gods, not the light flash again," Kate says. "Haven't you had enough?"
-
- "Look, I know that you all hate it," I say, "but it's important for our timing to be perfect if we want to use this in battle effectively. As soon as I say the code words 'Daren, catch!' you all need to close your eyes for exactly one second, no matter what you are doing on the battlefield, or else you'll get blinded along with the enemy. This is a very old spell that they don't really teach anymore nowadays, so most people won't be expecting it the first time when I use it against them. That's why it's necessary for us to do it well from the very first try, before we lose the element of surprise."
-"Listen, Barry..." Hadrik says, "I get that you're really excited about finally obtaining your magical stats, but it feels like this is the only thing you've been talking about for two days straight. Maybe it wouldn't be such a bad idea to forget about your magic for an hour or two and do something else for a change."
-
-"Come on, Hadrik, don't be like that!" Daren says. "Let Barry have his moment. The man's been dreaming of becoming a mage his entire life. It's perfectly fine for him to get a little over-excited. And it's not like we mind, with the exception of his blinding light spell. That one is admittedly getting a little obnoxious."
-
-"Maybe Barry could show off some of the other new spells that he's learned today!" Diane says. "How about it?"
 
 }
 #if(v_b3_ch12_spell == 3 && v_b3_ch5_moustache == 2) {
@@ -599,13 +508,6 @@ TEXT:
 
 "Dear gods, not the light flash again," Kate says. "Haven't you had enough?"
 
- "Look, I know that you all hate it," I say, "but it's important for our timing to be perfect if we want to use this in battle effectively. As soon as I say the code words 'Daren, catch!' you all need to close your eyes for exactly one second, no matter what you are doing on the battlefield, or else you'll get blinded along with the enemy. This is a very old spell that they don't really teach anymore nowadays, so most people won't be expecting it the first time when I use it against them. That's why it's necessary for us to do it well from the very first try, before we lose the element of surprise."
-"Listen, Barry..." Hadrik says, "I get that you're really excited about finally obtaining your magical stats, but it feels like this is the only thing you've been talking about for two days straight. Maybe it wouldn't be such a bad idea to forget about your magic for an hour or two and do something else for a change."
-
-"Come on, Hadrik, don't be like that!" Daren says. "Let Barry have his moment. The man's been dreaming of becoming a mage his entire life. It's perfectly fine for him to get a little over-excited. And it's not like we mind, with the exception of his blinding light spell. That one is admittedly getting a little obnoxious."
-
-"Maybe Barry could show off some of the other new spells that he's learned today!" Diane says. "How about it?"
-
 }
 #if(v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2) {
  "Alright, Arraka, you've convinced me," I say. "The first spell I will try out will be an illusion spell of a tiny dunce hat that I can put on top of your amulet."
@@ -622,13 +524,6 @@ TEXT:
 "NO!" Daren, Kate and Illuna all shout in unison.
 
 "Dear gods, not the light flash again," Kate says. "Haven't you had enough?"
-
- "Look, I know that you all hate it," I say, "but it's important for our timing to be perfect if we want to use this in battle effectively. As soon as I say the code words 'Daren, catch!' you all need to close your eyes for exactly one second, no matter what you are doing on the battlefield, or else you'll get blinded along with the enemy. This is a very old spell that they don't really teach anymore nowadays, so most people won't be expecting it the first time when I use it against them. That's why it's necessary for us to do it well from the very first try, before we lose the element of surprise."
-"Listen, Barry..." Hadrik says, "I get that you're really excited about finally obtaining your magical stats, but it feels like this is the only thing you've been talking about for two days straight. Maybe it wouldn't be such a bad idea to forget about your magic for an hour or two and do something else for a change."
-
-"Come on, Hadrik, don't be like that!" Daren says. "Let Barry have his moment. The man's been dreaming of becoming a mage his entire life. It's perfectly fine for him to get a little over-excited. And it's not like we mind, with the exception of his blinding light spell. That one is admittedly getting a little obnoxious."
-
-"Maybe Barry could show off some of the other new spells that he's learned today!" Diane says. "How about it?"
 
 }
 #if(v_b3_ch12_hadrik == 0) {
@@ -657,13 +552,7 @@ TEXT:
 "What is Wolf-- Wolfer-- Wolfor's daze?" Flower asks us. "I've never heard of it before."
 
 }
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 0)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 1)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 2)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 3 && v_b3_ch5_moustache == 2)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1 || v_b3_ch12_spell == 0 || v_b3_ch12_spell == 1 || v_b3_ch12_spell == 2 || v_b3_ch12_spell == 3)
 
 
 ID: B3-Ch12a-Wolford
@@ -748,6 +637,8 @@ TEXT:
 
 "Gods be damned..." Hadrik says, out of the blue. "You said you had 'one last thing' to test before calling it a day, but you're still not done talking. Can we not enjoy ourselves for one hour without thinking about our training?"
 
+}
+#if(v_b3_ch12_chance == 0 || v_b3_ch12_chance == 1) {
  "I was already done talking, you oaf," Arraka says. "Have fun intoxicating yourself with that slow poison you like to call 'dwarven ale'. I'm going back to my research."
 "That's what I like to hear!" Hadrik says, as he takes another drink from his bottle.
 
@@ -766,18 +657,6 @@ Now that I think about it, this wasn't the first time when Diane acted in this m
 "Precisely," Arraka answers me. "It should work properly the first time, because she'd never expect a group of weaklings like you to have such a powerful attack, but once she gets to see it, she'll be on her guard and it will be considerably more difficult to hit her with it. This attack shouldn't be used unless we get a very good opportunity, because otherwise we'd just be wasting it."
 
 "Gods be damned..." Hadrik says, out of the blue. "You said you had 'one last thing' to test before calling it a day, but you're still not done talking. Can we not enjoy ourselves for one hour without thinking about our training?"
-
- "I was already done talking, you oaf," Arraka says. "Have fun intoxicating yourself with that slow poison you like to call 'dwarven ale'. I'm going back to my research."
-"That's what I like to hear!" Hadrik says, as he takes another drink from his bottle.
-
-We spend about half an hour continuing to drink with Hadrik, while trying to talk about anything other than our trainings for a change, and then Diane and I decide to leave early so that she could help me with my spells, like she promised.
-
-As we are trying to find a nice isolated place, away from the others, I get temporarily lost in my thoughts when I remember the eagerness with which Diane agreed to become my test subject for the evening, despite having every reason to not want to do this, just like Kate.
-
-Now that I think about it, this wasn't the first time when Diane acted in this manner. Ever since we left the lessathi headquarters, she's been expending a lot of effort trying to get along with everyone. Perhaps too much effort. Normally, this wouldn't be an issue, because it's very clear that she cares deeply about Kate, and it's not an unusual thing to want to get along with her friends, but it's also hard to ignore the fact that she is essentially Meridith's second in command, so she would have every reason to want to get close to us if her orders were to slowly gain our trust and convince us that taking Meridith's offer is a good idea.
-
- I think Daren and Hadrik might have thought about this too, because I've definitely seen them keeping their distance from Diane, despite her repeated attempts to get into their good graces. I feel a little bad being suspicious about Kate's childhood friend like this, but I suppose it would have also helped if she acted a bit more naturally and didn't try so hard to become our friend. Then again, maybe she's just being awkward and she will start to relax in a few days, once she'll get to know us better. Time will tell. 
-"Around here should be fine, I think," Diane says, as she stops somewhere near the river. "We're far enough from the others to not be distracting them from their own trainings. So, what kind of spells will we be testing today, Barry? As you may have guessed, I have a rather high tolerance for pain, so there's no need to hold back!"
 
 }
 choice("""I'm not sure if I should be relieved or worried that you feel comfortable joking about this.""", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 0) if (v_b3_ch12_chance == 0 || v_b3_ch12_chance == 1)
@@ -804,6 +683,8 @@ Hearing what I had to say, Diane lets out a short snort of laughter before she a
 
 "So... what spell are you planning to start with, then?" Diane asks me.
 
+}
+#if(v_b3_ch12_relieved == 0 || v_b3_ch12_relieved == 1 || v_b3_ch12_relieved == 2) {
  "I was thinking of beginning with the dizziness spell that I mentioned earlier, during our drinking session," I say. "Would it be okay if I asked you to describe in as much detail as you can exactly what you are feeling in the first few seconds after I cast the spell on you? I'm trying to figure out if I can get any use out of it or not."
 "Uh... I have a protection against dizziness cast on me at the moment," Diane says. "Should I remove it first, or--"
 
@@ -837,28 +718,6 @@ Hearing what I had to say, Diane lets out a short snort of laughter before she a
 
 "So... what spell are you planning to start with, then?" Diane asks me.
 
- "I was thinking of beginning with the dizziness spell that I mentioned earlier, during our drinking session," I say. "Would it be okay if I asked you to describe in as much detail as you can exactly what you are feeling in the first few seconds after I cast the spell on you? I'm trying to figure out if I can get any use out of it or not."
-"Uh... I have a protection against dizziness cast on me at the moment," Diane says. "Should I remove it first, or--"
-
-"No, no, that's perfect!" I say. "Most enemies will probably have such a protection too, so it's a good idea to do a test under these conditions as well."
-
-"Alright, then," Diane says. "Whenever you're ready!"
-
-As soon as I'm done checking my notebook, I get into my stance and I cast the dizziness spell on Diane. Just as expected, her magical protection easily defends her against my attack, but it did feel like she got slightly distracted for a few seconds right after I finished casting. I wonder if the dizziness spell might have some side-effects that I'm unaware of.
-
-"So, umm... quick question!" Diane says. "Was I supposed to hear a ringing in my ears when you cast the spell on me?"
-
-"I... can't say that I've heard this effect being described for this particular spell before," I say. "But then again, the lesser known a spell is, the more chances there are for its side-effects to not be properly documented, so I'm not all that surprised. What did this ringing sound like? Was it high pitched? Were there short pauses between the ringing noises every half a second or so?"
-
- "Yes, exactly!" Diane says. "How did you know?"
-"I took a wild guess, because the symptoms you described sounded very similar to the ones you get in the first few seconds after someone casts Wolford's daze on you," I say. "I actually noticed that the two spells had a striking amount of similarities in terms of flow, but I didn't think they'd even share some of the effects. This is very interesting. Maybe instead of trying to give people a light headache, I could focus on fooling them into thinking that I'm trying to cast Wolford's spell on them. It feels like that might provide a better distraction."
-
-"So, do you want me to cancel my protection against dizziness now, or?..." Diane asks me.
-
-"I'll just cast the spell on you one more time to make sure that the effects stay the same, and then we'll do the test without the magic protection," I say. "If you don't mind, of course."
-
-"Sure, sure, not a problem," Diane says.
-
 }
 #if(v_b3_ch12_relieved == 2) {
  "I actually wasn't planning on using any painful spells, but that's good to know," I tell her, as I put my backpack on the ground and take my notebook out of it.
@@ -867,28 +726,6 @@ As soon as I'm done checking my notebook, I get into my stance and I cast the di
 "At my current level of magical power, most spells that inflict pain on others would be generally worthless," I say. "That's why for now, my focus needs to be on spells that either disorient my adversaries or affect their senses in some way, because that type of magic usually has some degree of utility no matter how weak the spell is."
 
 "Oh, I see," Diane says. "That does make sense! So... what spell are you planning to start with, then?"
-
- "I was thinking of beginning with the dizziness spell that I mentioned earlier, during our drinking session," I say. "Would it be okay if I asked you to describe in as much detail as you can exactly what you are feeling in the first few seconds after I cast the spell on you? I'm trying to figure out if I can get any use out of it or not."
-"Uh... I have a protection against dizziness cast on me at the moment," Diane says. "Should I remove it first, or--"
-
-"No, no, that's perfect!" I say. "Most enemies will probably have such a protection too, so it's a good idea to do a test under these conditions as well."
-
-"Alright, then," Diane says. "Whenever you're ready!"
-
-As soon as I'm done checking my notebook, I get into my stance and I cast the dizziness spell on Diane. Just as expected, her magical protection easily defends her against my attack, but it did feel like she got slightly distracted for a few seconds right after I finished casting. I wonder if the dizziness spell might have some side-effects that I'm unaware of.
-
-"So, umm... quick question!" Diane says. "Was I supposed to hear a ringing in my ears when you cast the spell on me?"
-
-"I... can't say that I've heard this effect being described for this particular spell before," I say. "But then again, the lesser known a spell is, the more chances there are for its side-effects to not be properly documented, so I'm not all that surprised. What did this ringing sound like? Was it high pitched? Were there short pauses between the ringing noises every half a second or so?"
-
- "Yes, exactly!" Diane says. "How did you know?"
-"I took a wild guess, because the symptoms you described sounded very similar to the ones you get in the first few seconds after someone casts Wolford's daze on you," I say. "I actually noticed that the two spells had a striking amount of similarities in terms of flow, but I didn't think they'd even share some of the effects. This is very interesting. Maybe instead of trying to give people a light headache, I could focus on fooling them into thinking that I'm trying to cast Wolford's spell on them. It feels like that might provide a better distraction."
-
-"So, do you want me to cancel my protection against dizziness now, or?..." Diane asks me.
-
-"I'll just cast the spell on you one more time to make sure that the effects stay the same, and then we'll do the test without the magic protection," I say. "If you don't mind, of course."
-
-"Sure, sure, not a problem," Diane says.
 
 }
 choice("Continue", B3-Ch12a-Nausea, v_current_scene = B3-Ch12a-Nausea) if (v_b3_ch12_relieved == 0 || v_b3_ch12_relieved == 1 || v_b3_ch12_relieved == 2)
@@ -927,6 +764,8 @@ TEXT:
 
 "Exactly," I say. "But hey, if you really need a friend that will always listen to you and help you in your time of need, you could always try Arraka. I'm sure she would love your company!"
 
+}
+#if(v_b3_ch12_diane == 0 || v_b3_ch12_diane == 1) {
  "Barry, I think that might be the best advice I've heard all day!" Diane says, with a smile. "In fact, I think I'll try to talk to her right now. Thanks for the suggestion!"
 "You are very welcome!" I say, as Diane now heads towards Flower and Illuna, presumably to have a conversation with Arraka.
 
@@ -941,14 +780,6 @@ Normally, this wouldn't have been a big deal, but this is the third time in the 
 "Met-Zek, huh?..." Diane says. "It's been a while since I've played it, but i think I still remember the rules. Maybe I'll give it a try!"
 
 "That's the spirit!" I say. "And hey, if things don't work out with Hadrik, you could always try Arraka! One might not be able to tell this at first glance, but she is the type of person who always listens to you and who will help you in your time of need. I'm sure she would love your company!"
-
- "Barry, I think that might be the best advice I've heard all day!" Diane says, with a smile. "In fact, I think I'll try to talk to her right now. Thanks for the suggestion!"
-"You are very welcome!" I say, as Diane now heads towards Flower and Illuna, presumably to have a conversation with Arraka.
-
-I decide to head in the opposite direction, so that I can test out a few more combinations of spells before beginning my night shift with Daren. As I am walking towards my usual spot, I notice with the corner of my eye that Kate is busy doing her aim training routine, where she aims for separate leaves in the trees with each one of her icicles.
-
- What catches my attention, however, is that unlike her usual routine, during which she always creates her icicles in different places to further challenge herself, this time she is making the icicles appear in the exact same place over and over, and only changes her targets. Her gaze is also very distant and unfocused compared to how she usually is when she is performing this exercise. It's almost as if she has specifically chosen this easier form of training, so that she can just mechanically go through the motions, while her mind is free to think about something else entirely.
-Normally, this wouldn't have been a big deal, but this is the third time in the past two days that I've seen Kate do the exact same thing, despite the fact that she usually takes her aim training very seriously. I think something is up with her. Maybe I should go ask her what's wrong.
 
 }
 choice("Go talk to Kate.", B3-Ch12a-Kate1, v_current_scene = B3-Ch12a-Kate1, v_b3_ch12_kate = 1) if (v_b3_ch12_diane == 0 || v_b3_ch12_diane == 1)
@@ -1173,6 +1004,8 @@ About twenty minutes later, Daren finally makes his way to our meeting spot and 
 
 "Sure thing," I say, as Daren takes out the deck of cards that he got from Hadrik and puts them on the ground next to me. "Let's see what you've got!"
 
+}
+#if(v_b3_ch12_spell == 0 && v_b3_ch5_moustache != 2 || v_b3_ch12_spell == 1 && v_b3_ch5_moustache != 2 || v_b3_ch12_spell == 2 && v_b3_ch5_moustache != 2 || v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2) {
  For the next few hours or so, Daren and I played a few different card games from both of our homelands, while we exchanged some stories from our time before the tournament. Normally, Daren would have been the one doing most of the storytelling, but this time he insisted on me telling him some of my adventures as well, despite me warning him that any situation I've been in would sound boring compared to what he and Hadrik have experienced throughout their lives.
 Once I was done telling him a few of my stories, I couldn't help but notice that I managed to maintain his interest for much longer than I was expecting. He seemed to be paying close attention the whole time I was talking, and sometimes it even felt like he could barely wait any longer to hear the end of the story. Could it be that he actually enjoyed it?
 
@@ -1193,9 +1026,6 @@ About twenty minutes later, Daren finally makes his way to our meeting spot and 
 
 "Sure thing," I say, as Daren takes out the deck of cards that he got from Hadrik and puts them on the ground next to me. "Let's see what you've got!"
 
- For the next few hours or so, Daren and I played a few different card games from both of our homelands, while we exchanged some stories from our time before the tournament. Normally, Daren would have been the one doing most of the storytelling, but this time he insisted on me telling him some of my adventures as well, despite me warning him that any situation I've been in would sound boring compared to what he and Hadrik have experienced throughout their lives.
-Once I was done telling him a few of my stories, I couldn't help but notice that I managed to maintain his interest for much longer than I was expecting. He seemed to be paying close attention the whole time I was talking, and sometimes it even felt like he could barely wait any longer to hear the end of the story. Could it be that he actually enjoyed it?
-
 }
 #if(v_b3_ch12_spell == 2 && v_b3_ch5_moustache != 2) {
  Once I get there, I see that Daren hasn't arrived yet, so I decide to lie down with my back against a tree and to grab my notebook. I don't really want to experiment with any spell combinations so close to our camp, in case there are any accidents, so maybe I should work on a spell that is a little more harmless.
@@ -1212,9 +1042,6 @@ About twenty minutes later, Daren finally makes his way to our meeting spot and 
 "Alright," Daren says. "Are you ready to play some cards, then?"
 
 "Sure thing," I say, as Daren takes out the deck of cards that he got from Hadrik and puts them on the ground next to me. "Let's see what you've got!"
-
- For the next few hours or so, Daren and I played a few different card games from both of our homelands, while we exchanged some stories from our time before the tournament. Normally, Daren would have been the one doing most of the storytelling, but this time he insisted on me telling him some of my adventures as well, despite me warning him that any situation I've been in would sound boring compared to what he and Hadrik have experienced throughout their lives.
-Once I was done telling him a few of my stories, I couldn't help but notice that I managed to maintain his interest for much longer than I was expecting. He seemed to be paying close attention the whole time I was talking, and sometimes it even felt like he could barely wait any longer to hear the end of the story. Could it be that he actually enjoyed it?
 
 }
 #if(v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2) {
@@ -1233,18 +1060,8 @@ About twenty minutes later, Daren finally makes his way to our meeting spot and 
 
 "Sure thing," I say, as Daren takes out the deck of cards that he got from Hadrik and puts them on the ground next to me. "Let's see what you've got!"
 
- For the next few hours or so, Daren and I played a few different card games from both of our homelands, while we exchanged some stories from our time before the tournament. Normally, Daren would have been the one doing most of the storytelling, but this time he insisted on me telling him some of my adventures as well, despite me warning him that any situation I've been in would sound boring compared to what he and Hadrik have experienced throughout their lives.
-Once I was done telling him a few of my stories, I couldn't help but notice that I managed to maintain his interest for much longer than I was expecting. He seemed to be paying close attention the whole time I was talking, and sometimes it even felt like he could barely wait any longer to hear the end of the story. Could it be that he actually enjoyed it?
-
 }
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 0)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 1)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch5_moustache == 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 0 && v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 1 && v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 2 && v_b3_ch5_moustache != 2)
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2)
+choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 0 || v_b3_ch12_delusional == 1 || v_b3_ch12_delusional == 2 || v_b3_ch12_spell == 0 || v_b3_ch12_spell == 1 || v_b3_ch12_spell == 2 || v_b3_ch12_spell == 3 || v_b3_ch5_moustache == 2)
 
 
 ID: B3-Ch12a-Brinhorn
@@ -1301,6 +1118,8 @@ TEXT:
 
 "But Eiden would only be destroying the cities because of his inevitable upcoming fight against Tyrath, right?" Daren says. "In that case, don't you think it would be a better idea to stop Tyrath rather than Eiden?"
 
+}
+#if(v_b3_ch12_conflicted == 0 || v_b3_ch12_conflicted == 1 || v_b3_ch12_conflicted == 2) {
  "Frankly," I say, "after what we've found out from Meridith, I'm beginning to think that the two old enemies from the prophecy might actually be Eiden and the lessathi, instead of Eiden and Tyrath like we originally thought. I know that he technically 'took their side' during the still winter, according to Melindra, but Meridith clearly does not see things that way, and she is obviously preparing for some kind of big showdown with Eiden at the end of this tournament, so I wouldn't be surprised if it was their fight instead that triggered the destruction of the Varathian cities."
 "...I thought that it was the Magium itself that sent this prophecy to us," Daren says. "Why would it send a prophecy about this conflict and at the same time actively take the side of one of the opposing factions and help create the conflict in the first place?"
 
@@ -1324,16 +1143,6 @@ TEXT:
 
 "But Eiden would only be destroying the cities because of his inevitable upcoming fight against Tyrath, right?" Daren says. "In that case, don't you think it would be a better idea to stop Tyrath rather than Eiden?"
 
- "I can't say that I'm an expert on this myself, but these fragments seem to have certain limitations when interacting with our world," I say. "Thinking back, the only times when a Magium fragment was about to erase me happened either inside the Magium realm, or shortly after the blue crystals awakened. The very first time, we were already inside the Magium realm when we were attacked. This more recent time, we were pulled inside the realm, but only because we were standing close to the node, so it's possible that the node doesn't allow the fragment to interact with our world all that much. Also, if I remember correctly, the Magium fragment that was looking for the Arraka from the past said that it was going to undo this whole universe from its seams just to find out where Arraka was hiding. If it needs to do something so drastic just for finding one person, then it is also a possibility that these fragments are not capable of pinpoint precision attacks outside of their realm, although I might be theorizing a little too much, based on so few facts."
-"Yeah, you've definitely lost me, Barry," Daren says. "I know you were trying to make this sound less confusing, but all of this Magium, fragments and node stuff is going way over my head. I can only hope that we will have as little interaction as possible with all of them in the future, so I won't actually need to understand any of this. All I want from the Magium is to use the node to get the knowledge I require from it and that's it. No other complications!"
-
- "Frankly," I say, "after what we've found out from Meridith, I'm beginning to think that the two old enemies from the prophecy might actually be Eiden and the lessathi, instead of Eiden and Tyrath like we originally thought. I know that he technically 'took their side' during the still winter, according to Melindra, but Meridith clearly does not see things that way, and she is obviously preparing for some kind of big showdown with Eiden at the end of this tournament, so I wouldn't be surprised if it was their fight instead that triggered the destruction of the Varathian cities."
-"...I thought that it was the Magium itself that sent this prophecy to us," Daren says. "Why would it send a prophecy about this conflict and at the same time actively take the side of one of the opposing factions and help create the conflict in the first place?"
-
-"According to Arraka, the Magium itself and the Magium fragments are separate entities," I say. "This particular fragment seems to have been using the Magium node inside the lessathi base to communicate with Meridith and make these plans for quite some time, which makes me think that this recent prophecy is not actually its main concern, and its real purpose is to kill Eiden. I wonder if this isn't by any chance the same Magium fragment that gave Eiden the secret knowledge that he needed to defeat Arraka, and now decided that he's been using that knowledge for too long and needs to be removed from the equation."
-
-"This is all really confusing to me," Daren says. "If this Magium 'fragment' really wants Eiden dead, then why doesn't it just erase him? Why does it need us or the lessathi to do the job in its place?"
-
 }
 #if(v_b3_ch12_conflicted == 2) {
  "Actually, now that I think about it, I suppose I'm a little bit conflicted too," I say. "There is no guarantee that Eiden can't change his mind and return to the way he used to be when he first founded the civilization of Varathia. He's certainly shown signs that he wants to at least give us a chance to succeed where he couldn't."
@@ -1342,16 +1151,6 @@ TEXT:
 "He might," I say, "but let's also not forget that Eiden admitted himself that his actions would cause the destruction of the Varathian cities. Almost all of the kings are currently plotting to assassinate him, likely for this very reason, so even in the best case scenario, I doubt that any of these cities would welcome him with open arms if he said that he wanted to resume his position as Creator."
 
 "But Eiden would only be destroying the cities because of his inevitable upcoming fight against Tyrath, right?" Daren says. "In that case, don't you think it would be a better idea to stop Tyrath rather than Eiden?"
-
- "I can't say that I'm an expert on this myself, but these fragments seem to have certain limitations when interacting with our world," I say. "Thinking back, the only times when a Magium fragment was about to erase me happened either inside the Magium realm, or shortly after the blue crystals awakened. The very first time, we were already inside the Magium realm when we were attacked. This more recent time, we were pulled inside the realm, but only because we were standing close to the node, so it's possible that the node doesn't allow the fragment to interact with our world all that much. Also, if I remember correctly, the Magium fragment that was looking for the Arraka from the past said that it was going to undo this whole universe from its seams just to find out where Arraka was hiding. If it needs to do something so drastic just for finding one person, then it is also a possibility that these fragments are not capable of pinpoint precision attacks outside of their realm, although I might be theorizing a little too much, based on so few facts."
-"Yeah, you've definitely lost me, Barry," Daren says. "I know you were trying to make this sound less confusing, but all of this Magium, fragments and node stuff is going way over my head. I can only hope that we will have as little interaction as possible with all of them in the future, so I won't actually need to understand any of this. All I want from the Magium is to use the node to get the knowledge I require from it and that's it. No other complications!"
-
- "Frankly," I say, "after what we've found out from Meridith, I'm beginning to think that the two old enemies from the prophecy might actually be Eiden and the lessathi, instead of Eiden and Tyrath like we originally thought. I know that he technically 'took their side' during the still winter, according to Melindra, but Meridith clearly does not see things that way, and she is obviously preparing for some kind of big showdown with Eiden at the end of this tournament, so I wouldn't be surprised if it was their fight instead that triggered the destruction of the Varathian cities."
-"...I thought that it was the Magium itself that sent this prophecy to us," Daren says. "Why would it send a prophecy about this conflict and at the same time actively take the side of one of the opposing factions and help create the conflict in the first place?"
-
-"According to Arraka, the Magium itself and the Magium fragments are separate entities," I say. "This particular fragment seems to have been using the Magium node inside the lessathi base to communicate with Meridith and make these plans for quite some time, which makes me think that this recent prophecy is not actually its main concern, and its real purpose is to kill Eiden. I wonder if this isn't by any chance the same Magium fragment that gave Eiden the secret knowledge that he needed to defeat Arraka, and now decided that he's been using that knowledge for too long and needs to be removed from the equation."
-
-"This is all really confusing to me," Daren says. "If this Magium 'fragment' really wants Eiden dead, then why doesn't it just erase him? Why does it need us or the lessathi to do the job in its place?"
 
 }
 choice("Continue", B3-Ch12a-Unusual, v_current_scene = B3-Ch12a-Unusual) if (v_b3_ch12_conflicted == 0 || v_b3_ch12_conflicted == 1 || v_b3_ch12_conflicted == 2)
@@ -1391,6 +1190,8 @@ TEXT:
 
 "No, actually it's about the Magium nodes," I say. "From what I have gathered so far, it seems like you and Arraka have interacted with one of the nodes in the past, but I was under the impression that each of these nodes is being closely guarded by the major faction from Varathia that owns it. Can you tell us which was the node you used, or is this also a secret that you are not allowed to tell us?"
 
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "It was Fyron's node," Illuna says. "That is also the one that Arraka has been using, even before Fyron, if she is to be believed. I personally have not seen her use it even once during the time she was 'mentoring' me, and she never even bothered to mention its existence to me at that time."
 "Of course I wasn't using it at the time," Arraka says. "I had already gotten most of the information that I needed from the Magium while I was still on the magical plane. The only thing that interested me from the nodes on the earthen plane was to find a way back to my own plane of existence, but I couldn't find anything useful. Things might have gone better if I hadn't been stuck in a mountain or forced to inhabit animal bodies during the majority of my time here, but I never exactly had the opportunity to test that hypothesis."
 
@@ -1409,18 +1210,6 @@ TEXT:
 "If it's about the slightly burnt taste of the wyvern meat, you should know that I had nothing to do with it," Illuna tells me.
 
 "No, actually it's about the Magium nodes," I say. "From what I have gathered so far, it seems like you and Arraka have interacted with one of the nodes in the past, but I was under the impression that each of these nodes is being closely guarded by the major faction from Varathia that owns it. Can you tell us which was the node you used, or is this also a secret that you are not allowed to tell us?"
-
- "It was Fyron's node," Illuna says. "That is also the one that Arraka has been using, even before Fyron, if she is to be believed. I personally have not seen her use it even once during the time she was 'mentoring' me, and she never even bothered to mention its existence to me at that time."
-"Of course I wasn't using it at the time," Arraka says. "I had already gotten most of the information that I needed from the Magium while I was still on the magical plane. The only thing that interested me from the nodes on the earthen plane was to find a way back to my own plane of existence, but I couldn't find anything useful. Things might have gone better if I hadn't been stuck in a mountain or forced to inhabit animal bodies during the majority of my time here, but I never exactly had the opportunity to test that hypothesis."
-
-"But you've both been to this node since Fyron took control of it, right?" Daren asks. "How did you convince him to share it with you?"
-
- "I haven't really used it that many times in the past twenty years since I first came across it with Flower," Illuna says, "but usually Fyron would ask for a minor favor from us in exchange for a few visits to the node. That is how things normally work with him, as I'm sure Barry has already told you by now. If you want to visit his node while you are here, I'm certain that you can work something out with him when we'll meet him again in Galamir."
-"Oh, right," Daren says, "because he'll be there for the diplomatic discussions before the beginning of the war with Tyrath. Hopefully we'll catch him before he leaves."
-
-"Oh, you don't need to worry about that," Diane says. "Those discussions will absolutely not start before everyone gets there, and according to Meridith, I won't be the only one who's late. You will get your chance to talk to him, I'm sure."
-
-"Shouldn't you be the one who is worried?" Illuna asks Diane, while raising an eyebrow. "If they make a deal with Fyron about his node, they will have one less reason to take Meridith's deal about killing Eiden."
 
 }
 choice("Continue", B3-Ch12a-Obscure, v_current_scene = B3-Ch12a-Obscure) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -1453,7 +1242,7 @@ TEXT:
 
 set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1 && v_bluff > 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_sincere == 0 || v_b3_ch12_sincere == 2)
 set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
-#if(v_b3_ch12_sincere == 2) {
+#if(v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_sincere == 1 && v_bluff > 0 || v_b3_ch12_sincere == 0 || v_b3_ch12_sincere == 2) {
  "So... is it okay if I go wash the plates?" Flower asks us, suddenly. "I see that you're all done eating."
 "Actually, I think I'll be washing the plates today," Illuna says. "I've been using the knowledge that I retrieved from Meridith's Magium node to improve a spell of mine, and this would be a good way to practice it."
 
@@ -1470,6 +1259,8 @@ set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 
 "Hmm..." Arraka says. "Not bad. There are a few tiny adjustments that I'd make, but other than that, it doesn't look bad at all. Here, let me mark some of the inadequacies I've noticed, so that you can work on them."
 
+}
+#if(v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_sincere == 2) {
  "Actually, I would never use such a technique even if I had it!"
 "Of course not," Hadrik says, jokingly. "You would have no need for it. You already have your bluff stat for that!"
 
@@ -1494,83 +1285,14 @@ set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 
 "Any time!" I tell her.
 
- "So... is it okay if I go wash the plates?" Flower asks us, suddenly. "I see that you're all done eating."
-"Actually, I think I'll be washing the plates today," Illuna says. "I've been using the knowledge that I retrieved from Meridith's Magium node to improve a spell of mine, and this would be a good way to practice it."
-
-"You used knowledge from the Magium to work on a dish-washing spell?..." Hadrik asks, confused.
-
-"This is hardly the intended purpose of the spell, but sure, you can call it that, if you want," Illuna says, as she makes one of the plates float in the air, inside a sphere of water.
-
-"Hey, wait a minute!" Arraka says. "That's the spell I taught you, isn't it? The one that you used against Tyrath to drown him in Thilias!"
-
-"It's an improved version of your spell," Illuna says. "At this point, it's different enough for me to call it 'my' spell instead."
-
- "Uh-huh," Arraka says. "Sure it is. Still, it warms my heart that you've finally decided to get over your hatred of me just enough to at least make use of the spells I taught you. It would have been such a waste if you just continued to ignore all of my teachings."
-"If you're feeling so talkative, how about actually being useful and giving your input on the modifications I made to your spell," Illuna says. "I've been focusing especially on improving its stability, and on making the water regenerate quickly enough to withstand most of the stronger fire attacks."
-
-"Hmm..." Arraka says. "Not bad. There are a few tiny adjustments that I'd make, but other than that, it doesn't look bad at all. Here, let me mark some of the inadequacies I've noticed, so that you can work on them."
-
-}
-#if(v_b3_ch12_sincere == 1 && v_bluff == 0) {
- "Actually, I would never use such a technique even if I had it!"
-"Of course not," Hadrik says, jokingly. "You would have no need for it. You already have your bluff stat for that!"
-
-"To be fair, Barry didn't really put any points in his bluff stat yet, as far as I know," Daren says, "so it can be said that he did have access to such a technique and chose not to use it."
-
-"Exactly!" I say. "I could never tell a lie. 'Sincere' is my middle name."
-
-"Your middle name?" Diane asks me. "I thought you only had one name."
-
-"You must have me confused with some of the other thousands of Barrys that you've met before me," I say. "My full name is actually Barry 'Sincere' the Reckless."
-
-"My apologies, then," Diane says, with a smile. "I'll make sure to remember that, Mr. Sincere, the Reckless."
-
- "So... is it okay if I go wash the plates?" Flower asks us, suddenly. "I see that you're all done eating."
-"Actually, I think I'll be washing the plates today," Illuna says. "I've been using the knowledge that I retrieved from Meridith's Magium node to improve a spell of mine, and this would be a good way to practice it."
-
-"You used knowledge from the Magium to work on a dish-washing spell?..." Hadrik asks, confused.
-
-"This is hardly the intended purpose of the spell, but sure, you can call it that, if you want," Illuna says, as she makes one of the plates float in the air, inside a sphere of water.
-
-"Hey, wait a minute!" Arraka says. "That's the spell I taught you, isn't it? The one that you used against Tyrath to drown him in Thilias!"
-
-"It's an improved version of your spell," Illuna says. "At this point, it's different enough for me to call it 'my' spell instead."
-
- "Uh-huh," Arraka says. "Sure it is. Still, it warms my heart that you've finally decided to get over your hatred of me just enough to at least make use of the spells I taught you. It would have been such a waste if you just continued to ignore all of my teachings."
-"If you're feeling so talkative, how about actually being useful and giving your input on the modifications I made to your spell," Illuna says. "I've been focusing especially on improving its stability, and on making the water regenerate quickly enough to withstand most of the stronger fire attacks."
-
-"Hmm..." Arraka says. "Not bad. There are a few tiny adjustments that I'd make, but other than that, it doesn't look bad at all. Here, let me mark some of the inadequacies I've noticed, so that you can work on them."
-
 }
 #if(v_b3_ch12_sincere == 0) {
  "I agree with Kate. There would be nothing wrong with you wanting some privacy."
 "I'm glad to see that you're all taking this a lot better than I was expecting," Diane says. "For what it's worth, I was aware that this technique of mine could cause some of you to become suspicious, so I've been trying my best to be as open with you as I can and to not hide anything from you. I hope that my efforts have not been in vain!"
 
- "So... is it okay if I go wash the plates?" Flower asks us, suddenly. "I see that you're all done eating."
-"Actually, I think I'll be washing the plates today," Illuna says. "I've been using the knowledge that I retrieved from Meridith's Magium node to improve a spell of mine, and this would be a good way to practice it."
-
-"You used knowledge from the Magium to work on a dish-washing spell?..." Hadrik asks, confused.
-
-"This is hardly the intended purpose of the spell, but sure, you can call it that, if you want," Illuna says, as she makes one of the plates float in the air, inside a sphere of water.
-
-"Hey, wait a minute!" Arraka says. "That's the spell I taught you, isn't it? The one that you used against Tyrath to drown him in Thilias!"
-
-"It's an improved version of your spell," Illuna says. "At this point, it's different enough for me to call it 'my' spell instead."
-
- "Uh-huh," Arraka says. "Sure it is. Still, it warms my heart that you've finally decided to get over your hatred of me just enough to at least make use of the spells I taught you. It would have been such a waste if you just continued to ignore all of my teachings."
-"If you're feeling so talkative, how about actually being useful and giving your input on the modifications I made to your spell," Illuna says. "I've been focusing especially on improving its stability, and on making the water regenerate quickly enough to withstand most of the stronger fire attacks."
-
-"Hmm..." Arraka says. "Not bad. There are a few tiny adjustments that I'd make, but other than that, it doesn't look bad at all. Here, let me mark some of the inadequacies I've noticed, so that you can work on them."
-
 }
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 2 && v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 1 && v_bluff > 0 && v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 1 && v_bluff == 0 && v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_sincere == 0 && v_b3_ch12_hadrik == 1)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 2 && v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 1 && v_bluff > 0 && v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 1 && v_bluff == 0 && v_b3_ch12_hadrik == 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_sincere == 0 && v_b3_ch12_hadrik == 0)
+choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 2 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 1 && v_bluff > 0)
+choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 0 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 2 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 1 && v_bluff > 0)
 
 
 ID: B3-Ch12a-Sober
@@ -1611,7 +1333,7 @@ choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock)
 ID: B3-Ch12a-Rock
 TEXT: 
 
-#if(v_b3_ch12_hadrik == 0 && v_b3_ch12_diane == 1) {
+#if(v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 0) {
  Realizing that Illuna and Arraka are probably going to be busy for a while longer, the rest of us go to pack our tents and get ready to resume our journey. By the time we are done, Illuna has also finished washing the plates, so we put them all in Hadrik's backpack and then go on our way, heading in the direction of the nearest sacred forest.
 According to Diane, if we keep up our usual pace, we should get there at some point in the afternoon. We still haven't decided exactly what we are planning to do if the fox happens to catch us on her territory again while we're looking for pinecones, but I suppose when we have so many strong enemies already, adding one more to the list shouldn't make much of a difference.
 
@@ -1619,6 +1341,8 @@ On our way to our destination, I noticed that Diane was being a lot less insiste
 
 "Oh gods!" Flower exclaims, not even an hour after our departure, as she points excitedly at some very mundane-looking rock. "Barry, do you see that? It's a cloakshield rock! A cloakshield rock, Barry!"
 
+}
+#if(v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 1) {
  "I see it," I say, in a very unenthusiastic tone.
 "That rock... looks nothing like a cloak or a shield..." Daren says. "Why would you call it that?"
 
@@ -1652,7 +1376,7 @@ As soon as we leave the area, Flower pulls out her transceiver, and she shouts i
 "Hey, Melindra!" she says. "You'll never guess what rock I found lying in the grass in the middle of the woods!"
 
 }
-#if(v_b3_ch12_hadrik == 0 && v_b3_ch12_diane == 0) {
+#if(v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 0) {
  Realizing that Illuna and Arraka are probably going to be busy for a while longer, the rest of us go to pack our tents and get ready to resume our journey. By the time we are done, Illuna has also finished washing the plates, so we put them all in Hadrik's backpack and then go on our way, heading in the direction of the nearest sacred forest.
 According to Diane, if we keep up our usual pace, we should get there at some point in the afternoon. We still haven't decided exactly what we are planning to do if the fox happens to catch us on her territory again while we're looking for pinecones, but I suppose when we have so many strong enemies already, adding one more to the list shouldn't make much of a difference.
 
@@ -1660,40 +1384,8 @@ On our way to our destination, I noticed that Diane was trying even harder than 
 
 "Oh gods!" Flower exclaims, not even an hour after our departure, as she points excitedly at some very mundane-looking rock. "Barry, do you see that? It's a cloakshield rock! A cloakshield rock, Barry!"
 
- "I see it," I say, in a very unenthusiastic tone.
-"That rock... looks nothing like a cloak or a shield..." Daren says. "Why would you call it that?"
-
-After hearing what Daren had to say, Flower shakes her head in disapproval and looks at him as if he were some simpleton that had no taste for the fine arts.
-
-"You wouldn't understand..." she says, and then she goes to grab the stone from the ground.
-
-"Oh, for crying out loud!" Arraka says, all of a sudden. "Not another one of these!"
-
-"Yeah, there are a lot of rocks here on the earthen plane," Hadrik says. "Better get used to it."
-
-"Not the rock, you moron!" Arraka says. "It's one of Eiden's invisible spells that he's been casting all over the continent. The girl just ran right into it with my amulet hanging around her neck, and I always get a tingling sensation whenever she does that. It's extremely annoying."
-
-"You said 'not another one of these'..." Daren tells her. "How many of these spells have you been detecting, lately?"
-
-"In the past two days?" Arraka asks. "Five of them. And that's only the ones that Flower happened to run into. There may have been more, but I didn't really bother to actively look for them. Apparently, Eiden's been very busy lately."
-
-"Do you have any idea what he's using these spells for?" I say.
-
- "Nope," Arraka says. "If I absolutely wanted to, I could probably figure it out, but you'd need to stand in place and let me analyze one of these for at least a day, or maybe more. Trust me, it would be a waste of time for all of us."
-"Too bad," Daren says. "If you could have done it in only a few hours it might have been worth it. If Eiden's been placing so many of them around the continent, then these spells must be very important to him."
-
-"Here's an idea," Arraka says. "How's about you don't try to antagonize Eiden too, while we're already busy making plans to kill the gods and the copy version of me from the past. Let's take things one at a time, shall we?"
-
-"Fine, fine," Daren says. "But for the record, I wasn't trying to antagonize him or anything. I was just thinking that maybe if we found out what he was after, we could better understand his motivations, and maybe that could help us find some common ground with him."
-
-"Sure you were," Arraka says, in a sarcastic tone. "Alright, move along, folks! Nothing to see here."
-
-As soon as we leave the area, Flower pulls out her transceiver, and she shouts into it loudly.
-
-"Hey, Melindra!" she says. "You'll never guess what rock I found lying in the grass in the middle of the woods!"
-
 }
-#if(v_b3_ch12_hadrik == 1 && v_b3_ch12_diane == 1) {
+#if(v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 1) {
  Once Illuna is done with the plates, we put them all in Hadrik's backpack, then go to finish dismantling our tents. We leave ten minutes later, heading in the direction of the nearest sacred forest.
 According to Diane, if we keep up our usual pace, we should get there at some point in the afternoon. We still haven't decided exactly what we are planning to do if the fox happens to catch us on her territory again while we're looking for pinecones, but I suppose when we have so many strong enemies already, adding one more to the list shouldn't make much of a difference.
 
@@ -1701,40 +1393,8 @@ On our way to our destination, I noticed that Diane was being a lot less insiste
 
 "Oh gods!" Flower exclaims, not even an hour after our departure, as she points excitedly at some very mundane-looking rock. "Barry, do you see that? It's a cloakshield rock! A cloakshield rock, Barry!"
 
- "I see it," I say, in a very unenthusiastic tone.
-"That rock... looks nothing like a cloak or a shield..." Daren says. "Why would you call it that?"
-
-After hearing what Daren had to say, Flower shakes her head in disapproval and looks at him as if he were some simpleton that had no taste for the fine arts.
-
-"You wouldn't understand..." she says, and then she goes to grab the stone from the ground.
-
-"Oh, for crying out loud!" Arraka says, all of a sudden. "Not another one of these!"
-
-"Yeah, there are a lot of rocks here on the earthen plane," Hadrik says. "Better get used to it."
-
-"Not the rock, you moron!" Arraka says. "It's one of Eiden's invisible spells that he's been casting all over the continent. The girl just ran right into it with my amulet hanging around her neck, and I always get a tingling sensation whenever she does that. It's extremely annoying."
-
-"You said 'not another one of these'..." Daren tells her. "How many of these spells have you been detecting, lately?"
-
-"In the past two days?" Arraka asks. "Five of them. And that's only the ones that Flower happened to run into. There may have been more, but I didn't really bother to actively look for them. Apparently, Eiden's been very busy lately."
-
-"Do you have any idea what he's using these spells for?" I say.
-
- "Nope," Arraka says. "If I absolutely wanted to, I could probably figure it out, but you'd need to stand in place and let me analyze one of these for at least a day, or maybe more. Trust me, it would be a waste of time for all of us."
-"Too bad," Daren says. "If you could have done it in only a few hours it might have been worth it. If Eiden's been placing so many of them around the continent, then these spells must be very important to him."
-
-"Here's an idea," Arraka says. "How's about you don't try to antagonize Eiden too, while we're already busy making plans to kill the gods and the copy version of me from the past. Let's take things one at a time, shall we?"
-
-"Fine, fine," Daren says. "But for the record, I wasn't trying to antagonize him or anything. I was just thinking that maybe if we found out what he was after, we could better understand his motivations, and maybe that could help us find some common ground with him."
-
-"Sure you were," Arraka says, in a sarcastic tone. "Alright, move along, folks! Nothing to see here."
-
-As soon as we leave the area, Flower pulls out her transceiver, and she shouts into it loudly.
-
-"Hey, Melindra!" she says. "You'll never guess what rock I found lying in the grass in the middle of the woods!"
-
 }
-#if(v_b3_ch12_hadrik == 1 && v_b3_ch12_diane == 0) {
+#if(v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 1) {
  Once Illuna is done with the plates, we put them all in Hadrik's backpack, then go to finish dismantling our tents. We leave ten minutes later, heading in the direction of the nearest sacred forest.
 According to Diane, if we keep up our usual pace, we should get there at some point in the afternoon. We still haven't decided exactly what we are planning to do if the fox happens to catch us on her territory again while we're looking for pinecones, but I suppose when we have so many strong enemies already, adding one more to the list shouldn't make much of a difference.
 
@@ -1742,40 +1402,5 @@ On our way to our destination, I noticed that Diane was trying even harder than 
 
 "Oh gods!" Flower exclaims, not even an hour after our departure, as she points excitedly at some very mundane-looking rock. "Barry, do you see that? It's a cloakshield rock! A cloakshield rock, Barry!"
 
- "I see it," I say, in a very unenthusiastic tone.
-"That rock... looks nothing like a cloak or a shield..." Daren says. "Why would you call it that?"
-
-After hearing what Daren had to say, Flower shakes her head in disapproval and looks at him as if he were some simpleton that had no taste for the fine arts.
-
-"You wouldn't understand..." she says, and then she goes to grab the stone from the ground.
-
-"Oh, for crying out loud!" Arraka says, all of a sudden. "Not another one of these!"
-
-"Yeah, there are a lot of rocks here on the earthen plane," Hadrik says. "Better get used to it."
-
-"Not the rock, you moron!" Arraka says. "It's one of Eiden's invisible spells that he's been casting all over the continent. The girl just ran right into it with my amulet hanging around her neck, and I always get a tingling sensation whenever she does that. It's extremely annoying."
-
-"You said 'not another one of these'..." Daren tells her. "How many of these spells have you been detecting, lately?"
-
-"In the past two days?" Arraka asks. "Five of them. And that's only the ones that Flower happened to run into. There may have been more, but I didn't really bother to actively look for them. Apparently, Eiden's been very busy lately."
-
-"Do you have any idea what he's using these spells for?" I say.
-
- "Nope," Arraka says. "If I absolutely wanted to, I could probably figure it out, but you'd need to stand in place and let me analyze one of these for at least a day, or maybe more. Trust me, it would be a waste of time for all of us."
-"Too bad," Daren says. "If you could have done it in only a few hours it might have been worth it. If Eiden's been placing so many of them around the continent, then these spells must be very important to him."
-
-"Here's an idea," Arraka says. "How's about you don't try to antagonize Eiden too, while we're already busy making plans to kill the gods and the copy version of me from the past. Let's take things one at a time, shall we?"
-
-"Fine, fine," Daren says. "But for the record, I wasn't trying to antagonize him or anything. I was just thinking that maybe if we found out what he was after, we could better understand his motivations, and maybe that could help us find some common ground with him."
-
-"Sure you were," Arraka says, in a sarcastic tone. "Alright, move along, folks! Nothing to see here."
-
-As soon as we leave the area, Flower pulls out her transceiver, and she shouts into it loudly.
-
-"Hey, Melindra!" she says. "You'll never guess what rock I found lying in the grass in the middle of the woods!"
-
 }
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_diane == 1)
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_diane == 0)
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_diane == 1)
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_diane == 0)
+choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 1)

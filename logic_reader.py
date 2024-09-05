@@ -231,21 +231,20 @@ class Scene:
         set_variables = self.merge_set_variables()
         for set_variable in set_variables:
             text += f'set({set_variable.name},{set_variable.value})'
-            if set_variable.conditions != {}:
+            if set_variable.conditions != True:
                 text += f' if ({sp.jscode(set_variable.conditions)})'
             text += "\n"
 
         paragraph_groups = self.merge_paragraphs()
         for par_group in paragraph_groups:
-            if par_group.conditions != {}:
-                condition_string = ' && '.join([str(sp.jscode(cond)) for var,cond in par_group.conditions.items()])
-                text += f"#if({condition_string}) {{\n"
+            if par_group.conditions != True:
+                text += f"#if({sp.jscode(par_group.conditions)}) {{\n"
             for par_tuple in par_group.paragraphs:
                 if par_tuple[0] not in paragraphs[par_tuple[1]]:
                     print(f"Paragraph {par_tuple[0]} not found in {par_tuple[1]}")
                     continue
                 text += paragraphs[par_tuple[1]][par_tuple[0]]
-            if par_group.conditions != {}:
+            if par_group.conditions != True:
                 text += "}\n" #}
         text = re.sub(r"(\n){2,}", r"\n\n", text)
 
@@ -255,15 +254,22 @@ class Scene:
             if response.special != "":
                  text += f", special:{response.special}"
             text += ")"
-            if response.conditions != {}:
-                text += f' if ({" && ".join([str(sp.jscode(cond)) for name,cond in response.conditions.items()])})' 
+            if response.conditions != True:
+                text += f' if ({sp.jscode(response.conditions)})'
             text += "\n"
 
         return text
 
     def merge_paragraphs(self):
+        grouped_paragraphs = groupby_unsorted(self.paragraphs,key=lambda r:(r.id,r.version))
+        new_paragraphs = []
+        for (id,version),group in grouped_paragraphs:
+            group = list(group)
+            new_conditions = sp.simplify_logic(sp.Or(*[sp.And(*paragraph.conditions.values()) for paragraph in group]),form="dnf")
+            new_paragraphs.append(Paragraph(id,version,new_conditions))
+
         paragraph_groups = {}
-        for paragraph in self.paragraphs:
+        for paragraph in new_paragraphs:
             key = str(paragraph.conditions) 
             if key not in paragraph_groups:
                 paragraph_groups[key] = ParagraphGroup(conditions=paragraph.conditions)
@@ -276,26 +282,9 @@ class Scene:
         new_responses = []
         for test,group in grouped_responses:
             group = list(group)
-            #print("Print",test,group)
-            conditions = defaultdict(list)
-            for response in group:
-                for var,condition in response.conditions.items():
-                    conditions[var].append(condition)
-            if len(conditions.keys()) == 1:
-                var = list(conditions.keys())[0]
-            else:
-                new_responses += group
-                continue
-            if is_total_pattern(conditions[var]) == True:
-                new_response = deepcopy(group[0])
-                new_response.conditions = {}
-                new_responses.append(new_response)
-            elif all([isinstance(c,sp.Eq) for c in conditions[var]]):
-                new_response = deepcopy(group[0])
-                new_response.conditions = {var: sp.Or(*[sp.Eq(sp.symbols(var),int(c.rhs)) for c in conditions[var]])}
-                new_responses.append(new_response)
-            else:
-                new_responses += group
+            new_response = deepcopy(group[0])
+            new_response.conditions = sp.simplify_logic(sp.Or(*[sp.And(*response.conditions.values()) for response in group]),form="dnf")
+            new_responses.append(new_response)
         return new_responses
 
 
@@ -304,7 +293,7 @@ class Scene:
         new_set_variables = []
         for (name,value),group in grouped_set_variables:
             group = list(group)
-            new_conditions = sp.simplify(sp.Or(*[sp.And(*set_variable.conditions.values()) for set_variable in group]))
+            new_conditions = sp.simplify_logic(sp.Or(*[sp.And(*set_variable.conditions.values()) for set_variable in group]),form="dnf")
             new_set_variables.append(SceneVariableSet(name,value,new_conditions))
         return sorted(new_set_variables,key=lambda r:r.name)
 

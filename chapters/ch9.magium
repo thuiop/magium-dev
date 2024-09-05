@@ -601,7 +601,7 @@ choice("Continue", Ch9-Blushing, v_current_scene = Ch9-Blushing)
 ID: Ch9-Blushing
 TEXT: 
 
-#if(v_ch6_flirt == 1) {
+#if(v_ch6_flirt == 1 || v_ch6_flirt == 5 || v_ch6_flirt == 6) {
  As I don't really feel like embarrassing her, I decide to ignore what happened and change the subject.
 "So, anyway," I tell her, "there's something I've been meaning to ask you in private since this morning. What do you think about Flower?"
 
@@ -610,42 +610,7 @@ Rose turns her head back towards me when she hears my question, and I notice tha
 "Do you mean in a general sense?" Rose asks me. "To me, she seems like a charming young girl with a cheerful personality and a kind heart, and I find that she is a really fun person to be around with. What about you? There has to be some reason why you asked me this. What do you think about Flower?"
 
 }
-#if(v_ch6_flirt == 5) {
- As I don't really feel like embarrassing her, I decide to ignore what happened and change the subject.
-"So, anyway," I tell her, "there's something I've been meaning to ask you in private since this morning. What do you think about Flower?"
-
-Rose turns her head back towards me when she hears my question, and I notice that her cheeks are no longer red. She seems somewhat surprised by my sudden inquiry. 
-
-"Do you mean in a general sense?" Rose asks me. "To me, she seems like a charming young girl with a cheerful personality and a kind heart, and I find that she is a really fun person to be around with. What about you? There has to be some reason why you asked me this. What do you think about Flower?"
-
-}
-#if(v_ch6_flirt == 6) {
- As I don't really feel like embarrassing her, I decide to ignore what happened and change the subject.
-"So, anyway," I tell her, "there's something I've been meaning to ask you in private since this morning. What do you think about Flower?"
-
-Rose turns her head back towards me when she hears my question, and I notice that her cheeks are no longer red. She seems somewhat surprised by my sudden inquiry. 
-
-"Do you mean in a general sense?" Rose asks me. "To me, she seems like a charming young girl with a cheerful personality and a kind heart, and I find that she is a really fun person to be around with. What about you? There has to be some reason why you asked me this. What do you think about Flower?"
-
-}
-#if(v_ch6_flirt == 3) {
- "Wait a minute," I say. "You were blushing just now. I saw you!"
-"I was not!" Rose says, as she turns her head back towards me, to show me that her cheeks are no longer red. "You must have been imagining things. Can we change the subject?"
-
-She pauses.
-
-"Please?" she then adds, with a pleading look in her eyes.
-
-Seeing the look in her eyes, I could no longer bring myself to continue teasing her, so I changed the subject, as she requested.
-
-"Alright, then," I say. "There's actually something I've been meaning to ask you in private since this morning. What do you think about Flower?"
-
-Rose looks like she's somewhat surprised by my question.
-
-"Do you mean in a general sense?" Rose asks me. "To me, she seems like a charming young girl with a cheerful personality and a kind heart, and I find that she is a really fun person to be around with. What about you? There has to be some reason why you asked me this. What do you think about Flower?"
-
-}
-#if(v_ch6_flirt == 4) {
+#if(v_ch6_flirt == 3 || v_ch6_flirt == 4) {
  "Wait a minute," I say. "You were blushing just now. I saw you!"
 "I was not!" Rose says, as she turns her head back towards me, to show me that her cheeks are no longer red. "You must have been imagining things. Can we change the subject?"
 
@@ -1434,8 +1399,8 @@ choice("Continue", Ch9-Final-march, v_current_scene = Ch9-Final-march) if (v_ch9
 ID: Ch9-Final-march
 TEXT: 
 
-set(v_ch9_ogres,1) if ((v_ch9_take_rose == 0 || v_ch9_take_rose == 1) && v_hearing < 2)
-set(v_ch9_ogres,2) if (v_perception == 0 && v_hearing >= 2 && (v_ch9_take_rose == 0 || v_ch9_take_rose == 1))
+set(v_ch9_ogres,1) if (v_ch9_take_rose == 0 && v_hearing < 2 || v_ch9_take_rose == 1 && v_hearing < 2)
+set(v_ch9_ogres,2) if (v_ch9_take_rose == 0 && v_perception == 0 && v_hearing >= 2 || v_ch9_take_rose == 1 && v_perception == 0 && v_hearing >= 2)
 set(v_ch9_ogres,3) if (v_hearing >= 2 && v_perception >= 1)
 #if(v_ch9_take_rose == 0 && v_hearing < 2) {
  
@@ -1473,7 +1438,7 @@ There seemed to be one main building in the middle, which was connected to all f
 Arraka makes an even louder muffled sound, and she doesn't appear to have any intention of stopping.
 
 }
-#if(v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0) {
+#if(v_ch9_take_rose == 0 && v_perception == 0 && v_hearing >= 2) {
  
 
 While Flower and Kate were talking, I heard what sounded like footsteps somewhere behind me. I immediately turn around to see if we are being followed, but there's no one there. Was it just my imagination? 
@@ -1481,7 +1446,7 @@ While Flower and Kate were talking, I heard what sounded like footsteps somewher
 After looking around for a few more seconds and coming up empty, I arrive at the conclusion that I'm just too tense right now to be able to fully trust my senses, so I turn around and get ready to leave for the fort. Once we all make sure that we have everything we need, we wave goodbye to Kate and Rose, and then we start our final march towards the stronghold. 
 
 }
-#if(v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0) {
+#if(v_ch9_take_rose == 1 && v_perception == 0 && v_hearing >= 2) {
  
 
 While Flower and Kate were talking, I heard what sounded like footsteps somewhere behind me. I immediately turn around to see if we are being followed, but there's no one there. Was it just my imagination? 
@@ -1503,12 +1468,9 @@ A crazy thought occurs to me, and I aim my crossbow somewhere a few feet above t
 I pay him no mind, and I shoot an arrow at the empty space in front of me. Instead of going through the air, however, the arrow stops in mid-flight, and a trickle of blood starts coming out from its tip. Soon afterwards, a hideous creature begins to slowly materialize in front of us, with my arrow sticking out of its big belly. The monster is about eight feet tall, with thick gray skin, and it's wearing nothing other than a loincloth around its waist. Two of its lower fangs are sticking out of its closed mouth, its forehead is exceedingly narrow, and on its face, it is wearing one of the dumbest expressions I've ever seen in my life.
 
 }
-choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 0 && v_hearing < 2)
-choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 1 && v_hearing < 2)
-choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 0 && v_hearing < 2)
-choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 1 && v_hearing < 2)
-choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 0 && v_hearing >= 2 && v_perception == 0)
-choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 1 && v_hearing >= 2 && v_perception == 0)
+choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 0 && v_hearing < 2 || v_ch9_take_rose == 1 && v_hearing < 2)
+choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 0 && v_hearing < 2 || v_ch9_take_rose == 1 && v_hearing < 2)
+choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 0 && v_perception == 0 && v_hearing >= 2 || v_ch9_take_rose == 1 && v_perception == 0 && v_hearing >= 2)
 choice("Continue", Ch9-Nice, v_current_scene = Ch9-Nice) if (v_hearing >= 2 && v_perception >= 1)
 
 
@@ -1671,8 +1633,7 @@ TEXT:
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
 choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 1)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0 && v_ch9_ogres == 3)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 && v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
 
 
 ID: Ch9-Sacred
@@ -1688,8 +1649,7 @@ TEXT:
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
 choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 1)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0 && v_ch9_ogres == 3)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 && v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
 
 
 ID: Ch9-Merry
@@ -1705,8 +1665,7 @@ TEXT:
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
 choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 1)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_take_rose == 0 && v_ch9_ogres == 3)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 && v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
 
 
 ID: Ch9-Persuade

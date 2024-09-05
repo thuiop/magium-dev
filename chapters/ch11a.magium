@@ -503,6 +503,8 @@ As I do what he says, I realize that he is right. When I imagined myself hitting
  
 I waste no time and I run towards the noble, while I ready up my right fist. As soon as I reach him, I punch him hard in the face, which makes him fall on his back. 
 
+}
+#if(v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2) {
  "What is the meaning of this?!" the noble shouts, furious, from the ground. "How DARE you? Do you know who I am?!"
 "Sure," I tell him. "You're just another rich jackass who let all his wealth and social status go to his head. Welcome to the real world, buddy!"
 
@@ -524,11 +526,6 @@ The stillwater then raises his hands, and a powerful wind starts spinning around
 As I do what he says, I realize that he is right. When I imagined myself hitting the noble before, I definitely felt some sort of force that was trying to stop my very train of thoughts from forming, but none of that happened anymore.
  
 I waste no time and I run towards the noble, while I ready up my right fist. As soon as I reach him, I punch him hard in the face, which makes him fall on his back and drop his knife.
-
- "What is the meaning of this?!" the noble shouts, furious, from the ground. "How DARE you? Do you know who I am?!"
-"Sure," I tell him. "You're just another rich jackass who let all his wealth and social status go to his head. Welcome to the real world, buddy!"
-
-"Do you think you can afford to act cocky just because you somehow managed to break through the tournament's protection spell?" the noble says. "You have no idea who you're dealing with here, boy. Being eliminated from the mage tournament will be the least of your worries when I'm done with you."
 
 }
 choice("Kill the noble and be done with it.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 1) if (v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2)
@@ -574,6 +571,8 @@ Rose is looking a bit scared, as the noble points his finger towards her.
 
 Before he gets to finish his threat, the noble gets engulfed in flames, and within a matter of seconds, he turns into ashes, while the fire dies out almost as quickly as it appeared. The townsfolk who were walking down the street until now are all stopping to look at the pile of ashes gathering on the ground, with a terrified look in their eyes.
 
+}
+#if(v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1 || v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2) {
  ”See, Barry, this is how you get the job done right," Eiden says. "You wouldn't want to cause your lovely host more trouble than you already have, would you?"
 "I suppose not..." I say.
 
@@ -604,31 +603,10 @@ Rose is looking a bit scared, as the noble points his finger towards her.
 
 Before he gets to finish his threat, the noble gets engulfed in flames, and within a matter of seconds, he turns into ashes, while the fire dies out almost as quickly as it appeared. The townsfolk who were walking down the street until now are all stopping to look at the pile of ashes gathering on the ground, with a terrified look in their eyes.
 
- ”See, Barry, this is how you get the job done right," Eiden says. "You wouldn't want to cause your lovely host more trouble than you already have, would you?"
-"I suppose not..." I say.
-
-Eiden smiles.
-
-"Now then," Eiden says, "if you don't mind me asking, what is your plan for saving the other thousands of slaves in this city?"
-
-"I beg your pardon?" I say.
-
-"Surely, you must have realized that this isn't the only slave in Varathia," Eiden says. "There are thousands more just like this girl, who are living through hell as we speak, and who can't even be sure that they'll make it through the day alive. Are you going to save them too, Barry?"
-
-Eiden smiles widely.
-
-"Unless of course, you only plan on saving the ones that cross your path, so you can pat yourself on the back, and pretend that you made a difference."
-
 }
-choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 1)
-choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
-choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2)
-choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 1)
-choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
-choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2)
-choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 1)
-choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1)
-choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2)
+choice("""Yes, I'm going to save them all.""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1 || v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2 || v_ch11_kill_noble == 1)
+choice("""Do I look like a mage to you? Why don't you save them all if you care so much?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 2) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1 || v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2 || v_ch11_kill_noble == 1)
+choice("""Should I just ignore everyone who needs help because I can't save the whole world?""", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 3) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1 || v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2 || v_ch11_kill_noble == 1)
 
 
 ID: Ch11a-Difference
@@ -644,6 +622,8 @@ Eiden raises himself in the air and he prepares to teleport out of the city.
 
 "Oh, there's one last thing I should tell you before I go," the stillwater says, as he turns to Daren and Kate. "The spell I cast just now on Barry was an area of effect spell and not a targeted one. This means that it affected the whole area around me and not just him, so the two of you have been given the same gift as your friend. The effect of my spell lasts indefinitely, so this power is yours to use as you please from this day forward. With this said and done, I bid you farewell!"
 
+}
+#if(v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3) {
  Eiden then snaps his fingers, and he immediately disappears without a trace.
 "Sir..." the slave girl says, as she pulls on my sleeve softly. "Excuse me, sir..."
 
@@ -662,13 +642,6 @@ Eiden raises himself in the air and he prepares to teleport out of the city.
 
 "Oh, there's one last thing I should tell you before I go," the stillwater says, as he turns to Daren and Kate. "The spell I cast just now on Barry was an area of effect spell and not a targeted one. This means that it affected the whole area around me and not just him, so the two of you have been given the same gift as your friend. The effect of my spell lasts indefinitely, so this power is yours to use as you please from this day forward. With this said and done, I bid you farewell!"
 
- Eiden then snaps his fingers, and he immediately disappears without a trace.
-"Sir..." the slave girl says, as she pulls on my sleeve softly. "Excuse me, sir..."
-
-As I turn around, the girl takes a bow, and then she introduces herself.
-
-"My name is Ella," she says, "but most of my masters simply called me 'slave girl'. I know I may not look like much, but if you will have me, I vow to serve you to the best of my ability, until the day I die. Just give me my first order, and our contract will be complete."
-
 }
 #if(v_ch11_difference == 3) {
  "Should I just ignore everyone who needs help because I can't save the whole world?"
@@ -679,13 +652,6 @@ Eiden pauses a bit to ponder on my question.
 Eiden raises himself in the air and he prepares to teleport out of the city.
 
 "Oh, there's one last thing I should tell you before I go," the stillwater says, as he turns to Daren and Kate. "The spell I cast just now on Barry was an area of effect spell and not a targeted one. This means that it affected the whole area around me and not just him, so the two of you have been given the same gift as your friend. The effect of my spell lasts indefinitely, so this power is yours to use as you please from this day forward. With this said and done, I bid you farewell!"
-
- Eiden then snaps his fingers, and he immediately disappears without a trace.
-"Sir..." the slave girl says, as she pulls on my sleeve softly. "Excuse me, sir..."
-
-As I turn around, the girl takes a bow, and then she introduces herself.
-
-"My name is Ella," she says, "but most of my masters simply called me 'slave girl'. I know I may not look like much, but if you will have me, I vow to serve you to the best of my ability, until the day I die. Just give me my first order, and our contract will be complete."
 
 }
 choice("""Sure thing! I guess you can start by shining my boots! They're a little dirty.""", Ch11a-Boots, v_current_scene = Ch11a-Boots) if (v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3)
@@ -958,10 +924,8 @@ She then turns to us.
 "I'll be right back!" Rose says, and then she goes with Daren and her siblings inside the mansion.
 
 }
-choice("Continue", Ch11a-Prevented, v_current_scene = Ch11a-Prevented) if (v_ch11_toy == 1 && v_ch11_saved_slave == 3)
-choice("Continue", Ch11a-Prevented, v_current_scene = Ch11a-Prevented) if (v_ch11_toy == 0 && v_ch11_saved_slave == 3)
-choice("Continue", Ch11a-Task, v_current_scene = Ch11a-Task) if (v_ch11_toy == 1 && v_ch11_saved_slave != 3)
-choice("Continue", Ch11a-Task, v_current_scene = Ch11a-Task) if (v_ch11_toy == 0 && v_ch11_saved_slave != 3)
+choice("Continue", Ch11a-Prevented, v_current_scene = Ch11a-Prevented) if (v_ch11_saved_slave == 3 && v_ch11_toy == 0 || v_ch11_saved_slave == 3 && v_ch11_toy == 1)
+choice("Continue", Ch11a-Task, v_current_scene = Ch11a-Task) if (v_ch11_toy == 0 && v_ch11_saved_slave != 3 || v_ch11_toy == 1 && v_ch11_saved_slave != 3)
 
 
 ID: Ch11a-Prevented

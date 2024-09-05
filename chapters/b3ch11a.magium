@@ -71,6 +71,8 @@ TEXT:
 
 "...That is indeed a very good point," Meridith says, in a resigned tone. "Forgive me. It seems that in my eagerness to ensure Eiden's demise, I almost placed you and your friends in mortal danger without realizing it. Perhaps it might be better if I offered you a different deal... One that even your dwarf friend would be willing to accept."
 
+}
+#if(v_b3_ch11_friend == 0 || v_b3_ch11_friend == 1 || v_b3_ch11_friend == 2) {
  "What do you mean?" I ask her. "What kind of deal are you talking about?"
 "The thing that I want the most from your group right now is for you to continue to participate in the mage tournament," Meridith says. "That way, at least I'll know that you'll still be here, in Varathia when we enact our plan. If you all agree to continue doing the tournament objectives so that the kings don't kick you out of the continent, then I will personally guarantee you access to our Magium node, as long as our plan works perfectly, and we manage to kill Eiden without your help. However, on the off-chance that Eiden survives, then you will have to decide for yourselves whether you are willing to kill him or not. In this scenario, you would obviously only gain access to the Magium node if you joined our side and killed Eiden, but for your safety, I won't ask you to make this decision until the very last moment. This way, even if Eiden were to ask you very specific questions about your meeting with me, you could answer him truthfully, without turning him into your enemy."
 
@@ -100,22 +102,6 @@ TEXT:
 
 "...That is indeed a very good point," Meridith says, in a resigned tone. "Forgive me. It seems that in my eagerness to ensure Eiden's demise, I almost placed you and your friends in mortal danger without realizing it. Perhaps it might be better if I offered you a different deal... One that even your dwarf friend would be willing to accept."
 
- "What do you mean?" I ask her. "What kind of deal are you talking about?"
-"The thing that I want the most from your group right now is for you to continue to participate in the mage tournament," Meridith says. "That way, at least I'll know that you'll still be here, in Varathia when we enact our plan. If you all agree to continue doing the tournament objectives so that the kings don't kick you out of the continent, then I will personally guarantee you access to our Magium node, as long as our plan works perfectly, and we manage to kill Eiden without your help. However, on the off-chance that Eiden survives, then you will have to decide for yourselves whether you are willing to kill him or not. In this scenario, you would obviously only gain access to the Magium node if you joined our side and killed Eiden, but for your safety, I won't ask you to make this decision until the very last moment. This way, even if Eiden were to ask you very specific questions about your meeting with me, you could answer him truthfully, without turning him into your enemy."
-
-"Are you sure that you are okay with offering us such a deal?..." Kate says. "It honestly doesn't feel like you are getting a lot out of it."
-
-"It does not cost me much to give your group access to our Magium node, but it will cost me everything if our plan to kill Eiden fails," Meridith says. "If making this offer to you raises our odds of success against Eiden by even the tiniest bit, then the deal is worth it for me." 
-
- "In that case, I think that most of our friends will likely accept your offer," Kate says. "Most of us were participating in the tournament without aiming to obtain the Magium anyway, so they shouldn't have any problems with the idea of continuing to complete the objectives."
-"I hope you are right," Meridith says.
-
-"So, I know this is a little off-topic," I say, "but you told me earlier that you knew the secret codes for unlocking the magical stats for my stat booster, and I was wondering if there's any chance that you could--"
-
-"Of course, of course," Meridith says. "Just hand me the device, and I will input the code right away. Although, I have to warn you that these two stats will be working quite differently from the ones that you've been using until now."
-
-"How so?" I ask.
-
 }
 #if(v_b3_ch11_friend == 2) {
  "I'd say that Eiden is neither our friend nor our foe, at the moment."
@@ -128,22 +114,6 @@ TEXT:
 "You are forgetting that Eiden can tell from our auras if we are lying to him or not," Kate says. "All it would take is for him to become slightly suspicious of us, and then he could easily learn about our secret plans just by asking us a few simple questions."
 
 "...That is indeed a very good point," Meridith says, in a resigned tone. "Forgive me. It seems that in my eagerness to ensure Eiden's demise, I almost placed you and your friends in mortal danger without realizing it. Perhaps it might be better if I offered you a different deal... One that even your dwarf friend would be willing to accept."
-
- "What do you mean?" I ask her. "What kind of deal are you talking about?"
-"The thing that I want the most from your group right now is for you to continue to participate in the mage tournament," Meridith says. "That way, at least I'll know that you'll still be here, in Varathia when we enact our plan. If you all agree to continue doing the tournament objectives so that the kings don't kick you out of the continent, then I will personally guarantee you access to our Magium node, as long as our plan works perfectly, and we manage to kill Eiden without your help. However, on the off-chance that Eiden survives, then you will have to decide for yourselves whether you are willing to kill him or not. In this scenario, you would obviously only gain access to the Magium node if you joined our side and killed Eiden, but for your safety, I won't ask you to make this decision until the very last moment. This way, even if Eiden were to ask you very specific questions about your meeting with me, you could answer him truthfully, without turning him into your enemy."
-
-"Are you sure that you are okay with offering us such a deal?..." Kate says. "It honestly doesn't feel like you are getting a lot out of it."
-
-"It does not cost me much to give your group access to our Magium node, but it will cost me everything if our plan to kill Eiden fails," Meridith says. "If making this offer to you raises our odds of success against Eiden by even the tiniest bit, then the deal is worth it for me." 
-
- "In that case, I think that most of our friends will likely accept your offer," Kate says. "Most of us were participating in the tournament without aiming to obtain the Magium anyway, so they shouldn't have any problems with the idea of continuing to complete the objectives."
-"I hope you are right," Meridith says.
-
-"So, I know this is a little off-topic," I say, "but you told me earlier that you knew the secret codes for unlocking the magical stats for my stat booster, and I was wondering if there's any chance that you could--"
-
-"Of course, of course," Meridith says. "Just hand me the device, and I will input the code right away. Although, I have to warn you that these two stats will be working quite differently from the ones that you've been using until now."
-
-"How so?" I ask.
 
 }
 choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting) if (v_b3_ch11_friend == 0 || v_b3_ch11_friend == 1 || v_b3_ch11_friend == 2)
@@ -214,6 +184,8 @@ TEXT:
 
  "Do you have any idea if there are other ways in which we could activate this Emergency Mode on command?" Kate says. "Like for example, if we all tried to transfer our magical energy into the device at the same time, could that perhaps trigger it?" 
 
+}
+#if(v_b3_ch11_transferred == 0 || v_b3_ch11_transferred == 1) {
  "You'd need ridiculous amounts of energy to be transferred very fast into the device, to even have a slight chance of activating this mode," Meridith says. "Realistically speaking, stillwaters are the only kinds of mages who possess such high quantities of energy, but as far as I know, Melindra does not have full control over her powers, so she would never be able to do something as complex as transferring her energy willingly into the device. If the rest of you were to try activating the device with your levels of energy, you'd likely only be wasting your time."
 "I see," Kate says.
 
@@ -248,17 +220,6 @@ As soon as she receives it, Meridith uses her wand to touch the stat booster, an
 "You're welcome," Meridith says.
 
 "Do you have any idea if there are other ways in which we could activate this Emergency Mode on command?" Kate says. "Like for example, if we all tried to transfer our magical energy into the device at the same time, could that perhaps trigger it?" 
-
- "You'd need ridiculous amounts of energy to be transferred very fast into the device, to even have a slight chance of activating this mode," Meridith says. "Realistically speaking, stillwaters are the only kinds of mages who possess such high quantities of energy, but as far as I know, Melindra does not have full control over her powers, so she would never be able to do something as complex as transferring her energy willingly into the device. If the rest of you were to try activating the device with your levels of energy, you'd likely only be wasting your time."
-"I see," Kate says.
-
-"Diane, you've been very quiet ever since you came back from the surface," Meridith tells Diane, looking genuinely concerned. "Is anything wrong?"
-
-"Umm, no, lady Meridith," Diane says, looking a little flustered. "It's just that I knew how important this meeting was to you, and I didn't want to interrupt."
-
-"There's no need for you to worry about that," Meridith says. "You can say whatever's on your mind. You know that I've always valued your opinion."
-
-"Thank you, lady Meridith," Diane says. "I will make sure to speak my mind whenever I have something important to add!"
 
 }
 choice("Continue", B3-Ch11a-Insane, v_current_scene = B3-Ch11a-Insane) if (v_b3_ch11_transferred == 0 || v_b3_ch11_transferred == 1)
@@ -305,6 +266,8 @@ TEXT:
 
 "So, do any of you have any idea which way your friends might have gone?"  Diane asks us. "The seredium walls are making it pretty much impossible for us to detect their auras."
 
+}
+#if(v_b3_ch10_node == 0 || v_b3_ch10_node == 1) {
  "If I'm not mistaken," Kate says, "we already went past the secret tunnel entrance that we used to get here, and I don't think Hadrik could have opened it without smashing through the wall. This means that he must have kept going further down this corridor."
 "Yes, I think so as well," Meridith says. "There are only two ways out of this area, aside from the secret tunnel, but the problem is that one of those routes leads straight into Heksol faction territory. Maybe we should check that tunnel first, just to be safe."
 
@@ -321,11 +284,6 @@ TEXT:
 "Hey, I did decide not to touch it in the end!" I say. "Even I have my limits. At the end of the day, it seems like I made the right decision."
 
 "So, do any of you have any idea which way your friends might have gone?"  Diane asks us. "The seredium walls are making it pretty much impossible for us to detect their auras."
-
- "If I'm not mistaken," Kate says, "we already went past the secret tunnel entrance that we used to get here, and I don't think Hadrik could have opened it without smashing through the wall. This means that he must have kept going further down this corridor."
-"Yes, I think so as well," Meridith says. "There are only two ways out of this area, aside from the secret tunnel, but the problem is that one of those routes leads straight into Heksol faction territory. Maybe we should check that tunnel first, just to be safe."
-
-"Isn't the entrance to that corridor clearly marked as leading to the Heksol faction area, in the common language?" Diane says. "Surely, the dwarf must have read that and decided to take the other path, right?"
 
 }
 choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
@@ -404,7 +362,7 @@ As Daren and Melindra walk over to us, Flower frowns and sticks her tongue out a
 }
 choice("Tell the others where Hadrik went.", B3-Ch11a-Went, v_current_scene = B3-Ch11a-Went, v_b3_ch11_reverse = 1) if (v_hearing >= 2)
 choice("Remain silent, and keep going towards the wrong tunnel.", B3-Ch11a-Silent, v_current_scene = B3-Ch11a-Silent, v_b3_ch11_reverse = 0) if (v_hearing >= 2)
-choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_hearing < 2 && v_perception_aux >= 4)
+choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_perception_aux >= 4 && v_hearing < 2)
 choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_hearing < 2 && v_perception_aux < 4)
 
 
@@ -499,6 +457,8 @@ A few minutes later, we suddenly hear Hadrik's loud laughter, as he seems to be 
 
 "I have to say, it sounds like your dwarf friend and I could have really gotten along," Hadrik says. "It's too bad that I couldn't meet him while he was still alive."
 
+}
+#if(v_b3_ch11_puzzle4 == 0 || v_b3_ch11_puzzle4 == 1) {
  "Yes, well at least he had a death worthy of a dwarf," the Heksol faction guard says. "He picked a fight with the wrong people while he was dead drunk, and he got stabbed in the chest. The way I heard it, he managed to take four of them down with him too, before he croaked. He always used to tell me that a drunken brawl would be the best possible way for him to leave this world, so I guess he finally got his wish."
 "Hey, would you look at that..." Hadrik says, with a grin, as we turn the corner and get a direct line of sight towards the dwarf and his new friend. "If it isn't the big boss herself! Well, what are you just standing there, for? Come here. Sit with us. Have a drink!"
 
@@ -547,36 +507,6 @@ Once we leave the lessathi guard behind, it doesn't take us long to reach the en
 A few minutes later, we suddenly hear Hadrik's loud laughter, as he seems to be having a spirited conversation with someone who I'm assuming to be a lessathi guard from the Heksol faction.
 
 "I have to say, it sounds like your dwarf friend and I could have really gotten along," Hadrik says. "It's too bad that I couldn't meet him while he was still alive."
-
- "Yes, well at least he had a death worthy of a dwarf," the Heksol faction guard says. "He picked a fight with the wrong people while he was dead drunk, and he got stabbed in the chest. The way I heard it, he managed to take four of them down with him too, before he croaked. He always used to tell me that a drunken brawl would be the best possible way for him to leave this world, so I guess he finally got his wish."
-"Hey, would you look at that..." Hadrik says, with a grin, as we turn the corner and get a direct line of sight towards the dwarf and his new friend. "If it isn't the big boss herself! Well, what are you just standing there, for? Come here. Sit with us. Have a drink!"
-
-Taking a good look around Hadrik and the lessathi guard, I see that they are surrounded by dwarven ale bottles, of which a few have already been emptied. It seems that they've been drinking for quite a while.
-
-"I'm afraid that I'll have to refuse your offer," Meridith says. "I have a few important meetings to attend after this, which will require me to remain sober." 
-
-"Is she always like this?" Hadrik asks the lessathi guard, as he pours him another glass of ale.
-
-"All the time," the lessathi guard says, and then he takes a sip from his filled glass.
-
-"Damn it, Hadrik," Daren says. "Do you have any idea how much trouble we went through while we were trying to find you? Some guard from the other tunnel wouldn't let us leave, and he even wanted to send us to their prison!"
-
- "Hey, it's not my fault that you guys look so suspicious!" Hadrik says, as he takes another sip from his glass. "I mean, look at me. I ran into a guard too, and he's not trying to have me arrested, is he?"
-"Don't give me any ideas, dwarf," the lessathi guard says, jokingly, as he and Hadrik both laugh and then clink their glasses before having another drink.
-
-"Ugh..." Daren says, in an annoyed tone.
-
-"So, what is it that brings you here, 'lady' Meridith?" the lessathi guard says, in a disdainful tone, once he is done with his ale. "It has been some time since I've been 'honored' with your presence."
-
-"Spare me your sarcasm, Kleykarth," Meridith says. "I only came here because I was worried that my dwarf guest might get into a fight with someone from your faction. It seems, however, that my concern was unwarranted."
-
-"From what I heard, the dwarf would have had much more of a reason to pick a fight with you than with us, 'lady' Meridith," Kleykarth says. "In fact, he had quite a few choice words to say about you after his first few glasses of ale. Would you like to hear some of them?"
-
-"I would be quite interested, yes..." Meridith says, while giving Hadrik a cursory glance.
-
-"Now, now, that won't be necessary!" Hadrik says, as he puts a hand on the lessathi guard's shoulder.
-
-"Hahahah!" Kleykarth laughs. "I was just messing with you, dwarf. There's no need for you to panic. Your secrets are safe with me!"
 
 }
 choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch11_puzzle4 == 0 || v_b3_ch11_puzzle4 == 1)
@@ -661,6 +591,7 @@ A few minutes later, we suddenly hear Hadrik's loud laughter, as he seems to hav
 
 "You've beaten me fair and square!" Hadrik says, loudly. "Here is your reward! You've most certainly earned it!"
 
+}
  "You're damn right, I did!" says the Heksol faction guard. "Did you really think that serving me two bottles of completely identical ale alongside a third bottle with a nearly indistinguishable difference in taste would somehow throw me off my game? I'll have you know that I used to be friends with a dwarf who was ten times the drinker you are. If he were still with us today, he would have drunk you under the table in a matter of minutes."
 "I'm sure he would have," Hadrik says, as we are getting closer to him, and now see that he is holding a glass of ale in his hand, while raising it high. "Let us have a toast in his honor, then. May he always watch over us from above, with a bottle of dwarven ale in his hand, and a big drunken smile on his face!"
 
@@ -676,7 +607,6 @@ The two of them now clink their glasses and then they have a good long drink, be
 
 "All the time," the lessathi guard says, and then he takes a sip from his filled glass.
 
-}
 #if(v_hearing < 2) {
  
 "Actually, he might have had even more of a reason to go there, if it's marked."
@@ -692,21 +622,6 @@ We keep walking for a little while until we reach the path split, and then we he
 A few minutes later, we suddenly hear Hadrik's loud laughter, as he seems to be having a spirited conversation with someone who I'm assuming to be a lessathi guard from the Heksol faction.
 
  "You've beaten me fair and square!" Hadrik says, loudly. "Here is your reward! You've most certainly earned it!"
-
- "You're damn right, I did!" says the Heksol faction guard. "Did you really think that serving me two bottles of completely identical ale alongside a third bottle with a nearly indistinguishable difference in taste would somehow throw me off my game? I'll have you know that I used to be friends with a dwarf who was ten times the drinker you are. If he were still with us today, he would have drunk you under the table in a matter of minutes."
-"I'm sure he would have," Hadrik says, as we are getting closer to him, and now see that he is holding a glass of ale in his hand, while raising it high. "Let us have a toast in his honor, then. May he always watch over us from above, with a bottle of dwarven ale in his hand, and a big drunken smile on his face!"
-
-"Dwarf," the guard says, "this may be the first respectable thing you've said since we met."
-
-The two of them now clink their glasses and then they have a good long drink, before they finally notice us.
-
-"Well, if it isn't the big boss herself!" Hadrik says, with a grin. "What are you just standing there, for? Come here. Sit with us. Have a drink!"
-
-"I'm afraid that I'll have to refuse your offer," Meridith says. "I have a few important meetings to attend after this, which will require me to remain sober." 
-
-"Is she always like this?" Hadrik asks the lessathi guard, as he pours him another glass of ale.
-
-"All the time," the lessathi guard says, and then he takes a sip from his filled glass.
 
 }
 choice("Continue", B3-Ch11a-Fellow, v_current_scene = B3-Ch11a-Fellow)
@@ -812,6 +727,8 @@ TEXT:
 
 "The Overseer is the artificial intelligence that used to control the flying metal contraptions with red and green eyes from Ollendor," I tell Meridith. "His core was destroyed recently, but it looks like he managed to transfer his consciousness into the blue crystals before dying."
 
+}
+#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  "Oh, right," Meridith says, "I do remember hearing a long time ago that Biliborrathrathsarran had reactivated some highly intelligent machine built by the lessathi of old, but I didn't know all the details. Unfortunately, we haven't really been getting a lot of information from inside Ollendor these past few years, since it has been much too dangerous to keep any spies inside that city. But how would a machine be able to transfer its consciousness into the crystals? Does it even have a consciousness to begin with?"
 "From what we've been told," Kate says, "the lessathi who built the Overseer also created a manufactured soul for him, in order to give him free will. However, the reason why he is able to navigate through these crystals is because he was controlled by the Magium for a brief period of time, and he has managed to retain some of the knowledge that he had access to during those few minutes."
 
@@ -841,24 +758,6 @@ TEXT:
 
 "The Overseer is the artificial intelligence that controls the flying metal contraptions with red and green eyes from Ollendor," I tell Meridith. "As of recently, he has learned to use these blue crystals to spy on people, by transferring his consciousness into them."
 
- "Oh, right," Meridith says, "I do remember hearing a long time ago that Biliborrathrathsarran had reactivated some highly intelligent machine built by the lessathi of old, but I didn't know all the details. Unfortunately, we haven't really been getting a lot of information from inside Ollendor these past few years, since it has been much too dangerous to keep any spies inside that city. But how would a machine be able to transfer its consciousness into the crystals? Does it even have a consciousness to begin with?"
-"From what we've been told," Kate says, "the lessathi who built the Overseer also created a manufactured soul for him, in order to give him free will. However, the reason why he is able to navigate through these crystals is because he was controlled by the Magium for a brief period of time, and he has managed to retain some of the knowledge that he had access to during those few minutes."
-
-"The Overseer came into contact with the Creator?" Meridith says. "Fascinating..."
-
-"Hey, you there, in the blue crystal!" Diane says, while looking at the ceiling. "If this question isn't too vague for you, would you mind telling us for how long you've been spying on us?"
-
-"The crystals alerted me as soon as your guests were teleported to the underground, which is also when I began to follow you," the Overseer says.
-
-"You've been following us since we came back from the surface?!" Diane says, shocked. "So... you've also been listening to our private conversation in the meeting room?"
-
- "Affirmative," the Overseer says. "However, it should be stated that your plans regarding the stillwater called Eiden are of little interest to me. My main focus is currently on unlocking the secrets of these blue crystals, as well as those of the Magium itself, and I believe that your Magium node will greatly help me to expedite my research on these topics."
-"You think you can just use our Magium node without our permission?" Meridith says, in a menacing tone.
-
-"That is correct," the Overseer says. "The Overseer protocol considers your permission to be largely irrelevant, since you have no realistic means of blocking my access to your node. If you think that my assessment of the situation is incorrect, feel free to provide your feedback to one of the green-eyed units, and we will investigate the matter as soon as possible. Remember, your feedback always matters!"
-
-"Is he--" Meredith turns to me, as she seems to be having trouble finding her words. "Is this machine mocking me?"
-
 }
 choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
 choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
@@ -882,6 +781,8 @@ TEXT:
 
 "Amazing!" Uverg says. "I never thought I'd get an opportunity in this lifetime to have a conversation with someone who went through the same experience as me! Would you perhaps be interested in an exchange of information regarding what we've learned during our brief interaction with the Magium? I'm certain that we would both have a lot to benefit from something like this!"
 
+}
+#if(v_b3_ch11_mocking == 0 || v_b3_ch11_mocking == 1 || v_b3_ch11_mocking == 2) {
  "The Overseer protocol accepts your proposition," the Overseer says. "I must admit that I was also curious to know more about you ever since you managed to detect me through the crystals. We will arrange for a private meeting at a later date, so that we can discuss this at length."
 "If you think we're just going to let you two hold a private conversation about the Magium, then you might be far less intelligent than I initially thought," Meridith tells the Overseer.
 
@@ -911,22 +812,6 @@ TEXT:
 
 "Amazing!" Uverg says. "I never thought I'd get an opportunity in this lifetime to have a conversation with someone who went through the same experience as me! Would you perhaps be interested in an exchange of information regarding what we've learned during our brief interaction with the Magium? I'm certain that we would both have a lot to benefit from something like this!"
 
- "The Overseer protocol accepts your proposition," the Overseer says. "I must admit that I was also curious to know more about you ever since you managed to detect me through the crystals. We will arrange for a private meeting at a later date, so that we can discuss this at length."
-"If you think we're just going to let you two hold a private conversation about the Magium, then you might be far less intelligent than I initially thought," Meridith tells the Overseer.
-
-"Processing... Processing..." the Overseer says. "The Overseer protocol is detecting an unnecessary amount of hostility coming from the lessathi leader named Meridith. After a quick analysis, it seems highly probable that this unprovoked aggressiveness of hers is partially caused by a feeling of inferiority towards me."
-
-"What?..." Meridith says, baffled.
-
-"Furthermore," the Overseer says, "it appears that her needlessly antagonistic behavior towards me can also be seen as an indirect result of her ever-growing frustrations, which are being caused by her inability to unite all of her people under one banner, and her overall incompetence as a leader."
-
- "Ahahahahahaha!" Kleykarth laughs heartily. "Overall incompetence as a leader! That's a good one! I like you already, Overseer! Hey, tell you what... How about you and Uverg hold your meeting inside the Heksol faction territory? That way, we can make sure that you two can have all the privacy you need, without being interrupted. Oh, and you don't need to worry about Meridith. She has no real hold over us, so she won't be able to intervene. Isn't that right, dear leader?"
-"You are really pushing the limits of my benevolence, Kleykarth," Meridith says, with a frown.
-
-"Is that right?" Kleykarth says, while smirking. "Well, what are you going to do about it, then? Are you going to murder every single one of us like you did with Heksol and then have your loyal dog use his acid powers again to disintegrate our bodies without leaving a single trace? Come on, say what you really mean! You know you want to!"
-
-"...No," Meridith says, as she appears to be calming down. "I will not give in to your provocations. You know very well that you have no proof for your claims, and I will not waste any time validating your conspiracies."
-
 }
 #if(v_b3_ch11_mocking == 2) {
  "I've always found it difficult to tell if he's being serious or not in these situations."
@@ -939,22 +824,6 @@ TEXT:
 "Assuming that by 'Creator', you are referring to the Magium, then yes, that is correct," the Overseer says.
 
 "Amazing!" Uverg says. "I never thought I'd get an opportunity in this lifetime to have a conversation with someone who went through the same experience as me! Would you perhaps be interested in an exchange of information regarding what we've learned during our brief interaction with the Magium? I'm certain that we would both have a lot to benefit from something like this!"
-
- "The Overseer protocol accepts your proposition," the Overseer says. "I must admit that I was also curious to know more about you ever since you managed to detect me through the crystals. We will arrange for a private meeting at a later date, so that we can discuss this at length."
-"If you think we're just going to let you two hold a private conversation about the Magium, then you might be far less intelligent than I initially thought," Meridith tells the Overseer.
-
-"Processing... Processing..." the Overseer says. "The Overseer protocol is detecting an unnecessary amount of hostility coming from the lessathi leader named Meridith. After a quick analysis, it seems highly probable that this unprovoked aggressiveness of hers is partially caused by a feeling of inferiority towards me."
-
-"What?..." Meridith says, baffled.
-
-"Furthermore," the Overseer says, "it appears that her needlessly antagonistic behavior towards me can also be seen as an indirect result of her ever-growing frustrations, which are being caused by her inability to unite all of her people under one banner, and her overall incompetence as a leader."
-
- "Ahahahahahaha!" Kleykarth laughs heartily. "Overall incompetence as a leader! That's a good one! I like you already, Overseer! Hey, tell you what... How about you and Uverg hold your meeting inside the Heksol faction territory? That way, we can make sure that you two can have all the privacy you need, without being interrupted. Oh, and you don't need to worry about Meridith. She has no real hold over us, so she won't be able to intervene. Isn't that right, dear leader?"
-"You are really pushing the limits of my benevolence, Kleykarth," Meridith says, with a frown.
-
-"Is that right?" Kleykarth says, while smirking. "Well, what are you going to do about it, then? Are you going to murder every single one of us like you did with Heksol and then have your loyal dog use his acid powers again to disintegrate our bodies without leaving a single trace? Come on, say what you really mean! You know you want to!"
-
-"...No," Meridith says, as she appears to be calming down. "I will not give in to your provocations. You know very well that you have no proof for your claims, and I will not waste any time validating your conspiracies."
 
 }
 choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty) if (v_b3_ch11_mocking == 0 || v_b3_ch11_mocking == 1 || v_b3_ch11_mocking == 2)
@@ -1082,6 +951,8 @@ TEXT:
 
 "This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
 
+}
+#if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "While that is indeed true," Uverg says, "you should also remember that you were the first one to provoke him, by openly stating that you would not allow him access to the Magium node. This gave the Overseer no option but to see you as his direct enemy, and to try to ally with your adversaries, instead. If you were to show more lenience towards him, then maybe he would--"
 "No," Meridith says, simply. "The time for negotiations is long past. I will not forbid you to interact with the Overseer, since he seems to have taken an interest in you, but as far as I am concerned, the Overseer is a potential enemy that has infiltrated our base, and I will treat him as such until there is a strong reason for me to believe otherwise."
 
@@ -1094,101 +965,48 @@ TEXT:
 "Good," Meridith says. "Follow me."
 
 }
-#if(v_b3_ch11_path == 1) {
- "Yes, I've also had the same suspicion, but I wasn't quite sure of it," Meridith says. "Accessing the node can be done by simply linking his aura to it, so it wouldn't require him to have any offensive capabilities. We should probably not completely dismiss the possibility that he could have some sort of hidden attack up his sleeve, but for the moment we will go with the assumption that he isn't able to cast any spells while he is inside the crystals."
-"While I do understand that it is important to be ready for anything," Uverg says, "have you considered the option of an open alliance with the Overseer? The information that he could share with us might prove to be extremely valuable..."
-
-"This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
-
- "While that is indeed true," Uverg says, "you should also remember that you were the first one to provoke him, by openly stating that you would not allow him access to the Magium node. This gave the Overseer no option but to see you as his direct enemy, and to try to ally with your adversaries, instead. If you were to show more lenience towards him, then maybe he would--"
-"No," Meridith says, simply. "The time for negotiations is long past. I will not forbid you to interact with the Overseer, since he seems to have taken an interest in you, but as far as I am concerned, the Overseer is a potential enemy that has infiltrated our base, and I will treat him as such until there is a strong reason for me to believe otherwise."
-
-"As you wish, Lady Meridith," Uverg says, and then he takes a courteous bow.
-
-"Anyway, I think we've discussed the subject of the Overseer long enough," Meridith says. "We have more pressing matters to attend to. Hadrik, I understand that you are harboring some resentment towards me at the moment, but there is something important that I must discuss with your group, and I need you all to be there, so you can give me your opinions. Would that be acceptable for you?"
-
-"Alright, alright," Hadrik says, as he gets up from the ground and slowly puts his bottles in his backpack. "I suppose I've vented long enough. Let's hear what you have to say."
-
-"Good," Meridith says. "Follow me."
-
-}
-#if(v_b3_ch11_reverse == 1) {
- "While that is indeed true," Uverg says, "you should also remember that you were the first one to provoke him, by openly stating that you would not allow him access to the Magium node. This gave the Overseer no option but to see you as his direct enemy, and to try to ally with your adversaries, instead. If you were to show more lenience towards him, then maybe he would--"
-"No," Meridith says, simply. "The time for negotiations is long past. I will not forbid you to interact with the Overseer, since he seems to have taken an interest in you, but as far as I am concerned, the Overseer is a potential enemy that has infiltrated our base, and I will treat him as such until there is a strong reason for me to believe otherwise."
-
-"As you wish, Lady Meridith," Uverg says, and then he takes a courteous bow.
-
-"Anyway, I think we've discussed the subject of the Overseer long enough," Meridith says. "We have more pressing matters to attend to. Hadrik, I understand that you are harboring some resentment towards me at the moment, but there is something important that I must discuss with your group, and I need you all to be there, so you can give me your opinions. Would that be acceptable for you?"
-
-"Alright, alright," Hadrik says, as he gets up from the ground and slowly puts his bottles in his backpack. "I suppose I've vented long enough. Let's hear what you have to say."
-
-"Good," Meridith says. "Follow me."
-
+#if(v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "Yes, I've also had the same suspicion, but I wasn't quite sure of it," Meridith says. "Accessing the node can be done by simply linking his aura to it, so it wouldn't require him to have any offensive capabilities. We should probably not completely dismiss the possibility that he could have some sort of hidden attack up his sleeve, but for the moment we will go with the assumption that he isn't able to cast any spells while he is inside the crystals."
 "While I do understand that it is important to be ready for anything," Uverg says, "have you considered the option of an open alliance with the Overseer? The information that he could share with us might prove to be extremely valuable..."
 
 "This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
 
 }
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 0)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 1)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 0)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 2 && v_b3_ch4_billy != 9)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_weakness == 2 && v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 1)
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_reverse == 1)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 0 || v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 1 || v_b3_ch11_weakness == 2 && v_b3_ch4_billy == 9 || v_b3_ch11_weakness == 2 && v_b3_ch4_billy != 9 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1 || v_b3_ch11_weakness == 0)
 
 
 ID: B3-Ch11a-Analysis
 TEXT: 
 
+#if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
+ "Lady Meridith, there was something that I needed to discuss with you as well," Uverg says. "May I come with you?"
+"Can this not wait for a few more hours?" Meridith says. "I would prefer to have my conversation with them in private."
+
+"It concerns the analysis of the blue crystals that you asked me to do a few days ago," Uverg says. "I thought you might want the answer to that sooner rather than later."
+
+"Hmm..." Meridith says. "Very well. In that case, you may accompany us for a short while, until you finish giving me your report, and then you will return to your quarters. Is that understood?"
+
+"Of course," Uverg says.
+
+"Let us head towards the Magium node tunnels, then," Meridith says. "We will have our talk on the way there."
+
+"See you around, Kleykarth," Hadrik says, as we are going back the way we came.
+
+"Yeah," Kleykarth says, as he extends a glass of ale towards Hadrik, without getting up from the floor. "Later, dwarf."
+
+"So..." Hadrik says to Meridith, as we are moving away from his drunken friend. "Did you really kill that Heksol guy like Kleykarth said? Come on, be honest!"
+
+"If you're trying to rile me up, then you should know that it's not working," Meridith tells him.
+
+ "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
+
+}
 #if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0) {
- "Lady Meridith, there was something that I needed to discuss with you as well," Uverg says. "May I come with you?"
-"Can this not wait for a few more hours?" Meridith says. "I would prefer to have my conversation with them in private."
-
-"It concerns the analysis of the blue crystals that you asked me to do a few days ago," Uverg says. "I thought you might want the answer to that sooner rather than later."
-
-"Hmm..." Meridith says. "Very well. In that case, you may accompany us for a short while, until you finish giving me your report, and then you will return to your quarters. Is that understood?"
-
-"Of course," Uverg says.
-
-"Let us head towards the Magium node tunnels, then," Meridith says. "We will have our talk on the way there."
-
-"See you around, Kleykarth," Hadrik says, as we are going back the way we came.
-
-"Yeah," Kleykarth says, as he extends a glass of ale towards Hadrik, without getting up from the floor. "Later, dwarf."
-
-"So..." Hadrik says to Meridith, as we are moving away from his drunken friend. "Did you really kill that Heksol guy like Kleykarth said? Come on, be honest!"
-
-"If you're trying to rile me up, then you should know that it's not working," Meridith tells him.
-
  "Oh yeah," Hadrik says, as he now turns to the rest of us. "She totally killed him."
 We walk together for a few minutes, until we get back to the place where the two tunnels intersected. During this time, pretty much the only person that talked was Uverg, who made sure to give Meridith the most detailed and boring analysis about the crystals that anyone could have come up with. I couldn't understand half of the words that he used in his report, and I've studied all aspects of magic quite extensively. I wonder just how much Meridith was able to understand from all of this.
 
- "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
-
 }
-#if(v_b3_ch11_path == 1) {
- "Lady Meridith, there was something that I needed to discuss with you as well," Uverg says. "May I come with you?"
-"Can this not wait for a few more hours?" Meridith says. "I would prefer to have my conversation with them in private."
-
-"It concerns the analysis of the blue crystals that you asked me to do a few days ago," Uverg says. "I thought you might want the answer to that sooner rather than later."
-
-"Hmm..." Meridith says. "Very well. In that case, you may accompany us for a short while, until you finish giving me your report, and then you will return to your quarters. Is that understood?"
-
-"Of course," Uverg says.
-
-"Let us head towards the Magium node tunnels, then," Meridith says. "We will have our talk on the way there."
-
-"See you around, Kleykarth," Hadrik says, as we are going back the way we came.
-
-"Yeah," Kleykarth says, as he extends a glass of ale towards Hadrik, without getting up from the floor. "Later, dwarf."
-
-"So..." Hadrik says to Meridith, as we are moving away from his drunken friend. "Did you really kill that Heksol guy like Kleykarth said? Come on, be honest!"
-
-"If you're trying to rile me up, then you should know that it's not working," Meridith tells him.
-
+#if(v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "Oh yeah," Hadrik says, as he now turns to the rest of us. "She totally killed him."
 We walk together for a few minutes, until we get back to the place where the two tunnels intersected. During this time, pretty much the only person that talked was Uverg, who made sure to give Meridith the most detailed and boring analysis about the crystals that anyone could have come up with. I couldn't understand half of the words that he used in his report, and I've studied all aspects of magic quite extensively. I wonder just how much Meridith was able to understand from all of this.
 
@@ -1196,42 +1014,8 @@ When we reached the entrance of the tunnel, we came upon Daren, Melindra, Flower
 
 As soon as Meridith figures out what happened, she explains the situation to the guard, and he lets them go, so that they can come with us towards the Magium node again.
 
- "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
-
 }
-#if(v_b3_ch11_reverse == 1) {
- "Lady Meridith, there was something that I needed to discuss with you as well," Uverg says. "May I come with you?"
-"Can this not wait for a few more hours?" Meridith says. "I would prefer to have my conversation with them in private."
-
-"It concerns the analysis of the blue crystals that you asked me to do a few days ago," Uverg says. "I thought you might want the answer to that sooner rather than later."
-
-"Hmm..." Meridith says. "Very well. In that case, you may accompany us for a short while, until you finish giving me your report, and then you will return to your quarters. Is that understood?"
-
-"Of course," Uverg says.
-
-"Let us head towards the Magium node tunnels, then," Meridith says. "We will have our talk on the way there."
-
-"See you around, Kleykarth," Hadrik says, as we are going back the way we came.
-
-"Yeah," Kleykarth says, as he extends a glass of ale towards Hadrik, without getting up from the floor. "Later, dwarf."
-
-"So..." Hadrik says to Meridith, as we are moving away from his drunken friend. "Did you really kill that Heksol guy like Kleykarth said? Come on, be honest!"
-
-"If you're trying to rile me up, then you should know that it's not working," Meridith tells him.
-
- "Oh yeah," Hadrik says, as he now turns to the rest of us. "She totally killed him."
-We walk together for a few minutes, until we get back to the place where the two tunnels intersected. During this time, pretty much the only person that talked was Uverg, who made sure to give Meridith the most detailed and boring analysis about the crystals that anyone could have come up with. I couldn't understand half of the words that he used in his report, and I've studied all aspects of magic quite extensively. I wonder just how much Meridith was able to understand from all of this.
-
-When we reached the entrance of the tunnel, we came upon Daren, Melindra, Flower and Illuna, who were just returning from the corridor leading to the lessathi base's main quarters, while seemingly in the middle of an argument with a lessathi guard, because he wouldn't believe them that they were official guests of Meridith and not just some unwelcome intruders. It looks like Daren and the others went in search of Hadrik through the wrong corridor, and they had been stuck arguing with this guard ever since.
-
-As soon as Meridith figures out what happened, she explains the situation to the guard, and he lets them go, so that they can come with us towards the Magium node again.
-
- "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
-
-}
-choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0)
-choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 1)
-choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_reverse == 1)
+choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1)
 
 
 ID: B3-Ch11a-Entrusted
@@ -1271,6 +1055,8 @@ TEXT:
 
 "You said earlier that you knew of an event similar to this strange awakening of the crystals that we are experiencing at the moment," Meridith says. "Was this in some way related to the transformations that those humans have undergone, which led them to become lessathi?"
 
+}
+#if(v_b3_ch11_escape == 0 || v_b3_ch11_escape == 1 || v_b3_ch11_escape == 2) {
  "I believe so," Uverg says. "Of course, it would be practically impossible to do a proper analysis after all this time has passed, but logically speaking, one would normally assume that it was the prolonged exposure to the awakened crystals that triggered these drastic changes in those people's auras. From the knowledge that the Magium has given me, it appears that the crystals awoke from their slumber after some sort of underground explosion that was triggered by accident. I think it took more than a hundred years for the crystals to go back to normal since then. If this is true, then I can only hope that the event we are experiencing now will not end up changing our auras even further."
 "We can worry about that later," Meridith says. "You said that it took entire generations for these crystals to have any noticeable effect on our ancestors, so we should have enough time to figure things out."
 
@@ -1300,48 +1086,12 @@ TEXT:
 
 "You said earlier that you knew of an event similar to this strange awakening of the crystals that we are experiencing at the moment," Meridith says. "Was this in some way related to the transformations that those humans have undergone, which led them to become lessathi?"
 
- "I believe so," Uverg says. "Of course, it would be practically impossible to do a proper analysis after all this time has passed, but logically speaking, one would normally assume that it was the prolonged exposure to the awakened crystals that triggered these drastic changes in those people's auras. From the knowledge that the Magium has given me, it appears that the crystals awoke from their slumber after some sort of underground explosion that was triggered by accident. I think it took more than a hundred years for the crystals to go back to normal since then. If this is true, then I can only hope that the event we are experiencing now will not end up changing our auras even further."
-"We can worry about that later," Meridith says. "You said that it took entire generations for these crystals to have any noticeable effect on our ancestors, so we should have enough time to figure things out."
-
-"I suppose that is true," Uverg says.
-
-"What I'm more worried about is whether these crystals could have any immediate effects that we are unaware of," Meridith says. "Did these memories of yours from the distant past tell you anything else that could be of use to us? For example, would you by any chance know of a way to put the crystals back to sleep?"
-
-"I'm afraid not," Uverg says. "All I know is that by the time our ancestors managed to finally escape from these underground caverns, the crystals were already asleep. I don't think that our forefathers did anything special to make the crystals stop vibrating. My guess is that after a time, they simply stopped on their own."
-
- "Hmm..." Meridith says. "I'm not sure how helpful this information will prove to be, but at least it's a start. Thank you for your insights, Uverg. As always, your assistance is greatly appreciated."
-"My pleasure, Lady Meridith," Uverg says, as he bows again.
-
-"I'm curious..." Diane says. "How did the humans on the surface react when the lessathi from the underground finally made their way back outside? Did they try to send them back in again?"
-
-"Actually, quite the contrary," Uverg says.  "They welcomed them with open arms. You see, it had been hundreds of years since the lessathi got stranded inside those caves, so by this time nobody on the surface even knew who they were. On the other hand, the lessathi never forgot. The hatred for the humans got passed down from generation to generation, and every parent made sure to constantly remind their offspring that the humans living above were at fault for their poor living conditions. However, the lessathi of old were a patient people, so they bided their time. They lied to the surface-dwellers, telling them that they bore them no ill-will for their ancestors' misdeeds, and they decided to coexist with the humans peacefully, while waiting for the opportune moment to enact their revenge."
-
-"And what was this 'revenge', exactly?" Daren asks.
-
 }
 #if(v_b3_ch11_escape == 2) {
  "Since they worshipped the nodes, does this mean that the Magium spoke to them?"
 "Not at all," Uverg says. "In fact, I think it took more than a hundred years before the Magium first contacted a lessathi. However, the real reason why these humans who were trapped underground began to worship the nodes was likely because of fear. They must have seen many of their comrades go completely insane after touching the Magium nodes, and thus they concluded that they had incurred the wrath of an all-powerful deity, and that they needed to treat it with the respect it deserved. I would give you more details about this if I could, but even my knowledge on the subject is unfortunately very limited."
 
 "You said earlier that you knew of an event similar to this strange awakening of the crystals that we are experiencing at the moment," Meridith says. "Was this in some way related to the transformations that those humans have undergone, which led them to become lessathi?"
-
- "I believe so," Uverg says. "Of course, it would be practically impossible to do a proper analysis after all this time has passed, but logically speaking, one would normally assume that it was the prolonged exposure to the awakened crystals that triggered these drastic changes in those people's auras. From the knowledge that the Magium has given me, it appears that the crystals awoke from their slumber after some sort of underground explosion that was triggered by accident. I think it took more than a hundred years for the crystals to go back to normal since then. If this is true, then I can only hope that the event we are experiencing now will not end up changing our auras even further."
-"We can worry about that later," Meridith says. "You said that it took entire generations for these crystals to have any noticeable effect on our ancestors, so we should have enough time to figure things out."
-
-"I suppose that is true," Uverg says.
-
-"What I'm more worried about is whether these crystals could have any immediate effects that we are unaware of," Meridith says. "Did these memories of yours from the distant past tell you anything else that could be of use to us? For example, would you by any chance know of a way to put the crystals back to sleep?"
-
-"I'm afraid not," Uverg says. "All I know is that by the time our ancestors managed to finally escape from these underground caverns, the crystals were already asleep. I don't think that our forefathers did anything special to make the crystals stop vibrating. My guess is that after a time, they simply stopped on their own."
-
- "Hmm..." Meridith says. "I'm not sure how helpful this information will prove to be, but at least it's a start. Thank you for your insights, Uverg. As always, your assistance is greatly appreciated."
-"My pleasure, Lady Meridith," Uverg says, as he bows again.
-
-"I'm curious..." Diane says. "How did the humans on the surface react when the lessathi from the underground finally made their way back outside? Did they try to send them back in again?"
-
-"Actually, quite the contrary," Uverg says.  "They welcomed them with open arms. You see, it had been hundreds of years since the lessathi got stranded inside those caves, so by this time nobody on the surface even knew who they were. On the other hand, the lessathi never forgot. The hatred for the humans got passed down from generation to generation, and every parent made sure to constantly remind their offspring that the humans living above were at fault for their poor living conditions. However, the lessathi of old were a patient people, so they bided their time. They lied to the surface-dwellers, telling them that they bore them no ill-will for their ancestors' misdeeds, and they decided to coexist with the humans peacefully, while waiting for the opportune moment to enact their revenge."
-
-"And what was this 'revenge', exactly?" Daren asks.
 
 }
 choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric) if (v_b3_ch11_escape == 0 || v_b3_ch11_escape == 1 || v_b3_ch11_escape == 2)
@@ -1428,6 +1178,8 @@ TEXT:
 
 "I want you to get a taste of the reward you would be receiving if you helped me," Meridith says. "I want you to know what it is like to actually access the Magium. It would be a shame for you to have come all this way without even gaining a proper understanding of how the Magium node is supposed to be useful to you."
 
+}
+#if(v_b3_ch11_money == 0 || v_b3_ch11_money == 1 || v_b3_ch11_money == 2) {
  "Now that you mention it, I was wondering if this Magium node of yours would come with a user's manual or not," Daren says. "Because let's be fair, I doubt that most of us would know what to do even if we gained access to it."
 "There's no need to worry about that," Meridith says. "We have devices that were built specifically for the purpose of gaining knowledge from the Magium, without the risk of you going mad. The process will be slow, and it may take many years to get the information that you want, depending on what you are looking for, but the potential is limitless. I've in fact brought such a device with me, so that I can demonstrate to you how it works. So, what do you say? Shall we give it a try?"
 
@@ -1473,30 +1225,6 @@ While Meridith was talking, I managed to recreate the air currents spell that I 
 
 "I want you to get a taste of the reward you would be receiving if you helped me," Meridith says. "I want you to know what it is like to actually access the Magium. It would be a shame for you to have come all this way without even gaining a proper understanding of how the Magium node is supposed to be useful to you."
 
- "Now that you mention it, I was wondering if this Magium node of yours would come with a user's manual or not," Daren says. "Because let's be fair, I doubt that most of us would know what to do even if we gained access to it."
-"There's no need to worry about that," Meridith says. "We have devices that were built specifically for the purpose of gaining knowledge from the Magium, without the risk of you going mad. The process will be slow, and it may take many years to get the information that you want, depending on what you are looking for, but the potential is limitless. I've in fact brought such a device with me, so that I can demonstrate to you how it works. So, what do you say? Shall we give it a try?"
-
-"Whoa, whoa, whoa..." Arraka says, all of a sudden, with a slight tremor in her voice. "You idiots are not seriously planning to go back in the Magium node room after everything that's happened, are you?"
-
-"Why, Arraka, if I didn't know any better, I'd almost think that you were afraid of going back to the node," Hadrik says, with a grin.
-
-"Shut your mouth, you undersized circus freak!!!" Arraka shouts. "I wasn't talking to you!"
-
-"Hey, there's no need to resort to insults," Hadrik says, looking as if he were greatly enjoying this. "Fear is a completely natural emotion. You don't have to be ashamed of it."
-
-"I swear, if you don't stop talking right now, I'm going to--" Arraka says, but she is interrupted by a few very loud beeps coming from my pocket.
-
- "What was that?..." Arraka says. "Where did that sound come from?"
-"Ah, Barry, I believe that is the sound your stat booster is supposed to make once your magical stats are ready," Meridith says. "Normally, you should be starting to feel the effects of--"
-
-"Wow, this is great!" I interrupt Meridith. "I can already feel the magical energy flowing through me. It's definitely not as impressive as it was during the Emergency Mode, but I've really missed the feeling of being able to cast magic on a material plane of existence! Let me see if I still remember how to do the flight spell."
-
-"As far as I know, the flight spell will only be available to you at a much later level," Meridith says. "Normally, you should have started with level one in both your magical stats, so you shouldn't be able to cast anything other than very basic spells at the-- wait, how are you doing that?..."
-
-While Meridith was talking, I managed to recreate the air currents spell that I used while fighting the stillwater skeletons, and now I was flying around the cave, in a very clumsy way.
-
-"What, the flying?" I ask Meridith, as I am still trying to find my balance in mid-air. "Oh, I'm just using the air elementalist powers granted to me by the device to create some air currents around me that are moving constantly. It sounds complicated at first, but if you treat it as if you were flying a plane, it gets much simpler."
-
 }
 #if(v_b3_ch11_money == 2) {
  "You know... the Magium is great and all, but I could also use some extra money."
@@ -1513,30 +1241,6 @@ While Meridith was talking, I managed to recreate the air currents spell that I 
 "What's that?" Daren asks.
 
 "I want you to get a taste of the reward you would be receiving if you helped me," Meridith says. "I want you to know what it is like to actually access the Magium. It would be a shame for you to have come all this way without even gaining a proper understanding of how the Magium node is supposed to be useful to you."
-
- "Now that you mention it, I was wondering if this Magium node of yours would come with a user's manual or not," Daren says. "Because let's be fair, I doubt that most of us would know what to do even if we gained access to it."
-"There's no need to worry about that," Meridith says. "We have devices that were built specifically for the purpose of gaining knowledge from the Magium, without the risk of you going mad. The process will be slow, and it may take many years to get the information that you want, depending on what you are looking for, but the potential is limitless. I've in fact brought such a device with me, so that I can demonstrate to you how it works. So, what do you say? Shall we give it a try?"
-
-"Whoa, whoa, whoa..." Arraka says, all of a sudden, with a slight tremor in her voice. "You idiots are not seriously planning to go back in the Magium node room after everything that's happened, are you?"
-
-"Why, Arraka, if I didn't know any better, I'd almost think that you were afraid of going back to the node," Hadrik says, with a grin.
-
-"Shut your mouth, you undersized circus freak!!!" Arraka shouts. "I wasn't talking to you!"
-
-"Hey, there's no need to resort to insults," Hadrik says, looking as if he were greatly enjoying this. "Fear is a completely natural emotion. You don't have to be ashamed of it."
-
-"I swear, if you don't stop talking right now, I'm going to--" Arraka says, but she is interrupted by a few very loud beeps coming from my pocket.
-
- "What was that?..." Arraka says. "Where did that sound come from?"
-"Ah, Barry, I believe that is the sound your stat booster is supposed to make once your magical stats are ready," Meridith says. "Normally, you should be starting to feel the effects of--"
-
-"Wow, this is great!" I interrupt Meridith. "I can already feel the magical energy flowing through me. It's definitely not as impressive as it was during the Emergency Mode, but I've really missed the feeling of being able to cast magic on a material plane of existence! Let me see if I still remember how to do the flight spell."
-
-"As far as I know, the flight spell will only be available to you at a much later level," Meridith says. "Normally, you should have started with level one in both your magical stats, so you shouldn't be able to cast anything other than very basic spells at the-- wait, how are you doing that?..."
-
-While Meridith was talking, I managed to recreate the air currents spell that I used while fighting the stillwater skeletons, and now I was flying around the cave, in a very clumsy way.
-
-"What, the flying?" I ask Meridith, as I am still trying to find my balance in mid-air. "Oh, I'm just using the air elementalist powers granted to me by the device to create some air currents around me that are moving constantly. It sounds complicated at first, but if you treat it as if you were flying a plane, it gets much simpler."
 
 }
 choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector) if (v_b3_ch11_money == 0 || v_b3_ch11_money == 1 || v_b3_ch11_money == 2)
@@ -1592,7 +1296,7 @@ choice("Continue", B3-Ch11a-Endless, v_current_scene = B3-Ch11a-Endless)
 ID: B3-Ch11a-Endless
 TEXT: 
 
-#if(v_b3_ch10_node == 1) {
+#if(v_b3_ch10_node == 0 || v_b3_ch10_node == 1) {
  "So, all I have to do is press this green button over here, right?" Daren asks Meridith.
 "Exactly," Meridith says. "The rest will become obvious once you press it."
 
@@ -1611,29 +1315,13 @@ TEXT:
 
 As soon as I do that, I immediately understand what Daren was talking about. I am still aware of the world around me, but at the same time I feel like my mind is connected to an endless library, full of books containing knowledge dating all the way back to the beginning of the universe. However, the access to them is clearly limited, and I don't think this is just because of me being inexperienced. In fact, it is far more likely that the limit has been placed by the designers of this device, in order to avoid traumatizing people who are still not ready to see the real thing.
 
+}
+#if(v_b3_ch10_node == 1) {
  Having touched the Magium node once already, I can tell with a high degree of certainty that the information available to me right now is only a small fraction of what the Magium has to offer.
 I'm actually starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
 #if(v_b3_ch10_node == 0) {
- "So, all I have to do is press this green button over here, right?" Daren asks Meridith.
-"Exactly," Meridith says. "The rest will become obvious once you press it."
-
-"Alright, here I go," Daren says, and then he does exactly as Meridith told him.
-
-"Wow, this is... I don't know how to describe it..." Daren says, amazed. "It's like every single piece of information that I ever wanted to know is almost within reach, but not quite close enough. The more I try to get closer to it, the further it gets, but I feel like if I could just spend a few more seconds like this, I'd eventually get my answer. It's... mesmerizing."
-
-"Unfortunately, this is as far as you can get as a beginner," Meridith says. "The connector helps you become aware of the infinite potential of the node, but in order to actually get something concrete out of it, you'd need months and months of hard work."
-
-"Yeah, I think I get what you mean," Daren says, as he presses the green button again to cancel his connection to the node. "If I calm down and think about it logically, it's clear that getting the knowledge I need won't be anywhere near as easy as it seems at first glance. But you weren't kidding about the potential being infinite... Even if we're talking about just improving my magic, there are still tens of thousands of things that I could make use of. At the very least, now I know that I didn't come all this way to Varathia for nothing."
-
- "Can I try it next?" I say.
-"Yeah, sure thing, Barry," Daren says, and then he hands me the device. "I think you're going to love it."
-
-"Let's see..." I say, as I get closer to the node and press the green button.
-
-As soon as I do that, I immediately understand what Daren was talking about. I am still aware of the world around me, but at the same time I feel like my mind is connected to an endless library, full of books containing knowledge dating all the way back to the beginning of the universe. However, the access to them is clearly limited, and I don't think this is just because of me being inexperienced. In fact, it is far more likely that the limit has been placed by the designers of this device, in order to avoid traumatizing people who are still not ready to see the real thing.
-
  I'm starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
@@ -1659,6 +1347,8 @@ TEXT:
  After me, Kate was the one who volunteered, and then Hadrik. Both of them seemed impressed with what they've seen, but you could easily tell from their reactions that unlike me and Daren, the two of them weren't all that interested in the Magium. Meridith also invited Melindra to try out the Magium connector, but she politely declined, since despite her recent interactions with Eiden, she still considered him to be her friend, so she didn't want anything to do with Meridith's deal to have him killed.
 The last one to try out the device was Flower. Just as she was about to press the green button, Illuna's blue eyes suddenly started glowing, as she took control of the body.
 
+}
+#if(v_b3_ch11_red == 0 || v_b3_ch11_red == 1) {
  "Allow me," Illuna says, as she presses the red button, and then also a few other buttons in quick succession.
 Seeing what she is doing, Meridith crosses her arms, giving Illuna a reproachful look, but she lets her finish what she wants to do, and only comments on her actions once she comes to return the device to her.
 
@@ -1697,17 +1387,6 @@ Now that she mentions it, my body does seem to be violently shaking, but I didn'
 After me, Kate was the one who volunteered, and then Hadrik. Both of them seemed impressed with what they've seen, but you could easily tell from their reactions that unlike me and Daren, the two of them weren't all that interested in the Magium. Meridith also invited Melindra to try out the Magium connector, but she politely declined, since despite her recent interactions with Eiden, she still considered him to be her friend, so she didn't want anything to do with Meridith's deal to have him killed.
 
 The last one to try out the device was Flower. Just as she was about to press the green button, Illuna's blue eyes suddenly started glowing, as she took control of the body.
-
- "Allow me," Illuna says, as she presses the red button, and then also a few other buttons in quick succession.
-Seeing what she is doing, Meridith crosses her arms, giving Illuna a reproachful look, but she lets her finish what she wants to do, and only comments on her actions once she comes to return the device to her.
-
-"You've used this type of device before, haven't you?" Meridith asks Illuna, as she takes the Magium connector from her hands.
-
-"Yes, I did," Illuna says. "However, our old device broke a while ago, and it has been rather difficult to procure a new one since then. I thank you for being generous enough to lend us one of yours."
-
-"You are most welcome," Meridith says. "Of course, had I been aware that you'd know how to use it, I would never have given it to you in the first place, but I suppose you already knew that, considering that you never bothered to tell me about this minor detail... So, did you find what you were looking for, at least?"
-
-"I've found quite a bit more than what I was looking for, actually," Illuna says. "I believe that this newly acquired knowledge will be very useful in helping me develop some techniques that I've been working on for the past few days."
 
 }
 choice("Continue", B3-Ch11a-Exploring, v_current_scene = B3-Ch11a-Exploring) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1)
@@ -1753,6 +1432,8 @@ TEXT:
 
 As expected, the Overseer ignores Daren completely, and he just plays the conversation that he recorded, by using the blue crystal.
 
+}
+#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  "Creator, with all due respect, I think you might be underestimating Eiden," we hear Meridith's voice, coming from the crystal. "The message he sent us was very clear. He told us to 'remember the still winter'.  This is almost certainly his way of telling us that he knows exactly what we're trying to do, and that he is confident in his ability to stop us. I've also received reports that for the past few weeks, he has been teleporting all across the continent, preparing a powerful spell of his own. If we don't do something, we might lose our last chance to end him for good!"
 "What do you suggest?" the Magium fragment says, in the voice of an old man.
 
@@ -1790,32 +1471,8 @@ As expected, the Overseer ignores Daren completely, and he just plays the conver
 
 As expected, the Overseer ignores Daren completely, and he just plays the conversation that he recorded, by using the blue crystal.
 
- "Creator, with all due respect, I think you might be underestimating Eiden," we hear Meridith's voice, coming from the crystal. "The message he sent us was very clear. He told us to 'remember the still winter'.  This is almost certainly his way of telling us that he knows exactly what we're trying to do, and that he is confident in his ability to stop us. I've also received reports that for the past few weeks, he has been teleporting all across the continent, preparing a powerful spell of his own. If we don't do something, we might lose our last chance to end him for good!"
-"What do you suggest?" the Magium fragment says, in the voice of an old man.
-
-"It might not be the ideal scenario, but if we were to accelerate our plan, we might be able to get everything ready in a few days and then--" Meridith says, but the Magium fragment interrupts her.
-
-"No!" the Magium fragment says, loudly, this time in the voice of a young woman. "The plan must not be rushed, or it will surely fail. Do you understand?"
-
-"...Yes, Creator," Meridith says, in a reluctant tone. "I understand."
-
-"As you can see," the Overseer tells us, once the recording has ended, "Meridith in fact knows a lot more about Eiden's message than she would have you believe. My preliminary analysis also suggests that this 'plan' of hers may not affect only Eiden, as she seems to claim, although I am yet to find out all of the details."
-
-"Diane, would you happen to know how exactly Meridith intends to deal with Eiden?" Kate says.
-
- "I'm afraid not," Diane says. "I don't think that any of the people who know the details of the plan are allowed to leave the underground caverns, because there would always be a risk that Eiden could capture and interrogate them. I have a feeling that not even Jason knows what is going on behind the scenes, and Meridith usually tells him a lot more than she tells me."
-"I'm sorry, who is Jason?..." Hadrik asks.
-
-"He's Diane's brother," Kate answers him. "Which reminds me... Where is Jason? I would have liked to at least greet him before leaving."
-
-"Jason is busy with an important mission, somewhere on the surface," Diane says, "so unfortunately, you won't get the chance to meet him today. But we might still run into him on our way to the sacred forest. I'll have to call and ask him later if he is allowed to disclose his location to us or not."
-
-"Did-- did I hear you right?" Kate says, shocked. "Did you just say that you're going to come with us to look for the pinecone?"
-
-"Oh, that's right, we never got to tell you..." Diane says. "Meridith was actually about to send me to Galamir before Melindra called her, so I talked her into letting me join your group. You know, since we're all going the same way! I hope you all don't mind!"
-
 }
-#if(v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7) {
+#if(v_b3_ch4_billy == 7 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 8 && v_b3_ch8_overseer2 == 1) {
  "Is this... the only reason why you showed yourself to us?" Daren asks him, suspiciously.
 "Negative," the Overseer says. "There were in fact two other reasons. First of all I wanted to report to you that my research towards improving the seredium towers is going smoothly, and I estimate that in two weeks we should already be able to free the first batch of prisoners, without affecting the city's energy source in any meaningful way."
 
@@ -1825,78 +1482,10 @@ As expected, the Overseer ignores Daren completely, and he just plays the conver
 
 The Overseer then begins playing the conversation that he recorded, by using the blue crystal.
 
- "Creator, with all due respect, I think you might be underestimating Eiden," we hear Meridith's voice, coming from the crystal. "The message he sent us was very clear. He told us to 'remember the still winter'.  This is almost certainly his way of telling us that he knows exactly what we're trying to do, and that he is confident in his ability to stop us. I've also received reports that for the past few weeks, he has been teleporting all across the continent, preparing a powerful spell of his own. If we don't do something, we might lose our last chance to end him for good!"
-"What do you suggest?" the Magium fragment says, in the voice of an old man.
-
-"It might not be the ideal scenario, but if we were to accelerate our plan, we might be able to get everything ready in a few days and then--" Meridith says, but the Magium fragment interrupts her.
-
-"No!" the Magium fragment says, loudly, this time in the voice of a young woman. "The plan must not be rushed, or it will surely fail. Do you understand?"
-
-"...Yes, Creator," Meridith says, in a reluctant tone. "I understand."
-
-"As you can see," the Overseer tells us, once the recording has ended, "Meridith in fact knows a lot more about Eiden's message than she would have you believe. My preliminary analysis also suggests that this 'plan' of hers may not affect only Eiden, as she seems to claim, although I am yet to find out all of the details."
-
-"Diane, would you happen to know how exactly Meridith intends to deal with Eiden?" Kate says.
-
- "I'm afraid not," Diane says. "I don't think that any of the people who know the details of the plan are allowed to leave the underground caverns, because there would always be a risk that Eiden could capture and interrogate them. I have a feeling that not even Jason knows what is going on behind the scenes, and Meridith usually tells him a lot more than she tells me."
-"I'm sorry, who is Jason?..." Hadrik asks.
-
-"He's Diane's brother," Kate answers him. "Which reminds me... Where is Jason? I would have liked to at least greet him before leaving."
-
-"Jason is busy with an important mission, somewhere on the surface," Diane says, "so unfortunately, you won't get the chance to meet him today. But we might still run into him on our way to the sacred forest. I'll have to call and ask him later if he is allowed to disclose his location to us or not."
-
-"Did-- did I hear you right?" Kate says, shocked. "Did you just say that you're going to come with us to look for the pinecone?"
-
-"Oh, that's right, we never got to tell you..." Diane says. "Meridith was actually about to send me to Galamir before Melindra called her, so I talked her into letting me join your group. You know, since we're all going the same way! I hope you all don't mind!"
-
 }
-#if(v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8) {
- "Is this... the only reason why you showed yourself to us?" Daren asks him, suspiciously.
-"Negative," the Overseer says. "There were in fact two other reasons. First of all I wanted to report to you that my research towards improving the seredium towers is going smoothly, and I estimate that in two weeks we should already be able to free the first batch of prisoners, without affecting the city's energy source in any meaningful way."
-
-"That is good to hear," Kate says.
-
-"Secondly, I wanted to give you a warning about Meridith," the Overseer says. "While she may seem like your ally at this point, I do not believe that she has your best interests at heart. I took the liberty of recording part of Meridith's ongoing discussion with the Magium, so that I can show you what I mean."
-
-The Overseer then begins playing the conversation that he recorded, by using the blue crystal.
-
- "Creator, with all due respect, I think you might be underestimating Eiden," we hear Meridith's voice, coming from the crystal. "The message he sent us was very clear. He told us to 'remember the still winter'.  This is almost certainly his way of telling us that he knows exactly what we're trying to do, and that he is confident in his ability to stop us. I've also received reports that for the past few weeks, he has been teleporting all across the continent, preparing a powerful spell of his own. If we don't do something, we might lose our last chance to end him for good!"
-"What do you suggest?" the Magium fragment says, in the voice of an old man.
-
-"It might not be the ideal scenario, but if we were to accelerate our plan, we might be able to get everything ready in a few days and then--" Meridith says, but the Magium fragment interrupts her.
-
-"No!" the Magium fragment says, loudly, this time in the voice of a young woman. "The plan must not be rushed, or it will surely fail. Do you understand?"
-
-"...Yes, Creator," Meridith says, in a reluctant tone. "I understand."
-
-"As you can see," the Overseer tells us, once the recording has ended, "Meridith in fact knows a lot more about Eiden's message than she would have you believe. My preliminary analysis also suggests that this 'plan' of hers may not affect only Eiden, as she seems to claim, although I am yet to find out all of the details."
-
-"Diane, would you happen to know how exactly Meridith intends to deal with Eiden?" Kate says.
-
- "I'm afraid not," Diane says. "I don't think that any of the people who know the details of the plan are allowed to leave the underground caverns, because there would always be a risk that Eiden could capture and interrogate them. I have a feeling that not even Jason knows what is going on behind the scenes, and Meridith usually tells him a lot more than she tells me."
-"I'm sorry, who is Jason?..." Hadrik asks.
-
-"He's Diane's brother," Kate answers him. "Which reminds me... Where is Jason? I would have liked to at least greet him before leaving."
-
-"Jason is busy with an important mission, somewhere on the surface," Diane says, "so unfortunately, you won't get the chance to meet him today. But we might still run into him on our way to the sacred forest. I'll have to call and ask him later if he is allowed to disclose his location to us or not."
-
-"Did-- did I hear you right?" Kate says, shocked. "Did you just say that you're going to come with us to look for the pinecone?"
-
-"Oh, that's right, we never got to tell you..." Diane says. "Meridith was actually about to send me to Galamir before Melindra called her, so I talked her into letting me join your group. You know, since we're all going the same way! I hope you all don't mind!"
-
-}
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 0)
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
-choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 0)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
-choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 0)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 7)
-choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy == 8)
+choice("""Not at all. A friend of Kate's is a friend of ours!""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice("""Only if you promise not to shock us with your electric powers again.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice("""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us.""", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
 
 
 ID: B3-Ch11a-Detector
@@ -1914,6 +1503,8 @@ TEXT:
 
 As Hadrik and Daren are just finishing their conversation, the secret door to the Magium node opens up, making way for Meridith to pass through.
 
+}
+#if(v_b3_ch11_diane == 0 || v_b3_ch11_diane == 1 || v_b3_ch11_diane == 2) {
  "I'm sorry that it took so much time," Meridith tells us, as she closes the wall behind her. "The Creator had some important matters to discuss with me that could not be delayed any further. Anyway, I think I've held you all long enough. It's time for me to give you your pinecone detector, so you can be on your way."
 "FINALLY!" Arraka says, in a loud voice. "I was starting to get really tired of this place."
 
@@ -1949,24 +1540,6 @@ As Hadrik and Daren are just finishing their conversation, the secret door to th
 
 As Hadrik and Daren are just finishing their conversation, the secret door to the Magium node opens up, making way for Meridith to pass through.
 
- "I'm sorry that it took so much time," Meridith tells us, as she closes the wall behind her. "The Creator had some important matters to discuss with me that could not be delayed any further. Anyway, I think I've held you all long enough. It's time for me to give you your pinecone detector, so you can be on your way."
-"FINALLY!" Arraka says, in a loud voice. "I was starting to get really tired of this place."
-
-"Did Diane have the time to give you the good news?" Meridith asks us, ignoring Arraka.
-
-"You mean that she'll be coming with us to the sacred woods and to Galamir?" Kate says. "Yes, she told us."
-
-"Splendid!" Meridith says. "Normally, I wouldn't have agreed, since her detour with you may delay her for a few days, but from what I've heard, the other diplomatic envoys will also be late, so there's not much point for Diane, of all people, to arrive there the earliest. Let's head towards the teleporter. I've hidden the pinecone detector inside a wall, somewhere on the way."
-
-"Sorry if I'm being indiscrete, but diplomatic envoy for what?" Daren says, as we are heading back to the teleporter, together with Meridith. "What is Diane going there to do?"
-
- "Oh, you haven't heard?" Meridith says, surprised. "The dragon, Tyrath, has declared war on every living being on the continent that isn't a monster. At first, he was going to send his armies directly towards the cities of Varathia, but the orc captain of his elite troops has apparently managed to convince him to at least hold some negotiations before the war. Knowing Tyrath, his terms will probably be something along the lines of us dropping all our defenses so his forces can butcher us, but at least we'll have some more time to prepare before the inevitable conflict."
-"So, Diane is the envoy on behalf of the lessathi, and I'm assuming the orc captain will be Tyrath's envoy," Daren says, while stroking his chin. "Do you have any idea who will be the other delegates?"
-
-"The golden fox will most likely be sending Leo the leopard," Meridith says, as she opens a secret tunnel with her wand. "I heard that the dragons from the mountains will also be sending their own separate envoy, since they've never really accepted Tyrath's claim to be their rightful king. Oh, and I think Fyron, the goblin general, will be attending the meeting himself, if I'm not mistaken. Other than that, I believe that the king of Galamir will be the one mediating the conference, and that the other kings should normally be attending the meeting through holographic screens."
-
-"Looks like there will be a lot of familiar faces at this meeting," Daren says. "We've all met Leo the leopard and the orc captain, and I'm pretty sure Barry said he and Illuna met Fyron, so the only ones we won't know there will be the kings of Varathia and the representative of the dragons. Maybe we'll have a chance to meet some of them in Galamir."
-
 }
 #if(v_b3_ch11_diane == 2) {
  "I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us."
@@ -1981,24 +1554,6 @@ As Hadrik and Daren are just finishing their conversation, the secret door to th
 "I'm not taking that bet," Daren says. "The guy pretty much admitted that he has a system in place to let him know whenever we are underground. As long as we are anywhere near a blue crystal, I think it's safe to assume that the Overseer is spying on us, unless proven otherwise."
 
 As Hadrik and Daren are just finishing their conversation, the secret door to the Magium node opens up, making way for Meridith to pass through.
-
- "I'm sorry that it took so much time," Meridith tells us, as she closes the wall behind her. "The Creator had some important matters to discuss with me that could not be delayed any further. Anyway, I think I've held you all long enough. It's time for me to give you your pinecone detector, so you can be on your way."
-"FINALLY!" Arraka says, in a loud voice. "I was starting to get really tired of this place."
-
-"Did Diane have the time to give you the good news?" Meridith asks us, ignoring Arraka.
-
-"You mean that she'll be coming with us to the sacred woods and to Galamir?" Kate says. "Yes, she told us."
-
-"Splendid!" Meridith says. "Normally, I wouldn't have agreed, since her detour with you may delay her for a few days, but from what I've heard, the other diplomatic envoys will also be late, so there's not much point for Diane, of all people, to arrive there the earliest. Let's head towards the teleporter. I've hidden the pinecone detector inside a wall, somewhere on the way."
-
-"Sorry if I'm being indiscrete, but diplomatic envoy for what?" Daren says, as we are heading back to the teleporter, together with Meridith. "What is Diane going there to do?"
-
- "Oh, you haven't heard?" Meridith says, surprised. "The dragon, Tyrath, has declared war on every living being on the continent that isn't a monster. At first, he was going to send his armies directly towards the cities of Varathia, but the orc captain of his elite troops has apparently managed to convince him to at least hold some negotiations before the war. Knowing Tyrath, his terms will probably be something along the lines of us dropping all our defenses so his forces can butcher us, but at least we'll have some more time to prepare before the inevitable conflict."
-"So, Diane is the envoy on behalf of the lessathi, and I'm assuming the orc captain will be Tyrath's envoy," Daren says, while stroking his chin. "Do you have any idea who will be the other delegates?"
-
-"The golden fox will most likely be sending Leo the leopard," Meridith says, as she opens a secret tunnel with her wand. "I heard that the dragons from the mountains will also be sending their own separate envoy, since they've never really accepted Tyrath's claim to be their rightful king. Oh, and I think Fyron, the goblin general, will be attending the meeting himself, if I'm not mistaken. Other than that, I believe that the king of Galamir will be the one mediating the conference, and that the other kings should normally be attending the meeting through holographic screens."
-
-"Looks like there will be a lot of familiar faces at this meeting," Daren says. "We've all met Leo the leopard and the orc captain, and I'm pretty sure Barry said he and Illuna met Fyron, so the only ones we won't know there will be the kings of Varathia and the representative of the dragons. Maybe we'll have a chance to meet some of them in Galamir."
 
 }
 choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration) if (v_b3_ch11_diane == 0 || v_b3_ch11_diane == 1 || v_b3_ch11_diane == 2)
@@ -2094,6 +1649,8 @@ TEXT:
 
 "Are you sure that there's no way we can help you save your brother from... wherever he is?" Daren says. "Maybe if you would tell us what happened to him, we could--"
 
+}
+#if(v_b3_ch11_melindra == 0 || v_b3_ch11_melindra == 1 || v_b3_ch11_melindra == 2 || v_b3_ch11_melindra == 3) {
  "No, there's nothing you can do to help, aside from what you've already done," Melindra says. "I know I've been a little elusive about what happened to my brother, but one of the main reasons for that is because I'm not entirely sure myself of what has become of him, and I'd rather spend my time trying to find him than thinking about worst case scenarios. All I can tell you for certain is that he fell in with some very shady individuals a while back, who had him fooled that they had the best of intentions, and I've never heard from him since. Fortunately, I still have a few leads that could help me get to him, and with the item that I've retrieved from the late king of Ollendor, hopefully it shouldn't take me more than a few days to reach him."
 "But then wouldn't it be quicker if more of us searched for him at the same time?" Kate asks her.
 
@@ -2135,30 +1692,6 @@ TEXT:
 
 "Are you sure that there's no way we can help you save your brother from... wherever he is?" Daren says. "Maybe if you would tell us what happened to him, we could--"
 
- "No, there's nothing you can do to help, aside from what you've already done," Melindra says. "I know I've been a little elusive about what happened to my brother, but one of the main reasons for that is because I'm not entirely sure myself of what has become of him, and I'd rather spend my time trying to find him than thinking about worst case scenarios. All I can tell you for certain is that he fell in with some very shady individuals a while back, who had him fooled that they had the best of intentions, and I've never heard from him since. Fortunately, I still have a few leads that could help me get to him, and with the item that I've retrieved from the late king of Ollendor, hopefully it shouldn't take me more than a few days to reach him."
-"But then wouldn't it be quicker if more of us searched for him at the same time?" Kate asks her.
-
-"I can travel much faster when I'm alone," Melindra says. "I can fly, remember? Look, there's no need for any of you to worry about me or my brother. You already have enough on your plates as it is. I promise that I'll let you all know as soon as I've found him."
-
-"Fine," Kate says. "But you'd better be keeping your transceiver close to you at all times, because I'm planning to keep in touch with you, whether you like it or not."
-
-"As a matter of fact, I would like that, icey," Melindra says, with a smile. "I would like that very much."
-
- "Do you-- do you really have to leave?" Flower asks, in a shaky voice, as she is still trying hard to keep herself from crying. "Can't you at least stay with us for a little while longer? There was so much more I wanted to talk to you about... So much more that we could have done together!"
-"I'm sorry, Flower but I really can't afford to delay this any longer," Melindra says. "A part of me really wishes I could have taken you with me, but I also don't want to separate you from your friends. Of all the people here, you're definitely the one that I'll be missing the most."
-
-"Can I at least-- can I call you often?" Flower says. "While you're gone?"
-
-"As often as you want!" Melindra says. "And like Kate said, we'll still meet again during the rituals, so I'm sure we'll be seeing each other very soon."
-
-"Okay..." Flower says, as she slowly stops sniffling. "I can live with that."
-
-"Well..." Melindra says, as she takes one last look at each of us. "I suppose this is it, then."
-
-"Aye," Hadrik says. "This is it."
-
-"Not to ruin the mood or anything," Daren says, "but I'd advise moving slowly when you fly away from here, as an extra precaution. Normally, the enchanter's oath that you've taken should not require you to do anything else, now that we are in possession of the pinecone detector, but it never hurts to be too careful."
-
 }
 #if(v_b3_ch11_melindra == 2) {
  "Alright, goodbye."
@@ -2172,30 +1705,6 @@ TEXT:
 
 "Are you sure that there's no way we can help you save your brother from... wherever he is?" Daren says. "Maybe if you would tell us what happened to him, we could--"
 
- "No, there's nothing you can do to help, aside from what you've already done," Melindra says. "I know I've been a little elusive about what happened to my brother, but one of the main reasons for that is because I'm not entirely sure myself of what has become of him, and I'd rather spend my time trying to find him than thinking about worst case scenarios. All I can tell you for certain is that he fell in with some very shady individuals a while back, who had him fooled that they had the best of intentions, and I've never heard from him since. Fortunately, I still have a few leads that could help me get to him, and with the item that I've retrieved from the late king of Ollendor, hopefully it shouldn't take me more than a few days to reach him."
-"But then wouldn't it be quicker if more of us searched for him at the same time?" Kate asks her.
-
-"I can travel much faster when I'm alone," Melindra says. "I can fly, remember? Look, there's no need for any of you to worry about me or my brother. You already have enough on your plates as it is. I promise that I'll let you all know as soon as I've found him."
-
-"Fine," Kate says. "But you'd better be keeping your transceiver close to you at all times, because I'm planning to keep in touch with you, whether you like it or not."
-
-"As a matter of fact, I would like that, icey," Melindra says, with a smile. "I would like that very much."
-
- "Do you-- do you really have to leave?" Flower asks, in a shaky voice, as she is still trying hard to keep herself from crying. "Can't you at least stay with us for a little while longer? There was so much more I wanted to talk to you about... So much more that we could have done together!"
-"I'm sorry, Flower but I really can't afford to delay this any longer," Melindra says. "A part of me really wishes I could have taken you with me, but I also don't want to separate you from your friends. Of all the people here, you're definitely the one that I'll be missing the most."
-
-"Can I at least-- can I call you often?" Flower says. "While you're gone?"
-
-"As often as you want!" Melindra says. "And like Kate said, we'll still meet again during the rituals, so I'm sure we'll be seeing each other very soon."
-
-"Okay..." Flower says, as she slowly stops sniffling. "I can live with that."
-
-"Well..." Melindra says, as she takes one last look at each of us. "I suppose this is it, then."
-
-"Aye," Hadrik says. "This is it."
-
-"Not to ruin the mood or anything," Daren says, "but I'd advise moving slowly when you fly away from here, as an extra precaution. Normally, the enchanter's oath that you've taken should not require you to do anything else, now that we are in possession of the pinecone detector, but it never hurts to be too careful."
-
 }
 #if(v_b3_ch11_melindra == 3) {
  "You know... I'm actually going to miss you."
@@ -2206,30 +1715,6 @@ TEXT:
 "Oh, right," Melindra says. "I almost forgot about that."
 
 "Are you sure that there's no way we can help you save your brother from... wherever he is?" Daren says. "Maybe if you would tell us what happened to him, we could--"
-
- "No, there's nothing you can do to help, aside from what you've already done," Melindra says. "I know I've been a little elusive about what happened to my brother, but one of the main reasons for that is because I'm not entirely sure myself of what has become of him, and I'd rather spend my time trying to find him than thinking about worst case scenarios. All I can tell you for certain is that he fell in with some very shady individuals a while back, who had him fooled that they had the best of intentions, and I've never heard from him since. Fortunately, I still have a few leads that could help me get to him, and with the item that I've retrieved from the late king of Ollendor, hopefully it shouldn't take me more than a few days to reach him."
-"But then wouldn't it be quicker if more of us searched for him at the same time?" Kate asks her.
-
-"I can travel much faster when I'm alone," Melindra says. "I can fly, remember? Look, there's no need for any of you to worry about me or my brother. You already have enough on your plates as it is. I promise that I'll let you all know as soon as I've found him."
-
-"Fine," Kate says. "But you'd better be keeping your transceiver close to you at all times, because I'm planning to keep in touch with you, whether you like it or not."
-
-"As a matter of fact, I would like that, icey," Melindra says, with a smile. "I would like that very much."
-
- "Do you-- do you really have to leave?" Flower asks, in a shaky voice, as she is still trying hard to keep herself from crying. "Can't you at least stay with us for a little while longer? There was so much more I wanted to talk to you about... So much more that we could have done together!"
-"I'm sorry, Flower but I really can't afford to delay this any longer," Melindra says. "A part of me really wishes I could have taken you with me, but I also don't want to separate you from your friends. Of all the people here, you're definitely the one that I'll be missing the most."
-
-"Can I at least-- can I call you often?" Flower says. "While you're gone?"
-
-"As often as you want!" Melindra says. "And like Kate said, we'll still meet again during the rituals, so I'm sure we'll be seeing each other very soon."
-
-"Okay..." Flower says, as she slowly stops sniffling. "I can live with that."
-
-"Well..." Melindra says, as she takes one last look at each of us. "I suppose this is it, then."
-
-"Aye," Hadrik says. "This is it."
-
-"Not to ruin the mood or anything," Daren says, "but I'd advise moving slowly when you fly away from here, as an extra precaution. Normally, the enchanter's oath that you've taken should not require you to do anything else, now that we are in possession of the pinecone detector, but it never hurts to be too careful."
 
 }
 choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 0 || v_b3_ch11_melindra == 1 || v_b3_ch11_melindra == 2 || v_b3_ch11_melindra == 3)
@@ -2258,6 +1743,8 @@ Just as we were getting ready to depart ourselves, Flower pulls out her transcei
 
 "Hey, Melindra, how are you doing?" she says.
 
+}
+#if(v_b2_ch8_energizer == 1 && v_b3_ch10_benefits == 1 || v_b2_ch8_energizer == 0 || v_b3_ch10_benefits == 0) {
  "...Flower," Melindra says, "you do realize that when I said you could call me as often as you wanted, I didn't literally mean-- you know what? Never mind. I'm doing fine, Flower. How are you?"
 "Doing great, thanks for asking!" Flower says, with a smile. "Talk to you later, bye!"
 
@@ -2291,7 +1778,7 @@ When she saw Eiden, Diane was already beginning to charge up her electric powers
 "Oh," Eiden says, in a very disappointed tone. "I see..."
 
 }
-#if(v_b2_ch8_energizer == 0) {
+#if(v_b2_ch8_energizer == 0 || v_b3_ch10_benefits == 0) {
  "Hmm..." Melindra says. "It doesn't look to me like the oath is warning me about anything, but I will do as you say, just in case. Thank you for your concern!"
 "You're welcome," Daren says, as Melindra now raises herself into the air and gets ready for her departure.
 
@@ -2301,85 +1788,8 @@ Just as we were getting ready to depart ourselves, Flower pulls out her transcei
 
 "Hey, Melindra, how are you doing?" she says.
 
- "...Flower," Melindra says, "you do realize that when I said you could call me as often as you wanted, I didn't literally mean-- you know what? Never mind. I'm doing fine, Flower. How are you?"
-"Doing great, thanks for asking!" Flower says, with a smile. "Talk to you later, bye!"
-
-She then taps her transceiver again to close it and she turns towards us.
-
-"Well?..." Flower says, when she realizes we were all staring at her. "What are you all waiting for? Let's go get those pinecones! On the double! Hup, two, three, four! Hup, two, three, four!"
-
-Flower then starts doing one of her usual military marches as she pushes us all from behind, in order to hasten our pace. We barely get to march for a little more than a minute, however, because as we've come to expect by now, a certain stillwater with his eyes closed was already waiting for us on the road ahead, wearing his characteristic polite smile on his face.
-
-"Hello again, my friends!" Eiden tells us, as we approach him. "Did you enjoy your trip to the lessathi headquarters? How is Meridith doing?"
-
-When she saw Eiden, Diane was already beginning to charge up her electric powers, but Kate stopped her promptly, before she could do anything stupid.
-
-"If you're looking for Melindra, you just missed her," Daren tells Eiden. "We all said goodbye to her, not even a minute ago."
-
- "Oh, there's no need to worry about that," Eiden says. "I'm sure she and I will meet again at some point in the future. However, as you've probably already realized by now, Melindra is not the reason for my visit."
-"Let me guess," I say. "You want to know if I delivered your message or not."
-
-"You're a fast learner, Barry!" Eiden says. "That's what I like about you."
-
-"I did deliver the message, just like you asked," I say. "To Meridith herself."
-
-"Wonderful," Eiden says. "A job well done. So, did she give you an answer for me?"
-
-"Uh... not really, no," I say.
-
-"No answer?..." Eiden says, confused. "Nothing at all? Did she at least tell you what the message meant?"
-
-"She, umm... she told us that it was meant as a declaration of war," I say, somewhat apprehensively.
-
-"Oh," Eiden says, in a very disappointed tone. "I see..."
-
 }
-#if(v_b3_ch10_benefits == 0) {
- "Hmm..." Melindra says. "It doesn't look to me like the oath is warning me about anything, but I will do as you say, just in case. Thank you for your concern!"
-"You're welcome," Daren says, as Melindra now raises herself into the air and gets ready for her departure.
-
-"See you all later, then," Melindra says, while waving her hand at us from up above, and then she starts flying away, slowly at first, but gradually faster until we lose sight of her completely.
-
-Just as we were getting ready to depart ourselves, Flower pulls out her transceiver, rotates the dial to change its calling frequency and taps it once.
-
-"Hey, Melindra, how are you doing?" she says.
-
- "...Flower," Melindra says, "you do realize that when I said you could call me as often as you wanted, I didn't literally mean-- you know what? Never mind. I'm doing fine, Flower. How are you?"
-"Doing great, thanks for asking!" Flower says, with a smile. "Talk to you later, bye!"
-
-She then taps her transceiver again to close it and she turns towards us.
-
-"Well?..." Flower says, when she realizes we were all staring at her. "What are you all waiting for? Let's go get those pinecones! On the double! Hup, two, three, four! Hup, two, three, four!"
-
-Flower then starts doing one of her usual military marches as she pushes us all from behind, in order to hasten our pace. We barely get to march for a little more than a minute, however, because as we've come to expect by now, a certain stillwater with his eyes closed was already waiting for us on the road ahead, wearing his characteristic polite smile on his face.
-
-"Hello again, my friends!" Eiden tells us, as we approach him. "Did you enjoy your trip to the lessathi headquarters? How is Meridith doing?"
-
-When she saw Eiden, Diane was already beginning to charge up her electric powers, but Kate stopped her promptly, before she could do anything stupid.
-
-"If you're looking for Melindra, you just missed her," Daren tells Eiden. "We all said goodbye to her, not even a minute ago."
-
- "Oh, there's no need to worry about that," Eiden says. "I'm sure she and I will meet again at some point in the future. However, as you've probably already realized by now, Melindra is not the reason for my visit."
-"Let me guess," I say. "You want to know if I delivered your message or not."
-
-"You're a fast learner, Barry!" Eiden says. "That's what I like about you."
-
-"I did deliver the message, just like you asked," I say. "To Meridith herself."
-
-"Wonderful," Eiden says. "A job well done. So, did she give you an answer for me?"
-
-"Uh... not really, no," I say.
-
-"No answer?..." Eiden says, confused. "Nothing at all? Did she at least tell you what the message meant?"
-
-"She, umm... she told us that it was meant as a declaration of war," I say, somewhat apprehensively.
-
-"Oh," Eiden says, in a very disappointed tone. "I see..."
-
-}
-choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 1 && v_b3_ch10_benefits == 1)
-choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 0)
-choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b3_ch10_benefits == 0)
+choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 1 && v_b3_ch10_benefits == 1 || v_b2_ch8_energizer == 0 || v_b3_ch10_benefits == 0)
 
 
 ID: B3-Ch11a-Continent
