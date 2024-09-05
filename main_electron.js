@@ -1,5 +1,5 @@
-let {expressApp} = require("./public/scripts/main_setup");
-const {port} = require("./public/scripts/main_setup");
+let {expressApp} = require("./src/main_setup");
+const {port} = require("./src/main_setup");
 
 const { app, BrowserWindow } = require('electron');
 app.on('ready', function() {

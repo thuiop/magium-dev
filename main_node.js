@@ -1,1 +1,1 @@
-let {expressApp} = require("./public/scripts/main_setup");
+let {expressApp} = require("./src/main_setup");

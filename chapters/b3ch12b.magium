@@ -1,0 +1,1932 @@
+ID: B3-Ch12b-Distracting
+TEXT: 
+
+ Flower's discussion with Melindra continues for the next fifteen minutes or so, and of course, during this time they could not abstain themselves from including me in their conversation, as a fellow connoisseur of the sophisticated art of rock collecting. Whenever this happens, the other members of our group tend to slowly distance themselves from us while they are walking, so that they can talk about literally anything else without having to hear about rocks for the hundredth time in a row.
+Technically, I could be doing the same thing as them and just let Flower alone with Melindra on the transceiver, but I guess I just don't have the heart for it. Or maybe I'm just developing some sort of masochistic urge to listen to boring rock discussions whenever I have the opportunity. Who knows?
+
+"So," Kate says, "does anyone else want to talk about the four mages that have been heading in our direction for a good few minutes or are we going to just keep ignoring them?"
+
+ "The last few groups that we've sensed for the past two days have always avoided us eventually," Daren says. "So far there's no reason to think that they won't do the same."
+"It's different this time," Kate says. "They clearly sensed us too, and are moving to intercept us. If we keep walking at this speed, it will only take a few minutes until we come face to face with them."
+
+"Alright, I don't want to be distracting you, so I'll leave you guys to it," Melindra says, from the transceiver. "Stay safe, Flower!"
+
+"You too,Melindra," Flower says. "Bye!"
+
+ "Do you guys think I should fly ahead and do some scouting before we run into them?" I ask the others, as Flower closes the transceiver.
+"Look, Barry," Daren says, "I know you're excited to try out your new flying technique in an actual non-training scenario, but maybe this isn't really the right time to do it. I doubt you could find out much more about them by watching them from above than we already know from their auras, but if they have really long-ranged spells in their arsenal, you could risk getting attacked. Let's all stick together for now, okay?"
+
+choice("Insist on going to scout the mages.", B3-Ch12b-Scout, v_current_scene = B3-Ch12b-Scout, v_b3_ch12_scout = 1)
+choice("Agree with Daren and stay with the group.", B3-Ch12b-Necromancers, v_current_scene = B3-Ch12b-Necromancers, v_b3_ch12_scout = 0)
+
+
+ID: B3-Ch12b-Scout
+TEXT: 
+
+set(v_b3_ch12_scout,0) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_perception < 2)
+set(v_b3_ch12_scout,2) if (v_perception == 2)
+set(v_b3_ch12_scout,3) if (v_perception >= 3)
+#if(v_b3_ch11_red == 0 || v_b3_ch11_red == 1) {
+ 
+"Yeah, but maybe I could tell what kind of mages they are from their clothes and their equipment," I say. "That could give us a little time to plan our actions against them. If you're worried that I'll get attacked, I'll try to keep as much distance as I can from them and be very aware of my surroundings. I'm sure it'll be fine."
+
+"I could go with him!" Flower says. "Two heads are better than none!"
+
+"That is not the correct expression..." Daren says, trying hard not to sound exasperated. "And you're also probably not going to see anything from so high up above because of all the trees, but whatever. If you want to do a scouting mission so badly, I won't stand in the way of your happiness. Just be quick about it. If they're looking for a fight, I'd much rather face them together than divided."
+
+"Aye, aye, sir!" Flower says, and then she jumps into the air, activating her fire jets. "Let's go, Barry!"
+
+"Right behind you," I say, as I also cast my air currents on myself and fly after her.
+
+}
+#if(v_b3_ch11_red == 0) {
+ As soon as I leave the ground, I can already feel a bit of instability when I move through the air, but it's not as bad as it used to be when I first unlocked my magical stats in the lessathi base. After putting some work into my air currents in the last couple of days, they are now somewhat more manageable, and I should be able to use them in a fight, but they won't be anywhere near as responsive as the currents that Melindra used to make for me. I suppose this was to be expected, since I only have one level in my magical stats so far. I'll probably have to wait for at least two more levels until I can get them to work as well as the ones I was used to.
+"Over there!" Flower tells me, as we are approaching our targets. "We should be getting a good view from that spot above them!"
+
+"Don't get too close to them," I say. "There are some very basic spells that have really long range, so we'll want to maintain a high altitude. Follow my lead."
+
+We both continue flying until we are directly above them, and we position ourselves far enough away from them so that only an elementalist that specializes in long-ranged attacks, like Kate, should be able to reach us. I have no idea how well these people can detect enemies far above them with their magical sense, but I suppose we'll be finding that out soon enough.
+
+"Hey, look, that guy is waving at us!" Flower says, as she waves back at one of the people on the ground. "Do you think they're friendly?"
+
+}
+#if(v_b3_ch11_red == 1) {
+ I've already done a few flight tests in the last couple of days, but I have to say that I'm really impressed with the quality of these currents, considering that I only have one level in my magical stats. That knowledge that I managed to extract from the Magium node has helped me stabilize them to a level that is almost indistinguishable from the currents that Melindra used to make for me. It's very convenient!
+"Over there!" Flower tells me, as we are approaching our targets. "We should be getting a good view from that spot above them!"
+
+"Don't get too close to them," I say. "There are some very basic spells that have really long range, so we'll want to maintain a high altitude. Follow my lead."
+
+We both continue flying until we are directly above them, and we position ourselves far enough away from them so that only an elementalist that specializes in long-ranged attacks, like Kate, should be able to reach us. I have no idea how well these people can detect enemies far above them with their magical sense, but I suppose we'll be finding that out soon enough.
+
+"Hey, look, that guy is waving at us!" Flower says, as she waves back at one of the people on the ground. "Do you think they're friendly?"
+
+}
+#if(v_perception < 2) {
+ "Well, I'm most certainly not going down there to find out," I say. "Hmm... Aside from the fact that three of them are dressed in black and the fourth is dressed in green, I'm not really seeing anything out of the ordinary. What about you?"
+"Uh... I see that they're not trying to attack us, so I guess that's good?..." Flower says.
+
+"They're not attacking," I say, "but they've stopped in the middle of this large area without trees that would be perfect for an all-out battle, and they're clearly waiting for us to come to them. We should probably go back to our friends before these guys decide to not be so friendly anymore."
+
+"Agreed," Illuna says. "We've already seen everything that could be seen from this distance. There is no point in staying here any longer."
+
+}
+#if(v_perception == 2) {
+ "Well, I'm most certainly not going down there to find out," I say. "Hmm... From the way they are dressed, it looks like three of them are followers of the God of Death, and one of them is a follower of the God of Fate, but aside from that, I'm not really seeing anything out of the ordinary. What about you?"
+"Uh... I see that they're not trying to attack us, so I guess that's good?..." Flower says.
+
+"They're not attacking," I say, "but they've stopped in the middle of this large area without trees that would be perfect for an all-out battle, and they're clearly waiting for us to come to them. We should probably go back to our friends before these guys decide to not be so friendly anymore."
+
+"Agreed," Illuna says. "We've already seen everything that could be seen from this distance. There is no point in staying here any longer."
+
+}
+#if(v_perception >= 3) {
+ "Well, I'm most certainly not going down there to find out," I say. "Hmm... From the way they are dressed, it looks like three of them are followers of the God of Death, and one of them is a follower of the God of Fate. Also, it was only for a brief moment, but I think the illusionist was just done burying something in the ground right before we got a good look at him. What about you? Did you notice anything?"
+"Uh... I see that they're not trying to attack us, so I guess that's good?..." Flower says.
+
+"They're not attacking," I say, "but they've stopped in the middle of this large area without trees that would be perfect for an all-out battle, and they're clearly waiting for us to come to them. We should probably go back to our friends before these guys decide to not be so friendly anymore."
+
+"Agreed," Illuna says. "We've already seen everything that could be seen from this distance. There is no point in staying here any longer."
+
+}
+choice("Continue", B3-Ch12b-Necromancers, v_current_scene = B3-Ch12b-Necromancers) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_perception == 2 || v_perception >= 3 || v_perception < 2)
+
+
+ID: B3-Ch12b-Necromancers
+TEXT: 
+
+#if(v_b3_ch12_scout == 0) {
+ "Yeah, you're right," I say. "Let's just stick together, and we'll see what happens when it happens."
+"Technically it's still possible that they all have really bad magical sense and just haven't detected us yet," Daren says. "Let's keep moving in the same direction for a while longer and see what they're doing before we make any final decisions."
+
+We do as Daren says and keep walking for about two more minutes. During this time, the four mages that we sensed before have stopped moving completely, and it's becoming increasingly more likely that they are simply waiting for us to reach them. Realizing that this is the most probable scenario, we all stop as well, so that we can have a short discussion amongst ourselves about what we are planning to do next.
+
+"So, what do you guys think?" Daren asks us. "Could these guys be friendly? Or are they challenging us to a fight?"
+
+"There is no way to know with just the information we currently have," Kate says. "At the moment, we can't even be sure if we've met them before or not."
+
+"You haven't met them before," Arraka says. "That, I can confirm to you."
+
+"Well, then I have no idea what they could want from us," Kate says. "Maybe they're hostile, or maybe they just want to ask us if we found any pinecones. All we can do is guess."
+
+ "We could go around them if you want," Diane says. "It'll take a little longer, but we'll still reach the sacred woods eventually."
+"No way!" Hadrik says, loudly. "I haven't had a fight other than my sparring sessions with Daren since Ollendor, and you're telling me to walk away from a battle of my own free will? If these guys want a piece of me then they'll get one. Mark my words!"
+
+"I also agree that there is no point in trying to avoid them," Kate says. "We can all sense each other, so if they see we are going around them, they'll just come after us instead. Confronting them directly is likely our best option in this situation."
+
+"Hah!" Hadrik says. "That's what I like to hear!"
+
+"If everyone's okay with it, then we'll keep moving forward," Daren says. "Just be on the lookout, because they have a bit of time to set up traps until we get there."
+
+We keep walking for two more minutes or so, and we eventually reach a large area without trees, which is apparently where the four mages had stopped to wait for us.
+
+Now that I'm finally getting a good look at our ambushers, I see that three of them are wearing black robes and have bald heads with snake tattoos on them, looking like almost exact copies of Zack, the necromancer that we met during our first week in Varathia, while the fourth one is wearing green robes and has a silver circlet on his head, meaning that he's likely a follower of the God of Fate.
+
+}
+#if(v_b3_ch12_scout == 0 || v_b3_ch12_scout == 1 || v_b3_ch12_scout == 2 || v_b3_ch12_scout == 3) {
+ Just as Daren was about to call out to them, one of the necromancers steps in front of his group and shouts to us instead.
+"Before we begin," the necromancer says, "I would first like to congratulate you all for actually showing up to face us even after sensing our obviously superior magical power! Most people tend to cower in fear before us, so you are at least to be commended for your bravery, if nothing else."
+
+"You're kidding, right?" Daren says to him. "It's clear as day that we're way stronger than you. And there are more of us too. Is your magical sense defective or something?"
+
+After hearing what Daren had to say, all three of the necromancers begin to laugh in unison, until the necromancer in front of them, who seems to be a leader, of sorts, slowly becomes silent again and signals the other two to do the same.
+
+"The only thing that is clear" the necromancer says, "is that your simple minds cannot even begin to comprehend the immense difference in power between us devout followers of our god, and you faithless wretches who have to use books and scrolls to even have any chance at casting mediocre spells. But since you have amused me today, I am inclined to let you live, as long as you hand over the little girl to us without posing any resistance."
+
+"What?..." Daren asks, confused. "Why?... What business could you possibly have with Flower?"
+
+}
+#if(v_b3_ch12_scout == 1) {
+ Flower waves goodbye to the mage who waved at her the first time, and we fly away from them, making our way back to our group in less than a minute. As soon as we land on the ground next to them, we give them all the information that we were able to gather during our short scouting mission, and once we are done, Daren pauses to think for a few seconds.
+"Alright," he says. "So they are waiting for us in an open field and they waved at you, but didn't attempt to attack you in any way. What do you guys think? Could they be friendly?"
+
+"There is no way to know with just the information we currently have," Kate says. "It doesn't sound like we've met them before, from what Barry described, so we can only guess what their motives are."
+
+ "We could go around them if you want," Diane says. "It'll take a little longer, but we'll still reach the sacred woods eventually."
+"No way!" Hadrik says, loudly. "I haven't had a fight other than my sparring sessions with Daren since Ollendor, and you're telling me to walk away from a battle of my own free will? If these guys want a piece of me then they'll get one. Mark my words!"
+
+"I also agree that there is no point in trying to avoid them," Kate says. "We can all sense each other, so if they see we are going around them, they'll just come after us instead. Confronting them directly is likely our best option in this situation."
+
+"Hah!" Hadrik says. "That's what I like to hear!"
+
+"If everyone's okay with it, then we'll keep moving forward," Daren says. "Just be on the lookout, because they have a bit of time to set up traps until we get there."
+
+We keep walking for two more minutes or so, and we eventually reach the large area without trees in which the four mages had stopped to wait for us.
+
+Now that I'm getting a good look at our ambushers, I see that the three mages that were dressed in black robes were in fact followers of the God of Death, who have bald heads with snake tattoos on them, similar to Zack, the necromancer that we met in our first week in Varathia. The fourth mage in green robes is apparently also wearing a silver circlet on his head, so he is most likely a follower of the God of Fate.
+
+}
+#if(v_b3_ch12_scout == 2) {
+ Flower waves goodbye to the mage who waved at her the first time, and we fly away from them, making our way back to our group in less than a minute. As soon as we land on the ground next to them, we give them all the information that we were able to gather during our short scouting mission, and once we are done, Daren pauses to think for a few seconds.
+"Alright," he says. "So we have three followers of the God of Death and one follower of the God of Fate waiting for us in an open field. One of them waved at you, but they didn't attempt to attack you in any way. What do you guys think? Could they be friendly?"
+
+"There is no way to know with just the information we currently have," Kate says. "It doesn't sound like we've met them before, from what Barry described, so we can only guess what their motives are."
+
+}
+#if(v_b3_ch12_scout == 2 || v_b3_ch12_scout == 3) {
+ "We could go around them if you want," Diane says. "It'll take a little longer, but we'll still reach the sacred woods eventually."
+"No way!" Hadrik says, loudly. "I haven't had a fight other than my sparring sessions with Daren since Ollendor, and you're telling me to walk away from a battle of my own free will? If these guys want a piece of me then they'll get one. Mark my words!"
+
+"I also agree that there is no point in trying to avoid them," Kate says. "We can all sense each other, so if they see we are going around them, they'll just come after us instead. Confronting them directly is likely our best option in this situation."
+
+"Hah!" Hadrik says. "That's what I like to hear!"
+
+"If everyone's okay with it, then we'll keep moving forward," Daren says. "Just be on the lookout, because they have a bit of time to set up traps until we get there."
+
+We keep walking for two more minutes or so, and we eventually reach the large area without trees in which the four mages had stopped to wait for us.
+
+As I've already seen from above, three of them are followers of the God of Death, being dressed in black robes and having bald heads with snake tattoos on them, just like Zack, the necromancer that we met during our first week in Varathia. Meanwhile, the fourth mage is dressed in green robes and has a silver circlet on his head, similarly to the God of Fate follower that was teamed up with Zack.
+
+}
+#if(v_b3_ch12_scout == 3) {
+ Flower waves goodbye to the mage who waved at her the first time, and we fly away from them, making our way back to our group in less than a minute. As soon as we land on the ground next to them, we give them all the information that we were able to gather during our short scouting mission, and once we are done, Daren pauses to think for a few seconds.
+"Alright," he says. "So we have three followers of the God of Death and one follower of the God of Fate waiting for us in an open field. One of them buried something in the ground and another one waved at you, but they didn't attempt to attack you in any way. What do you guys think? Could they be friendly?"
+
+"There is no way to know with just the information we currently have," Kate says. "It doesn't sound like we've met them before, from what Barry described, so we can only guess what their motives are."
+
+}
+choice("Continue", B3-Ch12b-Hostage, v_current_scene = B3-Ch12b-Hostage) if (v_b3_ch12_scout == 0 || v_b3_ch12_scout == 1 || v_b3_ch12_scout == 2 || v_b3_ch12_scout == 3)
+
+
+ID: B3-Ch12b-Hostage
+TEXT: 
+
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ "The God of Death needs to use her as a hostage against the stillwater called Eiden," the necromancer leader says. "Once we are done with her, if she is still alive we will return her to you."
+"I don't understand," Diane says. "Why would your god from the magical plane even be concerned with a stillwater from our plane of existence? And why would Eiden care if Flower were alive or not? I wasn't even aware that they knew each other."
+
+"Have you been living under a rock for the past three days?!" the necromancer leader shouts. "Do you not know that there is a WAR occurring between the gods in the magical plane as we speak?"
+
+"Oh... a war?" Diane says, trying to feign ignorance. "My goodness, I had no idea! But I still don't see what any of this has to do with Eiden, though."
+
+"Our god happens to know from a very reliable source that it was in fact Eiden who instigated this entire war," the necromancer says. "And for this reason, it is now the God of Death who has declared war on Eiden, and vowed to put him down like the dog that he is! However, despite his immense power, our god does have his limits, and cannot use his full power while he materializes on this plane of existence. That is why he needs the girl. We know that the golden fox spirit who resides on this realm has made Eiden swear to not kill her. Since she is clearly still alive, it means that the little girl should have value as a hostage against him. Now hand her over to us and I promise to you that there will be no blood spilled here today."
+
+ "You would have never found them without my help," says the God of Fate follower. "Your god does not grant you any spells that allow you to find other people's locations from afar, and I was the only follower of my god who was actively looking for this exact group. That is also why you agreed to help me eliminate them once we found them, unless you already forgot."
+"Everyone knows that you are insane, Clogworth," the necromancer leader says. "I was never intending to keep my promises to you to begin with."
+
+"So, now you're telling me to my face that you were lying to me, is that it?" says Clogworth, the God of Fate follower.
+
+"Can I kill them now, or are we going to politely wait for them to stop talking before we attack them?" Kate whispers to us.
+
+"Give me a minute," Daren whispers back. "I'm trying to use what Arraka taught me about auras to figure out if they placed any magical traps around here or not."
+
+}
+#if(v_ch11_saved_rose == 0) {
+ "So, the revenant couldn't get the job done the first time, and now the God of Death sent his goons to us instead," Daren says. "Does he not understand that Eiden just doesn't care if Flower lives or dies?"
+"Silence, dog!" the necromancer leader says. "You should be grateful enough that I am showing you so much mercy. You would be wise to not stretch my patience even thinner. Just give us the girl and we can all put this matter behind us."
+
+"How many times will I have to listen to you offering to spare these people's lives, before you man up and do what needs to be done, you coward?" says the God of Fate's follower, who is just now speaking for the first time.
+
+"You dare speak this way to me, you lunatic?!" the necromancer leader says. "After I was gracious enough to let you join us on this trip?"
+
+}
+#if(v_ch11_saved_rose == 1) {
+ "The fox told Eiden to not kill me?" Flower says. "I had no idea!"
+"It looks like she's been protecting us from behind the scenes, despite not showing it," Illuna says. "Perhaps your insistence to keep helping the animals whenever they were in mortal danger over these past twenty years has not been completely wasted after all."
+
+"Why would I not have helped them?" Flower says. "They are my friends!"
+
+"Right," Illuna says.
+
+"Be quiet, you wretches!" the necromancer leader says. "I have not come all the way here to listen to your insipid drivel! You will come with us now, or your friends will suffer!"
+
+"How many times will I have to listen to you offering to spare these people's lives, before you man up and do what needs to be done, you coward?" says the God of Fate's follower, who is just now speaking for the first time.
+
+"You dare speak this way to me, you lunatic?!" the necromancer leader says. "After I was gracious enough to let you join us on this trip?"
+
+}
+choice("Continue", B3-Ch12b-Visions, v_current_scene = B3-Ch12b-Visions) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+
+
+ID: B3-Ch12b-Visions
+TEXT: 
+
+ "There are no traps, you numbskull," Arraka says. "I would have told you if there were."
+"Oh yeah," Daren says. "I keep forgetting that you're actually actively contributing to our efforts nowadays and not just laughing at us and commenting on the side."
+
+"They are not crazy visions, you vermin!" I hear Clogworth say in the meantime, who seems to be busy insulting his teammates as well. "They are prophetic dreams from my god! I have a special link to him and sometimes his inner-most thoughts can leak out to me without him even being aware of it! That is how I know that these people need to be killed! They are interfering with my god's plans! I saw them in my dreams! I saw them talking to Eiden about saving the Varathian cities. That is not his calling! He is supposed to be a bringer of destruction! It is these people's fault that he is hesitating to do what must be done! These fools and the golden fox are the only ones holding him back from losing the last remainder of his humanity and achieving his true purpose! That is why they must be dealt with!"
+
+ "How deluded do you have to be to think that you are the only one of your god's followers who can actually read his mind during your sleep?" says the necromancer leader. "You have absolutely no proof for your claims, but you keep going on about it, like you're expecting anyone to believe you. There is no way you could be considered sane when you act like this."
+I should probably consider myself lucky that nobody seems to be taking this guy seriously, because if he actually saw us talking to Eiden about avoiding the destruction of the Varathian cities, then it is possible that some of his other 'prophetic dreams' might have some truth behind them as well. Thankfully, it doesn't look like any of the other followers of the God of Fate believed him, so at least they shouldn't be actively looking to hunt us down.
+
+ "Do I attack them or not?" Kate whispers to us again. "I swear, I'm only waiting for a single one of you to tell me 'yes', and then I'm unleashing my icicles upon them."
+
+choice("Tell Kate to attack them.", B3-Ch12b-Attack, v_current_scene = B3-Ch12b-Attack)
+choice("Tell Kate to wait for them to make their move.", B3-Ch12b-Wait, v_current_scene = B3-Ch12b-Wait)
+
+
+ID: B3-Ch12b-Wait
+TEXT: 
+
+ "Just wait one more minute," I whisper to Kate. "Let's see what they do first."
+"This sounds like a bad idea..." Kate says, as we both now focus on what the four mages are talking about.
+
+"Do you not see what they are doing?" says Clogworth, the God of Fate's follower. "While we were bickering, they've been amassing icicles in the sky. Look up! They're going to impale us with them!"
+
+"As if the God of Death would allow us to be killed by mere icicles..." the necromancer leader says, while raising his hands in the air. "Behold! This is the kind of power that none of you could ever hope to achieve. This is the power of a true god!"
+
+As the necromancer stops talking, a hundred or so skeletons with insanely powerful magic radiating from their auras are now slowly rising from the ground all around us.
+
+ Seeing what is happening, Kate quickly shoots all of her icicles at the four mages, but a skeleton rises in front of them just in time to cast a semi-transparent barrier and shield them from harm.
+"Blast it!" Kate says. "I knew I should have attacked them sooner."
+
+"These are skeleton stillwaters again, aren't they?" Daren says, as he calmly creates a protective magical barrier all around us. "Barry, how long do you think it will take your device to power up and give you more magic, like last time?"
+
+"Uh... with this number of skeletons?" I say. "Hopefully less than one minute."
+
+"Good," Daren says, while the one hundred stillwaters begin to attack his barrier with all sorts of strong spells. "Can anyone else please help me reinforce this barrier? I'd rather not start fighting them until Barry can join the fight properly with his emergency stats."
+
+ "I'll help you as soon as I deal with these annoying necromancers," Kate says, as she uses her scepter to create four much bigger cones of ice, which she now sends towards the four enemy mages at an explosive speed, managing to shatter the stillwater's barrier quite easily.
+However, despite her icicles properly reaching their targets this time, her attacks do not have the desired effect at all, because the projectiles just go straight through the four mages as if they weren't even there.
+
+"They were illusions this whole time?!" Arraka shouts, all of a sudden.
+
+"Damn it, Arraka!" Daren says, as he is still struggling to keep his barrier up against the relentless attacks of the skeleton stillwaters. "I thought you were supposed to be helping! You have the sharpest magical sense in the team by far, and you still couldn't figure out that they were illusions?!"
+
+choice("Continue", B3-Ch12b-Wait2, v_current_scene = B3-Ch12b-Wait2)
+
+
+ID: B3-Ch12b-Wait2
+TEXT: 
+
+ "Shut up!" Arraka says. "There was absolutely nothing unusual about their auras. Somehow this wimpy-looking green-robed lunatic must have obtained one of Memphir's most advanced illusion spells and cast it before we even got here. It's the only way in which I can explain it!"
+"Guilty as charged!" shouts Clogworth, the God of Fate's follower, so that we can hear him in spite of the noise that the stillwaters are making. "It seems that not even the famous god-killer Arraka can see through an illusion spell designed by the God of Fate himself. Rest assured that this is only one of the many spells that my deity has unknowingly shared with me in my dreams."
+
+"This bastard must have gotten his aura linked with Memphir himself at birth," Arraka tells us. "And instead of getting a faulty connection with his spirit, like Daren, he lucked out and got the upgraded version. Argh! Why did it have to be one of Memphir's spells, of all things? These are always so ridiculously complicated to decipher!"
+
+"So, what you're saying is that you can't do it, then..." Illuna taunts her.
+
+"Of course I can do it," Arraka says. "But it's going to take a lot of time. If you manage to survive against the one hundred skeleton stillwaters until then, I'll tell you what I've figured out."
+
+ "Any luck with your 'Emergency mode', Barry?" Daren asks me.
+"Not yet," I tell Daren, while I am holding my stat device in my hand and looking at its screen. "I don't understand why it's taking so long. Maybe it's because these skeletons were better created than the other ones we fought. Now that I examine them more closely, they do seem to be leaking far less energy than the ones made by Zack, the necromancer, even though there are a hundred of them."
+
+"Okay... Kate, can you make an ice dome around us, please?" Daren says. "I really don't want to expend all of my energy just keeping one barrier up."
+
+"I'm on it," Kate says, as she conjures a semi-transparent dome of reinforced ice around us, just like Daren asked.
+
+"Do you think there's still a chance that your Emergency mode activates or should we just start attacking them?" Daren says to me.
+
+ "I honestly don't know," I answer him. "With the rate at which the energy is being leaked from them, it might just not be enough to trigger my temporary boost in stats. How's your barrier holding up?"
+"Pretty well, actually," Daren says. "Despite the enormous magical power radiating from their auras, their attacks are surprisingly weak. Look, they're not even getting past Kate's ice dome at the moment!"
+
+"Hmm..." I say. "Maybe they're not really stillwaters? Or maybe they're conserving their energy for some reason. Oh, or what if--"
+
+I don't get to finish what I had to say, because one second later a huge explosion envelops us all out of nowhere, giving us no time to react to it. I barely even had any time to realize what happened to me before I lost my consciousness for good.
+
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
+
+
+ID: B3-Ch12b-Attack
+TEXT: 
+
+ "Yes," I whisper to Kate. "Attack them now, while they're still talking."
+"That's all I wanted to hear," Kate says, and then she shoots all of the icicles that she had been secretly preparing above, straight into the four mages in front of us.
+
+Unfortunately, her surprise attack does not have the desired effect at all, because the projectiles just go straight through our enemies as if they weren't even there.
+
+"They were illusions this whole time?!" Arraka shouts, all of a sudden.
+
+"Damn it, Arraka!" Daren says. "I thought you were supposed to be helping! You have the sharpest magical sense in the team by far, and you still couldn't figure out that they were illusions?"
+
+"Shut up!" Arraka says. "There was absolutely nothing unusual about their auras. Somehow this wimpy-looking green-robed lunatic must have obtained one of Memphir's most advanced illusion spells and cast it before we even got here. It's the only way in which I can explain it!"
+
+"Guilty as charged!" says Clogworth, the God of Fate's follower. "It seems that not even the famous god-killer Arraka can see through an illusion spell designed by the God of Fate himself. Rest assured that this is only one of the many spells that my deity has unknowingly shared with me in my dreams."
+
+ "This bastard must have gotten his aura linked with Memphir himself at birth," Arraka tells us. "And instead of getting a faulty connection with his spirit, like Daren, he lucked out and got the upgraded version. Argh! Why did it have to be one of Memphir's spells, of all things? These are always so ridiculously complicated to decipher!"
+"So, what you're saying is that you can't do it, then..." Illuna taunts her.
+
+"Of course I can do it," Arraka says. "But it's going to take a lot of time. If you manage to survive against the one hundred skeleton stillwaters until then, I'll tell you what I've figured out."
+
+"The one hundred what?!" Kate shouts, as a hundred skeletons with insanely powerful magic radiating from their auras are now slowly rising from the ground all around us.
+
+"Great..." Daren says, as he now creates a magical barrier around us to defend us from the skeletons' incoming attacks. "Barry, how long do you think it will take your device to power up and give you more magic, like last time?"
+
+"Uh... with this number of skeletons?" I say. "Hopefully less than one minute."
+
+ "One minute, huh?..." Daren says, while the one hundred stillwaters continue to attack his barrier with all sorts of strong spells. "Can anyone else please help me reinforce this barrier? I'd rather not start fighting them until Barry can join the fight properly with his emergency stats."
+"I'm on it," Kate says, as she begins to create a semi-transparent dome of reinforced ice around Daren's barrier.
+
+For the next minute or so, I just stand there with the stat device in my right hand, looking at its screen and waiting for it to give me my Emergency mode option. However, despite waiting more than I did last time, the option still does not appear.
+
+"Any luck with your 'Emergency mode', Barry?" Daren asks me.
+
+"Not yet," I say. "I don't understand why it's taking so long. Maybe it's because these skeletons were better created than the other ones we fought. Now that I examine them more closely, they do seem to be leaking far less energy than the ones made by Zack, the necromancer, even though there are a hundred of them."
+
+choice("Continue", B3-Ch12b-Attack2, v_current_scene = B3-Ch12b-Attack2)
+
+
+ID: B3-Ch12b-Attack2
+TEXT: 
+
+ "Not really the answer I was hoping for," Daren says. "Do you think there's still a chance that it activates or should we just start attacking them?"
+"I honestly don't know," I say. "With the rate at which the energy is being leaked from them, it might just not be enough to trigger my temporary boost in stats. How's your barrier holding up?"
+
+"Pretty well, actually," Daren says. "Despite the enormous magical power radiating from their auras, their attacks are surprisingly weak--"
+
+"TRAPS!" Arraka shouts all of a sudden. "All around you! No time to explain, just run! RUN!"
+
+"But the stillwater skeletons--" Daren starts to say, before Arraka interrupts him again.
+
+"Just run through them!!!" Arraka shouts. "They are illusions! Pick any direction, just go!"
+
+"This way!" Daren says, as he points somewhere to the left of the illusions of the four mages, and Kate dismisses her ice dome, so we can all run there together.
+
+Just as we're done running through all of the skeleton stillwater illusions, an enormous explosion is detonated behind us, and Kate quickly conjures a wall of ice while we're running, to defend us from the blast.
+
+ "No, now you're going too far!" Arraka shouts again. "There's another trap right over--"
+A new, less powerful invisible trap now explodes just a few feet in front of us. Daren puts his shield in front of him to create a barrier, but he wasn't quick enough to fully materialize it, so we all get thrown on our backs by the force of the impact.
+
+"That's ENOUGH!!!" Kate and Diane both shout at exactly the same time, as they get up from the ground and they suddenly cover the whole area around us in ice and electricity.
+
+Five metallic devices which I assume to be explosive traps are now showing up all of a sudden, completely frozen and with zap marks from Diane's previous electrical currents. The devices were scattered randomly all around the clearing and seemed to have been placed somewhat in a hurry, by the looks of it.
+
+As the stillwater illusions are fading away, we now see that only two of the skeletons were in fact real, and that the four mages had been standing behind one of them this whole time, hidden by Clogworth's illusion. The skeleton that was attacking Daren's barrier got frozen by Kate, while the other skeleton, who was defending the four mages, managed to create a wall of stone in front of them to shield them from Kate and Diane's attacks.
+
+"You double-crossing bastard!" says the necromancer leader to the illusionist mage. "You were going to kill the little girl in that explosion too, weren't you?"
+
+ "I wasn't going to kill her until you told me to my face that you were planning to betray me," Clogworth says, as he seems to be quickly tapping some buttons on a small device that he is holding in his hand. "These explosives were meant as a last resort, in case you turned out to be too incompetent to finish the job. I suppose this is what I get for trying to rely on my teammates. I should have just used the explosives from the start."
+"Don't let them get away, you nitwits!!!" Arraka shouts at us, angrily. "Kill them! Kill them!!!"
+
+"They're getting away?..." Hadrik asks, confused.
+
+"We're getting away?!" the necromancer shouts, at the same time.
+
+"Shut it," Clogworth tells his teammate, in a disgusted tone, and then he pushes one last button on his device.
+
+choice("Continue", B3-Ch12b-Attack3, v_current_scene = B3-Ch12b-Attack3)
+
+
+ID: B3-Ch12b-Attack3
+TEXT: 
+
+ All of a sudden, the four mages are being enveloped by a familiar-looking white light, as their bodies are beginning to vibrate loudly.
+"This isn't over, you know..." Clogsworth tells us, while Kate is quickly conjuring an icicle to shoot at him. "We will meet again. And next time you won't be so--"
+
+"Lucky?..." Flower tries to guess the last word of the illusionist mage's sentence, as he and his allies disappear from right under our noses.
+
+Right before they got away, Kate managed to shoot one last icicle at Clogworth, but by that time, the teleportation spell had already dematerialized his body to such a degree that the projectile went straight through him.
+
+"ARGH!" Arraka exclaims. "I can't believe it! I can't believe you let another group of enemies escape like this! How many of them does that make? You've got Talmak and his cronies, you have Tyrath's elite squads, Tyrath himself, Loyrang from the Ollendor royal guards... am I forgetting someone here?!"
+
+ "Actually," I say, "I don't think Loyrang really counts as an enemy anymore since he pretty much--"
+"Zip it!" Arraka says. "I don't care if he's still an enemy or not! The point I'm trying to make is that you can't keep letting these types of losers walk all over you like this! You are trying to kill GODS! Act like it, damn it!"
+
+"As far as I know, we're only trying to kill one god," Daren says, as he is now examining the area from where the mages teleported, trying to see if they left any clues behind. "And as it so happens, you were the one who said that you needed time to decipher the illusionist's spell, not us. If you don't want them to get away like this, work faster next time."
+
+"Bah..." Arraka says in indignation, although it doesn't seem like she's planning to provide any counter-arguments to Daren's claim that she did indeed have a contribution to our team's failure this time around.
+
+ "Are there any more hidden explosives that we should be aware of?" Illuna says. "I wouldn't want to blow up by accident after the enemy has already retreated..."
+"No," Arraka says, as she is now calming down. "The illusionist placed most of those traps in a hurry, so he didn't have time to set up too many of them. I caught him while he was stacking up traps right next to Daren's barrier and Kate's dome, hidden by his illusion. Then he began running as soon as I warned you about the traps and he detonated them remotely."
+
+"How far away did they teleport?" Kate asks.
+
+"Far enough for me to not be able to sense them anymore," Arraka says. "They're probably in their home base by now."
+
+choice("Continue", B3-Ch12b-Attack4, v_current_scene = B3-Ch12b-Attack4)
+
+
+ID: B3-Ch12b-Attack4
+TEXT: 
+
+#if(v_ch3_kate_badly_hurt == 1) {
+ "Okay, can we forget about those mages for a second and talk about how well in sync Kate and I were back there?" Diane says, excited, as she puts her right arm around the back of Kate's neck. "It almost felt like we were twin sisters! We even have the scars to match!"
+"Your scar is on your left arm..." Kate says. "Mine is on my face."
+
+"Close enough!" Diane says, with a smile.
+
+"Can anyone tell my twin sister to loosen her grip?" Kate says. "It's getting a little hard to breathe."
+
+"You sure you want to be asking your friends for help?" Diane says, with a smirk, as she continues to keep her in a relatively loose stranglehold. "And here I was, kindly offering you the rematch you always wanted, after all those times I beat you at wrestling when we were kids!"
+
+"Fine," Kate says. "You asked for it."
+
+She then uses her right foot to sweep Diane's right leg, while grabbing the arm she had around her neck with both her hands, in order to lift Diane on her back and then throw her to the ground in front of her. As soon as Diane lands on the grass, Kate turns her with her face to the ground, puts a knee on her back and begins twisting one of her arms behind her.
+
+}
+ "Do you concede?" Kate asks Diane, as she keeps twisting the arm.
+"Ow, ow, ow, ow!" Diane says.
+
+"Do you concede?" Kate asks her again, a little louder this time.
+
+"I give up, I give up!" Diane says. "You win!"
+
+As soon as Kate lets go of her arm, Diane begins to laugh in a way that we've never heard her laugh before. She sounds almost... at peace. I don't think I've ever seen her so relaxed in our presence before, to the point that it feels like we are only now seeing a hint of the true Diane behind the mask that she's been wearing this whole time.
+
+I think Kate might also be seeing the same thing as me, because she is now smiling, and offering Diane her hand.
+
+ "Come on..." Kate tells her. "Get up."
+"I can't believe you did that!" Diane says, as she grabs Kate's hand, with tears in her eyes from the laughing. "I wasn't expecting that at all!"
+
+"What are you talking about?..." Kate says, as she helps her get back up. "You're the one who wanted the rematch, aren't you?"
+
+"Yes, but I was only teasing you!" Diane says. "The old Kate from the Beacon would have never accepted my challenge so directly. You used to be so shy! I think I like this new version of Kate!"
+
+#if(v_ch3_kate_badly_hurt != 1) {
+ "Okay, can we forget about those mages for a second and talk about how well in sync Kate and I were back there?" Diane says, excited, as she puts her right arm around the back of Kate's neck. "It almost felt like we were twin sisters!"
+"I get why we would be sisters, but why twins?..." Kate says. "We look nothing alike."
+
+"Twin sisters in spirit, Kate!" Diane says, with a smile. "In spirit!"
+
+"Can anyone tell my twin sister to loosen her grip?" Kate says. "It's getting a little hard to breathe."
+
+"You sure you want to be asking your friends for help?" Diane says, with a smirk, as she continues to keep her in a relatively loose stranglehold. "And here I was, kindly offering you the rematch you always wanted, after all those times I beat you at wrestling when we were kids!"
+
+"Fine," Kate says. "You asked for it."
+
+She then uses her right foot to sweep Diane's right leg, while grabbing the arm she had around her neck with both her hands, in order to lift Diane on her back and then throw her to the ground in front of her. As soon as Diane lands on the grass, Kate turns her with her face to the ground, puts a knee on her back and begins twisting one of her arms behind her.
+
+}
+choice("""If you liked that throw, wait till you feel one of her punches!""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 0)
+choice("""Kate being shy? Are you sure you're talking about the same person?""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 1)
+choice("""I don't understand how you thought you could beat Kate in hand-to-hand combat.""", B3-Ch12b-Gadgets, v_current_scene = B3-Ch12b-Gadgets, v_b3_ch12_punches = 2)
+
+
+ID: B3-Ch12b-Gadgets
+TEXT: 
+
+#if(v_b3_ch12_punches == 0) {
+ "If you liked that throw, wait till you feel one of her punches!"
+"I never knew that you remembered my punches so fondly, Barry," Kate tells me, as she is cracking her knuckles. "Come closer, and I can give you as many of them as you want."
+
+"Tempting, but I think I'll pass, for now!" I say.
+
+"That's fine," Kate says. "The offer won't expire, anyway. All you need to do is say something stupid again, and you can claim your reward for free."
+
+}
+#if(v_b3_ch12_punches == 0 || v_b3_ch12_punches == 1 || v_b3_ch12_punches == 2) {
+ "Couldn't you have this conversation while you're walking?..." Arraka says. "The enemies are already gone. What exactly are we still doing here?"
+"I'm trying to figure out how the mages teleported out of here," Daren says. "I saw the illusionist using some kind of device, but it was too small to be a teleporter, so I figured that it was just a remote control, and that the real teleporter should still be hidden somewhere around here. Maybe we could make use of it."
+
+"Do you seriously think he'd leave a device like this lying around if it was still usable?" Arraka says. "It's probably one of those... one-use-only teleporting gadgets that you can easily buy on the market if you have enough money. Even I know about them, and I have zero interest in magical devices. You're just wasting your time."
+
+"On the contrary," Daren says. "Those 'one-use-only' gadgets, as you call them can actually be used as amplifiers for your magical power for a whole day if you tweak them a little after they've fulfilled their purpose as teleporting devices. It's a trick that I learned back in my early days of enchanting when I didn't want to waste any materials on--"
+
+ "Ugh..." Arraka groans, audibly. "Even if you can find some use for it, you'll never be able to retrieve it. The green-robed wimp hid the device behind an illusion that remained active even after he teleported away, which means that it's likely even more complicated than the one I already deciphered. Since I couldn't care less about your lame magic amplifier, and you obviously can't see through the illusion by yourself, the only solution would be to wait until the spell runs out, which could last for days. Or, if you're really desperate, I suppose you could dig up the entire area until you find it, because I'm assuming that he must have buried it somewhere. Are you up for a few hours of digging, Daren?"
+"Okay, I get your point," Daren says. "Let's move on."
+
+"Music to my ears!" Arraka tells him.
+
+}
+#if(v_b3_ch12_punches == 1) {
+ "Kate being shy? Are you sure you're talking about the same person?"
+"Oh, that's right..." Diane says. "The Kate that you saw in the God of Time's ritual was just the current version of her in her younger body. You never actually got to see how she used to act during that time! I wish you met her back then. She was so adorable!"
+
+"Can you... not talk about what I was like before I left the Beacon?" Kate says. "It's a little embarrassing."
+
+"Oh, so you can still get embarrassed despite your newly-found cold and composed attitude!" Diane says. "I'm liking this new Kate more and more!"
+
+}
+#if(v_b3_ch12_punches == 2) {
+ "I don't understand how you thought you could beat Kate in hand-to-hand combat." 
+"Yeah, no kidding," Hadrik says. "She even managed to throw me to the ground one time during a mock duel! I mean, I was holding back quite a bit, but it was still pretty impressive! She has this sort of... technique that allows her to knock you off balance and completely brush off your attack even if you put a lot of strength behind your punch. I'm not sure how she does it, exactly..."
+
+"It's a type of martial art," Daren says, as he is still looking around the area that the mages teleported from. "Nolderan told me about it at one point. I don't remember exactly what it's called, but supposedly it uses your opponent's own strength against them and it can also work against armed opponents, if you are skilled enough. Didn't Kate once mention to us that some martial arts master took pity on her when her ice powers were still weak, and he secretly taught her some lessons in the woods where she was hiding?"
+
+"Oh, right, I think she did say something like that," Hadrik says.
+
+"I didn't know you learned to fight from a martial arts master, Kate!" Diane says. "I would love to meet him some day!"
+
+"Unfortunately that is not possible anymore," Kate says. "He died of old age not too long ago."
+
+"I'm sorry to hear that..." Diane says.
+
+}
+choice("Continue", B3-Ch12b-Digging, v_current_scene = B3-Ch12b-Digging) if (v_b3_ch12_punches == 0 && v_b3_ch12_scout == 3 || v_b3_ch12_punches == 1 && v_b3_ch12_scout == 3 || v_b3_ch12_punches == 2 && v_b3_ch12_scout == 3)
+choice("Continue", B3-Ch12b-Detector, v_current_scene = B3-Ch12b-Detector) if (v_b3_ch12_punches == 0 && v_b3_ch12_scout != 3 || v_b3_ch12_punches == 1 && v_b3_ch12_scout != 3 || v_b3_ch12_punches == 2 && v_b3_ch12_scout != 3)
+
+
+ID: B3-Ch12b-Digging
+TEXT: 
+
+ "Hold on," I say. "Do you remember how I told you that I noticed the illusionist burying something in the ground just as I flew above him? I think I might know where he hid the teleporter. If I'm not mistaken, it should be right about... there!"
+I then point towards an empty patch of grass further ahead, and I advance towards it, while Daren also follows me. As soon as I reach it, I get down on my knees and start digging through the grass with my bare hands.
+
+As expected, the ground feels soft while I'm digging through it, making it obvious that somebody had already dug a hole here before me. After a few more seconds of tossing dirt to the side, the illusion finally wears off, and the grass disappears completely, leaving behind only the brown soil that was covering up the device.
+
+Seeing that I had indeed found the right spot, Daren starts digging with me as well, and soon, we manage to unearth a round metallic contraption, about the size of a small watermelon. I'm not really familiar with these types of devices, but from Daren's reaction, it does seem like it was exactly what he was looking for.
+
+ "Perfect!" Daren says, as he is now pulling out his enchanting tools from his backpack. "Just give me one minute to turn this into a proper magic amplifier, and then we can go."
+"How exactly would one go about using such an amplifier?..." Illuna asks. "Would you have to hold it in your hands while casting spells?"
+
+"No," Daren says, as he is working on the metal sphere with his tools. "It's enough to stand near it, and it will automatically connect itself to your aura. I'll let you test it as soon as I'm done. Just give me a second..."
+
+Once Daren finishes his work on the device, he kicks it lightly and lets it roll all the way to Illuna. He then tells her to give it a try with whatever spell she'd like.
+
+Illuna nods, and she chooses to use the same spell that she had been using to wash dishes earlier this morning. From an outsider's perspective, it's hard to tell the difference between her regular spell and this slightly amplified one, but Illuna at the very least seems to be pretty satisfied with it.
+
+"It's better than I expected," Illuna says. "I can actually keep the spell stable a lot easier with this. How long did you say this amplifier can last?"
+
+ "One full day at most," Daren says. "You can hold on to it if you want. It could prove useful if things go badly in the sacred woods later today. Hopefully we can resolve things peacefully, though..."
+"Hadrik can keep it for now," Illuna says. "I'd rather not carry this big ball of metal the whole way there. I'll ask him to hand it over to me if I ever feel like I need it."
+
+"Alright, I'll carry this for you in my backpack," Hadrik says. "But just so you know, it would be nice to hear you say the words 'please' and 'thank you' every once in a while when you make requests like these."
+
+"Please and thank you," Illuna says, curtly, in the most disinterested tone possible.
+
+"Close enough," Hadrik says, as he grabs the metal device from the ground and puts it in his backpack.
+
+"I guess we're done here, then," Daren says. "Let's head out!"
+
+choice("Continue", B3-Ch12b-Detector, v_current_scene = B3-Ch12b-Detector)
+
+
+ID: B3-Ch12b-Detector
+TEXT: 
+
+#if(v_b3_ch12_hadrik == 1) {
+ We travel towards the sacred woods for about two more hours after our battle with the three necromancers and the illusionist. During this time, we didn't encounter any other mages, and Arraka didn't detect any of our four enemies coming back for us either. It looks like they really did give up, at least for today.
+I was also pleasantly surprised to see that after their little wrestling match, Kate and Diane have been getting along much better than before. I think that one genuine moment between the two of them was exactly what they needed to realize that despite how much they had both changed in the time that they've been apart, deep down they were still the same two girls that used to laugh together, have fights together, and stand by each other's side, in those many years of hardship that they spent at the Beacon of Hope.
+
+Other than this, the rest of our trip to the golden fox's forest has been rather uneventful except for one regular call from Sophie, Flower calling Melindra two times on the transceiver to talk to her about some peculiarly shaped clouds in the sky, and Hadrik mentioning five times how he couldn't wait for the day to be over so he could drink ale again.
+
+}
+#if(v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1) {
+ By the time the sun was at its highest point in the sky, we had already arrived at the exact edge of the sacred woods, and once we got there, we just stood in place for about half a minute or so, uncertain of how we should continue further.
+"Okay, so we're finally here..." Daren tells us, in a relatively indecisive voice. "We have the pinecone detector with us... Now what?"
+
+"I could try to go in really quick and see if the detector activates or not," Hadrik says. "I don't see anyone guarding the border, so if everything works out, we could be gone by the time they send anyone after us!"
+
+"I think Petal and I should be the ones to go in," Flower says. "Unlike the rest of you, the two of us are not forbidden from entering the sacred forest, and it's not like these pinecones are priceless treasures or something. I should be able to take one without anyone missing it."
+
+ "Flower makes a good point," Daren says. "But I'm also not sure how much I like the idea of us splitting up."
+"For starters, I could try to check this area right at the border of the sacred woods," Flower says. "Maybe with a little luck we'll find a pinecone here and we won't need to look any further!"
+
+"That doesn't sound so bad," Daren says. "What do you guys think?"
+
+"I say she should go for it!" Hadrik says. "We'll be right here, in case something happens."
+
+"Fine with me," Kate says, as she hands the thin metallic tablet that she had been holding in her hands to Flower. "Here's the pinecone detector. Do you know how to use it?"
+
+"Umm, yeah!" Flower says. "Just press on this button, right? Should be easy enough! Alright, here I go. Wish me luck!"
+
+}
+#if(v_b3_ch12_hadrik == 0) {
+ We travel towards the sacred woods for about two more hours after our battle with the three necromancers and the illusionist. During this time, we didn't encounter any other mages, and Arraka didn't detect any of our four enemies coming back for us either. It looks like they really did give up, at least for today.
+I was also pleasantly surprised to see that after their little wrestling match, Kate and Diane have been getting along much better than before. I think that one genuine moment between the two of them was exactly what they needed to realize that despite how much they had both changed in the time that they've been apart, deep down they were still the same two girls that used to laugh together, have fights together, and stand by each other's side, in those many years of hardship that they spent at the Beacon of Hope.
+
+Other than this, the rest of our trip to the golden fox's forest has been rather uneventful except for one regular call from Sophie, and Flower calling Melindra two times on the transceiver to talk to her about some peculiarly shaped clouds in the sky.
+
+}
+choice("Continue", B3-Ch12b-Pinecone, v_current_scene = B3-Ch12b-Pinecone) if (v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1)
+
+
+ID: B3-Ch12b-Pinecone
+TEXT: 
+
+ She then walks a few feet forward, just past several pine trees, while looking around her anxiously at every step as if she were expecting an ambusher to jump her at any moment. As I look at this 'sacred woods' from beyond the invisible border, I can't help but observe the fact that there is absolutely no difference between the two sides of the forest, except for a very, very faint golden tint in the air that could easily be mistaken for the sun's light coming through the leaves of the trees.
+The only reason why I'm even noticing this difference at all is because Flower told me about it. Normally, there would have been absolutely no way for me to know that what lies beyond me is forbidden territory just by looking at it, which only makes the fox's strict policy towards trespassers seem even more ridiculous than it already was.
+
+ "Over there!" Flower shouts. "I see one!"
+It looks like Flower already activated the detector, because I can indeed see a pinecone glowing brightly with a yellow light from one of the pine trees close to the border. The girl quickly runs towards the tree, she snatches the pinecone from it, and then she lifts it in the air victoriously, while the light from it slowly fades away.
+
+ "I got it!" Flower says, happily. "I got it!"
+Mere moments after making her declaration, a large column of yellow light appears out of nowhere behind Flower, and once it disappears, we see that the golden fox was now standing in its place. 
+
+Although Flower most likely noticed the fox teleporting behind her, she seems to be frozen in place, unable to speak a word.
+
+choice("""Flower, watch out! There's a hideous monster right behind you!!!""", B3-Ch12b-Diplomatic, v_current_scene = B3-Ch12b-Diplomatic, v_b3_ch12_hideous = 0)
+choice("""We're not trespassing this time! Look, the border is over there!""", B3-Ch12b-Diplomatic, v_current_scene = B3-Ch12b-Diplomatic, v_b3_ch12_hideous = 1)
+choice("Say nothing.", B3-Ch12b-Diplomatic, v_current_scene = B3-Ch12b-Diplomatic, v_b3_ch12_hideous = 2)
+
+
+ID: B3-Ch12b-Diplomatic
+TEXT: 
+
+#if(v_b3_ch12_hideous == 0) {
+ "Flower, watch out! There's a hideous monster right behind you!!!"
+"There is?!" Flower says, panicked, as she instantly turns around. "Where?... Oh, you meant the-- Oh, it was a joke. Good one, Barry... You got me!"
+
+She then laughs very nervously for about two seconds.
+
+"What are you doing with the pinecone, Flower?" the golden fox says.
+
+"Oh, this pinecone?!" Flower says, as if she only now noticed what she was holding in her hand. "We need it for... umm... you see, there is this mage contest, and--"
+
+"I know what the pinecone is for," the fox says. "I've had mages invading my forests for days, trying to get their hands on them. What I am asking you is why you thought it was a good idea to take something from my territory without asking for my permission?"
+
+"I... didn't think you'd care if it was just one pinecone..." Flower says, in a meek voice.
+
+"Well, you thought wrong," the fox says. "Now hand it over."
+
+"Couldn't we maybe... make a deal or something?" Flower says. "We only need one!"
+
+"A deal, you say?..." asks Eleya, the golden fox.
+
+"Yeah," Flower answers her. "Is there something you'd like in exchange for it?"
+
+}
+#if(v_b3_ch12_hideous == 0 || v_b3_ch12_hideous == 1 || v_b3_ch12_hideous == 2) {
+ "Now that I take a good look at you all, I see that you've gotten quite a bit stronger since I've last seen you," Eleya says. "Maybe there is something you can do for me in exchange for the pinecone..."
+"Sure thing!" Flower says. "Just name your price!"
+
+"You may already know this," the fox says, "but there will be a diplomatic meeting in Galamir soon, concerning the upcoming war against Tyrath's forces, and my second-in-command, Leo, was supposed to attend it. However, due to the constant trespassing of my territory by mages who have been looking for pinecones in the past few days, I have been unable to spare any of my strong warriors to accompany him to his destination."
+
+"Can't you just monitor all of the borders by yourself, and teleport there whenever there's trouble like you did now?" Flower asks, confused.
+
+"My magical sense does not cover the whole continent, and my territories are spread out all over Varathia," Eleya says. "I need my warriors to stay where they are, which is why I am asking you to escort Leo to Galamir, in exchange for the pinecone. As far as I know, that is also where your friends will need to take the pinecone in order to commence their second tournament objective, so this task should not interfere with their schedule. Are you going to accept the deal or not?"
+
+ "Uh, yes... I think... I mean, if everyone else agrees..." Flower says, as she takes a quick look towards us and she sees us all nodding at her. "But... are you sure that you want to send Leo alone with us? Wouldn't it be safer to send him to Galamir alone than with a group of human mages?"
+"Flower..." Eleya says. "During the twenty years since I've met you, you've done nothing but help the animals in my care, without ever expecting anything in return. And as much as I hate to admit it, in the end you were right about Illuna, and she has proven to be a trustworthy ally over the years. I've also verified that she was indeed telling the truth about Arraka being the one who instigated the tragic incident of the so-called 'sacred woods massacre', and while it is hard to say that she will ever be forgiven for what she has done, her actions were at least understandable, given the context."
+
+"Hmph," Illuna says, simply.
+
+"Therefore," the fox continues, "if you give me your word that you will do your best to safely escort Leo to Galamir, that will be enough reassurance for me."
+
+"Wow, Eleya," Flower says. "I don't know what to say. Thank you! And yes, I give you my word. I will do my best to escort Leo to Galamir safely!"
+
+"Very well," the fox says. "In that case, I will bring him to you in a moment. Wait here."
+
+"Huh..." says Hadrik, after Eleya teleports away from us. "I guess the fox really does have a soft spot for Flower. Who would have thought, eh?"
+
+}
+#if(v_b3_ch12_hideous == 1) {
+ "We're not trespassing this time! Look, the border is over there!"
+"I never said that you were trespassing," the golden fox says, simply.
+
+"Good," I say. "That's good. I just wanted to make sure that there are no misunderstandings."
+
+"So... am I free to go, then?" Flower asks the fox.
+
+"Of course," says the golden fox. "As soon as you hand over the pinecone."
+
+"But-- but we need it for--"
+
+"I know what the pinecone is for," the fox says. "I've had mages invading my forests for days, trying to get their hands on them. Now hand it over."
+
+"Couldn't we maybe... make a deal or something?" Flower says. "All we want is one pinecone..."
+
+"A deal, you say?..." asks Eleya, the golden fox.
+
+"Yeah," Flower answers her. "Is there something you'd like in exchange for it?"
+
+}
+#if(v_b3_ch12_hideous == 2) {
+ "What are you doing with the pinecone, Flower?" the golden fox says, after a few more seconds of silence.
+"Oh, this pinecone?!" Flower says, as if she only now noticed what she was holding in her hand. "We need it for... umm... you see, there is this mage contest, and--"
+
+"I know what the pinecone is for," the fox says. "I've had mages invading my forests for days, trying to get their hands on them. What I am asking you is why you thought it was a good idea to take something from my territory without asking for my permission?"
+
+"I... didn't think you'd care if it was just one pinecone..." Flower says, in a meek voice.
+
+"Well, you thought wrong," the fox says. "Now hand it over."
+
+"Couldn't we maybe... make a deal or something?" Flower says. "We only need one!"
+
+"A deal, you say?..." asks Eleya, the golden fox.
+
+"Yeah," Flower answers her. "Is there something you'd like in exchange for it?"
+
+}
+choice("Continue", B3-Ch12b-Wolf, v_current_scene = B3-Ch12b-Wolf) if (v_b2_ch9_animals == 2 && v_b3_ch12_hideous == 0 || v_b2_ch9_animals == 2 && v_b3_ch12_hideous == 1 || v_b2_ch9_animals == 2 && v_b3_ch12_hideous == 2)
+choice("Continue", B3-Ch12b-Dwellers, v_current_scene = B3-Ch12b-Dwellers) if (v_b3_ch12_hideous == 0 && v_b2_ch9_animals != 2 || v_b3_ch12_hideous == 1 && v_b2_ch9_animals != 2 || v_b3_ch12_hideous == 2 && v_b2_ch9_animals != 2)
+
+
+ID: B3-Ch12b-Wolf
+TEXT: 
+
+set(v_b3_ch12_languages,0) if (v_ancient_languages < 2)
+set(v_b3_ch12_languages,1) if (v_ancient_languages >= 2)
+ 
+We wait for a few minutes in front of the sacred woods entrance, just like the fox asked, until she finally teleports back together with Leo the leopard.
+
+Also, aside from Leo, she seems to have brought a wolf with her as well. It takes me a few seconds to recognize him, but then I realize that it's one of the two wolves that we saved from the forest fire a while ago, along with their bear bodyguard. The wolf seemed to be carrying some sort of wooden bracelet in his mouth when he got teleported, which he is now putting down on the ground in front of him.
+
+"This wolf claims that you saved him from a forest fire some time ago," the fox tells us. "Is this true?"
+
+"Yeah, it happened during a storm," I say. "I remember him."
+
+"In that case I'll let you have your discussion with him in peace, and I'll return to teleport him back later," Eleya says. "Leo, if there's anything you need, you know how to contact me."
+
+"Yes, great golden fox," Leo says. "I will be fine."
+
+ "This type of artifact does not have an equivalent in your human world, so it is a little hard for me to explain it to you," the wolf says, "but it will work much better if you don't know exactly what it does. You can think of it as a... good luck charm, of sorts. It is meant to help you when facing a foe that has an overwhelming amount of power compared to you. However, it will only activate once, so you should not rely on it after its one use has been exhausted."
+"That sounds very interesting," I tell him. "I'll make sure to wear this at all times, then. Thanks again. It was a pleasure to meet you once more!"
+
+"The pleasure was all mine, human," the wolf says. "Safe travels to you and your friends!"
+
+"Shall we proceed, then?" Diane asks us.
+
+"Indeed," the leopard says. "I trust that you know how to get to Galamir from here?"
+
+"Of course," Diane says. "The easiest way is to find the main road and just follow the signs. It's one of the most visited cities in Varathia, after all."
+
+"Yes, that is the path I usually take as well," Leo says. "The quickest way to the main road is in this direction. Let's go."
+
+#if(v_ancient_languages < 2) {
+ After the fox leaves, the wolf begins to growl at me a few times, and as he is making these noises, I suddenly realize that he's trying to communicate with me in his animal language, like last time, except I can't understand him anymore because I no longer have enough points in my Ancient languages stat.
+I try to explain this to him in the Common language, but it doesn't look like he understands me either. Seeing what's happening, Leo eventually offers to be our translator, so that we can finally have our conversation.
+
+"When I overheard the fox talking with Leo about some humans escorting him, I had a feeling that it might be you," says the wolf, in his own language. "I told you last time that I would reward you if you ever came near one of the sacred forests in the future, and I've come here to fulfill that promise. Please take this bracelet. It is my gift to you. May you wear it in good health."
+
+"Hey, thanks a lot!" I say in the Common language, after I listen to the translation from the leopard.
+
+I then pick up the bracelet from the ground and put it around my left wrist, while Leo translates what I just said to the wolf.
+
+"Is there something else that I need to know about it?" I ask. "Like, certain words to activate it, or conditions that have to be met before it starts functioning?"
+
+}
+#if(v_ancient_languages >= 2) {
+ "When I overheard the fox talking with Leo about some humans escorting him, I had a feeling that it might be you," says the wolf, after the fox leaves. "I told you last time that I would reward you if you ever came near one of the sacred forests in the future, and I've come here to fulfill that promise. Please take this bracelet. It is my gift to you. May you wear it in good health."
+"Hey, thanks a lot!" I say.
+
+I then pick up the bracelet from the ground and put it around my left wrist.
+
+"Is there something else that I need to know about it?" I ask. "Like, certain words to activate it, or conditions that have to be met before it starts functioning?"
+
+}
+choice("Continue", B3-Ch12b-Dwellers, v_current_scene = B3-Ch12b-Dwellers)
+
+
+ID: B3-Ch12b-Dwellers
+TEXT: 
+
+#if(v_b2_ch9_animals != 2) {
+ We wait for a few minutes in front of the sacred woods entrance, just like the fox asked, until she finally teleports back together with Leo the leopard.
+"You've already met each other before, so I won't bother with the introductions," Eleya tells us, before any of us get to say anything. "Leo, I will be taking my leave for now, but if there's anything you need, you know how to contact me."
+
+"Yes, great golden fox," Leo says. "I will be fine."
+
+"So... shall we proceed, then?" Diane asks us, as the fox is teleporting away.
+
+"Indeed," the leopard says. "I trust that you know how to get to Galamir from here?"
+
+"Of course," Diane says. "The easiest way is to find the main road and just follow the signs. It's one of the most visited cities in Varathia, after all."
+
+"Yes, that is the path I usually take as well," Leo says. "The quickest way to the main road is in this direction. Let's go."
+
+"I'm really sorry for putting you in this situation, Leo," Flower says. "I know how much you hate humans..."
+
+"There is no need for you to apologize," Leo says. "The fox was the one who suggested that I should travel with this group, not you. And as far as my animosity towards humans goes, that mostly extends to the city-dwellers of Varathia and their kin, not to you or your friends, so you don't need to worry about that."
+
+}
+ "Oh... that makes me feel a little better!" Flower says. "In that case, welcome aboard, Leo!"
+"Thank you for having me," Leo responds.
+
+"I can't believe we finally got the pinecone..." Hadrik says, in disbelief, while ignoring the leopard. "Are we actually on our way to completing a tournament objective after all this time?!"
+
+"Not that it really matters anymore, but yes, I suppose we are," Daren says.
+
+ "I wonder if we'll be the first ones to arrive to Galamir with the pinecone!" Hadrik says.
+"Can you stop saying over and over that we're carrying the glowing pinecone with us?" Illuna says. "The last thing we want is to make ourselves into even bigger targets than we already are."
+
+"Right, right, of course," Hadrik says, in a sarcastic tone. "That would only lead to unnecessary fights. Who would ever want that?"
+
+#if(v_b2_ch9_animals == 2) {
+ "I'm really sorry for putting you in this situation, Leo," Flower says. "I know how much you hate humans..."
+"There is no need for you to apologize," Leo says. "The fox was the one who suggested that I should travel with this group, not you. And as far as my animosity towards humans goes, that mostly extends to the city-dwellers of Varathia and their kin, not to you or your friends, so you don't need to worry about that."
+
+}
+choice("Continue", B3-Ch12b-Eiden, v_current_scene = B3-Ch12b-Eiden)
+
+
+ID: B3-Ch12b-Eiden
+TEXT: 
+
+ We all leave the sacred woods behind, and we begin heading towards the main road, just like we agreed. Once we get there, we immediately spot a sign that shows us the direction towards Galamir, so we keep following the road, while checking the wooden signs every once in a while, to make sure that we didn't take a wrong turn at a crossroads somewhere.
+I would have expected to meet some civilians on our way, but this area seems to be mostly deserted, likely due to its relatively close proximity to one of the sacred forests. As we continue to travel together, Flower, Kate and I try to include the leopard in our group's conversations as much as we can, but Hadrik and Daren seem to be doing their best to mostly ignore him. 
+
+It's not like I don't get why they wouldn't want to be friends with someone who used to be our jailor not so long ago, but if we were to judge things fairly, the leopard did offer us a way to earn our freedom when the fox wanted to have us executed, so in my opinion he at least deserves the benefit of the doubt. Eh... Maybe they'll warm up to him after some more time has passed.
+
+ Just as we were starting to relax, we see Eiden standing in the middle of the road in front of us, with his eyes closed and the same polite smile on his face as always. I wonder what he wants now?...
+"Good day, my friends!" Eiden says, once we come closer to him. "I see that you've added a new member to your group. How are things, Leo? It's been a while hasn't it?"
+
+"Yes, it's... been a while," Leo says, looking very uncomfortable.
+
+"Oh, and you've got a glowing pinecone with you as well!" Eiden tells us. "Magnificent work! I'm sure that the tournament organizers will be proud!"
+
+ "Is there any... particular reason why you chose to visit us this time?" Daren asks.
+"There are a few..." Eiden says. "First of all, I wanted to ask you if you've given any more thought to Meridith's deal about killing me. It's been more than two days since then, so I was thinking that this topic of conversation may have come up once or twice, no?"
+
+choice("Tell Eiden that we've tried to avoid this subject as much as possible.", B3-Ch12b-Eiden2, v_current_scene = B3-Ch12b-Eiden2, v_b3_ch12_hesitant = 0)
+choice("Tell Eiden about Daren being hesitant to kill him.", B3-Ch12b-Eiden2, v_current_scene = B3-Ch12b-Eiden2, v_b3_ch12_hesitant = 1)
+
+
+ID: B3-Ch12b-Eiden2
+TEXT: 
+
+#if(v_b3_ch12_hesitant == 0) {
+ "Actually, we've tried to avoid this subject as much as possible," I say.
+"Mhm... I see!" Eiden says. "Yes, that would make the most sense. As long as you keep delaying your decision, you won't be making me into your direct enemy, but at the same time you also get to leave the door open for Meridith, in case you want to change your mind at the last second. You've really thought this through!"
+
+After Eiden stops talking, there is an awkward silence of a few seconds, in which none of us say anything.
+
+"So, was there anything else you wanted to ask us, or..." Hadrik tells Eiden, seeing that he is not planning to continue his monologue.
+
+"Yes..." Eiden says. "As a matter of fact there was something else. See, I've been noticing something very peculiar in the past two days and a half, and I was hoping that maybe you fine folks could help me solve this mystery. For some reason, every single one of the lessathi from the surface of Varathia that I'd been monitoring since the beginning of the tournament vanished without a trace, very shortly after your group entered the lessathi base, and I haven't sensed any of them since. Now, why do you think such a thing might have happened?"
+
+As Eiden is talking, I can feel a drop of sweat sliding down my neck.
+
+"I don't know," Hadrik says, obliviously. "Maybe Meridith asked them all to teleport to their underground base or something?"
+
+}
+#if(v_b3_ch12_hesitant == 0 || v_b3_ch12_hesitant == 1) {
+ "That was actually my first assumption as well!" Eiden says. "There could have been any number of reasons why Meridith would have wanted to call back all of her troops from the surface, so I paid it no mind during the first two days. However, when I saw that none of them were showing up this morning either, I admit that it began to feel a little strange. So, I decided to do some flying around invisibly for a few hours, to see if I could spot a lessathi from above. And can you guess what I found?"
+"...A lessathi?" Flower asks, innocently.
+
+"A lessathi!" Eiden says. "Exactly, Flower! But you see, the problem with this lessathi was that I could only sense his aura from a very close distance. This made me a bit suspicious, so I analyzed the bracelet that he was wearing under his sleeve to mask his presence from me, and what do you know... it had been upgraded to be a hundred times more powerful than before! A hundred times! You wouldn't happen to have any idea why they would have done such a thing, would you, Barry?"
+
+"Listen, it was a mistake!" I blurt out. "I didn't know that it was supposed to be a secret, so I let it slip to Meridith that you could sense her lessathi troops from afar! Read my aura. I'm not lying!"
+
+"Indeed, you are not lying!" Eiden says. "And as we all know, what is truly important is to acknowledge our mistakes, to learn from them, and to make sure that they don't happen again. Isn't that right, Barry?"
+
+"Uh... yes, of course!" I say.
+
+ "Perfect!" Eiden says, joyfully. "So, we are in agreement, then. Diane must die!"
+"What?!" Kate shouts, all of a sudden, while the rest of us are just watching Eiden, in stunned silence.
+
+"Come now, Kate..." Eiden says. "Surely you must have realized it by now. The fact that your friend, Diane, is Meridith's second-in-command means that in all likelihood, most of the information that you've divulged to her is likely to reach Meridith's ears once your friend returns home. This means that whatever you may have told her about me in these past two days and a half will reach Meridith as well, and I'm afraid I can't allow that to happen."
+
+"There were other things that you told us about you that you don't want Meridith to know?" I ask Eiden.
+
+"I honestly don't have a clue," Eiden says, while shrugging. "The idea never came to me to tell you not to inform Meridith about my ability to sense the lessathi from afar, so thinking about it logically, there may well have been some other important details that you've found out about me during the many discussions we've had in the past few weeks. Since I can't be bothered to remember every single conversation I've had with you, and I very much doubt that you can recall every discussion you've had with Diane about me either, the simplest solution to my quandary is to remove Diane from the equation completely. Wouldn't you agree?"
+
+}
+#if(v_b3_ch12_hesitant == 1) {
+ "Actually, I did have a discussion with Daren about this last night," I say. "He said that recent events made him change his mind about you, and that he thinks you haven't lost all of your humanity yet, so he would now be hesitant to kill you."
+"Is that so?..." Eiden says, in a thoughtful voice, as he turns to look at Daren, with his eyes still closed.
+
+"Was there anything else you wanted to ask us, or..." Hadrik tells Eiden, seeing that he is not saying anything anymore.
+
+"Yes..." Eiden says. "As a matter of fact there was something else. See, I've been noticing something very peculiar in the past two days and a half, and I was hoping that maybe you fine folks could help me solve this mystery. For some reason, every single one of the lessathi from the surface of Varathia that I'd been monitoring since the beginning of the tournament vanished without a trace, very shortly after your group entered the lessathi base, and I haven't sensed any of them since. Now, why do you think such a thing might have happened?"
+
+As Eiden is talking, I can feel a drop of sweat sliding down my neck.
+
+"I don't know," Hadrik says, obliviously. "Maybe Meridith asked them all to teleport to their underground base or something?"
+
+}
+choice("Continue", B3-Ch12b-Eiden3, v_current_scene = B3-Ch12b-Eiden3) if (v_b3_ch12_hesitant == 0 || v_b3_ch12_hesitant == 1)
+
+
+ID: B3-Ch12b-Eiden3
+TEXT: 
+
+ "Look, I'm not here on a mission to spy on anyone," Diane tells Eiden. "I don't remember them telling me anything important about you, but even if they did, I won't tell Meridith! All I want is to spend some time with my friend on my way to the diplomatic meeting from Galamir. That's it!"
+"Quite the bold claim you are making, considering that you have been obscuring your aura this whole time," Eiden says. "You know full-well that there is no way for me to tell whether you are lying or not. And even if you were telling the truth, you could still easily change your mind, once you were to return to the safety of your own base. You really are leaving me no other options, here."
+
+"Don't you dare touch Diane, you understand?!" Kate says, as she steps in front of Diane and points her scepter at Eiden. "Don't you dare!"
+
+"Kate, I don't think you understand just how much Barry's little blunder has set me back..." Eiden says, now in a more serious tone. "What I am offering you here is extremely generous. Normally, I would have just murdered your entire group and been done with it, but I did make that one promise to Barry to spare you in exchange for the message that he delivered to Meridith, which is why I am making this compromise. Your friend, Diane, is the second-in-command of a powerful faction whose leader has openly declared that she wants me dead. She knew exactly what risks she was taking when she came to the surface and embarked on this journey with you. Do you really want to throw your life away by taking her side in this war?"
+
+ "You know what?" Hadrik says, as he goes in front of Diane as well. "You can take your generous offer and shove it up your arse. You won't be doing anything to Diane while I'm still standing."
+"I'm sorry, but I really don't see how you could stop me," Eiden says, with a very puzzled expression on his face, while still keeping his eyes closed.
+
+"Calm down, Eiden," Daren says. "You don't want to be doing something you'll regret..."
+
+"Hmm..." Eiden says. "Perhaps I've been a little too friendly with your group lately. You seem to once again be forgetting who you are dealing with. Allow me to give you a little reminder."
+
+We then feel a powerful invisible force pushing us down, until we are all pinned to the ground, except for Kate, Diane and the leopard.
+
+"NGH..." Daren groans. "Eiden, knock it off! Do you hear me?"
+
+"Since Diane is such a good friend of yours, I will give you the chance to save her, Kate," Eiden says, while ignoring Daren.
+
+Just as he is done saying this, Diane suddenly begins to choke, gasping for air, as she is being lifted into the air by Eiden's aura manipulation technique.
+
+"If you can stop me by the time your friend runs out of air, I might consider not executing her on the spot," Eiden says. "Let's see how much you've really improved from your training."
+
+ "You monster!" Kate says, as she uses her scepter to conjure a few very powerful icicles and to send them directly towards Eiden at an explosive speed.
+Eiden, however blocks them effortlessly with a semi-transparent barrier in front of him, as he continues to choke Diane.
+
+"Eiden, I'm warning you!" Daren says, as we are all still being pinned to the ground.
+
+In the meantime, Kate seems to have given up on targeting Eiden directly with her icicles, and she is now aiming them somewhere between Eiden and Diane instead, in an attempt to interrupt his aura manipulation technique.
+
+"Now you're not even trying," Eiden tells Kate, not realizing what she is attempting to do. "Can't you see that none of your icicles are hitting me anymore?"
+
+As Diane finally loses her consciousness due to the lack of air, Kate conjures a much more powerful ice cone than before, and this time she shoots it at just the right angle and speed to successfully disrupt Eiden's aura technique. This makes Diane fall to the ground, while Kate quickly runs to her side, in order to check if she is still breathing.
+
+"She's alive..." Kate says, as she lets out a sigh of relief. "She's still alive..."
+
+choice("Continue", B3-Ch12b-Eiden4, v_current_scene = B3-Ch12b-Eiden4)
+
+
+ID: B3-Ch12b-Eiden4
+TEXT: 
+
+ "How did you--" Eiden says, while looking at Kate. "How exactly were you able to--"
+"I said knock it off!!!" Daren shouts very loudly, as he now raises his sword into the air and moves it to the right, thus removing the invisible force that was pinning us to the ground and allowing us to get back up again.
+
+"You've learned to cancel aura manipulation techniques..." Eiden says, as he now finally understands what was going on. "So that's how you beat the captain of the royal guards in Ollendor... Marvelous! Outstanding! It looks like I might have underestimated how much progress you've made in such little time. With this kind of improvement, maybe I could even fight you at a quarter of my power! Wait, no... maybe that's a little too much. Twenty percent? No, no, no, that would still be too unfair. Ten percent, maybe?..."
+
+ "You really like to hear yourself talk, don't you?" Hadrik says, with a grin, as he instantly dashes in front of Eiden and tries to punch him, but only manages to make a hole in the ground, as Eiden jumps out of the way easily.
+"I see that you are eager to resume our duel from the beginning of the tournament," Eiden tells Hadrik. "Shall I abstain from using magic again, to make it more sporting?"
+
+"Sure, you can do whatever you want," Hadrik says, as he rushes towards Eiden again, and tries to overwhelm his defenses with a series of quick punches.
+
+For the first ten seconds or so, it looked like Eiden had the upper hand, dodging every single one of Hadrik's attacks effortlessly. However, after a relatively short amount of time, we could see the tide of battle shifting rapidly in Hadrik's favor, as he was now pushing Eiden back and forcing him in a much more defensive position.
+
+ Eventually, Eiden was no longer able to avoid one of the punches, and he had no choice but to block it, while being thrown ten feet backwards due to the impact.
+"Hey, now, whatever happened to not using magic?" Hadrik asks Eiden, with a wide grin on his face. "Or are you going to claim that this wasn't a magical barrier that you used to defend yourself a second ago?"
+
+Eiden frowns at him, but he does not answer his question.
+
+"That thing where you read my aura to predict my next move is impressive," Hadrik says, "but unfortunately for you, Daren's been doing it to me for days now, and I already have a pretty good idea how to counter it. As long as I don't have a clear image in my head of where my next attack will be and rely on my instincts to do most of the work, the aura gets jumbled enough for you to not be able to get a good reading of it most of the time. In other words, you may as well just stop using that technique altogether because it's useless against me."
+
+"Eiden, let's just stop this nonsense," Daren says, as he is slowly approaching Eiden. "You're not thinking straight. This isn't like you."
+
+choice("Continue", B3-Ch12b-Eiden5, v_current_scene = B3-Ch12b-Eiden5)
+
+
+ID: B3-Ch12b-Eiden5
+TEXT: 
+
+ "It's not very polite to interrupt a duel, healer," Eiden says, as he points towards Daren and makes a gesture with his hand. "Time for you to go to sleep!"
+When he sees that Daren is completely unaffected by what he has done, Eiden does a flick of his finger two more times until he eventually realizes what's going on.
+
+"Oh, that's right..." Eiden says. "Barry already found out about your protection overload. So, you've finally fixed it, did you?"
+
+ "I fixed a lot more than just my protection overload, Eiden," Daren says. "But if you want to see our improvements so badly, here! Let me show you!"
+Daren then begins to swing his sword at Eiden, while using his more Nolderan-like combat style that he's been practicing for the past few days since he stopped wearing his armor. As the two of them are fighting, I can hear Arraka mumbling to herself like a crazy person from inside her amulet.
+
+"No, no, no..." Arraka says. "It's too soon for this. If Eiden gets serious, this is over... He's going to ruin everything!"
+
+ It's funny, because I was just thinking the same thing. If Eiden were to get serious now and use the same amount of magical power that he displayed against Tyrath's magma-form in the Thilias arena, this fight will end in a flash. Our only chances are to de-escalate the conflict somehow or to beat him while he's still messing around and not unleashing his full power.
+To be quite honest, I'm still having some trouble accepting the reality in front of me. After having avoided a conflict with Eiden for so long, it was beginning to seem almost impossible that we would ever be put in such a situation again. I honestly thought that we might even be able to reach the very end of the tournament without having to fight him at all. But maybe it's not too late! Maybe there are some words that I can say to him which will make him change his mind. I've done it before, so I can do it again, right? I just need to find the right words!
+
+choice("Try to de-escalate the conflict.", B3-Ch12b-Deescalate, v_current_scene = B3-Ch12b-Deescalate)
+choice("Try to find a way to defeat Eiden before he unleashes his full power.", B3-Ch12b-Unleashes, v_current_scene = B3-Ch12b-Unleashes)
+
+
+ID: B3-Ch12b-Deescalate
+TEXT: 
+
+ "Hey, Eiden, I was thinking!" I say, as he and Daren are still fighting. "What if we asked Diane to do an enchanter's oath so that she never tells Meridith or any of the lessathi any information that we revealed about you during this trip? That could work, right?"
+"An enchanter's oath, you say..." Eiden tells me, while he is still evading Daren's sword attacks.
+
+"Yeah, wouldn't that solve all of your problems?" I tell him, as I feel myself getting a little nervous. "And then we could put all this conflict behind us and we'd continue to interact like we always do!"
+
+All of a sudden, Eiden disappears from where he was and he reappears right in front of me, staring at me with his closed eyes, but with the smile gone from his face.
+
+ "You disappoint me, Barry," Eiden says. "Your friends immediately understood that this time there was no room for negotiation, so they decided to take the most logical course of action and bet their lives on the very small chance that they might defeat me. In the meantime, what are you doing? Trying to cling to the hope that I might spare you again for my own amusement? Thinking that your empty declaration to save all of the Varathian cities will somehow guarantee that I'd never kill you under any circumstances? What was the point of dedicating your entire life to becoming a mage, if you're not even willing to use your magic to save you in such a dire moment? Tell me, Barry, were you in fact just a coward this whole time?..."
+My instincts immediately tell me that this is not like any of the other times when I've faced Eiden before. This time he's actually planning to kill me for real. I need to get away from here, quick.
+
+ I do not wait for Eiden to make a move, and I use my air currents to propel myself into the air, as I point my palms towards him from above, in an attempt to shoot him with one of my spells. As soon as I look towards Eiden, however, I realize that he is already gone. 
+I frantically begin to look around me in every direction, to figure out where he teleported. Where is he? Above? Below? Behind? Where?!
+
+"He's invisible, you moron!" Arraka shouts at me. "Behind you!!!"
+
+I do not get the time to turn around, because I can feel a hand grabbing my head from behind, and the next thing I know is that my head explodes in a thousand pieces, killing me in an instant.
+
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
+
+
+ID: B3-Ch12b-Unleashes
+TEXT: 
+
+ There is no point in trying to de-escalate now. Eiden has clearly made up his mind about killing Diane, and he's not going to take no for an answer. The only way to get out of this situation alive is to beat him. But how?...
+While I am trying to think of a plan of action, I see Daren swinging his sword again, but this time Eiden blocks it with only his index finger.
+
+"Hah!" Daren says. "You know, these tricks used to be a lot more shocking back when I didn't know anything about auras. All you're doing right now is focusing all of your aura hardening ability on a single point, in order to make it much stronger than normal, aren't you? But then all I would need to do in this case is to simply spin my blade like this, and then--"
+
+Less than a second after Daren starts spinning his blade, Eiden teleports away from him in the blink of an eye and reappears about ten feet behind his original position.
+
+"Ah, see?" Daren says. "There we go! Of course you wouldn't want me to actually stab you with this sword, because then you'd risk me cutting your connection to the magical plane! It's not so easy pretending to be all-powerful when people can understand what you're doing, is it?"
+
+ "That sword of yours is admittedly becoming a bit of a nuisance," Eiden says, as he now extends his arm towards Daren and does a pulling motion with it.
+"Oh, by all means, take my sword!" Daren says, as he lets go of his weapon and lets it fly towards Eiden.
+
+As the sword is approaching him, it begins to accelerate and spin very rapidly like a rotor blade. This forces Eiden to teleport out of the way once again, but the blade just keeps following him every time he disappears and reappears.
+
+"What's the matter?" Daren says, as he is moving his hands to change the direction of his blade. "Don't want my sword anymore?"
+
+Seeing that teleporting is not working, Eiden tries to blast the flying weapon away with air magic, but the spinning sword just absorbs the air element and sends it right back at him by itself.
+
+As soon as the spinning rotor blade reaches its target again, Eiden teleports away once more, but this time he attempts to fly out of its way instead of disappearing.
+
+"That's an illusion, you idiot!!!" Arraka shouts. "The real Eiden is invisible behind you!"
+
+ A mere fraction of a second after Arraka says this, Hadrik instantly dashes behind Daren from the side, and he punches the empty air in front of him, making Eiden become visible again, as he gets thrown into one of the trees on the side of the road.
+"You are helping them now, Arraka?" Eiden says, while he gets back on his feet and dusts himself off. "That's not really very fair, is it?"
+
+"Shut your filthy mouth, you waste of human life!!!" Arraka shouts, angrily. "Don't you understand that all of my plans are going to be ruined because of you? Because of you!!!"
+
+"I honestly have no idea what you're talking about," Eiden says, as Hadrik rushes towards him again and punches him through the tree.
+
+choice("Continue", B3-Ch12b-Unleashes2, v_current_scene = B3-Ch12b-Unleashes2)
+
+
+ID: B3-Ch12b-Unleashes2
+TEXT: 
+
+ Okay... I need to analyze the situation calmly and come up with a solution. Right now, Daren and Hadrik are the only ones actively fighting Eiden, and it's pretty clear that so far he has only been toying with them. Even without releasing his full power, he should be capable of much more than what he's shown so far.
+This means that if we catch him by surprise in his current state, we might still have a chance to turn things around. As it stands, we already have a plan prepared for neutralizing the Arraka from the past, which is supposed to be more powerful than Eiden's strongest form. However, in order for that plan to work, Eiden would need to stand in place for a few seconds and to also be distracted enough to not attempt to block Kate's ice beam.
+
+Let me think. Is there some way in which I could get Eiden to stand in place and not pay attention to what Kate is doing?...
+
+Wait! There is a way! I actually have the perfect spells I need, and I've even practiced them multiple times! But I'm still going to need him to be considerably weakened before I cast these spells if I want them to have the best effect on him.
+
+ And for that, I'm going to need some help.
+"Flower, Illuna," I say. "We need to put some more pressure on Eiden. Can I count on you?"
+
+"I trust that you've come up with a plan of some sort?" Illuna asks me.
+
+"I have, but I'd rather not talk about it out loud, because I'm not sure how much Eiden has enhanced his hearing ability," I say.
+
+"Understood," Illuna says. "In that case, whenever you're ready."
+
+I nod at her, and then I turn to Kate, who is still standing near the unconscious Diane, in order to be ready to defend her from harm.
+
+ "Kate," I say, "do you remember our plan to take down the Arraka from the past?"
+"I remember it, yes," Kate answers me.
+
+"Good," I say, "Then, I'm going to need you to save up your energy as much as possible, and not do anything until I set up the perfect opportunity for you. You'll know it when it happens."
+
+"Okay, I'll be waiting, then," Kate says.
+
+choice("Offer support to Flower and Illuna, but try to keep a distance from Eiden.", B3-Ch12b-Support, v_current_scene = B3-Ch12b-Support)
+choice("Attack Eiden together with Flower and Illuna.", B3-Ch12b-Together, v_current_scene = B3-Ch12b-Together)
+choice("Go all out (Requires max Strength, Speed, Reflexes, Toughness, Aura hardening)", B3-Ch12b-Allout1, v_current_scene = B3-Ch12b-Allout1, v_b3_ch12_eiden = 4) if (v_agility_aux == 4 && v_aura_hardening_aux == 4 && v_reflexes_aux == 4 && v_strength_aux == 4 && v_toughness_aux == 4)
+
+
+ID: B3-Ch12b-Support
+TEXT: 
+
+#if(v_b3_ch11_red == 0 && v_b3_ch12_scout == 0) {
+ "Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+As soon as I leave the ground, I can already feel a bit of instability when I move through the air, but this was to be expected. With only one level in my magical stats, I should honestly be thankful that I can even use these currents to fly at all. Hopefully, they won't fail me at a critical moment.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+#if(v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0) {
+ "I'll try to provide support to you from afar," I tell Illuna, as I fly further away, to put some distance between me and Eiden. "I think I might have some spells that can--"
+"Provide support from afar?" I hear Eiden's voice, who teleported right next to me while I was talking. "You only now decided to join the battle after so long, and this is what you have to say? Since when have you turned into such a coward, Barry?"
+
+ I fire a lightning spell towards Eiden without thinking, but he already disappeared. I now immediately turn around and start to shoot flames out of my hands at the empty air behind me, thinking that Eiden was trying to hide invisibly again in the same way that he did against Daren, but it doesn't seem like I'm hitting anything.
+Just as I thought I was safe, I can feel Eiden's invisible hand grabbing my head from above and exploding it into a thousand pieces, killing me in an instant.
+
+}
+#if(v_b3_ch11_red == 1 && v_b3_ch12_scout == 0) {
+ "Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+Thankfully, my currents have been working well even with just one level in my magical stats, due to the knowledge that I managed to extract from the Magium node. This means that at least I will be able to focus on my fight, without having to worry about my flight spell malfunctioning randomly at a critical moment.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+#if(v_b3_ch12_scout != 0) {
+ "Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0)
+choice("Load game", , , special:saves) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0)
+
+
+ID: B3-Ch12b-Allout1
+TEXT: 
+
+#if(v_b3_ch11_red == 0 && v_b3_ch12_scout == 0) {
+ 
+
+"Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+
+As soon as I leave the ground, I can already feel a bit of instability when I move through the air, but this was to be expected. With only one level in my magical stats, I should honestly be thankful that I can even use these currents to fly at all. Hopefully, they won't fail me at a critical moment.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+}
+#if(v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0) {
+ When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+#if(v_b3_ch11_red == 1 && v_b3_ch12_scout == 0) {
+ 
+
+"Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+
+Thankfully, my currents have been working well even with just one level in my magical stats, due to the knowledge that I managed to extract from the Magium node. This means that at least I will be able to focus on my fight, without having to worry about my flight spell malfunctioning randomly at a critical moment.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+}
+#if(v_b3_ch12_scout != 0) {
+ 
+
+"Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+}
+choice("Continue", B3-Ch12b-Allout2, v_current_scene = B3-Ch12b-Allout2) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0)
+
+
+ID: B3-Ch12b-Allout2
+TEXT: 
+
+ I don't wait for Eiden to make his next move and I land close to one of the fallen trees that didn't get burned by his previous fire spell. I then pick it up, in order to use it as a weapon, and I take full advantage of my maxed speed stat to rush towards Eiden and swing the tree at him as hard as I can. This catches him by surprise and he doesn't have the time to fully defend against it. My blow sends him crashing through several trees before he finally teleports in front of me, looking slightly pissed off.
+"I'm going to be honest with you, Barry," Eiden says. "That annoyed me a little."
+
+I try to use my tree as a club to squash him like a bug, but I only get to hit the ground, because Eiden is already gone.
+
+"Behind you!" Arraka shouts at me. "He's invisible!"
+
+Immediately after hearing Arraka's warning, I grab the tree firmly in my hands and I begin to spin around with it very rapidly, so that I can be sure to hit Eiden, wherever he's hiding. This causes his invisibility to get cancelled, while he gets thrown back twenty feet again. Once more, he teleports in mid-air and appears in front of me, but this time he immediately grabs my tree with his hand and explodes it in a thousand pieces.
+
+Being left without my weapon, I dash towards another fallen tree, I pick it up from the ground, but now I no longer use it as a club and throw it at him instead. As Eiden is using a spell to blow up the tree just as it reaches him, I grab a few rocks and throw those at him too.
+
+ In the meantime, Hadrik decides to join in on the fun by picking up a tree of his own from the ground, jumping at Eiden and trying to smash his head in with it.
+"Now this is just ridiculous..." Eiden says, as he is blocking Hadrik's tree with one hand, and using his other hand to shield himself from my constant rock throwing.
+
+Eiden now teleports next to me again and attempts to attack me with a spell, but I make use of my superhuman speed and reflexes to not give him even the slightest chance to target me. I keep moving left and right, faster than the eye can see, trying to make it as hard as possible for him to get a good lock on me with even the quickest spells in existence.
+
+Seeing that his targeted spells are not working, Eiden conjures ten large boulders out of nowhere and throws them all in my general direction, so that he can be sure that at least one of them will hit me. I stop for a split second to punch through one of the boulders, but this gives Eiden the time to cast a very quick fire spell, which covers my entire body before I have the time to react. Luckily for me, my maxed Aura hardening stat was enough to keep me from getting incinerated, even though I could feel a very intense heat for a second or two.
+
+All of a sudden, Daren's sword comes spinning rapidly towards Eiden, forcing him to temporarily go on the defensive, as he teleports away constantly while the blade keeps following him.
+
+ We can't let this fight drag on for much longer. If Eiden stops treating this like a game and goes into his serious mode, all of the trees in the world won't be enough to stop him.
+"Illuna, do you think you can cast your 'dish washing' spell on Eiden?" I say. "By the looks of him, I don't think he is calm enough to properly defend himself from something like that at the moment."
+
+"I'll give it a try," Illuna says. "But I'm not promising anything."
+
+She then casts her spell, causing Eiden's head to get surrounded by a sphere of water while he was still busy evading Daren's sword. This seems to have caught him completely off guard, because I can already hear him making drowning noises, while he is at the same time flying up and down, so that he can keep dodging the spinning blade that is following him.
+
+Realizing that he can't get rid of the sword or the water sphere, Eiden conjures a small tornado out of thin air and he lets himself get caught inside it on purpose. This proves to be a little too much for Illuna's drowning spell, and its water particles eventually scatter into the air, while the enchanted sword also fails to absorb the air element making up the tornado and gets caught in it instead, causing Daren to temporarily summon back his weapon.
+
+As Eiden cancels the tornado, he falls to the ground again and then puts his hand on his forehead, without doing anything else for a few seconds. His head must be spinning like crazy right now. This is the moment I've been waiting for. It's now or never!
+
+choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding)
+
+
+ID: B3-Ch12b-Together
+TEXT: 
+
+#if(v_b3_ch11_red == 0 && v_b3_ch12_scout == 0) {
+ "Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+As soon as I leave the ground, I can already feel a bit of instability when I move through the air, but this was to be expected. With only one level in my magical stats, I should honestly be thankful that I can even use these currents to fly at all. Hopefully, they won't fail me at a critical moment.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+#if(v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0) {
+ "Let's attack him together," I tell Illuna and Flower. "I'll try to keep him busy with my spells as much as possible."
+"Oh?..." I hear Eiden saying, who apparently teleported right next to me. "Are you that eager to test your newly acquired magic on a stillwater, Barry? In that case, I will try my best to live up to your expectations!"
+
+I immediately use my air currents to propel myself backwards so that I can give myself a little room to maneuver, and then I begin with a very simple lightning spell to test my enemy's defenses.
+
+"Ah... the classic lightning spell starter tactic," Eiden says. "I heard that it's pretty popular to begin mage duels like this in the Western Continent! So, did you find any weaknesses in my protection spells?"
+
+He is clearly baiting me at the moment. The lightning spell I used just now showed me a glaring weakness in his passive protections that even a beginner could detect. However, I very much doubt that he would bother setting up a trap against my level one magic stats, so I will play his game for now.
+
+ I conjure three icicles that are likely a hundred times weaker than anything Kate has ever created, and I send them towards Eiden from three separate directions at the same time. This exploits the weakness in his barrier that he created on purpose, and it allows one of my projectiles to stab him in his right shoulder, giving him a very light wound.
+"Impressive!" Eiden says, in a mocking tone, as he immediately heals the wound with his left hand. "Not many people can say that they've made a stillwater bleed. Wasn't it worth it to become a mage just for this moment?"
+
+"Oh, yeah," I say, in a deadpan voice, "I'm shivering from all the excitement."
+
+}
+#if(v_b3_ch11_red == 1 && v_b3_ch12_scout == 0) {
+ "Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+Thankfully, my currents have been working well even with just one level in my magical stats, due to the knowledge that I managed to extract from the Magium node. This means that at least I will be able to focus on my fight, without having to worry about my flight spell malfunctioning randomly at a critical moment.
+
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+#if(v_b3_ch12_scout != 0) {
+ "Let's go," I tell Illuna, and then Flower jumps into the air, activating her fire jets, while I use my air currents to fly towards the battlefield as well.
+It looks like in the short time that I haven't been paying attention to them, Hadrik and Daren have made a complete mess of this place. Half of the trees by the side of the road have either been smashed by Hadrik or cut down by Daren's sword, and they're still going at it, while Eiden seems to have gotten a little better at dodging their attacks, despite barely using any of his stronger spells so far.
+
+When Flower gets closer, Illuna conjures a few water lances out of thin air and she launches them at Eiden, who moves his right hand slightly and evaporates the projectiles with a large column of fire.
+
+"Are we adding new combatants?" Eiden says, while raising an eyebrow. "Maybe it's time for me to start using fifteen percent of my power, then!"
+
+"Fifteen percent?" Hadrik says. "You smart-mouthed little--"
+
+The whole area around Eiden suddenly gets covered in fire, as Daren uses his shield to defend himself and Hadrik, while Illuna creates a large pillar of water in front of us to slow down the flames while we fly away.
+
+}
+choice("Continue", B3-Ch12b-Together2, v_current_scene = B3-Ch12b-Together2) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1 || v_b3_ch12_scout != 0)
+
+
+ID: B3-Ch12b-Together2
+TEXT: 
+
+set(v_is_dead,1) if (v_b3_ch10_eiden == 0 && v_b3_ch12_hadrik == 0)
+set(v_is_dead,0) if (v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0)
+#if(v_b3_ch10_eiden == 0 && v_b3_ch12_hadrik == 0 || v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 0 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0) {
+ "Shall we increase the difficulty by a few levels?" Eiden says, with a smirk, as about a dozen small, but extremely powerful explosions are now appearing all around me.
+I recognize this spell. It's a bit of a hassle to dodge all of the explosions in mid-air, but its maximum duration is fifteen seconds, so if I can last that long, I should be safe.
+
+I do my best to avoid all of the blasts for the next fifteen seconds or so, and once the time runs out, I begin to relax a little. This was a big mistake, as Eiden's spell is apparently nowhere near done yet, and in fact the explosions even seem to be accelerating.
+
+}
+#if(v_b3_ch10_eiden == 0 && v_b3_ch12_hadrik == 0) {
+ What is going on?! I know for certain that this spell can only be cast once a day and it has a very clear time limit. Did I confuse it with some other spell?
+I keep trying to dodge the explosions, but their numbers are just growing exponentially until there is nowhere left for me to avoid them and I fly straight into three of them, which kill me in an instant.
+
+}
+#if(v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0) {
+ All of a sudden, I remember that Arraka actually mentioned this to me a few days ago, when I asked her to give me a few examples of loopholes that Eiden used against her during the still winter. Essentially, Eiden is using a design flaw of the spell to extend its duration far beyond its limit, similarly to what he was doing with the time freezing spell. However, by doing this he is also creating a new flaw in the spell, which I am about to exploit right now.
+Realizing that my moving around only generates additional explosions, I simply stop in mid-air and let his spell end naturally. This causes the explosions to fade away very quickly, and as I was hoping, no new ones are being created anymore.
+
+"Looks like Arraka was right," I tell Eiden, who was now floating a few feet away from me. "This really was the correct way to stop you from abusing this loophole."
+
+"Ah, of course..." Eiden says. "Arraka again."
+
+This isn't going to work. If I keep letting him control the entire flow of the battle like this, he will eventually just end up killing me. I need to go on the offensive somehow.
+
+}
+#if(v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 1) {
+ "What happened to your combat style, Hadrik?" I hear Daren saying from somewhere below us in the meantime. "You were fighting so much better this morning! Did you get drunk again?"
+"Shut up..." Hadrik says. "It's easier against you, because I already know all of your moves. But now that you mention it, maybe there is something that I might want to try out while I'm still sober."
+
+Right after he says this, I suddenly see two eagle wings sprouting from his back, similarly to how Gontrok used to partially shapeshift when we fought him in Ollendor. Then, with a single powerful flap of his wings, he blasts to the air and reaches Eiden in a matter of seconds, sending him flying backwards several feet with a strong punch.
+
+ "Hah!" Hadrik says, as he is flapping his wings to maintain his altitude. "I had a feeling that this type of shapeshifting would work better while I'm not drunk! It almost makes me want to be sober more often to try it out. Almost!"
+He then proceeds to attack Eiden once more, forcing him to temporarily switch targets to the dwarf for the time being, as the two of them are now flying all over the place and trading blows one after the other.
+
+It's good that Hadrik is keeping Eiden busy, but I should probably start thinking of a way to go on the offensive myself, unless I want to let Eiden control the entire flow of the battle.
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch10_eiden == 0 && v_b3_ch12_hadrik == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch10_eiden == 0 && v_b3_ch12_hadrik == 0)
+choice("Load game", , , special:saves) if (v_b3_ch10_eiden == 0 && v_b3_ch12_hadrik == 0)
+choice("Tell Eiden that there is a drunken flying orangutan wearing a party hat behind him.", B3-Ch12b-Orangutan, v_current_scene = B3-Ch12b-Orangutan, v_b3_ch12_eiden = 0) if (v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0)
+choice("Attack Eiden with my dagger.", B3-Ch12b-Dagger, v_current_scene = B3-Ch12b-Dagger, v_b3_ch12_eiden = 1) if (v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0)
+choice("Tell Illuna to cast her dish washing spell on Eiden.", B3-Ch12b-Washing, v_current_scene = B3-Ch12b-Washing, v_b3_ch12_eiden = 2) if (v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 0 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0)
+choice("Temporarily steal Eiden's energy with my stat device.", B3-Ch12b-Steal, v_current_scene = B3-Ch12b-Steal, v_b3_ch12_eiden = 3) if (v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 1 || v_b3_ch11_transferred == 1 && v_b3_ch12_hadrik == 0 && v_b3_ch10_eiden != 0)
+
+
+ID: B3-Ch12b-Orangutan
+TEXT: 
+
+set(v_is_dead,1) if (v_b3_ch12_hadrik == 0 && v_bluff == 4 || v_b3_ch12_hadrik == 0 && v_bluff < 4 || v_b3_ch12_hadrik == 1 && v_bluff < 4)
+set(v_is_dead,0) if (v_b3_ch12_hadrik == 1 && v_bluff == 4)
+#if(v_b3_ch12_hadrik == 0 && v_bluff < 4) {
+ 
+"Eiden, watch out!" I shout. "There's a drunken flying orangutan wearing a party hat behind you!"
+
+"He's drunk AND wearing a party hat?" Eiden asks me. "That's oddly specific, don't you think?"
+
+"Aren't you planning to look behind you?" I say.
+
+"Not really, no," Eiden responds to me. "But this did make me come up with a wonderful idea for a spell. Behold!"
+
+}
+#if(v_b3_ch12_hadrik == 0 && v_bluff == 4 || v_b3_ch12_hadrik == 0 && v_bluff < 4 || v_b3_ch12_hadrik == 1 && v_bluff < 4) {
+ Out of the blue, an enormous flying orangutan pops up in front of me, wearing a party hat on his head and holding a bottle of ale in his left hand.
+"Could you have made this illusion any more obvious?" I tell Eiden. "There's no way you actually summoned a--"
+
+The orangutan in front of me suddenly reaches his right arm for me, and before I have the time to realize that it's not in fact an illusion, he closes his fist around my head and squashes it like a watermelon.
+
+}
+#if(v_b3_ch12_hadrik == 1 && v_bluff < 4) {
+ 
+"Eiden, watch out!" I shout. "There's a drunken flying orangutan wearing a party hat behind you!"
+
+"He's drunk AND wearing a party hat?" Eiden asks me, as he is still fighting Hadrik. "That's oddly specific, don't you think?"
+
+"Aren't you planning to look behind you?" I say.
+
+"Not really, no," Eiden responds to me. "But this did make me come up with a wonderful idea for a spell. Behold!"
+
+}
+#if(v_b3_ch12_hadrik == 0 && v_bluff == 4) {
+ 
+"Eiden, watch out!" I shout. "There's a drunken flying orangutan wearing a party hat behind you!"
+
+"What?..." Eiden says, as he actually turns his head around for a second, to verify if what I said was true or not. "Oh! Now I get it! You unlocked your Bluff stat. That's why your lie was so believable! But I don't really see what the point of that was. Shouldn't you have attacked me while I was looking behind me?"
+
+"Now that you mention it, yeah, that might have been a better plan," I say.
+
+"Well, if it makes you feel any better, it wasn't all a waste, " Eiden says. "Your bluff just now made me come up with a wonderful idea for a spell. Behold!"
+
+}
+#if(v_b3_ch12_hadrik == 1 && v_bluff == 4) {
+ 
+"Eiden, watch out!" I shout. "There's a drunken flying orangutan wearing a party hat behind you!"
+
+"What?..." Eiden says, as he actually turns his head around for a second, to verify if what I said was true or not.
+
+That one second of distraction was all Hadrik needed to smash both his fists into Eiden's head and to send him crashing down into the ground, making a small crater where he landed.
+
+Just as Eiden is getting up from the ground, his head gets surrounded by a sphere of water made by Illuna, which seems to have caught him completely off guard, because I can already hear him making drowning noises. He attempts to fly around a bit, in the hopes that he can shake off the spell, but Illuna's practice with the dish washing seems to have paid off, and the water sphere remains tightly glued to his head.
+
+ With the corner of my eye, I see Kate raising her scepter and aiming it at Eiden, ready to attack.
+"Kate, not yet!" I shout, as she now lowers her scepter after hearing my voice.
+
+Eiden may have been caught by surprise a little, but he is by no means defenseless. He could still easily stop Kate's ice beam if he had the time to react. In order to make him not be aware of his surroundings at all, we need one final push.
+
+ Daren now sends his sword spinning rapidly towards Eiden, but the stillwater raises a large spike made out of rock from the ground, thus diverting the weapon's direction. In the meantime, Eiden conjures a small tornado out of thin air and he lets himself get caught inside it on purpose. This proves to be a little too much for Illuna's drowning spell, and its water particles eventually scatter into the air.
+As Eiden cancels the tornado, he falls to the ground again and then puts his hand on his forehead, without doing anything else for a few seconds. His head must be spinning like crazy right now. This is the moment I've been waiting for. It's now or never!
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_hadrik == 0 && v_bluff == 4 || v_b3_ch12_hadrik == 0 && v_bluff < 4 || v_b3_ch12_hadrik == 1 && v_bluff < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 0 && v_bluff == 4 || v_b3_ch12_hadrik == 0 && v_bluff < 4 || v_b3_ch12_hadrik == 1 && v_bluff < 4)
+choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 0 && v_bluff == 4 || v_b3_ch12_hadrik == 0 && v_bluff < 4 || v_b3_ch12_hadrik == 1 && v_bluff < 4)
+choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_b3_ch12_hadrik == 1 && v_bluff == 4)
+
+
+ID: B3-Ch12b-Dagger
+TEXT: 
+
+#if(v_b3_ch12_hadrik == 0) {
+ "I guess it's finally time for me to pull out my secret weapon," I say, with a confident smile.
+"A secret weapon, you say?" Eiden says. "Sounds promising. Let's see it, then!"
+
+I nod to him, and then I remove my dagger from its sheath, pointing it at him menacingly.
+
+"You've got to be kidding me..." Eiden says, as he stares at me in disbelief.
+
+}
+#if(v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1) {
+ "Did I ever tell you how I've faced Arraka in her strongest form, while I was armed with only a dagger and yet I still came out on top?" I ask him.
+"You don't seem to be lying," Eiden says, "but something tells me that there are some very crucial details from that story that you are omitting on purpose."
+
+"Believe what you want," I tell him. "Here I come!"
+
+I then begin to fly towards Eiden, slashing my dagger at him, while he dodges every one of my attacks effortlessly, with a very puzzled expression on his face. As I keep attacking him without hitting him a single time, I'm gradually starting to think that maybe this wasn't as good an idea as I originally thought.
+
+ "What's the matter, Barry?" Eiden tells me, as I've now put a little distance between me and him to catch my breath. "Getting tired already? But you haven't even shown me what your dagger can really do! Here, let me attack you with something more worthy of such a powerful weapon!"
+He then begins to ready up what seems to be an incredibly strong beam of fire that he is aiming right at me. If I take that head on, I don't think all the magical protections in the world would save me. What should I do?
+
+}
+#if(v_b3_ch12_hadrik == 1) {
+ "Hadrik, stand back!" I say. "I've got this!"
+"Well, if you say so," Hadrik says, as he now flies away to give us some space. "I hope you know what you're doing."
+
+"I like your confidence, Barry," Eiden says. "Shall I take it that you finally came up with a plan?"
+
+"Oh yeah!" I say. "Watch this!"
+
+I then remove my dagger from its sheath and point it at him menacingly.
+
+"You've got to be kidding me..." Eiden says, as he stares at me in disbelief.
+
+}
+choice("Fly straight at Eiden while he's overconfident and stab him with my dagger.", B3-Ch12b-Overconfident, v_current_scene = B3-Ch12b-Overconfident) if (v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1)
+choice("Fly away from Eiden and try to think of a different plan.", B3-Ch12b-Away, v_current_scene = B3-Ch12b-Away) if (v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1)
+
+
+ID: B3-Ch12b-Away
+TEXT: 
+
+ There's no point continuing to fight Eiden like this. I need a different plan.
+I fly away from the fire beam and I try to get closer to my friends, in the hopes that they can help me. Before I reach any of them, Eiden teleports in front of me and he begins shaking his head in disapproval.
+
+"Trying to flee from the battlefield, Barry?" Eiden says. "How disappointing..."
+
+ I fire a lightning spell towards Eiden without thinking, but he already disappeared. I now immediately turn around and start to shoot flames out of my hands at the empty air behind me, thinking that Eiden was trying to hide invisibly again in the same way that he did against Daren, but it doesn't seem like I'm hitting anything.
+Just as I thought I was safe, I can feel Eiden's invisible hand grabbing my head from above and exploding it into a thousand pieces, killing me in an instant.
+
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
+
+
+ID: B3-Ch12b-Overconfident
+TEXT: 
+
+set(v_is_dead,1) if (v_b2_ch9_animals != 2)
+set(v_is_dead,0) if (v_b2_ch9_animals == 2)
+#if(v_b2_ch9_animals != 2) {
+ Eiden is clearly expecting me to avoid his beam at the moment. If he sees me flying straight at him, he'll be so shocked that he'll forget to even activate his spell, and then I can finally stab him. My plan is perfect! Now it's time to put it in action!
+I fly towards Eiden as fast as my air currents allow me, with my dagger in both hands, pointed right at him.
+
+Before I reach him, however, Eiden's beam activates without any problem, and the flames incinerate me completely in less than a second.
+
+}
+#if(v_b2_ch9_animals == 2) {
+ Eiden is clearly expecting me to avoid his beam at the moment. If he sees me flying straight at him, he'll be so shocked that he'll forget to even activate his spell, and then I can finally stab him. My plan is perfect! Now it's time to put it in action!
+I fly towards Eiden as fast as my air currents allow me, with my dagger in both hands, pointed right at him.
+
+Shortly before I reach him, Eiden's fire beam activates and it covers me in flames completely, but for some reason, they are not burning me at all. I easily continue to fly straight like an arrow towards Eiden, and when I reach him I stick my dagger in his chest, passing through all of his magical protections.
+
+"What?!" Eiden shouts, as blood is now coming out of his chest wound. "How could you possibly-- Where did you find that bracelet?!"
+
+I suddenly realize that the bracelet the wolf gave me has been shining brightly this whole time. Is this the reason why I was able to fly through the flames and pass through Eiden's magical protections so easily?
+
+ Eiden quickly teleports somewhere to the ground and he begins casting a healing spell on his open chest wound. Luckily, my dagger didn't also get teleported with him, so I was not left without my reliable weapon.
+Just as Eiden's wound is beginning to close, his head gets surrounded by a sphere of water made by Illuna, which seems to have caught him completely off guard, because I can already hear him making drowning noises. He attempts to fly around a bit, in the hopes that he can shake off the spell, but Illuna's practice with the dish washing seems to have paid off, and the water sphere remains tightly glued to his head.
+
+With the corner of my eye, I see Kate raising her scepter and aiming it at Eiden, ready to attack.
+
+"Kate, not yet!" I shout, as she now lowers her scepter after hearing my voice.
+
+Eiden may have been caught by surprise a little, but he is by no means defenseless. He could still easily stop Kate's ice beam if he had the time to react. In order to make him not be aware of his surroundings at all, we need one final push.
+
+ Daren now sends his sword spinning rapidly towards Eiden, but the stillwater raises a large spike made out of rock from the ground, thus diverting the weapon's direction. In the meantime, Eiden conjures a small tornado out of thin air and he lets himself get caught inside it on purpose. This proves to be a little too much for Illuna's drowning spell, and its water particles eventually scatter into the air.
+As Eiden cancels the tornado, he falls to the ground again and then puts his hand on his forehead, without doing anything else for a few seconds. His head must be spinning like crazy right now. This is the moment I've been waiting for. It's now or never!
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch9_animals != 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch9_animals != 2)
+choice("Load game", , , special:saves) if (v_b2_ch9_animals != 2)
+choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_b2_ch9_animals == 2)
+
+
+ID: B3-Ch12b-Washing
+TEXT: 
+
+set(v_is_dead,1) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3 || v_b3_ch12_hadrik == 1)
+set(v_is_dead,0) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout == 3)
+#if(v_b3_ch12_hadrik == 1 && v_b3_ch12_scout != 3) {
+ "Illuna, can you cast your dish washing spell on Eiden, please?" I say.
+"I'm not sure if now would be the best time," Illuna says, apprehensively.
+
+"No, it's the perfect time, trust me!" I say. "Do it now!"
+
+"Fine," Illuna says. "But don't blame me if this fails spectacularly."
+
+She then casts her spell, causing Eiden's head to get surrounded by a sphere of water while still fighting Hadrik. This catches him by surprise a little, but it doesn't look like he's drowning just yet. Instead, he is now teleporting around really fast, attempting to make Illuna lose focus of her spell. Eventually, he achieves his purpose, because Illuna is no longer able to keep up with his movements, and she is forced to cancel her spell.
+
+A mere few seconds later, Eiden teleports right next to me, and he looks pretty pissed off.
+
+}
+#if(v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3 || v_b3_ch12_hadrik == 1) {
+ "I'm going to be honest with you, Barry," Eiden says. "That 'dish washing' spell annoyed me a little."
+I fire a lightning spell towards Eiden without thinking, but he already disappeared. I now immediately turn around and start to shoot flames out of my hands at the empty air behind me, thinking that Eiden was trying to hide invisibly again in the same way that he did against Daren, but it doesn't seem like I'm hitting anything.
+
+Just as I thought I was safe, I can feel Eiden's invisible hand grabbing my head from above and exploding it into a thousand pieces, killing me in an instant.
+
+}
+#if(v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3) {
+ "Illuna, can you cast your dish washing spell on Eiden, please?" I say.
+"I'm not sure if now would be the best time," Illuna says, apprehensively.
+
+"No, it's the perfect time, trust me!" I say. "Do it now!"
+
+"Fine," Illuna says. "But don't blame me if this fails spectacularly."
+
+She then casts her spell, causing Eiden's head to get surrounded by a sphere of water all of a sudden. This catches him by surprise a little, but it doesn't look like he's drowning just yet. Instead, he is now teleporting around really fast, attempting to make Illuna lose focus of her spell. Eventually, he achieves his purpose, because Illuna is no longer able to keep up with his movements, and she is forced to cancel her spell.
+
+A mere few seconds later, Eiden teleports right next to me, and he looks pretty pissed off.
+
+}
+#if(v_b3_ch12_hadrik == 1 && v_b3_ch12_scout == 3) {
+ "Illuna, can you cast your dish washing spell on Eiden, please?" I say.
+"I'm not sure if now would be the best time," Illuna says, apprehensively.
+
+"No, it's the perfect time, trust me!" I say. "Do it now!"
+
+"At least let me get the teleporting device from Hadrik's backpack," Illuna says.
+
+"Yeah, I'm a little busy at the moment," Hadrik tells Illuna, as he dodges an incoming attack from Eiden. "You're going to have to handle yourself without it."
+
+"Fine," Illuna says. "But don't blame me if this fails spectacularly."
+
+She then casts her spell, causing Eiden's head to get surrounded by a sphere of water while still fighting Hadrik. This catches him by surprise a little, but it doesn't look like he's drowning just yet. Instead, he is now teleporting around really fast, attempting to make Illuna lose focus of her spell. Eventually, he achieves his purpose, because Illuna is no longer able to keep up with his movements, and she is forced to cancel her spell.
+
+A mere few seconds later, Eiden teleports right next to me, and he looks pretty pissed off.
+
+}
+#if(v_b3_ch12_hadrik == 0 && v_b3_ch12_scout == 3) {
+ "Illuna, can you cast your dish washing spell on Eiden, please?" I say.
+"I'm not sure if now would be the best time," Illuna says, apprehensively.
+
+"No, it's the perfect time, trust me!" I say. "Do it now!"
+
+"At least let me get the teleporting device from Hadrik's backpack," Illuna says.
+
+"Oh, I have it right here," says Hadrik from the ground, as he takes the round metal device from his backpack and prepares to toss it to Illuna, who was just now descending from the sky.
+
+"No, don't throw it!" Illuna shouts, but it was too late.
+
+She managed to grab the heavy metal ball while still airborne, but it almost made her drop to the ground from the weight of it.
+
+Once she successfully landed, she put the device on the ground next to her and began preparing her spell.
+
+ "Dish washing spell? Teleporting device?" says Eiden, who has been watching all of this unfold with great interest. "Something tells me that I should stop this from happening, but my curiosity is getting the better of me..."
+"Don't worry, you're gonna love it!" I tell Eiden.
+
+All of a sudden, Eiden's head gets surrounded by a sphere of water, made by Illuna. I don't see him drowning yet, but he can't be too comfortable either, from the expression he is making. After unsuccessfully trying to shake the water away by flying sideways, Eiden is now teleporting really fast all over the place, in an attempt to make Illuna lose control of her spell.
+
+ Fortunately, Illuna's training and the use of her magic amplifier are paying off, and Eiden isn't managing to get rid of the water sphere at all. Eventually, he begins to make drowning noises, which causes him to get a little more desperate and to conjure a small tornado, while allowing himself to get caught inside it. This proves to be a little too much for Illuna's drowning spell, and its water particles eventually scatter into the air.
+As Eiden cancels the tornado, he falls to the ground and then puts his hand on his forehead, without doing anything else for a few seconds. His head must be spinning like crazy right now. This is the moment I've been waiting for. It's now or never!
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3 || v_b3_ch12_hadrik == 1)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3 || v_b3_ch12_hadrik == 1)
+choice("Load game", , , special:saves) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout != 3 || v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_scout == 3)
+
+
+ID: B3-Ch12b-Steal
+TEXT: 
+
+set(v_is_dead,1) if (v_b3_ch11_red == 0 && v_aura_hardening < 4)
+set(v_is_dead,0) if (v_aura_hardening == 4 && v_b3_ch11_red == 0 || v_b3_ch11_red == 1)
+#if(v_b3_ch11_red == 0 && v_aura_hardening < 4) {
+ Unfortunately, due to the imperfect nature of my air currents, I do not manage to fly out of the way fast enough, and the flames cover my entire body. Unable to withstand the heat, I quickly burn to a crisp and die in the next few moments.
+
+}
+#if(v_aura_hardening == 4 && v_b3_ch11_red == 0) {
+ Unfortunately, due to the imperfect nature of my air currents, I do not manage to fly out of the way fast enough, and the flames cover my entire body. However, thanks to my maxed Aura hardening stat I was able to withstand his attack, even though it got very hot for a second, there.
+Once I manage to extract enough energy from Eiden, I can feel myself gaining access to most of the spells that I had when I fought against Tyrath the first time. Since I don't exactly have a lot of time on my hands, I choose what seems to be the most useful spell of the bunch, and cast it on Eiden immediately.
+
+I spawn a large flaming meteor right above Eiden's head, and it crashes into him before he gets a chance to react. The meteor drags him all the way down in a matter of seconds, causing a big explosion once it hits the ground, and at the same time I can also feel the energy that I stole from him getting completely depleted. From the looks of him, it doesn't seem like my meteor did any major damage to him, but even for someone of his caliber, it couldn't have been easy to defend against it.
+
+Just as Eiden is getting back up on his feet, his head gets surrounded by a sphere of water made by Illuna, which seems to have caught him completely off guard, because I can already hear him making drowning noises. He attempts to fly around a bit, in the hopes that he can shake off the spell, but Illuna's practice with the dish washing seems to have paid off, and the water sphere remains tightly glued to his head.
+
+}
+#if(v_aura_hardening == 4 && v_b3_ch11_red == 0 || v_b3_ch11_red == 1) {
+ With the corner of my eye, I see Kate raising her scepter and aiming it at Eiden, ready to attack.
+"Kate, not yet!" I shout, as she now lowers her scepter after hearing my voice.
+
+Eiden may have been caught by surprise a little, but he is by no means defenseless. He could still easily stop Kate's ice beam if he had the time to react. In order to make him not be aware of his surroundings at all, we need one final push.
+
+Daren now sends his sword spinning rapidly towards Eiden, but the stillwater raises a large spike made out of rock from the ground, which he uses to divert the weapon's direction. In the meantime, Eiden conjures a small tornado out of thin air and he lets himself get caught inside it on purpose. This proves to be a little too much for Illuna's drowning spell, and its water particles eventually scatter into the air.
+
+As Eiden cancels the tornado, he falls to the ground again and then puts his hand on his forehead, without doing anything else for a few seconds. His head must be spinning like crazy right now. This is the moment I've been waiting for. It's now or never!
+
+}
+#if(v_b3_ch11_red == 1) {
+ Luckily, my air currents react flawlessly to my command, and I manage to get away from it just in time.
+Once I manage to extract enough energy from Eiden, I can feel myself gaining access to most of the spells that I had when I fought against Tyrath the first time. Since I don't exactly have a lot of time on my hands, I choose what seems to be the most useful spell of the bunch, and cast it on Eiden immediately.
+
+I spawn a large flaming meteor right above Eiden's head, and it crashes into him before he gets a chance to react. The meteor drags him all the way down in a matter of seconds, causing a big explosion once it hits the ground, and at the same time I can also feel the energy that I stole from him getting completely depleted. From the looks of him, it doesn't seem like my meteor did any major damage to him, but even for someone of his caliber, it couldn't have been easy to defend against it.
+
+Just as Eiden is getting back up on his feet, his head gets surrounded by a sphere of water made by Illuna, which seems to have caught him completely off guard, because I can already hear him making drowning noises. He attempts to fly around a bit, in the hopes that he can shake off the spell, but Illuna's practice with the dish washing seems to have paid off, and the water sphere remains tightly glued to his head.
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch11_red == 0 && v_aura_hardening < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch11_red == 0 && v_aura_hardening < 4)
+choice("Load game", , , special:saves) if (v_b3_ch11_red == 0 && v_aura_hardening < 4)
+choice("Continue", B3-Ch12b-Blinding, v_current_scene = B3-Ch12b-Blinding) if (v_aura_hardening == 4 && v_b3_ch11_red == 0 || v_b3_ch11_red == 1)
+
+
+ID: B3-Ch12b-Blinding
+TEXT: 
+
+ I waste no time and I cast my dizziness spell on Eiden. If this is the same as when I tested the spell on Diane, he should normally be hearing a ringing in his ears right now... the exact same kind of ringing noise that you would hear if Wolford's daze had been cast on you.
+If Eiden were in a calm state of mind, he would have easily noticed that the magical flow of my dizziness spell was slightly different, but with the way he is at the moment, and considering that Wolford's daze gives you only a limited time to cancel it before it fully activates, Eiden really only has one choice. He needs to open his eyes.
+
+"Daren, catch!" I shout loudly, while Eiden opens his eyes widely and looks around himself in order to cancel my fake Wolford's daze spell.
+
+Hearing the code word that we've been practicing endlessly during the past two days, all of my friends close their eyes instinctively, and then I close mine as well, while I cast my blinding flash of light.
+
+Given that Eiden spends the majority of his time with his eyes closed, I can only imagine how sensitive he must be to sudden bright flashes of light. If my assumption is correct, then a sudden shock like this should overload all of his senses, including his magical sense.
+
+"Kate--" I start to say, but now I see that she was already pointing her scepter towards Eiden, while readying her spell.
+
+"I'm on it," Kate says, and then she shoots Eiden with an ice beam even more powerful than the one she showed us yesterday.
+
+ Just as I'd hoped, Eiden doesn't block the spell at all, and he gets encased in a large block of ice, unable to move an inch. Wow, this has gone so much better than I thought it would! Now there is only one final step left and everything will be over! One final step...
+As I calm down and think about this final step more clearly, I suddenly realize that there may have been a huge flaw in my plan that I hadn't accounted for at all. This whole plan was originally designed to kill the past version of Arraka, not Eiden. It goes without saying that Daren would be able to kill Arraka's copy without any hint of hesitation, but does the same apply for Eiden?...
+
+Taking a look at Daren now, it is clear that he understands his role in this plan and knows the gravity of the situation, but even so, he is just staring at the block of ice with his sword in his hands, unable to act.
+
+I think I know exactly what must be going through his head in this moment. The entire fight, Daren has been focused on stabbing Eiden once with his enchanted sword, so that he could cut off his connection to the magical plane and make him essentially powerless, without actually killing him. Now he has in front of him a large block of ice, of unknown durability, which he needs to cut through in order to get to Eiden. If he were to use his full strength, he could easily cut Eiden in half along with the ice, and kill him on the spot, but if he were to want to only lightly stab him in order to cut off his source of energy, he would need surgical precision.
+
+ He can't afford to cut through the ice more than once, because that could risk allowing Eiden to free himself, so he only has one shot at this. But is it something that he can realistically accomplish without risking all of our lives in the process?
+"Daren?..." Flower asks, in a worried tone, after she sees him staring at the block of ice in front of him for more than five seconds, while sweating heavily. "Is everything okay?"
+
+"What are you hesitating for, you imbecile?!" Arraka shouts all of a sudden. "Do you really think he would have shown you any mercy if your positions were reversed? You have the opportunity of a lifetime to kill Eiden once and for all and you're hesitating?! Hurry up and do it already, before he--"
+
+"Too late," we hear Eiden's voice, as the block of ice surrounding him explodes into pieces, and the amount of magical power radiating from his aura becomes just as high as it was when he was facing Tyrath in Thilias.
+
+Oh, no... It's over. We really are too late...
+
+"Maybe I've been messing around a little too much," Eiden says, in a very serious tone of voice, as the intensity of his aura alone is making it hard for us to breathe. "It's time to end this."
+
+choice("Taunt Eiden.", B3-Ch12b-Taunt, v_current_scene = B3-Ch12b-Taunt)
+choice("Stay silent.", B3-Ch12b-Invitation, v_current_scene = B3-Ch12b-Invitation)
+
+
+ID: B3-Ch12b-Taunt
+TEXT: 
+
+ "End this?" I say in a mocking tone. "Be serious. You would have ended this a long time ago if you could. This intimidation act of yours isn't fooling anyo--"
+Without even trying to engage in conversation with me, Eiden points his hand towards me from afar, and I can feel my head exploding into a thousand pieces, killing me instantly.
+
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
+
+
+ID: B3-Ch12b-Invitation
+TEXT: 
+
+#if(v_b3_ch12_hesitant == 0 || v_b3_ch12_hesitant == 1) {
+ "Leo, you might want to stand back a little," Eiden tells the leopard, who was still watching the fight unfold from the side. "From this moment onwards, I can't guarantee your safety."
+"Yes..." Leo says, as he takes one last hesitant look at us before he turns away. "I think I'll do that."
+
+"Now, then," Eiden says, as the leopard is moving a little further from us, where it's safer. "Who wants to go first?"
+
+"Hah!" Hadrik says, with a grin. "Now this is the kind of fight that I joined this tournament for!"
+
+He then dashes towards Eiden and attempts to punch him, but the stillwater calmly grabs his head and smashes it into the ground, causing him to immediately lose his consciousness.
+
+Daren does not wait for an invitation from Eiden, and he sends his sword spinning towards him fast, just like he did all the other times before. Instead of bothering to dodge it, however, Eiden blasts the sword with a beam of fire so strong that it goes over its capacity to absorb elements and it pushes it back towards its owner.
+
+In order to defend himself from the incoming fire beam, Daren puts his shield in front of him, but his barrier is nowhere near powerful enough to defend him from the full force of the attack and he ends up dropping to the ground, barely able to move, with his clothes half-burned and his sword and shield lying uselessly beside him.
+
+ "NO!!!" Flower shouts, with desperation in her voice, as her eyes turn bright red and the aura around her body is now visibly burning. "Leave them alone!!!"
+She then shoots a fire beam of her own at Eiden, which is almost comparable to the one that he just used against Daren. However, unlike Daren, Eiden seems to actually be able to defend against such an attack, even though he does seem to be expending at least a moderate amount of effort to do it.
+
+"Flower, you're burning through your energy too fast!" Illuna says, in a panicked tone. "You have to stop!"
+
+"I can't!!!" Flower says. "I'm our last chance! I have to do this! I have to--"
+
+Suddenly, Eiden teleports behind her and he hits the back of her neck slightly with the side of his palm. This causes both Flower and Illuna to lose consciousness, as the only members of our group still awake are now me, Kate, Daren and Arraka.
+
+Kate is now attempting to create some icicles with her scepter, but her magical energy was completely drained by her ice beam from before, and she is barely even able to stand up. In the meantime, Daren uses all of his strength to push himself from the ground, so that he can at least look Eiden in the eye when he talks to him.
+
+"Damn it, Eiden!" Daren shouts. "I know this isn't the real you! I know this isn't what you want! So, why? Why are you doing this?!"
+
+}
+#if(v_b3_ch12_hesitant == 1) {
+ "Even when I'm seconds away from killing you and all of your friends, you are still saying things like this..." Eiden says, as he is now slowly approaching Daren. "And if I understood correctly, you were also telling Barry yesterday that you would be hesitant to join Meridith and kill me. Tell me, how exactly is it possible that someone like you could have undergone such a radical change of perspective in such a short amount of time? Are you not still the same person who used to blindly attack me with every chance you'd get because you were considering me to be irredeemably evil? Where is this sudden change of attitude towards me coming from? Surely it can't be just because a past version of myself from the God of Time's trials helped you out once?..."
+"It's because you asked me to prove you wrong!" Daren says, loudly, as Eiden's closed eyes seem to flinch a little. "I know that you don't remember any of it, but it wasn't some distant version from the past that I talked to! It was you, back in Thilias, right before the earl of Ollendor was going to kill the slave girl! I got down on my hands and knees and begged you to give me the power to save her! That's why you helped me, and that's why you told me those words!"
+
+"So that is what happened..." Eiden says, as he seems to now quickly be putting everything together in his mind.
+
+}
+#if(v_b3_ch12_hesitant == 0) {
+ "Even when I'm seconds away from killing you and all of your friends, you are still saying things like this..." Eiden says, as he is now slowly approaching Daren. "Tell me, how exactly is it possible that someone like you could have undergone such a radical change of perspective in such a short amount of time? Are you not still the same person who used to blindly attack me with every chance you'd get because you were considering me to be irredeemably evil? Where is this sudden change of attitude towards me coming from? Surely it can't be just because a past version of myself from the God of Time's trials helped you out once?..."
+"It's because you asked me to prove you wrong!" Daren says, loudly, as Eiden's closed eyes seem to flinch a little. "I know that you don't remember any of it, but it wasn't some distant version from the past that I talked to! It was you, back in Thilias, right before the earl of Ollendor was going to kill the slave girl! I got down on my hands and knees and begged you to give me the power to save her! That's why you helped me, and that's why you told me those words!"
+
+"So that is what happened..." Eiden says, as he seems to now quickly be putting everything together in his mind.
+
+}
+choice("Continue", B3-Ch12b-Invitation2, v_current_scene = B3-Ch12b-Invitation2) if (v_b3_ch12_hesitant == 0 || v_b3_ch12_hesitant == 1)
+
+
+ID: B3-Ch12b-Invitation2
+TEXT: 
+
+ "I know that you never actually said those words to me in this world," Daren says. "But if you were capable of saying them in that situation, then I know that deep down this is what you really want! You want someone to prove to you that you were wrong to abandon humanity, and that there is still some hope left! Let us help you! I know that it may seem like a long shot to you at the moment, and you probably think that you are wasting your time by letting us live, but at least give us a chance! You know that we can make a difference!"
+"I'm afraid that it's a little too late for that, Daren," Eiden says, in a grim tone.
+
+"But why?..." Daren says. "Why would it be too late?"
+
+"Because the blue crystals have awakened," Eiden says.
+
+"...What?" Daren asks, looking like he was caught completely off guard by that answer. "What does that have to do with any--"
+
+"Do you seriously think that your little quest to save a few cities from an island in the middle of nowhere is the only thing on my mind?" Eiden says. "There are far more important things at stake here than Varathia. And if Meridith gets what she wants, whether she realizes it or not, it will be the end of us all, not only in this world, but likely others as well."
+
+"Whoa, whoa... Slow down!" Daren says. "We didn't know about any of that! Is it because of one of the Magium fragments? Look, if you just told us what this is all about, we could--"
+
+ "No," Eiden says, simply. "I can't be bothered to tell you the myriad of reasons why Diane needs to die, and even if I did, you would still not accept it. You had your chance to stop me, but you've failed. Now... you must face the consequences."
+"EIDEN!!!" Arraka shouts all of a sudden, in a more furious tone than we've ever heard her speak in before. "If you kill any of them, I promise you that I will spend the rest of my life traveling the infinite space of the ether until I find your sanctuary, then I will rip your soul out of it with my bare hands and torture it for all eternity!!! Do you understand me?! I am going to make your life a literal hell!!!"
+
+"What in the world has gotten into you?..." Eiden says, looking very confused. "I'm not going to kill Flower, if that's what you're worried about. I'm still keeping my promise to the old fox for the time being, at least."
+
+"Did you start closing your ears along with your eyes?!" Arraka says. "I said that if you kill ANY of them, I am going to make you regret it for as long as you'll live! Do you have any idea how much work I've put into this plan? It's the first time I've felt so alive in five thousand years!!! And now you want to take that away from me? To take my perfect revenge against the gods away from me?! You have no idea to what lengths I am willing to go to make your life miserable if you go through with this!"
+
+"Hold on, there..." Eiden says. "For a second, it almost sounded like you were saying that you've been training these people to kill the gods in your place, but clearly that's not what you meant?..."
+
+"It is EXACTLY what I meant, you pompous cretin!!!" Arraka shouts.
+
+ "No..." Eiden says, as he just spends a few seconds in silence, looking as if he couldn't believe what he was hearing. "No, it can't be..."
+He then pauses for a few more seconds, still unable to come up with a coherent sentence to respond to Arraka.
+
+"You are training them to kill gods?..." Eiden says, as he finally seems to be finding his words. "These... these CLOWNS?! You want them to kill GODS?"
+
+He then stays silent again for a while, as if he were hoping for Arraka to tell him that it was all a joke, and she wasn't being serious.
+
+"Look at them!!!" Eiden says, as he points towards us. "I could kill them all with a flick of my finger if I wanted to!"
+
+"They almost killed you, you jackass!" Arraka says. "You can gloat all you like, but if Daren didn't take pity on you like the moron he is, you would have been cut clean in half! You think that doesn't count because you weren't fighting at your full power? Who do you think I am?! The idiot dwarf? You think I care that the fight wasn't 'honorable'? You would have been DEAD, you fool! And the same goes for all the gods! You have no idea how much stronger these weaklings could have gotten in just a week or two with my guidance! You have no idea!!!"
+
+choice("Continue", B3-Ch12b-Invitation3, v_current_scene = B3-Ch12b-Invitation3)
+
+
+ID: B3-Ch12b-Invitation3
+TEXT: 
+
+ "Hmm..." Eiden says, as he now seems to be calming down a little. "Perhaps you are right. Perhaps they could have killed me. All the more reason for me to finish them off now, before they get stronger, then. Say goodbye to your beloved plan, Arraka..."
+"NO!!!" Arraka shouts, as I pull out my dagger and prepare for my last desperate stand.
+
+"I wouldn't do that if I were you," I hear Azarius' voice, who seems to have just now teleported next to us.
+
+"I know that you've been spying on us from afar since the beginning of our battle, Sage of the West," Eiden says. "It's strange... You look old, and they call you a sage, but the wise thing to do in this situation would have been to stay safely where you were hiding, and let me kill these people. What madness could have possessed you to come here and confront me when I am in my strongest form? Do you really think you can defeat me in battle?..."
+
+"Oh, heavens, no!" Azarius says, with a calm smile. "I wouldn't dream of it!"
+
+"Then how exactly do you intend to stop me?" Eiden says, perplexed.
+
+"I thought you might ask me that!" Azarius says, and then he snaps his fingers once.
+
+ "What did you-- how--" Eiden begins to say, as he seems to be looking somewhere far off in the distance, but Azarius interrupts him.
+"I discovered those detection spells of yours that you've been planting all over the continent weeks ago," Azarius says. "I figured that they were very important to you, so I've been tampering with them in secret, while suppressing my aura so you couldn't notice it from a distance. As you have just seen, one snap of my fingers is enough for me to cancel one of your spells and undo hours of your work. Also, it's impossible to fix my tampering without remaking them from scratch. Oh, and most importantly, if you kill me, every single one of your detection spells will be undone, and all of your work for the past few weeks will have been completely wasted!"
+
+ "I can't believe this..." Eiden says. "You are blackmailing me? You are blackmailing ME?!"
+"Of course," Azarius says, with the same calm smile as before. "Why wouldn't I?"
+
+choice("Continue", B3-Ch12b-Invitation4, v_current_scene = B3-Ch12b-Invitation4)
+
+
+ID: B3-Ch12b-Invitation4
+TEXT: 
+
+ "Do you realize that once I'll no longer have the need for these spells, the first thing I'll do is to hunt you down and kill you for this?..." Eiden asks the sage.
+"By all means, please do!" Azarius says. "I very much doubt that you will be in a position to do anything to me by that time, but you are welcome to try!"
+
+"What is that supposed to mean?" Eiden says.
+
+"You will find out in due time," Azarius says, enigmatically.
+
+"So, you've come all the way here just to save these people whom you've barely interacted with?..." Eiden says. "Did you have any particular reason why you'd want to throw your life away just for the sake of them?"
+
+"Yes, I've recently found out that we have some... common interests!" Azarius says. "As such, I am looking forward to travelling with them, on our way to Galamir."
+
+"Common interests..." Eiden says as he looks at us and then at Azarius. "I assume that asking for further details would serve no purpose, at this point."
+
+ "Indeed," Azarius says.
+There is a short pause during which Azarius and Eiden are just looking at each other, and it feels like Eiden is considering whether his current desire to kill Azarius could actually justify him throwing away several weeks' worth of work.
+
+"It looks like you're giving me no choice, then," Eiden tells Azarius. "I will let you all live for now. But you should know that I am greatly looking forward to the moment when I will get to kill you."
+
+"Yes, that is understandable," Azarius says, completely unfazed by Eiden's threat.
+
+"Hahahaha!" Arraka laughs at Eiden. "Serves you right, you arrogant buffoon!"
+
+ "Mhm..." Eiden says, without bothering to make any sort of comeback towards Arraka.
+He then turns towards me and Daren, and he looks at us with his closed eyes in silence for a few seconds before he continues.
+
+"Well, then..." Eiden says. "I suppose you two might still get that chance to prove me wrong after all..."
+
+And with these final words, Eiden teleports away from us, leaving us only with Azarius and the leopard.
+
+"Phew..." Azarius says. "That was certainly a close call, wasn't it?"
+
+choice("Thank Azarius for his help.", B3-Ch12b-Azarius, v_current_scene = B3-Ch12b-Azarius, v_b3_ch12_thank = 1)
+choice("Tell Azarius that I could have handled myself without his help.", B3-Ch12b-Azarius, v_current_scene = B3-Ch12b-Azarius, v_b3_ch12_thank = 0)
+
+
+ID: B3-Ch12b-Azarius
+TEXT: 
+
+#if(v_b3_ch12_thank == 1) {
+ "Thank you so much!" I tell Azarius. "I really thought we were goners, back there!"
+"No need to thank me," Azarius says. "I'm always happy to help fellow tournament participants!"
+
+"Even if there is no need, I will still thank you as well..." Daren says, as he is now getting up from the ground and healing himself. "You had nothing to gain and everything to lose by helping us, but you still showed up. Only a man of your caliber could have ever done something like this."
+
+"I am so sorry about earlier," says Leo the leopard, as he is now coming closer to us. "I know that it was very cowardly of me to just hide and watch Eiden kill you, but there really was nothing I could do..."
+
+"We understand that, Leo," Kate says. "We were asked to be your bodyguards, not the other way around. This was our fight, and you had no obligation to help us."
+
+"I am not worthy of your kind words..." Leo says, in a humble tone.
+
+"What happened to that apprentice of yours?" Daren asks Azarius, as he is looking left and right for his disciple. "Umm... Harry, I think?... Are you still travelling with him?"
+
+}
+#if(v_b3_ch12_thank == 0 || v_b3_ch12_thank == 1) {
+ "Henry," Azarius corrects Daren. "And yes, I am still travelling with him, but I had to temporarily leave him behind when I teleported to you, because this was a little too dangerous for him. He knows how to make his way here, so he should be with us shortly."
+"This is probably going to sound a little rude after you saved our lives," Kate says, "but I couldn't help but notice that your timing was extremely precise. You appeared at the exact moment when Eiden was about to execute us, and Eiden did mention that you were spying on us from afar. Were you able to hear what we were saying during this time by any chance?"
+
+ "I was indeed!" Azarius says. "Very astute of you to notice!"
+"So, you detected us and Eiden from a distance and used magic to enhance your hearing and listen in on our conversation?" I ask Azarius.
+
+"Precisely!" Azarius says.
+
+}
+#if(v_b3_ch12_thank == 0) {
+ "You know I could have easily handled Eiden by myself, right?" I say.
+"But of course!" Azarius says, in a polite tone. "I saw you pulling out your dagger and ready to engage him in a fight, but I thought that my method might be a little quicker!"
+
+"Barry, don't be disrespectful..." Daren says, as he is now getting up from the ground and healing himself. "Azarius had nothing to gain and everything to lose by helping us, but he still showed up. Only a man of his caliber could have ever done something like this, and he deserves all of our thanks."
+
+"I am so sorry about earlier," says Leo the leopard, as he is now coming closer to us. "I know that it was very cowardly of me to just hide and watch Eiden kill you, but there really was nothing I could do..."
+
+"We understand that, Leo," Kate says. "We were asked to be your bodyguards, not the other way around. This was our fight, and you had no obligation to help us."
+
+"I am not worthy of your kind words..." Leo says, in a humble tone.
+
+"What happened to that apprentice of yours?" Daren asks Azarius, as he is looking left and right for his disciple. "Umm... Harry, I think?... Are you still travelling with him?"
+
+}
+choice("Continue", B3-Ch12b-Ending, v_current_scene = B3-Ch12b-Ending) if (v_b3_ch12_thank == 0 || v_b3_ch12_thank == 1)
+
+
+ID: B3-Ch12b-Ending
+TEXT: 
+
+ "But why did you choose to only intervene this late?" Kate says. "It's not that I'm complaining, but surely you must have realized that there was no guarantee any of us would survive for so long. Does it have something to do with those 'common interests' of ours that you said you only recently discovered?"
+"Very observant once again," Azarius says. "And to answer your question, yes, I did indeed decide to help you based on something that was said towards the end of your battle."
+
+All of a sudden, we hear Arraka beginning to laugh hysterically, in a way that we haven't heard her laugh in quite some time.
+
+"What's so funny, Arraka?" Daren asks.
+
+"I think-- ahahah-- I think I know why the sage decided to help you," Arraka says, as she can barely contain herself from laughing. "Ahahaha-- if it is what I think it is, you're going to love it!"
+
+ "So, would you mind telling us what this is all about, sage Azarius?" Kate asks him, suspiciously.
+"Ah yes," Azarius says. "You see, throughout my long life I have attained many things: fame, power, knowledge... but even though I've acquired things that most people only dream of, and I've admittedly achieved many of the goals that I've set for myself when I was very young, there is still one last goal that I haven't quite managed to accomplish yet, which is coincidentally also the reason why I decided to join this tournament."
+
+"I feel like I'm going to regret asking this," Kate says, "but what exactly is this goal you are talking about?"
+
+ Azarius smiles.
+"To dethrone the gods and take their place," he answers, calmly.
+
+"Aha-Ahahaha! Ahahahahahahaha!"
+
+-----End of book 3-----
+
+choice("Continue", B3-Ch12b-Credits, v_current_scene = B3-Ch12b-Credits)
+
+
+ID: B3-Ch12b-Credits
+TEXT: 
+
+ This is the end of the third Magium book.
+The rest of the books have not been written yet, but they will be released on a chapter by chapter basis. (there will likely be 5 books in the main series and 2 prequels)
+
+My current estimate is that the first chapter of the fourth book should be released within the next few months.
+
+If you want to replay the game to find different paths, I recommend trying to complete the achievements from the main menu, because they are designed to showcase most of the important variations in the story.
+
+If you want to chat about the game with other players while you wait for the new chapters, you can join the discussion on the r/magium subreddit, by tapping on the button below.
+
+If you want to be notified of the game's updates, then you can visit the Magium Games twitter page, by tapping the corresponding button below, and follow me on twitter.
+
+Also, if you want to review the game,  please keep in mind that not all players reading the game reviews have finished the game, so avoid giving spoilers in the reviews as much as possible.
+
+Thank you for playing!
+
+P.S. If you enjoyed the game, don't forget to recommend it to your friends.
+
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)

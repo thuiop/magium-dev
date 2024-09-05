@@ -1,0 +1,1067 @@
+ID: Ch11b-Clones
+TEXT: 
+
+ "How did you know we'd be here?" Kate asks them.
+"It's all thanks to your friend over there," the green robed mage says, as he points towards Rose. "Some beggar overheard her telling a nurse in the hospital that she'd be bringing a skilled healer to tend to the sick. He sold us the tip for a reasonable sum, and we arranged the emptying of the streets together with the local guards, in case the healer in question was indeed the one we were looking for. Now then, Zack, you should just stand aside while I deal with these weaklings. I alone should be more than enough to finish them off."
+
+"No, you're not," Daren says. "We already know that your god specializes in illusions. Illusions are useless against enemies who already expect them."
+
+"Are you sure about that, healer?" the green robed mage says, and all of a sudden, hundreds of clones of both him and his ally fill the entire marketplace area around us.
+
+"You haven't moved from your original position, genius," Daren says, as he dashes towards him. "I know which one is the real you."
+
+As Daren reaches the two original mages, he slashes his sword and cuts through them both in one strike. Instead of dying, however, the two mages simply fade away into the air.
+
+"What is the meaning of this?" Kate asks. "If those two were in fact illusions, then does that mean that the real mages were hiding invisibly when they cast the illusion spell?"
+
+ "Arraka," I say, "why didn't you tell us that the mages were invisible?"
+"Because they weren't," Arraka says. "If anyone were to hide anywhere invisibly, I would have sensed them."
+
+"Then how do you explain the fact that the ones we were seeing were in fact illusions?" I ask.
+
+"How am I supposed to know that, jackass?" Arraka says. "Figure it out yourself!"
+
+"Can you at least figure out which ones of these are the originals?" I ask.
+
+"No," Arraka says. "I never bothered to learn how to tell the difference between clones and originals, because whenever someone would cast a spell like this against me, I would simply use a spell of my own to destroy them all at the same time, and that would be the end of that."
+
+"Does anyone have any idea why none of the clones have attacked us yet?" Hadrik asks us. "They're just standing there, smirking like a bunch of morons. Do you think they're waiting for something?"
+
+choice("Ask Kate if she can freeze the whole area around us, to take care of the clones.", Ch11b-Freeze, v_current_scene = Ch11b-Freeze)
+choice("Try to concentrate on finding the originals, and ignore the clones for now.", Ch11b-Concentrate, v_current_scene = Ch11b-Concentrate)
+
+
+ID: Ch11b-Freeze
+TEXT: 
+
+set(v_is_dead,1) if (v_premonition < 4)
+set(v_is_dead,0) if (v_premonition >= 4)
+#if(v_premonition < 4) {
+ 
+"Kate," I say, "could you freeze the whole area around us in order to take care of all the clones at the same time?"
+
+"Yes," Kate says, "I was about to do just that."
+
+She then sends a powerful wave of freezing magic all around us, which hits all of the clones at once. Immediately after the illusions disappear, Kate's freezing wave reverses its direction, and it hits us all before we get the time to react.
+
+As the others each shake off the ice spell in their own way, I can feel myself slowly freezing to death, while my heartbeat gets slower and slower by the second.
+
+"Kate, unfreeze him, quick!" Daren says.
+
+"I can't!" Kate says. "I don't know how!"
+
+Daren rushes towards me and he tries to cast a healing spell of some sort on me, but it's too late for that. I can already feel my consciousness slipping away, as my vision starts to blur, little by little. I died shortly afterwards, without even finding out what it was that sent Kate's spell back against us.
+
+}
+#if(v_premonition >= 4) {
+ 
+"Kate," I say, "could you freeze the whole area around us in order to take care of all the clones at the same time?"
+
+As soon as I stop talking, I see a vision in which Kate blasts all of the clones with a wave of ice. Once they all disappear, Kate's freezing wave quickly reverses its direction, and it hits us all before we get the time to react.
+
+"Yes," Kate answers me, "I was about to do just that."
+
+"Wait!" I shout. "Don't do it!"
+
+Kate is looking a little confused, but she stops her spell just in time.
+
+"Why not?" she asks me.
+
+"I just had a premonition," I say. "If you had cast that spell, it would have turned against us and frozen us all, right after the clones disappeared."
+
+"So the clones are a trap, then?" Hadrik asks.
+
+ "Wait a minute!" Arraka says. "I think I got it!"
+"Do you recognize the spell?" Kate asks.
+
+"Yeah," Arraka says. "This is actually one of Memphir's favorite illusion spells. No wonder he started teaching it to his followers."
+
+"Memphir?" Hadrik asks. "Is that the name of the God of Fate?"
+
+"Yeah, that's him," Arraka says. "The spell is designed in such a way that when all of the illusions get destroyed, the attackers get hit back with all of the spells they'd cast to slay the clones. I always used to fall for that stupid trick."
+
+"How can you tell that it's the exact same spell?" I ask her.
+
+"If you pay close attention, you will see that all of the clones have an easily recognizable signature in their magical auras," Arraka says. "The flow of their auras has a sort of slithering motion to it. Kind of like a snake moving in the grass. Do you get what I'm saying?"
+
+"Yeah, I think I get it," I say.
+
+"Hey, I think I can see it too!" Hadrik says. "This is great! Now we just need to see which of them don't carry this signature, and we'll know who the originals are!"
+
+"Uh-huh," Arraka says. "Good luck with that."
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4)
+choice("Load game", , , special:saves) if (v_premonition < 4)
+choice("Continue", Ch11b-Square, v_current_scene = Ch11b-Square) if (v_premonition >= 4)
+
+
+ID: Ch11b-Concentrate
+TEXT: 
+
+ "I'll try to freeze the whole area around us, so I can take care of all the clones at the same time," Kate says.
+"No, wait," I say. "I think we should concentrate on finding the originals first."
+
+"You think that destroying the clones might trigger a trap?" Kate says.
+
+"I don't know," I say. "But the fact that the clones are not moving at all makes me think that they are at the very least waiting for something. As long as they're not actually doing anything, I think we should take advantage of the situation, and try to figure out their trick before we engage them openly."
+
+"Wait a minute!" Arraka says. "I think I got it!"
+
+"Did you find out which ones are the originals?" Kate asks.
+
+ "No, but I found out what kind of illusion spell they are using!" Arraka says. "This is actually one of Memphir's favorites. No wonder he started teaching it to his followers."
+"Memphir?" Hadrik asks. "Is that the name of the God of Fate?"
+
+"Yeah, that's him," Arraka says. "The spell is designed in such a way that when all of the illusions get destroyed, the attackers get hit back with all of the spells they'd cast to slay the clones. I always used to fall for that stupid trick."
+
+"How can you tell that it's the exact same spell?" I ask her.
+
+"If you pay close attention, you will see that all of the clones have an easily recognizable signature in their magical auras," Arraka says. "The flow of their auras has a sort of slithering motion to it. Kind of like a snake moving in the grass. Do you get what I'm saying?"
+
+"Yeah, I think I get it," I say.
+
+"Hey, I think I can see it too!" Hadrik says. "This is great! Now we just need to see which of them don't carry this signature, and we'll know who the originals are!"
+
+"Uh-huh," Arraka says. "Good luck with that."
+
+choice("Continue", Ch11b-Square, v_current_scene = Ch11b-Square)
+
+
+ID: Ch11b-Square
+TEXT: 
+
+ "Why are you saying this?" Kate says.
+"Because I already checked," Arraka says. "Twice. None of them are the originals."
+
+"Are you saying that the real mages were never actually here, and they just cast the illusion spell from afar?" Daren asks.
+
+"No," Arraka says. "I've been monitoring the whole area around us ever since I noticed that the streets were empty, and I guarantee you that the only mages who were close enough to cast an illusion spell on us were the two that ambushed us."
+
+"But that makes no sense," I say. "If those two were the real mages, then what happened to them? Did they just turn into illusions as well when they cast the spell?"
+
+Suddenly, an idea comes to me.
+
+"Wait..." I say. "I think I may be onto something, but I'll need some confirmation before I'm sure. Illuna, check my thinking. Could this all be an illusion? Not just the clones before us, but the whole world around us, too? You know, like that time with the shaman."
+
+"No, that's impossible," Illuna says. "If a mind affecting spell of that caliber had been cast on us, then there should have been a visual effect of some sort, for all of us to see, in the same way that the underground caverns were filled with smoke when the shaman cast his spell. There was no such--"
+
+Illuna pauses for a second, as realization dawns upon her.
+
+ "The green light!" she says. "Of course! I should have realized it immediately! This also explains why their so called trap affected Rose. It's because the reverse is what actually happened. Their mind affecting spell could not target Rose, and so, it appeared to us as if she'd been rendered unconscious. It's probably the same for Flower as well."
+"Great," Daren says. "So we're back to square one, then. We need to find the real mages so we can kill them and get out of the illusion."
+
+"No, we don't," Illuna says. "We only needed to do that with the shaman because he'd trapped himself in the illusion with us in order to prevent us from escaping, remember? Since the mages are not actually here with us, it means that this illusion's main purpose was not to kill us, but to buy time so that they could kill us in the real world while we were defenseless. This leads me to believe that time is flowing at the same speed here as in the real world, which is different from what we experienced in the shaman ritual."
+
+"Oh gods," Kate says. "If that's true, then it means that Flower has been fighting the two mages by herself in the real world all this time!"
+
+"Most likely," Illuna says. "We need to get out of here quick. Everyone, close your eyes and start visualizing the moments before the mages cast the illusion on us. You need to do this with the conviction that the image in your head represents the real world, and that you want to return to it. If we all do this at once, we'll break the illusion's effect over us."
+
+choice("Continue", Ch11b-Honor, v_current_scene = Ch11b-Honor)
+
+
+ID: Ch11b-Honor
+TEXT: 
+
+ We all close our eyes and start doing as Illuna said. As I get a clear image of the city's streets in my mind, the image starts to become clearer and clearer, until I feel myself getting pulled into it, and suddenly I realize that my imagination had become reality without me even noticing it. As I open my eyes, I see myself standing in the middle of the street, but everything looks a lot different from how I remembered it. 
+There are craters all around us, the walls from the houses on the side of the street have all been charred, and there's a huge skeletal dragon standing right in front of us. Rose is on her knees, crying, and Flower looks like she's barely able to stand on her feet, but she's staring at the dragon defiantly. She is bruised all over, and her clothes are a complete mess, but there is a very intimidating aura surrounding her, feeling as if it were made from a fire hotter than that of her elemental magic. When Flower senses that we've finally awoken from the illusion spell, she turns to us and she gives us a tired smile.
+
+"You broke the spell!" the girl says. "I knew you could do it. I knew it..."
+
+As she utters the last words, Flower's eyes slowly close, and then she drops to the ground, unconscious. Daren is now hurrying over to her side, in order to shield her from the dragon, in case it decides to strike her while she's down.
+
+"She was so reckless..." Rose says, as she's holding back her tears. "She never stopped fighting even after she had clearly exceeded her limits. She was desperately trying to protect you, even at the cost of her own life..."
+
+ "It's alright," Illuna says, as she takes control of the girl's body, but she doesn't get up from the ground. "The girl only fainted due to exhaustion. She's not going to die."
+"Do you see what you've done now, fool?" Zack the necromancer tells his ally. "If your useless god's spell had worked properly like you said it would, we wouldn't be in this mess!"
+
+"Don't you dare pin this on me!" the mage in green robes says, while he's sweating all over, looking as if he's about to faint from exhaustion as well. "My spell was never designed to work against fusioned souls. It just targeted the soul that was controlling the body at the time and left the other one alone. There was no way I could have prevented it from happening. You're the only one to blame for this, you stingy bastard! If you had just used that stillwater summoning spell of yours when I told you to, they would have all died within seconds."
+
+"Be quiet, heathen," Zack says. "I can only cast that spell once a day. It would be an insult to the great God of Death Ulruk if I were to waste its one daily use so early in the morning, on the likes of them."
+
+"Are you kidding me?!" the green robed mage says. "Do you have any idea how much magical energy I needed to spend in order to keep them in that illusion for so long? I had to cancel all of my protections two hours ago just so I'd be able to cast the damn spell! I don't even have my magic shield on right now!"
+
+Just as the green robed mage stops talking, an ice cone passes straight through his head, and soon afterwards he falls on the ground, lifeless.
+
+ "Thanks for letting me know," Kate says.
+"You wench!" Zack says, furious. "Do you have no honor?!"
+
+"It's his own damn fault for not paying attention during a fight," Kate says. "And don't you talk to me about honor! You would have done the exact same thing to us if Flower hadn't protected us while we were defenseless."
+
+"Don't you lecture me, wench!" Zack says. "There is no need for honor when killing irredeemable heathens such as yourselves!"
+
+choice("""How do you know that we're irredeemable?""", Ch11b-Irredeemable, v_current_scene = Ch11b-Irredeemable)
+choice("""Wasn't your friend a heathen too, though?""", Ch11b-Heathen, v_current_scene = Ch11b-Heathen)
+choice("""So how do you become a follower of Ulruk, anyway? Do they hold interviews for that?""", Ch11b-Interviews, v_current_scene = Ch11b-Interviews)
+
+
+ID: Ch11b-Irredeemable
+TEXT: 
+
+ "How do you know that we're irredeemable?"
+"The fact that you've reached maturity and have not yet decided to dedicate your lives to the God of Death is proof enough, heathen!" Zack says. "But, enough idle chatter. I am going to teach you all first-hand why your whole lives until this point were a mistake."
+
+"Illuna, can you move?" Daren asks.
+
+"No," Illuna says. "The girl pushed her body way beyond its limits while we were in the illusion. I can feel an ache coming from every single bone and muscle, and I can't even manage to move one finger.  Her body is bruised all over, her clothes are a mess, and Arraka's amulet is..."
+
+She pauses for a moment, and all of a sudden, we hear a crack coming from the amulet around her neck.
+
+"Oh..." Illuna says. "Oh, no..."
+
+"Aha- AHAHAHA--" 
+
+The amulet cracks again, this time a lot more violently than before, and Arraka's laughter intensifies even further.
+
+"AHAHAHAHAHAHAHA!"
+
+ Suddenly, the amulet breaks completely, and a dark aura envelops Illuna, as the girl's body slowly raises itself into the air, in an upright position. A very powerful wind is now blowing in our faces, pushing us all away from her, while the sky is becoming darker and darker by the second. The girl's eyes are now slowly turning from bright blue to pitch black, as she grins widely, while looking at each of us in turn.
+"So this is what you all look like in the flesh!" Arraka says. "It was kind of hard to tell from inside the amulet, going by magical sense alone. How you people can get by every day without being mistaken for a circus troupe is beyond me."
+
+"You're one to talk," Hadrik says. "You do realize that you are literally dressed like a clown right now, don't you?"
+
+Arraka grins evilly at Hadrik.
+
+"Dwarf," she says. "Are you sure it's a good idea to be standing there, cracking jokes? Shouldn't you rather be buying me that beer you owe me? I could really go for a drink right about now. That and mass murder. I'm still not sure which one I should be starting with!"
+
+"Flower..." Kate says, weakly. "What happened to Flower? Where are Flower and Illuna?"
+
+"Oh, they're dead," Arraka says. "Or should I rather say... 'absorbed'? What happened is that I merged with their souls when I took over their body. They're both part of me, now."
+
+”So, they're both still in there... somewhere?" Kate asks.
+
+choice("Continue", Ch11b-Monster, v_current_scene = Ch11b-Monster)
+
+
+ID: Ch11b-Heathen
+TEXT: 
+
+ "Wasn't your friend a heathen too, though? Why would there have been any need for honor when killing him, then?"
+"Because unlike you, he was actually serving the God of Death's cause!" Zack says. "You, on the other hand, are so beyond salvation that you can only serve him through your deaths! It is therefore my duty to send you to him before you stray even further from the righteous path."
+
+"Illuna, can you move?" Daren asks.
+
+"No," Illuna says. "The girl pushed her body way beyond its limits while we were in the illusion. I can feel an ache coming from every single bone and muscle, and I can't even manage to move one finger.  Her body is bruised all over, her clothes are a mess, and Arraka's amulet is..."
+
+She pauses for a moment, and all of a sudden, we hear a crack coming from the amulet around her neck.
+
+"Oh..." Illuna says. "Oh, no..."
+
+"Aha- AHAHAHA--" 
+
+The amulet cracks again, this time a lot more violently than before, and Arraka's laughter intensifies even further.
+
+"AHAHAHAHAHAHAHA!"
+
+ Suddenly, the amulet breaks completely, and a dark aura envelops Illuna, as the girl's body slowly raises itself into the air, in an upright position. A very powerful wind is now blowing in our faces, pushing us all away from her, while the sky is becoming darker and darker by the second. The girl's eyes are now slowly turning from bright blue to pitch black, as she grins widely, while looking at each of us in turn.
+"So this is what you all look like in the flesh!" Arraka says. "It was kind of hard to tell from inside the amulet, going by magical sense alone. How you people can get by every day without being mistaken for a circus troupe is beyond me."
+
+"You're one to talk," Hadrik says. "You do realize that you are literally dressed like a clown right now, don't you?"
+
+Arraka grins evilly at Hadrik.
+
+"Dwarf," she says. "Are you sure it's a good idea to be standing there, cracking jokes? Shouldn't you rather be buying me that beer you owe me? I could really go for a drink right about now. That and mass murder. I'm still not sure which one I should be starting with!"
+
+"Flower..." Kate says, weakly. "What happened to Flower? Where are Flower and Illuna?"
+
+"Oh, they're dead," Arraka says. "Or should I rather say... 'absorbed'? What happened is that I merged with their souls when I took over their body. They're both part of me, now."
+
+”So, they're both still in there... somewhere?" Kate asks.
+
+choice("Continue", Ch11b-Monster, v_current_scene = Ch11b-Monster)
+
+
+ID: Ch11b-Interviews
+TEXT: 
+
+ "So how do you become a follower of Ulruk, anyway? Do they hold interviews for that?" 
+"Do not mock the almighty god Ulruk, heathen!" Zack says. "The God of Death welcomes all who would dedicate their lives to serve him, without exception. Even if they are of no use to him alive, they can still serve him through their deaths. And that is exactly what you all will be doing, very soon."
+
+"Illuna, can you move?" Daren asks.
+
+"No," Illuna says. "The girl pushed her body way beyond its limits while we were in the illusion. I can feel an ache coming from every single bone and muscle, and I can't even manage to move one finger.  Her body is bruised all over, her clothes are a mess, and Arraka's amulet is..."
+
+She pauses for a moment, and all of a sudden, we hear a crack coming from the amulet around her neck.
+
+"Oh..." Illuna says. "Oh, no..."
+
+"Aha- AHAHAHA--" 
+
+The amulet cracks again, this time a lot more violently than before, and Arraka's laughter intensifies even further.
+
+"AHAHAHAHAHAHAHA!"
+
+ Suddenly, the amulet breaks completely, and a dark aura envelops Illuna, as the girl's body slowly raises itself into the air, in an upright position. A very powerful wind is now blowing in our faces, pushing us all away from her, while the sky is becoming darker and darker by the second. The girl's eyes are now slowly turning from bright blue to pitch black, as she grins widely, while looking at each of us in turn.
+"So this is what you all look like in the flesh!" Arraka says. "It was kind of hard to tell from inside the amulet, going by magical sense alone. How you people can get by every day without being mistaken for a circus troupe is beyond me."
+
+"You're one to talk," Hadrik says. "You do realize that you are literally dressed like a clown right now, don't you?"
+
+Arraka grins evilly at Hadrik.
+
+"Dwarf," she says. "Are you sure it's a good idea to be standing there, cracking jokes? Shouldn't you rather be buying me that beer you owe me? I could really go for a drink right about now. That and mass murder. I'm still not sure which one I should be starting with!"
+
+"Flower..." Kate says, weakly. "What happened to Flower? Where are Flower and Illuna?"
+
+"Oh, they're dead," Arraka says. "Or should I rather say... 'absorbed'? What happened is that I merged with their souls when I took over their body. They're both part of me, now."
+
+”So, they're both still in there... somewhere?" Kate asks.
+
+choice("Continue", Ch11b-Monster, v_current_scene = Ch11b-Monster)
+
+
+ID: Ch11b-Monster
+TEXT: 
+
+ "Well, I guess you could say that," Arraka says, "if you want to be all technical about it, but the fact of the matter is--"
+"Monster!" Zack shouts, all of a sudden, while pointing towards Arraka. "Abomination! Begone, foul demon!"
+
+Suddenly, the skeletal dragon, which had not moved an inch since we escaped the illusion, flaps its wings and rushes towards Arraka, roaring loudly. Just as it reaches her, the dragon explodes into a thousand tiny pieces that get scattered throughout the whole area around us.  
+
+"Really, now..." Arraka says.
+
+As the dragon's bones fly in all directions, the ground begins to shake, and several skeletons start to slowly rise from it. It doesn't take me long to realize that this is the necromancer's doing, and that all of the skeletons standing in front of us are stillwaters.
+
+"Do you understand now, banshee?" Zack says. "Do you understand who you are facing against? This is the true power of the God of Death! If you get on your knees now and beg for Ulruk's forgiveness, he might just see fit to grant you a quick and painless death."
+
+Arraka ignores the mage completely, choosing instead to stare intently at one of the skeletons that have risen from the ground.
+
+ "Wait a minute!" Arraka says. "I know you! You're Vallen, right? Short-legs Vallen who couldn't hold a tune to save his life! You're not going to hurt me, are you? Remember all of those fun times we've had during the still winter? Remember that time when we had to fish you out of a pond because you fell in while you were practicing your flying spell and you suddenly remembered that you couldn't swim? Remember how we used to make fun of you because you always walked funny after you expended all your magical energy? Remember when I tied you to a tree and forced you to watch me slowly murder all of your friends until you could manage to hit all the notes in that kiddy song about the lion and the lamb? Those were the days, huh? Now, how did that song go again?"
+Arraka clears her throat and she begins to sing.
+
+"Oh, there was a lamb, a lamb, a lamb," she sings. "And that lamb had such bright white wool!"
+
+As Arraka sings the song, the skeleton named Vallen starts to shake uncontrollably, and it puts both its hands on its head, as if it were having an intense headache. Eventually, its pain turns into rage, and it roars loudly, as it starts shooting fire out of its hands. The fire simply brushes off Arraka's magical shield, and she acts as if nothing happened, continuing to sing her song.
+
+ "Why are you just standing there, you fools?!" Zack asks the other skeletons. "Attack her! Kill her!"
+The skeletons all start flinging spells at Arraka, attacking her with all types of elemental magic simultaneously, while also using spells to weaken her defenses. Arraka acts as if she doesn't even notice the onslaught of spells that are being cast upon her, and she continues to sing without any interruptions.
+
+choice("Continue", Ch11b-Sonic, v_current_scene = Ch11b-Sonic)
+
+
+ID: Ch11b-Sonic
+TEXT: 
+
+ "You can stop your little act now, banshee," Zack says. "I can see right through you. Even if you are acting calm and collected, the reality is that you can barely even withstand the barrage of attacks that are being flung against you, and that you have no means of fighting back. Since my skeletons are now fully protected against sonic attacks, you could say that they have become near indestructible! There's nothing you can do to hurt them."
+Arraka stops singing, and she smiles wickedly at the necromancer.
+
+"Oh, they are protected from sonic attacks, you say?" she says, with a mocking tone, as the skeletons continue to attack her with everything they've got. "How impressive! Truly, you are a mage among mages. But tell me, necromancer, did you consider shielding your puppets from pebbles as well?"
+
+"What kind of a question is that, you little--" Zack starts to say, but Arraka doesn't give him a chance to finish his question.
+
+While the necromancer was talking, Arraka made a few pebbles from the ground float into her hand, and then she started flinging them with her fingers towards each of the skeletons. When the pebbles reached them, the skeletons exploded, but this time into pieces so small that they could very well be confused with specks of dust. 
+
+When the necromancer saw what happened, his jaw dropped, and he couldn't bring himself to utter another word. He was in too great of a shock.
+
+ "Yeah, you go ahead and wrap that up and then send it to old Ulruk as a present," Arraka says, as she gestures towards the piles of dust on the ground. "Tell him it's from Arraka. Tell him that he should be expecting many more presents from me in the near future. Tell him that once I'm done with the earthen plane, I'll be paying him a visit. I'll visit him, I'll visit Memphir, I'll visit every single one of the so-called gods that thought it would be a good joke to have me banned from the magical plane along with every other banshee in existence. And then we can all have a party together, while we reminisce over times long forgotten!"   
+"Shut up!" Daren says to Arraka all of a sudden, as he starts walking towards her, with a furious look on his face. "I couldn't care less about your past or your personal vendettas. You bring them back, you hear me??? You bring them both back this instant!!!"
+
+"Excuse me?" Arraka says.
+
+"You know what I'm talking about!" Daren says. "Flower and Illuna. You bring them both back right now!"
+
+"What, are you ugly AND stupid?" Arraka says. "Didn't I just tell you that I absorbed their souls when I took over the body? What do you expect me to do, cut them out of me with a meat cleaver?"
+
+"If you're not going to let them go, then I'll force you to do it!" Daren says, as he pulls out his sword. "Prepare yourself, banshee!"
+
+choice("Continue", Ch11b-Murder, v_current_scene = Ch11b-Murder)
+
+
+ID: Ch11b-Murder
+TEXT: 
+
+ "So, mass murder it is, then," Arraka says, with a grin, as Daren rushes towards her.
+Before he even takes three steps, Daren suddenly starts to wither like a plant, at an incredibly rapid pace. Within seconds, the only thing that's left of him is his armor, as the rest of his body had been completely turned into dust.
+
+"No..." Kate says, as she places her hand on her mouth. "No!!!"
+
+She conjures a hundred icicles that she aims towards Arraka, but before she gets to attack her with them, she withers just like Daren, and within seconds, nothing is left of her except a pile of dust.
+
+"No!!!" Rose shouts, as she starts to cry. "Please, stop! Please!!!"
+
+"What's the matter, Hadrik?" Arraka says, as she grins wickedly. "Aren't you going to show me that giant's fighting spirit of yours that you like to brag about so much? I'm right here! What are you waiting for?"
+
+"I'll show you fighting spirit, you arrogant old hag," Hadrik says, as a trickle of sweat runs down the side of his forehead, and he rushes towards Arraka, with his fists at the ready.
+
+ Just like the two before him, Hadrik quickly turns into dust, and all that remains of him is his leather armor and boots.
+"Please..." Rose says again, this time with a much weaker voice than before.
+
+They're dead. They all died right in front of me. How can this be? Is this another illusion? It has to be! That's right! This must be an illusion!
+
+I close my eyes and try to visualize the real world in my mind. I try to make the image as clear as possible, and I try to throw myself into it, just like I did before, but nothing's happening. Nothing's happening...
+
+"You're not seriously going to close your eyes and pretend that I'm not here, are you?" Arraka tells me. "Come on, take out your dagger. It's no fun killing you if you don't even put up a fight."
+
+choice("Take out my dagger and attack Arraka", Ch11b-Dagger, v_current_scene = Ch11b-Dagger)
+choice("""I'm not going to give you that satisfaction.""", Ch11b-Satisfaction, v_current_scene = Ch11b-Satisfaction)
+
+
+ID: Ch11b-Satisfaction
+TEXT: 
+
+ "I'm not going to give you that satisfaction."
+"Hmph," Arraka says. "I was actually going to kill you slowly in order to torment your friend over there, but it's just not the same thing if you don't plan to fight back."
+
+She then waves her hand towards Rose, and she kills her in the same way that she killed all the others.
+
+"Well, it was a fun little trip while it lasted, Barry," Arraka says. "The trip might end for you today, but don't worry, you will always live in my memory!"
+
+She waves her hand towards me, and I can feel every part of my body drying up quickly, as my vision starts to blur. Arraka's words are the last thing I hear before I completely lose my consciousness.
+
+"So long, Barry," Arraka says. "It's been a blast!"
+
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
+
+
+ID: Ch11b-Dagger
+TEXT: 
+
+ I take out my dagger, and I look Arraka straight in the eye.
+"Alright, then!" Arraka says, grinning. "This is it, Barry. An epic duel of the ages in the making. Hero versus villain. Banshee versus lessathi. The bards will be singing songs of us for thousands of years to come. Let's do this, come on!"
+
+I'm not going to fix anything if I just stand here moping about. She doesn't expect me to be a threat. She's overconfident. Maybe I can use that against her somehow. Maybe if I kill her, everything will come back to normal. Maybe if she dies, her spells will be undone, and everyone will come back to life. I won't know until I try.
+
+I rush towards the banshee, but I suddenly feel a sharp pain in my stomach, as a rock flies into me and knocks me off my feet.
+
+"Oh, I'm sorry, was that too rough?" Arraka says, as I struggle to catch back my breath. "I'm not exactly sure how much damage you can take, since I've never really fought against a weakling like you before!"
+
+"Please, leave him alone!" Rose screams, while tears keep flowing from her eyes.
+
+"I wouldn't want to kill you right off the bat," Arraka says. "We should enjoy ourselves to the fullest, you know what I'm saying?"
+
+She then flings another rock right below my chest, and I can feel my breath leaving me again.
+
+"Stop!" Rose shouts. "You're hurting him!"
+
+ "Huh," Arraka says. "Well, I always knew you were a weakling, but I never imagined it would be this bad. This is painful to watch, really. I think I'm just going to spare you the embarrassment and kill you right now." 
+"No, don't do it!" Rose cries as loud as she can.
+
+"Good bye, Barry!" Arraka says, as she waves her hand towards me, and I can feel my whole body starting to quickly dry up. "It was fun while it lasted!"
+
+"Stop!" Rose shouts again, and just as the last echoes of her words fade away, everything around me freezes in place.
+
+My body is not drying up anymore, Arraka isn't moving, and Rose's tears are floating in mid-air. Is this something that normally happens when you die? Is time supposed to feel like it's moving slower as you experience your final moments? I wouldn't know. I've never died before.
+
+All of a sudden, everything begins to move in reverse, as I find myself spectating all of the events that lead to my death. I see Arraka hitting me with the rocks, and then I see her kill Hadrik, and Kate, and then Daren. I see her killing the stillwater skeletons and then I see her breaking out of the amulet. Is this what they call one's life flashing before their eyes? 
+
+choice("Continue", Ch11b-Weaver, v_current_scene = Ch11b-Weaver)
+
+
+ID: Ch11b-Weaver
+TEXT: 
+
+ Wow, this is actually pretty entertaining. I never knew that dying could be this fun. Hey, look, that's Flower fighting the skeletal dragon. How the hell am I seeing this? Wasn't I supposed to be in the illusion while all this happened? Now the craters are all disappearing one by one. Aaand, we're back at the moment where the two mages ambushed us.
+The string of events unraveling before my eyes now comes to a halt, and for a few seconds, I find myself in a frozen state yet again, at the exact moment after we'd been ambushed by the two mages. Then, all of a sudden, time starts moving again, and everyone is looking around themselves, with very confused expressions on their faces. 
+
+Wait a minute... Could this be possible? Was it not just my imagination? Are you actually telling me that I just witnessed time reversing itself and that everyone still remembers what happened? 
+
+I don't get a lot of time to think about what happened, because my suspicions suddenly get confirmed by an enraged Arraka.
+
+"A time weaver?!" Arraka shouts from her amulet. "Are you kidding me right now?! And it was Rose, of all people? You bastards knew this, didn't you? You all set me up! You knew that this would happen! You let me escape on purpose so you could laugh at me, didn't you? Well, you know what?! I'm done being nice! Next time I get out, I'm going to rip every single bone from your bodies and I'll make your families watch. You're going to beg me to give you the easy deaths I gave you today. Do you hear me? I am going to make your lives hell! Stop grinning at me you stupid lowlife dwarf!"
+
+ "That's enough, Arraka," Illuna says. "I'm not sure what exactly happened after you escaped from the amulet, but I think I can get a general idea from what you just said. You lost. We won. Deal with it. If I hear any more of your whining, I'm going to close this amulet and never open it again. Do you understand?"
+Arraka doesn't say anything, but I don't need to see her face to know that she must be fuming right now.
+
+"I'm... alive?" the mage in green robes says. "But... how?"
+
+"It was the wench!" Zack says, as he points towards Rose. "I saw it all happen before my eyes. She reversed time! Do you know what this means? Do you know what it would mean if any of our gods could get ahold of this kind of power?!"
+
+Before the green robed mage gets to answer the question, a cone of ice flies straight through his head, and he dies instantly.
+
+"Your friend really shouldn't have told us that he canceled all of his protection spells two hours ago," Kate tells the necromancer. "That's just begging to be killed over and over."
+
+"I don't care about that sad excuse for a mage anymore," Zack says. "What I care about more than anything now is the woman you are travelling with. Hand her over peacefully, and I will make your deaths swift."
+
+"It's a tough decision to make," Hadrik says, with a grin, "but I'm afraid we're going to have to turn down your generous offer."
+
+choice("Continue", Ch11b-Safety, v_current_scene = Ch11b-Safety)
+
+
+ID: Ch11b-Safety
+TEXT: 
+
+ "So be it, then!" Zack says, and he starts summoning his stillwater skeletons again.
+"Oh no, you don't!" Hadrik says, and he rushes towards the necromancer in order to kill him before he completes the spell, but one of the skeletons, who had only gotten the upper half of its body out of the ground, casts a powerful wind spell which sends the dwarf flying back towards us.
+
+"Rose, get to safety!" Daren says. "The necromancer and his skeletons may not be able to harm you due to the tournament's spell, but the same can't be said for us. If you stay too close to us you'll risk getting caught in the crossfire."
+
+"Okay," Rose says, as she heads towards the opposite end of the market square.
+
+Once the skeletons have fully surfaced, two of them start attacking us simultaneously with a flurry of fire and water spells, while another one creates a magical barrier around him and all the other stillwaters. Daren uses his shield to create a magical barrier of his own around us all, but it looks like he won't be able to hold it for much longer if the stillwaters keep attacking at this rate.
+
+ "If anyone has any ideas on how we can get out of this alive, now would be a good time to let us know," Daren says, as two newly formed walls of rock are closing in on his barrier, trying to break through it by using brute force.
+"We can't fight them head on," Illuna says. "We need to focus on figuring out their weaknesses. They may be stillwaters, but they're still only skeletons. If we examine them carefully, we are bound to discover a thing or two that we can use to our advantage."
+
+"Well, I'm not trying to rush you or anything," Daren says, "but I doubt I can hold this barrier for another minute. Realistically, it'll probably break a lot sooner than that. So, yeah, if you're planning to look for weak spots, you'd better do it quick."
+
+Illuna is right. Even if they are stillwaters, their frail undead bodies are bound to leave them with a few exploitable weaknesses. Azarius has shown us this much. Even if the necromancer has learned from his past mistakes and shielded them against sonic attacks, there still should be something we could take advantage of. Not to mention that the necromancer's spell only lasts five minutes and is limited to one use per day, so barring any more unexpected time reversals, we should be in the clear if we manage to hold out for the entire duration of the spell. 
+
+choice("Continue", Ch11b-Emergency, v_current_scene = Ch11b-Emergency)
+
+
+ID: Ch11b-Emergency
+TEXT: 
+
+ As I examine the skeletons carefully, I notice something peculiar about them. Even though their auras feel similar to that of Eiden, their magical energy feels as if it were leaking out of their bodies at a very fast rate. If I were to venture a guess as to why that is happening, I would say it's most likely because their new bodies cannot keep up with the tremendous amount of energy they have at their disposal. I am honestly surprised that my stat device isn't reacting to any of this. I would have expected it to be beeping like crazy by now. 
+I take out my stat booster to take a look at it, and I find out to my surprise that even though I don't have any new points to spend, there is a flashing message in the corner of the screen saying: 'Emergency mode available. Tap here to activate."
+
+Emergency mode? Is this something that can only be activated when the device gets access to a great amount of energy? If so, then is this what Eiden did to power up my device after he pumped it with energy before my fight with the dragon? 
+
+Unfortunately, I don't have much time to think this through. I'm going to have to rely on my guts, here. And my guts say that I should take this chance, while I still have it.
+
+ As I tap the emergency mode message, I suddenly feel a great amount of energy surging through my body, similar to what happened before my fight with the dragon, and just like last time, I realize that I now have access to an impressive roster of spells, as well as the knowledge required to be able to cast them.  For a moment, I could see two additional stats being displayed on the device's screen, next to the nine existent ones. The stats were named 'Magical power' and 'Magical knowledge', but they disappeared almost as quickly as they appeared.
+I think I may be starting to understand what's happening here. This 'Emergency mode' somehow powers up two hidden stats that I don't normally have access to, but it only does so temporarily, when the device gets ahold of a surplus of energy that it can't assimilate immediately. This is how Eiden powered up my device for my fight with Tyrath. I'm sure of it. The feeling I'm getting is exactly the same as back then, even though I don't seem to have access to nearly as many spells as I did last time. 
+
+This time around, it seems that I don't have any flight or teleportation spells available, so I guess I'll have to move around the old fashioned way. I'm also missing some of the bigger spells I had access to last time, and I can feel that the power behind each of my spells is significantly weaker than it was when Eiden powered up the device.
+
+ Regardless, this is the best chance I've got to turn the tables around, and I need to take full advantage of this opportunity. I'll first need to decide whether I want to engage the enemy alone, or if I should try to work with everyone as a team in order to take the skeletons out. Working as a team has its advantages, but it also means that I may be forced to limit the firepower behind some of my spells in order to avoid endangering my teammates. However, if I convince them to wait here, I can provide them with various protections that will both keep them safe and out of my way for the duration of the fight.
+
+choice("Fight the skeletons alone", Ch11b-Alone, v_current_scene = Ch11b-Alone)
+choice("Fight the skeletons as a team", Ch11b-Team, v_current_scene = Ch11b-Team)
+
+
+ID: Ch11b-Alone
+TEXT: 
+
+ I am not really used to working in a team when it comes to using magical attacks. It's better if I do this alone. 
+There are five stillwaters in total, of which four seem to be elementalists that each have mastery over a different magical element, and the fifth appears to be specialized in supporting the others, by either weakening the enemy's defenses, or casting protections on his allies. Given their perfect lineup, I'm going to assume that they were part of a squad during the still winter, and that they died together, during one of their missions.
+
+However, the five of them combined are nowhere near Eiden's level. They may have a lot of magical power and energy, but besides that, they are not any different from regular mages. The elementalists don't have control over more than one element, the supporting mage isn't casting any other spells than the ones he is specialized in, and none of them seem to be able to ignore the laws of magic in the same way that Eiden does.
+
+ Meanwhile, my stat device's emergency mode gives me access to all of the four traditional magical elements, as well as non-traditional ones such as ice, acid and electricity. I also think that my current power level is somewhat comparable to that of each stillwater, but I can't be one hundred percent sure of that because I've never had the opportunity to fight mages on equal terms before. 
+The question now is how I'm planning to use all this power. If I go all out and use my strongest spells, there is a great risk that I'll end up harming some of the civilians in the city. The streets may have been emptied, but there are bound to be some locals still taking shelter in the nearby houses, and I can't really guarantee their safety once I start bringing down meteors from the sky.
+
+choice("Ignore the civilians. Cast all of my strongest spells.", Ch11b-Strongest, v_current_scene = Ch11b-Strongest, v_ch11_strategy = 1)
+choice("Only cast the spells that would not run the risk of hurting civilians.", Ch11b-Civilians, v_current_scene = Ch11b-Civilians, v_ch11_strategy = 2)
+
+
+ID: Ch11b-Team
+TEXT: 
+
+ It would be too risky to fight them all by myself. Coordinating my attacks with everyone else should definitely increase our chances of victory.
+There are five stillwaters in total, of which four seem to be elementalists that each have mastery over a different magical element, and the fifth appears to be specialized in supporting the others, by either weakening the enemy's defenses, or casting protections on his allies. Given their perfect lineup, I'm going to assume that they were part of a squad during the still winter, and that they died together, during one of their missions.
+
+However, the five of them combined are nowhere near Eiden's level. They may have a lot of magical power and energy, but besides that, they are not any different from regular mages. The elementalists don't have control over more than one element, the supporting mage isn't casting any other spells than the ones he is specialized in, and none of them seem to be able to ignore the laws of magic in the same way that Eiden does.
+
+ Meanwhile, my stat device's emergency mode gives me access to all of the four traditional magical elements, as well as non-traditional ones such as ice, acid and electricity. I also think that my current power level is somewhat comparable to that of each stillwater, but I can't be one hundred percent sure of that because I've never had the opportunity to fight mages on equal terms before. 
+The question now is what the focus of our fight should be. If we're just aiming to buy time until the necromancer's spell runs out, then our best bet would be to keep reinforcing Daren's barrier, while attacking the skeletons from afar. Our main target in this case should be the supporting stillwater, since he would be the one constantly trying to weaken our barrier, and since killing the necromancer would not actually cancel his spell before its time limit.
+
+If our aim were instead to eliminate the stillwaters directly, our best bet would probably be to aim for the necromancer, since the skeletons' main priority would be to defend their master, and this would serve to disrupt their rhythm.  
+
+choice("Try to buy time until the spell runs out", Ch11b-Buy, v_current_scene = Ch11b-Buy, v_ch11_strategy = 3)
+choice("Try to eliminate the stillwaters directly", Ch11b-Directly, v_current_scene = Ch11b-Directly, v_ch11_strategy = 4)
+
+
+ID: Ch11b-Strongest
+TEXT: 
+
+ "Guys, I have a plan," I say. "But I'll need to do this alone. Can you all stay inside Daren's barrier while I deal with the skeletons? I'll make sure to reinforce it with everything I've got."
+"What the hell?" Daren says. "What's with the crazy magical energy radiating from you all of a sudden? Don't tell me that Eiden froze time again to give you magic powers!"
+
+"No," I say, as I start to reinforce the magical barrier. "It wasn't Eiden. I just used my device to harness the energy that's being leaked from the stillwaters."
+
+"You can do that now?" Daren asks me.
+
+"Apparently," I say.
+
+"Well, I hope you know what you're doing," Daren says.
+
+"Don't worry," I say, as I finish reinforcing the barrier. "This will be over before you know it!"
+
+Once I make sure that everyone is on board with my plan, I cast a few protection spells on myself, and then I step out of the barrier, to face the stillwaters.
+
+ I take the initiative and I use one of my spells to bring down a small meteor from the sky, and onto the skeletons. The impact of the meteor sends two of the nearby buildings crashing down, but the magical barrier around the stillwaters is still standing, and none of them appear to be hurt. 
+I give them no time to recover, and I summon a small blizzard, coupled with a lightning storm above their location, while two big hands made out of rock are coming out of the ground and trying to crush the stillwaters and their barrier beneath their palms.
+
+In the meantime, I try to snipe the necromancer from afar with a lightning attack, but the stillwater in charge of supporting manages to defend him in time with a well-placed magical barrier in front of him.
+
+One of the skeletons disappears from inside their barrier, and he teleports right in front of me, as he quickly places his bony palms on my chest and he casts a powerful wind spell at me from point blank range. His spell sends me flying into a wall behind me, but I use my own wind magic to lift myself into the air, right before their earth elementalist tries to crush me between two walls of stone. 
+
+choice("Continue", Ch11b-Strongest2, v_current_scene = Ch11b-Strongest2)
+
+
+ID: Ch11b-Strongest2
+TEXT: 
+
+ Using air magic to fly is nowhere near as easy as it sounds, and I'm feeling a lot clumsier than when I was using the flight spell in my fight with the dragon, but at least I can move around easier now. The air elementalist sees that I'm not dead, and he quickly teleports himself back inside the safety of his ally's barrier, before I get the chance to pay him back in kind.
+"No, no, no, you're doing it all wrong!" Arraka shouts at me from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
+
+Taking advice from Arraka is not something I am particularly keen on doing right now, but as I take a look towards the skeleton's magical barrier, I can at least tell that she is not lying. The magical energy is spread thin throughout the barrier, which helps a great deal against spells with a wide area of effect, but it should leave it vulnerable against more focused attacks. I start charging up a lightning attack while I fly around in circles to avoid the other skeletons' magical projectiles.  When my attack is powerful enough, I stop for a second in order to get a clear shot, and then I aim directly at the supporting mage, making sure that all of the power behind my strike is concentrated on a single point.
+
+ My lightning strike goes straight through the barrier and it hits the supporting stillwater in the skull, killing him instantly. As the magical barrier starts to disappear, the other four skeletons that were hiding underneath it are now standing around, looking very confused. I take advantage of this and use a great deal of magical energy to create a large pool of acid underneath the stillwaters. 
+The skeletons were caught unawares and they had no time to react. As they all sink slowly into the pool of acid, the air elementalist uses a wind spell to lift the upper half of his body that hasn't yet melted into the air, but I quickly raise two chunks of rock from the ground, and I use them to smash the skeleton's head between them. Eventually, all of the skeletons sink fully into the acid, and I decide to start heading towards the ground, before my device's energy depletes completely. Once I get down, the pool of acid disappears, but the skeletons had already melted completely before this happened, which means that the necromancer is now the only enemy left standing.
+
+choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial)
+
+
+ID: Ch11b-Civilians
+TEXT: 
+
+ "Guys, I have a plan," I say. "But I'll need to do this alone. Can you all stay inside Daren's barrier while I deal with the skeletons? I'll make sure to reinforce it with everything I've got."
+"What the hell?" Daren says. "What's with the crazy magical energy radiating from you all of a sudden? Don't tell me that Eiden froze time again to give you magic powers!"
+
+"No," I say, as I start to reinforce the magical barrier. "It wasn't Eiden. I just used my device to harness the energy that's being leaked from the stillwaters."
+
+"You can do that now?" Daren asks me.
+
+"Apparently," I say.
+
+"Well, I hope you know what you're doing," Daren says.
+
+"Don't worry," I say, as I finish reinforcing the barrier. "This will be over before you know it!"
+
+ Once I make sure that everyone is on board with my plan, I cast a few protection spells on myself, and then I step out of the barrier, to face the stillwaters.
+If I'm not going to use my bigger spells, then my best bet is to target the necromancer first, because the stillwaters will then be forced to defend him, and possibly break their ranks.
+
+Just as I get out of the barrier, I try to snipe the necromancer with a lightning attack, but the skeleton in charge of supporting reacts quickly and it manages to defend its master in time with a well-placed magical barrier in front of him. The earth elementalist then tries to crush me between two walls of stone, but I use wind magic to lift myself into the air and out of their reach.
+
+Using air magic to fly is nowhere near as easy as it sounds, and I'm feeling a lot clumsier than when I was using the flight spell in my fight with the dragon, but at least I can move around easier now.
+   
+I position myself above the five skeletons and I start pouring down fire upon them, while I attempt to crush the magical barrier around them beneath several layers of rock. While the supporting stillwater is busy maintaining their barrier, the fire and the water elementalist combine their two elements together to create a cloud of steam that covers the entire area around us.
+
+choice("Continue", Ch11b-Civilians2, v_current_scene = Ch11b-Civilians2)
+
+
+ID: Ch11b-Civilians2
+TEXT: 
+
+set(v_is_dead,0) if (v_hearing >= 3 || v_perception >= 2)
+set(v_is_dead,1) if (v_hearing < 3 && v_perception < 2)
+#if(v_perception >= 2) {
+ 
+As the steam surrounds me, I suddenly notice some barely visible sparks starting to form next to me. This doesn't seem right. I need to get away from here, quick.
+
+Just as I fly out of the steam, the sparks I left behind turn into a big explosion that sends a powerful wave of air my way, which makes me spin around in mid-air for a few seconds.
+
+"No, no, no, you're doing it all wrong!" Arraka shouts at me from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
+
+Taking advice from Arraka is not something I am particularly keen on doing right now, but as I take a look towards the skeleton's magical barrier, I can at least tell that she is not lying. The magical energy is spread thin throughout the barrier, which helps a great deal against spells with a wide area of effect, but it should leave it vulnerable against more focused attacks. I start charging up a lightning attack while I fly around in circles to avoid the other skeletons' magical projectiles.  When my attack is powerful enough, I stop for a second in order to get a clear shot, and then I aim directly at the supporting mage, making sure that all of the power behind my strike is concentrated on a single point.
+
+ My lightning strike goes straight through the barrier and it hits the supporting stillwater in the skull, killing him instantly. As the magical barrier starts to disappear, the other four skeletons that were hiding underneath it are now standing around, looking very confused. I take advantage of this and use a great deal of magical energy to create a large pool of acid underneath the stillwaters. 
+The skeletons were caught unawares and they had no time to react. As they all sink slowly into the pool of acid, the air elementalist uses a wind spell to lift the upper half of his body that hasn't yet melted into the air, but I quickly raise two chunks of rock from the ground, and I use them to smash the skeleton's head between them. Eventually, all of the skeletons sink fully into the acid, and I decide to start heading towards the ground, before my device's energy depletes completely. Once I get down, the pool of acid disappears, but the skeletons had already melted completely before this happened, which means that the necromancer is now the only enemy left standing.
+
+}
+#if(v_hearing >= 3 && v_perception < 2) {
+ 
+
+As the steam surrounds me, I suddenly start to hear the sound of sparks crackling somewhere very close to me. This doesn't seem right. I need to get away from here, quick.
+
+Just as I fly out of the steam, the sparks I left behind turn into a big explosion that sends a powerful wave of air my way, which makes me spin around in mid-air for a few seconds.
+
+"No, no, no, you're doing it all wrong!" Arraka shouts at me from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
+
+ Taking advice from Arraka is not something I am particularly keen on doing right now, but as I take a look towards the skeleton's magical barrier, I can at least tell that she is not lying. The magical energy is spread thin throughout the barrier, which helps a great deal against spells with a wide area of effect, but it should leave it vulnerable against more focused attacks. I start charging up a lightning attack while I fly around in circles to avoid the other skeletons' magical projectiles.  When my attack is powerful enough, I stop for a second in order to get a clear shot, and then I aim directly at the supporting mage, making sure that all of the power behind my strike is concentrated on a single point.
+My lightning strike goes straight through the barrier and it hits the supporting stillwater in the skull, killing him instantly. As the magical barrier starts to disappear, the other four skeletons that were hiding underneath it are now standing around, looking very confused. I take advantage of this and use a great deal of magical energy to create a large pool of acid underneath the stillwaters. 
+
+ The skeletons were caught unawares and they had no time to react. As they all sink slowly into the pool of acid, the air elementalist uses a wind spell to lift the upper half of his body that hasn't yet melted into the air, but I quickly raise two chunks of rock from the ground, and I use them to smash the skeleton's head between them. Eventually, all of the skeletons sink fully into the acid, and I decide to start heading towards the ground, before my device's energy depletes completely. Once I get down, the pool of acid disappears, but the skeletons had already melted completely before this happened, which means that the necromancer is now the only enemy left standing.
+
+}
+#if(v_hearing < 3 && v_perception < 2) {
+ 
+
+There's no need to panic. I can just use my magical sense to tell where they are. As I start to attack the stillwaters again, I suddenly hear a loud crackling noise right next to me and immediately afterwards, a very powerful explosion sends me crashing into the ground. The explosion was too close to me for my magical shield to fully protect me, and I think I must have broken at least two ribs from that fall. 
+
+I never get the chance to get back into the fight, because right after I hit the ground, a thick layer of rock presses itself onto me and it crushes me into a thick red paste in a matter of seconds.
+
+}
+choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial) if (v_hearing >= 3 || v_perception >= 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_hearing < 3 && v_perception < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_hearing < 3 && v_perception < 2)
+choice("Load game", , , special:saves) if (v_hearing < 3 && v_perception < 2)
+
+
+ID: Ch11b-Buy
+TEXT: 
+
+ "Guys," I say, "I think I may have a plan."
+"What the hell?" Daren says. "What's with the crazy magical energy radiating from you all of a sudden? Don't tell me that Eiden froze time again to give you magic powers!"
+
+"No," I say, as I start to reinforce the magical barrier. "It wasn't Eiden. I just used my device to harness the energy that's being leaked from the stillwaters."
+
+"You can do that now?" Daren asks me.
+
+"Apparently," I say.
+
+"So what's this plan of yours, then?" Daren asks.
+
+"Well," I say, "remember how Azarius told us last time that the necromancer's spell only lasts five minutes and that it can only be cast once a day? I was thinking that we could just wait them out, while we keep reinforcing the barrier and attacking them from a distance."
+
+"In that case, I'm hoping that you have some really good reinforcement spells," Daren says, "because I've pretty much already exhausted all of mine."
+
+"Don't worry," I say. "You just focus on keeping the barrier up. I'll take care of the reinforcements."
+
+I turn towards Flower and Kate.
+
+"Can you three put some pressure on the stillwaters while Daren and I keep the barrier up?" I say.
+
+"Aye, aye, sir!" Flower says, as she performs a military salute with her right hand.
+
+ "I'll see what I can do," Kate says.
+"Try to aim for the skeleton maintaining their magical barrier as much as possible," I say. "He's the one that's going to be busy undoing my reinforcement spells."
+
+"And what am I supposed to do all this time?" Hadrik asks.
+
+"Well, you can, uh..." I start to say, but I pause to think for a second. "You can be our last line of defense and make sure to punch back all of their spells in case our barrier fails before the time limit."
+
+"Great!" Hadrik says. "It's times like these that make me regret the fact that I didn't bring a pack of playing cards with me when I joined the tournament."
+
+Once everyone agrees to follow my plan, I go back to reinforcing Daren's barrier, while Kate, Flower and Illuna start to cast their spells at the stillwaters. Holding the barrier against so many simultaneous attacks is proving to be a little more difficult than I had originally thought. Daren is already at his limit, and keeping the barrier up by myself is quickly starting to drain me of energy. The girls don't seem to be doing very well either, because they've yet to break through the skeletons' barrier, while the supporting stillwater is doing all he can to counter my reinforcement spells.
+
+This isn't working out. I need to revise my plan, or we're not going to last until the five minute mark.
+
+choice("Continue", Ch11b-Buy2, v_current_scene = Ch11b-Buy2)
+
+
+ID: Ch11b-Buy2
+TEXT: 
+
+ "Hadrik," I say, "there's been a change of plans. How would you like to provide a little distraction for us?"
+The dwarf's face lights up when he hears my suggestion.
+
+"Now you're talking, Barry!" he says, with a wide grin. "What do you want me to do? Should I just go and attack the necromancer to give them a little scare?"
+
+"Yeah, that's exactly what I had in mind," I say. "Hold on, let me cast a few protections on you, first."
+
+Once I'm done with casting the protection spells on Hadrik, the dwarf dashes out of the barrier and he reaches the necromancer in a few seconds. The air elementalist reacts quickly, and he uses a wind spell to push Hadrik back several dozen feet. By the time Hadrik gets back, the supporting skeleton places a magical barrier around their master, which the dwarf is now trying to break with a flurry of fists.
+
+"No, no, no, you're doing it all wrong!" Arraka shouts at us from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
+
+ Taking advice from Arraka is not something I am particularly keen on doing right now, but as I take a look towards the skeleton's magical barrier, I can at least tell that she is not lying. The magical energy is spread thin throughout the barrier, which helps a great deal against spells with a wide area of effect, but it should leave it vulnerable against more focused attacks. I start charging up a lightning attack in my hands, and when it becomes powerful enough, I aim it directly at the supporting mage, making sure that all of the power behind my strike is concentrated on a single point.
+My lightning strike goes straight through the skeletons' barrier and it hits the supporting stillwater in the skull, killing him instantly. As the magical barrier starts to disappear, the other four skeletons that were hiding underneath it are now standing around, looking very confused. I take advantage of this and use a great deal of magical energy to create a large pool of acid underneath the stillwaters. 
+
+The skeletons were caught unawares and they had no time to react. As they all sink slowly into the pool of acid, the air elementalist uses a wind spell to lift the upper half of his body that hasn't yet melted into the air, but I quickly raise two chunks of rock from the ground, and I use them to smash the skeleton's head between them. Eventually, all of the skeletons sink fully into the acid, and as my device's energy depletes completely, the pool of acid disappears. The skeletons had, however, already completely melted before this happened, which means that the necromancer is now the only enemy left standing.
+
+choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial)
+
+
+ID: Ch11b-Directly
+TEXT: 
+
+ "Guys," I say, "I think I may have a plan."
+"What the hell?" Daren says. "What's with the crazy magical energy radiating from you all of a sudden? Don't tell me that Eiden froze time again to give you magic powers!"
+
+"No," I say, as I start to reinforce the magical barrier to give us some time to talk. "It wasn't Eiden. I just used my device to harness the energy that's being leaked from the stillwaters."
+
+"You can do that now?" Daren asks me.
+
+"Apparently," I say.
+
+"So what's this plan of yours, then?" Daren asks.
+
+"I think we should start going on the offensive," I say. "I have enough protection spells for everyone and I also have access to a lot of powerful spells, so we'd be better off putting some pressure on them than stalling for time. We should start by focusing on the necromancer, because the stillwaters will be forced to protect their master when we attack him, and that could make them break their formation."
+
+I pause a bit to think before I continue.
+
+"Daren, I'm going to cast most of my protections on you," I say. "Try to grab the stillwaters' attention as much as possible."
+
+"Okay, I can do that," Daren says.
+
+"Hadrik, I want you to put as much pressure as you can on their necromancer," I say. "Once we exit the barrier, you should run straight at him and hit him with everything you've got."
+
+ "Consider it done!" Hadrik says, with a grin.
+I turn to Flower.
+
+"Flower, you can fly, right?" I ask her.
+
+"Yeah, sort of," Flower says. "I don't know any flight spells, but I can make jets of fire come out of my feet, which propel me into the air and can keep me airborne for long periods of time."
+
+"Perfect," I say. "You'll be coming with me, then. I don't have any flight spells either, but I think I can use air magic to fly around decently enough. You, Illuna and I are going to attack the skeletons from above, in an attempt to overwhelm their defenses."
+
+"Aye, aye, sir!" Flower says, as she performs a military salute with her right hand.
+
+"And lastly," I say, as I turn towards Kate. "Kate, since you specialize in long range attacks, I want you to stay inside this barrier and to observe the fight from afar. The skeletons will likely be ignoring you, so you will be able to analyze the situation calmly and to look for their weaknesses. They are bound to make some mistakes with the amount of pressure we'll be putting on them."
+
+"Okay," Kate says. "I'll be sure to punish them severely for any mistakes they make during the fight."
+
+"Alright, that's everyone," I say. "We'll dash out of the barrier together as soon as I finish casting all of the protection spells. Get ready!"
+
+choice("Continue", Ch11b-Directly2, v_current_scene = Ch11b-Directly2)
+
+
+ID: Ch11b-Directly2
+TEXT: 
+
+ Once I finish casting the protection spells, we step out of the barrier and start putting our plan into action. Hadrik dashes straight for the necromancer and reaches him in a matter of seconds, but the air elementalist reacts quickly, and he uses a wind spell to push Hadrik back several dozen feet. By the time Hadrik gets back, the supporting skeleton places a magical barrier around their master, which the dwarf is now trying to break with a flurry of fists.
+Daren heads for the five stillwaters, and when he comes close to them, one of the skeletons shoots a powerful beam of fire towards him. Daren uses his sword to absorb all of the fire, and then he sends it back towards his attacker. The skeletons' barrier defends them from the blow, but Daren's actions seem to have caught the stillwaters' undivided attention. They are now all firing spells towards him, while he uses his shield to block and his sword to absorb their elements. 
+
+This is what we were waiting for. I wave at Flower, and she nods her head, as she starts to run towards the stillwaters. While running, she jumps high into the air, and she then uses her fire jets to propel herself higher, as she goes to position herself above the skeletons' barrier. I follow her lead and use my air magic to lift myself into the air. Using air magic to fly is nowhere near as easy as it sounds, and I'm feeling a lot clumsier than when I was using the flight spell in my fight with the dragon, but it should be good enough for my intents and purposes.
+
+ I catch up with Flower, and we both position ourselves some thirty feet above the stillwaters' barrier, putting a bit of distance between ourselves in order to make it harder for the skeletons to target us both. We then start attacking the barrier with fire, water and earth spells from all sides, in an attempt to overwhelm the stillwaters' defenses.
+"No, no, no, you're doing it all wrong!" Arraka shouts at us from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
+
+Taking advice from Arraka is not something I am particularly keen on doing right now, but as I take a look towards the skeleton's magical barrier, I can at least tell that she is not lying. The magical energy is spread thin throughout the barrier, which helps a great deal against spells with a wide area of effect, but it should leave it vulnerable against more focused attacks. I start charging up a lightning attack while I'm still in the air, and when it becomes powerful enough, I aim it directly at the supporting mage, making sure that all of the power behind my strike is concentrated on a single point.
+
+ My lightning strike goes straight through the barrier and it hits the supporting stillwater in the skull, killing him instantly. As the magical barrier starts to disappear, the other four skeletons that were hiding underneath it are now standing around, looking very confused. I take advantage of this and use a great deal of magical energy to create a large pool of acid underneath the stillwaters. 
+The skeletons were caught unawares and they had no time to react. As they all sink slowly into the pool of acid, the air elementalist uses a wind spell to lift the upper half of his body that hasn't yet melted into the air, but I quickly raise two chunks of rock from the ground, and I use them to smash the skeleton's head between them. Eventually, all of the skeletons sink fully into the acid, and I decide to start heading towards the ground, before my device's energy depletes completely. Once I get down, the pool of acid disappears, but the skeletons had already melted completely before this happened, which means that the necromancer is now the only enemy left standing.
+
+choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial)
+
+
+ID: Ch11b-Sacrificial
+TEXT: 
+
+#if(v_ch11_strategy == 1 || v_ch11_strategy == 2) {
+ "No!" Zack shouts. "I won't let it end like this!"
+Right after he finishes his sentence, the necromancer takes a knife out of his robes and he uses it to stab himself in the chest. He then gets enveloped in a bright red light, and soon afterwards, he starts turning into ashes. 
+
+"The God of Death... shall have his prize..." Zack says, just before he draws his last breath.
+
+As we all gather around to look at the pile of ashes that the necromancer has turned into, Hadrik starts to laugh.
+
+"As far as final words go, I've heard better!" the dwarf says.
+
+"That wasn't just some empty threat," Illuna says, while she looks around frantically, as if she were expecting something to blow up. "That thing he just cast was a sacrificial spell. A kind of spell that requires the death of its caster as payment, in exchange for providing effects that would not be obtainable through normal means. The curse of death that the ogre shaman cast on me before we left the fort was also one of these spells. This isn't over yet..."
+
+"Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
+
+}
+#if(v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4) {
+ "That's some tough talk coming from someone who couldn't even identify an obvious weakness in their enemy's defenses," Arraka says. "You all would have been toast if it weren't for me. I'm the one who saved all of you losers. Where's my reward for that, huh?"
+"Oh, I've got your reward right here!" Hadrik says, as he grabs Arraka's amulet from Flower's neck, and he starts spinning it by the chain.
+
+"Wait," Flower says. "Don't do that! Didn't I tell you that she has motion sickness?"
+
+"Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
+
+}
+#if(v_ch11_strategy == 3 || v_ch11_strategy == 4) {
+ "No!" Zack shouts, as the barrier around him begins to disappear. "I won't let it end like this!"
+Right after he finishes his sentence, the necromancer takes a knife out of his robes and he uses it to stab himself in the chest. He then gets enveloped in a bright red light, and soon afterwards, he starts turning into ashes. 
+
+"The God of Death... shall have his prize..." Zack says, just before he draws his last breath.
+
+As we all gather around to look at the pile of ashes that the necromancer has turned into, Hadrik starts to laugh.
+
+"As far as final words go, I've heard better!" the dwarf says.
+
+"That wasn't just some empty threat," Illuna says, while she looks around frantically, as if she were expecting something to blow up. "That thing he just cast was a sacrificial spell. A kind of spell that requires the death of its caster as payment, in exchange for providing effects that would not be obtainable through normal means. The curse of death that the ogre shaman cast on me before we left the fort was also one of these spells. This isn't over yet..."
+
+"Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
+
+}
+choice("""Put her down, Hadrik. It's not worth the bother.""", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
+choice("""I suppose she does deserve this after all she's done.""", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
+choice("""Can I spin her next?""", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
+
+
+ID: Ch11b-Bother
+TEXT: 
+
+ "Put her down, Hadrik. It's not worth the bother."
+"On the contrary, Barry," Hadrik says. "I believe this is well worth the effort. In fact, I think I will be incorporating this routine into my daily schedule from now on! But I need to consult with Arraka first. I wouldn't want to impose. What do you say, Arraka, does ten in the morning sound like an okay hour for our daily spinning sessions?"
+
+"Dwarf!" Arraka says, as Hadrik continues to spin her. "When I get out of here again, I'm going to stick my hand through your throat and turn you inside-out! And then I'm going to hang you from a tree by your own intestines so I can use you as a swing!"
+
+"So, ten-o-clock is too early, then?" Hadrik asks, with a grin. "Would it be better if we scheduled it for eleven in the morning instead?" 
+
+choice("Continue", Ch11b-Hole, v_current_scene = Ch11b-Hole)
+
+
+ID: Ch11b-Deserve
+TEXT: 
+
+ "I suppose she does deserve this after all she's done."
+"You're damn right she does," Hadrik says. "In fact, I think I will be incorporating this routine into my daily schedule from now on! But I need to consult with Arraka first. I wouldn't want to impose. What do you say, Arraka, does ten in the morning sound like an okay hour for our daily spinning sessions?"
+
+"Dwarf!" Arraka says, as Hadrik continues to spin her. "When I get out of here again, I'm going to stick my hand through your throat and turn you inside-out! And then I'm going to hang you from a tree by your own intestines so I can use you as a swing!"
+
+"So, ten-o-clock is too early, then?" Hadrik asks, with a grin. "Would it be better if we scheduled it for eleven in the morning instead?" 
+
+choice("Continue", Ch11b-Hole, v_current_scene = Ch11b-Hole)
+
+
+ID: Ch11b-Spin
+TEXT: 
+
+ "Can I spin her next?"
+"Sure you can, Barry," Hadrik says. "Everyone can take turns at spinning Arraka! In fact, I'm thinking of making this into a daily routine of sorts from now on. But I need to consult with Arraka first. I wouldn't want to impose. What do you say, Arraka, does ten in the morning sound like an okay hour for our daily spinning sessions?"
+
+"Dwarf!" Arraka says, as Hadrik continues to spin her. "When I get out of here again, I'm going to stick my hand through your throat and turn you inside-out! And then I'm going to hang you from a tree by your own intestines so I can use you as a swing!"
+
+"So, ten-o-clock is too early, then?" Hadrik asks, with a grin. "Would it be better if we scheduled it for eleven in the morning instead?" 
+
+choice("Continue", Ch11b-Hole, v_current_scene = Ch11b-Hole)
+
+
+ID: Ch11b-Hole
+TEXT: 
+
+set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
+set(v_ch11_saved_rose,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
+#if(v_hearing < 4) {
+ 
+While Hadrik and Arraka are talking, I hear the sound of stones smashing against the ground somewhere on the opposite side of the market square. As I turn around to identify the source of the sound, it takes me a few seconds to fully process the scene unfolding before my eyes.
+
+There is a hole in the ground, with broken stones all around it at the place where I heard the noise, and Rose is just standing there in front of it, with her arms hanging besides her and a completely blank expression on her face, as a skeleton is hugging her tightly while slowly twisting a rusted knife into her heart. As the light leaves Rose's eyes completely, her attacker presses the knife harder into her chest, making her fall on her back, while the skeleton crumbles into pieces.
+
+"Rose!" Daren shouts, as he rushes towards her.
+
+When he reaches her, Daren starts casting a healing spell, but Rose does not react to it in any way. We all gather around the two of them, and watch them without saying a word, as Daren continues to cast healing spell after healing spell, while Rose is staring blankly into the distance, without moving a muscle.
+
+"Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
+
+}
+#if(v_hearing == 4 && v_perception < 4 || v_hearing < 4) {
+ It's no use... I'm sure that Daren must have realized it as well. Rose is no longer breathing. She stopped breathing even before she hit the ground. She's dead. After all we've been through to bring her back home safely. After everything that's happened this past week. She died, just like that. And not even Daren can bring her back.
+"No..." Kate says. "This isn't right. This has to be an illusion! The necromancer could never harm her like this. The tournament's spell would have prevented him! This has to be a--"
+
+"The necromancer is dead," Illuna interrupts her. "The tournament's spell that was preventing him from hurting Rose disappeared along with his aura. This trap was specifically designed to activate after his death, in order to circumvent the protection spell's effects. He used a loophole. This isn't an illusion. Rose died, and the necromancer is the one who killed her."
+
+"No, this can't be!" Kate says, as tears start flowing from her eyes. "She can't just die like this. This isn't fair. She didn't deserve this!"
+
+Kate stops for a few seconds, in order to rub her eyes with her hands, as she tries to hold back her tears.
+
+"She didn't deserve this..." Kate says again, this time in a much lower voice.
+
+"This is my fault..." Daren says, as he finally lets go of Rose. "I was the one who offered to escort her home. I was the one who promised we'd protect her. I failed her. It's my fault that she's dead..."
+
+ "Hey, now, hold on there!" Hadrik says. "You can't just go and blame this all on yourself. Rose knew very well what she was getting into when she decided to stick with us after what happened yesterday with the noble. She made her own choice and she stuck by it until the end. She died with honor, and we should all respect her for that."
+"What do you know about Rose?!" Daren shouts furiously, all of a sudden. "Do you think she wanted to live her last moments in a cesspool like this? Do you think she died happily, knowing that she left her little siblings behind to fend for themselves? Do you seriously think that everything in the world can be measured by your primitive values? What gives you the right to talk about Rose this way? Tell me!"
+
+}
+#if(v_hearing == 4 && v_perception < 4) {
+ 
+
+While Hadrik and Arraka are talking, I hear the sound of stones starting to crumble somewhere on the opposite side of the market square. I turn around, in order to try and identify the source of the sound, but I don't see anyone in that direction except Rose.   
+
+Suddenly, the stones on the ground in front of Rose get sent flying into the air, as a skeleton emerges from underneath them and quickly uses a rusted knife to stab her in the heart. Rose had no time to react. At first, there was only shock in her eyes, but soon, her facial expression turned blank, while her arms hung beside her, motionless. As the light leaves Rose's eyes completely, her attacker presses the knife harder into her chest, making her fall on her back, while the skeleton crumbles into pieces.
+
+"Rose!" Daren shouts, as he rushes towards her.
+
+When he reaches her, Daren starts casting a healing spell, but Rose does not react to it in any way. We all gather around the two of them, and watch them without saying a word, as Daren continues to cast healing spell after healing spell, while Rose is staring blankly into the distance, without moving a muscle.
+
+"Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
+
+}
+#if(v_hearing == 4 && v_perception == 4 && v_agility < 4) {
+ 
+
+While Hadrik and Arraka are talking, I hear the sound of stones starting to crumble somewhere on the opposite side of the market square. I turn around, in order to try and identify the source of the sound, and I realize that the stones on the ground in front of Rose are all slightly cracked. I get a really ominous feeling about this, and before I get the time to think things through, my body moves on its own, and I start running towards Rose as fast as I can.
+
+Before I get to reach her, all of the stones in front of Rose suddenly get sent flying into the air, as a skeleton emerges from underneath them and quickly uses a rusted knife to stab her in the heart. Rose had no time to react. At first, there was only shock in her eyes, but soon, her facial expression turned blank, while her arms hung beside her, motionless. As the light leaves Rose's eyes completely, her attacker presses the knife harder into her chest, making her fall on her back, while the skeleton crumbles into pieces.
+
+"Rose!" Daren shouts, as he rushes towards her.
+
+When he reaches her, Daren starts casting a healing spell, but Rose does not react to it in any way. We all gather around the two of them, and watch them without saying a word, as Daren continues to cast healing spell after healing spell, while Rose is staring blankly into the distance, without moving a muscle.
+
+ "Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
+It's no use... I'm sure that Daren must have realized it as well. Rose is no longer breathing. She stopped breathing even before she hit the ground. She's dead. After all we've been through to bring her back home safely. After everything that's happened this past week. She died, just like that. And not even Daren can bring her back.
+
+"No..." Kate says. "This isn't right. This has to be an illusion! The necromancer could never harm her like this. The tournament's spell would have prevented him! This has to be a--"
+
+"The necromancer is dead," Illuna interrupts her. "The tournament's spell that was preventing him from hurting Rose disappeared along with his aura. This trap was specifically designed to activate after his death, in order to circumvent the protection spell's effects. He used a loophole. This isn't an illusion. Rose died, and the necromancer is the one who killed her."
+
+"No, this can't be!" Kate says, as tears start flowing from her eyes. "She can't just die like this. This isn't fair. She didn't deserve this!"
+
+Kate stops for a few seconds, in order to rub her eyes with her hands, as she tries to hold back her tears.
+
+"She didn't deserve this..." Kate says again, this time in a much lower voice.
+
+ "This is my fault..." Daren says, as he finally lets go of Rose. "I was the one who offered to escort her home. I was the one who promised we'd protect her. I failed her. It's my fault that she's dead..."
+"Hey, now, hold on there!" Hadrik says. "You can't just go and blame this all on yourself. Rose knew very well what she was getting into when she decided to stick with us after what happened yesterday with the noble. She made her own choice and she stuck by it until the end. She died with honor, and we should all respect her for that."
+
+"What do you know about Rose?!" Daren shouts furiously, all of a sudden. "Do you think she wanted to live her last moments in a cesspool like this? Do you think she died happily, knowing that she left her little siblings behind to fend for themselves? Do you seriously think that everything in the world can be measured by your primitive values? What gives you the right to talk about Rose this way? Tell me!"
+
+}
+#if(v_agility == 4 && v_hearing == 4 && v_perception == 4) {
+ 
+
+While Hadrik and Arraka are talking, I hear the sound of stones starting to crumble somewhere on the opposite side of the market square. I turn around, in order to try and identify the source of the sound, and I realize that the stones on the ground in front of Rose are all slightly cracked. I get a really ominous feeling about this, and before I get the time to think things through, my body moves on its own, and I start running towards Rose as fast as I can.
+
+Just as I reach her, all of the stones in front of Rose suddenly get sent flying into the air, as a skeleton emerges from underneath them and tries to stab her in the heart with a rusted knife. I pull the skeleton away from her and slam him into the ground, as I take out my own dagger and prepare to deliver the finishing blow. To my surprise, there was no need for me to stab the skeleton, because it had already crumbled to pieces the moment it hit the ground. 
+
+"Rose, are you alright?" Daren shouts as he and all the others are running towards us.
+
+"I, uh... Yes!" Rose says. "Thanks to Barry!"
+
+"Barry, how did you know what would happen?" Kate asks me. "Did the stat booster give you a premonition?"
+
+ "No," I say. "I didn't know that there would be a skeleton, I just noticed that something was trying to make its way out of the ground near Rose, and I didn't want to wait and see what it was."
+"Still, I don't understand why the necromancer would do this," Kate says. "Wouldn't the tournament's spell have prevented that skeleton from hurting Rose?"
+
+"No," Illuna says. "When the necromancer died, the tournament's spell linked to him disappeared along with his aura. This trap was specifically designed to activate after his death, in order to circumvent the protection spell's effects. He was trying to use a loophole. This is likely the result of the sacrificial spell he used before he died."
+
+"Oh, gods," Rose says. "I never knew that magic could be used like that. I can't believe that he'd go to such lengths just to kill me..."
+
+"Well, to be fair, he did witness you reverse time itself a few minutes ago," Hadrik says. "Just how in the blazes did you pull off that stunt, anyway?"
+
+"I don't know..." Rose says. "Eiden told me that I was a time weaver before, but I thought he was mistaken. I really have no idea how I did what I did. I was just so desperate to undo everything that had happened that I must have triggered my powers by accident. I'm not sure if I'll ever be able to do anything like that again."
+
+ "Well, once was more than enough," Daren says. "You didn't just save all of our lives by rewinding time, you may well have saved the entire world. But we can talk about this later. Right now, I need to heal everyone. We wouldn't want to be caught off guard by some other crazy duo of mages who are hunting for bounties."
+Soon after Daren starts to heal us, a loud booming noise suddenly starts to echo all throughout the city. 
+
+}
+choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
+choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
+
+
+ID: Ch11b-Revenant
+TEXT: 
+
+ All of a sudden, Rose starts to move, and she slowly raises her torso from the ground, as she looks all around her, with an empty expression on her face. But her expression is not the only thing that feels empty about her. Her aura is completely different from before as well. It feels hollow, almost lifeless, and her skin is much whiter, almost as if there was no longer any blood running through her veins.
+"Rose!" Kate shouts. "You're alive!"
+
+"No," Daren says, with a very dark look in his eyes. "This isn't Rose."
+
+"What do you mean?" Kate asks. "Of course it's Rose. She's right there!"
+
+"Only her body is there," Illuna says. "Rose is dead. What you see before you is a revenant. An undead being that is born with the host's previous memories, but with a completely different personality. Now I understand why the necromancer went out of his way to cast a sacrificial spell before killing himself. It was so he could make Rose into a revenant."
+
+"No, that can't be true!" Kate says, with desperation in her voice, as Rose gets up from the ground and starts to walk slowly away from us. "Rose, tell them that isn't true!"
+
+"The one you refer to as Rose is no more," the revenant says, without turning her head towards us. "I am a servant of Ulruk, the God of Death, and my task is to bring this time weaver body to him safely."
+
+"Like hell, you will, you undead scum," Daren says, as he pulls out his sword. "You're going to leave her body here, so we can give her a proper burial."
+
+ "You are in no position to stop me, healer," the revenant says. "I am not like your friend, who did not know how to control her powers. I only have to freeze time for a few hours, and from your point of view, it will be as if I'd teleported out of the city. Now, if you'll excuse me, my master is waiting for me."
+She then starts walking slowly away from us again, without even bothering to look back, as if she doesn't even consider us to be a threat. Daren's hands are trembling as he looks towards the revenant, and he appears frozen in place. Even if he knows that it isn't Rose, it must still be hard for him to bring himself to attack her.
+
+"Oh, one more thing before I go," the revenant says, as she stops and turns her head towards us. This time, the empty look in her eyes is replaced with one of regret. "Take care of the kids for me, will you? I don't think that I'll be coming back to that house anytime soon..."
+
+"Stop!" Daren shouts. 
+
+He then rushes towards the revenant and tries to slash her with his sword, but she disappears without a trace before he could land a hit, and the only thing that his blade gets to cut is empty air.
+
+As we all stand there in silence, a loud booming noise suddenly starts to echo all throughout the city.
+
+choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending)
+
+
+ID: Ch11b-Ending
+TEXT: 
+
+ The sky above us then quickly gets filled with very large holographic screens, as people are slowly starting to open their windows in order to get a good look, even if they seem to be too scared to come anywhere near us. It appears that all of the screens are displaying the same thing, which is to say a gnome with messy hair, wearing protection goggles and an oil-stained lab coat, who is currently fiddling with some wires in some kind of a workshop, while he's humming a joyful tune. After a few more seconds of humming, the gnome suddenly looks towards us, takes off his goggles, and he glues his face to the screen.
+"How peculiar," the gnome says, as he backs away from the screen. "How very peculiar! I could swear that I've already connected these wires a million times before, but I've never seen the red light turn green until now! Well, no matter! Can everyone hear me?"
+
+There is a pause in which we can hear a low murmur coming from the people watching the screens from their windows.
+
+"Wait, what am I saying?" the gnome says. "This is a one way transmitter. Even if you answer me, I won't be able to hear you. Okay, here's what I'll do. I'm gonna go ahead and read you this little speech I've got written here on my parchment, and if nobody can actually hear me, I'll just read it again some other time. Now, where did I put that blasted parchment?"
+
+The gnome disappears under the screen for about ten seconds, during which the murmur in the market place intensifies.
+
+ "Well, I could swear I had it around here, somewhere!" the gnome says, as he comes back from under the screen. "No matter, I'll just improvise, then!"
+The gnome clears his throat before he continues.
+
+"Ladies and gentlemen!" the gnome says. "Or should I just be saying gentlemen in this case? Since there aren't any women mages? Gentlemen and gentlemen! Welcome, to the Magium tournament! I am Golmyck, the king of Thilias, and I have a public announcement to make. First of all, I would like to begin with an apology to all of the mages that have joined this tournament. When you first arrived on the continent, you were all told that you'd be receiving your objectives privately, but unfortunately, the device that was supposed to be relaying these messages to you broke shortly after your arrival. I have been trying to fix it ever since, but given that a whole week has already passed, I decided to use this old transmitter as a temporary solution, until I manage to get the original device to work properly. Normally, this transmission should be reaching all of the cities of Varathia and even some areas in the wilderness, but since I can't guarantee that every single mage on the continent will be seeing this, I would like to ask you all to pass this information to your fellow participants who missed the announcement!"
+
+ The gnome clears his throat again.
+"And now that the introductions are out of the way," Golmyck says, "I believe it is finally time to give you all what you've been waiting for."
+
+The gnome grins.
+
+"Your first objectives!" he says.
+
+-----End of book 1-----
+
+choice("Proceed towards book 2", Ch11b-Credits, v_current_scene = Ch11b-Credits, v_first_book_purchased = 1)
+
+
+ID: Ch11b-Credits
+TEXT: 
+
+choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_b1_strength = Strength aux, v_b1_agility = Agility aux, v_b1_toughness = Toughness aux, v_b1_reflexes = Reflexes aux, v_b1_hearing = Hearing aux, v_b1_perception = Perception aux, v_b1_ancient_languages = Ancient languages aux, v_b1_combat_technique = Combat technique aux, v_b1_premonition = Premonition aux, v_b1_available_points = Available points aux, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements >= 25 || v_first_book_purchased == 1)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
+choice("Load game", , , special:saves) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)

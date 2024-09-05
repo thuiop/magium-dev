@@ -1,0 +1,1276 @@
+ID: B2-Ch05a-Intro
+TEXT: 
+
+ 
+"Stillwater!" Bruce shouts. "Hey, stillwater, are you listening?"
+
+I suddenly realize that I've been so lost in my own thoughts for the past minute, that I've been completely neglecting my surroundings. Wilhelm seems to have already returned to our room while I was spacing out, and judging by Bruce's tone of voice, I can only assume that he asked me a question, but I cannot for the life of me remember what it was.
+
+"Sorry, I wasn't paying attention," I tell him. "Could you repeat that?"
+
+"I was talking about Wilhelm," Bruce says. "We can't let him roam free throughout the arena after what he did last round. Who knows who he'll try to kill next? I say we tie him up, and leave him here. It's safer that way."
+
+#if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_deal == 3) {
+ 
+"Stillwater!" Bruce shouts. "Hey, stillwater, are you listening?"
+
+I suddenly realize that I've been so lost in my own thoughts for the past minute, that I've been completely neglecting my surroundings. Wilhelm seems to have already returned to our room while I was spacing out, and judging by Bruce's tone of voice, I can only assume that he asked me a question, but I cannot for the life of me remember what it was.
+
+"Sorry, I wasn't paying attention," I tell him. "Could you repeat that?"
+
+"I was talking about Wilhelm," Bruce says. "You saw that orange hilted dagger that he was using last round. There's no doubt that he's an assassin at this point. It's too dangerous to let him roam free throughout the arena. Who knows when he'll try to kill one of us? I say we tie him up, and leave him here. It's safer that way."
+
+}
+choice("""Wilhelm is not a threat. Let him do what he wants. It won't make any difference.""", B2-Ch05a-Threat, v_current_scene = B2-Ch05a-Threat, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0)
+choice("""We don't have any rope. We could just tell him to keep his distance from us.""", B2-Ch05a-Rope, v_current_scene = B2-Ch05a-Rope, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 0)
+choice("""Let him fight with us. We'll need all the help we can get against that troll.""", B2-Ch05a-Help, v_current_scene = B2-Ch05a-Help, v_checkpoint_rich = 0, v_b2_ch5_wilhelm = 1)
+
+
+ID: B2-Ch05a-Threat
+TEXT: 
+
+ "Wilhelm is not a threat. Let him do what he wants. It won't make any difference."
+"Yeah," Bruce says, "but I'd rather not have to watch my back against my own teammates while I'm busy fighting. It was already difficult enough to pull it off in the first round."
+
+"We don't have any rope to tie him up," the mage says. "Plus, there should be no reason to immobilize him. As long as he agrees to keep his distance from us from now on, we should be fine."
+
+"If you don't want my help during the battle," Wilhelm says, "then you don't need to say it twice. Don't worry, I assure you that I'll stay as far away as possible from you from now on."
+
+Damn it! Now I've lost my train of thought. What was I thinking about, before I got interrupted? I'm sure it had something to do with the troll.
+
+As I take another look towards the fighting area and see the troll still waving at the crowds, my previous thoughts suddenly come back to me.
+
+"Hey, Leila," I say. "Is it just me or is the troll wearing different armor this time around?"
+
+"Yes," Leila writes. "It's still anti-magic armor, but now he also has shoulder pads. He probably switched armors in order to make it harder for us to cut his head off again."
+
+"Correct me if I'm wrong," I say, "but isn't this specific model of armor he's wearing vulnerable to regular fire?"
+
+ "The armor he is wearing does not protect him against regular fire at all," Leila writes. "Only against magical fire."
+"That's what I thought," I say, and then I head towards the door leading to the corridors outside our room. 
+
+As I prepare to open the door, I turn towards Leila, to give her one final message before I go.
+
+"Leila, could you do me a favor?" I tell her. "I need you to take one of the torches that are lighting the halls and to bring it with you in the arena when the round begins. Make sure that you don't let the troll see it, when you approach him. When we're both in the fighting area, I'll give you a signal, and then you can throw the torch at him. Got it?"
+
+"Yes, but where are you going?" Leila writes. "What are you planning to do?"
+
+"You'll find out soon enough," I say, and then I walk out the door.
+
+I make sure that the guards are nowhere in sight, and I start heading directly towards Hadrik's division area. If memory serves, his room should be very close to ours.
+
+choice("Continue", B2-Ch05a-Ogres-heard, v_current_scene = B2-Ch05a-Ogres-heard, v_b2_ch5_heard_guards = 1) if (v_hearing_aux >= 2)
+choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast, v_b2_ch5_heard_guards = 0) if (v_hearing_aux < 2)
+
+
+ID: B2-Ch05a-Rope
+TEXT: 
+
+ "We don't have any rope. We could just tell him to keep his distance from us."
+"Yeah," the mage says. "I think that's a good idea. As long as he agrees to keep his distance from us from now on, we should be fine."
+
+"If you don't want my help during the battle," Wilhelm says, "then you don't need to say it twice. Don't worry, I assure you that I'll stay as far away as possible from you from now on."
+
+Damn it! Now I've lost my train of thought. What was I thinking about, before I got interrupted? I'm sure it had something to do with the troll.
+
+As I take another look towards the fighting area and see the troll still waving at the crowds, my previous thoughts suddenly come back to me.
+
+"Hey, Leila," I say. "Is it just me or is the troll wearing different armor this time around?"
+
+"Yes," Leila writes. "It's still anti-magic armor, but now he also has shoulder pads. He probably switched armors in order to make it harder for us to cut his head off again."
+
+"Correct me if I'm wrong," I say, "but isn't this specific model of armor he's wearing vulnerable to regular fire?"
+
+ "The armor he is wearing does not protect him against regular fire at all," Leila writes. "Only against magical fire."
+"That's what I thought," I say, and then I head towards the door leading to the corridors outside our room. 
+
+As I prepare to open the door, I turn towards Leila, to give her one final message before I go.
+
+"Leila, could you do me a favor?" I tell her. "I need you to take one of the torches that are lighting the halls and to bring it with you in the arena when the round begins. Make sure that you don't let the troll see it, when you approach him. When we're both in the fighting area, I'll give you a signal, and then you can throw the torch at him. Got it?"
+
+"Yes, but where are you going?" Leila writes. "What are you planning to do?"
+
+"You'll find out soon enough," I say, and then I walk out the door.
+
+I make sure that the guards are nowhere in sight, and I start heading directly towards Hadrik's division area. If memory serves, his room should be very close to ours.
+
+choice("Continue", B2-Ch05a-Ogres-heard, v_current_scene = B2-Ch05a-Ogres-heard, v_b2_ch5_heard_guards = 1) if (v_hearing_aux >= 2)
+choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast, v_b2_ch5_heard_guards = 0) if (v_hearing_aux < 2)
+
+
+ID: B2-Ch05a-Help
+TEXT: 
+
+ "Let him fight with us. We'll need all the help we can get against that troll."
+"If you're worried about me backstabbing you," Wilhelm says, "then I'll make sure to always be in your line of sight during the battle, so you can keep your eyes on me without much effort. Would that be enough to put your worries to rest?"
+
+"I suppose..." Bruce says. "As long as I can easily see where you are at all times, you're not much of a threat."
+
+"Very well," Wilhelm says. "Fighting on the front lines is not exactly ideal for me, but I'd rather do this than be forced to fight alone. I only hope that you won't take advantage of this situation to use me as a decoy."
+
+Damn it! Now I've lost my train of thought. What was I thinking about, before I got interrupted? I'm sure it had something to do with the troll.
+
+As I take another look towards the fighting area and see the troll still waving at the crowds, my previous thoughts suddenly come back to me.
+
+"Hey, Leila," I say. "Is it just me or is the troll wearing different armor this time around?"
+
+"Yes," Leila writes. "It's still anti-magic armor, but now he also has shoulder pads. He probably switched armors in order to make it harder for us to cut his head off again."
+
+"Correct me if I'm wrong," I say, "but isn't this specific model of armor he's wearing vulnerable to regular fire?"
+
+ "The armor he is wearing does not protect him against regular fire at all," Leila writes. "Only against magical fire."
+"That's what I thought," I say, and then I head towards the door leading to the corridors outside our room. 
+
+As I prepare to open the door, I turn towards Leila, to give her one final message before I go.
+
+"Leila, could you do me a favor?" I tell her. "I need you to take one of the torches that are lighting the halls and to bring it with you in the arena when the round begins. Make sure that you don't let the troll see it, when you approach him. When we're both in the fighting area, I'll give you a signal, and then you can throw the torch at him. Got it?"
+
+"Yes, but where are you going?" Leila writes. "What are you planning to do?"
+
+"You'll find out soon enough," I say, and then I walk out the door.
+
+I make sure that the guards are nowhere in sight, and I start heading directly towards Hadrik's division area. If memory serves, his room should be very close to ours.
+
+choice("Continue", B2-Ch05a-Ogres-heard, v_current_scene = B2-Ch05a-Ogres-heard, v_b2_ch5_heard_guards = 1) if (v_hearing_aux >= 2)
+choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast, v_b2_ch5_heard_guards = 0) if (v_hearing_aux < 2)
+
+
+ID: B2-Ch05a-Ogres-heard
+TEXT: 
+
+ 
+Almost as soon as I exit my room, I start hearing two guards talking to each other, very far down the corridor.
+
+"Did you hear that they're bringing in the ogres this round?" one of the guards says.
+
+"You mean the ones that Velgos captured?" the other guard says.
+
+"Yeah. I hear that the troll is holding members of their tribe hostage, and he's threatening to kill them unless they fight by his side. One of those tribe members is a female shaman. You don't see many of those, these days."
+
+"Wait did you say female shaman? So that's why she had those strange garments and markings on her face..."
+
+"What do you mean? You saw her?"
+
+"Yeah, one of the cells I'm guarding has a few ogres in it. It's the one closest to the locker rooms. I'm guessing Velgos must have asked the owner to move them here, temporarily, so he can easily kill one or two of them in case the warriors misbehave."
+
+"Hah! Those dumb ogres don't even know that their tribe members are right under their noses. Serves them right. If they were stupid enough to get captured, then they deserve to live their lives as the troll's henchmen. I'm sure they'll both provide us with good entertainment!"
+
+The guards both laugh, and then they resume their patrols.
+
+choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast)
+
+
+ID: B2-Ch05a-Toast
+TEXT: 
+
+#if(v_b2_ch5_heard_guards == 1) {
+ I make my way down the hallway as fast as I can, and I try to figure out which one of the doors leads to the dwarf's room. When I hear Hadrik's laughter coming from behind one of the doors, I realize that I've reached my destination, and I knock on the door three times, calling out to him, to let him know who it is.
+"Hadrik, are you in there?" I say.
+
+"Yeah, yeah, give me a sec!" Hadrik says, and he opens the door for me a few seconds later.
+
+Just as I was hoping, it looks like the dwarf brought more than a few bottles of ale with him, to keep him company. He likely tried to convince his teammates to drink with him before the battle, but it doesn't look like he's had much luck.
+
+"Congratulations on winning your first round, Barry!" Hadrik says. "Did you come to make a toast, before your next battle?"
+
+"Not exactly," I say. "But I did come here to ask you for one of your dwarven ale bottles, if it's not too much trouble."
+
+}
+#if(v_b2_ch5_heard_guards == 0) {
+ 
+I make my way down the hallway as fast as I can, and I try to figure out which one of the doors leads to the dwarf's room. When I hear Hadrik's laughter coming from behind one of the doors, I realize that I've reached my destination, and I knock on the door three times, calling out to him, to let him know who it is.
+
+"Hadrik, are you in there?" I say.
+
+"Yeah, yeah, give me a sec!" Hadrik says, and he opens the door for me a few seconds later.
+
+Just as I was hoping, it looks like the dwarf brought more than a few bottles of ale with him, to keep him company. He likely tried to convince his teammates to drink with him before the battle, but it doesn't look like he's had much luck.
+
+"Congratulations on winning your first round, Barry!" Hadrik says. "Did you come to make a toast, before your next battle?"
+
+"Not exactly," I say. "But I did come here to ask you for one of your dwarven ale bottles, if it's not too much trouble."
+
+}
+choice("Continue", B2-Ch05a-Maliciously, v_current_scene = B2-Ch05a-Maliciously) if (v_b2_ch5_heard_guards == 0 || v_b2_ch5_heard_guards == 1)
+
+
+ID: B2-Ch05a-Maliciously
+TEXT: 
+
+#if(v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 0) {
+ "Not at all," Hadrik says. "I originally brought these bottles here to give them to my teammates, but nobody here seems to appreciate the joys of sharing a drink before a battle, like I do. Take whichever bottle you like. I've got plenty!"
+"Perfect!" I tell him, as I pick one of the dwarven ale bottles from the ground. "Now all I need is a way to reach the fighting area before the beginning of the round."
+
+I then start looking around, to see if there are any hidden mechanisms that might allow me to open the iron gate by myself.
+
+"You want to enter the arena before the battle?..." Hadrik asks me, confused.
+
+"Yeah," I tell him. "You know a way out?"
+
+"Well, no, but there's always the good old fashioned way," Hadrik says, as he gets closer to the iron gate. "Step aside."
+
+He then punches the gate very hard, blowing it out of its hinges, and sending it flying towards the arena.
+
+"The way is clear!" Hadrik says.
+
+"Nice!" I say. "Thanks a lot!"
+
+I then head towards the fighting area through the hole in the wall, and I wave towards Hadrik as I leave.
+
+"See you around!" I tell him.
+
+"Uh, see you, I guess..." Hadrik says.
+
+}
+#if(v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 1 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 1) {
+ As I slowly make my way towards the troll, with the bottle of ale in my hand, the announcer starts shouting at me, from his elevated platform above.
+"What do you think you're doing?" he says. "The round hasn't begun yet! Get back to your own division area right now! Do you hear me? Get back! Hey, are you listening to me?"
+
+I ignore the announcer, and I look directly at the troll, while walking casually towards him. When he sees me, Velgos stops waving at the crowds, and he begins to grin maliciously at me.
+
+"Did you come here to beg for your life, human?" the troll shouts at me. "It will do you no good! Your fate has already been sealed!"
+
+I don't say anything and I keep walking forward.
+
+"Damn it!" the announcer says. "Open the gates. Open them now!"
+
+}
+#if(v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 0) {
+ "Not at all," Hadrik says. "I originally brought these bottles here to give them to my teammates, but nobody here seems to appreciate the joys of sharing a drink before a battle, like I do. Take whichever bottle you like. I've got plenty!"
+"Perfect!" I tell him, as I pick one of the dwarven ale bottles from the ground.
+
+I then head towards the fighting area, through the hole in the wall where the iron gate used to be before Hadrik blew it out of its hinges.
+
+"See you around!" I tell him, as I wave at him and walk out of his division area.
+
+"Uh, see you, I guess..." Hadrik says, looking a bit confused.
+
+}
+#if(v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 1) {
+ "Not at all," Hadrik says. "I did say that I owed you a beer, after all. Well, dwarven ale isn't really anything like beer, but you get the idea! Take whichever bottle you like. I've got plenty!"
+"Perfect!" I tell him, as I pick one of the dwarven ale bottles from the ground. "Now all I need is a way to reach the fighting area before the beginning of the round."
+
+I then start looking around, to see if there are any hidden mechanisms that might allow me to open the iron gate by myself.
+
+"You want to enter the arena before the battle?..." Hadrik asks me, confused.
+
+"Yeah," I tell him. "You know a way out?"
+
+"Well, no, but there's always the good old fashioned way," Hadrik says, as he gets closer to the iron gate. "Step aside."
+
+He then punches the gate very hard, blowing it out of its hinges, and sending it flying towards the arena.
+
+"The way is clear!" Hadrik says.
+
+"Nice!" I say. "Thanks a lot!"
+
+I then head towards the fighting area through the hole in the wall, and I wave towards Hadrik as I leave.
+
+"See you around!" I tell him.
+
+"Uh, see you, I guess..." Hadrik says.
+
+}
+#if(v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 1) {
+ "Not at all," Hadrik says. "I did say that I owed you a beer, after all. Well, dwarven ale isn't really anything like beer, but you get the idea! Take whichever bottle you like. I've got plenty!"
+"Perfect!" I tell him, as I pick one of the dwarven ale bottles from the ground.
+
+I then head towards the fighting area, through the hole in the wall where the iron gate used to be before Hadrik blew it out of its hinges.
+
+"See you around!" I tell him, as I wave at him and walk out of his division area.
+
+"Uh, see you, I guess..." Hadrik says, looking a bit confused.
+
+}
+choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 1 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 1)
+
+
+ID: B2-Ch05a-Flammable
+TEXT: 
+
+ I hear a horn signaling the beginning of the second round, and the gate to my division starts to slowly get raised. As I keep walking, I make sure that I advance slowly enough to give Leila the time to catch up to me.
+The troll is still taunting me. He must be thinking that I came here to offer him a drink. I don't think he's ever had the privilege of tasting dwarven ale before. Judging by the burning sensation that I got in my throat when I drank my first bottle with Hadrik, I'd wager that this is the strongest alcoholic beverage that money can buy. Maybe Velgos would be a little more worried if he knew what I had in this bottle.
+
+"Are you trying to bribe me, human?" Velgos says, with a laugh. "It's going to take more than a bottle of ale to convince me to spare your life. How about you start by kneeling before me? I want every spectator in the crowd to see how pathetic you are, before I kill you!"
+
+I stop right in front of the troll, and I smile at him, while raising my bottle. Leila is now only a few dozen feet behind me, and she's closing in, with the other members of my division not far behind her. She is holding the torch behind her back, making sure that the troll doesn't notice it.
+
+"Cheers!" I say to the troll, while I have my bottle raised in the air.
+
+"What are you trying to--" Velgos starts to say, but I don't let him finish his sentence.
+
+I quickly grab the bottle by its neck, and I smash it into the troll's skull, covering him in dwarven ale from head to toe. The troll seems shocked, unable to understand what is going on.
+
+ "Leila, now!" I shout, as I jump back from the troll.
+As soon as I give the signal, Leila throws her torch at the troll, igniting the flammable liquid, and causing the troll to light up in flames. Velgos starts screaming loudly, as he attempts to extinguish the fire from his head with his bare hands. Leila makes full use of this opportunity, and she quickly dashes towards her enemy, slicing one of his shoulder pads right off his armor, with one of her enchanted daggers. The troll grabs both of his scimitars in his hands, and he tries to cut Leila in half, but she jumps back in time, avoiding his strike.
+
+"I am going to destroy you," the troll shouts at us. "I will cut you into pieces so small that they won't even find enough of you to give you a proper burial!"
+
+His eyes are red with rage, as the fire covering him is slowly dying out. The marks left from the burning flames are already starting to regenerate. I suppose I should have expected that regular fire would not be enough against an enemy with such high regenerative powers. What's next, then? If I don't quickly decide what I'm going to do now, the troll won't give me any more time to react. Should I go on the offensive, or should I retreat, giving the others the time to join me?
+
+choice("Try to cut the troll's head off", B2-Ch05a-Cut, v_current_scene = B2-Ch05a-Cut, v_b2_ch5_first_cut = 0)
+choice("Try to act as a decoy, so Leila can cut the troll's head off", B2-Ch05a-Decoy, v_current_scene = B2-Ch05a-Decoy, v_b2_ch5_first_cut = 0)
+choice("Go for a tactical retreat.", B2-Ch05a-Tactical, v_current_scene = B2-Ch05a-Tactical, v_b2_ch5_first_cut = 0)
+
+
+ID: B2-Ch05a-Cut
+TEXT: 
+
+set(v_b2_ch5_first_cut,1) if (v_agility >= 3 && v_strength >= 2 || v_combat_technique >= 2 && v_strength >= 2)
+set(v_b2_ch5_first_cut,0) if (v_b2_ch5_heard_guards == 0 && v_is_dead == 0 || v_agility < 3 && v_combat_technique < 2 || v_strength < 2)
+set(v_is_dead,0) if (v_agility >= 3 || v_combat_technique >= 2)
+set(v_is_dead,1) if (v_agility < 3 && v_combat_technique < 2)
+#if(v_agility >= 3 && v_strength >= 2) {
+ 
+
+I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and slashing my enchanted dagger at his neck, from the direction where his shoulder pad had been shattered. Velgos does not get the time to react, and I manage to cut his head off his shoulders in a single movement. 
+
+I quickly grab his severed head by the hair, and I throw it away, as far as I can. The troll's body jumps back, looking very disoriented.
+
+"This is our chance!" I tell Leila. "Let's hit him with all we've got before--"
+
+I interrupt myself, because the troll's head is now slowly being recreated, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.
+
+"I'm going to take my time killing you," Velgos says, looking as if he's still trying to hold back some of the pain. "I'll do it slowly, after I force you to watch all your friends die." 
+
+"Yeah, yeah," I say. "I've heard it all before."
+
+}
+#if(v_agility >= 3 || v_combat_technique >= 2) {
+ "Watch out!" Bruce shouts at us, from behind.
+Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both me and Leila jump back, and we join our teammates, who have now all arrived at our location.
+
+"I knew it," our mage teammate says. "I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!"
+ 
+"Stop complaining," Bruce says. "Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself."
+
+}
+#if(v_agility >= 3 && v_strength < 2) {
+ 
+
+I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and slashing my enchanted dagger at his neck, from the direction where his shoulder pad had been shattered. Velgos doesn't get to react in time, but my strike is not powerful enough to cut his head off in a single movement, so my knife gets stuck in his throat. As Velgos attempts to chop my arm off with one of his scimitars, I am forced to step back before finishing the job, and the wound from the troll's neck heals itself back up in a matter of seconds.
+
+"It's going to take more than that to kill me," Velgos says.
+
+}
+#if(v_combat_technique >= 2 && v_strength >= 2 && v_agility < 3) {
+ 
+
+I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and pretending that I'm trying to drive my blade through his chest. As the troll tries to attack me, I quickly step to the side, and I swing my arm towards his neck, from the side where his shoulder pad had been shattered, cutting his head off in a single movement.
+
+I quickly grab his severed head by the hair, and I throw it away, as far as I can. The troll's body jumps back, looking very disoriented.
+
+"This is our chance!" I tell Leila. "Let's hit him with all we've got before--"
+
+I interrupt myself, because the troll's head is now slowly being recreated, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.
+
+"I'm going to take my time killing you," Velgos says, looking as if he's still trying to hold back some of the pain. "I'll do it slowly, after I force you to watch all your friends die." 
+
+"Yeah, yeah," I say. "I've heard it all before."
+
+}
+#if(v_combat_technique >= 2 && v_agility < 3 && v_strength < 2) {
+ 
+
+I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and pretending that I'm trying to drive my blade through his chest. As the troll tries to attack me, I quickly step to the side, and I swing my arm towards his neck, from the side where his shoulder pad had been shattered. My strike is not powerful enough to cut his head off in a single movement, however, so my knife gets stuck in his throat. As Velgos attempts to chop my arm off with one of his scimitars, I am forced to step back before finishing the job, and the wound from the troll's neck heals itself back up in a matter of seconds.
+
+"It's going to take more than that to kill me," Velgos says.
+
+}
+#if(v_agility < 3 && v_combat_technique < 2) {
+ 
+
+I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and attempting to cut his head off from the side where his shoulder pad had been shattered. Velgos sees me coming, and he slashes one of his scimitars towards me, but I manage to dodge it, and I go straight for his neck. Unfortunately, the troll's first strike was never meant to hit its target, but only to lead me into the path of his second scimitar. I never got the chance to dodge his second blow, which severed my head from my shoulders, and killed me on the spot.
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_combat_technique < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_combat_technique < 2)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_combat_technique < 2)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_b2_ch5_heard_guards == 0 && v_is_dead == 0 && v_agility >= 3 || v_b2_ch5_heard_guards == 0 && v_is_dead == 0 && v_combat_technique >= 2)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_b2_ch5_heard_guards == 1 && v_is_dead == 0 && v_agility >= 3 || v_b2_ch5_heard_guards == 1 && v_is_dead == 0 && v_combat_technique >= 2)
+
+
+ID: B2-Ch05a-Decoy
+TEXT: 
+
+set(v_b2_ch5_first_cut,1) if (v_agility >= 3 || v_reflexes >= 3)
+set(v_b2_ch5_first_cut,0) if (v_b2_ch5_heard_guards == 0 && v_is_dead == 0 || v_agility < 3 && v_reflexes < 3)
+set(v_is_dead,0) if (v_agility >= 3 || v_reflexes >= 3)
+set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 3)
+#if(v_agility >= 3) {
+ 
+Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
+
+I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.
+
+I get just close enough to him in order to make him attack me, but then I dash back, and I position myself in a way that forces the troll to turn his back on Leila, in order to keep watching me.
+
+Leila immediately understands the intent behind my actions, and as soon as Velgos takes his eyes off her, she makes one quick dash towards him, swinging one of her daggers towards his neck, from the side where his shoulder pad had been shattered. She cuts his head off in a single movement, and then she grabs it by the hair and throws it on the ground. Almost immediately afterwards, she stomps on the troll's head, crushing it underneath her sandal.
+
+}
+#if(v_agility >= 3 || v_reflexes >= 3) {
+ The troll's body jumps away from us, but the head on the ground does not seem to be regenerating. Instead, a new head is now forming itself, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.
+"I'm going to take my time killing you," Velgos says, looking as if he's still trying to hold back some of the pain. "I'll do it slowly, after I force you to watch all your friends die." 
+
+"Yeah, yeah," I say. "I've heard it all before."
+
+"Watch out!" Bruce shouts at us, from behind.
+
+Not long after his warning, two very large ogres make their way out of the gate behind Velgos, and they attempt to hit us with their oversized clubs. Both Leila and I jump back, and we join our teammates, who have now all arrived at our location.
+
+"I knew it," our mage teammate says. "I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!"
+ 
+"Stop complaining," Bruce says. "Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself."
+
+}
+#if(v_reflexes >= 3 && v_agility < 3) {
+ 
+
+Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
+
+I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.
+
+I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I somehow manage to make up for it with my fast reflexes, and I dodge his strike, positioning myself in a way that forces the troll to turn his back on Leila.
+
+Leila immediately understands the intent behind my actions, and as soon as Velgos takes his eyes off her, she makes one quick dash towards him, swinging one of her daggers towards his neck, from the side where his shoulder pad had been shattered. She cuts his head off in a single movement, and then she grabs it by the hair and throws it on the ground. Almost immediately afterwards, she stomps on the troll's head, crushing it underneath her sandal.
+
+}
+#if(v_agility < 3 && v_reflexes < 3) {
+ 
+
+Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
+
+I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.
+
+I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I don't get the chance to dodge his strike, and one of his scimitars beheads me on the spot.
+
+}
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_reflexes < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 3 && v_reflexes < 3)
+choice("Load game", , , special:saves) if (v_agility < 3 && v_reflexes < 3)
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_b2_ch5_heard_guards == 0 && v_is_dead == 0 && v_agility >= 3 || v_b2_ch5_heard_guards == 0 && v_is_dead == 0 && v_reflexes >= 3)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_b2_ch5_heard_guards == 1 && v_is_dead == 0 && v_agility >= 3 || v_b2_ch5_heard_guards == 1 && v_is_dead == 0 && v_reflexes >= 3)
+
+
+ID: B2-Ch05a-Tactical
+TEXT: 
+
+ We shouldn't engage him by ourselves. We already managed to shatter one of his shoulder pads. That should be enough for now.
+I signal Leila to retreat, and we both head back towards the other members of our team. The troll is still recovering from the fire, so he chooses not to come after us just yet. In the meantime, two very large ogres have made their way out of the gate from behind Velgos, and they are now waving their oversized clubs menacingly towards us.
+
+"I knew it," our mage teammate says. "I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!"
+ 
+"Stop complaining," Bruce says. "Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself."
+
+choice("Continue", B2-Ch05a-Not-Heard, v_current_scene = B2-Ch05a-Not-Heard) if (v_b2_ch5_heard_guards == 0 && v_is_dead == 0)
+choice("Continue", B2-Ch05a-Heard, v_current_scene = B2-Ch05a-Heard) if (v_b2_ch5_heard_guards == 1 && v_is_dead == 0)
+
+
+ID: B2-Ch05a-Not-Heard
+TEXT: 
+
+set(v_b2_ch5_negotiate,0)
+ "I'd be careful, if I were you," I tell Bruce. "I've seen my fair share of regular ogres this past week, and I can tell you without a doubt that these two are a cut above the rest."
+"Bah!" Bruce says. "Their size does not impress me. Big or no, I'm willing to bet that they bleed all the same."
+
+The ogres do not leave us the chance to continue our conversation, and they start running towards us, roaring at the top of their lungs, while swinging their clubs.
+
+"I'll handle the ogres," Bruce says, as we all dodge the ogres' attack. "You deal with the troll. Now, go. Go!"
+
+As Leila goes to fight the troll, I take one long look at our enemy, trying to prepare a plan of attack.
+
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+
+
+ID: B2-Ch05a-Heard
+TEXT: 
+
+set(v_b2_ch5_negotiate,0) if (v_ancient_languages == 0)
+set(v_b2_ch5_negotiate,1) if (v_ancient_languages >= 1)
+#if(v_ancient_languages == 0) {
+ 
+"Actually, I'd rather be the one to take them on, if you don't mind," I tell Bruce. "I'm not completely sure, but I think I might be able to bring them over to our side, if I have a little chat with them."
+
+"That sounds like a stupid idea," Bruce says, "but who am I to judge? You can take the ogres, if you want. The troll is enough for me."
+
+The ogres do not leave us the chance to continue our conversation, and they start running towards us, roaring at the top of their lungs, while swinging their clubs.
+
+As we've agreed, the others step aside and begin heading towards the troll, leaving me to fight the ogres all by myself. 
+
+"Hey, you!" I tell the ogres. "We need to talk!"
+
+The two ogres ignore me, and they try to hit me with their clubs. Luckily, even though their strength is formidable, dodging their sluggish attacks is child's play, in an open environment such as this.
+
+"It's about your captured tribe members!" I tell them.
+
+Still no reaction. Is it because they can't understand Common? 
+
+I'd talk to them in their own language if I could, but I don't even know the basic words in their vocabulary. I was hoping that I could reach an agreement with them, but if they can't even understand what I'm saying, I'm just wasting my breath.
+
+}
+#if(v_ancient_languages >= 1) {
+ 
+"Actually, I'd rather be the one to take them on, if you don't mind," I tell Bruce. "I'm not completely sure, but I think I might be able to bring them over to our side, if I have a little chat with them."
+
+"That sounds like a stupid idea," Bruce says, "but who am I to judge? You can take the ogres, if you want. The troll is enough for me."
+
+The ogres do not leave us the chance to continue our conversation, and they start running towards us, roaring at the top of their lungs, while swinging their clubs.
+
+As we've agreed, the others step aside and begin heading towards the troll, leaving me to fight the ogres all by myself. 
+
+"Hey, you!" I tell the ogres. "We need to talk!"
+
+The two ogres ignore me, and they try to hit me with their clubs. Luckily, even though their strength is formidable, dodging their sluggish attacks is child's play, in an open environment such as this.
+
+"It's about your captured tribe members!" I tell them.
+
+Still no reaction. Is it because they can't understand Common? 
+
+"I know where they're holding your tribe members captive," I say, in the ogre tongue.
+
+The ogres react to my words for the first time, and they both stop attacking me, while looking at me suspiciously.
+
+}
+choice("Kill the ogres", B2-Ch05a-Kill-ogres, v_current_scene = B2-Ch05a-Kill-ogres, v_b2_ch5_negotiate = 2) if (v_ancient_languages == 0)
+choice("Ask for help in dealing with the ogres", B2-Ch05a-Dealing, v_current_scene = B2-Ch05a-Dealing) if (v_ancient_languages == 0)
+choice("Continue", B2-Ch05a-Negotiation, v_current_scene = B2-Ch05a-Negotiation) if (v_ancient_languages >= 1)
+
+
+ID: B2-Ch05a-Negotiation
+TEXT: 
+
+ "How would you know about our captured tribe members?" one of the ogres says.
+"Don't listen to him, he's trying to trick us!" the second ogre says. 
+
+"Am I?" I say. "What if I were to tell you I also know that one of the captives is your tribe's shaman, who happens to be a female?"
+
+"He knows about our shaman," the first ogre says. "He must be telling the truth!"
+
+"Even if he is, it's not worth it," the second ogre says. "The troll will kill us all if we try to help this human in any way."
+
+"Not if we kill him first," I say.
+
+"You are insane!" the second ogre says. "The troll is immortal. Even if you kill him, he'll still come back to life! There's no way we can beat him!"
+
+"So you'd prefer to live the rest of your lives as his lackeys, then?" I say.
+
+ "Brother," the first ogre says, "we've been at the troll's mercy for too long. We'll never get a better chance than this to avenge our fallen warriors and to rescue the captives!"
+The second ogre looks at his comrade in arms for a few long seconds, considering his words carefully.
+
+"What would you ask of us, if we agreed to help you?" the second ogre says.
+
+"Just help me out in killing the troll," I say. "After that, I'll tell you where they're holding your friends, and you'll be free to go. Don't worry, they are not being held far from here. You'll have plenty of time to free them and get out of the city before they assemble the city guards."
+
+"I will hold you to that promise, human," the second ogre says, after thinking about my offer for a few more seconds. "You'd better not be lying to us."
+
+"I wouldn't dream of it," I say.
+
+The two ogres exchange one final look, and then they turn their back on me, preparing to go fight their former ally.
+
+choice("Continue", B2-Ch05a-Prepare, v_current_scene = B2-Ch05a-Prepare)
+
+
+ID: B2-Ch05a-Dealing
+TEXT: 
+
+ "Hey, uh, guys?..." I say, to my teammates fighting the troll. "I've changed my mind. I think I could use a little help here!"
+"Damn it!" Bruce says, furious. "I knew that this was just a waste of time. We don't need two people to deal with two measly ogres. I'll deal with them myself. You come here and help with the troll!"
+
+"You think I'm going to just let you--" Velgos starts to say, but Leila quickly slashes her dagger at his neck, which forces the troll to interrupt his speech, in order to defend himself from her attack.
+
+Once Bruce takes my place and begins fighting the ogres, I take one long look towards the troll, and I try to make a plan of attack.
+
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Wilhelm, v_current_scene = B2-Ch05a-Contrary-Wilhelm, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Without, v_current_scene = B2-Ch05a-Contrary-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without, v_current_scene = B2-Ch05a-Easily-Without, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 1)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Easily-Without-Real, v_current_scene = B2-Ch05a-Easily-Without-Real, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_wilhelm == 0)
+
+
+ID: B2-Ch05a-Kill-ogres
+TEXT: 
+
+set(v_is_dead,0) if (v_agility >= 2 || v_strength >= 3)
+set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
+#if(v_agility >= 2) {
+ 
+There's no use in prolonging this battle any further. I'm going to finish them off as quickly as possible, so I can rejoin Leila and the others.
+
+Judging by the size of their clubs, no amount of reflexes are going to save me if I engage these monsters up close, due to the huge area that they can cover with a single swing. I either need to be fast enough to dash in and out of their range, or strong enough to be able to kill them before they do me in.
+
+I run towards the ogre on my right, baiting him to try smashing me with his club, and once he goes for the swing, I double up my speed, and I circle around him, stabbing him multiple times in the back. The other ogre tries to help his comrade, but he avoids hitting too hard, in order to not hit his friend by accident. The monster's already slow movements are even further slowed down by his holding back, which leaves me plenty of time to make one quick dash towards him, and to stab him in the heart. As soon as the second ogre is dead, I go back to the first one, which is now lying on the ground, and I slit his throat, finishing him off.
+
+}
+#if(v_strength >= 3 && v_agility < 2) {
+ 
+
+There's no use in prolonging this battle any further. I'm going to finish them off as quickly as possible, so I can rejoin Leila and the others.
+
+Judging by the size of their clubs, no amount of reflexes are going to save me if I engage these monsters up close, due to the huge area that they can cover with a single swing. I either need to be fast enough to dash in and out of their range, or strong enough to be able to kill them before they do me in.
+
+I'm definitely not fast enough to run circles around them without getting hit, but with my level of strength, I might just be able to pull this off.  I slowly advance towards one of the ogres, and I wait for him to attack me with his club. Once he brings his weapon down upon me, I raise my knife, holding it with both hands, and I block his strike right above my head. I then drop my knife, and I grab the club with both my hands, pulling it out of the ogre's grasp. Using my newly acquired weapon, I smash the ogre's head in before he gets the time to react, and then I move towards his friend, preparing to attack him as well. Now that I have the same range of attack as him, the monster no longer has any way to compensate for his slowness. He tries to strike me, but I'm much faster, and I manage to land a hit before he even begins his swing. One hit was all it took for me to send the ogre falling to the ground. As soon as I'm done fighting, I drop the club, and I pick my knife back up from the ground. 
+
+ Swinging a big piece of wood might have worked against these two idiots, but that troll is going to cut through it in an instant. I'm much better off using my own weapon, especially if my aim is to cut off his head.
+
+}
+#if(v_agility < 2 && v_strength < 3) {
+ 
+
+There's no use in prolonging this battle any further. I'm going to finish them off as quickly as possible, so I can rejoin Leila and the others.
+
+Judging by the size of their clubs, no amount of reflexes are going to save me if I engage these monsters up close, due to the huge area that they can cover with a single swing. I either need to be fast enough to dash in and out of their range, or strong enough to be able to kill them before they do me in.
+
+Then again, maybe I'm overthinking this. Ogres are both dumb and slow. The only thing they have going for them is their size and strength. With my wits, I should be able to outmaneuver them, even if I'm weaker than them.
+
+I make a rush towards the ogres, trying to anticipate which direction they'll strike at me from by paying close attention to their slow movements. I realize that one of the ogres is about to swing his club towards me, so I step out of the way and try to get out of his range. Unfortunately, I wasn't fast enough, and the monster's weapon smashed my head, killing me instantly.
+
+}
+choice("Continue", B2-Ch05a-Prepare, v_current_scene = B2-Ch05a-Prepare) if (v_agility >= 2 || v_strength >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2 && v_strength < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2 && v_strength < 3)
+choice("Load game", , , special:saves) if (v_agility < 2 && v_strength < 3)
+
+
+ID: B2-Ch05a-Prepare
+TEXT: 
+
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2) {
+ While I was fighting the ogres, I saw Leila and Bruce working together, and managing to decapitate the troll. Leila crushed Velgos' head under her sandal, but the head did not regenerate on the ground. 
+Instead, a new head formed from the troll's neck, taking him only about five seconds to fully regenerate it to its original form. However, judging by the expression that he had on his face after he was done regenerating, I'm guessing that this must have been a particularly painful process.
+
+As I prepare to join my friends in battle, I take one long look at Velgos, and I try to make a plan of attack.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2) {
+ While I was fighting the ogres, I saw Leila and Bruce working together, and managing to decapitate the troll for a second time. Leila crushed Velgos' head under her sandal, but the head did not regenerate on the ground.
+Instead, the troll regrew his head again from his neck, although this time around it seemed to take longer to fully create it, and it looked like he was having a bit of trouble recreating the exact same facial features that he had before.
+
+As I prepare to join my friends in battle, I take one long look at Velgos, and I try to make a plan of attack.
+
+}
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1) {
+ While I was talking to the ogres, I saw Leila and Bruce working together, and managing to decapitate the troll. Leila crushed Velgos' head under her sandal, but the head did not regenerate on the ground. 
+Instead, a new head formed from the troll's neck, taking him only about five seconds to fully regenerate it to its original form. However, judging by the expression that he had on his face after he was done regenerating, I'm guessing that this must have been a particularly painful process.
+
+As I prepare to join my friends in battle, I take one long look at Velgos, and I try to make a plan of attack.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1) {
+ While I was talking to the ogres, I saw Leila and Bruce working together, and managing to decapitate the troll for a second time. Leila crushed Velgos' head under her sandal, but the head did not regenerate on the ground. 
+Instead, the troll regrew his head again from his neck, although this time around it seemed to take longer to fully create it, and it looked like he was having a bit of trouble recreating the exact same facial features that he had before.
+
+As I prepare to join my friends in battle, I take one long look at Velgos, and I try to make a plan of attack.
+
+}
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
+
+
+ID: B2-Ch05a-Contrary-Ogres
+TEXT: 
+
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2) {
+ While I stand there, thinking, the troll finally notices me, and his eyes fill with rage once more. Leila takes advantage of this short distraction, and she manages to cut the troll's head off yet again. Once she crushes his head, the troll starts regrowing a new one from his neck, although this time around it seems to be taking longer to fully create it, and it looks like he is having a bit of trouble recreating the exact same facial features that he had before.
+As soon as his head grows back, Leila and Bruce begin putting pressure on the troll again, not leaving him any chances to properly fight back.
+
+"Good gods," the mage says, exasperated, as he watches Leila fight. "Stop aiming for the head! Can't you see that it's doing you no good?"
+
+"On the contrary!" I tell him. "I think that cutting his head off is exactly what we should be doing. You could clearly see that the troll was struggling to regenerate his head when it got cut off the second time. Even with his insane regenerative ability, there still has to be some kind of limit to how many times he can regrow his head in such a short period of time. My guess is that one or two more beheadings should do the trick!"
+
+I take another quick look towards the battlefield, and it appears that things are not going very well for Velgos, right now. Leila and Bruce are doing a very good job at flanking him, and the troll cannot manage to attack Bruce at all, because if he takes his eyes off Leila for even a second, she'll cut his head off again in the blink of an eye.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2) {
+ "Good gods," the mage says, exasperated, as he watches Leila fight. "Stop aiming for the head! Can't you see that it's doing you no good?"
+"On the contrary!" I tell him. "I think that cutting his head off is exactly what we should be doing. You could clearly see that the troll was struggling to regenerate his head when it got cut off the second time. Even with his insane regenerative ability, there still has to be some kind of limit to how many times he can regrow his head in such a short period of time. My guess is that one or two more beheadings should do the trick!"
+
+I look towards the troll again, who is still busy fighting, but when he notices me, his eyes fill with rage once more.
+
+}
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1) {
+ While I stand there, thinking, the ogres make a rush towards the troll, with their clubs at the ready, preparing to strike. As he sees his former companions turning on him, Velgos' eyes fill with rage. Leila takes advantage of this short distraction, and she manages to cut the troll's head off yet again. Once she crushes his head, the troll starts regrowing a new one from his neck, although this time around it seems to be taking longer to fully create it, and it looks like he is having a bit of trouble recreating the exact same facial features that he had before.
+As soon as his head grows back, Leila, Bruce and the ogres begin putting pressure on the troll once more, not leaving him any chances to properly fight back.
+
+"Good gods," the mage says, exasperated, as he watches Leila fight. "Stop aiming for the head! Can't you see that it's doing you no good?"
+
+"On the contrary!" I tell him. "I think that cutting his head off is exactly what we should be doing. You could clearly see that the troll was struggling to regenerate his head when it got cut off the second time. Even with his insane regenerative ability, there still has to be some kind of limit to how many times he can regrow his head in such a short period of time. My guess is that one or two more beheadings should do the trick!"
+
+I take another quick look towards the battlefield, and it looks like Velgos is not doing very well. I don't think he's ever fought against so many strong enemies at once before, and he's not used to defending from so many attacks at the same time.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1) {
+ "Good gods," the mage says, exasperated, as he watches Leila fight. "Stop aiming for the head! Can't you see that it's doing you no good?"
+"On the contrary!" I tell him. "I think that cutting his head off is exactly what we should be doing. You could clearly see that the troll was struggling to regenerate his head when it got cut off the second time. Even with his insane regenerative ability, there still has to be some kind of limit to how many times he can regrow his head in such a short period of time. My guess is that one or two more beheadings should do the trick!"
+
+The ogres are now rushing towards the troll, with their clubs at the ready, preparing to strike. As he sees his former companions turning on him, Velgos' eyes fill with rage.
+
+}
+choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
+
+
+ID: B2-Ch05a-Climactic-Ogres
+TEXT: 
+
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 1) {
+ I maintain my position, trying to study the troll carefully, as he is fighting. I don't get to do that for long, however, because Leila soon manages to find another opening in the troll's defenses, and she cuts his head off yet again. 
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 2) {
+ "So, anyway," I tell the mage, "I have a plan on how to attack the troll, but I'm going to need your help with--"
+I interrupt myself, because while I was talking, Leila managed to find another opening in the troll's defenses, and she cut his head off yet again.
+
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 3) {
+ "So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind--"
+I interrupt myself, because while I was talking, Leila managed to find another opening in the troll's defenses, and she cut his head off yet again.
+
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 1) {
+ I maintain my position, trying to study the troll carefully, as he is fighting. I don't get to do that for long, however, because Leila immediately takes advantage of the troll's short distraction, and she manages to cut his head off yet again. 
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 2) {
+ "So, anyway," I tell the mage, "I have a plan on how to attack the troll, but I'm going to need your help with--"
+I interrupt myself, because while I was talking, Leila took advantage of the troll's short distraction, and she managed to cut his head off yet again.
+
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 3) {
+ "So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind--"
+I interrupt myself, because while I was talking, Leila took advantage of the troll's short distraction, and she managed to cut his head off yet again.
+
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 2 || v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 3 || v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 3)
+
+
+ID: B2-Ch05a-Contrary-Wilhelm
+TEXT: 
+
+ While I stand there, thinking, Leila manages to find an opening in the troll's defenses, and she cuts the troll's head off in a single motion. She then crushes Velgos' head under her sandal, but the head does not regenerate on the ground. Instead, the troll regrows his head again, from the neck, although this time around it seems to be taking longer to fully create it, and it looks like he's having a bit of trouble recreating the exact same facial features that he had before.
+As soon as his head grows back, Leila begins putting pressure on the troll again, making sure that his focus is on her the whole time.
+
+"Good gods," the mage says, exasperated, as he watches Leila fight. "Stop aiming for the head! Can't you see that it's doing you no good?"
+
+"On the contrary!" I tell him. "I think that cutting his head off is exactly what we should be doing. You could clearly see that the troll was struggling to regenerate his head when it got cut off the second time. Even with his insane regenerative ability, there still has to be some kind of limit to how many times he can regrow his head in such a short period of time. My guess is that one or two more beheadings should do the trick!"
+
+I take another quick look towards the battlefield, and it appears that things are not going very well for Velgos right now. Wilhelm is doing a very good job at constantly getting behind him, undetected, so the troll can't let his guard down for even a second. What's more, Velgos can't afford to turn his attacks against the assassin, either, because if he takes his eyes off Leila for even a second, she'll cut his head off again in the blink of an eye.
+
+choice("Continue", B2-Ch05a-Anti-Wilhelm, v_current_scene = B2-Ch05a-Anti-Wilhelm)
+
+
+ID: B2-Ch05a-Anti-Wilhelm
+TEXT: 
+
+#if(v_b2_ch5_strategy == 1) {
+ I maintain my position, trying to study the troll carefully, as he is fighting. I don't get to do that for long, however, because Leila soon manages to find another opening in the troll's defenses, and she cuts his head off yet again. 
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_strategy == 2) {
+ "So, anyway," I tell the mage, "I have a plan on how to attack the troll, but I'm going to need your help with--"
+I interrupt myself, because while I was talking, Leila managed to find another opening in the troll's defenses, and she cut his head off yet again.
+
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+#if(v_b2_ch5_strategy == 3) {
+ "So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind--"
+I interrupt myself, because while I was talking, Leila managed to find another opening in the troll's defenses, and she cut his head off yet again.
+
+After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+"Well, that was anti-climactic..." I say.
+
+}
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 1 || v_b2_ch5_strategy == 2 || v_b2_ch5_strategy == 3)
+
+
+ID: B2-Ch05a-Contrary-Without
+TEXT: 
+
+ While I stand there, thinking, Leila manages to find an opening in the troll's defenses, and she cuts the troll's head off in a single motion. She then crushes Velgos' head under her sandal, but the head does not regenerate on the ground. Instead, the troll regrows his head again, from the neck, although this time around it seems to be taking longer to fully create it, and it looks like he's having a bit of trouble recreating the exact same facial features that he had before.
+As soon as his head grows back, Leila begins putting pressure on the troll again, making sure that his focus is on her the whole time.
+
+"Good gods," the mage says, exasperated, as he watches Leila fight. "Stop aiming for the head! Can't you see that it's doing you no good?"
+
+"On the contrary!" I tell him. "I think that cutting his head off is exactly what we should be doing. You could clearly see that the troll was struggling to regenerate his head when it got cut off the second time. Even with his insane regenerative ability, there still has to be some kind of limit to how many times he can regrow his head in such a short period of time. My guess is that one or two more beheadings should do the trick!"
+
+I take another quick look towards the battlefield, and it appears that Velgos and Leila are currently caught in something of a stalemate. Neither one of them seems to be able to get the upper hand, so they keep dodging each other's attacks, in the hopes that they'll eventually catch their enemy off guard.
+
+choice("Continue", B2-Ch05a-Observe, v_current_scene = B2-Ch05a-Observe) if (v_b2_ch5_strategy == 1)
+choice("Continue", B2-Ch05a-Effortlessly, v_current_scene = B2-Ch05a-Effortlessly) if (v_b2_ch5_strategy == 3)
+choice("Continue", B2-Ch05a-Mage, v_current_scene = B2-Ch05a-Mage) if (v_b2_ch5_strategy == 2)
+
+
+ID: B2-Ch05a-Observe
+TEXT: 
+
+set(v_is_dead,0) if (v_perception >= 3)
+set(v_is_dead,1) if (v_perception < 3)
+#if(v_perception >= 3) {
+ 
+I maintain my position, trying to study the troll carefully, as he is fighting. After watching the two combatants for a while, I notice that Velgos tends to make a big jump backwards, every time he feels like he is being overwhelmed by Leila's attacks. That is definitely something I can use against him! I just have to wait for the right opportunity, and then I can stab him from behind, right as he makes the jump.
+
+I begin waiting for Leila to use a flurry of attacks against her opponent, so I can dash towards him. No, wait, that's not enough. He only jumps back if the attacks are coming from the side where his shoulder pad has been destroyed. Otherwise, he stands his ground. I can't afford to jump into battle carelessly. I only have one shot at this. I need to get it right.
+
+As soon as Velgos looks like he's getting overwhelmed, I make a quick dash forward, in order to stab him from behind while he is off-balance. I manage to time my attack perfectly, and I thrust my dagger into his back before he gets the chance to dodge. This opening that I created was all that Leila needed, and she quickly swings one of her daggers towards the troll's neck, cutting his head off yet again.
+
+}
+#if(v_perception < 3) {
+ 
+I maintain my position, trying to study the troll carefully, as he is fighting. After watching the two combatants for a while, I notice that Velgos tends to make a big jump backwards, every time he feels like he is being overwhelmed by Leila's attacks. That is definitely something I can use against him! I just have to wait for the right opportunity, and then I can stab him from behind, right as he makes the jump.
+
+I wait for Leila to begin using a flurry of attacks against her opponent, and when it looks as if the troll is about to jump, I make a quick dash forward, in order to get to stab him with my blade while he is off-balance. 
+
+I didn't notice it right away, but there was something different about the way he jumped back this time. It looked as if he weren't going to jump at first, and that he only decided to do it after he saw me dash towards him. Unfortunately, I realized all of this much too late. Velgos jumped back, but this time, he wasn't off-balance at all. He only pretended to be, in order to bait me, and as I tried to stab him from behind, the troll swung one of his blades towards my neck, and he beheaded me in an instant.
+
+}
+choice("Continue", B2-Ch05a-Troll-final, v_current_scene = B2-Ch05a-Troll-final) if (v_perception >= 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_perception < 3)
+choice("Load game", , , special:saves) if (v_perception < 3)
+
+
+ID: B2-Ch05a-Effortlessly
+TEXT: 
+
+set(v_is_dead,0) if (v_strength >= 2)
+set(v_is_dead,1) if (v_strength < 2)
+#if(v_strength >= 2) {
+ 
+"So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind, I'll be off!"
+
+With these final words, I leave the mage behind, and I go to help Leila fight the troll. Given that Velgos can't afford to take his eyes off Leila even for a second while fighting, I effortlessly manage to get right behind him, and I swing my dagger towards his neck, from the side where his shoulder pad had been shattered.
+
+I cut his head off in a single movement, and then I crush his head under my foot, just like Leila did before me.
+
+}
+#if(v_strength < 2) {
+ 
+"So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind, I'll be off!"
+
+With these final words, I leave the mage behind, and I go to help Leila fight the troll. Given that Velgos can't afford to take his eyes off Leila even for a second while fighting, I effortlessly manage to get right behind him, and I swing my dagger towards his neck, from the side where his shoulder pad had been shattered.
+
+My strike is not powerful enough to cut his head off in a single movement, however, so my knife gets stuck in his throat halfway through. Before I get the chance to fall back, the troll grabs me by the arm, in order to prevent me from escaping, and then he uses his other hand to drive a scimitar through my chest. As the pain restricts me from moving, the troll lets go of my hand, and he finishes me off, with one swift strike of his blade.
+
+}
+choice("Continue", B2-Ch05a-Troll-final, v_current_scene = B2-Ch05a-Troll-final) if (v_strength >= 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_strength < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_strength < 2)
+choice("Load game", , , special:saves) if (v_strength < 2)
+
+
+ID: B2-Ch05a-Mage
+TEXT: 
+
+ "So, anyway," I tell the mage, "I have a plan on how to attack the troll, but I'm going to need your help with something."
+"What do you mean?" the mage says.
+
+"I noticed that Velgos can't really keep up with Leila's attacks," I say, "and he keeps moving around, in order to compensate for his lack of skills at parrying her fast strikes. If the two of us close in from behind and attack him from both left and right, he won't have any place left to retreat, and Leila will be able to cut his head off easily. Better yet, we wouldn't even risk anything, since he'd be losing his head before he even gets the chance to strike back at us!"
+
+"I... suppose that I could help out," the mage says. "If it's risk-free..."
+
+"Perfect," I say, not giving him any more time to think it over. "Let's get going, then!"
+
+I then make a rush towards the troll, and the mage is forced to follow soon afterwards, so he can catch up to me. I knew that he'd jump on the opportunity to join the fight, as soon as I'd offer him a plan without any risks. He's been acting with extreme caution ever since the first round started, but it's clear that he doesn't want to be seen as a coward. Of course he'd be more than happy to be able to prove his worth without endangering his life in any way. And my plan definitely sounds safe enough... at least in the way I presented it.
+
+ The fact of the matter is that I've omitted one small detail when I gave him the briefing. While the troll will definitely not get the chance to harm us before he gets his head cut off, depending on how much this next beheading is going to affect him, he may well have enough energy left in him to attack  us, even without his head on his shoulders. That is exactly why I'm not going to stab the troll at all, and let the mage do all the work. As for the mage's own safety... I'm sure that he'll find a way to handle himself. Probably.
+We both manage to get behind the troll, while Leila is keeping him busy, and when we are in attack range, I nod to the mage, and we both dash towards our enemy, from opposite sides. Just as I reach Velgos, I jump backwards, without attacking him in any way, and I let the mage stab him by himself. The mage looks shocked at my betrayal, but he doesn't have much time to react, because one of the troll's scimitars is already being swung towards him. Leila immediately takes advantage of the distraction, and she cuts the troll's head off in the blink of an eye. This makes Velgos stop his attack mid-swing, which gives the mage the time to remove his dagger from the troll's body, and to jump backwards, as far away as he can. Just like last time, Leila throws the head to the ground, and she crushes it beneath her sandal.
+
+choice("Continue", B2-Ch05a-Troll-final, v_current_scene = B2-Ch05a-Troll-final)
+
+
+ID: B2-Ch05a-Troll-final
+TEXT: 
+
+#if(v_b2_ch5_first_cut == 1 || v_b2_ch5_strategy == 2 || v_b2_ch5_wilhelm == 1) {
+ After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+}
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0 && v_b2_ch5_strategy != 2) {
+ Just like the last time, the troll regrows his head from the neck, but this time around it seems to be taking longer to fully create it, and it looks like he's having a bit of trouble recreating the exact same facial features that he had before. We don't give the troll the time to fully recover, and we press on the attack, striking him from both sides. It doesn't take long until Leila manages to catch the troll off-guard again, and she cuts his head off for a third time, crushing it under her foot soon afterwards.
+
+ After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
+The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
+
+}
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0 || v_b2_ch5_first_cut == 1 || v_b2_ch5_strategy == 2 || v_b2_ch5_wilhelm == 1)
+
+
+ID: B2-Ch05a-Easily-Without
+TEXT: 
+
+ While I stand there, thinking, Leila manages to find an opening in the troll's defenses, and she cuts the troll's head off in a single motion. She then crushes Velgos' head under her sandal, but the head does not regenerate on the ground. Instead, a new head forms from the troll's neck, taking him only about five seconds to fully regenerate it to its original form. However, judging by the expression that he now has on his face, I'm guessing that this must have been a particularly painful process.
+As soon as his head grows back, Leila begins putting pressure on the troll again, making sure that his focus is on her the whole time.
+
+"Why is she still attacking the head?" the mage asks me. "Can't she see that it's not working?"
+
+"I wouldn't be so sure about that," I tell him. "You could easily tell that he was in a lot of pain earlier, when he was regenerating his head from his neck. Something tells me that this head regrowing trick of his isn't something that he can do indefinitely. Besides, it's not like we have any better ideas at this point. I say we just keep forcing him to regrow his head, and see what happens!"
+
+ I take another quick look towards the battlefield, and it appears that things are not going very well for Velgos right now. Wilhelm is doing a very good job at constantly getting behind him, undetected, so the troll can't let his guard down for even a second. What's more, Velgos can't afford to turn his attacks against the assassin, either, because if he takes his eyes off Leila for even a second, she'll cut his head off again in the blink of an eye.
+It only takes one misstep on the troll's part for Leila to seize the opportunity once more, and to cut his head right off his shoulders. As she crushes it again, the troll regrows his head from the neck, but this time around it seems to be taking longer to fully create it, and it looks like he's having a bit of trouble recreating the exact same facial features that he had before. Leila doesn't leave him any time to fully recover, and she begins attacking him again, trying to catch him off guard one more time. However, Wilhelm seems to have somehow gotten injured in that last fight, so he is currently retreating, in order to tend to his wounds.
+
+choice("Continue", B2-Ch05a-Observe, v_current_scene = B2-Ch05a-Observe) if (v_b2_ch5_strategy == 1)
+choice("Continue", B2-Ch05a-Effortlessly, v_current_scene = B2-Ch05a-Effortlessly) if (v_b2_ch5_strategy == 3)
+choice("Continue", B2-Ch05a-Mage, v_current_scene = B2-Ch05a-Mage) if (v_b2_ch5_strategy == 2)
+
+
+ID: B2-Ch05a-Easily-Without-Real
+TEXT: 
+
+ While I stand there, thinking, Leila manages to find an opening in the troll's defenses, and she cuts the troll's head off in a single motion. She then crushes Velgos' head under her sandal, but the head does not regenerate on the ground. Instead, a new head forms from the troll's neck, taking him only about five seconds to fully regenerate it to its original form. However, judging by the expression that he now has on his face, I'm guessing that this must have been a particularly painful process.
+As soon as his head grows back, Leila begins putting pressure on the troll again, making sure that his focus is on her the whole time.
+
+"Why is she still attacking the head?" the mage asks me. "Can't she see that it's not working?"
+
+"I wouldn't be so sure about that," I tell him. "You could easily tell that he was in a lot of pain earlier, when he was regenerating his head from his neck. Something tells me that this head regrowing trick of his isn't something that he can do indefinitely. Besides, it's not like we have any better ideas at this point. I say we just keep forcing him to regrow his head, and see what happens!"
+
+I take another quick look towards the battlefield, and it appears that Velgos and Leila are currently caught in something of a stalemate. Neither one of them seems to be able to get the upper hand, so they keep dodging each other's attacks, in the hopes that they'll eventually catch their enemy off guard.
+
+choice("Continue", B2-Ch05a-Observe, v_current_scene = B2-Ch05a-Observe) if (v_b2_ch5_strategy == 1)
+choice("Continue", B2-Ch05a-Effortlessly, v_current_scene = B2-Ch05a-Effortlessly) if (v_b2_ch5_strategy == 3)
+choice("Continue", B2-Ch05a-Mage-Without, v_current_scene = B2-Ch05a-Mage-Without) if (v_b2_ch5_strategy == 2)
+
+
+ID: B2-Ch05a-Mage-Without
+TEXT: 
+
+ "So, anyway," I tell the mage, "I have a plan on how to attack the troll, but I'm going to need your help with something."
+"What do you mean?" the mage says.
+
+"I noticed that Velgos can't really keep up with Leila's attacks," I say, "and he keeps moving around, in order to compensate for his lack of skills at parrying her fast strikes. If the two of us close in from behind and attack him from both left and right, he won't have any place left to retreat, and Leila will be able to cut his head off easily. Better yet, we wouldn't even risk anything, since he'd be losing his head before he even gets the chance to strike back at us!"
+
+"I... suppose that I could help out," the mage says. "If it's risk-free..."
+
+"Perfect," I say, not giving him any more time to think it over. "Let's get going, then!"
+
+I then make a rush towards the troll, and the mage is forced to follow soon afterwards, so he can catch up to me. I knew that he'd jump on the opportunity to join the fight, as soon as I'd offer him a plan without any risks. He's been acting with extreme caution ever since the first round started, but it's clear that he doesn't want to be seen as a coward. Of course he'd be more than happy to be able to prove his worth without endangering his life in any way. And my plan definitely sounds safe enough... at least in the way I presented it.
+
+ The fact of the matter is that I've omitted one small detail when I gave him the briefing. While the troll will definitely not get the chance to harm us before he gets his head cut off, depending on how much this next beheading is going to affect him, he may well have enough energy left in him to attack  us, even without his head on his shoulders. That is exactly why I'm not going to stab the troll at all, and let the mage do all the work. As for the mage's own safety... I'm sure that he'll find a way to handle himself. Probably.
+We both manage to get behind the troll, while Leila is keeping him busy, and when we are in attack range, I nod to the mage, and we both dash towards our enemy, from opposite sides. Just as I reach Velgos, I jump backwards, without attacking him in any way, and I let the mage stab him by himself. The mage looks shocked at my betrayal, but he doesn't have much time to react, because one of the troll's scimitars is already being swung towards him. 
+
+Leila immediately takes advantage of the distraction, and she cuts the troll's head off in the blink of an eye. This does not make Velgos stop his attack, however, whose scimitars have almost reached the mage's neck. At the very last moment before getting hit, the mage jumps back with superhuman speed, avoiding the fatal blow by mere inches. 
+
+choice("Continue", B2-Ch05a-Mage-Helped, v_current_scene = B2-Ch05a-Mage-Helped) if (v_b2_ch2_cell != 1)
+choice("Continue", B2-Ch05a-Mage-Cell1, v_current_scene = B2-Ch05a-Mage-Cell1) if (v_b2_ch2_cell == 1)
+
+
+ID: B2-Ch05a-Mage-Helped
+TEXT: 
+
+ Judging by the speed of that jump, I can only assume that he's finally decided to activate his own version of the stat device. I don't see how else he could have escaped that fast. 
+While the mage was getting away, Leila crushed the troll's head under her foot, just like the last time, and the troll started regrowing his head from the neck again, but this time around it seemed to be taking longer to fully create it, looking as if he were having a bit of trouble recreating the exact same facial features that he had before.
+
+"You tricked me!" the mage shouts at me. "I can't believe this! Was this your plan all along? To make a fool out of me and use me as a decoy?"
+
+"Hey," I say, "Are you sure that this is really the time to be arguing? That device of yours won't last forever, will it? Shouldn't you be making full use of it, while you've still got the chance?"
+
+The mage grinds his teeth, but he doesn't find any good retort to shout back at me. Instead, he readies his dagger, and he prepares to jump back into action.
+
+"Damn it!" he says, as he rejoins Leila in fighting the troll.
+
+With the two of them now flanking Velgos, it does not take long until Leila manages to catch him off-guard again, and she cuts his head off for a third time, crushing it under her foot soon afterwards.
+
+choice("Continue", B2-Ch05a-Troll-final, v_current_scene = B2-Ch05a-Troll-final)
+
+
+ID: B2-Ch05a-Mage-Cell1
+TEXT: 
+
+ That speed just now was almost comparable to that of Leila, and she's using a stat device. Could the mage also be using something similar?
+While the mage was getting away, Leila crushed the troll's head under her foot, just like the last time, and the troll started regrowing his head from the neck again, but this time around it seemed to be taking longer to fully create it, looking as if he were having a bit of trouble recreating the exact same facial features that he had before.
+
+Before the two of them start fighting again, a very loud high pitched noise begins to echo all around the arena, and something inside the mage's right pocket starts to shine with a bright red light. The mage panics, and he tries to hide the light by putting his hand on top of his pocket, but the harm has already been done.
+
+"Please excuse the noise, ladies and gentlemen," the announcer says. "That is the sound of our magic detectors being set off. Will the person with the red light in his pocket please remain still? Our guards will come to pick you up shortly."
+
+Several guards from the arena are now making their way into the fighting area, with their swords at the ready.
+
+"There's no need for any of the other gladiators to be alarmed!" the announcer says. "Just ignore the guards and continue your fights in an orderly fashion!"
+
+ Leila and the troll are standing still, looking at the mage intently, while they are also watching each other with the corner of their eyes, to make sure that neither one will try a surprise attack on the other, during this distraction. Meanwhile, Bruce and the ogres do not seem to be paying any attention to what's happening around them, and they are continuing their fight unhindered. 
+"No..." the mage says, in a scared voice, as he looks at the guards closing in on him.
+
+Once the guards surround him, one of them attempts to grab the mage by the arm.
+
+"You're coming with us," the guard says. "Come on, get moving!"
+
+"No!" the mage shouts, as he pulls his arm away from the guard. "Get away from me!"
+
+"There's no use fighting it, gladiator," the guard says, as he approaches him and tries to grab him again. "Your life is over, and you know it. Now you can either come with us peacefully, or we'll do this the hard way."
+
+"I said get away!" the mage shouts, louder, and a jet of flames erupts from his hands, engulfing the guard, and burning him to a crisp.
+
+All of the other guards quickly move to restrain the mage, but he raises both his arms in the air, blasting them all with a powerful wave of fire that leaves nothing but ashes in its wake.
+
+ "Guards!" the announcer shouts, starting to panic a bit. "Leave your posts and come to the fighting area immediately. We have a rogue fire elementalist on a rampage! I repeat! A rogue fire elementalist on a rampage!"
+The mage looks around him, with a blank stare in his eyes, as if he were slowly starting to lose his sense of purpose. Then, as his eyes come in contact with mine, the look on his face changes, and he suddenly gains back his focus, while his eyes get filled with rage.
+
+choice("Continue", B2-Ch05a-Mage-Rampage, v_current_scene = B2-Ch05a-Mage-Rampage)
+
+
+ID: B2-Ch05a-Mage-Rampage
+TEXT: 
+
+set(v_is_dead,0) if (v_agility >= 2)
+set(v_is_dead,1) if (v_agility < 2)
+#if(v_agility >= 2) {
+ 
+"You!" the mage shouts at me. "This is all your fault! You traitorous son of a bitch, I'm going to kill you!"
+
+"Wait, wait, hold on!" I tell him, but the mage is no longer listening.
+
+He points his arms towards me, and a jet of flames comes out of his hands, making its way towards me at great speed.
+
+I manage to jump out of its way in time, but as soon as I land on the ground, I see a pillar of fire starting to form itself from beneath my feet. I dash out of the way just before the flames fill the area, but the mage does not allow me a moment's respite, and he keeps aiming pillars below me, just as my feet touch the ground.
+
+"Crap, crap, crap!" I say, while I keep jumping between the columns of fire, looking as if I were performing some elaborate tribal dance.
+
+How do I get out of this? Do I attack him? Am I allowed to attack him? Is he still being considered as my teammate after he broke the rules? Will they execute me too if I try to kill him? Should I just knock him out? Gods be damned, I can't think straight with all this jumping!
+
+While the mage is keeping me busy, several more guards are now rushing towards him, trying to run their blades through his back, while he's not paying attention. The mage does not let himself get caught off guard, and he immediately begins to target his new attackers as well, while still making me dodge flame pillars.
+
+ "Velgos, do something!" the announcer says, in desperation. "Kill him! Kill him now, before it gets worse!"
+The troll frowns at the announcer, and he starts walking slowly towards the mage, while still keeping Leila in his sight. The mage has already killed all of the guards, but when he sees the troll approach him, he forgets all about me, and he points his hands towards him, in an attempt to intimidate his new foe.
+
+"Don't come closer!" the mage says, with a scared tone in his voice. "I'll burn you to a crisp!"
+
+"Go ahead," Velgos says, as he keeps advancing towards the mage, while looking at Leila with the corner of his eye. "I'd love to see you try."
+
+As Velgos gets even closer, the mage lets out a whimper, and the troll suddenly gets swallowed up by a newly formed column of fire, much larger than those from before. Velgos walks out of the flames completely unharmed, with a malicious grin on his face, and he keeps advancing slowly towards his target.
+
+"Die, monster!" the mage shouts, when the troll reaches him, and he begins to stab him in the chest repeatedly with his dagger.
+
+Seeing that it's not working, the mage attempts to go for the neck, like Leila, but Velgos easily blocks him with one of his scimitars, while bringing his other weapon down on the mage, slicing him in half. Almost immediately after the mage dies, Leila dashes behind the troll, giving him no time to react, and she cuts his head off in one strike, crushing it under her foot soon afterwards.    
+
+}
+#if(v_agility < 2) {
+ 
+"You!" the mage shouts at me. "This is all your fault! You traitorous son of a bitch, I'm going to kill you!"
+
+"Wait, wait, hold on!" I tell him, but the mage is no longer listening.
+
+He points his arms towards me, and a jet of flames comes out of his hands, making its way towards me at great speed.
+
+I manage to jump out of its way in time, but as soon as I land on the ground, a pillar of fire quickly forms itself from beneath me, and it engulfs me in flames in an instant. I barely even got the chance to feel the pain of it, before I got turned into ashes.
+
+}
+choice("Continue", B2-Ch05a-Troll-final, v_current_scene = B2-Ch05a-Troll-final) if (v_agility >= 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 2)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility < 2)
+choice("Load game", , , special:saves) if (v_agility < 2)
+
+
+ID: B2-Ch05a-Troll-dead
+TEXT: 
+
+ "Hey, Velgos!" the announcer says. "What are you doing? Stop fooling around and fight seriously! What do you think we're paying you for?"
+The spectators seem to be unsure of how to react. Velgos appeared to be something of a crowd favorite, so seeing him die in front of their eyes must be giving them mixed feelings about this whole thing. They can't really blame us for having killed him, but they don't seem very eager to cheer for us either. What we get instead are a few moments of awkward silence, while the announcer is still struggling to come to terms with reality.
+
+"Velgos..." the announcer says, this time in a pleading voice. "Don't do this to me! Come on, I even bet good money on you! You can't just die on me like this! What about the rest of the second round? Who's going to fight the other divisions? Velgos, get up, damn you!"
+
+Once the announcer finishes his rant, we hear Venard, the arena owner, clearing his throat from somewhere behind the announcer.
+
+"Uh, please excuse me," the announcer says, to the spectators. "I'll be back shortly..."
+
+ He then heads in the direction of the arena owner, descending from his elevated platform and entering one of the upper levels of the main building surrounding the fighting area.
+As the announcer was talking, I was barely paying any attention to him, because I was focusing on something else, entirely. After studying the scimitars that had fallen from the troll's hands for a while, I came to the conclusion that they were both in surprisingly good condition. I'm also quite certain that they both have at least the sharpness and durability enchantments cast on them, so they should be pretty comparable to my dagger, in terms of usefulness.
+
+I've never really liked wielding two weapons at the same time when fighting, but maybe I could take one of these with me, so I can use it when I'm in need of a weapon with longer reach? Or maybe I should take the other one too, and sell it at a shop? I'm not exactly sure how much it would be worth, but if I could get Daren to identify all of the enchantments cast on it, I'm sure I could negotiate a reasonable price at the local weapon shops.
+
+choice("Leave the weapons there", B2-Ch05a-Troll-Aftermath, v_current_scene = B2-Ch05a-Troll-Aftermath, v_b2_ch5_scimitar = 0)
+choice("Take one scimitar", B2-Ch05a-Troll-Aftermath, v_current_scene = B2-Ch05a-Troll-Aftermath, v_b2_ch5_scimitar = 1)
+choice("Take both scimitars", B2-Ch05a-Troll-Aftermath, v_current_scene = B2-Ch05a-Troll-Aftermath, v_b2_ch5_scimitar = 2)
+
+
+ID: B2-Ch05a-Troll-Aftermath
+TEXT: 
+
+#if(v_b2_ch5_negotiate == 1) {
+ "Human," one of the ogres says, in their language. "We have fulfilled our end of the bargain. We are still waiting for you to fulfill yours."
+"Oh, right, right, the hostages," I say. "They are keeping them locked right here, in the main building of the coliseum. The guards said that they're being held in the cell that is the closest to the locker rooms. You shouldn't have any trouble finding those. Just go through that gate over there, and take a left."
+
+"I hope you are not lying to us..." the ogre says.
+
+"Let him be," the other ogre says. "He already fulfilled his promise. We have no reason to doubt him. Let's go. Quick, before they send the guards for us."
+
+The two ogres move away from us, and they start heading towards the arena gate, in order to free their captive clan members.
+
+"Wait, what just happened, here?" Bruce asks, confused. "What were you talking to them about? And why are you letting them go?"
+
+"Why not?" I say. "The round objective was to kill the troll. They never said anything about the ogres."
+
+"But why did they help us?" Bruce asks.
+
+"They were being forced to cooperate with the troll," I say, "because he was holding some of their clan members hostage. I told them where their friends were being kept, in exchange for them helping us with the troll."
+
+ "You mean to say that you just allowed them to leave so they can get reinforcements?" Bruce says, shocked.
+"Reinforcements for what?..." I say. "Listen, ogres may be dumb, but they're not that stupid. I guarantee you that the first thing they'll do after they free their allies will be to flee the city as soon as possible. They're sure as hell not going to stick around and wait for the town guards to assemble. So, maybe they'll kill some of the arena's staff on their way out. Not my problem. They should have thought of the risks before bringing a bunch of ogres in the middle of a city populated by humans."
+
+"Fine," Bruce says. "Forget the ogres. So, what are we doing, now? Is the round over, or what?"
+
+"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
+
+}
+#if(v_b2_ch5_negotiate == 2) {
+ "So..." Bruce says. "Is the fight over, or what? What are we still standing around here, for?" 
+"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
+
+}
+#if(v_b2_ch5_negotiate == 0 || v_b2_ch5_negotiate == 2) {
+ 
+}
+#if(v_b2_ch5_negotiate == 0) {
+ Not long after we kill Velgos, Bruce also finishes his fight with the ogres, and then he comes heading straight for us.
+"You guys are already done with the troll?" Bruce asks, surprised, as he reaches us.
+
+"Yeah, we killed him ages ago," I say. "What took you so long?"
+
+"So... is the fight over, then?" Bruce says. "What are we still standing around here, for?"
+
+"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
+
+}
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm == 0) {
+ "Don't think you're getting away that easily, you son of a bitch!" the mage tells me.
+"Get away with what?" I say.
+
+"With using me as a decoy!" the mage shouts.
+
+"Oh, right, that!" I say. "Okay, here's what we'll do. Next round, you can use me as a decoy, and we'll be even. Alright?"
+
+"Next round is for individual fights!" the mage says.
+
+"Is it?" I say, with an uninterested tone. "Fine, the round after the next one, then."
+
+"There is no round after the next one!" the mage shouts. "It's just an optional fight!"
+
+"Technically it's only optional if you don't break the rules, but I see your point," I say, as I make a short pause to think things through. "Well, if that's how things are, then I guess there's no chance left for us to get even. Too bad. But hey, no hard feelings, right?"
+
+ While the mage is grinding his teeth, Bruce is now heading towards us, having finished his fight with the two ogres.
+"You guys are already done with the troll?" Bruce asks, surprised, as he reaches us.
+
+"Yeah, we killed him ages ago," I say. "What took you so long?"
+
+"So... is the fight over, then?" Bruce says. "What are we still standing around here, for?"
+
+"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
+
+}
+#if(v_b2_ch2_cell == 1 && v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm == 0) {
+ Not long after we kill Velgos, Bruce also finishes his fight with the ogres, and then he comes heading straight for us.
+"You guys are already done with the troll?" Bruce asks, surprised, as he reaches us.
+
+"Yeah, we killed him ages ago," I say. "What took you so long?"
+
+"Wait, how did the mage die?" Bruce asks, after noticing the mage's corpse on the ground.
+
+"He got caught using magic," I say. "There were even loud alarms and everything. How did you manage to miss them?"
+
+"Oh..." Bruce says. "I did hear some loud noises, but I was too focused on the fight to figure out what was what."
+
+He pauses.
+
+"So," Bruce continues. "Does this mean that the fight is over, then? What are we still standing around here, for?"
+ 
+"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
+
+}
+choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0 || v_b2_ch5_negotiate == 1 || v_b2_ch5_negotiate == 2)
+
+
+ID: B2-Ch05a-Smoothly
+TEXT: 
+
+ After a bit more time, the announcer finally returns to his platform, looking mildly upset.
+"Sorry for the delay, ladies and gentlemen," the announcer says. "After a discussion with the arena's owner, mister Venard, we've reached the conclusion that the second round cannot continue after the death of Velgos, the mercenary. In other words, the end of this fight also marks the end of the round. The third and final round will commence shortly, as soon as the organizing team is done with the preparations. We apologize for the inconvenience."
+
+He then turns towards us.
+
+"All gladiators will have to wait in their division areas until the beginning of the next round," he says. "You will not be allowed to roam the halls any longer! Your rooms will be locked until the end of the third round. This time there will be no more... incidents."
+
+I'm pretty sure that he was looking directly at me when he said those last words. He must still be upset because I entered the fighting area before the beginning of the round last time. Oh well, at least I don't need any more information from my notebook. Being unable to exit my division area shouldn't affect me that much.
+
+As soon as we get back to our room, we hear a person shouting loudly from the hallway outside our door. It is the voice of the ambassador of Ollendor.
+
+"What do you mean everything is going smoothly?" the ambassador shouts. "Are you mocking me?"
+
+ "Not at all, ambassador," Venard, the arena owner says. "There have been no problems with any part of our arena event, as far as I'm aware."
+"No problems?" the ambassador says. "The earl of Ollendor's killers are all still alive, and you are telling me that there are no problems?!"
+
+"I assure you," Venard says, "that our guests have been given no advantages over the other gladiators of the arena during these fights. Quite the opposite, in fact. Of course, if you have any doubts, you are free to talk with the organizing team in order to arrange the upcoming duels in any way you like. After all, you have always been the one to have the final say regarding the organization of these events."
+
+"I've been a fool to leave things in your care until now!" the ambassador says, furiously. "If you are too incompetent to get the job done right, then I'll just have to do it myself."
+
+We then hear the ambassador storming away from the hallway, presumably towards the room where the organizing team was making the preparations for the next round.
+
+"Farewell, ambassador!" Venard says, calmly, and then we hear him leaving as well.
+
+"It sounds like a certain someone really has it in for you," Leila writes, while looking at me.
+
+"Who cares?" I say. "It's not like they can do anything anymore even if they try."
+
+choice("Continue", B2-Ch05b-Similar, v_current_scene = B2-Ch05b-Similar)

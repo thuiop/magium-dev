@@ -1,68 +1,61 @@
- <%
-    function apply_condition(entry){
-        variable = entry[0]
-        condition = entry[1]
-        if (condition.type == ">") {
-            return (locals[variable] || 0) > condition.value
-        }
-        else if (condition.type == "<") {
-            return (locals[variable] || 0) < condition.value
-        }
-        else if (condition.type == "<=") {
-            return (locals[variable] || 0) <= condition.value
-        }
-        else if (condition.type == ">=") {
-            return (locals[variable] || 0) >= condition.value
-        }
-        else if (condition.type == "!=") {
-            return (locals[variable] || 0) != condition.value
-        }
-        else if (condition.type == "==") {
-            return (locals[variable] || 0) == condition.value
-        }
-    }
-%>
-<%- text %>
-<% set_variables.forEach(function(set_variable){ if (!set_variable.conditions || Object.entries(set_variable.conditions).every(apply_condition)) {%>
-    <% locals[set_variable.name] = set_variable.value; %>
-     <script> storeItem("<%= set_variable.name %>",<%= set_variable.value %>) </script>
+<% for (setVariable of scene.setVariables) {%>
+     <script> storeItem("<%= setVariable.name %>",<%= setVariable.value %>) </script>
+<% }; %>
+
+<% if (scene.checkpoint) { %>
+    <div class='stat_success'>
+        [ Checkpoint reached: Game saved. ] 
+    </div>
+<% } %>
+
+<% scene.statChecks.forEach(function(statCheck) { if (statCheck.success) {%>
+    <div class='stat_success'>
+        [ <%= statCheck.variable %> check successful - level <%= statCheck.value %>  ]
+    </div>
+<% } else { %>
+    <div class='stat_fail'>[ <%= statCheck.variable %> check failed - level <%= statCheck.value %>  ]</div>
 <% }}); %>
-<% responses.forEach(function(response){ if (!response.conditions || Object.entries(response.conditions).every(apply_condition)) {%>
+
+<% for (paragraph of scene.paragraphs) { %>
+    <%- paragraph.text %>
+<% }; %>
+
+<% for (choice of scene.choices) {%>
     <div class="response">
         <button
-        onClick="setResponseCookies(<%= JSON.stringify(response) %>)"
-        <% if (response.special=="") { %>
-            hx-get="/scene/<%= response.target %>"
-        <% } else if (response.special=="stats") { %>
+        onClick="setResponseCookies(<%= JSON.stringify(choice) %>)"
+        <% if (!choice.special) { %>
+            hx-get="/scene/<%= choice.target %>"
+        <% } else if (choice.special=="stats") { %>
             hx-get="/stats"
             hx-push-url="true"
-        <% } else if (response.special=="checkpoint_load") { %>
+        <% } else if (choice.special=="checkpoint_load") { %>
             hx-get="/"
             hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
-        <% } else if (response.special=="checkpoint_save") { %>
-            hx-get="/scene/<%= response.target %>"
+        <% } else if (choice.special=="checkpoint_save") { %>
+            hx-get="/scene/<%= choice.target %>"
             hx-on::before-request="saveGameToLocalStorage('checkpoint')"
-        <% } else if (response.special=="restart") { %>
-            hx-get="/scene/<%= response.target %>"
+        <% } else if (choice.special=="restart") { %>
+            hx-get="/scene/<%= choice.target %>"
             hx-on::before-request="clearState()"
-        <% } else if (response.special=="saves") { %>
+        <% } else if (choice.special=="saves") { %>
             hx-post="/saves"
             hx-ext="submitlocalstorage"
             hx-push-url="true"
-        <% } else if (response.special.startsWith("achievement")) { %>
-            hx-get="/scene/<%= response.target %>"
-            _="on click send achievementGained to #achievementModal<%= response.special.split("-")[2] %>"
+        <% } else if (choice.special.startsWith("achievement")) { %>
+            hx-get="/scene/<%= choice.target %>"
+            _="on click send achievementGained to #achievementModal<%= choice.special.split("-")[2] %>"
         <% } %>
             hx-target="#content"
             hx-swap="innerHTML"
         > 
-                <%= response.text %>
+                <%= choice.text %>
         </button>
     </div>
-    <% if (response.special.startsWith("achievement") && ((locals[response.special.split("-")[2]] || 0) === 0)) { %>
+    <% if (choice.special && choice.special.startsWith("achievement") && ((locals[choice.special.split("-")[2]] || 0) === 0)) { %>
         <div id="modalOob" hx-swap-oob="afterbegin:#main">
             <div 
-            id="achievementModal<%= response.special.split("-")[2] %>"
+            id="achievementModal<%= choice.special.split("-")[2] %>"
             class="achievement-modal"
             _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
                on click remove me end">
@@ -73,14 +66,14 @@
                             ACHIEVEMENT UNLOCKED 
                         </div>
                         <div class="achievement-modal-caption">
-                          <%= response.special.split("-")[1] %>
+                          <%= choice.special.split("-")[1] %>
                         </div>
                     </div>
               </div>
         </div>
     </div>
     <% } %>
-<% }}); %>
+<% }; %>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
         <%= id %>
