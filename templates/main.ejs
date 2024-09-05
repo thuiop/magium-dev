@@ -2,13 +2,13 @@
      <script> storeItem("<%= setVariable.name %>",<%= setVariable.value %>) </script>
 <% }; %>
 
-<% if (scene.choices.some((choice)=>choice.special === "checkpoint_saved")) { %>
+<% if (scene.checkpoint) { %>
     <div class='stat_success'>
         [ Checkpoint reached: Game saved. ] 
     </div>
 <% } %>
 
-<% scene.statChecks.forEach(function(statCheck) { if ((locals[statCheck.variable] || 0) >= parseInt(statCheck.value)) {%>
+<% scene.statChecks.forEach(function(statCheck) { if (statCheck.success) {%>
     <div class='stat_success'>
         [ <%= statCheck.variable %> check successful - level <%= statCheck.value %>  ]
     </div>

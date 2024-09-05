@@ -172,17 +172,13 @@ TEXT:
 "Umm, no... of course not!" Daren says. "It's your choice whether you want to be king or not. I was only making a suggestion, that's all..."
 
 }
-choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 0)
-choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 1)
-choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 2)
-choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 3)
-choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 4)
+choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4)
 
 
 ID: B3-Ch08b-Kelrim
 TEXT: 
 
-set(v_b3_ch8_king,5)
+set(v_b3_ch8_king,5) if (True)
  "If a trustworthy king is what you're looking for, then Kelrim would be my choice."
 "The goblin?..." the king of the underground says, looking for the first time as if he were genuinely at a loss for words. "A goblin as the new king of Ollendor? That is most certainly a... unique recommendation. Not to say that we won't take it under consideration, of course, but... uh... would anyone else perhaps like to make any other suggestions?"
 
@@ -437,11 +433,8 @@ As Horace and Kelrim are moving towards the quarantine area, the crowd is slowly
  As the king of the underground asks us this question, I suddenly realize that I forgot to ask him what he is planning to do about the seredium tower prisoners. Then again, I suppose there's not much point in asking him about that anymore, since Kelrim and Horace will likely be the ones taking these types of decisions from now on.
 
 }
-choice("""Actually, I was hoping we could talk some more about your humiliating defeat.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 0)
 choice("""Actually, I was hoping we could talk some more about your humiliating defeat.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 0) if (v_b3_ch8_next == 2)
-choice("""Just one quick question. Did you and Horace serve as royal guards at the same time?""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 1)
 choice("""Just one quick question. Did you and Horace serve as royal guards at the same time?""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 1) if (v_b3_ch8_next == 2)
-choice("""Yeah, we should probably talk about that.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 2)
 choice("""Yeah, we should probably talk about that.""", B3-Ch08b-Developments, v_current_scene = B3-Ch08b-Developments, v_b3_ch8_defeat = 2) if (v_b3_ch8_next == 2)
 
 
@@ -478,9 +471,7 @@ As Arraka finishes her taunt, both her and Hadrik start laughing in unison, and 
  "Then let us get right to it," the king of the underground says. "First of all, I'd like to get you all up to speed with a few recent developments that have happened on the surface since you've returned from your trip to the seredium tower. According to our scouts, the Overseer has been very busy these past few hours. One of the first things he did after the king's death was apparently to begin assassinating every single high-ranked person in the city who knew about the existence of his core. Daren, I think you should already be familiar with what the Overseer's core is from Peter. Have you told your friends about it yet?"
 
 }
-choice("Continue", B3-Ch08b-Resistance, v_current_scene = B3-Ch08b-Resistance) if (v_b3_ch8_defeat == 0)
-choice("Continue", B3-Ch08b-Resistance, v_current_scene = B3-Ch08b-Resistance) if (v_b3_ch8_defeat == 1)
-choice("Continue", B3-Ch08b-Resistance, v_current_scene = B3-Ch08b-Resistance) if (v_b3_ch8_defeat == 2)
+choice("Continue", B3-Ch08b-Resistance, v_current_scene = B3-Ch08b-Resistance) if (v_b3_ch8_defeat == 0 || v_b3_ch8_defeat == 1 || v_b3_ch8_defeat == 2)
 
 
 ID: B3-Ch08b-Resistance
@@ -1024,8 +1015,7 @@ While I am still busy trying to solve this most intriguing conundrum, Leila sudd
 "I suppose you're right!" Leila writes, with a smile, as she now seems to have finally managed to contain her laughter from before.
 
 }
-choice("Continue", B3-Ch08b-Leila4, v_current_scene = B3-Ch08b-Leila4) if (v_b3_ch8_voice == 1)
-choice("Continue", B3-Ch08b-Leila4, v_current_scene = B3-Ch08b-Leila4) if (v_b3_ch8_voice == 0)
+choice("Continue", B3-Ch08b-Leila4, v_current_scene = B3-Ch08b-Leila4) if (v_b3_ch8_voice == 0 || v_b3_ch8_voice == 1)
 
 
 ID: B3-Ch08b-Leila4
@@ -1112,8 +1102,7 @@ As we are finishing our conversation, we can hear the voices of a few of our fri
 When we reach our friends, we find out that everyone was already awake and that they were just about to call out to us. As soon as they see us, they all get up from their beds, they grab their backpacks and they assemble in front of the door, so that we can leave together.
 
 }
-choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 1)
-choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 0)
+choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 0 || v_b3_ch8_heartfelt == 1)
 
 
 ID: B3-Ch08b-Oblivious
@@ -1202,8 +1191,7 @@ Neither of us says anything else until we reach the room in which the others wer
 As soon as they notice us, our friends grab their backpacks and they walk out the door, so that we can all assemble in front of our room. 
 
 }
-choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 2)
-choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 3)
+choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 2 || v_b3_ch8_heartfelt == 3)
 
 
 ID: B3-Ch08b-Hadrik2
@@ -1396,5 +1384,4 @@ Barry and his team have decided to accept the Overseer's offer, and to pretend t
 Whichever side wins this battle will get to decide who will be the next king of Ollendor.
 
 }
-choice("Proceed to next chapter", B3-Ch09a-Intro, v_current_scene = B3-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 0)
-choice("Proceed to next chapter", B3-Ch09a-Intro, v_current_scene = B3-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 1)
+choice("Proceed to next chapter", B3-Ch09a-Intro, v_current_scene = B3-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)

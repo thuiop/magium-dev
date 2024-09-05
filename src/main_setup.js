@@ -44,7 +44,10 @@ function apply_condition(entry,values){
     if (!entry) {
         return true
     }
-    if (match=entry.match(/(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9])/)) {
+    if (entry == "True") {
+        return true
+    }
+    else if (match=entry.match(/(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9])/)) {
         var variable = match.groups.varName;
         var condType = match.groups.condType;
         var value = parseInt(match.groups.value);
@@ -78,6 +81,73 @@ function apply_conditions(conditions,values){
     return !conditions || conditions.some((conds)=>conds.every((cond) => apply_condition(cond,values)))
 }
 
+function onlyUnique(value, index, array) {
+    console.log(value,index,array);
+  return array.indexOf(value) === index;
+}
+
+
+function varToStat(varName) {
+    if (varName == "v_agility") {
+        return "Speed"
+    }
+    if (varName == "v_perception") {
+        return "Observation"
+    }
+    else {
+        return statName = varName.charAt(2).toUpperCase() + varName.slice(3).replace("_"," ")
+    }
+}
+
+function parseStatCheck(condition,values) {
+    
+    if (match=condition.match(/(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9])/)) {
+        var variable = match.groups.varName;
+        var condType = match.groups.condType;
+        var value = parseInt(match.groups.value);
+    }
+    else{
+        console.log("Stat check parsing fail")
+        console.log(entry)
+        return
+    }
+    if (!stats_variables.includes(variable)) {
+        return
+    }
+
+    if (condType == "<" || (condType == "==" && value == 0)) {
+        success = false;
+    }
+    else if (condType == ">=" || (condType == "==" && value != 0) ) {
+        success = true;
+    }
+    else {
+        console.log(condType)
+    }
+    return {"variable":varToStat(variable),"value":value,"success":success}
+}
+
+
+function checkStats(setVariables, values) {
+    let newStatChecks = [];
+    for (setVariable of setVariables) {
+        if (!setVariable.conditions) {
+            continue
+        }
+        else {
+            let conditionGroups = setVariable.conditions.filter((conds)=> conds.every((cond) => apply_condition(cond,values)));
+            for (conditionGroup of conditionGroups) {
+                for (condition of conditionGroup) {
+                    if (statCheck=parseStatCheck(condition,values)) {
+                        newStatChecks.push(JSON.stringify(statCheck));
+                    }
+                }                    
+            }
+        }
+    }
+    return [...new Set(newStatChecks)].map(JSON.parse)
+}
+
 /* Initial Logic to get the header from the id.
 TODO: Discuss possibilities of alternate logic that do not need inference, 
   but can simply be stored in the JSON object itself.
@@ -107,6 +177,10 @@ function render_scene(req,magiumData,id) {
     sceneData.setVariables.forEach((setVariable) => cookieData[setVariable.name] = setVariable.value)
     sceneData.choices = sceneData.choices.filter((choice) => apply_conditions(choice.conditions,cookieData))
     sceneData.paragraphs = sceneData.paragraphs.filter((paragraph) => apply_conditions(paragraph.conditions,cookieData))
+    sceneData.statChecks = checkStats(sceneData.setVariables,cookieData)
+    sceneData.checkpoint = sceneData.choices.some(
+        (choice) => choice.setVariables["v_checkpoint_rich"] === "0"
+    )
     let data = Object.assign({},{"id":id,"scene":sceneData},cookieData);
     return ejs.renderFile(path.join(dirname,"templates/main.ejs"),data)
 }

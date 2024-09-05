@@ -335,7 +335,6 @@ choice("Continue", B2-Ch04b-Specific, v_current_scene = B2-Ch04b-Specific) if (v
 ID: B2-Ch04b-Speed
 TEXT: 
 
-stat_check(v_agility,3)
 #if(v_agility < 3) {
  
 Now, if my information is correct, when a giant scorpion-like creature gets attacked directly from the front, and it does not consider itself overwhelmed by a large number of attackers, its first reaction should be to attack me with its tail, instead of blocking me with its claws. This means that the way to its head will remain clear, as long as I'm fast enough to evade the tail.
@@ -374,8 +373,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_reflexes >= 3 && v_strength < 3 || v_strength >= 3)
 set(v_is_dead,1) if (v_reflexes < 3 && v_strength < 3)
-stat_check(v_strength,3)
-stat_check(v_reflexes,3)
 #if(v_strength >= 3) {
  
 I'm so glad that Daren enchanted this dagger before the arena. I wouldn't even have imagined myself cutting off a giant scorpion's claw in a single strike before I experienced the sharpness of this blade first hand. Now that one of its claws is gone, the scorpion can no longer block me from approaching. I attack the marauder from the right side, where its claw is missing, and I dash for its head. The scorpion tail is not made to defend from lateral attacks, so the creature does not manage to fend me off before I stab it in its right eye. As the scorpion-like creature retracts in pain, I take the opportunity to run my knife through the back of its head, finishing it off in one strike. 
@@ -413,9 +410,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_b2_ch4_backpack == 2 && v_premonition >= 1 || v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 1 && v_is_dead == 0 || v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 2 && v_is_dead == 0 || v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0 || v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 1 && v_is_dead == 0 || v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 2 && v_is_dead == 0 || v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 0 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 1 && v_b2_ch4_charge == 3 && v_b2_ch2_cell != 1 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 3 && v_b2_ch4_charge == 3 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 1 && v_is_dead == 0 && v_premonition >= 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 2 && v_is_dead == 0 && v_premonition >= 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_premonition >= 1 && v_b2_ch2_threatened != 0 || v_b2_ch4_backpack == 2 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_premonition >= 1 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing < 2 && v_premonition < 1 && v_b2_ch2_threatened != 0 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing < 2 && v_premonition < 1 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 1 && v_is_dead == 0 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 2 && v_is_dead == 0 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 && v_b2_ch2_threatened != 0 || v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_premonition < 1 && v_reflexes < 2 && v_b2_ch2_threatened != 0 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_reflexes >= 2 && v_premonition < 1 && v_b2_ch2_cell != 1 || v_b2_ch2_threatened == 0 && v_b2_ch4_backpack == 2 && v_b2_ch4_charge == 3 && v_hearing >= 2 && v_premonition < 1 && v_reflexes < 2 && v_b2_ch2_cell != 1 || v_b2_ch4_backpack == 1 || v_b2_ch4_backpack == 3)
 set(v_is_dead,1) if (v_b2_ch4_backpack == 2 && (v_hearing < 2 || v_reflexes < 2) && v_premonition < 1)
-stat_check(v_premonition,1)
-stat_check(v_hearing,2)
-stat_check(v_reflexes,2)
 #if(v_b2_ch4_backpack == 1) {
  No, wait... this isn't over, yet. 
 I look up, and I see that one of the manticores is now diving straight at me. I knew it! The manticore was waiting for me to kill something before attacking me. They were doing the same thing in Hadrik's fight, and in the one before.
@@ -746,8 +740,6 @@ choice("Ask Leila if she can deal with the tramplers, while I deal with the cobr
 ID: B2-Ch04b-Manticore-first
 TEXT: 
 
-stat_check(v_strength,1)
-stat_check(v_combat_technique,1)
 #if(v_strength < 1 && v_b2_ch2_fist != 2) {
  
 "We should kill that manticore, first," I say. "We can't concentrate on killing the other monsters if we always have to worry about being attacked from above."
@@ -952,7 +944,6 @@ choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-
 ID: B2-Ch04b-Strength-check
 TEXT: 
 
-stat_check(v_strength,2)
 #if(v_strength < 2) {
  
 "Leila," I say. "Could you take care of the tramplers? With your strength level, you should be able to break through their tough hides. I'll go deal with those two cobras in the meantime."
@@ -1650,8 +1641,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_reflexes >= 3 && v_strength < 3 || v_strength >= 3)
 set(v_is_dead,1) if (v_reflexes < 3 && v_strength < 3)
-stat_check(v_strength,3)
-stat_check(v_reflexes,3)
 #if(v_strength >= 3) {
  
 This isn't working. Why am I even doing this? With my level of strength, and this dagger enchanted by Daren, brute force should be more than enough to break through these armored scales. 
@@ -1802,9 +1791,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_reflexes >= 1 && (v_hearing >= 1 || v_perception >= 1))
 set(v_is_dead,1) if (v_hearing < 1 && v_perception < 1 || v_reflexes < 1)
-stat_check(v_observation,1)
-stat_check(v_reflexes,1)
-stat_check(v_hearing,1)
 #if(v_perception >= 1 && v_reflexes >= 1) {
  
 
@@ -2280,7 +2266,6 @@ TEXT:
 
 set(v_b2_ch4_hearing2,0) if (v_b2_ch2_creatures == 1 || v_hearing < 2)
 set(v_b2_ch4_hearing2,1) if (v_hearing >= 2)
-stat_check(v_hearing,2)
 #if(v_hearing < 2) {
  
 After a few minutes of silence, the announcer finally picks his voice magnifier back up, and he gets ready to make another announcement.

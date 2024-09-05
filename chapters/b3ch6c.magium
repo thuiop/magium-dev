@@ -362,8 +362,7 @@ Albert switches the transceiver's frequency and taps it again, but once more he 
 "Sure," says Peter, who seems to have just entered the waiting room and is now getting closer to us. "What is it?"
 
 }
-choice("Continue", B3-Ch06c-Herbs, v_current_scene = B3-Ch06c-Herbs) if (v_b3_ch6_shift == 1)
-choice("Continue", B3-Ch06c-Herbs, v_current_scene = B3-Ch06c-Herbs) if (v_b3_ch6_shift == 0)
+choice("Continue", B3-Ch06c-Herbs, v_current_scene = B3-Ch06c-Herbs) if (v_b3_ch6_shift == 0 || v_b3_ch6_shift == 1)
 
 
 ID: B3-Ch06c-Herbs
@@ -562,7 +561,6 @@ TEXT:
 
 set(v_b3_ch6_transceivers,0) if (v_hearing < 4)
 set(v_b3_ch6_transceivers,2) if (v_hearing >= 4)
-stat_check(v_hearing,4)
 #if(v_hearing < 4) {
  
 While Leila is calming down, I try to focus on the sounds coming from the tunnel leading to the teleporter room. Where are the royal guards right now? Are they going to attack us from that direction, or will they be coming from above, like Peter said? Were the trainees only chasing after Peter to silence him or will they also be arriving here afterwards?

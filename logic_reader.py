@@ -2,7 +2,6 @@ from collections import defaultdict
 from copy import deepcopy
 from dataclasses import dataclass, field
 from itertools import groupby
-import itertools
 import json
 import pathlib
 import pprint
@@ -38,6 +37,8 @@ def transform_var_name(var_name):
     new_name = "v_"+var_name.lower().replace(" ","_")
     if new_name == "v_speed":
         return "v_agility"
+    if new_name == "v_observation":
+        return "v_perception"
     else:
         return new_name
 
@@ -64,7 +65,7 @@ def groupby_unsorted(input, key=lambda x:x):
 class Event:
     type: str = ""
     conditions: dict[str,Any] = field(default_factory=lambda:{"variables":{}})
-    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[],"stat_checks":[]})
+    results: dict[str,Any] = field(default_factory=lambda:{"add_buttons":[],"set_variables":{},"paragraphs":[]})
 
 
 
@@ -168,7 +169,6 @@ class Path:
     responses: list[Response]
     paragraphs: list[Paragraph]
     set_variables: list[SceneVariableSet]
-    stat_checks: list[StatsCheck]
 
     def __repr__(self) -> str:
         text = "Path\n"
@@ -176,7 +176,6 @@ class Path:
         text += f"\tParagraphs: {self.paragraphs}\n"
         text += f"\tResponses: {self.responses}\n"
         text += f"\tSet variables: {self.set_variables}\n"
-        text += f"\tStat checks: {self.stat_checks}"
         return text
 
 
@@ -187,17 +186,9 @@ class Scene:
     paragraphs: list[Paragraph] = field(default_factory=list) 
     responses: list[Response] = field(default_factory=list) 
     set_variables: list[SceneVariableSet] = field(default_factory=list)
-    stat_checks: list[StatsCheck] = field(default_factory=list) 
 
     def to_json(self,paragraphs):
         text = ""
-        for stat_check in self.stat_checks:
-            if stat_check.conditions != {}:
-                condition_string = ' && '.join([f"(locals.{var} || 0) {parse_condition(cond.type)} {cond.value}" for var,cond in stat_check.conditions.items()])
-                text += f"<% if({condition_string}) {{%>"
-            text += f"<div class='stat_{'success' if stat_check.successful else 'fail'}'>{stat_check.text}</div>"
-            if stat_check.conditions != {}:
-                text += "<% } %>" #} (comment because vim is indent is messed  up)
         for par in self.paragraphs:
             if par.id not in paragraphs[par.version]:
                 print(f"Paragraph {par.id} not found in {par.version}")
@@ -243,10 +234,6 @@ class Scene:
             if set_variable.conditions != {}:
                 text += f' if ({sp.jscode(set_variable.conditions)})'
             text += "\n"
-
-        stat_checks = self.parse_stat_checks()
-        for var, level in stat_checks.items():
-            text += f"stat_check({var},{level})\n"
 
         paragraph_groups = self.merge_paragraphs()
         for par_group in paragraph_groups:
@@ -321,19 +308,6 @@ class Scene:
             new_set_variables.append(SceneVariableSet(name,value,new_conditions))
         return sorted(new_set_variables,key=lambda r:r.name)
 
-    def parse_stat_checks(self):
-        new_stat_checks = {}
-        for stat_check in self.stat_checks:
-            if match := re.match(r"\[ (?P<stat_name>.*) check (successful|failed) - level (?P<level>[1-9]) \]",stat_check.text):
-                new_stat_checks[transform_var_name(match.group("stat_name"))] = int(match.group("level"))
-            elif "[ Stat device locked - check failed ]" in stat_check.text:
-                new_stat_checks["stat_device_locked"] = "1"
-            elif "Checkpoint" in stat_check.text:
-                new_stat_checks["v_checkpoint_rich"] = "1"
-            else:
-                print("NOT PARSED",stat_check.text)
-        return new_stat_checks
-
 class Parser:
     def __init__(self, lexer) -> None:
         self.lexer = lexer
@@ -380,10 +354,7 @@ class Parser:
                 elif match := re.search('scene 3 : Display paragraph (?P<paragraph>.*)',current):
                     event.results["paragraphs"].append((int(match.group("paragraph")),3))
                 elif match := re.search('checks : Set alterable string to (?P<text>.*)',current):
-                    for stat_check in re.findall('"\[.*?\]"',match.group("text")):
-                        event.results["stat_checks"].append(StatsCheck(stat_check.replace('"',"")+"\n","successful" in stat_check))
                     if "Checkpoint reached" in match.group("text"):
-                        event.results["stat_checks"].append(StatsCheck("Checkpoint reached: Game saved.",True))
                         event.type = "scene_load"
                 elif match := re.search('storyboard controls : Jump to frame "Stats"',current):
                     event.results["special"] = "stats"
@@ -441,7 +412,6 @@ for chapter in chapters:
             responses=[Response(button) for button in event.results["add_buttons"]],
             paragraphs=[Paragraph(paragraph[0],paragraph[1]) for paragraph in event.results["paragraphs"]],
             set_variables=[SceneVariableSet(variable,int(value)) for variable, value in  event.results["set_variables"].items()],
-            stat_checks=event.results["stat_checks"],
         ))
 
     for event in [e for e in events if e.type == "button"]:
@@ -500,7 +470,7 @@ for chapter in chapters:
             response = path.responses[event.conditions["button_id"]]
 
             if len(unrelated_conditions):
-                new_path = Path({},[],[],[],[])
+                new_path = Path({},[],[],[])
                 new_path.conditions = deepcopy(path.conditions) | event_conditions
                 response = deepcopy(response)
                 new_path.responses.append(response)
@@ -533,7 +503,7 @@ for chapter in chapters:
 
     for scene in scenes.values():
         for path in scene.paths:
-            for element_type in ["paragraphs","stat_checks","responses","set_variables"]:
+            for element_type in ["paragraphs","responses","set_variables"]:
                 for element in getattr(path,element_type):
                     element.conditions = path.conditions
                     getattr(scene,element_type).append(element)

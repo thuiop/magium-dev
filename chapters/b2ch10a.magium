@@ -1,7 +1,6 @@
 ID: B2-Ch10a-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "Hey, Kate," Hadrik says. "Come over here, for a second! We have someone that we'd like you to meet!"
 
@@ -425,7 +424,6 @@ choice("Continue", B2-Ch10a-Dagger, v_current_scene = B2-Ch10a-Dagger) if (v_b2_
 ID: B2-Ch10a-Crossbow
 TEXT: 
 
-stat_check(v_combat_technique,1)
 #if(v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1) {
  
 He then runs full speed ahead, towards an orc that is too busy fighting Daren to pay attention to Nolderan, and he makes a horizontal jump, rotating himself to the side in mid-air, and propelling his feet into the monster's back. As the orc gets knocked off-balance, the ex-sage falls to the ground, on his left shoulder. Daren immediately seizes the opportunity, and he drives his sword through the monster's head, while Nolderan quickly rolls to the side, in order to avoid getting bludgeoned by another orc's mace. As soon as the ex-sage gets up, he feints an attack with one of his swords, pretending to do a full swing from the left side, and just as the orc raises his shield to defend himself, Nolderan's second sword comes swinging for the monster's neck from the right, cutting his head off in one move.
@@ -525,7 +523,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_is_dead == 0)
 set(v_is_dead,1) if ((v_b2_ch10_toast == 1 || v_reflexes < 1) && (v_b2_ch9_drink == 1 || v_reflexes < 1) && (v_reflexes < 1 || v_reflexes < 2) && (v_b2_ch10_toast == 0 || v_b2_ch10_toast == 1 || v_b2_ch9_drink == 0) && (v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_b2_ch9_drink == 1) && (v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_reflexes < 2))
-stat_check(v_reflexes,1)
 #if(v_b2_ch9_drink == 1 && v_b2_ch10_toast == 1 && v_b2_ch5_scimitar == 0) {
  
 He then runs full speed ahead, towards an orc that is too busy fighting Daren to pay attention to Nolderan, and he makes a horizontal jump, rotating himself to the side in mid-air, and propelling his feet into the monster's back. As the orc gets knocked off-balance, the ex-sage falls to the ground, on his left shoulder. Daren immediately seizes the opportunity, and he drives his sword through the monster's head, while Nolderan quickly rolls to the side, in order to avoid getting bludgeoned by another orc's mace. As soon as the ex-sage gets up, he feints an attack with one of his swords, pretending to do a full swing from the left side, and just as the orc raises his shield to defend himself, Nolderan's second sword comes swinging for the monster's neck from the right, cutting his head off in one move.
@@ -964,7 +961,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 3)
 set(v_is_dead,0) if (v_combat_technique >= 3)
-stat_check(v_combat_technique,3)
 #if(v_combat_technique < 3) {
  Unfortunately, aiming at very rapidly moving targets, while I'm flying myself, is not as easy as it may sound. I somehow manage to waste every one of my shots, and I don't have the time to reload. I try to outmaneuver the wyverns, so I can get on top of them, in order to attack the riders, directly, but the flight spell provided to me by Melindra is neither fast nor responsive enough for me to be able to compare myself with these creatures that have been flying for as long as they can remember.
 I attempt to parry one of the orc's spears and to make a rush for him, but the second wyvern rider takes advantage of my momentary distraction, and he dives with his spear right into my stomach, temporarily freezing my movements, because of the pain. As I am still standing there, floating in mid-air, the orc quickly takes his spear out of me, and then he drives it through my throat, killing me a few moments afterwards.
@@ -986,7 +982,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_strength == 0)
 set(v_is_dead,0) if (v_strength >= 1)
-stat_check(v_strength,1)
 #if(v_strength == 0) {
  Its neck muscles are a little tougher than they look, however, and my knife does not go all the way through. Before I can pull my weapon out, the creature bites my arm, and it does not let go, until the orc riding on its back drives his spear through my head, killing me on the spot.
 
@@ -1118,7 +1113,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 4)
 set(v_is_dead,0) if (v_reflexes == 4)
-stat_check(v_reflexes,4)
 #if(v_reflexes < 4) {
  
 After flying out of the trunk's way a few more times, the alcohol-induced nausea finally starts to get to me, and it really messes up my sense of balance for a moment. By the time I recover, the mammoth's trunk is already less than a second away from hitting me.
@@ -1146,8 +1140,6 @@ TEXT:
 
 set(v_is_dead,1) if ((v_b2_ch10_weakpoint == 0 || v_b2_ch10_weakpoint == 1) && (v_b2_ch10_weakpoint == 0 || v_b2_ch5_scimitar == 0) && (v_b2_ch10_weakpoint == 0 || v_reflexes < 2) && (v_b2_ch10_weakpoint == 1 || v_strength < 4) && (v_b2_ch5_scimitar == 0 || v_strength < 4) && (v_reflexes < 2 || v_strength < 4))
 set(v_is_dead,0) if (v_b2_ch10_weakpoint == 0 && v_strength == 4 || v_b2_ch10_weakpoint == 1 && v_reflexes >= 2 || v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar != 0)
-stat_check(v_strength,4)
-stat_check(v_reflexes,2)
 #if(v_strength < 4 && v_b2_ch10_weakpoint == 0 && v_b2_ch5_scimitar == 0) {
  I reach the eyes as fast as I can, and I attempt to shoot at them with my crossbow, in the hopes that I can catch the monster by surprise, before it closes its eyes. Unfortunately, all that the mammoth needed to do was to instinctively blink, and the crossbow bolts simply bounced off its eyelid. I try to shoot a few more bolts, but the creature just closes its eyes, which makes my efforts completely pointless. It looks like I'll need to use my dagger for this to work. 
 I dive into one of the mammoth's eyes at full speed, and I thrust my dagger into it, with as much force as I could possibly muster.

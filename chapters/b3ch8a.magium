@@ -1,7 +1,6 @@
 ID: B3-Ch08a-Intro
 TEXT: 
 
-stat_check(checkpoint,1)
  
 "Okay, so let me see if I got this straight..." Daren says, while our group is standing in the middle of the room from the rebel base where we slept last night. "These blue crystals that keep shining and vibrating every now and then are in fact made up of crystalized Magium essence, correct?"
 
@@ -160,10 +159,7 @@ TEXT:
  "I think you are all forgetting one important detail," Kate says, as the rest of us now turn to look at her. "We already know that there are multiple versions of Arraka that exist simultaneously across various universes, but from what I could tell, there appears to be only one Magium. Arraka told us that she had to enter the Magium's realm in order to be able to travel to the different other worlds during the God of Time's ritual, which means that the Magium must act like some kind of bridge that connects all the universes together. We also know that the Magium came here by mistake, looking for a different Arraka than the one in our universe, which strongly suggests that there is only one entity overseeing all of the parallel worlds, instead of there being a different Magium assigned for each universe. If a powerful being from one of the many primordial planes across the various universes were to have survived the split, like you say, then it would have also needed to ascend beyond the concepts of time and space, creating its very own world between worlds, full of the contradictions and impossibilities that Barry and Leila told us about when they described--"
 
 }
-choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries) if (v_b3_ch8_theory == 0)
-choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries) if (v_b3_ch8_theory == 1)
-choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries) if (v_b3_ch8_theory == 2)
-choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries) if (v_b3_ch8_theory == 3)
+choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries) if (v_b3_ch8_theory == 0 || v_b3_ch8_theory == 1 || v_b3_ch8_theory == 2 || v_b3_ch8_theory == 3)
 
 
 ID: B3-Ch08a-Boundaries
@@ -356,7 +352,6 @@ TEXT:
 
 set(v_b3_ch8_watching,0) if (v_premonition < 4)
 set(v_b3_ch8_watching,1) if (v_premonition >= 4)
-stat_check(v_premonition,4)
 #if(v_premonition < 4) {
  "Indeed," we suddenly hear the Overseer's metallic voice coming from one of the blue crystals lodged into the walls, which is now shining brightly. "The Overseer protocol would be most interested to know what conclusion you will reach in regards to this particular matter."
 "What the--" Arraka says. "Why is-- How did a simple machine figure out a way to use crystalized Magium essence as a listening device? And why was I not able to detect the Overseer's presence through the crystals? What is going on, here?!
@@ -870,12 +865,9 @@ TEXT:
 "Well, that was... informative," Daren says. "So, what do you guys think we should do next?"
 
 }
-choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 0)
-choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 1)
-choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 0)
-choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 1)
-choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 0)
-choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 1)
+choice("""I'm fine with anything, as long as we get away from these crystals.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
+choice("""We should have a discussion with the rebels about who should be the next king.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
+choice("""We should ask the king what he is planning to do about the seredium tower prisoners.""", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
 
 
 ID: B3-Ch08a-Flaming
@@ -960,7 +952,6 @@ TEXT:
 
 set(v_b3_ch8_precisely,1) if (v_bluff < 4)
 set(v_b3_ch8_precisely,2) if (v_bluff >= 4)
-stat_check(v_bluff,4)
 #if(v_bluff < 4) {
  "Ahem!" Leila's father says. "If I may... I just wanted to tell you all how fascinating I found your discussion about the Magium from earlier to be! As a lower-ranked lessathi, my knowledge about the Magium was limited only to fairy-tales, so it was most exhilarating for me to be a participant of your spirited debate, even if only as a spectator!" 
 "Oh," Daren says. "Well, I wish I could share your sentiment, doctor. Unfortunately, for me, personally, this whole ordeal with the Magium 'fragments' has done nothing but to cast further doubts in my mind about whether or not this prize that they're offering at the end of the tournament would be of any use to me."
@@ -1027,7 +1018,7 @@ choice("Continue", B3-Ch08a-Collected, v_current_scene = B3-Ch08a-Collected)
 ID: B3-Ch08a-Sensing
 TEXT: 
 
-set(v_b3_ch8_precisely,0)
+set(v_b3_ch8_precisely,0) if (True)
  "Ahem!" Leila's father says. "If I may... I just wanted to tell you all how fascinating I found your discussion about the Magium from earlier to be! As a lower-ranked lessathi, my knowledge about the Magium was limited only to fairy-tales, so it was most exhilarating for me to be a participant of your spirited debate, even if only as a spectator!" 
 "Oh," Daren says. "Well, I wish I could share your sentiment, doctor. Unfortunately, for me, personally, this whole ordeal with the Magium 'fragments' has done nothing but to cast further doubts in my mind about whether or not this prize that they're offering at the end of the tournament would be of any use to me."
 
@@ -1057,7 +1048,7 @@ choice("Continue", B3-Ch08a-Collected, v_current_scene = B3-Ch08a-Collected)
 ID: B3-Ch08a-Break
 TEXT: 
 
-set(v_b3_ch8_precisely,0)
+set(v_b3_ch8_precisely,0) if (True)
  "Ahem!" Leila's father says. "If I may... I just wanted to tell you all how fascinating I found your discussion about the Magium from earlier to be! As a lower-ranked lessathi, my knowledge about the Magium was limited only to fairy-tales, so it was most exhilarating for me to be a participant of your spirited debate, even if only as a spectator!" 
 "Oh," Daren says. "Well, I wish I could share your sentiment, doctor. Unfortunately, for me, personally, this whole ordeal with the Magium 'fragments' has done nothing but to cast further doubts in my mind about whether or not this prize that they're offering at the end of the tournament would be of any use to me."
 

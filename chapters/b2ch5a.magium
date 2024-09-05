@@ -1,7 +1,6 @@
 ID: B2-Ch05a-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "Stillwater!" Bruce shouts. "Hey, stillwater, are you listening?"
 
@@ -156,7 +155,6 @@ choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast, v_b2_ch5_he
 ID: B2-Ch05a-Ogres-heard
 TEXT: 
 
-stat_check(v_hearing,2)
  
 Almost as soon as I exit my room, I start hearing two guards talking to each other, very far down the corridor.
 
@@ -182,7 +180,6 @@ choice("Continue", B2-Ch05a-Toast, v_current_scene = B2-Ch05a-Toast)
 ID: B2-Ch05a-Toast
 TEXT: 
 
-stat_check(v_hearing,2)
 #if(v_b2_ch5_heard_guards == 1) {
  I make my way down the hallway as fast as I can, and I try to figure out which one of the doors leads to the dwarf's room. When I hear Hadrik's laughter coming from behind one of the doors, I realize that I've reached my destination, and I knock on the door three times, calling out to him, to let him know who it is.
 "Hadrik, are you in there?" I say.
@@ -371,12 +368,9 @@ ID: B2-Ch05a-Cut
 TEXT: 
 
 set(v_b2_ch5_first_cut,1) if (v_strength >= 2 && (v_agility >= 3 || v_combat_technique >= 2))
-set(v_is_dead,0) if (v_agility >= 3 || v_combat_technique >= 2)
 set(v_b2_ch5_first_cut,0) if (v_b2_ch5_heard_guards == 0 && v_is_dead == 0 || v_agility < 3 && v_combat_technique < 2 || v_strength < 2)
+set(v_is_dead,0) if (v_agility >= 3 || v_combat_technique >= 2)
 set(v_is_dead,1) if (v_agility < 3 && v_combat_technique < 2)
-stat_check(v_agility,3)
-stat_check(v_strength,2)
-stat_check(v_combat_technique,2)
 #if(v_agility >= 3 && v_strength >= 2) {
  
 
@@ -476,11 +470,9 @@ ID: B2-Ch05a-Decoy
 TEXT: 
 
 set(v_b2_ch5_first_cut,1) if (v_reflexes >= 3 && v_agility < 3 || v_agility >= 3)
+set(v_b2_ch5_first_cut,0) if ((v_b2_ch5_heard_guards == 0 || v_agility < 3) && (v_b2_ch5_heard_guards == 0 || v_reflexes < 3) && (v_is_dead == 0 || v_agility < 3) && (v_is_dead == 0 || v_reflexes < 3))
 set(v_is_dead,0) if (v_reflexes >= 3 && v_agility < 3 || v_b2_ch5_heard_guards == 0 && v_is_dead == 0 && v_agility >= 3 || v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 3)
-set(v_b2_ch5_first_cut,0) if ((v_b2_ch5_heard_guards == 0 || v_agility < 3) && (v_b2_ch5_heard_guards == 0 || v_reflexes < 3) && (v_is_dead == 0 || v_agility < 3) && (v_is_dead == 0 || v_reflexes < 3))
-stat_check(v_agility,3)
-stat_check(v_reflexes,3)
 #if(v_agility >= 3) {
  
 Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
@@ -595,7 +587,6 @@ TEXT:
 
 set(v_b2_ch5_negotiate,0) if (v_ancient_languages == 0)
 set(v_b2_ch5_negotiate,1) if (v_ancient_languages >= 1)
-stat_check(v_ancient_languages,1)
 #if(v_ancient_languages == 0) {
  
 "Actually, I'd rather be the one to take them on, if you don't mind," I tell Bruce. "I'm not completely sure, but I think I might be able to bring them over to our side, if I have a little chat with them."
@@ -708,8 +699,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_strength >= 3 && v_agility < 2 || v_agility >= 2)
 set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
-stat_check(v_agility,2)
-stat_check(v_strength,3)
 #if(v_agility >= 2) {
  
 There's no use in prolonging this battle any further. I'm going to finish them off as quickly as possible, so I can rejoin Leila and the others.
@@ -987,7 +976,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_perception >= 3)
 set(v_is_dead,1) if (v_perception < 3)
-stat_check(v_observation,3)
 #if(v_perception >= 3) {
  
 I maintain my position, trying to study the troll carefully, as he is fighting. After watching the two combatants for a while, I notice that Velgos tends to make a big jump backwards, every time he feels like he is being overwhelmed by Leila's attacks. That is definitely something I can use against him! I just have to wait for the right opportunity, and then I can stab him from behind, right as he makes the jump.
@@ -1017,7 +1005,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_strength >= 2)
 set(v_is_dead,1) if (v_strength < 2)
-stat_check(v_strength,2)
 #if(v_strength >= 2) {
  
 "So, anyway," I tell the mage, "it was fun chatting with you, but I've got a troll to kill, so if you don't mind, I'll be off!"
@@ -1210,7 +1197,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_agility >= 2)
 set(v_is_dead,1) if (v_agility < 2)
-stat_check(v_agility,2)
 #if(v_agility >= 2) {
  
 "You!" the mage shouts at me. "This is all your fault! You traitorous son of a bitch, I'm going to kill you!"

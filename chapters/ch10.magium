@@ -1,7 +1,6 @@
 ID: Ch10-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "I can't believe that we managed to get ourselves imprisoned twice in two days," Hadrik says. "And by animals and ogres, to boot. If word gets out, we're going to become the laughing stock of the tournament."
 
@@ -440,8 +439,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_perception >= 2 && v_premonition < 2 || v_premonition >= 2)
 set(v_is_dead,1) if (v_perception < 2 && v_premonition < 2)
-stat_check(v_premonition,2)
-stat_check(v_observation,2)
 #if(v_premonition >= 2) {
  
 As Kate, Rose and I hurry to reach Illuna's position, the ogre captain smashes his club into the ground and the floor begins to shatter.
@@ -714,7 +711,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_premonition < 3)
 set(v_is_dead,0) if (v_premonition >= 3)
-stat_check(v_premonition,3)
 #if(v_premonition < 3) {
  
 "Screw Arraka! We can't afford to waste any more time here."
@@ -883,8 +879,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_reflexes >= 3 && v_perception < 3 || v_perception >= 3)
 set(v_is_dead,1) if (v_perception < 3 && v_reflexes < 3)
-stat_check(v_observation,3)
-stat_check(v_reflexes,3)
 #if(v_perception >= 3) {
  
 "I volunteer for the job," I say. "I should be able to handle the shaman by myself if he can only cast spells from his staff."
@@ -959,8 +953,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_strength >= 3 && v_agility < 2 || v_agility >= 2)
 set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
-stat_check(v_agility,2)
-stat_check(v_strength,3)
 #if(v_agility >= 2) {
  
 His staff takes too long to charge up, and I manage to stick my knife in his chest. The shaman spits out blood, and as I prepare to land the finishing blow, the world suddenly starts spinning around me, and then I soon find myself standing in the middle of a cave again, with all of my friends besides me. They also seem to have just woken up, because they are now looking around themselves to confirm that we are indeed back in the abandoned mines below the ogre fort.
@@ -1048,7 +1040,6 @@ choice("Continue", Ch10-Catch, v_current_scene = Ch10-Catch)
 ID: Ch10-Catch
 TEXT: 
 
-stat_check(v_agility,3)
 #if(v_agility >= 3) {
  
 I succeed in taking it by surprise, as I cut its throat and then quickly remove my knife, while the beast takes a few more steps and then falls on the ground in a pool of its own blood. At the same time, Kate gets behind another wolf, and she sticks her knife into the back of its head, killing it instantly.  
@@ -1086,7 +1077,6 @@ choice("Give Kate my dagger and help her by throwing rocks at the wolves", Ch10-
 ID: Ch10-Rocks
 TEXT: 
 
-stat_check(v_strength,3)
 #if(v_strength >= 3) {
  
 "Here, take this," I tell Kate as I hand her my dagger. "You'll probably put it to better use than me. I'll try to provide support by throwing rocks at the wolves."
@@ -1161,8 +1151,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_reflexes >= 4 && v_agility < 3 || v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 4)
-stat_check(v_agility,3)
-stat_check(v_reflexes,4)
 #if(v_agility >= 3) {
  
 I rush towards one of the wolves, and I slit its throat before it has a chance to react. One of the other two lunges for me, but I dash out of its way, and circle around the third wolf in order to stab it in the back of its neck. Once I kill my second wolf, the last one standing pounces towards me again, but I step to the side and run my knife through its skull.

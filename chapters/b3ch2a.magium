@@ -1,7 +1,6 @@
 ID: B3-Ch02a-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "Okay, Melindra," Daren says, after we all retreat back into the forest so we can have another strategy meeting. "I think now would be a good time for you to tell us everything you know about Ollendor's defenses. We're all ears."
 
@@ -488,7 +487,6 @@ choice("Continue", B3-Ch02a-Information, v_current_scene = B3-Ch02a-Information)
 ID: B3-Ch02a-Eavesdrop
 TEXT: 
 
-stat_check(v_hearing,4)
  
 "I could try to eavesdrop on someone from afar," I say. "There's bound to be some villager who needs to get into the city eventually."
 
@@ -1076,8 +1074,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2 || v_perception < 4)
 set(v_is_dead,0) if (v_perception == 4 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_observation,4)
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll go help Illuna," I say. "The sooner we deal with the crossbowmen, the better."
@@ -1133,8 +1129,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2 || v_reflexes < 4)
 set(v_is_dead,0) if (v_reflexes == 4 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_reflexes,4)
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1188,8 +1182,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_b3_ch1_unlock == 2 || v_agility < 4)
 set(v_is_dead,0) if (v_agility == 4 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_agility,4)
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1243,9 +1235,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 || v_b3_ch1_unlock == 2 || v_toughness < 4)
 set(v_is_dead,0) if (v_strength == 4 && v_toughness == 4 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_toughness,4)
-stat_check(v_strength,4)
 #if(v_b3_ch1_unlock == 2) {
  
 "I'll try to deal with one of the golems," I say. "The quicker we take them out, the better."

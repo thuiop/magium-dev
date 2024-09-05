@@ -591,7 +591,6 @@ choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b
 ID: B2-Ch11c-Enough
 TEXT: 
 
-stat_check(v_hearing,7)
  
 "Yes, that was the reason," the revenant says. "Like I said before, the spell that brought me into this world was designed to implant a lot of the God of Death's knowledge into my mind, and amongst that knowledge, there was also some information about the stat devices, and how they work. In short, the temporary stat boost that gets activated with your secret code is entirely dependent upon a brief timer which won't set itself off as long as the world is frozen in time. However, since you managed to activate it right before the time froze, the timer has frozen as well, thus granting you extra hearing capabilities for the whole duration of this time-freezing spell."
 
@@ -618,7 +617,6 @@ choice("Continue", B2-Ch11c-Enough2, v_current_scene = B2-Ch11c-Enough2)
 ID: B2-Ch11c-Maximum
 TEXT: 
 
-stat_check(v_hearing,7)
  
 "Yes, that was the reason," the revenant says. "Like I said before, the spell that brought me into this world was designed to implant a lot of the God of Death's knowledge into my mind, and amongst that knowledge, there was also some information about the stat devices, and how they work. In short, the temporary stat boost that gets activated with your secret code is entirely dependent upon a brief timer which won't set itself off as long as the world is frozen in time. However, since you managed to activate it right before the time froze, the timer has frozen as well, thus granting you extra hearing capabilities for the whole duration of this time-freezing spell."
 
@@ -1007,11 +1005,10 @@ choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch1
 ID: B2-Ch11c-Frenzy
 TEXT: 
 
-set(v_b2_ch11_district,1) if (v_ancient_languages == 4)
 set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 2)
-set(v_b2_ch11_district,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
 set(v_b2_ch11_added_hearing,2) if (v_b2_ch11_added_hearing == 1)
-stat_check(v_ancient_languages,4)
+set(v_b2_ch11_district,1) if (v_ancient_languages == 4)
+set(v_b2_ch11_district,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
 #if(v_ancient_languages == 4) {
  
 The flying carriages are moving in a frenzy, while people around us are all hurrying in the same direction, which I'm guessing is the way to the military reserve area. As if this wasn't already unsettling enough, I can't help but notice that the whole city is filled to the brim with dark blue banners, having a hawk holding the sun in its talons drawn on each of them.

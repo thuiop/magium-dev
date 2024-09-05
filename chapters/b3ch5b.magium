@@ -178,9 +178,7 @@ The king does not answer the ambassador in any way, and neither do any of the ot
 "Ambassador, I want you to think very carefully about your next words," the king of Ollendor says, in a frighteningly calm tone.  "What you are about to say from now on may well decide whether you live or die today. First of all, I want you to confirm to me one more time what you just told me. Are you absolutely certain that my brother is dead?"
 
 }
-choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass) if (v_b3_ch5_follow == 0)
-choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass) if (v_b3_ch5_follow == 1)
-choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass) if (v_b3_ch5_follow == 2)
+choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass) if (v_b3_ch5_follow == 0 || v_b3_ch5_follow == 1 || v_b3_ch5_follow == 2)
 
 
 ID: B3-Ch05b-Bypass
@@ -447,10 +445,8 @@ choice("Stand there and do nothing, hoping that everything will work out on its 
 ID: B3-Ch05b-Hearing
 TEXT: 
 
-set(v_b3_ch5_fight,0) if (v_hearing < 4)
-set(v_b3_ch5_fight,0) if (v_hearing >= 4 && v_b2_ch6_stat != 1)
-set(v_b3_ch5_fight,4) if (v_hearing >= 4 && v_b2_ch6_stat == 1)
-stat_check(v_hearing,7)
+set(v_b3_ch5_fight,0) if (v_hearing < 4 || v_b2_ch6_stat != 1)
+set(v_b3_ch5_fight,4) if (v_b2_ch6_stat == 1 && v_hearing >= 4)
 #if(v_hearing < 4) {
  
 No matter how skilled Albert is, his feet still need to touch the ground when he is walking from one place to another. If I listen really carefully, maybe I'll be able to figure out where he'll strike next.
@@ -504,7 +500,6 @@ TEXT:
 
 set(v_b3_ch5_fight,0) if (v_bluff < 4)
 set(v_b3_ch5_fight,5) if (v_bluff >= 4)
-stat_check(v_bluff,4)
 #if(v_bluff < 4) {
  
 "Hey, Albert, you do realize that I can tell where you are, right?" I say. "You might want to try making some less obvious movements, because right now it's like you're begging to be shot with a crossbow in the chest."
@@ -539,11 +534,8 @@ choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_b
 ID: B3-Ch05b-Observation
 TEXT: 
 
-set(v_b3_ch5_fight,0) if (v_magical_sense < 4)
-set(v_b3_ch5_fight,0) if (v_magical_sense >= 4 && v_perception < 4)
+set(v_b3_ch5_fight,0) if (v_magical_sense < 4 || v_perception < 4)
 set(v_b3_ch5_fight,6) if (v_magical_sense >= 4 && v_perception >= 4)
-stat_check(v_magical_sense,4)
-stat_check(v_observation,4)
 #if(v_magical_sense < 4) {
  
 The king said that Albert is concealing his aura, but maybe if I concentrate as hard as I can I'll be able to catch a glimpse of it. I attempt to block most of my other senses from my mind and I concentrate only on reading the auras around me.
@@ -600,12 +592,8 @@ choice("Continue", B3-Ch05b-Premonition, v_current_scene = B3-Ch05b-Premonition)
 ID: B3-Ch05b-Premonition
 TEXT: 
 
-set(v_b3_ch5_fight,0) if (v_premonition < 2 && v_toughness == 0)
-set(v_b3_ch5_fight,0) if (v_premonition < 2 && v_toughness > 0)
-set(v_b3_ch5_fight,0) if (v_premonition >= 2 && v_aura_hardening < 4)
-set(v_b3_ch5_fight,7) if (v_premonition >= 2 && v_aura_hardening >= 4)
-stat_check(v_premonition,2)
-stat_check(v_aura_hardening,4)
+set(v_b3_ch5_fight,0) if (v_toughness == 0 && v_premonition < 2 || v_premonition >= 2 && v_aura_hardening < 4 || v_toughness > 0 && v_premonition < 2)
+set(v_b3_ch5_fight,7) if (v_aura_hardening >= 4 && v_premonition >= 2)
 #if(v_premonition < 2 && v_toughness == 0) {
  
 While I stand there, thinking of what to do next, Hadrik decides that he's done waiting and he chooses to taunt his opponent instead.
@@ -969,8 +957,7 @@ She then comes closer to me and Melindra and she grabs our hands, as she smiles 
 "And thank you both!" Flower says. "Thank you for all that you did for us!"
 
 }
-choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2) if (v_b3_ch5_breath == 1)
-choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2) if (v_b3_ch5_breath == 0)
+choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2) if (v_b3_ch5_breath == 0 || v_b3_ch5_breath == 1)
 
 
 ID: B3-Ch05b-Birthday2
@@ -1072,8 +1059,7 @@ We do what Flower says, and we take the small plates with us, as we walk towards
 "As always!" Hadrik says, while he hands me one of the mugs.
 
 }
-choice("Continue", B3-Ch05b-Ending, v_current_scene = B3-Ch05b-Ending) if (v_ch11_saved_rose == 1)
-choice("Continue", B3-Ch05b-Ending, v_current_scene = B3-Ch05b-Ending) if (v_ch11_saved_rose == 0)
+choice("Continue", B3-Ch05b-Ending, v_current_scene = B3-Ch05b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch05b-Ending

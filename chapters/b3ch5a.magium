@@ -1,7 +1,6 @@
 ID: B3-Ch05a-Intro
 TEXT: 
 
-stat_check(checkpoint,1)
  
 "Ah, I see that you've finally returned," the king of the underground says in an offhanded manner, when he sees us walk into the waiting room of the rebel base.
 
@@ -708,8 +707,6 @@ There is some more silence for a while, and then we hear the sound of hurried fo
 
 }
 choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Reverse, v_current_scene = B3-Ch05a-Reverse) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Reverse, v_current_scene = B3-Ch05a-Reverse) if (v_ch11_saved_rose == 1)
 
 
@@ -752,8 +749,6 @@ There is some more silence for a while, and then we hear the sound of hurried fo
 
 }
 choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Reverse, v_current_scene = B3-Ch05a-Reverse) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Reverse, v_current_scene = B3-Ch05a-Reverse) if (v_ch11_saved_rose == 1)
 
 
@@ -796,8 +791,6 @@ There is some more silence for a while, and then we hear the sound of hurried fo
 
 }
 choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Lockdown, v_current_scene = B3-Ch05a-Lockdown) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch05a-Reverse, v_current_scene = B3-Ch05a-Reverse) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Reverse, v_current_scene = B3-Ch05a-Reverse) if (v_ch11_saved_rose == 1)
 
 
@@ -901,7 +894,7 @@ TEXT:
 
 "Hmm..." Melindra says in a slightly suspicious tone, as she watches me walking out of the room with Illuna.
 
-choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Guilty, v_current_scene = B3-Ch05a-Guilty) if (v_ch11_saved_rose == 0)
 
 
@@ -941,7 +934,7 @@ TEXT:
 
 "Hmm..." Melindra says in a slightly suspicious tone, as she watches me walking out of the room with Illuna.
 
-choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Guilty, v_current_scene = B3-Ch05a-Guilty) if (v_ch11_saved_rose == 0)
 
 
@@ -981,7 +974,7 @@ TEXT:
 
 "Hmm..." Melindra says in a slightly suspicious tone, as she watches me walking out of the room with Illuna.
 
-choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch05a-Volume, v_current_scene = B3-Ch05a-Volume) if (v_ch11_saved_rose == 1)
 choice("Continue", B3-Ch05a-Guilty, v_current_scene = B3-Ch05a-Guilty) if (v_ch11_saved_rose == 0)
 
 
@@ -1093,12 +1086,9 @@ She then walks past us and goes through a tunnel to the left, giving us one last
 "It's because she's not an adult!" Illuna says. "And the rest of you don't consider her to be a grown-up either! You've all called her a nine year old before!"
 
 }
-choice("""Well, then stop feeling guilty!""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 0) if (v_ch11_saved_rose == 1)
-choice("""Well, then stop feeling guilty!""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 0) if (v_ch11_saved_rose == 0)
-choice("""It doesn't seem to me like Flower is blaming you for what happened.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 1) if (v_ch11_saved_rose == 1)
-choice("""It doesn't seem to me like Flower is blaming you for what happened.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 1) if (v_ch11_saved_rose == 0)
-choice("""Well, to me it kind of feels like you are letting your guilt cloud your judgment.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 2) if (v_ch11_saved_rose == 1)
-choice("""Well, to me it kind of feels like you are letting your guilt cloud your judgment.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 2) if (v_ch11_saved_rose == 0)
+choice("""Well, then stop feeling guilty!""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("""It doesn't seem to me like Flower is blaming you for what happened.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("""Well, to me it kind of feels like you are letting your guilt cloud your judgment.""", B3-Ch05a-Oblivious, v_current_scene = B3-Ch05a-Oblivious, v_b3_ch5_guilty = 2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch05a-Oblivious
@@ -1291,10 +1281,7 @@ After she says this, Melindra puts her hand in her backpack and she begins to pu
 
 As I hear them talking so passionately about the rocks, I try to lean closer to the stones on the ground, in order to get a better look at them. No matter how much I try to study them, however, I cannot find a single thing that would distinguish them from any random rock that you could pick up from a cave or from the bottom of a river.
 
-choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish) if (v_b3_ch5_demeanor == 0)
-choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish) if (v_b3_ch5_demeanor == 1)
-choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish) if (v_b3_ch5_demeanor == 2)
-choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish)
+choice("Continue", B3-Ch05a-Childish, v_current_scene = B3-Ch05a-Childish) if (v_b3_ch5_demeanor == 0 || v_b3_ch5_demeanor == 1 || v_b3_ch5_demeanor == 2)
 
 
 ID: B3-Ch05a-Childish
@@ -1385,12 +1372,9 @@ TEXT:
 "She does sleep from time to time, but she usually only needs a few hours a week or less to be well-rested," Flower says. "It's just another one of the perks she gained after she absorbed all those thousands of souls in the magical plane. You know, aside from her overwhelming magical power and her near-immortality."
 
 }
-choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose == 1)
-choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose == 0)
-choice("""So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 1) if (v_ch11_saved_rose == 1)
-choice("""So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 1) if (v_ch11_saved_rose == 0)
-choice("""Does this mean that we can draw a fake moustache on her amulet and she won’t notice?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 2) if (v_ch11_saved_rose == 1)
-choice("""Does this mean that we can draw a fake moustache on her amulet and she won’t notice?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 2) if (v_ch11_saved_rose == 0)
+choice("""What do you mean by near-immortality?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("""So, how do you wake her up if you need her while she's asleep? Do you spin her amulet?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("""Does this mean that we can draw a fake moustache on her amulet and she won’t notice?""", B3-Ch05a-Magnificence, v_current_scene = B3-Ch05a-Magnificence, v_b3_ch5_moustache = 2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch05a-Magnificence
@@ -1471,6 +1455,4 @@ For the next three hours or so, Melindra and Flower made sure to give me a compl
 Obviously, even at the end of the night shift my original opinion remained largely unchanged, but at the very least I could now say that I understood what made the difference between an ordinary rock and a collectable rock in their eyes, so their hobby would no longer seem as incomprehensible and illogical as before. 
 
 }
-choice("Continue", B3-Ch05b-Refreshed, v_current_scene = B3-Ch05b-Refreshed) if (v_b3_ch5_moustache == 0)
-choice("Continue", B3-Ch05b-Refreshed, v_current_scene = B3-Ch05b-Refreshed) if (v_b3_ch5_moustache == 1)
-choice("Continue", B3-Ch05b-Refreshed, v_current_scene = B3-Ch05b-Refreshed) if (v_b3_ch5_moustache == 2)
+choice("Continue", B3-Ch05b-Refreshed, v_current_scene = B3-Ch05b-Refreshed) if (v_b3_ch5_moustache == 0 || v_b3_ch5_moustache == 1 || v_b3_ch5_moustache == 2)

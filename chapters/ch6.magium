@@ -1,8 +1,6 @@
 ID: Ch6-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
-
 "Alright, I think that's a wrap!" says Daren once we finish our strategy meeting. 
 
 We're currently all sitting in a circle in front of our cave's entrance. The sun is pretty high up in the sky, and there's not a cloud in sight. Luckily, Kate has graciously agreed to use her ice magic to cool the air around us a bit. This way we can enjoy the weather without feeling as if we were inside an oven. 
@@ -2074,7 +2072,6 @@ choice("Continue", Ch6-Big-spells2, v_current_scene = Ch6-Big-spells2) if (v_ch6
 ID: Ch6-Sword-strength
 TEXT: 
 
-stat_check(v_strength,4)
 #if(v_ch6_defense == 1 && v_strength < 4) {
 
 The power of my strike was not enough to break through his armored scales. The dragon immediately swings one of his claws at me, and I am forced to teleport away from him.
@@ -2150,9 +2147,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_ch6_improvise == 1 && v_perception == 4 || v_ch6_offense == 1 && v_perception == 4 || v_ch6_offense == 2 && v_perception == 4 || v_ch6_improvise == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 2 && v_premonition == 4 && v_perception < 4 || v_ch6_defense == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_perception == 4 || v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_perception == 4 || v_ch6_improvise == 1 && v_ch6_offense == 2 && v_is_dead == 0 && v_perception == 4 || v_ch6_improvise == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 2 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_defense == 1 && v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_perception == 4 || v_ch6_defense == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_improvise == 1 && v_ch6_offense == 2 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_defense == 1 && v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_defense == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_improvise == 1 && v_ch6_offense == 2 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_defense == 1 && v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4)
 set(v_is_dead,1) if (v_perception < 4 && v_premonition < 4 && v_reflexes < 4)
-stat_check(v_observation,4)
-stat_check(v_premonition,4)
-stat_check(v_reflexes,4)
 #if(v_perception == 4 && v_ch6_improvise == 1) {
 
 I notice that there's something off about the way the sun is shining on the dragon's scales. It's as if the light is coming from the wrong direction. Could it be that the dragon I'm looking at is an illusion? If that's the case, then where's the real dragon?
@@ -2399,7 +2393,6 @@ choice("Continue", Ch6-Win-fight, v_current_scene = Ch6-Win-fight, v_ch6_won_dra
 ID: Ch6-Sword-simple
 TEXT: 
 
-stat_check(v_strength,4)
 #if(v_strength < 4) {
 
 I've already decided that I need Daren's sword to win this fight. The risk to lose the blade by casting acid on it is much too great to be worth it.

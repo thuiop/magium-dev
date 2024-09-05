@@ -367,7 +367,7 @@ She then turns towards me, giving me a look suggesting that she knows I'm the on
 "You know where to find us," Daren says.
 
 choice("Continue", B3-Ch10c-Revenant, v_current_scene = B3-Ch10c-Revenant) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch10c-Condition, v_current_scene = B3-Ch10c-Condition) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch10c-Condition, v_current_scene = B3-Ch10c-Condition) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch10c-Revenant
@@ -481,8 +481,7 @@ Just like the time when Daren killed the revenant during the God of Time's ritua
 "Fascinating!" Eiden says. "I always assumed that this was how the Magium keeps time weavers from dying before they finish delivering their prophecies, but seeing it in practice is an entirely different experience! The spell seems to have reversed the time just enough for you to be able to escape using your own powers, but what were to happen if I kept killing you over and over again, I wonder? Can the spell keep up, or does it have limitations? Shall we find out together?"
 
 }
-choice("Continue", B3-Ch10c-Revenant4, v_current_scene = B3-Ch10c-Revenant4) if (v_b3_ch10_reason == 1)
-choice("Continue", B3-Ch10c-Revenant4, v_current_scene = B3-Ch10c-Revenant4) if (v_b3_ch10_reason == 0)
+choice("Continue", B3-Ch10c-Revenant4, v_current_scene = B3-Ch10c-Revenant4) if (v_b3_ch10_reason == 0 || v_b3_ch10_reason == 1)
 
 
 ID: B3-Ch10c-Revenant4
@@ -559,10 +558,8 @@ While Kate, Flower and I dismantle the tents, Hadrik helps Daren with putting hi
 "I agree," Kate says. "It would be too risky for all of us to go. Maybe it should be just me. I'm the only one that Meridith specifically asked to meet."
 
 }
-choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose == 1)
-choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose == 0)
-choice("Say nothing, and wait to see how the team reacts to Kate's proposal.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 0) if (v_ch11_saved_rose == 1)
-choice("Say nothing, and wait to see how the team reacts to Kate's proposal.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 0) if (v_ch11_saved_rose == 0)
+choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Say nothing, and wait to see how the team reacts to Kate's proposal.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch10c-Brother
@@ -1178,8 +1175,7 @@ Now that the inside of the next room is visible to us, we see that the only thin
 "Allow me to introduce you to our true Creator," Meridith says. "The Magium!"
 
 }
-choice("Continue", B3-Ch10c-Panicked, v_current_scene = B3-Ch10c-Panicked) if (v_b3_ch10_crystals == 1)
-choice("Continue", B3-Ch10c-Panicked, v_current_scene = B3-Ch10c-Panicked) if (v_b3_ch10_crystals == 0)
+choice("Continue", B3-Ch10c-Panicked, v_current_scene = B3-Ch10c-Panicked) if (v_b3_ch10_crystals == 0 || v_b3_ch10_crystals == 1)
 
 
 ID: B3-Ch10c-Panicked
@@ -1339,8 +1335,7 @@ If only I could find some way to reconstruct the rest of the details just from w
 "But the crystals are blue for everyone, right?" Kate asks. "I thought they were supposed to be 'crystalized Magium essence'. Why are we not seeing them in different colors, like the node?"
 
 }
-choice("Continue", B3-Ch10c-Common, v_current_scene = B3-Ch10c-Common) if (v_b3_ch10_node == 1)
-choice("Continue", B3-Ch10c-Common, v_current_scene = B3-Ch10c-Common) if (v_b3_ch10_node == 0)
+choice("Continue", B3-Ch10c-Common, v_current_scene = B3-Ch10c-Common) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
 
 
 ID: B3-Ch10c-Common
@@ -1405,8 +1400,7 @@ TEXT:
 "Duly noted," Arraka says. 
 
 }
-choice("Continue", B3-Ch10c-Informed, v_current_scene = B3-Ch10c-Informed) if (v_b3_ch10_node == 1)
-choice("Continue", B3-Ch10c-Informed, v_current_scene = B3-Ch10c-Informed) if (v_b3_ch10_node == 0)
+choice("Continue", B3-Ch10c-Informed, v_current_scene = B3-Ch10c-Informed) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
 
 
 ID: B3-Ch10c-Informed
@@ -1448,10 +1442,8 @@ After walking some more through the corridor, we eventually come upon the door l
 "Right now we're only discussing whether we should mention this detail to Meridith or not," Daren says. "Once we hear her side of the story, we might be able to make a more informed decision, but maybe it would be better to let her bring up the subject on her own. What do you guys think?"
 
 }
-choice("""I think it would be better to mention it to Meridith.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 1) if (v_b3_ch10_node == 1)
-choice("""I think it would be better to mention it to Meridith.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 1) if (v_b3_ch10_node == 0)
-choice("""We should probably avoid mentioning any of this to Meridith, for now.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 0) if (v_b3_ch10_node == 1)
-choice("""We should probably avoid mentioning any of this to Meridith, for now.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 0) if (v_b3_ch10_node == 0)
+choice("""I think it would be better to mention it to Meridith.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 1) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
+choice("""We should probably avoid mentioning any of this to Meridith, for now.""", B3-Ch10c-Decorations, v_current_scene = B3-Ch10c-Decorations, v_b3_ch10_mention = 0) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
 
 
 ID: B3-Ch10c-Decorations
@@ -1549,8 +1541,7 @@ I then pause for several moments, to see if the expression on Meridith's face ch
 "What exactly are you implying?" Meridith asks me.
 
 }
-choice("Continue", B3-Ch10c-Sham, v_current_scene = B3-Ch10c-Sham) if (v_b3_ch10_mention == 1)
-choice("Continue", B3-Ch10c-Sham, v_current_scene = B3-Ch10c-Sham) if (v_b3_ch10_mention == 0)
+choice("Continue", B3-Ch10c-Sham, v_current_scene = B3-Ch10c-Sham) if (v_b3_ch10_mention == 0 || v_b3_ch10_mention == 1)
 
 
 ID: B3-Ch10c-Sham
@@ -1604,8 +1595,7 @@ She pauses.
 "You see," Meridith says, "the reality is that this whole tournament that you've been part of until now has only been organized because of one person. Ever since the destruction of Olmnar, twenty years ago, the kings of Varathia and the lessathi have been working together for a single, common purpose, and after twenty arduous years, we have finally found a way to achieve it. By the end of this tournament, there will finally be justice. By the end of this tournament, Eiden will be dead."
 
 }
-choice("Continue", B3-Ch10c-Ending, v_current_scene = B3-Ch10c-Ending) if (v_b2_ch7_overheard == 0)
-choice("Continue", B3-Ch10c-Ending, v_current_scene = B3-Ch10c-Ending) if (v_b2_ch7_overheard == 1)
+choice("Continue", B3-Ch10c-Ending, v_current_scene = B3-Ch10c-Ending) if (v_b2_ch7_overheard == 0 || v_b2_ch7_overheard == 1)
 
 
 ID: B3-Ch10c-Ending

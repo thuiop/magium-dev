@@ -36,7 +36,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_premonition < 4)
 set(v_is_dead,0) if (v_premonition >= 4)
-stat_check(v_premonition,4)
 #if(v_premonition < 4) {
  
 "Kate," I say, "could you freeze the whole area around us in order to take care of all the clones at the same time?"
@@ -630,8 +629,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_hearing >= 3 && v_perception < 2 || v_perception >= 2)
 set(v_is_dead,1) if (v_hearing < 3 && v_perception < 2)
-stat_check(v_observation,2)
-stat_check(v_hearing,3)
 #if(v_perception >= 2) {
  
 As the steam surrounds me, I suddenly notice some barely visible sparks starting to form next to me. This doesn't seem right. I need to get away from here, quick.
@@ -943,9 +940,6 @@ TEXT:
 
 set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
 set(v_ch11_saved_rose,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
-stat_check(v_hearing,4)
-stat_check(v_observation,4)
-stat_check(v_agility,4)
 #if(v_hearing < 4) {
  
 While Hadrik and Arraka are talking, I hear the sound of stones smashing against the ground somewhere on the opposite side of the market square. As I turn around to identify the source of the sound, it takes me a few seconds to fully process the scene unfolding before my eyes.

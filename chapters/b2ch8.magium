@@ -1,7 +1,6 @@
 ID: B2-Ch08a-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "There you are!" Melindra says, once we all get within hearing range of her. "Just in time. Tell me, are you all ready to begin our adventure?"
 
@@ -560,11 +559,9 @@ ID: B2-Ch08a-Crossbow
 TEXT: 
 
 set(v_b2_ch8_saved,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
-set(v_is_dead,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 set(v_b2_ch8_saved,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 && v_reflexes < 2)
+set(v_is_dead,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 set(v_is_dead,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
-stat_check(v_combat_technique,1)
-stat_check(v_reflexes,2)
 #if(v_combat_technique >= 1) {
  
 The crossbow bolt hits him right in his forehead, and it passes through his skull, as the monster falls to the ground, dropping his sword.
@@ -762,7 +759,6 @@ choice("Continue", B2-Ch08a-Dispatches, v_current_scene = B2-Ch08a-Dispatches)
 ID: B2-Ch08a-Trees
 TEXT: 
 
-stat_check(v_strength,3)
 #if(v_b2_ch5_scimitar != 0) {
  
 "Flower! Illuna!" I say. "Could you go see why the two goblin mages haven't attacked us yet? You should be able to find where they're hiding, with a little help from Arraka."
@@ -825,9 +821,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_agility >= 3 || v_reflexes >= 2)
 set(v_is_dead,1) if (v_agility < 3 && v_reflexes < 2)
-stat_check(v_strength,3)
-stat_check(v_agility,3)
-stat_check(v_reflexes,2)
 #if(v_agility >= 3 && v_b2_ch5_scimitar == 0) {
  
 
@@ -916,8 +909,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3 && v_combat_technique < 2 || v_combat_technique >= 2)
 set(v_is_dead,1) if (v_combat_technique < 2 && v_toughness < 3)
-stat_check(v_combat_technique,2)
-stat_check(v_toughness,3)
 #if(v_combat_technique >= 2) {
  
 Luckily for me, his posture gives away his true intentions, and I manage to call his bluff, as I completely ignore his mace, and focus solely on his shield. Just as I guessed, the orc tries to bash my head in with his shield as soon as he gets near me, but I step out of the way at the very last second, making him lose his balance, which allows me to deliver a swift and lethal blow with my blade to the back of his neck.

@@ -448,12 +448,8 @@ choice("Continue", B3-Ch06b-Ambassador, v_current_scene = B3-Ch06b-Ambassador) i
 ID: B3-Ch06b-Air
 TEXT: 
 
-set(v_is_dead,1) if (v_perception < 3)
-set(v_is_dead,1) if (v_perception >= 3 && v_reflexes < 3)
+set(v_is_dead,1) if (v_perception < 3 || v_reflexes < 3)
 set(v_is_dead,0) if (v_perception >= 3 && v_reflexes >= 3)
-set(v_is_dead,0) if (v_perception >= 3 && v_reflexes >= 3 && v_b3_ch6_selected == 3 && v_is_dead == 0)
-stat_check(v_observation,3)
-stat_check(v_reflexes,3)
 #if(v_perception < 3) {
  
 When I get closer to him, I suddenly feel myself starting to spin in place in mid-air, faster and faster. I try to free myself, but it's no use. The whirlwind that is spinning me is simply too strong.
@@ -500,7 +496,7 @@ choice("Continue", B3-Ch06b-Echoing, v_current_scene = B3-Ch06b-Echoing) if (v_p
 ID: B3-Ch06b-Rating
 TEXT: 
 
-set(v_b3_ch6_air,2)
+set(v_b3_ch6_air,2) if (True)
  While I am busy evading the semi-transparent blades of air, I suddenly hear the Overseer's voice coming from behind me.
 "Warning! Warning!" says the green-eyed drone that was apparently still following me. "A non-combat unit is being under attack. Requesting backup immediately."
 
@@ -544,13 +540,8 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed)
 ID: B3-Ch06b-Echoing
 TEXT: 
 
-set(v_b3_ch6_air,0) if (v_ancient_languages < 2)
+set(v_b3_ch6_air,0) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1 || v_ancient_languages < 2)
 set(v_b3_ch6_air,1) if (v_ancient_languages >= 2)
-set(v_b3_ch6_air,0) if (v_ancient_languages < 2 && v_b3_ch6_tie == 0)
-set(v_b3_ch6_air,0) if (v_ancient_languages < 2 && v_b3_ch6_tie == 1)
-set(v_b3_ch6_air,0) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 0)
-set(v_b3_ch6_air,0) if (v_ancient_languages >= 2 && v_b3_ch6_tie == 1)
-stat_check(v_ancient_languages,2)
 #if(v_ancient_languages < 2) {
  We do what Daren says and then he charges at the hydra, swinging his sword at it as hard as he can. Unfortunately, instead of absorbing anything, the sword simply passes through the semi-transparent hydra as if he were just using some normal weapon to cut through non-magical air.
 "Damn, it's not working!" Daren says. "Get back from the hydra. Get back now!"
@@ -665,15 +656,8 @@ choice("Continue", B3-Ch06b-Earth2, v_current_scene = B3-Ch06b-Earth2)
 ID: B3-Ch06b-Earth2
 TEXT: 
 
-set(v_is_dead,1) if (v_magical_sense < 2)
-set(v_is_dead,1) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3)
-set(v_is_dead,1) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff < 3)
-set(v_is_dead,0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
-set(v_is_dead,0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 0)
-set(v_is_dead,0) if (v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
-set(v_is_dead,0) if (v_b3_ch6_selected != 3 && v_magical_sense >= 2 && v_bluff >= 3 && v_b3_ch6_concealed == 1)
-stat_check(v_magical_sense,2)
-stat_check(v_aura_concealment,3)
+set(v_is_dead,1) if (v_bluff < 3 || v_magical_sense < 2)
+set(v_is_dead,0) if (v_bluff >= 3 && v_magical_sense >= 2 && (v_b3_ch6_concealed == 0 || v_b3_ch6_concealed == 1))
 #if(v_magical_sense < 2) {
  
 After flying around aimlessly for a few more seconds, I realize that I'm not making any progress like this, so I decide to close my eyes and to focus only on finding the mage's aura.
@@ -834,18 +818,14 @@ Kate and Flower are still firing projectiles at the captain and the ambassador, 
 I decide to fly a little closer to the ground, in the hopes that I can take the black-robed guy by surprise. 
 
 }
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch6_tie == 1)
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch6_tie == 0)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
 
 
 ID: B3-Ch06b-Mustache
 TEXT: 
 
-set(v_is_dead,1) if (v_b2_ch5_scimitar != 0 && v_strength < 3)
-set(v_is_dead,0) if (v_b2_ch5_scimitar != 0 && v_strength >= 3)
-set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 4)
-set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_strength >= 4)
-stat_check(v_strength,4)
+set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 4 || v_strength < 3 && v_b2_ch5_scimitar != 0)
+set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_strength >= 4 || v_strength >= 3 && v_b2_ch5_scimitar != 0)
 #if(v_b2_ch5_scimitar != 0 && v_strength < 3) {
  
 I doubt I'm going to get a better chance than this to deal with the earth elementalist, so I should probably keep chasing him. I'm sure that my friends will be fine without me for a while longer.
@@ -1025,19 +1005,8 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed)
 ID: B3-Ch06b-Robed
 TEXT: 
 
-set(v_is_dead,0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 0)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 2)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 1)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 0)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 && v_b3_ch6_focus == 2)
-set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening < 3)
-set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening < 3)
-set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening < 3)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 1 && v_aura_hardening >= 3)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 0 && v_aura_hardening >= 3)
-set(v_is_dead,0) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_focus == 2 && v_aura_hardening >= 3)
-stat_check(v_aura_hardening,3)
+set(v_is_dead,0) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
+set(v_is_dead,1) if (v_b3_ch6_preparing == 0 && (v_b3_ch6_focus == 0 || v_b3_ch6_focus == 1 || v_b3_ch6_focus == 2) && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
 #if(v_b3_ch6_preparing == 1 && v_b3_ch6_focus == 1) {
  Kate manages to get out of the way in time, but now the black-robed man is creating weapons out of thin air and making them fly towards her and Illuna while he keeps teleporting around, waving his dagger at them. As Kate is busy blocking the flying weapons, she is also making sure to keep the pressure on the ambassador, so that he doesn't get a chance to escape during all the confusion.
 After dodging the black-robed man's attacks a few times, Illuna suddenly decides to stop moving and she just stands there for a few seconds, while the man swings his dagger towards her. Seeing that she is not planning to evade his strike, the man stops his slash right as he was about to cut through her arm, and then he teleports next to Kate instead. Realizing what's going on, Kate stops moving as well, and as she does this, the man in black robes simply stops doing anything, while his flying weapons also appear to be frozen in mid-air.
@@ -1446,7 +1415,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_toughness < 4)
 set(v_is_dead,0) if (v_toughness >= 4)
-stat_check(v_toughness,4)
 #if(v_toughness < 4) {
  
 Before I get to finish my train of thought, two smaller boulders pass through both Daren and Melindra's barriers with ease, and one of them hits me in the head before I even get the time to realize what's going on.
@@ -1681,37 +1649,8 @@ choice("Ask Daren if he can try summoning the sword with his uninjured hand inst
 ID: B3-Ch06b-Surrounded
 TEXT: 
 
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 || v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_plan == 3 && v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 || v_b3_ch6_air >= 1 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_combat_technique < 2 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition_aux >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_premonition_aux >= 2 && v_combat_technique < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air >= 1)
 set(v_b3_ch6_wounded,1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan == 3)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air >= 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_b3_ch6_plan != 3 && v_premonition_aux >= 2)
-stat_check(v_combat_technique,2)
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0) {
  
 "Hey, Arraka," I say in a low voice, "could you highlight the aura technique's weak points again like yesterday, so that Kate can hit them with her icicles?"
@@ -1977,8 +1916,7 @@ As soon as he says this, the captain attempts to twist Daren's left hand with hi
 As he is holding his arms outstretched, his sword now flies away from the captain and straight into his left hand.
 
 }
-choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2) if (v_b3_ch6_uninjured == 0)
-choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2) if (v_b3_ch6_uninjured == 1)
+choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2) if (v_b3_ch6_uninjured == 0 || v_b3_ch6_uninjured == 1)
 
 
 ID: B3-Ch06b-Trance2
@@ -2010,7 +1948,6 @@ choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v
 ID: B3-Ch06b-Nausea
 TEXT: 
 
-stat_check(v_premonition,2)
  
 While all this is happening, I get a sudden premonition in which I see the captain getting a headache that makes him lose control of his aura manipulation technique, and immediately afterwards I see another vision of Daren carrying Kelrim's lifeless corpse with a very grim expression in his eyes.
 
@@ -2024,8 +1961,7 @@ ID: B3-Ch06b-Touching
 TEXT: 
 
 set(v_is_dead,1) if (v_b3_ch6_manipulators != 2)
-set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0)
-set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
+set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && (v_b3_ch6_uninjured == 0 || v_b3_ch6_uninjured == 1))
 #if(v_b3_ch6_manipulators != 2) {
  "Kelrim, don't do it!" I shout loudly. "Don't cast the nausea spell!"
 "What?..." Kelrim says. "How did you know that I was going to--"
@@ -2142,7 +2078,6 @@ choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v
 ID: B3-Ch06b-Panic
 TEXT: 
 
-stat_check(v_premonition,2)
 #if(v_b3_ch6_kelrim != 2) {
  
 After enduring the pain for a while longer, I suddenly feel the pressure above me disappearing, as the captain seems to be experiencing a very strong headache. When he realizes that he lost control of his aura technique, he tries to push us down again, but he can't make the invisible force strong enough to pin us to the ground anymore, so he eventually gives up, making a barrier in front of him instead.
@@ -2972,10 +2907,8 @@ TEXT:
 "Oh, yeah!" Hadrik says. "Now that you mention it, I think I can sense his aura too! He's not too far from us!"
 
 }
-choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 1)
-choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 0)
-choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 1)
-choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 0)
+choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1)
+choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1)
 
 
 ID: B3-Ch06b-Kill

@@ -1,7 +1,6 @@
 ID: Ch3-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
 #if(v_ch2_deer_interaction != 1) {
 
 "So, Barry, let me get this straight," Daren says. "You're saying that trinket you're carrying with you is in fact a device that amplifies your physical attributes, which is powered by the magic all around us..."
@@ -382,8 +381,6 @@ TEXT:
 set(v_ch3_star_message,0) if (v_perception < 1)
 set(v_ch3_star_message,1) if (v_perception >= 1 && v_ancient_languages < 2)
 set(v_ch3_star_message,2) if (v_ancient_languages >= 2 && v_perception >= 1)
-stat_check(v_observation,1)
-stat_check(v_ancient_languages,2)
 #if(v_perception < 1) {
 
 As we stand guard,  Daren starts telling me stories about his travels around the world, and the adventures he's had. He tells me of the fifty foot giants that live in the far east of the Northern Continent. He tells me how he's cured the dreaded Iknar plague of the Eastern Continent by himself, and how he defeated the green wyvern of the north. 
@@ -1086,9 +1083,6 @@ TEXT:
 
 set(v_ch3_saved_from_dart,1) if (v_perception == 3 && (v_hearing >= 2 || v_premonition >= 2))
 set(v_ch3_saved_from_dart,0) if (v_hearing < 2 && v_premonition < 2 || v_perception < 3)
-stat_check(v_premonition,2)
-stat_check(v_observation,3)
-stat_check(v_hearing,2)
 #if(v_premonition >= 2 && v_perception == 3) {
 
 Suddenly I see a vision of a dart being shot towards Kate. I realize immediately that what I've just seen was a premonition. But where did the dart come from? 
@@ -1756,8 +1750,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_reflexes >= 2 && v_combat_technique < 2 || v_ch3_saved_from_dart == 1 && v_is_dead == 0 && v_combat_technique >= 2 || v_combat_technique >= 2)
 set(v_is_dead,1) if (v_combat_technique < 2 && v_reflexes < 2)
-stat_check(v_combat_technique,2)
-stat_check(v_reflexes,2)
 #if(v_combat_technique >= 2) {
 
 I quickly grab the crossbow from the ground, and jump right in front of the five men, aiming for the one in the middle.
@@ -1828,10 +1820,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_combat_technique >= 1 && v_reflexes >= 1 || v_combat_technique == 0 && v_agility >= 1 && v_reflexes >= 1 || v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_ch3_first_killed == 0 && v_is_dead == 0 && v_combat_technique >= 1 && v_reflexes >= 1 || v_combat_technique == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1 || v_ch3_first_killed == 0 && v_combat_technique == 0 && v_is_dead == 0 && v_agility >= 1 && v_reflexes >= 1 || v_ch3_first_killed == 0 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_is_dead == 0 && v_combat_technique >= 1 && v_reflexes >= 1 || v_ch3_first_killed == 0 && v_combat_technique == 0 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_combat_technique == 0 && v_is_dead == 0 && v_agility >= 1 && v_reflexes >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_combat_technique == 0 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1)
 set(v_is_dead,1) if ((v_agility == 0 || v_reflexes == 0) && (v_agility == 0 || v_toughness < 3) && (v_combat_technique == 0 || v_reflexes == 0) && (v_combat_technique == 0 || v_toughness < 3) && (v_reflexes == 0 || v_reflexes >= 1) && (v_toughness == 3 || v_reflexes >= 1 || v_toughness < 3))
-stat_check(v_reflexes,1)
-stat_check(v_combat_technique,1)
-stat_check(v_agility,1)
-stat_check(v_toughness,3)
 #if(v_reflexes >= 1 && v_combat_technique >= 1) {
 
 I quickly grab the crossbow from the ground, and jump right in front of the five men, aiming for the one in the middle. I shoot him directly in the head, and before he even drops to the ground, I shoot one of his comrades as well, this time in his neck. As the two of them fall to the ground, lifeless, I hide behind a tree, while three crossbow bolts fly right past me.
@@ -2084,7 +2072,6 @@ TEXT:
 
 set(v_ch3_tried_lift,0) if (v_strength == 0)
 set(v_ch3_tried_lift,1) if (v_strength >= 1)
-stat_check(v_strength,1)
 #if(v_strength == 0) {
 
 Just because they tried to kill me, it doesn't mean I have to treat them the same way. They may have had legitimate reasons to work for the man with the high pitched voice and the loud horn. And they may have families waiting for them at home. I will go out of my way to make sure that none of the men I encounter from now on will die by my hand.
@@ -2118,7 +2105,6 @@ TEXT:
 
 set(v_ch3_tried_lift,0) if (v_strength == 0)
 set(v_ch3_tried_lift,1) if (v_strength >= 1)
-stat_check(v_strength,1)
 #if(v_strength == 0) {
 
 I didn't come here to become a mass murderer. But I am ready to kill if there is no other way. I am not going to risk my life and go out of my way to save some people who were ready to kill me at a moment's notice without so much as the slightest provocation on my part. However, I am going to try and not kill them unless it's absolutely necessary.
@@ -2152,7 +2138,6 @@ TEXT:
 
 set(v_ch3_tried_lift,1) if (v_strength >= 1)
 set(v_ch3_tried_lift,0) if (v_strength == 0)
-stat_check(v_strength,1)
 #if(v_strength >= 1) {
 
 I see no reason to spare the lives of any of these people. They're trying to kill us for no reason at all, and they're not showing any hint of hesitation in doing so. It is only fitting that I pay them back in the same coin. I don't have the time to chase after every lone survivor, but I am most certainly not planning to hold back when I fight the lot of them.
@@ -2186,7 +2171,6 @@ TEXT:
 
 set(v_ch3_tried_lift,0) if (v_strength == 0 && (v_ch3_first_killed == 0 || v_ch3_first_killed == 1) && (v_ch3_second_killed == 0 || v_ch3_second_killed == 1))
 set(v_ch3_tried_lift,1) if (v_strength >= 1 && (v_ch3_first_killed == 0 || v_ch3_first_killed == 1) && (v_ch3_second_killed == 0 || v_ch3_second_killed == 1))
-stat_check(v_strength,1)
 #if(v_ch3_first_killed == 1 && v_strength == 0 && v_ch3_second_killed == 1) {
 
 The only way to be sure we win this fight is to kill every single one of them, especially their leader. If I leave any survivors, they might call for reinforcements. Who knows how many more of them are on standby, just waiting for some signal to flank us? I cannot take that risk. I won't let any of them make it out of here alive.
@@ -2344,7 +2328,6 @@ TEXT:
 
 set(v_ch3_lift_tree,1) if (v_ch3_tried_lift == 1 && v_strength == 3)
 set(v_ch3_lift_tree,0) if (v_ch3_tried_lift == 1 && v_strength < 3 || v_ch3_tried_lift == 0)
-stat_check(v_strength,3)
 #if(v_strength == 3 && v_ch3_tried_lift == 1 && v_ch3_prioritize >= 3) {
 
 My eyes cannot believe what they are seeing. I just managed to lift the whole tree off the ground. And I'm pretty sure I could throw it too, if I wanted. This is insane. It must be weighing at least four hundred pounds. This is far beyond anything I would have dreamed to achieve with my stat device. This is superhuman.
@@ -2434,7 +2417,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_agility < 3)
 set(v_is_dead,0) if (v_agility == 3)
-stat_check(v_agility,3)
 #if(v_agility < 3) {
 
 I rush towards them and try to use my speed to outmaneuver them.
@@ -2466,7 +2448,6 @@ TEXT:
 
 set(v_is_dead,1) if ((v_ch3_lift_tree == 0 || v_ch3_lift_tree == 1) && v_perception < 3)
 set(v_is_dead,0) if (v_perception == 3)
-stat_check(v_observation,3)
 #if(v_perception < 3 && v_ch3_lift_tree == 0) {
 
 I try to take advantage of the distance between us, by shooting them right away.
@@ -2501,7 +2482,6 @@ TEXT:
 
 set(v_is_dead,1) if ((v_ch3_lift_tree == 0 || v_ch3_lift_tree == 1) && v_combat_technique < 3)
 set(v_is_dead,0) if (v_combat_technique == 3)
-stat_check(v_combat_technique,3)
 #if(v_combat_technique < 3 && v_ch3_lift_tree == 0) {
 
 I make sure I don't stop moving for even a second, and I start shooting them with my crossbow. 
@@ -2538,7 +2518,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 3)
 set(v_is_dead,0) if (v_combat_technique == 3)
-stat_check(v_combat_technique,3)
 #if(v_combat_technique < 3) {
 
 I make sure I don't stop moving for even a second, and I start shooting them with my crossbow. 
@@ -2568,7 +2547,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 3)
 set(v_is_dead,0) if (v_perception == 3)
-stat_check(v_observation,3)
 #if(v_perception < 3) {
 
 I back away as much as I can and I try to take advantage of the distance I've just created between us.

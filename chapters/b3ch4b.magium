@@ -69,10 +69,8 @@ TEXT:
 "If you don't think he's leading us into a trap, then I do not see the problem," Illuna says. "We already decided that we would cooperate with the Overseer before we left the rebel base. Otherwise we would have never bothered to respond to his initial invitation. Whether he has any personal goals or not should not concern us unless we have reasons to believe that they'd conflict with our own."
 
 }
-choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 0)
-choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 1)
-choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 0)
-choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 1)
+choice("""I agree. The secret passage is probably our best option right now.""", B3-Ch04b-Passage, v_current_scene = B3-Ch04b-Passage) if (v_b3_ch4_control == 0 || v_b3_ch4_control == 1)
+choice("""I still think that listening to the Overseer in this case might be a bad idea.""", B3-Ch04b-Guarantee, v_current_scene = B3-Ch04b-Guarantee, v_b3_ch4_billy = 0) if (v_b3_ch4_control == 0 || v_b3_ch4_control == 1)
 
 
 ID: B3-Ch04b-Passage
@@ -280,11 +278,8 @@ choice("Kill Billy Bob.", B3-Ch04b-Beg5, v_current_scene = B3-Ch04b-Beg5, v_b3_c
 ID: B3-Ch04b-Beg4
 TEXT: 
 
-set(v_is_dead,0) if (v_premonition >= 3)
-set(v_is_dead,0) if (v_premonition < 3 && v_aura_hardening >= 3)
-set(v_is_dead,1) if (v_premonition < 3 && v_aura_hardening < 3)
-stat_check(v_premonition,3)
-stat_check(v_aura_hardening,3)
+set(v_is_dead,0) if (v_aura_hardening >= 3 && v_premonition < 3 || v_premonition >= 3)
+set(v_is_dead,1) if (v_aura_hardening < 3 && v_premonition < 3)
 #if(v_premonition >= 3) {
  
 "Alright, Billy Bob," I say. "I'm coming over."
@@ -434,13 +429,8 @@ choice("Continue", B3-Ch04b-Sneaky, v_current_scene = B3-Ch04b-Sneaky)
 ID: B3-Ch04b-Billy5
 TEXT: 
 
-set(v_is_dead,0) if (v_premonition >= 3)
-set(v_is_dead,0) if (v_premonition < 3 && v_aura_hardening >= 3)
-set(v_is_dead,1) if (v_premonition < 3 && v_aura_hardening < 3)
-set(v_is_dead,0) if (v_premonition >= 3 && v_is_dead == 0 && v_b3_ch4_control == 0)
-set(v_is_dead,0) if (v_premonition < 3 && v_aura_hardening >= 3 && v_is_dead == 0 && v_b3_ch4_control == 0)
-stat_check(v_premonition,3)
-stat_check(v_aura_hardening,3)
+set(v_is_dead,0) if (v_aura_hardening >= 3 && v_premonition < 3 || v_b3_ch4_control == 0 && v_is_dead == 0 && v_premonition >= 3 || v_premonition >= 3)
+set(v_is_dead,1) if (v_aura_hardening < 3 && v_premonition < 3)
 #if(v_premonition >= 3) {
  
 "Kate, wait, don't kill him yet!" I say.
@@ -578,8 +568,7 @@ He then takes out his transceiver and puts it close to his mouth.
 "Farewell," the Overseer says, as we are being teleported out of the room. "I'm sure we'll be seeing each other again quite soon."
 
 }
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_control == 1)
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_control == 0)
+choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_control == 0 || v_b3_ch4_control == 1)
 
 
 ID: B3-Ch04b-Undetected
@@ -667,8 +656,7 @@ Before the Overseer gets to say another word, Kate sends dozens of icicles into 
 "Farewell," the Overseer says, as we are being teleported out of the room. "I'm sure we'll be seeing each other again quite soon."
 
 }
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 6)
+choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 6 || v_b3_ch4_billy == 9)
 
 
 ID: B3-Ch04b-Voluntarily
@@ -848,9 +836,7 @@ Before the Overseer gets to say another word, Kate sends dozens of icicles into 
 "Bye-bye, Overseer," I say, as I wave to the green-eyed drone while being teleported. "I don't think we'll be seeing you again anytime soon."
 
 }
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 7)
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 8)
-choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 9)
+choice("Continue", B3-Ch04b-Ending, v_current_scene = B3-Ch04b-Ending) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy == 9)
 
 
 ID: B3-Ch04b-Guarantee
@@ -960,9 +946,9 @@ When we turn around, we see that there are three men dressed in uniforms with sw
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch11_saved_rose == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch11_saved_rose == 0)
 choice("Load game", , , special:saves) if (v_ch11_saved_rose == 0)
-choice("Try to convince them that we are the new guards tasked to defend this corridor.", B3-Ch04b-Tasked, v_current_scene = B3-Ch04b-Tasked) if (v_ch11_saved_rose > 0)
-choice("Try to convince them that we are the new cleaners.", B3-Ch04b-Cleaners, v_current_scene = B3-Ch04b-Cleaners) if (v_ch11_saved_rose > 0)
-choice("Tell them that it's none of their business.", B3-Ch04b-Business, v_current_scene = B3-Ch04b-Business, v_b3_ch4_tasked = 3) if (v_ch11_saved_rose > 0)
+choice("Try to convince them that we are the new guards tasked to defend this corridor.", B3-Ch04b-Tasked, v_current_scene = B3-Ch04b-Tasked) if (v_ch11_saved_rose == 1)
+choice("Try to convince them that we are the new cleaners.", B3-Ch04b-Cleaners, v_current_scene = B3-Ch04b-Cleaners) if (v_ch11_saved_rose == 1)
+choice("Tell them that it's none of their business.", B3-Ch04b-Business, v_current_scene = B3-Ch04b-Business, v_b3_ch4_tasked = 3) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04b-Tasked
@@ -970,7 +956,6 @@ TEXT:
 
 set(v_b3_ch4_tasked,5) if (v_bluff < 4)
 set(v_b3_ch4_tasked,1) if (v_bluff >= 4)
-stat_check(v_bluff,4)
 #if(v_bluff < 4) {
  
 "We are the new guards," I say. "We came here to relieve you of your duties."
@@ -1041,7 +1026,6 @@ TEXT:
 
 set(v_b3_ch4_tasked,5) if (v_bluff < 2)
 set(v_b3_ch4_tasked,2) if (v_bluff >= 2)
-stat_check(v_bluff,2)
 #if(v_bluff < 2) {
  
 "We're the new cleaners!" I say. "We were sent here to wash the prisoners downstairs."
@@ -1141,7 +1125,6 @@ TEXT:
 
 set(v_b3_ch4_tasked,0) if (v_bluff < 3)
 set(v_b3_ch4_tasked,4) if (v_bluff >= 3)
-stat_check(v_aura_concealment,3)
 #if(v_bluff < 3) {
  
 No matter how hard I try, I just can't seem to be able to fully conceal it.
@@ -1180,7 +1163,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_hearing < 3)
 set(v_is_dead,0) if (v_hearing >= 3)
-stat_check(v_hearing,3)
 #if(v_hearing < 3) {
  
 When we reach the top of the stairs, we enter a new hallway and we begin to advance through it at a rapid pace. All of a sudden, the corridor that we are currently in gets filled with magical electric currents that are visible even with the naked eye. The electric shock surging through my body is so powerful that I barely get another second of consciousness before everything completely fades to black.
@@ -1466,8 +1448,7 @@ When Kate, Flower and Illuna try to shoot the drones down with their magic, the 
 The air around us is gradually becoming heavier, and it's getting harder and harder to breathe. The pressure coming from all of the magical energy being gathered into one place is making it hard for us to even keep standing up. I don't know what spell these drones are preparing to cast, but whatever it is, it's going to be massive.
 
 }
-choice("Continue", B3-Ch04b-Contact3, v_current_scene = B3-Ch04b-Contact3) if (v_b3_ch4_control == 1)
-choice("Continue", B3-Ch04b-Contact3, v_current_scene = B3-Ch04b-Contact3) if (v_b3_ch4_control == 0)
+choice("Continue", B3-Ch04b-Contact3, v_current_scene = B3-Ch04b-Contact3) if (v_b3_ch4_control == 0 || v_b3_ch4_control == 1)
 
 
 ID: B3-Ch04b-Contact3
@@ -1475,7 +1456,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_magical_sense < 4)
 set(v_is_dead,0) if (v_magical_sense >= 4)
-stat_check(v_magical_sense,4)
 #if(v_magical_sense < 4) {
  
 Kate, Flower and Illuna are now using every magical attack that they can think of, but the drones don't seem bothered at all, and they just keep gathering energy for their spell. After a while, it becomes clear that there is no way for us to stop the incoming attack, so Melindra tries to cast individual wind barriers around each of us, in the hopes that this will somehow be enough to absorb all of the damage.
@@ -1512,7 +1492,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_aura_hardening < 4)
 set(v_is_dead,0) if (v_aura_hardening >= 4)
-stat_check(v_aura_hardening,4)
 #if(v_aura_hardening < 4) {
  
 "Melindra, can you cast your air currents on me?" I say. "I want to try and stab the drones in their eyes while they are stunned."
@@ -1557,11 +1536,8 @@ choice("Continue", B3-Ch04b-Stuck, v_current_scene = B3-Ch04b-Stuck) if (v_aura_
 ID: B3-Ch04b-Drones2
 TEXT: 
 
-set(v_is_dead,0) if (v_strength >= 3)
-set(v_is_dead,0) if (v_strength < 3 && v_aura_hardening >= 4)
-set(v_is_dead,1) if (v_strength < 3 && v_aura_hardening < 4)
-stat_check(v_strength,3)
-stat_check(v_aura_hardening,4)
+set(v_is_dead,0) if (v_aura_hardening >= 4 && v_strength < 3 || v_strength >= 3)
+set(v_is_dead,1) if (v_aura_hardening < 4 && v_strength < 3)
 #if(v_strength >= 3) {
  
 I take a rock from the ground, and I throw it at one of the drones.
@@ -1641,7 +1617,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 2)
 set(v_is_dead,0) if (v_perception >= 2)
-stat_check(v_observation,2)
 #if(v_perception < 2) {
  
 I take out my crossbow and I try to shoot one of the drones in its eye. Just like it happened with Kate's icicles earlier, my crossbow bolt simply bounces off the metal ball's magical barrier, leaving it completely unharmed.

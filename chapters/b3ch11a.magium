@@ -1,7 +1,6 @@
 ID: B3-Ch11a-Intro
 TEXT: 
 
-stat_check(checkpoint,1)
  
 "Let me see if I got this straight..." Hadrik tells Meridith. "You people have been gathering a huge amount of energy from mages since the beginning of this tournament, all for the purpose of killing Eiden..."
 
@@ -147,9 +146,7 @@ TEXT:
 "How so?" I ask.
 
 }
-choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting) if (v_b3_ch11_friend == 0)
-choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting) if (v_b3_ch11_friend == 1)
-choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting) if (v_b3_ch11_friend == 2)
+choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting) if (v_b3_ch11_friend == 0 || v_b3_ch11_friend == 1 || v_b3_ch11_friend == 2)
 
 
 ID: B3-Ch11a-Augmenting
@@ -264,8 +261,7 @@ As soon as she receives it, Meridith uses her wand to touch the stat booster, an
 "Thank you, lady Meridith," Diane says. "I will make sure to speak my mind whenever I have something important to add!"
 
 }
-choice("Continue", B3-Ch11a-Insane, v_current_scene = B3-Ch11a-Insane) if (v_b3_ch11_transferred == 0)
-choice("Continue", B3-Ch11a-Insane, v_current_scene = B3-Ch11a-Insane) if (v_b3_ch11_transferred == 1)
+choice("Continue", B3-Ch11a-Insane, v_current_scene = B3-Ch11a-Insane) if (v_b3_ch11_transferred == 0 || v_b3_ch11_transferred == 1)
 
 
 ID: B3-Ch11a-Insane
@@ -332,10 +328,8 @@ TEXT:
 "Isn't the entrance to that corridor clearly marked as leading to the Heksol faction area, in the common language?" Diane says. "Surely, the dwarf must have read that and decided to take the other path, right?"
 
 }
-choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 1)
-choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 0)
-choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 1)
-choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 0)
+choice("""Yeah, if it's marked like you say, then he probably avoided that tunnel.""", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
+choice("""Actually, he might have had even more of a reason to go there, if it's marked.""", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
 
 
 ID: B3-Ch11a-Avoided
@@ -343,9 +337,6 @@ TEXT:
 
 set(v_b3_ch11_hear,1) if (v_hearing >= 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2)
-set(v_b3_ch11_hear,0) if (v_hearing < 2 && v_perception_aux >= 4)
-set(v_b3_ch11_hear,0) if (v_hearing < 2 && v_perception_aux < 4)
-stat_check(v_hearing,2)
 #if(v_hearing >= 2) {
  
 "Yeah, if it's marked like you say, then he probably avoided that tunnel."
@@ -456,7 +447,6 @@ choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_per
 ID: B3-Ch11a-Observation
 TEXT: 
 
-stat_check(v_observation,4)
  
 Just as we were about to leave, I notice that a small area from one of the tunnel walls looks slightly out of place, compared to the rest of the black seredium surface. For some reason, this bothers me, so I walk closer to it, so that I can get a better look.
 
@@ -589,14 +579,12 @@ Taking a good look around Hadrik and the lessathi guard, I see that they are sur
 "Hahahah!" Kleykarth laughs. "I was just messing with you, dwarf. There's no need for you to panic. Your secrets are safe with me!"
 
 }
-choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch11_puzzle4 == 1)
-choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch11_puzzle4 == 0)
+choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch11_puzzle4 == 0 || v_b3_ch11_puzzle4 == 1)
 
 
 ID: B3-Ch11a-Behind
 TEXT: 
 
-stat_check(v_observation,4)
  
 Once we leave the lessathi guard behind, it doesn't take us long to reach the entrance of the tunnel, and then to go through the other corridor, in order to head towards the main quarters of Meridith's opposing faction.
 
@@ -642,7 +630,6 @@ TEXT:
 
 set(v_b3_ch11_hear,1) if (v_hearing >= 2)
 set(v_b3_ch11_hear,0) if (v_hearing < 2)
-stat_check(v_hearing,2)
 #if(v_hearing >= 2) {
  
 "Actually, he might have had even more of a reason to go there, if it's marked."
@@ -873,12 +860,9 @@ TEXT:
 "Is he--" Meredith turns to me, as she seems to be having trouble finding her words. "Is this machine mocking me?"
 
 }
-choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 0)
-choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 1)
-choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 0)
-choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 1)
-choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 0)
-choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 1)
+choice("""Welcome to the club. He's been mocking us like this since the first day we met him.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice("""Actually, I think he just can't stop himself from talking like this.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice("""I've always found it difficult to tell if he's being serious or not in these situations.""", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
 
 
 ID: B3-Ch11a-Exchange
@@ -973,9 +957,7 @@ TEXT:
 "...No," Meridith says, as she appears to be calming down. "I will not give in to your provocations. You know very well that you have no proof for your claims, and I will not waste any time validating your conspiracies."
 
 }
-choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty) if (v_b3_ch11_mocking == 0)
-choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty) if (v_b3_ch11_mocking == 1)
-choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty) if (v_b3_ch11_mocking == 2)
+choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty) if (v_b3_ch11_mocking == 0 || v_b3_ch11_mocking == 1 || v_b3_ch11_mocking == 2)
 
 
 ID: B3-Ch11a-Crafty
@@ -1362,9 +1344,7 @@ TEXT:
 "And what was this 'revenge', exactly?" Daren asks.
 
 }
-choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric) if (v_b3_ch11_escape == 0)
-choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric) if (v_b3_ch11_escape == 1)
-choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric) if (v_b3_ch11_escape == 2)
+choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric) if (v_b3_ch11_escape == 0 || v_b3_ch11_escape == 1 || v_b3_ch11_escape == 2)
 
 
 ID: B3-Ch11a-Eccentric
@@ -1559,9 +1539,7 @@ While Meridith was talking, I managed to recreate the air currents spell that I 
 "What, the flying?" I ask Meridith, as I am still trying to find my balance in mid-air. "Oh, I'm just using the air elementalist powers granted to me by the device to create some air currents around me that are moving constantly. It sounds complicated at first, but if you treat it as if you were flying a plane, it gets much simpler."
 
 }
-choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector) if (v_b3_ch11_money == 0)
-choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector) if (v_b3_ch11_money == 1)
-choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector) if (v_b3_ch11_money == 2)
+choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector) if (v_b3_ch11_money == 0 || v_b3_ch11_money == 1 || v_b3_ch11_money == 2)
 
 
 ID: B3-Ch11a-Connector
@@ -1659,10 +1637,8 @@ As soon as I do that, I immediately understand what Daren was talking about. I a
  I'm starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
-choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 1)
-choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 0)
-choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 1)
-choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 0)
+choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
+choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
 
 
 ID: B3-Ch11a-Generous
@@ -1734,8 +1710,7 @@ Seeing what she is doing, Meridith crosses her arms, giving Illuna a reproachful
 "I've found quite a bit more than what I was looking for, actually," Illuna says. "I believe that this newly acquired knowledge will be very useful in helping me develop some techniques that I've been working on for the past few days."
 
 }
-choice("Continue", B3-Ch11a-Exploring, v_current_scene = B3-Ch11a-Exploring) if (v_b3_ch11_red == 0)
-choice("Continue", B3-Ch11a-Exploring, v_current_scene = B3-Ch11a-Exploring) if (v_b3_ch11_red == 1)
+choice("Continue", B3-Ch11a-Exploring, v_current_scene = B3-Ch11a-Exploring) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1)
 
 
 ID: B3-Ch11a-Exploring
@@ -2026,9 +2001,7 @@ As Hadrik and Daren are just finishing their conversation, the secret door to th
 "Looks like there will be a lot of familiar faces at this meeting," Daren says. "We've all met Leo the leopard and the orc captain, and I'm pretty sure Barry said he and Illuna met Fyron, so the only ones we won't know there will be the kings of Varathia and the representative of the dragons. Maybe we'll have a chance to meet some of them in Galamir."
 
 }
-choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration) if (v_b3_ch11_diane == 0)
-choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration) if (v_b3_ch11_diane == 1)
-choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration) if (v_b3_ch11_diane == 2)
+choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration) if (v_b3_ch11_diane == 0 || v_b3_ch11_diane == 1 || v_b3_ch11_diane == 2)
 
 
 ID: B3-Ch11a-Declaration
@@ -2259,10 +2232,7 @@ TEXT:
 "Not to ruin the mood or anything," Daren says, "but I'd advise moving slowly when you fly away from here, as an extra precaution. Normally, the enchanter's oath that you've taken should not require you to do anything else, now that we are in possession of the pinecone detector, but it never hurts to be too careful."
 
 }
-choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 0)
-choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 1)
-choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 2)
-choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 3)
+choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 0 || v_b3_ch11_melindra == 1 || v_b3_ch11_melindra == 2 || v_b3_ch11_melindra == 3)
 
 
 ID: B3-Ch11a-Military

@@ -1,7 +1,6 @@
 ID: Ch7-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
 #if(v_ch3_kate_badly_hurt == 0) {
  
 "Barry, I would like to have a word with you, in private," Kate tells me, as the four of us are taking a small break near a river.
@@ -1615,8 +1614,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_premonition >= 3 && v_agility < 3 || v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_premonition < 3)
-stat_check(v_agility,3)
-stat_check(v_premonition,3)
 #if(v_agility >= 3) {
  
 "Alright," I tell him. "Then, I'll just go kill the healer real quick."
@@ -1724,10 +1721,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness == 4 && v_strength >= 3 || v_agility >= 2 && v_strength < 3 || v_agility >= 2 && v_toughness < 4 || v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4)
 set(v_is_dead,1) if ((v_combat_technique < 3 || v_strength < 3) && (v_strength < 3 || v_toughness < 4) && v_agility < 2)
-stat_check(v_agility,2)
-stat_check(v_strength,3)
-stat_check(v_toughness,4)
-stat_check(v_combat_technique,3)
 #if(v_strength < 3 && v_agility >= 2) {
  
 
@@ -1841,8 +1834,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_agility == 0 && v_perception >= 2 || v_agility >= 1)
 set(v_is_dead,1) if (v_agility == 0 && v_perception < 2)
-stat_check(v_agility,1)
-stat_check(v_observation,2)
 #if(v_agility >= 1) {
  
 I'm not going to win an arm wrestling match against one of these monsters anytime soon. There's no use trying to fight them head on. I'll just let Daren do his thing and try to avoid getting hit as long as possible.
@@ -2539,9 +2530,6 @@ TEXT:
 
 set(v_ch7_win_vs_hadrik,0) if (v_combat_technique == 4 && v_strength < 2 || v_combat_technique < 4 || v_reflexes < 3)
 set(v_ch7_win_vs_hadrik,1) if (v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2)
-stat_check(v_reflexes,3)
-stat_check(v_combat_technique,4)
-stat_check(v_strength,2)
 #if(v_reflexes < 3) {
  
 Even for a prod, his strike was so fast that I couldn't even dream of dodging it. Instead, I get thrown back about four feet before falling to the ground with a big thump.

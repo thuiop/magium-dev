@@ -560,10 +560,7 @@ We then hear her catching her breath a few times, while trying to stop herself f
 "I can handle myself in a fight!" Sophie says. "You know that!"
 
 }
-choice("Continue", B3-Ch10b-Interacts, v_current_scene = B3-Ch10b-Interacts) if (v_b3_ch10_eiden == 0)
-choice("Continue", B3-Ch10b-Interacts, v_current_scene = B3-Ch10b-Interacts) if (v_b3_ch10_eiden == 1)
-choice("Continue", B3-Ch10b-Interacts, v_current_scene = B3-Ch10b-Interacts) if (v_b3_ch10_eiden == 2)
-choice("Continue", B3-Ch10b-Interacts, v_current_scene = B3-Ch10b-Interacts) if (v_b3_ch10_eiden == 3)
+choice("Continue", B3-Ch10b-Interacts, v_current_scene = B3-Ch10b-Interacts) if (v_b3_ch10_eiden == 0 || v_b3_ch10_eiden == 1 || v_b3_ch10_eiden == 2 || v_b3_ch10_eiden == 3)
 
 
 ID: B3-Ch10b-Interacts
@@ -852,8 +849,7 @@ He waits for a few moments, but he does not get an answer.
 "Unacceptable," the spirit says. "No earthen creature will extract my energy without my permission. If you will not cease your actions immediately, you will be faced with severe consequences."
 
 }
-choice("Continue", B3-Ch10b-Equivalent, v_current_scene = B3-Ch10b-Equivalent) if (v_b3_ch10_beforehand == 1)
-choice("Continue", B3-Ch10b-Equivalent, v_current_scene = B3-Ch10b-Equivalent) if (v_b3_ch10_beforehand == 0)
+choice("Continue", B3-Ch10b-Equivalent, v_current_scene = B3-Ch10b-Equivalent) if (v_b3_ch10_beforehand == 0 || v_b3_ch10_beforehand == 1)
 
 
 ID: B3-Ch10b-Equivalent
@@ -915,8 +911,7 @@ TEXT:
 "If you're in the mood for a fight, then I have just the thing for you," Arraka says. "What if I told you that the reason for the banishment of all females of the civilized races from the magical plane was a lie fabricated by the God of Time, the God of Death and the God of Fate? What if I were to tell you I have unquestionable proof that Selkram and Ulruk themselves have used my soul absorption technique in the past?"
 
 }
-choice("Continue", B3-Ch10b-Enlightened, v_current_scene = B3-Ch10b-Enlightened) if (v_b3_ch10_beforehand == 1)
-choice("Continue", B3-Ch10b-Enlightened, v_current_scene = B3-Ch10b-Enlightened) if (v_b3_ch10_beforehand == 0)
+choice("Continue", B3-Ch10b-Enlightened, v_current_scene = B3-Ch10b-Enlightened) if (v_b3_ch10_beforehand == 0 || v_b3_ch10_beforehand == 1)
 
 
 ID: B3-Ch10b-Enlightened
@@ -1235,15 +1230,9 @@ I then follow Melindra away from the others, while Hadrik and Arraka continue th
 "Oh..." Melindra says, in a tone suggesting that this wasn't exactly the answer she would have liked to hear. "And, umm... how did you manage to convince her that it was a misunderstanding?"
 
 }
-choice("""I used the power of love and friendship.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 0) if (v_b3_ch10_destroyed == 0)
-choice("""I used the power of love and friendship.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 0) if (v_b3_ch10_destroyed == 1)
-choice("""I used the power of love and friendship.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 0) if (v_b3_ch10_destroyed == 2)
-choice("""By talking things through, in a rational manner.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 1) if (v_b3_ch10_destroyed == 0)
-choice("""By talking things through, in a rational manner.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 1) if (v_b3_ch10_destroyed == 1)
-choice("""By talking things through, in a rational manner.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 1) if (v_b3_ch10_destroyed == 2)
-choice("""I didn't need to. She figured it out on her own, eventually.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 2) if (v_b3_ch10_destroyed == 0)
-choice("""I didn't need to. She figured it out on her own, eventually.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 2) if (v_b3_ch10_destroyed == 1)
-choice("""I didn't need to. She figured it out on her own, eventually.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 2) if (v_b3_ch10_destroyed == 2)
+choice("""I used the power of love and friendship.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 0) if (v_b3_ch10_destroyed == 0 || v_b3_ch10_destroyed == 1 || v_b3_ch10_destroyed == 2)
+choice("""By talking things through, in a rational manner.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 1) if (v_b3_ch10_destroyed == 0 || v_b3_ch10_destroyed == 1 || v_b3_ch10_destroyed == 2)
+choice("""I didn't need to. She figured it out on her own, eventually.""", B3-Ch10b-Complicated, v_current_scene = B3-Ch10b-Complicated, v_b3_ch10_misunderstanding = 2) if (v_b3_ch10_destroyed == 0 || v_b3_ch10_destroyed == 1 || v_b3_ch10_destroyed == 2)
 
 
 ID: B3-Ch10b-Complicated
@@ -1398,9 +1387,7 @@ This time, Hadrik brings his arm all the way back, in order to make sure that hi
 Daren was pushed back around thirty inches or so by the impact of the hit, but for the most part he stood his ground, and unless he sustained any non-visible injuries that I am unaware of, he seems to be completely unharmed.
 
 }
-choice("Continue", B3-Ch10b-Sparring, v_current_scene = B3-Ch10b-Sparring) if (v_b3_ch10_misunderstanding == 0)
-choice("Continue", B3-Ch10b-Sparring, v_current_scene = B3-Ch10b-Sparring) if (v_b3_ch10_misunderstanding == 1)
-choice("Continue", B3-Ch10b-Sparring, v_current_scene = B3-Ch10b-Sparring) if (v_b3_ch10_misunderstanding == 2)
+choice("Continue", B3-Ch10b-Sparring, v_current_scene = B3-Ch10b-Sparring) if (v_b3_ch10_misunderstanding == 0 || v_b3_ch10_misunderstanding == 1 || v_b3_ch10_misunderstanding == 2)
 
 
 ID: B3-Ch10b-Sparring

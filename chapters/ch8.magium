@@ -1,7 +1,6 @@
 ID: Ch8-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "Barry!" I hear Daren's voice calling out to me. "Hey, Barry, can you hear me?"
 
@@ -255,7 +254,6 @@ choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-succes
 ID: Ch8-Languages-failed
 TEXT: 
 
-stat_check(v_ancient_languages,3)
  
 As I approach the glyphs on the wall, I attempt to decipher them, but the words used are too complicated for me to understand at my current level of knowledge. I might stand a better chance if I max out my ancient languages stat, however.
 
@@ -331,7 +329,6 @@ choice("Continue", Ch8-Training, v_current_scene = Ch8-Training)
 ID: Ch8-Languages-success
 TEXT: 
 
-stat_check(v_ancient_languages,3)
  
 As I start to decipher the glyphs on the wall, I realize that the writing says: "If you like discovering secrets, tap each of these glyphs in rapid succession."
 
@@ -650,7 +647,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 2)
 set(v_is_dead,0) if (v_reflexes >= 2)
-stat_check(v_reflexes,2)
 #if(v_reflexes < 2) {
  
 "Hadrik, there's no time! Just tear down that wall, and we'll worry about the consequences later."
@@ -815,7 +811,6 @@ choice("Continue", Ch8-Hearing-success, v_current_scene = Ch8-Hearing-success) i
 ID: Ch8-Hearing-fail
 TEXT: 
 
-stat_check(v_hearing,4)
  
 "Well," Hadrik says. "If it's not going to come to us..."
 
@@ -837,7 +832,6 @@ choice("""Are you seriously going to do this every time we fight a big monster?"
 ID: Ch8-Hearing-success
 TEXT: 
 
-stat_check(v_hearing,4)
  
 I can hear someone's heart pounding very rapidly. Trying to locate the source of the sound, I realize that it isn't coming from one of us, but from the hydra. I start to block out all other sounds with my mind and focus solely on the loud beating of the monster's heart, in order to pinpoint its exact location. It takes me a few seconds, but in the end I manage to trace the sound back to its origin: the tip of the hydra's tail. So that's where it was hiding its weak point!
 
@@ -907,7 +901,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_agility < 3)
 set(v_is_dead,0) if (v_agility >= 3)
-stat_check(v_agility,3)
 #if(v_agility < 3) {
  
 I waste no time and rush towards the monster now, while it's still disoriented. 
@@ -1424,7 +1417,6 @@ TEXT:
 
 set(v_is_dead,1) if ((v_ch8_talk == 0 || v_ch8_talk == 1) && v_premonition < 4)
 set(v_is_dead,0) if (v_premonition == 4 && (v_ch8_talk == 0 || v_ch8_talk == 1))
-stat_check(v_premonition,4)
 #if(v_premonition < 4 && v_ch8_talk == 0) {
  
 "If we know that at least one of these paths is the correct one, then we may as well just pick one at random and if we trigger any traps, we get out of there as soon as possible. I say we try the corridor marked with a wasp first."

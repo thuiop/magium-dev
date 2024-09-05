@@ -1,7 +1,6 @@
 ID: B2-Ch02a-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 "Listen, Arraka," Daren says, as we walk towards the arena. "Are you absolutely sure that the Eiden you've fought during the still winter is the same person as the one we're dealing with now? I mean, it's been six hundred years, right? No one would blame you if you were to make a confusion after all this time!"
 
@@ -454,10 +453,6 @@ set(v_b2_ch2_fist,2) if (v_strength >= 2 && v_toughness < 2)
 set(v_b2_ch2_fist,3) if (v_combat_technique >= 2 && v_strength < 2 && v_toughness < 2)
 set(v_b2_ch2_fist,4) if (v_reflexes >= 2 && v_combat_technique < 2 && v_strength < 2 && v_toughness < 2)
 set(v_b2_ch2_fist,5) if (v_combat_technique < 2 && v_reflexes < 2 && v_strength < 2 && v_toughness < 2)
-stat_check(v_toughness,2)
-stat_check(v_strength,2)
-stat_check(v_combat_technique,2)
-stat_check(v_reflexes,2)
 #if(v_toughness >= 2) {
  
 I make no attempt to dodge his strike, as the man's fist hits me in the bridge of my nose. The impact from the blow made me feel almost no pain, and it didn't even make me move an inch from my original position. As the bulky man retracts his arm, I look at him with the same disinterested expression in my eyes as the one that the desk worker had when he looked at me.
@@ -603,7 +598,6 @@ choice("Continue", B2-Ch02a-Unusual, v_current_scene = B2-Ch02a-Unusual)
 ID: B2-Ch02a-Unusual
 TEXT: 
 
-stat_check(v_premonition,2)
 #if(v_premonition < 2) {
  
 "Yeah, it's Barry," I say.
@@ -1666,7 +1660,6 @@ TEXT:
 
 set(v_b2_ch2_heard,1) if (v_hearing >= 3)
 set(v_b2_ch2_heard,0) if (v_hearing < 3)
-stat_check(v_hearing,3)
 #if(v_hearing >= 3) {
  
 Not long after the lessathi leaves, I start to hear some voices in a distant hallway outside my cell. I recognize one of the voices as that of the guard who woke me up this morning.
@@ -2145,9 +2138,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_combat_technique >= 3 && v_strength < 2 || v_reflexes >= 3 && v_strength < 2 || v_strength >= 2)
 set(v_is_dead,1) if (v_combat_technique < 3 && v_reflexes < 3 && v_strength < 2)
-stat_check(v_strength,2)
-stat_check(v_combat_technique,3)
-stat_check(v_reflexes,3)
 #if(v_strength >= 2) {
  
 The rock smashes the gargoyle's head, which makes it fall on the ground. I proceed to kill the second gargoyle in the same way, but before I can find a third rock, all of the iron gratings suddenly open at the same time, and the beasts slowly start coming out of their cells.
@@ -2228,7 +2218,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
-stat_check(v_toughness,3)
 #if(v_toughness >= 3) {
  
 I retreat inside the gargoyle cell, and I post myself in front of the door, with my dagger at the ready. As expected, the griffins follow me, and the first one to enter through the door blocks the way for all the others. I lunge at its chest with my dagger, but the beast blocks my strike with one of its front claws. As I struggle to get the knife out of its claw, the griffin brings its beak down upon me, aiming for my chest. 
@@ -2258,8 +2247,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_strength >= 3 && v_agility < 3 || v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3 && v_strength < 3)
-stat_check(v_agility,3)
-stat_check(v_strength,3)
 #if(v_agility >= 3) {
  
 I decide that it's too risky to allow myself to get cornered inside one room, so I prepare to engage all of the beasts at the same time.
@@ -2318,7 +2305,6 @@ TEXT:
 
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
-stat_check(v_toughness,3)
 #if(v_toughness >= 3) {
  
 Alright, here we go!

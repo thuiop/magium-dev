@@ -22,9 +22,6 @@ function varToStat(varName) {
     if (varName == "v_agility") {
         return "Speed"
     }
-    else if (varName == "v_checkpoint_rich") {
-        return "Checkpoint reached"
-    }
     else {
         return statName = varName.charAt(2).toUpperCase() + varName.slice(3).replace("_"," ")
     }
@@ -41,20 +38,21 @@ async function parse(filename){
     let scenes = [];
     let currentScene = {};
     let currentParagraph = {"text":"","conditions":undefined}
+    let skip = false;
     for await (const line of rl) {
         if (line.startsWith("ID")) {
             if (currentScene) {scenes.push(currentScene)};
             currentScene = {"id": line.split(": ")[1],"paragraphs":[],"statChecks":[],"setVariables":[],"choices":[]};
         }
         else if (line.startsWith("TEXT")) {
-
+            skip = true; // There is a blank line after TEXT
+        }
+        else if (skip) {
+            skip = false;
         }
         else if (match = line.match(/set\((?<varName>.*),(?<value>[0-9])\)( if (?<condition>.*))?/)) {
             const conditions = match.groups.condition ? parseConditions(match.groups.condition) : undefined;
             currentScene.setVariables.push({"name":match.groups.varName,"value":match.groups.value,"conditions":conditions});
-        }
-        else if (match = line.match(/stat_check\((?<varName>.*),(?<value>[0-9])\)/)) {
-            currentScene.statChecks.push({"variable":varToStat(match.groups.varName),"value":parseInt(match.groups.value)});
         }
         else if (match = line.match(/choice\("(?<text>.*)", (?<target>[\w\-\s]*), (?<setVariables>(\w* = [\w\-\s\+]*(, )?)*)((, )?special:(?<special>.*?))?\)( if (?<condition>.*))?/)) {
             if (currentParagraph.text != "") {currentScene.paragraphs.push(currentParagraph)}
@@ -69,9 +67,6 @@ async function parse(filename){
             const conditions = match.groups.condition ? parseConditions(match.groups.condition) : undefined;
             currentScene.choices.push({"text":match.groups.text,"target":match.groups.target,"setVariables":setVariable,"special":match.groups.special,"conditions":conditions});
             if (filename.includes("/ch1.magium")) {
-            //    console.log(line)
-            //    console.log(currentScene.id)
-            //    console.log(currentScene.choices[currentScene.choices.length -1])
             }
         }
         else if (match = line.match(/#if\((?<condition>.*)\)/)) {

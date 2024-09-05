@@ -1,7 +1,6 @@
 ID: B3-Ch06a-Intro
 TEXT: 
 
-stat_check(checkpoint,1)
  
 "Daren?..." Hadrik says. "Are you okay there, buddy?"
 
@@ -266,8 +265,7 @@ As promised, it does not take Rose longer than three minutes to come back to the
 "What do you think, Kelrim?" Daren says. "Is there any shop in Ollendor that would have all the ingredients we are looking for?"
 
 }
-choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise) if (v_b3_ch6_sleep == 1)
-choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise) if (v_b3_ch6_sleep == 0)
+choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise) if (v_b3_ch6_sleep == 0 || v_b3_ch6_sleep == 1)
 
 
 ID: B3-Ch06a-Merchandise
@@ -329,8 +327,7 @@ We walk for a few more minutes, until we finally reach the entrance to the telep
  "Well, there were three of us Barrys in the same neighborhood when we were growing up," the teleporter guy says. "It was getting a bit difficult to tell who we were talking about when we were playing outside, so we decided to give each other nicknames. Unfortunately, being the brats that we were, we ended up giving each other the most insulting nicknames that we could possibly think of, and so our newly chosen designations quickly became useless, because none of us were stupid enough to respond when we were being called names like slowpoke, monobrow or fat face. That was when... when my little brother stepped in. He told us to stop fighting, and that he would make up some better nicknames for us which we would have no reason to refuse. He always was the voice of reason in our group. Even when we were little..."
 
 }
-choice("Continue", B3-Ch06a-Merchandise2, v_current_scene = B3-Ch06a-Merchandise2) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch06a-Merchandise2, v_current_scene = B3-Ch06a-Merchandise2) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch06a-Merchandise2, v_current_scene = B3-Ch06a-Merchandise2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch06a-Merchandise2
@@ -377,13 +374,8 @@ choice("""It doesn't matter if he used to be called slowpoke or not. Nobody is g
 ID: B3-Ch06a-Slowpoke
 TEXT: 
 
-set(v_b3_ch6_concealed,0) if (v_b3_ch6_slowpoke == 0)
-set(v_b3_ch6_concealed,0) if (v_b3_ch6_slowpoke == 1)
-set(v_b3_ch6_concealed,0) if (v_b3_ch6_slowpoke == 2)
-set(v_b3_ch6_concealed,0) if (v_bluff < 3)
+set(v_b3_ch6_concealed,0) if (True)
 set(v_b3_ch6_concealed,1) if (v_bluff >= 3)
-set(v_b3_ch6_concealed,0)
-stat_check(v_aura_concealment,3)
 #if(v_b3_ch6_slowpoke == 0) {
  
 "Don't let her get to you, slowpoke! She's only trying to annoy you!"
@@ -540,13 +532,8 @@ choice("""How exactly are you planning to kill us when you can't even move your 
 ID: B3-Ch06a-Maintenance
 TEXT: 
 
-set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 0)
-set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 1 && v_bluff < 4)
+set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 1 && v_bluff < 4 || v_b3_ch6_betrayed == 0 || v_b3_ch6_betrayed == 2 || v_b3_ch6_betrayed == 3)
 set(v_b3_ch6_betrayed,3) if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)
-set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 3 && v_bluff < 4)
-set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 3 && v_bluff >= 4)
-set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 2)
-stat_check(v_bluff,4)
 #if(v_b3_ch6_betrayed == 0) {
  "Actually, I think you should study this phenomenon right now and let us be on our way."
 "Request denied," the Overseer says. "Now calculating the most efficient way in which to end your lives. Please wait. We will get back to you shortly."
@@ -862,13 +849,8 @@ choice("Tell the shopkeeper that I already gave him the password and that he sai
 ID: B3-Ch06a-Secret2
 TEXT: 
 
-set(v_b3_ch6_password,0) if (v_b3_ch6_password == 0)
-set(v_b3_ch6_password,0) if (v_b3_ch6_password == 1)
-set(v_b3_ch6_password,0) if (v_b3_ch6_password == 2 && v_bluff < 4)
+set(v_b3_ch6_password,0) if (v_b3_ch6_password == 2 && v_bluff < 4 || v_b3_ch6_password == 0 || v_b3_ch6_password == 1 || v_b3_ch6_password == 3)
 set(v_b3_ch6_password,3) if (v_b3_ch6_password == 2 && v_bluff >= 4)
-set(v_b3_ch6_password,0) if (v_b3_ch6_password == 3 && v_bluff < 4)
-set(v_b3_ch6_password,0) if (v_b3_ch6_password == 3 && v_bluff >= 4)
-stat_check(v_bluff,4)
 #if(v_b3_ch6_password == 0) {
  "The password is to shut your whore mouth and to open the door before we blow it open," I shout loudly, so the shopkeeper can hear me.
 "You've got some nerve to threaten me like that on my own shop's doorstep," the shopkeeper says. "Do you want to know what happened to the last guy who said those words to me?"
@@ -1315,10 +1297,7 @@ The shopkeeper brings Daren the two bags he asked for, and then he takes the lis
 As soon as the store owner brings us everything we need, Daren hands him the money that he asked for and then we get ready to leave. We say goodbye to the shopkeeper as he pulls on the lever again in order to open the secret door, and we all go back the way we came.
 
 }
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent)
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_tie == 1)
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_tie == 0)
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent)
+choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
 
 
 ID: B3-Ch06a-Complaint
@@ -1384,10 +1363,8 @@ TEXT:
 "That's not going to work," Kate says. "You don't have any attacks that can hit multiple flying targets at the same time. If Melindra could cast another wind barrier around me and her like yesterday, I should be able to lift us into the air with an ice platform and keep the drones at bay for a minute with my icicles."
 
 }
-choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 0)
-choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 1)
-choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 0)
-choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 1)
+choice("Agree with Hadrik's plan.", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan, v_b3_ch6_plan = 0) if (v_b3_ch6_survey == 0 || v_b3_ch6_survey == 1)
+choice("Agree with Kate's plan.", B3-Ch06a-Kate-Plan, v_current_scene = B3-Ch06a-Kate-Plan, v_b3_ch6_plan = 1) if (v_b3_ch6_survey == 0 || v_b3_ch6_survey == 1)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Awake, v_current_scene = B3-Ch06a-Rose-Awake, v_b3_ch6_plan = 2) if (v_b3_ch6_survey == 0 && v_b3_ch6_sleep == 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Awake, v_current_scene = B3-Ch06a-Rose-Awake, v_b3_ch6_plan = 2) if (v_b3_ch6_survey == 1 && v_b3_ch6_sleep == 0)
 choice("Suggest calling Rose on the transceiver so she can freeze time for thirty seconds.", B3-Ch06a-Rose-Asleep, v_current_scene = B3-Ch06a-Rose-Asleep, v_b3_ch6_plan = 3) if (v_b3_ch6_survey == 0 && v_b3_ch6_sleep == 1)
@@ -1397,18 +1374,8 @@ choice("Suggest calling Rose on the transceiver so she can freeze time for thirt
 ID: B3-Ch06a-Hadrik-Plan
 TEXT: 
 
-set(v_is_dead,0) if (v_combat_technique >= 1 && v_b3_ch6_plan == 0)
-set(v_is_dead,0) if (v_combat_technique < 1 && v_aura_hardening >= 2 && v_b3_ch6_plan == 0)
-set(v_is_dead,0) if (v_combat_technique < 1 && v_aura_hardening < 2 && v_b3_ch6_plan == 0)
-set(v_is_dead,0) if (v_combat_technique >= 1 && v_b3_ch6_plan == 2)
-set(v_is_dead,0) if (v_combat_technique < 1 && v_aura_hardening >= 2 && v_b3_ch6_plan == 2)
-set(v_is_dead,0) if (v_combat_technique < 1 && v_aura_hardening < 2 && v_b3_ch6_plan == 2)
-set(v_is_dead,0)
-set(v_is_dead,0) if (v_combat_technique >= 1)
-set(v_is_dead,0) if (v_combat_technique < 1 && v_aura_hardening >= 2)
-set(v_is_dead,1) if (v_combat_technique < 1 && v_aura_hardening < 2)
-stat_check(v_combat_technique,1)
-stat_check(v_aura_hardening,2)
+set(v_is_dead,0) if (True)
+set(v_is_dead,1) if (v_aura_hardening < 2 && v_combat_technique < 1)
 #if(v_combat_technique >= 1 && v_b3_ch6_plan == 0) {
  
 "Melindra's powers are unreliable, though," I say. "The fact that she managed to keep control of that barrier yesterday does not mean she can do it again today. I think it might be better to let Hadrik handle this."
@@ -1572,11 +1539,8 @@ choice("Continue", B3-Ch06a-Hadrik-Plan, v_current_scene = B3-Ch06a-Hadrik-Plan)
 ID: B3-Ch06a-Kate-Plan
 TEXT: 
 
-set(v_is_dead,0) if (v_combat_technique >= 2)
-set(v_is_dead,0) if (v_combat_technique < 2 && v_aura_hardening >= 3)
-set(v_is_dead,1) if (v_combat_technique < 2 && v_aura_hardening < 3)
-stat_check(v_combat_technique,2)
-stat_check(v_aura_hardening,3)
+set(v_is_dead,0) if (v_aura_hardening >= 3 && v_combat_technique < 2 || v_combat_technique >= 2)
+set(v_is_dead,1) if (v_aura_hardening < 3 && v_combat_technique < 2)
 #if(v_combat_technique >= 2) {
  My combat technique stat allows me to predict the movements of the flying metal balls well enough to avoid getting outmaneuvered. Even though we appear to be doing a pretty good job of keeping our enemies at bay, there's still a large number of drones coming our way, which means that we can't really move from our position and because of this Daren and the others are getting further away from us the more we fight. Fortunately, I see Daren waving at me from a distance, and once I wave back, he goes inside one of the buildings along with Kelrim, Leila and Hadrik.
 Perfect. Now that I know where the shop is, we can keep fighting these drones without any worries of getting left behind.
@@ -2024,7 +1988,6 @@ TEXT:
 
 set(v_b3_ch6_labels,0) if (v_ancient_languages < 1)
 set(v_b3_ch6_labels,3) if (v_ancient_languages >= 1)
-stat_check(v_ancient_languages,1)
 #if(v_ancient_languages < 1) {
  
 I get closer to one of the shelves so I can see the writing on one of the labels a little better. Unfortunately, no matter how close I am, there's still no way for me to understand any of the words. Even if it appears to be written in the Common language, the handwriting itself is so ugly that it's completely unreadable. Seeing that I'm making no progress, I eventually decide to step back and to return where my friends are waiting behind the counter.
@@ -2085,7 +2048,6 @@ TEXT:
 
 set(v_b3_ch6_labels,0) if (v_perception < 1)
 set(v_b3_ch6_labels,2) if (v_perception >= 1)
-stat_check(v_observation,1)
 #if(v_perception < 1) {
  
 I get a little closer to the counter so I can have a better look at the plants on the shelves, but with my limited knowledge of herbs in general, I do not find anything that could be of interest to us.
@@ -2201,8 +2163,7 @@ TEXT:
 "Hey, Barry, can you hear us?" Daren says into the transceiver after he taps it once.
 
 }
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_sleep == 1)
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_sleep == 0)
+choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_sleep == 0 || v_b3_ch6_sleep == 1)
 
 
 ID: B3-Ch06a-Silent

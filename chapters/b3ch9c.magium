@@ -360,10 +360,7 @@ When I realize what he is doing, my brain is immediately flooded by a swarm of i
 "The one thing that all the scholars agreed on when talking about disintegration was that auras are by far the most resistant to it," I say. "We've already seen how well the king of the underground's hardened aura barrier could withstand that shockwave from before, and we also have Flower, who is an ethereal and a fire elementalist, so she would be the perfect candidate for an experiment like this, thanks to the huge amount of control that she has over her flames. If you and I can keep the other drones away from them in the meantime, they might just be able to pull it off, but we need to hurry!"
 
 }
-choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible) if (v_b3_ch9_element == 0)
-choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible) if (v_b3_ch9_element == 1)
-choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible) if (v_b3_ch9_element == 2)
-choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible) if (v_b3_ch9_element == 3)
+choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible) if (v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
 
 
 ID: B3-Ch09c-Feasible
@@ -474,9 +471,9 @@ Not long after I stop talking, the necks begin to regenerate very fast, but inst
 The last thing I get to experience is my ethereal body getting melted by acid saliva, as one of the green hydra heads swallows me whole, and then I lose my consciousness completely.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element > 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element > 0)
-choice("Load game", , , special:saves) if (v_b3_ch9_element > 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
+choice("Load game", , , special:saves) if (v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
 
 
 ID: B3-Ch09c-Frantically
@@ -737,10 +734,8 @@ From what I can tell, it seems like the Overseer is currently too preoccupied wi
 Meanwhile, on the earthen plane, one of the metal golems has gained a significant advance on the other four, and it will very soon get close enough to shoot its fire beam at us. If Hadrik doesn't wake up soon, we might be in trouble.
 
 }
-choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik == 0)
-choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik == 1)
-choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik == 0)
-choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik == 1)
+choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
+choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
 
 
 ID: B3-Ch09c-Distracted
@@ -799,13 +794,8 @@ choice("Load game", , , special:saves) if (v_aura_hardening > 0)
 ID: B3-Ch09c-Upwards
 TEXT: 
 
-set(v_is_dead,0) if (v_b3_ch9_currents == 0)
-set(v_is_dead,0) if (v_b3_ch9_currents == 1 && v_perception >= 3)
-set(v_is_dead,0) if (v_b3_ch9_currents == 1 && v_perception < 3 && v_reflexes >= 3)
-set(v_is_dead,1) if (v_b3_ch9_currents == 1 && v_aura_hardening == 0 && v_perception < 3 && v_reflexes < 3)
-set(v_is_dead,1) if (v_b3_ch9_currents == 1 && v_aura_hardening > 0 && v_perception < 3 && v_reflexes < 3)
-stat_check(v_observation,3)
-stat_check(v_reflexes,3)
+set(v_is_dead,0) if (v_b3_ch9_currents == 1 && v_perception >= 3 || v_b3_ch9_currents == 1 && v_reflexes >= 3 || v_b3_ch9_currents == 0)
+set(v_is_dead,1) if (v_b3_ch9_currents == 1 && (v_aura_hardening == 0 || v_aura_hardening > 0) && v_perception < 3 && v_reflexes < 3)
 #if(v_b3_ch9_currents == 0) {
  I begin to focus my consciousness on the earthen plane and I raise my arms up, causing Melindra's air currents to activate themselves and to propel me upwards.
 The strong wind from the storm is giving me a lot of trouble with my maneuvering, just as I expected it to, but at least I still retain full control of the magical currents. I can't imagine how bad this would have been if I had told Melindra to cast the version of the currents where she needed to be awake to help me control them.
@@ -1101,8 +1091,8 @@ Just as I was preparing to engage the metal giants in open combat, I see Daren m
 "Barry, over here!" Daren says. "Come take cover behind my shield!"
 
 }
-choice("Try placing myself between two golems again.", B3-Ch09c-Between, v_current_scene = B3-Ch09c-Between) if (v_b3_ch9_hadrik > 0)
-choice("Try finding a spot in which none of the golems can attack me.", B3-Ch09c-Finding, v_current_scene = B3-Ch09c-Finding) if (v_b3_ch9_hadrik > 0)
+choice("Try placing myself between two golems again.", B3-Ch09c-Between, v_current_scene = B3-Ch09c-Between) if (v_b3_ch9_hadrik == 1)
+choice("Try finding a spot in which none of the golems can attack me.", B3-Ch09c-Finding, v_current_scene = B3-Ch09c-Finding) if (v_b3_ch9_hadrik == 1)
 choice("Take cover behind Daren's shield.", B3-Ch09c-Cover, v_current_scene = B3-Ch09c-Cover, v_b3_ch9_cover = 1) if (v_b3_ch9_hadrik == 0)
 choice("Tell Daren that it would be better if we each fought two golems instead.", B3-Ch09c-Fought, v_current_scene = B3-Ch09c-Fought) if (v_b3_ch9_hadrik == 0)
 
@@ -1145,11 +1135,8 @@ choice("Continue", B3-Ch09c-Maintenance, v_current_scene = B3-Ch09c-Maintenance)
 ID: B3-Ch09c-Fought
 TEXT: 
 
-set(v_is_dead,1) if (v_reflexes < 2 && v_b3_ch9_currents == 0)
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b3_ch9_currents == 0)
-set(v_is_dead,1) if (v_reflexes < 4 && v_b3_ch9_currents == 1)
-set(v_is_dead,0) if (v_reflexes >= 4 && v_b3_ch9_currents == 1)
-stat_check(v_reflexes,4)
+set(v_is_dead,1) if ((v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) && (v_b3_ch9_currents == 0 || v_reflexes < 4) && (v_b3_ch9_currents == 1 || v_reflexes < 2) && (v_reflexes < 2 || v_reflexes < 4))
+set(v_is_dead,0) if ((v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) && (v_b3_ch9_currents == 0 || v_reflexes >= 4) && (v_b3_ch9_currents == 1 || v_reflexes >= 2) && (v_reflexes >= 2 || v_reflexes >= 4))
 #if(v_reflexes < 2 && v_b3_ch9_currents == 0) {
  
 "I don't think your shield can hold against four fire beams all at once," I say. "Maybe it would be better if we each fought two golems. I'll try to lure the two on the right. You try seeing if you can catch the attention of the ones on the left."
@@ -1271,11 +1258,8 @@ choice("Continue", B3-Ch09c-Maintenance, v_current_scene = B3-Ch09c-Maintenance)
 ID: B3-Ch09c-Between
 TEXT: 
 
-set(v_is_dead,1) if (v_reflexes < 2 && v_b3_ch9_currents == 0)
-set(v_is_dead,0) if (v_reflexes >= 2 && v_b3_ch9_currents == 0)
-set(v_is_dead,1) if (v_reflexes < 4 && v_b3_ch9_currents == 1)
-set(v_is_dead,0) if (v_reflexes >= 4 && v_b3_ch9_currents == 1)
-stat_check(v_reflexes,4)
+set(v_is_dead,1) if ((v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) && (v_b3_ch9_currents == 0 || v_reflexes < 4) && (v_b3_ch9_currents == 1 || v_reflexes < 2) && (v_reflexes < 2 || v_reflexes < 4))
+set(v_is_dead,0) if ((v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) && (v_b3_ch9_currents == 0 || v_reflexes >= 4) && (v_b3_ch9_currents == 1 || v_reflexes >= 2) && (v_reflexes >= 2 || v_reflexes >= 4))
 #if(v_reflexes < 2 && v_b3_ch9_currents == 0) {
  
 I might not be able to hide myself from all four golems at once, but I can still make sure that at least two of them won't attack me as long as I place myself between them.
@@ -1375,7 +1359,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 2)
 set(v_is_dead,0) if (v_perception >= 2)
-stat_check(v_observation,2)
 #if(v_perception < 2) {
  
 There has to be some place I've missed. Some place where I can sit quietly for twenty seconds so that I can finish placing my pillars on the ethereal plane.
@@ -1483,8 +1466,7 @@ All of a sudden, we hear Flower teleporting back to us and then we get to see th
 "Guys, I'm so sorry that I couldn't get back here sooner," Flower says. "I got a really nasty headache because I teleported too many times in a row over large distances and I was worried that I might mess up your fight. I didn't even imagine that you'd beat them so fast! How did you even do it?"
 
 }
-choice("Continue", B3-Ch09c-Indebted, v_current_scene = B3-Ch09c-Indebted) if (v_b3_ch9_hadrik == 0)
-choice("Continue", B3-Ch09c-Indebted, v_current_scene = B3-Ch09c-Indebted) if (v_b3_ch9_hadrik == 1)
+choice("Continue", B3-Ch09c-Indebted, v_current_scene = B3-Ch09c-Indebted) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
 
 
 ID: B3-Ch09c-Indebted
@@ -1660,8 +1642,7 @@ As I continue to walk around the plaza, I see Peter and the king of the undergro
 "Yes..." I say. "That's what I'm afraid of..."
 
 }
-choice("Continue", B3-Ch09c-Stories, v_current_scene = B3-Ch09c-Stories) if (v_b3_ch9_hadrik == 0)
-choice("Continue", B3-Ch09c-Stories, v_current_scene = B3-Ch09c-Stories) if (v_b3_ch9_hadrik == 1)
+choice("Continue", B3-Ch09c-Stories, v_current_scene = B3-Ch09c-Stories) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
 
 
 ID: B3-Ch09c-Stories
@@ -1717,8 +1698,7 @@ He then pulls out some bottles from his backpack like he said he would, and he h
 "Sure, no problem!" Hadrik says, as he puts Peter and the king's bottles back in his backpack. "So, anyway, where was I? Oh yeah, I was gonna start from the beginning. Let me tell you what happened right after I reached the door to the Overseer's secret base. Man, you guys are going to love this!"
 
 }
-choice("Continue", B3-Ch09c-Ending, v_current_scene = B3-Ch09c-Ending) if (v_b3_ch9_hadrik == 0)
-choice("Continue", B3-Ch09c-Ending, v_current_scene = B3-Ch09c-Ending) if (v_b3_ch9_hadrik == 1)
+choice("Continue", B3-Ch09c-Ending, v_current_scene = B3-Ch09c-Ending) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
 
 
 ID: B3-Ch09c-Ending
@@ -1778,5 +1758,4 @@ However, instead of sending a green-eyed drone to talk to Barry and his team, th
 Reluctantly, Barry and the others started heading towards the Ollendor castle, so that they could have one last discussion with the Overseer about his plans of ruling the city, now that the rebels no longer posed a problem for him.
 
 }
-choice("Proceed to next chapter", B3-Ch10a-Intro, v_current_scene = B3-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 0)
-choice("Proceed to next chapter", B3-Ch10a-Intro, v_current_scene = B3-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 1)
+choice("Proceed to next chapter", B3-Ch10a-Intro, v_current_scene = B3-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)

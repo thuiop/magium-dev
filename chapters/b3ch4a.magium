@@ -1,7 +1,6 @@
 ID: B3-Ch04a-Intro
 TEXT: 
 
-stat_check(checkpoint,1)
 #if(v_ch11_saved_rose == 1) {
  
 "Barry!" I hear Rose's voice through the transceiver. "--happened-- everyone alright?--"
@@ -58,8 +57,7 @@ Her face is almost white and she looks as if she were only seconds away from fai
 "Illuna, you can't get up yet!" Kate says. "You need to rest!"
 
 }
-choice("Continue", B3-Ch04a-Intro2, v_current_scene = B3-Ch04a-Intro2, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 1)
-choice("Continue", B3-Ch04a-Intro2, v_current_scene = B3-Ch04a-Intro2, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 0)
+choice("Continue", B3-Ch04a-Intro2, v_current_scene = B3-Ch04a-Intro2, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Intro2
@@ -101,10 +99,8 @@ While we're walking down the corridors, I suddenly hear a long beep coming from 
 It looks like I won't be able to see any of my stats until I answer the question on this screen.
 
 }
-choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 1)
-choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 0)
-choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 1)
-choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 0)
+choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Skip the introduction", B3-Ch04a-Introduction2, v_current_scene = B3-Ch04a-Introduction2, v_b3_ch4_introduction = 0, v_b3_ch3_stats_unavailable = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Introduction
@@ -2646,8 +2642,7 @@ The trap is practically invisible to the naked eye, but we can all feel its pres
 "I already told you that I'm not good at disarming magical traps," Illuna says. "Even if I were to try helping him, we still wouldn't get anywhere."
 
 }
-choice("Continue", B3-Ch04a-Inventor, v_current_scene = B3-Ch04a-Inventor) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch04a-Inventor, v_current_scene = B3-Ch04a-Inventor) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch04a-Inventor, v_current_scene = B3-Ch04a-Inventor) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Inventor
@@ -2679,10 +2674,8 @@ TEXT:
 "It's not electricity, it's acid," Illuna says. "I recognize it because Arraka has taught me about this spell in the past, back when she was acting as my mentor."
 
 }
-choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 0)
-choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 1)
-choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 0)
-choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 1)
+choice("""Did she also teach you how to cast it?""", B3-Ch04a-Teach, v_current_scene = B3-Ch04a-Teach) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("""What is the name of the spell? Do they teach it in any of the manuals?""", B3-Ch04a-Manuals, v_current_scene = B3-Ch04a-Manuals) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Teach
@@ -2945,8 +2938,7 @@ When Flower tries to imitate me, she somehow gets the movements completely wrong
 "Got it!" Flower says, as she tries to copy my movements again.
 
 }
-choice("Continue", B3-Ch04a-Coach, v_current_scene = B3-Ch04a-Coach) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch04a-Coach, v_current_scene = B3-Ch04a-Coach) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch04a-Coach, v_current_scene = B3-Ch04a-Coach) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Coach
@@ -3031,7 +3023,7 @@ Once all their preparations are complete, Illuna and Breynan finally begin their
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch11_saved_rose == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch11_saved_rose == 0)
 choice("Load game", , , special:saves) if (v_ch11_saved_rose == 0)
-choice("Continue", B3-Ch04a-Cooperate2, v_current_scene = B3-Ch04a-Cooperate2) if (v_ch11_saved_rose > 0)
+choice("Continue", B3-Ch04a-Cooperate2, v_current_scene = B3-Ch04a-Cooperate2) if (v_ch11_saved_rose == 1)
 
 
 ID: B3-Ch04a-Cooperate2
@@ -3039,7 +3031,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_magical_sense < 3)
 set(v_is_dead,0) if (v_magical_sense >= 3)
-stat_check(v_magical_sense,3)
 #if(v_magical_sense < 3) {
  
 For the first few spells, everything goes smoothly. Both Illuna and Breynan are executing their movements perfectly, and the trap is reacting exactly how it should. As they keep casting their spells, however, I can't help but feel that something is wrong. But how can that be? They are not making any mistakes. Their movements are all flawless. Surely it must all be my imagination.
@@ -3234,8 +3225,7 @@ Melindra is suddenly interrupted by Flower, who just opened the door leading out
 When we reach the door and we take a look inside the next room, we immediately understand why Flower was having such a hard time finding her words.
 
 }
-choice("Continue", B3-Ch04a-Machine, v_current_scene = B3-Ch04a-Machine) if (v_b3_ch4_insist == 0)
-choice("Continue", B3-Ch04a-Machine, v_current_scene = B3-Ch04a-Machine) if (v_b3_ch4_insist == 1)
+choice("Continue", B3-Ch04a-Machine, v_current_scene = B3-Ch04a-Machine) if (v_b3_ch4_insist == 0 || v_b3_ch4_insist == 1)
 
 
 ID: B3-Ch04a-Machine
@@ -3309,8 +3299,8 @@ That scream... I've heard that scream before. And the rattling sound of the chai
 }
 choice("Cut the chains with my dagger and free Alice's father.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 1) if (v_b3_ch3_chains == 0)
 choice("Don't cut the chains and leave Alice's father on the metal table.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 0) if (v_b3_ch3_chains == 0)
-choice("Cut the chains with my dagger.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 1) if (v_b3_ch3_chains > 0)
-choice("Ask Melindra what's wrong.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 0) if (v_b3_ch3_chains > 0)
+choice("Cut the chains with my dagger.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 1) if (v_b3_ch3_chains == 1)
+choice("Ask Melindra what's wrong.", B3-Ch04a-Container, v_current_scene = B3-Ch04a-Container, v_b3_ch4_cut = 0) if (v_b3_ch3_chains == 1)
 
 
 ID: B3-Ch04a-Container
@@ -3517,5 +3507,4 @@ We then hear a clicking noise coming from the voice magnifier, and the communica
 "No, we didn't," Melindra says. "Only you and Barry agreed. Have you two even thought about how we're supposed to evacuate all these prisoners when there are hundreds of guards waiting for us outside? Do these people look to you like they would be able to fight their own way out? Or even walk, for that matter?"
 
 }
-choice("Continue", B3-Ch04b-Assistance, v_current_scene = B3-Ch04b-Assistance) if (v_b3_ch4_control == 0)
-choice("Continue", B3-Ch04b-Assistance, v_current_scene = B3-Ch04b-Assistance) if (v_b3_ch4_control == 1)
+choice("Continue", B3-Ch04b-Assistance, v_current_scene = B3-Ch04b-Assistance) if (v_b3_ch4_control == 0 || v_b3_ch4_control == 1)

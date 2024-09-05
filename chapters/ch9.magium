@@ -1,7 +1,6 @@
 ID: Ch9-Intro
 TEXT: 
 
-stat_check(v_checkpoint_rich,1)
  
 After finishing our briefing and finding our way out of the ruins, we wave goodbye to Leo the leopard, we grab our backpacks and we start heading towards our new objective. Flower is leading the way again, but this time she looks a lot less confident than before, and there's definitely some uneasiness in her voice as she speaks to us.
 
@@ -1438,8 +1437,6 @@ TEXT:
 set(v_ch9_ogres,1) if ((v_ch9_take_rose == 0 || v_ch9_take_rose == 1) && v_hearing < 2)
 set(v_ch9_ogres,2) if (v_perception == 0 && v_hearing >= 2 && (v_ch9_take_rose == 0 || v_ch9_take_rose == 1))
 set(v_ch9_ogres,3) if (v_hearing >= 2 && v_perception >= 1)
-stat_check(v_hearing,2)
-stat_check(v_observation,1)
 #if(v_ch9_take_rose == 0 && v_hearing < 2) {
  
 With these last words, we all wave goodbye to Kate and Rose, and then we start our final march towards the stronghold.
@@ -1627,7 +1624,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 3)
 set(v_is_dead,0) if (v_reflexes >= 3)
-stat_check(v_reflexes,3)
 #if(v_reflexes < 3) {
  
 As I turn around, I am terrified to learn that one of the ogres has just come out of invisibility, and is now bringing down a five foot long club towards my skull. 

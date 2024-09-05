@@ -385,7 +385,6 @@ choice("Continue", B3-Ch02b-Crisis, v_current_scene = B3-Ch02b-Crisis, v_b3_ch2_
 ID: B3-Ch02b-Premonition
 TEXT: 
 
-stat_check(v_premonition,3)
 #if(v_premonition < 3) {
  
 After we walk for a few more minutes, we start to notice that a lot more metal balls with propellers on top are slowly gathering in the air above, and that they are all flying in one big circle. No matter how fast or how slow we're moving, the metal balls are always making sure that they're positioned right above us, although aside from following us, they don't seem to be doing much else. At least for now...
@@ -439,8 +438,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes == 4 && v_combat_technique < 3 || v_reflexes < 4)
 set(v_is_dead,0) if (v_reflexes == 4 && v_combat_technique >= 3)
-stat_check(v_reflexes,4)
-stat_check(v_combat_technique,3)
 #if(v_reflexes < 4) {
  
 As soon as the icicles are ready, Kate shoots them towards all of the metal balls at once, aiming for their eyes. However, in an unexpected turn of events, most of the flying golem heads manage to dodge Kate's icicles easily, and they're now diving down towards us, while shooting various types of magical beams and projectiles out of their red eyes.
@@ -504,7 +501,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 3)
 set(v_is_dead,0) if (v_reflexes >= 3)
-stat_check(v_reflexes,3)
 #if(v_reflexes < 3) {
  
 "Maybe Daren should make a barrier for us first, just in case."
@@ -557,7 +553,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes < 3)
 set(v_is_dead,0) if (v_reflexes >= 3)
-stat_check(v_reflexes,3)
 #if(v_reflexes < 3) {
  
 "Yeah, that could work."
@@ -770,8 +765,6 @@ TEXT:
 
 set(v_b3_ch2_hearing,0) if (v_b3_ch1_unlock == 2 || v_hearing < 3)
 set(v_b3_ch2_hearing,1) if (v_hearing >= 3 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_hearing,3)
 #if(v_b3_ch1_unlock == 2) {
  When we get a little closer to the margin of the plaza, Melindra suddenly signals us to stop, and she begins watching the entrance to an alleyway in front of her very attentively. As we try to understand what got her attention, we see that three men are currently entering the plaza, two of which appear to be participants in the tournament, given that I'm not seeing any warnings to not injure them.
 The three of them are wearing similar looking blue-colored uniforms on top of their armors, although the man who is a local from Varathia seems to have different markings drawn on his garments, likely as a result of being higher ranked than the others. Of the two tournament participants, one of them is particularly bulky and tall, reminding me somewhat of Bruce from the Thilias arena, except that he has a long black beard, a bald head, the look of a seasoned war veteran in his eyes, and he does not appear to be holding any weapons.
@@ -857,8 +850,6 @@ TEXT:
 
 set(v_b3_ch2_hearing,0) if (v_b3_ch1_unlock == 2 || v_hearing < 3)
 set(v_b3_ch2_hearing,1) if (v_hearing >= 3 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_hearing,3)
 #if(v_b3_ch1_unlock == 2) {
  When we get a little closer to the margin of the plaza, Melindra suddenly signals us to stop, and she begins watching the entrance to an alleyway in front of her very attentively. As we try to understand what got her attention, we see that three men are currently entering the plaza, two of which appear to be participants in the tournament, given that I'm not seeing any warnings to not injure them.
 The three of them are wearing similar looking blue-colored uniforms on top of their armors, although the man who is a local from Varathia seems to have different markings drawn on his garments, likely as a result of being higher ranked than the others. Of the two tournament participants, one of them is particularly bulky and tall, reminding me somewhat of Bruce from the Thilias arena, except that he has a long black beard, a bald head, the look of a seasoned war veteran in his eyes, and he does not appear to be holding any weapons.
@@ -944,8 +935,6 @@ TEXT:
 
 set(v_b3_ch2_hearing,0) if (v_b3_ch1_unlock == 2 || v_hearing < 3)
 set(v_b3_ch2_hearing,1) if (v_hearing >= 3 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_hearing,3)
 #if(v_b3_ch1_unlock == 2) {
  
 "You think he might want to fight us?"
@@ -1123,9 +1112,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_agility == 4 && v_reflexes < 4 || v_b3_ch1_unlock == 2 || v_agility < 4)
 set(v_is_dead,0) if (v_agility == 4 && v_reflexes == 4 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_agility,4)
-stat_check(v_reflexes,4)
 #if(v_b3_ch1_unlock == 2) {
  
 "What's the matter, hero?" Gontrok says with a malicious grin, as he kicks Daren in the stomach once again just when he was trying to get back up. "Isn't this supposed to be the part where you defy the odds and make a spectacular comeback? Don't disappoint me like this... I was having such high expectations of you!"
@@ -1208,9 +1194,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_reflexes == 4 && v_combat_technique < 4 || v_b3_ch1_unlock == 2 || v_reflexes < 4)
 set(v_is_dead,0) if (v_combat_technique == 4 && v_reflexes == 4 && v_b3_ch1_unlock != 2)
-stat_check(stat_device_locked,1)
-stat_check(v_reflexes,4)
-stat_check(v_combat_technique,4)
 #if(v_b3_ch1_unlock == 2) {
  
 "What's the matter, hero?" Gontrok says with a malicious grin, as he kicks Daren in the stomach once again just when he was trying to get back up. "Isn't this supposed to be the part where you defy the odds and make a spectacular comeback? Don't disappoint me like this... I was having such high expectations of you!"
@@ -1313,11 +1296,6 @@ choice("Continue", B3-Ch02b-Concept, v_current_scene = B3-Ch02b-Concept) if (v_c
 ID: B3-Ch02b-Scenario2
 TEXT: 
 
-stat_check(v_agility,4)
-stat_check(v_toughness,4)
-stat_check(v_strength,4)
-stat_check(v_reflexes,4)
-stat_check(v_combat_technique,4)
  
 
 As he's preparing to kick Daren once again, Gontrok suddenly gets a much more serious expression on his face and he instinctively turns to face me, likely because for the first time in this battle he actually sensed that his life was in danger. It barely took me more than a second to dash towards Daren's sword, pick it up and then make a beeline for the giant with my weapon pointing towards him, but somehow he was still able to react in time and step to the side, just as I was about to run him through with my blade. Gontrok doesn't let me regain my footing and he immediately grabs me by my right arm, squeezing it very hard.
