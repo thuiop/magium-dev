@@ -35,7 +35,7 @@
           <h2 id="header"><%= header %></h2>
           <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
         </div>
-        <% if (locals.path=="/saves") { %>
+        <% if ((locals.path=="/saves") || (locals.path=="/local_saves")) { %>
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage"></div>
         <% } else { %>
             <div id="content" class="content" hx-get hx-trigger="load"></div>

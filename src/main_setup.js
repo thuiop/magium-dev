@@ -231,7 +231,7 @@ function render_local_saves(req) {
         saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
     })
     let data = Object.assign({},req.cookies, {"saveData":saveData})
-    return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
+    return ejs.renderFile(path.join(dirname,"templates/local_saves.ejs"),data)
 }
 
 
@@ -296,7 +296,7 @@ expressApp.all('/saves', bodyParser.json(), (req, res) => {
 })
 
 expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
-    render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
+    render_full(req,render_local_saves,"Save files").then((rendered) => res.send(rendered));
 })
 
 expressApp.listen(port, () => {
