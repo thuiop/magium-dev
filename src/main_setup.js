@@ -223,6 +223,17 @@ function render_saves(req) {
     return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
 }
 
+// For now, it is the same as render_saves
+// However, it is expected to be different in the future
+function render_local_saves(req) {
+    let saveData = {} 
+    Object.entries(req.body).forEach(function(entry){
+        saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
+    })
+    let data = Object.assign({},req.cookies, {"saveData":saveData})
+    return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
+}
+
 
 /// ---
 
@@ -281,6 +292,10 @@ expressApp.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) =
 })
 
 expressApp.all('/saves', bodyParser.json(), (req, res) => {  
+    render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
+})
+
+expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
     render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
 })
 
