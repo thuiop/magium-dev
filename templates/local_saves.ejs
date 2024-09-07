@@ -10,6 +10,18 @@
         a.click();
         window.URL.revokeObjectURL(url);
     }
+
+    // function to upload a savegame into local storage
+    function restoreLocalStorageSave(save_key, file_id) {
+        let file = document.getElementById(file_id).files[0];
+        let reader = new FileReader();
+        console.log("Restore save: ", save_key);
+        reader.onload = function(e) {
+            let data = JSON.parse(e.target.result);
+            localStorage.setItem(save_key, JSON.stringify(data));
+        }
+        reader.readAsText(file);
+    }
 </script>
 <div class="description">
     <div>
@@ -26,16 +38,16 @@
     <% for (let i = 0; i < 9; i++) { %>
         <div class="save-entry">
             <span style="flex-grow: 1;">Slot <%= i %></span>
-            <button 
-            style="flex-grow: 1;"
-            hx-on::before-request="saveGameToLocalStorage('save<%= i %>', 
-            <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>)"
-            hx-post
-            hx-ext="submitlocalstorage"
-            hx-target="#content"
-            hx-swap="innerHTML">
-                Restore
-            </button>
+            <input type="file" hidden
+                id="file_<%= i %>"
+                hx-on::before-request="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>')"
+                hx-post
+                hx-trigger='change'
+                hx-ext="submitlocalstorage"
+                hx-target="#content"
+                hx-swap="innerHTML"
+            />
+            <label class="save-file-input" for="file_<%= i %>" style="flex-grow: 1;">Restore</label>
             <% if (saveData[`save${i}`]) { %>
                 <button 
                     style="flex-grow: 1;"
