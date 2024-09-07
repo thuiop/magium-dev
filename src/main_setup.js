@@ -194,7 +194,7 @@ function render_scene(req,magiumData,id) {
 }
 
 function render_stats(req) {
-    let data = Object.assign({},req.cookies,{"maximized": req.cookies.current_scene === "Ch6-Eiden-vs-dragon" && req.cookies.v_maximized_stats_used === "1"});
+    let data = Object.assign({},req.cookies,{"maximized": req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" && req.cookies.v_maximized_stats_used === "1"});
     return ejs.renderFile(path.join(dirname,"templates/stats.ejs"),data)
 }
 

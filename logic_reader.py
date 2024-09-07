@@ -235,6 +235,10 @@ class Scene:
                 text += f' if ({sp.jscode(set_variable.conditions)})'
             text += "\n"
 
+        # This variable is missing from the original events for an unknown reason
+        if self.id == "Ch6-Lose-fight":
+            text += "set(v_maximized_stats_used,1)\n"
+
         paragraph_groups = self.merge_paragraphs()
         for par_group in paragraph_groups:
             if par_group.conditions != True:

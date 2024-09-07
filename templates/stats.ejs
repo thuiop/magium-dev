@@ -1,4 +1,4 @@
-<div class="stats-container" <% if (maximized) { %> _="on load set global counter to 100 then repeat set global counter to counter-1 then wait 50ms end" <% } %>>
+<div class="stats-container" <% if (maximized) { %> _="on load set global counter to 10 then repeat set global counter to counter-1 then wait 1.5s end" <% } %>>
     <% if (locals.v_b3_ch11_magic || 0) { %>
         <button class="stat-field magic-special" id="magical_power" onclick="void(0)" 
         style="grid-column: 1; grid-row: 1;">
@@ -173,6 +173,28 @@
 <button hx-get="/" hx-target="#content" hx-swap="innerHTML" hx-push-url="/"
     id="return-to-game">Return to game</button>
 </div>
+<% if (maximized && ((locals.v_ac_ch6_immersion || 0) === 0)) { %>
+    <script>storeItem("v_ac_ch6_immersion",1)</script>
+    <div id="modalOob" hx-swap-oob="afterbegin:#main">
+        <div 
+        id="achievementModalImmersion"
+        class="achievement-modal"
+        _="on load show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
+           on click remove me end">
+           <div class="achievement-modal-columns">
+                <img src="/images/achievement_trophy.png" width="100" height="100" />
+                <div class="achievement-modal-content">
+                    <div class="achievement-modal-title">
+                        ACHIEVEMENT UNLOCKED 
+                    </div>
+                    <div class="achievement-modal-caption">
+                      Full immersion
+                    </div>
+                </div>
+          </div>
+    </div>
+</div>
+<% }; %>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
         Stats
