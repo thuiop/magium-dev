@@ -82,7 +82,6 @@ function apply_conditions(conditions,values){
 }
 
 function onlyUnique(value, index, array) {
-    console.log(value,index,array);
   return array.indexOf(value) === index;
 }
 
@@ -137,6 +136,7 @@ function parseStatCheck(condition,values) {
 
 
 function checkStats(setVariables, values) {
+    console.log(setVariables)
     let newStatChecks = [];
     for (setVariable of setVariables) {
         if (!setVariable.conditions) {
@@ -185,7 +185,7 @@ function render_scene(req,magiumData,id) {
     sceneData.setVariables.forEach((setVariable) => cookieData[setVariable.name] = setVariable.value)
     sceneData.choices = sceneData.choices.filter((choice) => apply_conditions(choice.conditions,cookieData))
     sceneData.paragraphs = sceneData.paragraphs.filter((paragraph) => apply_conditions(paragraph.conditions,cookieData))
-    sceneData.statChecks = checkStats(sceneData.setVariables,cookieData)
+    sceneData.statChecks = checkStats(sceneData.setVariables.concat(sceneData.paragraphs,sceneData.choices),cookieData)
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0"
     )
@@ -194,7 +194,8 @@ function render_scene(req,magiumData,id) {
 }
 
 function render_stats(req) {
-    return ejs.renderFile(path.join(dirname,"templates/stats.ejs"),req.cookies)
+    let data = Object.assign({},req.cookies,{"maximized": req.cookies.current_scene === "Ch6-Eiden-vs-dragon" && req.cookies.v_maximized_stats_used === "1"});
+    return ejs.renderFile(path.join(dirname,"templates/stats.ejs"),data)
 }
 
 function render_menu(req) {
