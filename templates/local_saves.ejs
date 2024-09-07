@@ -1,20 +1,24 @@
 <script>
-    function renameLocalStorageSave(save_key, save_name_id) {
-        console.log("Renaming save", save_key);
-        let save_name = document.getElementById(save_name_id).value;
-
+    function downloadLocalStorageSave(save_key) {
         let data = JSON.parse(localStorage.getItem(save_key));
-        data['name'] = save_name;
-        localStorage.setItem(save_key, JSON.stringify(data));
+        let blob = new Blob([JSON.stringify(data)], {type: "application/json"});
+        let url = URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = `${data.name}.json`;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
     }
 </script>
 <div class="description">
     <div>
     This is the local saves menu. Select a savegame slot from below. 
     <br><br>
-    Click Save: To save the game in the selected slot locally. 
+    Click Restore: To restore a local save into the selected slot. Can overwrite an existing save.
     <br>
-    Click Overwrite: To save a local save in the selected slot. Can overwrite an existing save.
+    Click Download: To download the game in the selected slot locally. 
+    <br>
     </div>
 </div>
 <div class="save-list-container" style="margin: auto;">
@@ -29,31 +33,18 @@
             hx-post
             hx-ext="submitlocalstorage"
             hx-target="#content"
-            hx-swap="innerHTML"> 
-                Save
+            hx-swap="innerHTML">
+                Restore
             </button>
             <% if (saveData[`save${i}`]) { %>
                 <button 
                     style="flex-grow: 1;"
-                    hx-get="/"
-                    hx-on::before-request="loadGameFromLocalStorage('save<%= i %>')"
-                    hx-target="#content"
-                    hx-swap="innerHTML"
-                    hx-push-url="true"
+                    onclick="downloadLocalStorageSave('save<%= i %>')"
                 > 
-                    Load
+                    Download
                 </button>
                 <!-- <% console.log(locals) %> -->
-                <input class="save-name-input" style="flex-grow: 1;" type="text" 
-                id="save_name_<%= i %>"
-                value="<%= saveData[`save${i}`].name %>"
-                hx-on::before-request="renameLocalStorageSave('save<%= i %>', 'save_name_<%= i %>')"
-                hx-trigger='blur'
-                hx-post
-                hx-ext="submitlocalstorage"
-                hx-target="#content"
-                hx-swap="innerHTML"
-                >
+                <span class="save-name-label" style="flex-grow: 1;"><%= saveData[`save${i}`].name %></span>
             <% } %>
         </div>
     <% }; %>
