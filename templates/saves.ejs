@@ -69,31 +69,34 @@
 <!--The number of pages is hard-coded over here. Same hard-coding is done in the backend-->
 <div class="pagination">
     <button 
-        hx-get="/saves/0"
+        hx-post="/saves/0"
         hx-target="#content"
         hx-swap="innerHTML"
         hx-push-url="true"
+        hx-ext="submitlocalstorage"
     ><</button>
     <% for (let j = 0; j < 5; j++) { %>
         <button 
-            hx-get="/saves/<%= j%>"
+            hx-post="/saves/<%= j%>"
             hx-target="#content"
             hx-swap="innerHTML"
             hx-push-url="true"
+            hx-ext="submitlocalstorage"
         >
             <%= j + 1 %>
         </button>
     <% }; %>
     <button 
-        hx-get="/saves/4"
+        hx-post="/saves/4"
         hx-target="#content"
         hx-swap="innerHTML"
         hx-push-url="true"
+        hx-ext="submitlocalstorage"
     >></button>
 </div>
 <div class="response">
     <button
-        hx-get="/"
+        hx-post="/"
         hx-target="#content"
         hx-swap="innerHTML"
         hx-push-url="true"
