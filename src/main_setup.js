@@ -223,6 +223,41 @@ function render_saves(req) {
     return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
 }
 
+// While this is not the best way to handle pagination-based requests,
+// because this way there is hard-coding in both the frontend and the backend,
+// it is a simplest way to handle it.
+// TODO: Discuss better ways to handle pagination if needed.
+function render_saves_by_page(req, page) {
+    const savesLength = Object.keys(req.body).length
+    const pageLength = 10
+
+    /**
+     * In the current setup, the frontend uses the name of the save
+     * as the key for the save data. This means that filtering out the 
+     * saves based on the page number does not make a difference.
+     * However, this code is kept here for future reference. 
+     * If the frontend instead starts accessing the save data based on an index,
+     * then this code will be useful.
+     */
+    let saveData = {} 
+    // let index = 0;
+    // let first = page * pageLength;
+    // let last = first + pageLength;
+    // if ((first >= 0) && (first < savesLength)) {
+    //     for (let i = first; i < last; i++) {
+    //         if (req.body[i]) {
+    //             entry = req.body[i]
+    //             saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
+    //         }
+    //     }
+    // }
+    Object.entries(req.body).forEach(function(entry){
+        saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
+    })
+    let data = Object.assign({},req.cookies, {"saveData":saveData, "page": parseInt(page)})
+    return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
+}
+
 
 /// ---
 
@@ -282,6 +317,11 @@ expressApp.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) =
 
 expressApp.all('/saves', bodyParser.json(), (req, res) => {  
     render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
+})
+
+expressApp.all('/saves/:page', bodyParser.json(), (req, res) => {
+    const callback = (r) => render_saves_by_page(r, req.params.page);
+    render_full(req,callback,"Save files").then((rendered) => res.send(rendered));
 })
 
 expressApp.listen(port, () => {
