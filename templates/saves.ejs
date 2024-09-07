@@ -66,6 +66,31 @@
         SAVE/LOAD MENU
     </h2>
 </div>
+<!--The number of pages is hard-coded over here.-->
+<div class="pagination">
+    <button 
+        hx-get="/saves/0"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+    ><</button>
+    <% for (let j = 0; j < 5; j++) { %>
+        <button 
+            hx-get="/saves/<%= j%>"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        >
+            <%= j + 1 %>
+        </button>
+    <% }; %>
+    <button 
+        hx-get="/saves/4"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+    >></button>
+</div>
 <div class="response">
     <button
         hx-get="/"
