@@ -223,6 +223,20 @@ function render_saves(req) {
     return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
 }
 
+// While this is not the standard way to handle pagination-based requests,
+// I wanted all the hard-coding to be on the client side.
+// Hence the 'first' and 'last' arguments are passed as URL parameters, instead of the page number.
+function render_saves_by_page(req, first, last) {
+    let saveData = {} 
+    for (let i = first; i < last; i++) {
+        if (req.body[i]) {
+            saveData[i] = {"date": req.body[i].date, "name": req.body[i].name}
+        }
+    }
+    let data = Object.assign({},req.cookies, {"saveData":saveData})
+    return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
+}
+
 
 /// ---
 
@@ -282,6 +296,11 @@ expressApp.get('/achievements/book/(:idBook)/chapter/(:idChapter)', (req, res) =
 
 expressApp.all('/saves', bodyParser.json(), (req, res) => {  
     render_full(req,render_saves,"Save files").then((rendered) => res.send(rendered));
+})
+
+expressApp.all('/saves/:first/:last', (req, res) => {
+    const callback = (r) => render_saves_by_page(r, req.params.first, req.params.last);
+    render_full(req,callback,"Save files").then((rendered) => res.send(rendered));
 })
 
 expressApp.listen(port, () => {
