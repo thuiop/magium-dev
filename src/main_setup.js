@@ -239,7 +239,7 @@ function render_saves_by_page(req, page) {
      * If the frontend instead starts accessing the save data based on an index,
      * then this code will be useful.
      */
-    // let saveData = {} 
+    let saveData = {} 
     // let index = 0;
     // let first = page * pageLength;
     // let last = first + pageLength;
@@ -254,7 +254,7 @@ function render_saves_by_page(req, page) {
     Object.entries(req.body).forEach(function(entry){
         saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
     })
-    let data = Object.assign({},req.cookies, {"saveData":saveData})
+    let data = Object.assign({},req.cookies, {"saveData":saveData, "page": parseInt(page)})
     return ejs.renderFile(path.join(dirname,"templates/saves.ejs"),data)
 }
 
