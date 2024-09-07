@@ -19,6 +19,8 @@
         reader.onload = function(e) {
             let data = JSON.parse(e.target.result);
             localStorage.setItem(save_key, JSON.stringify(data));
+
+            window.location.reload();
         }
         reader.readAsText(file);
     }
@@ -41,11 +43,6 @@
             <input type="file" hidden
                 id="file_<%= i %>"
                 hx-on::before-request="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>')"
-                hx-post
-                hx-trigger='change'
-                hx-ext="submitlocalstorage"
-                hx-target="#content"
-                hx-swap="innerHTML"
             />
             <label class="save-file-input" for="file_<%= i %>" style="flex-grow: 1;">Restore</label>
             <% if (saveData[`save${i}`]) { %>
