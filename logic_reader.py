@@ -226,7 +226,7 @@ class Scene:
         return val
 
     def to_magium(self,paragraphs):
-        text = f"ID: {self.id}\nTEXT: \n\n"
+        text = f"ID: {self.id}\nTEXT:\n\n"
 
         set_variables = self.merge_set_variables()
         for set_variable in set_variables:
@@ -326,7 +326,7 @@ class Parser:
             else:
                 if match := re.search('List : Add line "(?P<button_name>.*)"',current):
                     event.type = "scene_load"
-                    event.results["add_buttons"].append(match.group("button_name"))
+                    event.results["add_buttons"].append(match.group("button_name").replace('""','"'))
                 elif match := re.search('Special : Set current scene to "(?P<scene>.*)"',current):
                     event.results["new_scene"] = match.group("scene")
                     event.results["set_variables"][transform_var_name("current scene")] = match.group("scene")
@@ -520,7 +520,7 @@ for chapter in chapters:
         for line in data:
             if match := re.match("\[(?P<par_num>[0-9]*)\](?P<text>.*)",line):
                 paragraphs[i][current_par_index] = current_par
-                current_par = match.group("text")
+                current_par = match.group("text")+"\n"
                 current_par_index = int(match.group("par_num"))
             else:
                 current_par += line
