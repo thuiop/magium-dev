@@ -1,20 +1,20 @@
-<div class="stats-container">
+<div class="stats-container" <% if (maximized) { %> _="on load set global counter to 10 then repeat set global counter to counter-1 then wait 1.5s end" <% } %>>
     <% if (locals.v_b3_ch11_magic || 0) { %>
         <button class="stat-field magic-special" id="magical_power" onclick="void(0)" 
         style="grid-column: 1; grid-row: 1;">
         <!-- This initial content is tied to the EJS variable only once.
         Later, the content for each of the stat-field is tied to the auxiliary variables -->
             Magical Power: 
-            <span id="magical_power_value">
-                <% if (locals.v_magical_power) { %> <%= v_magical_power %> <% } else {%> 0 <% } %>
+            <span id="magical_power_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_magical_power) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+                <%= (locals.v_magical_power) || 0 %>
             </span>
         </button>
 
         <button class="stat-field magic-special" id="magical_knowledge" onclick="void(0)" 
         style="grid-column: 2; grid-row: 1;">
             Magical Knowledge: 
-            <span id="magical_knowledge_value">
-                <% if (locals.v_magical_knowledge) { %> <%= v_magical_knowledge %> <% } else {%> 0 <% } %>
+            <span id="magical_knowledge_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_magical_knowledge) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+                <%= (locals.v_magical_knowledge) || 0 %>
             </span>
         </button>
     <% } %>
@@ -22,8 +22,8 @@
     <button class="stat-field available" id="available_points" onclick="void(0)" 
     style="grid-column: 1 / span 2; grid-row: 2;">
         Available Points: 
-        <span id="available_points_value">
-        <% if (locals.v_available_points) { %> <%= v_available_points %> <% } else {%> 0 <% } %>
+        <span id="available_points_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_available_points) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_available_points) || 0 %>
         </span>
     </button>
 
@@ -31,98 +31,98 @@
     onclick="updateStat('strength', 'v_strength_aux', 'strength', 'strength_value')" 
     style="grid-column: 1; grid-row: 3;">
         Strength: 
-        <span id="strength_value">
-        <% if (locals.v_strength) { %> <%= v_strength %> <% } else {%> 0 <% } %>
+        <span id="strength_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_strength) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_strength) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="toughness" 
     onclick="updateStat('toughness', 'v_toughness_aux', 'toughness', 'toughness_value')"
     style="grid-column: 1; grid-row: 4;">
         Toughness: 
-        <span id="toughness_value">
-        <% if (locals.v_toughness) { %> <%= v_toughness %> <% } else {%> 0 <% } %>
+        <span id="toughness_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_toughness) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_toughness) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
 
     <button class="stat-field" id="agility" 
     onclick="updateStat('agility', 'v_agility_aux', 'agility', 'agility_value')"
     style="grid-column: 2; grid-row: 3;">
         Speed: 
-        <span id="agility_value">
-        <% if (locals.v_agility) { %> <%= v_agility %> <% } else {%> 0 <% } %>
+        <span id="agility_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_agility) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_agility) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="reflexes"
     onclick="updateStat('reflexes', 'v_reflexes_aux', 'reflexes', 'reflexes_value')"
     style="grid-column: 2; grid-row: 4;">
         Reflexes: 
-        <span id="reflexes_value">
-        <% if (locals.v_reflexes) { %> <%= v_reflexes %> <% } else {%> 0 <% } %>
+        <span id="reflexes_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_reflexes) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_reflexes) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="hearing"
     onclick="updateStat('hearing', 'v_hearing_aux', 'hearing', 'hearing_value')"
     style="grid-column: 1; grid-row: 5;">
         Hearing:
-        <span id="hearing_value">
-        <% if (locals.v_hearing) { %> <%= v_hearing %> <% } else {%> 0 <% } %>
+        <span id="hearing_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_hearing) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_hearing) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="perception" 
     onclick="updateStat('perception', 'v_perception_aux', 'perception', 'perception_value')"
     style="grid-column: 2; grid-row: 5;">
         Observation:
-        <span id="perception_value">
-        <% if (locals.v_perception) { %> <%= v_perception %> <% } else {%> 0 <% } %>
+        <span id="perception_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_perception) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_perception) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="ancient_languages"
     onclick="updateStat('ancient_languages', 'v_ancient_languages_aux', 'ancient_languages', 'ancient_languages_value')"
     style="grid-column: 1 / span 2; grid-row: 6;">
         Ancient Languages: 
-        <span id="ancient_languages_value">
-        <% if (locals.v_ancient_languages) { %> <%= v_ancient_languages %> <% } else {%> 0 <% } %>
+        <span id="ancient_languages_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_ancient_languages) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_ancient_languages) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="combat_technique"
     onclick="updateStat('combat_technique', 'v_combat_technique_aux', 'combat_technique', 'combat_technique_value')"
     style="grid-column: 1 / span 2; grid-row: 7;">
         Combat Technique: 
-        <span id="combat_technique_value">
-        <% if (locals.v_combat_technique) { %> <%= v_combat_technique %> <% } else {%> 0 <% } %>
+        <span id="combat_technique_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_combat_technique) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_combat_technique) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
 
     <button class="stat-field" id="premonition" 
     onclick="updateStat('premonition', 'v_premonition_aux', 'premonition', 'premonition_value')"
     style="grid-column: 1 / span 2; grid-row: 8;">
         Premonition: 
-        <span id="premonition_value">
-        <% if (locals.v_premonition) { %> <%= v_premonition %> <% } else {%> 0 <% } %>
+        <span id="premonition_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_premonition) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+        <%= (locals.v_premonition) || 0 %>
         </span>
         /
-        <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+        <%= (locals.v_max_stat) || 3 %>
     </button>
     <% function sceneAfter(id) {
         const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]-.*$/
@@ -135,33 +135,33 @@
         onclick="updateStat('bluff', 'v_bluff_aux', 'bluff', 'bluff_value')"
         style="grid-column: 1 / span 2; grid-row: 9;">
             Bluff (Aura Concealment):
-            <span id="bluff_value">
-            <% if (locals.v_bluff) { %> <%= v_bluff %> <% } else {%> 0 <% } %>
+            <span id="bluff_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_bluff) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+            <%= (locals.v_bluff) || 0 %>
             </span>
             /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+            <%= (locals.v_max_stat) || 3 %>
         </button>
 
         <button class="stat-field" id="magical_sense"
         onclick="updateStat('magical_sense', 'v_magical_sense_aux', 'magical_sense', 'magical_sense_value')"
         style="grid-column: 1; grid-row: 10;">
             Magical Sense:
-            <span id="magical_sense_value">
-            <% if (locals.v_magical_sense) { %> <%= v_magical_sense %> <% } else {%> 0 <% } %>
+            <span id="magical_sense_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_magical_sense) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+            <%= (locals.v_magical_sense) || 0 %>
             </span>
             /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+            <%= (locals.v_max_stat) || 3 %>
         </button>
 
         <button class="stat-field" id="aura_hardening"
         onclick="updateStat('aura_hardening', 'v_aura_hardening_aux', 'aura_hardening', 'aura_hardening_value')"
         style="grid-column: 2; grid-row: 10;">
             Aura Hardening:
-            <span id="aura_hardening_value">
-            <% if (locals.v_aura_hardening) { %> <%= v_aura_hardening %> <% } else {%> 0 <% } %>
+            <span id="aura_hardening_value" <% if (maximized) { %> _="on load wait 100ms then repeat while counter >= <%= (locals.v_aura_hardening) || 0  %> set my.innerHTML to counter then wait 10ms end" <% } %>>
+            <%= (locals.v_aura_hardening) || 0 %>
             </span>
             /
-            <% if (locals.v_max_stat) { %> <%= v_max_stat %> <% } else {%> 3 <% } %>
+            <%= (locals.v_max_stat) || 3 %>
         </button>
     <% } %>
 </div>
@@ -173,6 +173,28 @@
 <button hx-get="/" hx-target="#content" hx-swap="innerHTML" hx-push-url="/"
     id="return-to-game">Return to game</button>
 </div>
+<% if (maximized && ((locals.v_ac_ch6_immersion || 0) === 0)) { %>
+    <script>storeItem("v_ac_ch6_immersion",1)</script>
+    <div id="modalOob" hx-swap-oob="afterbegin:#main">
+        <div 
+        id="achievementModalImmersion"
+        class="achievement-modal"
+        _="on load show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
+           on click remove me end">
+           <div class="achievement-modal-columns">
+                <img src="/images/achievement_trophy.png" width="100" height="100" />
+                <div class="achievement-modal-content">
+                    <div class="achievement-modal-title">
+                        ACHIEVEMENT UNLOCKED 
+                    </div>
+                    <div class="achievement-modal-caption">
+                      Full immersion
+                    </div>
+                </div>
+          </div>
+    </div>
+</div>
+<% }; %>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
         Stats
