@@ -10,33 +10,34 @@ function getDefaultStatsVariables() {
         "v_max_stat"]
     return stats_variables;
 }
-var stats_variables = getDefaultStatsVariables()
 
-var locals = getCookies() // From the utils.js file
+const stats_variables = getDefaultStatsVariables();
+
+let locals = getCookies(); // From the utils.js file
 
 
 function initStats(event) {
-    var path = window.location.pathname;
-    var page = path.split("/").pop();
-    if (page!="stats") {
+    const path = window.location.pathname;
+    const page = path.split("/").pop();
+    if (page != "stats") {
         return;
     }
     locals = getCookies()
     const stats_missing = stats_variables.some(function(stat) {
-        var value = locals[stat];
+        const value = locals[stat];
         return value === null || value === undefined;
     });
 
     if (stats_missing) {
         stats_variables.forEach(function(stat) {
             console.log(stat)
-            if (stat == 'v_max_stat') {
+            if (stat === 'v_max_stat') {
                 storeItem(stat, "3") // From the utils.js file
             } else {
                 storeItem(stat, "0")
             }
             // Temporary points
-            if (stat == 'v_available_points') {
+            if (stat === 'v_available_points') {
                 storeItem(stat, "30")
             }
         });
@@ -120,9 +121,9 @@ function initializeStats(stats_aux, stats_aux_mapping = null, reset_magic_stats 
     }
 }
 
-var stats_aux = getAuxiliaryStats();
+let stats_aux = getAuxiliaryStats();
 initializeStats(stats_aux);
-var stats_changed = false; // This variable is used to check if the stats have been changed
+let stats_changed = false; // This variable is used to check if the stats have been changed
 
 function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
     let stat_aux_value = stats_aux[stat_aux_key];
@@ -150,4 +151,3 @@ function confirmStats() {
     // Refresh the page to reflect the changes
     window.location.reload();
 }
-
