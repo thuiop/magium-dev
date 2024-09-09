@@ -1,5 +1,5 @@
 ID: Ch5-Intro
-TEXT: 
+TEXT:
 
 #if(v_ch4_ending == 1) {
 
@@ -18,6 +18,7 @@ Well, it's not like I'm going anywhere. My knees still hurt like hell. I've bare
 He casts a healing spell on me and I suddenly get enveloped in a warm, soothing light. The pain leaves me completely, and I manage to get back on my feet with no difficulty. I always knew there were healing spells like this, but witnessing one of them first hand is something else. Most healers I've met in my lifetime could barely even heal light bruises or ankle sprains.
 
 "Where's the stillwater?"
+
 "Gone. I just saw him kill Cutthroat Dave along with a whole crew of henchmen. Turns out he can cast fire magic, combustive magic and teleportation without even breaking a sweat. Eiden got upset because Cutthroat Dave mistook him for me, and I took advantage of the situation."
 
 "Hah! Serves him right! But how did I end up unconscious on the ground?"
@@ -50,6 +51,7 @@ Daren suddenly wakes up and starts looking around him, confused.
 Daren and I start filling her in on the details of our first encounter with Eiden.
 
 After we're done talking, Kate takes a few moments to reflect on our words.
+
 "So, let me see if I got this right..." she says. "Barry, you traded our lives for one message."
 
 "Right," I say.
@@ -132,6 +134,7 @@ Daren suddenly wakes up and starts looking around him, confused.
 "Just hand it over for a second, will you? I want to test something."
 
 I give him the device, and he looks at it intently for a few seconds.
+
 "Are you going to do somethin--"
 
 "Shush!"
@@ -172,18 +175,19 @@ Daren suddenly wakes up and starts looking around him, confused.
 "Wait a minute... Didn't we just see him cast fire magic too? There's something seriously wrong here. I'm pretty sure he used air magic on me the first time we met. How could he know two types of elemental magic? Normally it takes a lifetime to master even a single element!"
 
 }
-choice("""Maybe he has some artifact that's helping him?""", Ch5-Artifact, v_current_scene = Ch5-Artifact, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
-choice("""Maybe he's older than he looks?""", Ch5-Older, v_current_scene = Ch5-Older, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
-choice("""Maybe he made a pact with some god?""", Ch5-Pact, v_current_scene = Ch5-Pact, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch4_ending == 2)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch4_ending == 2)
+choice(""Maybe he has some artifact that's helping him?"", Ch5-Artifact, v_current_scene = Ch5-Artifact, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
+choice(""Maybe he's older than he looks?"", Ch5-Older, v_current_scene = Ch5-Older, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
+choice(""Maybe he made a pact with some god?"", Ch5-Pact, v_current_scene = Ch5-Pact, v_checkpoint_rich = 0) if (v_ch4_ending == 1 || v_ch4_ending == 4 || v_ch4_ending == 6)
+choice(""It sounds like a threat."", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch4_ending == 2)
+choice(""It sounds like a coded message."", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch4_ending == 2)
 choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate, v_checkpoint_rich = 0) if (v_ch4_ending == 3 || v_ch4_ending == 5)
 
 
 ID: Ch5-Artifact
-TEXT: 
+TEXT:
 
 "Maybe he has some artifact that's helping him?"
+
 "No, that can't be it. If that were the case, we would have either seen him wear it or felt its magical aura when he was this close. Besides, most offensive magical items are used as weapons, and he was definitely not holding anything in his hands."
 
 "At any rate, I think we should wake up Kate. She needs to hear what happened, and we could use another strategy meeting right about now."
@@ -194,9 +198,10 @@ choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate)
 
 
 ID: Ch5-Older
-TEXT: 
+TEXT:
 
 "Maybe he's older than he looks?"
+
 Daren pauses a bit to ponder on my question.
 
 "You might be onto something there, Barry," Daren tells me. "When I fought him, he could anticipate every one of my moves, and he didn't even bother to use magic to avoid my first few strikes. Most battle hardened warriors would have had a hard time dodging even the first slash of my sword. I'm not really sure how we could figure out what his real age is, however."
@@ -217,9 +222,10 @@ choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate)
 
 
 ID: Ch5-Pact
-TEXT: 
+TEXT:
 
 "Maybe he made a pact with some god?"
+
 "Don't believe everything you read in fairy tales, Barry. I've yet to hear of a real pact between a god and a mortal, and I'm most definitely not inclined to believe that any of the gods would have bothered to so much as acknowledge that punk's existence."
 
 "At any rate, I think we should wake up Kate. She needs to hear what happened, and we could use another strategy meeting right about now."
@@ -228,10 +234,11 @@ choice("Continue", Ch5-Wake-Kate, v_current_scene = Ch5-Wake-Kate)
 
 
 ID: Ch5-Wake-Kate
-TEXT: 
+TEXT:
 
 #if(v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0) {
 Once she's up, we start filling her in on all that's happened since Eiden showed up.
+
 After we're done talking, Kate takes a few moments to reflect on our words.
 
 "So, let me see if I got this right..." she says. "Barry, you traded our lives for one message."
@@ -253,6 +260,7 @@ She's hiding something again. I just know it.
 }
 #if(v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0) {
 It takes us a while, but we eventually manage to awaken her, and we start filling her in on all that's happened since Eiden showed up. 
+
 After we're done talking, Kate takes a few moments to reflect on our words.
 
 "So, let me see if I got this right..." she says. "Barry, you traded our lives for one message."
@@ -274,6 +282,7 @@ She's hiding something again. I just know it.
 }
 #if(v_ch3_kate_badly_hurt == 1) {
 It took us more than a minute to awaken her. Once she got up we could see that she was still in a terrible shape. It seems that not even healing magic can work miracles. It'll probably be another day until she fully recovers after this morning's ordeal.
+
 We start filling her in on all that's happened since Eiden showed up.
 
 After we're done talking, Kate takes a few moments to reflect on our words.
@@ -287,6 +296,7 @@ After we're done talking, Kate takes a few moments to reflect on our words.
 "Yeah. Does that description tell you anything?"
 
 "Yes..." she says, and then almost immediately looks towards the ground.
+
 She's hiding something again. I just know it.
 
 "They're an underground group," she continues. "Most of the time they don't really show themselves in public. Nobody knows exactly who they are, or what they do. Most people don't even know they exist. But there are rumors that they are being backed by the kings of Varathia."
@@ -294,15 +304,16 @@ She's hiding something again. I just know it.
 "They're being backed by the kings?" Daren asks. "What would Eiden want with these hotshots? You simply have to tell them to remember the still winter, right? I wonder what that's supposed to mean?"
 
 }
-choice("""It sounds like a threat.""", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice("""It sounds like a coded message.""", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice(""It sounds like a threat."", Ch5-Threat, v_current_scene = Ch5-Threat) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice(""It sounds like a coded message."", Ch5-Coded, v_current_scene = Ch5-Coded) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
 
 
 ID: Ch5-Threat
-TEXT: 
+TEXT:
 
 #if(v_ch2_human_reason == 1) {
 "It sounds like a threat to me. It would most certainly fit Eiden's way of doing things as we've seen it so far. He sends us to fight his enemies, and then has a good laugh about it afterwards."
+
 Kate nods.
 
 "I agree," she says. "He wouldn't have left us alive just to send a message to some old friends. A veiled threat to some old enemies, on the other hand seems much more likely. I'm not sure what the still winter is, exactly, but I'm willing to bet that we'll get attacked the moment after we've finished saying the words."
@@ -316,6 +327,7 @@ Kate nods.
 "So, what? Does that mean we should all just bow down to him now and become his lackeys?"
 
 "When did I ever say something like that? All I'm saying is we don't have enough information to make any viable strategies against him at this point. Until we find some weakness to that magic of his, we should be grateful for the time Barry's bought us with his trade, however long it may last."
+
 "Maybe you're right. Hopefully the time Barry's bought for us will be enough to find out Eiden's weakness."
 
 "Kate," I say. "Do you have a minute?"
@@ -331,6 +343,7 @@ As we make our way out, Daren winks at me and gives me a thumbs up. Leave it to 
 }
 #if(v_ch2_human_reason == 2) {
 "It sounds like a threat to me. It would most certainly fit Eiden's way of doing things as we've seen it so far. He sends us to fight his enemies, and then has a good laugh about it afterwards."
+
 Kate nods.
 
 "I agree," she says. "He wouldn't have left us alive just to send a message to some old friends. A veiled threat to some old enemies, on the other hand seems much more likely. I'm not sure what the still winter is, exactly, but I'm willing to bet that we'll get attacked the moment after we've finished saying the words."
@@ -342,6 +355,7 @@ Kate nods.
 "And how do you suggest we do that, exactly?" Kate says. "It only took him half a second to put you to sleep, and I'm pretty sure that your protections are better than mine in that department. That alone would be enough to take us all out, but I hear he has a whole arsenal of other spells in his pocket."
 
 "So, what? Does that mean we should all just bow down to him now and become his lackeys?"
+
 "When did I ever say something like that? All I'm saying is we don't have enough information to make any viable strategies against him at this point. Until we find some weakness to that magic of his, we should be grateful for the time Barry's bought us with his trade, however long it may last."
 
 "Maybe you're right. Hopefully the time Barry's bought for us will be enough to find out Eiden's weakness."
@@ -359,6 +373,7 @@ Barry,"  she says. "May I have a word with you, in private?"
 }
 #if(v_ch2_human_reason == 3) {
 "It sounds like a threat to me. It would most certainly fit Eiden's way of doing things as we've seen it so far. He sends us to fight his enemies, and then has a good laugh about it afterwards."
+
 Kate nods.
 
 "I agree," she says. "He wouldn't have left us alive just to send a message to some old friends. A veiled threat to some old enemies, on the other hand seems much more likely. I'm not sure what the still winter is, exactly, but I'm willing to bet that we'll get attacked the moment after we've finished saying the words."
@@ -370,6 +385,7 @@ Kate nods.
 "And how do you suggest we do that, exactly?" Kate says. "It only took him half a second to put you to sleep, and I'm pretty sure that your protections are better than mine in that department. That alone would be enough to take us all out, but I hear he has a whole arsenal of other spells in his pocket."
 
 "So, what? Does that mean we should all just bow down to him now and become his lackeys?"
+
 "When did I ever say something like that? All I'm saying is we don't have enough information to make any viable strategies against him at this point. Until we find some weakness to that magic of his, we should be grateful for the time Barry's bought us with his trade, however long it may last."
 
 "Maybe you're right. Hopefully the time Barry's bought for us will be enough to find out Eiden's weakness."
@@ -392,10 +408,11 @@ choice("Continue", Ch5-Private-lie, v_current_scene = Ch5-Private-lie) if (v_ch2
 
 
 ID: Ch5-Coded
-TEXT: 
+TEXT:
 
 #if(v_ch2_human_reason == 1) {
 "It sounds like a coded message to me. I think it's referring to something that only Eiden and these robed men know, so that they can meet up somewhere or take a certain action."
+
 "I agree," Daren says. "He wouldn't want us to know where they'll be meeting or what they'll be doing after all."
 
 "I don't think the stillwater would have spared our lives just to send a message," Kate says. "He must have some other hidden reason we're not aware of. The way he phrased this message... It sounds more like a threat to me. What if they attack us right after we tell them these words?"
@@ -407,6 +424,7 @@ TEXT:
 "So, what? Does that mean we should all just bow down to him now and become his lackeys?"
 
 "When did I ever say something like that? All I'm saying is we don't have enough information to make any viable strategies against him at this point. Until we find some weakness to that magic of his, we should be grateful for the time Barry's bought us with his trade, however long it may last."
+
 "Maybe you're right. Hopefully the time Barry's bought for us will be enough to find out Eiden's weakness."
 
 "Kate," I say. "Do you have a minute?"
@@ -422,6 +440,7 @@ As we make our way out, Daren winks at me and gives me a thumbs up. Leave it to 
 }
 #if(v_ch2_human_reason == 2) {
 "It sounds like a coded message to me. I think it's referring to something that only Eiden and these robed men know, so that they can meet up somewhere or take a certain action."
+
 "I agree," Daren says. "He wouldn't want us to know where they'll be meeting or what they'll be doing after all."
 
 "I don't think the stillwater would have spared our lives just to send a message," Kate says. "He must have some other hidden reason we're not aware of. The way he phrased this message... It sounds more like a threat to me. What if they attack us right after we tell them these words?"
@@ -431,6 +450,7 @@ As we make our way out, Daren winks at me and gives me a thumbs up. Leave it to 
 "And how do you suggest we do that, exactly?" Kate says. "It only took him half a second to put you to sleep, and I'm pretty sure that your protections are better than mine in that department. That alone would be enough to take us all out, but I hear he has a whole arsenal of other spells in his pocket."
 
 "So, what? Does that mean we should all just bow down to him now and become his lackeys?"
+
 "When did I ever say something like that? All I'm saying is we don't have enough information to make any viable strategies against him at this point. Until we find some weakness to that magic of his, we should be grateful for the time Barry's bought us with his trade, however long it may last."
 
 "Maybe you're right. Hopefully the time Barry's bought for us will be enough to find out Eiden's weakness."
@@ -448,6 +468,7 @@ Barry,"  she says. "May I have a word with you, in private?"
 }
 #if(v_ch2_human_reason == 3) {
 "It sounds like a coded message to me. I think it's referring to something that only Eiden and these robed men know, so that they can meet up somewhere or take a certain action."
+
 "I agree," Daren says. "He wouldn't want us to know where they'll be meeting or what they'll be doing after all."
 
 "I don't think the stillwater would have spared our lives just to send a message," Kate says. "He must have some other hidden reason we're not aware of. The way he phrased this message... It sounds more like a threat to me. What if they attack us right after we tell them these words?"
@@ -459,6 +480,7 @@ Barry,"  she says. "May I have a word with you, in private?"
 "So, what? Does that mean we should all just bow down to him now and become his lackeys?"
 
 "When did I ever say something like that? All I'm saying is we don't have enough information to make any viable strategies against him at this point. Until we find some weakness to that magic of his, we should be grateful for the time Barry's bought us with his trade, however long it may last."
+
 "Maybe you're right. Hopefully the time Barry's bought for us will be enough to find out Eiden's weakness."
 
 He turns to me.
@@ -479,10 +501,11 @@ choice("Continue", Ch5-Private-lie, v_current_scene = Ch5-Private-lie) if (v_ch2
 
 
 ID: Ch5-Private-truth
-TEXT: 
+TEXT:
 
 #if(v_ch4_ending != 2) {
 She pauses for a bit to look me straight in the eye. 
+
 "How do you know about the Beacon?" she asks me.
 
 "Eiden told us you're a survivor from that place shortly before attacking Daren. He wouldn't give us any details, though. He said we should ask you personally. So what is it, then?"
@@ -496,6 +519,7 @@ She pauses for a bit to look me straight in the eye.
 "If it were just a matter of privacy then I wouldn't have brought it up. But it's not, is it? You've been hiding things ever since we first met. It was the same when I asked you about the robed men Eiden is looking for. I'm asking you because I don't want this secrecy of yours to end up killing us all."
 
 "It won't."
+
 "How can you be so sure?"
 
 She looks away, for a second.
@@ -513,6 +537,7 @@ A lot has happened since I joined this tournament. People are dying left and rig
 }
 #if(v_ch4_ending == 2) {
 "Do you really have nothing better to do than to meddle in my personal affairs?"
+
 "If it were just a matter of privacy then I wouldn't have brought it up. But it's not, is it? You've been hiding things ever since we first met. It was the same when I asked you about the robed men Eiden is looking for. I'm asking you because I don't want this secrecy of yours to end up killing us all."
 
 "It won't."
@@ -536,10 +561,11 @@ choice("Continue", Ch5-Scream, v_current_scene = Ch5-Scream)
 
 
 ID: Ch5-Private-lie
-TEXT: 
+TEXT:
 
 #if(v_ch4_ending != 2) {
 "Err... Of course," I say, and I follow her out of the cave.
+
 As we make our way out, Daren winks at me and gives me a thumbs up. Leave it to Daren to completely misinterpret this kind of a situation. Sometimes I wonder if he even understands body language at all.
 
 Once we're at the cave's entrance, Kate stops in front of me, and looks me straight in the eye with that serious determined look of hers.
@@ -553,6 +579,7 @@ Once we're at the cave's entrance, Kate stops in front of me, and looks me strai
 "Everybody lies. Everyone has something to hide. You're no different. It's not like you ever told Daren about the Beacon of Hope, did you?"
 
 Kate's determination from her eyes has now been replaced with uncertainty.
+
 "What do you know about the Beacon of Hope?"
 
 "Not much, really. Eiden just said you're a survivor from that place, but he wouldn't give us more details. He said we should ask you in person. So what is this Beacon of Hope, then?"
@@ -570,6 +597,7 @@ With these last words, she turns her back on me and storms back into the cave.
 }
 #if(v_ch4_ending == 2) {
 "Err... Of course," I say, and I follow her out of the cave.
+
 As we make our way out, Daren winks at me and gives me a thumbs up. Leave it to Daren to completely misinterpret this kind of a situation. Sometimes I wonder if he even understands body language at all.
 
 Once we're at the cave's entrance, Kate stops in front of me, and looks me straight in the eye with that serious determined look of hers.
@@ -598,10 +626,11 @@ choice("Don't say anything to Daren", Ch5-No-admit, v_current_scene = Ch5-No-adm
 
 
 ID: Ch5-Admit-lie
-TEXT: 
+TEXT:
 
 #if(v_ch2_human_reason == 2) {
 Maybe Kate's right. What was I thinking when I lied to Daren like that? He's shown me nothing but honesty so far, and I've betrayed his trust. He's going to get upset about this, but I'd rather tell him the truth now than have him find out later on his own.
+
 "Daren, I have something to tell you," I say as I enter the cave.
 
 Kate, who was preparing to go back to sleep, is now watching me intently, waiting to see if I'm really planning to go through with it.
@@ -613,6 +642,7 @@ I take a deep breath.
 "I wanted to tell you that I lied to you yesterday, about the real reason I'm here. The truth is that nobody forced me to come to this place. I came here of my own free will. I came here because I want to win this tournament. Because it's been my dream ever since I was a kid to become a mage, and the Magium can grant me that wish. I'm sorry I haven't been honest with you about this."
 
 "Oh," Daren says. 
+
 His eyes are a lot colder than usual.
 
 "Well, now I know."
@@ -624,6 +654,7 @@ Kate is smiling at me faintly, but Daren is looking more serious than I've ever 
 }
 #if(v_ch2_human_reason == 3) {
 Maybe Kate's right. What was I thinking when I lied to Daren like that? He's shown me nothing but honesty so far, and I've betrayed his trust. He's going to get upset about this, but I'd rather tell him the truth now than have him find out later on his own.
+
 "Daren, I have something to tell you," I say as I enter the cave.
 
 Kate, who was preparing to go back to sleep, is now watching me intently, waiting to see if I'm really planning to go through with it.
@@ -635,6 +666,7 @@ I take a deep breath.
 "I wanted to tell you that I lied to you yesterday, about the real reason I'm here. The truth is I didn't come here looking for medicinal herbs. I came here because I want to win this tournament. Because it's been my dream ever since I was a kid to become a mage, and the Magium can grant me that wish. I'm sorry I haven't been honest with you about this."
 
 "And that story about your sister, that was all a lie too?"
+
 "Yes..."
 
 "Oh," Daren says. 
@@ -652,19 +684,21 @@ choice("Continue", Ch5-Scream, v_current_scene = Ch5-Scream) if (v_ch2_human_rea
 
 
 ID: Ch5-No-admit
-TEXT: 
+TEXT:
 
 No matter what Kate says, I have no way of knowing how Daren will react if he hears I'm actually aiming to win this tournament like everybody else. And besides, if he finds out I've been lying to him all this time, he'll only get more upset. I have no choice but to continue lying to him, at this point.
+
 I lie down with my back against the cave's outer wall and start to collect my thoughts. A lot has happened since I joined this tournament. People are dying left and right, and the organizers are not even bothering to give us our objectives. And to top it all off there's that stillwater. What could he possibly look to achieve by joining a tournament like this? What is his purpose?
 
 choice("Continue", Ch5-Scream, v_current_scene = Ch5-Scream)
 
 
 ID: Ch5-Scream
-TEXT: 
+TEXT:
 
 #if(v_ch5_admit_lie == 0) {
 As I sit there and think,  I suddenly hear a woman's scream coming from far in the distance. At the same time, I get a warning message floating in front of my eyes, telling me to not hurt her because she's one of the locals. 
+
 Although she's pretty far away from here, judging by the faint traces of magic that are coming from her direction it is safe to assume that she's being attacked by monsters. They don't seem to be very big, or particularly powerful, so we're likely talking about a handful of goblins.   
 
 The rules of the tournament are a bit hazy on what would happen if we were to save one of the locals from a monster attack. The general rule is to not intervene at all in the affairs of the people of Varathia, but it's not being enforced through a spell, like the rule that prevents us from directly hurting them for example.
@@ -676,6 +710,7 @@ The woman screams again, this time louder, and sounding more terrified.
 }
 #if(v_ch5_admit_lie == 1) {
 As I reach the exit,  I suddenly hear a woman's scream coming from far in the distance. At the same time, I get a warning message floating in front of my eyes, telling me to not hurt her because she's one of the locals. 
+
 Although she's pretty far away from here, judging by the faint traces of magic that are coming from her direction it is safe to assume that she's being attacked by monsters. They don't seem to be very big, or particularly powerful, so we're likely talking about a handful of goblins.   
 
 The rules of the tournament are a bit hazy on what would happen if we were to save one of the locals from a monster attack. The general rule is to not intervene at all in the affairs of the people of Varathia, but it's not being enforced through a spell, like the rule that prevents us from directly hurting them for example.
@@ -691,10 +726,11 @@ choice("Call Daren and head for the rescue", Ch5-Rescue, v_current_scene = Ch5-R
 
 
 ID: Ch5-Ignore
-TEXT: 
+TEXT:
 
 #if(v_ch5_admit_lie == 0) {
 I did not come here to play the hero. Winning the tournament takes priority. I mustn't forget that. If there's even the slightest chance that saving this woman could get me kicked out of the tournament, then I should not interfere.
+
 "What's that noise?" Daren asks as he comes closer to the cave's entrance.
 
 "One of the locals is being attacked by a group of monsters. Probably goblins."
@@ -710,6 +746,7 @@ He rushes past me without another word, and heads towards the source of the soun
 Kate, who was close enough to have heard our conversation, clears her throat and says:
 
 "If it makes any difference, I think you made the right decision. There's no way of knowing for sure what will happen if we break the non interference rule."
+
 "Thanks. But it's too late to worry about that, now. We can't just abandon Daren like that. Let's go."
 
 As we catch up with Daren, we're surprised to see that there are no more monsters in the vicinity.
@@ -727,6 +764,7 @@ I look around, to see if the woman that was screaming got hurt in any way. When 
 }
 #if(v_ch5_admit_lie == 1) {
 I did not come here to play the hero. Winning the tournament takes priority. I mustn't forget that. If there's even the slightest chance that saving this woman could get me kicked out of the tournament, then I should not interfere.
+
 "What's that noise?" Daren asks as he comes closer to the cave's entrance.
 
 "One of the locals is being attacked by a group of monsters. Probably goblins."
@@ -744,6 +782,7 @@ Kate, who was close enough to have heard our conversation, clears her throat and
 "If it makes any difference, I think you made the right decision. There's no way of knowing for sure what will happen if we break the non interference rule."
 
 "Thanks. But it's too late to worry about that, now. We can't just abandon Daren like that. Let's go."
+
 As we catch up with Daren, we're surprised to see that there are no more monsters in the vicinity.
 
 "Look who decided to show up," says Daren.
@@ -757,14 +796,15 @@ I look around, to see if the woman that was screaming got hurt in any way. When 
 "Thank you all so much for your help," she says. "I don't know what I would have done without you!"
 
 }
-choice("""Daren is the one you should thank, not us.""", Ch5-Humble, v_current_scene = Ch5-Humble) if (v_ch5_admit_lie == 0 || v_ch5_admit_lie == 1)
-choice("""We only did what anyone else would have done in our stead.""", Ch5-Stead, v_current_scene = Ch5-Stead) if (v_ch5_admit_lie == 0 || v_ch5_admit_lie == 1)
+choice(""Daren is the one you should thank, not us."", Ch5-Humble, v_current_scene = Ch5-Humble) if (v_ch5_admit_lie == 0 || v_ch5_admit_lie == 1)
+choice(""We only did what anyone else would have done in our stead."", Ch5-Stead, v_current_scene = Ch5-Stead) if (v_ch5_admit_lie == 0 || v_ch5_admit_lie == 1)
 
 
 ID: Ch5-Humble
-TEXT: 
+TEXT:
 
 "Daren is the one you should thank, not us. He's the one that rushed to save you, despite the non interference rule of the mage tournament."
+
 "I am well aware," the woman says, smiling politely. "That does not however deny the fact that the two of you eventually followed your friend here as well, in spite of that rule, and for that I thank you! My name is Rose. I'm pleased to meet you all!"
 
 "If I may ask," Kate interrupts. "What were you doing all alone in the middle of the wilderness?"
@@ -776,6 +816,7 @@ TEXT:
 Rose smiles, and she continues.
 
 "Miss Kate, I was out here looking for some very rare herbs that only grow in this area of the continent. There's been an outbreak of oildrip in my hometown, and as a herbalist, I can recognize the plants that are needed for the cure."
+
 "I'm sorry, what's an oildrip?"
 
 "Oh, I did not know this disease does not exist outside of our continent. The doctors are unsure of its cause, but what happens is that the patients' sweat becomes as thick as oil, and they get a very high fever, with violent coughing. Some of us have a natural immunity to it, but those that are not so lucky get quarantined somewhere and left there to die on their own. The only cure we know of for this disease is extracted from the very rare plants that I've come here to collect."
@@ -786,9 +827,10 @@ choice("Continue", Ch5-Creator, v_current_scene = Ch5-Creator)
 
 
 ID: Ch5-Stead
-TEXT: 
+TEXT:
 
 "We only did what anyone else would have done in our stead."
+
 The woman smiles.
 
 "Indeed. Most people would have done the same as you, and left me to die to not risk being banned from the tournament."
@@ -804,6 +846,7 @@ As the woman talks, I can feel my ears reddening.
 "Kate," says Kate, as she points toward herself. She then curtly points towards me and then Daren, giving Rose our names as well.
 
 Rose smiles, and she continues.
+
 "Miss Kate, I was out here looking for some very rare herbs that only grow in this area of the continent. There's been an outbreak of oildrip in my hometown, and as a herbalist, I can recognize the plants that are needed for the cure."
 
 "I'm sorry, what's an oildrip?"
@@ -816,9 +859,10 @@ choice("Continue", Ch5-Creator, v_current_scene = Ch5-Creator)
 
 
 ID: Ch5-Rescue
-TEXT: 
+TEXT:
 
 This isn't the time to worry about tournament regulations. That woman's life is in danger. We need to act now.
+
 "Daren! Come quick!"
 
 "What? What's wrong?"
@@ -837,7 +881,7 @@ choice("Continue", Ch5-Goblins, v_current_scene = Ch5-Goblins)
 
 
 ID: Ch5-Goblins
-TEXT: 
+TEXT:
 
 set(v_ch5_goblins,0) if (v_ancient_languages == 3 || v_ancient_languages < 3)
 #if(v_ancient_languages < 3) {
@@ -866,6 +910,7 @@ As soon as they see us, one of them yells something to his allies. I suddenly re
 "Why are you out here, robbing people? Shouldn't your clan be providing you with food and shelter?"
 
 "We were banished from our clan two days ago. We did not have money to pay our yearly tribute. Now, we are outcasts. We live from scraps. We don't even know how to tell the difference between poisonous and edible berries so we can't live off the land."
+
 "How much was the yearly tribute for the four of you?"
 
 "Two copper pieces."
@@ -875,18 +920,19 @@ Two copper pieces? That's barely the price of a loaf of bread. Come to think of 
 I have money to spare, but the question is, do I want to give even two copper pieces away to some monsters who attacked a defenseless woman just a minute ago?
 
 }
-choice("""All in the day's work!""", Ch5-Work, v_current_scene = Ch5-Work) if (v_ancient_languages < 3)
-choice("""You were lucky that we managed to make it in time.""", Ch5-Lucky, v_current_scene = Ch5-Lucky) if (v_ancient_languages < 3)
-choice("""No problem. We love helping people. But we also accept donations!""", Ch5-Donations, v_current_scene = Ch5-Donations) if (v_ancient_languages < 3)
+choice(""All in the day's work!"", Ch5-Work, v_current_scene = Ch5-Work) if (v_ancient_languages < 3)
+choice(""You were lucky that we managed to make it in time."", Ch5-Lucky, v_current_scene = Ch5-Lucky) if (v_ancient_languages < 3)
+choice(""No problem. We love helping people. But we also accept donations!"", Ch5-Donations, v_current_scene = Ch5-Donations) if (v_ancient_languages < 3)
 choice("Give them the two copper pieces", Ch5-Goblins2, v_current_scene = Ch5-Goblins2, v_ch5_goblins = 1) if (v_ancient_languages == 3)
 choice("Don't give them anything and send them on their way.", Ch5-Goblins2, v_current_scene = Ch5-Goblins2, v_ch5_goblins = 2) if (v_ancient_languages == 3)
 
 
 ID: Ch5-Goblins2
-TEXT: 
+TEXT:
 
 #if(v_ch5_goblins == 1) {
 I grab two copper pieces out of my right pocket and toss them over to the goblins. Their leader caught the two coins from the air, and is now looking at them as if he can't believe his eyes.
+
 "What is the meaning of this?" he asks me.
 
 "Two copper pieces. For your yearly tribute. Now you can go back to your clan and stop robbing people."
@@ -898,6 +944,7 @@ I grab two copper pieces out of my right pocket and toss them over to the goblin
 I do not recognize the voice, so I turn around to see who just spoke. I realize it's the woman that we saved from the goblins. Now that I get a good look at her, I am briefly stunned by just how beautiful she is.  She has long auburn hair, a thin waist and a warm smile, while her facial features are soft and feminine, unlike those of Kate, and her light-brown eyes radiate kindness. She is wearing an auburn dress to match her hair, and she appears to be somewhere in her mid twenties. In her hand she is holding some blue berries that she is now showing to the goblins.
 
 "I overheard you talking about having trouble distinguishing between edible and poisonous berries, and I thought I might be able to help!"
+
 "You can... understand us too?"
 
 "Yes, although not as good as this man standing beside me. I only got half of what you were discussing, but enough to understand why you attacked me back there. I am a herbalist, so I know quite a bit about plants. Although I can't teach you all I know, I can tell you a general rule that you can follow in order to make sure you don't get poisoned. You should stick to blue berries, as they are common enough to be found in any region of this continent, and even the most poisonous of them only give you a stomachache at most. As for finding the ones that are not poisonous, it is enough to look for blue berries that are of a dark color. Only light blue berries are dangerous."
@@ -909,6 +956,7 @@ She eats one of the dark blue berries she is holding in order to demonstrate she
 }
 #if(v_ch5_goblins == 2) {
 "I think I got the main gist of the situation. Very well. Be on your way, then."
+
 "We won't be bothering you any longer, human. We are not foolish enough to engage in an armed fight against trained human warriors."
 
 As he turns to leave, we hear a woman's voice from behind us.
@@ -920,6 +968,7 @@ I do not recognize the voice, so I turn around to see who just spoke. I realize 
 "I overheard you talking about having trouble distinguishing between edible and poisonous berries, and I thought I might be able to help!"
 
 "You can... understand us too?"
+
 "Yes, although not as good as this man standing beside me. I only got half of what you were discussing, but enough to understand why you attacked me back there. I am a herbalist, so I know quite a bit about plants. Although I can't teach you all I know, I can tell you a general rule that you can follow in order to make sure you don't get poisoned. You should stick to blue berries, as they are common enough to be found in any region of this continent, and even the most poisonous of them only give you a stomachache at most. As for finding the ones that are not poisonous, it is enough to look for blue berries that are of a dark color. Only light blue berries are dangerous."
 
 She eats one of the dark blue berries she is holding in order to demonstrate she's not lying, and then throws a bag full of them over to the goblin leader. 
@@ -931,10 +980,11 @@ choice("Continue", Ch5-Goblins3, v_current_scene = Ch5-Goblins3) if (v_ch5_gobli
 
 
 ID: Ch5-Goblins3
-TEXT: 
+TEXT:
 
 #if(v_ch5_goblins == 1) {
 The goblin seems almost paralyzed. He hesitantly takes one of the berries and eats it. Once he sees for himself that it was not poisoned he starts to cry. As he sobs, one of his goblin friends comes to hug him, and they start crying together. 
+
 So this is what it's like to be a goblin. I never knew. The woman with the auburn hair is looking at the goblins and smiling happily. It's incredible how happy she can be for some monsters that were about to rob her blind a few minutes ago.
 
 Once he regains control of himself, the goblin leader turns back to us and says:
@@ -948,6 +998,7 @@ The goblin puts his left hand on his stomach, and his right hand on his chest. T
 Tunak Madar... If I'm not mistaken, from what the stat device has taught me, I gather that this is one of the highest forms of respect and gratitude that exists in their language. It has no translation in any other languages that even comes close to its meaning.
 
 As the goblins leave, I turn around to see that Daren is frowning hard, and rubbing his forehead, while Kate is just standing there, looking at us with her jaw dropped.
+
 "Alright," says Daren. "Can someone explain to me what just happened?"
 
 The woman laughs softly.
@@ -957,6 +1008,7 @@ The woman laughs softly.
 }
 #if(v_ch5_goblins == 2) {
 The goblin seems almost paralyzed. He hesitantly takes one of the berries and eats it. Once he sees for himself that it was not poisoned he starts to cry. As he sobs, one of his goblin friends comes to hug him, and they start crying together. 
+
 So this is what it's like to be a goblin. I never knew. The woman with the auburn hair is looking at the goblins and smiling happily. It's incredible how happy she can be for some monsters that were about to rob her blind a few minutes ago.
 
 Once he regains control of himself, the goblin leader throws himself to his knees, and thrusts his dagger into the ground. The rest of the goblins do the same as their leader, as he starts to speak.
@@ -970,6 +1022,7 @@ The woman is looking embarrassed.
 "We are not worthy of your words. I, Uluk Mihtun vow to you that I will repay this debt. We will meet again. Until then..."
 
 The goblin puts his left hand on his stomach, and his right hand on his chest. The rest of the goblins mimic his gestures, and they all say together:
+
 "Tunak Madar!"
 
 Tunak Madar... If I'm not mistaken, from what the stat device has taught me, I gather that this is one of the highest forms of respect and gratitude that exists in their language. It has no translation in any other languages that even comes close to its meaning.
@@ -983,15 +1036,16 @@ The woman laughs softly.
 "I'm sorry," she says. "I realize his whole situation might have seemed really strange if you didn't understand what we were saying. In short, they've been exiled from their clan two days ago due to lack of money and they had to resort to petty theft in order to not die of hunger, so I helped them as much as I could! But, where are my manners? My name is Rose. Thank you all so much for your help. I don't know what I would have done without you!"
 
 }
-choice("""All in the day's work!""", Ch5-Work, v_current_scene = Ch5-Work) if (v_ch5_goblins == 1 || v_ch5_goblins == 2)
-choice("""You were lucky that we managed to make it in time.""", Ch5-Lucky, v_current_scene = Ch5-Lucky) if (v_ch5_goblins == 1 || v_ch5_goblins == 2)
-choice("""No problem. We love helping people. But we also accept donations!""", Ch5-Donations, v_current_scene = Ch5-Donations) if (v_ch5_goblins == 1 || v_ch5_goblins == 2)
+choice(""All in the day's work!"", Ch5-Work, v_current_scene = Ch5-Work) if (v_ch5_goblins == 1 || v_ch5_goblins == 2)
+choice(""You were lucky that we managed to make it in time."", Ch5-Lucky, v_current_scene = Ch5-Lucky) if (v_ch5_goblins == 1 || v_ch5_goblins == 2)
+choice(""No problem. We love helping people. But we also accept donations!"", Ch5-Donations, v_current_scene = Ch5-Donations) if (v_ch5_goblins == 1 || v_ch5_goblins == 2)
 
 
 ID: Ch5-Work
-TEXT: 
+TEXT:
 
 "All in the day's work!" I tell her.
+
 "Oh?" she asks, smiling playfully. "I take it, then, that the reason you've joined this tournament is to help the people in need?"
 
 "Well, I, uh..."
@@ -1005,6 +1059,7 @@ TEXT:
 "Well, miss, err..."
 
 "Kate," says Kate, as she points toward herself. She then curtly points towards me and then Daren, giving Rose our names as well.
+
 Rose smiles, and she continues.
 
 "Miss Kate, I was out here looking for some very rare herbs that only grow in this area of the continent. There's been an outbreak of oildrip in my hometown, and as a herbalist, I can recognize the plants that are needed for the cure."
@@ -1019,9 +1074,10 @@ choice("Continue", Ch5-Creator, v_current_scene = Ch5-Creator)
 
 
 ID: Ch5-Lucky
-TEXT: 
+TEXT:
 
 "You were lucky that we managed to make it in time to rescue you. What were you thinking, coming out here all by yourself?"
+
 "Barry, you're being too harsh," Daren tells me.
 
 "No, he's right," Rose says. "Coming here alone was very reckless of me. It's just that... I was running out of time. And no one was willing to come with me to help. I had no choice..."
@@ -1035,6 +1091,7 @@ TEXT:
 Rose smiles, and she continues.
 
 "Miss Kate, I was out here looking for some very rare herbs that only grow in this area of the continent. There's been an outbreak of oildrip in my hometown, and as a herbalist, I can recognize the plants that are needed for the cure."
+
 "I'm sorry, what's an oildrip?"
 
 "Oh, I did not know this disease does not exist outside of our continent. The doctors are unsure of its cause, but what happens is that the patients' sweat becomes as thick as oil, and they get a very high fever, with violent coughing. Some of us have a natural immunity to it, but those that are not so lucky get quarantined somewhere and left there to die on their own. The only cure we know of for this disease is extracted from the very rare plants that I've come here to collect."
@@ -1045,9 +1102,10 @@ choice("Continue", Ch5-Creator, v_current_scene = Ch5-Creator)
 
 
 ID: Ch5-Donations
-TEXT: 
+TEXT:
 
 "No problem. We love helping people. But we also accept donations!"
+
 "Damn it, Barry!" Daren says.
 
 Rose giggles.
@@ -1061,6 +1119,7 @@ Rose giggles.
 "Kate," says Kate, as she points toward herself. She then curtly points towards me and then Daren, giving Rose our names as well.
 
 Rose smiles, and she continues.
+
 "Miss Kate, I was out here looking for some very rare herbs that only grow in this area of the continent. There's been an outbreak of oildrip in my hometown, and as a herbalist, I can recognize the plants that are needed for the cure."
 
 "I'm sorry, what's an oildrip?"
@@ -1073,9 +1132,10 @@ choice("Continue", Ch5-Creator, v_current_scene = Ch5-Creator)
 
 
 ID: Ch5-Creator
-TEXT: 
+TEXT:
 
 "Oh, no... My family is fine, thank the gods. I came here because all of the sick are too poor to afford the money to send anyone to collect herbs for them. And I did not have the money to hire bodyguards to come with me either. I am no doctor, but I volunteer to help tend to the sick as often as I can. With the death of our grand priest, the number of sick people increases every day. He was the last person in our town that knew how to create food using magic, and as much as he has tried, he did not succeed in teaching his craft to any of his disciples. Many people are starting to get poisoned because of eating the wrong berries from the forest, others are dying of starvation, and others have resorted to... to..."
+
 She pauses for a bit to bring herself to say the words that were on her tongue.
 
 "animal hunting," she finishes her phrase.
@@ -1085,16 +1145,18 @@ She pauses for a bit to bring herself to say the words that were on her tongue.
 "It... was. There was a time when each city in Varathia had at least ten people that knew how to create food out of nothing, by using magic. That skill was taught to them by the Creator, and they taught it to their disciples, as well as they could. But those that could pick up the skill were very rare and talented individuals. Since the very foundation of Varathia six hundred years ago, all of the cities relied heavily on the Creator to find these talented individuals, and teach them this craft. But then, the Creator simply disappeared about a hundred years ago, and the number of people that still knew the food making craft started to dwindle."
 
 "With the risk of asking something obvious, who is the Creator?" asks Daren.
+
 "Oh, I'm sorry. I forgot how little information about us reaches the other continents. The Creator was... the founder of our civilization. Everything we are today, we owe to him. He and the spirit protector of all animals, the great golden fox decided together six hundred years ago to end all war and hunger, uniting the human and animal kingdom, and leading them into an age of peace and prosperity. They taught both humans and animals how to create what they needed with magic, and thus eliminated the need for work and conflict. Food, water, warmth, shelter, every one of those things could be obtained through magical means. From what I hear, it must have been paradise."
 
-choice("""Why did the Creator disappear?""", Ch5-Disappear, v_current_scene = Ch5-Disappear)
-choice("""How did the Creator live so long?""", Ch5-Long, v_current_scene = Ch5-Long)
+choice(""Why did the Creator disappear?"", Ch5-Disappear, v_current_scene = Ch5-Disappear)
+choice(""How did the Creator live so long?"", Ch5-Long, v_current_scene = Ch5-Long)
 
 
 ID: Ch5-Disappear
-TEXT: 
+TEXT:
 
 "Why did the Creator disappear?"
+
 "Nobody knows, for certain. There are many tales about what lead to his disappearance, but we have no way of knowing if any of them are true. Some of them say he went insane in the last few decades of his reign, and he simply left us without a word. Some of them say that he was disappointed with humankind, and decided to abandon us. Others say he simply got bored with us and went to create another civilization on a different continent. Most people, however, think he died, and that the kings of Varathia decided to hide this from the people in order to avoid creating panic. As long as the people still hold a hope that the Creator might return to save them all, there can still be some sense of order."
 
 She pauses.
@@ -1107,14 +1169,15 @@ Daren grins.
 
 "What?!" says Kate.
 
-choice("""That sounds like a great idea.""", Ch5-Great, v_current_scene = Ch5-Great)
-choice("""Don't you think you should consult us before making such a decision?""", Ch5-Consult, v_current_scene = Ch5-Consult)
+choice(""That sounds like a great idea."", Ch5-Great, v_current_scene = Ch5-Great)
+choice(""Don't you think you should consult us before making such a decision?"", Ch5-Consult, v_current_scene = Ch5-Consult)
 
 
 ID: Ch5-Long
-TEXT: 
+TEXT:
 
 "How did the Creator live so long? From what you're telling us, he must have lived at least a few hundred years?"
+
 "Yes. That is one of the reasons why there are more and more people that don't even believe in his existence anymore. It's already been a long time since he disappeared, and he didn't really show himself to many people before, either. It was mostly only members of the royal families that got to see him. There are many that say that the Creator was simply an invention of the kings, and that they're using his disappearance as an excuse, in order to keep the power to create food for themselves. In some of the cities, these groups of people have started rebelling against their kingdoms, and are on the brink of civil wars." 
 
 She pauses.
@@ -1127,14 +1190,15 @@ Daren grins.
 
 "What?!" says Kate.
 
-choice("""That sounds like a great idea.""", Ch5-Great, v_current_scene = Ch5-Great)
-choice("""Don't you think you should consult us before making such a decision?""", Ch5-Consult, v_current_scene = Ch5-Consult)
+choice(""That sounds like a great idea."", Ch5-Great, v_current_scene = Ch5-Great)
+choice(""Don't you think you should consult us before making such a decision?"", Ch5-Consult, v_current_scene = Ch5-Consult)
 
 
 ID: Ch5-Great
-TEXT: 
+TEXT:
 
 "That sounds like a great idea."
+
 "You too?" Kate asks me, disappointed.
 
 "Well, it's not like we have anything to do until they give us our objectives," I tell her. "And we'll probably be safer in one of the cities than out here in the wild, where we keep getting attacked every few hours. Didn't you say yourself that you don't have any specific leads to the whereabouts of the friend you're looking for right now?"
@@ -1150,6 +1214,7 @@ TEXT:
 "Be quiet for a second," Kate says. "Do you hear that?"
 
 Now that she mentions it, I can hear a faint whistling, although I don't recognize the tune. It's getting closer. Suddenly the music stops, just as the whistlers get in visual range of us. There's three of them. Weapon enchanters by the looks of them. They seem cleaner than Cutthroat Dave's group, and they don't smell like them, but other than that, they don't look much different. They'll probably attack us on sight like all the others.
+
 And here I thought we'd filled our quota of pointless fights for today. 
 
 "Clive, do you see that?" says one of the men.
@@ -1168,9 +1233,10 @@ choice("Continue", Ch5-Monster, v_current_scene = Ch5-Monster)
 
 
 ID: Ch5-Consult
-TEXT: 
+TEXT:
 
 "Don't you think you should consult us before making such a decision?"
+
 "Come on! What's gotten into you people? We'll be a lot safer inside a town than out here in the wilderness. Wouldn't it be better to wait somewhere safe until we get our objectives?"
 
 "Finding a city is one thing, escorting a local to one is another. Rescuing her from goblins might not be interpreted as interfering with local affairs, but becoming her personal bodyguards threads dangerously close to 'outside interference' territory."
@@ -1184,6 +1250,7 @@ TEXT:
 "Be quiet for a second," Kate says. "Do you hear that?"
 
 Now that she mentions it, I can hear a faint whistling, although I don't recognize the tune. It's getting closer. Suddenly the music stops, just as the whistlers get in visual range of us. There's three of them. Weapon enchanters by the looks of them. They seem cleaner than Cutthroat Dave's group, and they don't smell like them, but other than that, they don't look much different. They'll probably attack us on sight like all the others.
+
 And here I thought we'd filled our quota of pointless fights for today. 
 
 "Clive, do you see that?" says one of the men.
@@ -1202,9 +1269,10 @@ choice("Continue", Ch5-Monster, v_current_scene = Ch5-Monster)
 
 
 ID: Ch5-Monster
-TEXT: 
+TEXT:
 
 "Stop!" she yells, and the mage named Clive stops in his tracks.
+
 "Get out of my way, woman," he says. "Or I'll kill you along with that monstrosity you're so keen on defending."
 
 "You can't hurt her. I won't let you. I owe her for saving my life. And you can't hurt me either. I am a citizen of Varathia!"
@@ -1218,6 +1286,7 @@ He's right. Even for magic, a spell like the one Varathia's claimed to have cast
 "Don't worry, I won't be attacking her," Clive says with a wicked grin. "I'm just going to teach this little whore her place!"
 
 "No!" Daren shouts, as he runs towards Rose.
+
 At the same time, Kate extends her arm towards Clive, and an ice cone is slowly coming out of her palm.
 
 Clive quickly slashes his knife at Rose's face, and she instinctively closes her eyes. The mage stops his strike mere inches away from his target, and his whole body starts vibrating loudly, as it gets enveloped in a white light.
@@ -1238,14 +1307,15 @@ Once the two of them get far enough away, Kate turns to Rose and says:
 
 "I've changed my mind. I would be honored to serve as your escort until you reach your hometown. I'm sorry for having misjudged you. What you just did was very brave and heroic."
 
-choice("""Really? Because to me it just seemed reckless and stupid.""", Ch5-Reckless, v_current_scene = Ch5-Reckless)
-choice("""Since when do you appreciate bravery and heroism?""", Ch5-Heroism, v_current_scene = Ch5-Heroism)
+choice(""Really? Because to me it just seemed reckless and stupid."", Ch5-Reckless, v_current_scene = Ch5-Reckless)
+choice(""Since when do you appreciate bravery and heroism?"", Ch5-Heroism, v_current_scene = Ch5-Heroism)
 
 
 ID: Ch5-Reckless
-TEXT: 
+TEXT:
 
 "Really? Because to me it just seemed reckless and stupid."
+
 Kate, who is standing right beside me, smacks me in the back of my head.
 
 "What the hell was that for?" I ask her.
@@ -1261,6 +1331,7 @@ Rose lets out a giggle, which catches our attention.
 "I'm sorry," she says, smiling. "It's just that you reminded me of my little brother and sister, who always have fights like this. You two seem really close."
 
 Kate is blushing. This is the first time I've seen her blush since I've met her yesterday. It kind of suits her.
+
 "I can see why," Daren says, grinning. "Barry's been smitten with Kate ever since he first laid eyes on her."
 
 "You what?!" Kate asks me, taking Daren's joke a little too seriously.
@@ -1273,9 +1344,10 @@ choice("Next chapter", Ch6-Intro, v_next_chapter_crash = 1, v_current_scene = Ch
 
 
 ID: Ch5-Heroism
-TEXT: 
+TEXT:
 
 "Since when do you appreciate bravery and heroism?"
+
 Kate, who is standing right beside me, punches me in my right shoulder. Her punch was strong enough to leave a decent bruise.
 
 "Damn it, Kate. Have you ever heard of moderation?"
@@ -1291,6 +1363,7 @@ Rose lets out a giggle, which catches our attention.
 Kate is blushing. This is the first time I've seen her blush since I've met her yesterday. It kind of suits her.
 
 "I can see why," Daren says, grinning. "Barry's been smitten with Kate ever since he first laid eyes on her."
+
 "You what?!" Kate asks me, taking Daren's joke a little too seriously.
 
 "Hey, now," says Daren. "You'll have to continue this conversation later, in private! Now that there's four of us, we'll need to rethink our battle strategy. We need to make sure nothing happens to Rose if we encounter any monsters on our way to her hometown."
