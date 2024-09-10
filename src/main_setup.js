@@ -341,6 +341,14 @@ function render_saves_by_page(req, page) {
     return ejs.renderFile(path.join(dirname, "templates/saves.ejs"), data);
 }
 
+
+function render_about(req) {
+    return ejs.renderFile(
+        path.join(dirname, "templates/about.ejs"),
+        req.cookies,
+    );
+}
+
 /// ---
 
 let chapter;
@@ -448,6 +456,14 @@ expressApp.all("/saves/:page", bodyParser.json(), (req, res) => {
         res.send(rendered),
     );
 });
+
+
+expressApp.get("/about", (req, res) => {
+    render_full(req, render_about, "About").then(
+        (rendered) => res.send(rendered),
+    );
+});
+
 
 expressApp.listen(port, () => {
     console.log(`Magium listening on port ${port}`);
