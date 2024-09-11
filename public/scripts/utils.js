@@ -41,8 +41,13 @@ function navigateTo(url) {
     window.location.href = url;
 }
 
+function scrollToTop() {
+  window.scroll(0, 0);
+}
 
 function setResponseCookies(response) {
+  scrollToTop();
+
   for (const [key, value] of Object.entries(response.setVariables)) {
       if (value.startsWith("+")){
           cookieAdd(key,value.slice(1))
