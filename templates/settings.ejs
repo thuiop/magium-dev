@@ -1,0 +1,33 @@
+<script src="/scripts/night_mode.js"></script>
+<div class="main-menu">
+    <div class="response">
+        <button
+            hx-get="/language"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            Change language
+        </button>
+    </div>
+    <div class="response">
+        <button id="themeToggleBtn" onclick="nightModeButtonClick()">
+            Activate night mode
+        </button>
+    </div>
+    <div class="response">
+        <button
+            hx-get="/menu"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            Back to menu
+        </button>
+    </div>
+</div>
+<div style="display:none">
+    <h2 id="header" hx-swap-oob="true">
+        Settings
+    </h2>
+</div>

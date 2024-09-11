@@ -110,13 +110,8 @@ async function parse(filename) {
         currentScene.paragraphs.push(currentParagraph);
     }
     scenes.push(currentScene);
-    //console.log(JSON.stringify(scenes.slice(1)))
     let scenes_dict = {};
     scenes.slice(1).forEach((scene) => (scenes_dict[scene.id] = scene));
-    if (filename.includes("/ch2.magium")) {
-        //scenes.slice(1).forEach((scene) => console.log(scene))
-        //console.log(scenes_dict)
-    }
     return scenes_dict;
 }
 

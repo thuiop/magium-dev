@@ -1,0 +1,1669 @@
+ID: B3-Ch03a-Intro
+TEXT:
+
+set(v_b3_ch3_stats_unavailable,0)
+ 
+
+"Please make yourselves at home," the king of the underground says, as soon as we all enter the throne room. "I've prepared a few chairs for you, but you can also stand, if you want."
+
+As we each go to sit on a chair, the king takes a seat in his 'throne', which honestly isn't much different from the wooden chairs that we are now sitting in, except that it's a bit bigger and has a few ornaments on it. Two guards are currently standing on each side of the throne, while Albert and Peter are leaning against the wall on our left. The rest of us are all seated in the chairs that are facing the king, including Leila's father and Breynan, who were also invited to the meeting, along with us. 
+
+"Now, then..." the king of the underground says, as he gets a serious expression in his eyes. "I believe we should get straight to the point. When I was told of your group, I wasn't aware that the stillwater girl was in your team, but now that I know she's with you, everything makes much more sense. Am I correct in assuming that you all came here to kill the king of Ollendor?"
+
+"We did..." Melindra says. "But I don't remember ever meeting you. How do you know who I am?"
+
+ "Well, I don't know your name," the king says, "but I've had informants in the palace for quite some time, and eight years ago they told me how a stillwater girl wearing pajamas was banished from our continent by the mad king. Luckily for me, you are still wearing the same type of clothes, so it was easy for me to recognize you even after having been given such a vague description."
+
+"Hey!" Melindra says. "I'll have you know that these clothes are in no way similar to what you people wear as pajamas! Tell me... what pajamas have you ever seen with such an elegant design and high quality fabric? Do you have any idea how long it took me to find someone capable of custom tailoring these clothes for me? Six hundred years ago, the only people who didn't wear these types of garments were servants and prisoners, but nowadays people can't even tell that they are not meant to be sleepwear. It's outrageous!"
+
+"My apologies!" the king of the underground says. "I did not mean to insult your clothing. I was simply repeating what my men have told me. I imagine that most clothes would start to feel uncomfortable, once you've gotten used to wearing only garments made of such fine silk."
+
+"Yes!" Melindra says. "That is exactly why I can't bring myself to wear any other types of clothes. Finally, someone gets it!"
+
+choice("Continue", B3-Ch03a-Intro2, v_current_scene = B3-Ch03a-Intro2, v_checkpoint_rich = 0)
+
+
+ID: B3-Ch03a-Intro2
+TEXT:
+
+ "So..." the king says, trying to get back to a more relevant topic, "should I take it that your real reason for coming back to Varathia is to rescue your brother?..."
+
+"That is none of your business," Melindra says, frowning, as the rest of us turn our heads towards her.
+
+"Of course, of course..." the king says. "It's always been a bad habit of mine to pry into other people's personal affairs. What you say is true. As long as I know that your group is aiming to assassinate the king, I should not be concerned with what you plan to do after you walk out of the city. Very well... In that case, I believe it would be in our best interest to cooperate for now. However, there is a question that I would like to ask of you all before we delve into further details. Is your purpose here only to eliminate the king, or do you also have an interest in what happens to this city after you leave?"
+
+choice(""We only care about killing the king. Nothing else."", B3-Ch03a-Interest, v_current_scene = B3-Ch03a-Interest, v_b3_ch3_interest = 0)
+choice(""We do care about what happens with the city after the king's death, actually."", B3-Ch03a-Interest, v_current_scene = B3-Ch03a-Interest, v_b3_ch3_interest = 1)
+
+
+ID: B3-Ch03a-Interest
+TEXT:
+
+#if(v_b3_ch3_interest == 0) {
+ "We only care about killing the king. Nothing else."
+
+"I see," the king of the underground says. "In that case, I suppose you won't mind if someone from our group will become the next ruler after the death of king Undriel, will you?"
+
+"Someone from your group?..." Illuna says. "Don't you mean yourself?"
+
+"Well, no... not necessarily," the king of the underground says. "There are many good people here, both among my followers and among the rebels, who would make suitable candidates. We could even try to elect a council, in order to avoid giving one person too much power again. However, these matters will be discussed in more detail once we achieve our primary goal of dethroning the mad king. Everything else comes second."
+
+"So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
+
+}
+#if(v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1) {
+ "That would be the main gist of it, yes," the king of the underground says. "However, I would first like to ask you one important question. How exactly were you planning to get past all of the defenses the king has in place, before you could get close enough to assassinate him?"
+
+"Uh... we didn't really know much about this city's defenses before we came here, so we couldn't make any preparations in advance," Hadrik says. "Our plan was more or less to head straight for the palace, and then to just wing it."
+
+"I suspected that this might have been the case," the king of the underground says. "Unfortunately, as you may have already found out, trying to simply fight your way to the palace is not the wisest solution. You've only had to fight against three of the royal guards so far, and still you were unable to defeat them. Imagine what would happen if you had to fight all of them at once."
+
+"Actually, your majesty," Albert says, "the outsiders only fought two of the royal guards. The mercenary did not join the battle."
+
+"That makes things even worse," the king of the underground says. "Remember that the king has the ability to instantly summon all of the royal guards to his position in case of an emergency. It is unlikely that you will ever be able to touch him without defeating all of his guards beforehand. Then there are also the Overseer's pawns that are always circling the skies, watching your every movement. You can't hope to win against such odds without at least some inside information."
+
+ "So, what do you propose, then?" Melindra says.
+
+"We propose that you follow one of our plans, instead," the king says. "Recently, our listening devices from the palace picked up an interesting conversation that I think you might want to hear. Albert, do you still have the recording from yesterday?"
+
+"Yes, your majesty," Albert says, as he approaches the king and then hands him a small metal cube-shaped device with several buttons on it.
+
+The king picks up the device and then presses on one of the buttons. Immediately afterwards, we begin to hear two voices coming from the cube, although we can't really make out what they are saying just yet.
+
+"This is a conversation between Billy Bob and the Overseer," the king says. "The Overseer is the one with the more metallic-sounding voice, in case you couldn't tell. Please tell me what you think of this discussion, once you're done listening to it."
+
+}
+#if(v_b3_ch3_interest == 1) {
+ "We do care about what happens with the city after the king's death, actually." 
+
+"Oh?" the king of the underground says. "Does this mean that you would seek to make yourselves rulers of this kingdom once you've rid yourselves of the current king?"
+
+"No, no, nothing of the sort!" Daren says. "We simply want to make sure that whoever takes on the mantle of leadership next will have the people of Ollendor's best interests at heart."
+
+"Hmm..." the king of the underground says. "Well, it hasn't yet been decided who will become the next ruler after we deal with the king, but I assure you that we only want what's best for Ollendor. We've all had to suffer the consequences of king Undriel's tyranny in one way or another, and we do not intend to make the same mistakes as him."
+
+"You said that it hasn't yet been decided who will become the next ruler," Illuna says. "Does this mean that you are not planning to become king yourself?"
+
+"Well, no... not necessarily," the king of the underground says. "There are many good people here, both among my followers and among the rebels, who would make suitable candidates. We could even try to elect a council, in order to avoid giving one person too much power again. However, these matters will be discussed in more detail once we achieve our primary goal of dethroning the mad king. Everything else comes second."
+
+"So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
+
+}
+choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1)
+
+
+ID: B3-Ch03a-Assistance
+TEXT:
+
+ After a few more seconds, the sound coming from the metal device becomes clearer, and we are finally able to understand what the two voices are saying.
+
+"That's not what I asked you, you blasted machine!" we hear Billy Bob shouting. "What I want to know is if the rebels are the ones responsible for blowing up my architectural masterpiece yesterday!"
+
+"Question unclear," the Overseer says. "Please define 'architectural masterpiece'. The Overseer protocol has so far recorded thirty-one instances of you calling one of your designed buildings an 'architectural masterpiece'."
+
+"You know which one I'm talking about, you useless piece of scrap metal!" Billy Bob says. "Only one of my buildings blew up yesterday!"
+
+"That is incorrect," the Overseer says. "Only yesterday, you talked about three of your latest designs blowing up overnight. You have also used the same expression to describe several other buildings of yours in the past, whenever they became popular very quickly."
+
+"No, I mean literally blowing up!" Billy Bob says. "As in, exploding! Do you understand? I'm talking about an explosion! What is wrong with you? Can you not understand the basics of the Common language? Fix your damn problems, already!"
+
+ "Complaint acknowledged," the Overseer says. "The Overseer protocol is now updating its vocabulary in order to better be able to assist you. Please stand by."
+
+There is a short pause during which the metal cube becomes silent.
+
+"Update completed," we hear the Overseer's voice again, after a while. "Thank you for your patience. All instances of the expression 'to blow up' will henceforth be interpreted as 'to explode'. The Overseer protocol will now begin an investigation in order to find the cause for your three buildings exploding overnight."
+
+"Are you mocking me?!" Billy Bob says.
+
+"The Overseer protocol does not possess the ability to mock," the Overseer says. "The protocol's only purpose is to provide assistance. If you are unsatisfied with the services provided, you can state your complaint, and your request will be handled as soon as possible."
+
+"Forget it!" Billy Bob says. "I'll just go ask the guards for the information I need. I feel like I'm becoming dumber simply by being near you. I don't want to hear anything else from you today, unless it's an extreme emergency. Do you understand?"
+
+"Request acknowledged," the Overseer says. "Have a good day!"
+
+ "Hmph..." Billy Bob says, and then we hear him walking away from the Overseer.
+
+"Well, that was... something," Hadrik says.
+
+"It's not over, yet," the king says. "Listen."
+
+After about ten seconds of silence, we hear the faint sound of a door being closed, coming from the recording device, and then we hear the voice of the Overseer one last time.
+
+"The Overseer protocol's only purpose is to provide assistance," the Overseer says again. "If you are in need of any more help, feel free to activate the protocol by asking any of the green-eyed units to put you in contact with the Overseer. Have a good day!"
+
+The metal cube then becomes silent again, but this time it looks like the recording has actually ended.
+
+"I don't get it," Hadrik says. "Why did you make us listen to this recording? What information does it give us that we didn't already know?"
+
+choice("Continue", B3-Ch03a-Scouts, v_current_scene = B3-Ch03a-Scouts)
+
+
+ID: B3-Ch03a-Scouts
+TEXT:
+
+ "Did you not notice?..." the king of the underground says. "That last line of the Overseer wasn't directed towards the lessathi. Billy Bob had already left the room by that time, as you could very well hear for yourselves. We are also quite certain that there was nobody else there, because otherwise our listening device would have at least recorded them opening or closing the door. Which leaves only the possibility that the Overseer was talking by itself. Now, why do you think a highly intelligent machine would do such a thing?"
+
+"Who knows?" Hadrik says. "Maybe it malfunctioned or something."
+
+"That is one possiblity..." the king says. "However, another more likely possibility is that the Overseer is a little smarter than we think, and it was in fact transmitting that message directly to us."
+
+"You think the Overseer knew that you had listening devices in that room?" Daren says.
+
+"There is no way to be sure," the king says. "However, that is the scenario which would make the most sense to me. I think the Overseer was letting us know that the whole discussion we heard earlier was only a charade, meant to prevent Billy Bob from obtaining the information he needed. Information that might have put some of our men in danger, depending on how detailed it was. I also think that the Overseer was making a direct invitation towards us when it said that we could request to speak to it if we needed more help. It would not be far-fetched to assume that it wants to build an alliance with us, although obviously, it could also be a trap. You can never know, in these situations."
+
+ "With all due respect, my king," Albert says. "Do you not think that you might be overestimating this Overseer just a little bit? It is after all, only a machine."
+
+"Machine or no, we cannot afford to waste such an opportunity," the king of the underground says. "Don't forget that Breynan has been warning us for a long time that the Overseer might in fact be smarter than it looks. We should at the very least try to treat this matter as seriously as we can. If it all turns out to be just one big misunderstanding, then so be it, but the potential to gain such a powerful ally on our side is too great to be simply ignored."
+
+"Yes, your majesty," Albert says. "Of course. We will look into it as soon as we are able."
+
+"Actually," the king says, "I've already sent scouts to the surface so they can monitor the green-eyed metal balls and see if they are trying to bait us into an ambush or not. As long as everything is fine, we'll be sending a small team tomorrow to negotiate with the Overseer, and I would like our new allies to accompany them as well, if they agree to it, of course. Ultimately, it all depends on what the healer in armor decides, since I'm assuming he's the leader of their group." 
+
+ "Umm, actually, neither of us is the leader," Daren says. "We usually like to discuss these types of matters between ourselves, before we make important decisions."
+
+"I understand," the king says. "In that case, I will give you some time to reach a conclusion, and you can give us your answer tomorrow. Would that be alright with you?"
+
+"Of course," Daren says. "We will tell you tomorrow what we've decided."
+
+"Very well," the king says. "Then we'll discuss the rest of the details once you've decided whether you want to join us or not. Until then, please make yourselves at home. Peter will show you to your rooms as soon as we'll have them ready for you. But where are my manners? I shouldn't be the one doing all the talking. I'm sure that you all have questions to ask of me as well. If there's anything on your mind, please don't hesitate to ask, and I will answer you to the best of my ability."
+
+choice(""What kind of food do you guys have in this place?"", B3-Ch03a-Food, v_current_scene = B3-Ch03a-Food)
+choice(""Are we free to roam around as we please, while we're here?"", B3-Ch03a-Roam, v_current_scene = B3-Ch03a-Roam)
+choice(""Could we get a guided tour of your underground base?"", B3-Ch03a-Guided, v_current_scene = B3-Ch03a-Guided)
+
+
+ID: B3-Ch03a-Food
+TEXT:
+
+ "What kind of food do you guys have in this place?"
+
+"We have many kinds of food here, actually," the king of the underground says. "Our city's high priest is rather good at conjuring even the most extravagant cuisine, and he also managed to teach this technique to several of his disciples, so fortunately our kingdom has never had to deal with food shortage problems, unlike some of the other cities in Varathia. If you want to know what we currently have in stock, you are free to visit our pantry at any time, so you can see for yourself."
+
+"I only have one question," Daren says. "Are there any non-beginner white mages around here that could cast a quick healing spell on me and Hadrik? I'm still too tired to be able to cast any decent healing spells, and these wounds are beginning to feel a little uncomfortable..."
+
+"Ah, yes, of course," the king says. "I will arrange for one of our healers to come see you as soon as he is done with his current patients. In the meantime, you can go back to the room where we came from and wait for him there, unless you have any other questions to ask of me."
+
+"Nah, I think we're good for now," Hadrik says.
+
+"Alright then," the king says. "Well, in that case, I hope you will all have a pleasant stay, and we will be resuming our discussion tomorrow, after you've made your decision."
+
+ He pauses for a second to take a quick glance at Kate, but then he addresses one of the rebels instead.
+
+"Oh, and one more thing," the king says. "Breynan, I know that this won't seem fair to you, but I want you to stay behind tomorrow, when our men visit the Overseer."
+
+"My king?..." Breynan says, apparently in a state of shock.
+
+"I realize that I am going against your wishes, but I hope you will respect my decision," the king of the underground says, in a more firm tone of voice.
+
+"But, your majesty..." Breynan says. "Of all the people in this place, I am by far the one who knows the Overseer the best! I also interacted directly with him on numerous occasions!"
+
+"And that is precisely why I don't want you to be part of that team, tomorrow," the king says. "You are too emotionally involved in this matter to be able to keep a cool head. I want to make sure that the negotiations will be done in a professional manner, by people who are in no danger of letting their feelings cloud their judgment. Rest assured that I've read all of your reports concerning the Overseer, and I will make sure that the negotiations team tomorrow will be taking all of your notes into account. You will, however, not be joining this team, and that is my final decision. Is that clear?"
+
+"Yes... your highness," Breynan says, looking rather upset.  
+  
+
+#if(v_b3_ch2_goblins != 1) {
+ "Good," the king of the underground says. "I will be seeing each of you later, then. I trust that you can all make your way back to the waiting room, yes?"
+
+"We'll handle ourselves," Daren says. "Come on, let's go."
+
+He then limps ahead of us and we all follow him, except for Albert, who seems to still have something that he wants to discuss in private with the king. As we make our way back into the waiting room, we all place ourselves near the chairs from the exit that leads towards the teleporter, waiting patiently for the healers to arrive. In the meantime, Peter went to get our rooms ready, while Breynan also went on his own way, without even saying goodbye to us, still looking pretty affected by what the king of the underground had said to him.
+
+"I guess that Kelrim went back to the quarantine area," Daren says, after he takes a quick look around and sees that the goblin is nowhere to be found.
+
+"Either that, or he went to look for his friends," Hadrik says.
+
+"Yeah, I guess that might actually be more likely, if I think about it," Daren says.
+
+"Forget about the damn goblin!" Arraka says. "We have far more pressing issues to concern ourselves with!"
+
+}
+#if(v_b3_ch2_goblins == 1) {
+ "Good," the king of the underground says. "I will be seeing each of you later, then. I trust that you can all make your way back to the waiting room, yes?"
+
+"We'll handle ourselves," Daren says. "Come on, let's go."
+
+He then limps ahead of us and we all follow him, except for Albert, who seems to still have something that he wants to discuss in private with the king. As we make our way back into the waiting room, we all place ourselves near the chairs from the exit that leads towards the teleporter, waiting patiently for the healers to arrive. In the meantime, Peter went to get our rooms ready, while Breynan also went on his own way, without even saying goodbye to us, still looking pretty affected by what the king of the underground had said to him.
+
+"I guess that Kelrim went back to the quarantine area," Daren says, after he takes a quick look around and sees that the goblin is nowhere to be found.
+
+"Oh yeah..." Hadrik says. "I almost forgot about the goblin. It's going to be a little hard to face him from now on, considering what we did to his friends..."
+
+"At least you didn't actually kill any of them yourself," Daren says. "When I realized that the goblin I killed was one of Kelrim's friends, I felt like the lowest of scum. I never thought I'd ever feel that way about killing a monster..."
+
+Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
+
+}
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice(""Listen, there was no way we could have known those were good goblins!"", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+choice(""All we can really do now is try and make it up to him in some way."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
+choice(""Does it really matter that much? They were all monsters, after all."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
+choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+
+
+ID: B3-Ch03a-Roam
+TEXT:
+
+ "Are we free to roam around as we please, while we're here?"
+
+"Yes, you can go wherever you want, except for a few areas that are off limits," the king of the underground says. "You will immediately know where those are, because there's usually at least one guard posted outside each door. You are also free to go to the surface, if you want, although I wouldn't really recommend it until you've at least fully recovered from your earlier battle."
+
+"I only have one question," Daren says. "Are there any non-beginner white mages around here that could cast a quick healing spell on me and Hadrik? I'm still too tired to be able to cast any decent healing spells, and these wounds are beginning to feel a little uncomfortable..."
+
+"Ah, yes, of course," the king says. "I will arrange for one of our healers to come see you as soon as he is done with his current patients. In the meantime, you can go back to the room where we came from and wait for him there, unless you have any other questions to ask of me."
+
+"Nah, I think we're good for now," Hadrik says.
+
+"Alright then," the king says. "Well, in that case, I hope you will all have a pleasant stay, and we will be resuming our discussion tomorrow, after you've made your decision."
+
+ He pauses for a second to take a quick glance at Kate, but then he addresses one of the rebels instead.
+
+"Oh, and one more thing," the king says. "Breynan, I know that this won't seem fair to you, but I want you to stay behind tomorrow, when our men visit the Overseer."
+
+"My king?..." Breynan says, apparently in a state of shock.
+
+"I realize that I am going against your wishes, but I hope you will respect my decision," the king of the underground says, in a more firm tone of voice.
+
+"But, your majesty..." Breynan says. "Of all the people in this place, I am by far the one who knows the Overseer the best! I also interacted directly with him on numerous occasions!"
+
+"And that is precisely why I don't want you to be part of that team, tomorrow," the king says. "You are too emotionally involved in this matter to be able to keep a cool head. I want to make sure that the negotiations will be done in a professional manner, by people who are in no danger of letting their feelings cloud their judgment. Rest assured that I've read all of your reports concerning the Overseer, and I will make sure that the negotiations team tomorrow will be taking all of your notes into account. You will, however, not be joining this team, and that is my final decision. Is that clear?"
+
+"Yes... your highness," Breynan says, looking rather upset.  
+  
+
+#if(v_b3_ch2_goblins != 1) {
+ "Good," the king of the underground says. "I will be seeing each of you later, then. I trust that you can all make your way back to the waiting room, yes?"
+
+"We'll handle ourselves," Daren says. "Come on, let's go."
+
+He then limps ahead of us and we all follow him, except for Albert, who seems to still have something that he wants to discuss in private with the king. As we make our way back into the waiting room, we all place ourselves near the chairs from the exit that leads towards the teleporter, waiting patiently for the healers to arrive. In the meantime, Peter went to get our rooms ready, while Breynan also went on his own way, without even saying goodbye to us, still looking pretty affected by what the king of the underground had said to him.
+
+"I guess that Kelrim went back to the quarantine area," Daren says, after he takes a quick look around and sees that the goblin is nowhere to be found.
+
+"Either that, or he went to look for his friends," Hadrik says.
+
+"Yeah, I guess that might actually be more likely, if I think about it," Daren says.
+
+"Forget about the damn goblin!" Arraka says. "We have far more pressing issues to concern ourselves with!"
+
+}
+#if(v_b3_ch2_goblins == 1) {
+ "Good," the king of the underground says. "I will be seeing each of you later, then. I trust that you can all make your way back to the waiting room, yes?"
+
+"We'll handle ourselves," Daren says. "Come on, let's go."
+
+He then limps ahead of us and we all follow him, except for Albert, who seems to still have something that he wants to discuss in private with the king. As we make our way back into the waiting room, we all place ourselves near the chairs from the exit that leads towards the teleporter, waiting patiently for the healers to arrive. In the meantime, Peter went to get our rooms ready, while Breynan also went on his own way, without even saying goodbye to us, still looking pretty affected by what the king of the underground had said to him.
+
+"I guess that Kelrim went back to the quarantine area," Daren says, after he takes a quick look around and sees that the goblin is nowhere to be found.
+
+"Oh yeah..." Hadrik says. "I almost forgot about the goblin. It's going to be a little hard to face him from now on, considering what we did to his friends..."
+
+"At least you didn't actually kill any of them yourself," Daren says. "When I realized that the goblin I killed was one of Kelrim's friends, I felt like the lowest of scum. I never thought I'd ever feel that way about killing a monster..."
+
+Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
+
+}
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice(""Listen, there was no way we could have known those were good goblins!"", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+choice(""All we can really do now is try and make it up to him in some way."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
+choice(""Does it really matter that much? They were all monsters, after all."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
+choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+
+
+ID: B3-Ch03a-Guided
+TEXT:
+
+ "Could we get a guided tour of your underground base?"
+
+"Well, most of our men are rather busy at this time," the king of the underground says, "but if there is anything specific you want to know about a certain area, you can ask around, and I'm sure that someone will answer your question."
+
+"I only have one question," Daren says. "Are there any non-beginner white mages around here that could cast a quick healing spell on me and Hadrik? I'm still too tired to be able to cast any decent healing spells, and these wounds are beginning to feel a little uncomfortable..."
+
+"Ah, yes, of course," the king says. "I will arrange for one of our healers to come see you as soon as he is done with his current patients. In the meantime, you can go back to the room where we came from and wait for him there, unless you have any other questions to ask of me."
+
+"Nah, I think we're good for now," Hadrik says.
+
+"Alright then," the king says. "Well, in that case, I hope you will all have a pleasant stay, and we will be resuming our discussion tomorrow, after you've made your decision."
+
+ He pauses for a second to take a quick glance at Kate, but then he addresses one of the rebels instead.
+
+"Oh, and one more thing," the king says. "Breynan, I know that this won't seem fair to you, but I want you to stay behind tomorrow, when our men visit the Overseer."
+
+"My king?..." Breynan says, apparently in a state of shock.
+
+"I realize that I am going against your wishes, but I hope you will respect my decision," the king of the underground says, in a more firm tone of voice.
+
+"But, your majesty..." Breynan says. "Of all the people in this place, I am by far the one who knows the Overseer the best! I also interacted directly with him on numerous occasions!"
+
+"And that is precisely why I don't want you to be part of that team, tomorrow," the king says. "You are too emotionally involved in this matter to be able to keep a cool head. I want to make sure that the negotiations will be done in a professional manner, by people who are in no danger of letting their feelings cloud their judgment. Rest assured that I've read all of your reports concerning the Overseer, and I will make sure that the negotiations team tomorrow will be taking all of your notes into account. You will, however, not be joining this team, and that is my final decision. Is that clear?"
+
+"Yes... your highness," Breynan says, looking rather upset.  
+  
+
+#if(v_b3_ch2_goblins != 1) {
+ "Good," the king of the underground says. "I will be seeing each of you later, then. I trust that you can all make your way back to the waiting room, yes?"
+
+"We'll handle ourselves," Daren says. "Come on, let's go."
+
+He then limps ahead of us and we all follow him, except for Albert, who seems to still have something that he wants to discuss in private with the king. As we make our way back into the waiting room, we all place ourselves near the chairs from the exit that leads towards the teleporter, waiting patiently for the healers to arrive. In the meantime, Peter went to get our rooms ready, while Breynan also went on his own way, without even saying goodbye to us, still looking pretty affected by what the king of the underground had said to him.
+
+"I guess that Kelrim went back to the quarantine area," Daren says, after he takes a quick look around and sees that the goblin is nowhere to be found.
+
+"Either that, or he went to look for his friends," Hadrik says.
+
+"Yeah, I guess that might actually be more likely, if I think about it," Daren says.
+
+"Forget about the damn goblin!" Arraka says. "We have far more pressing issues to concern ourselves with!"
+
+}
+#if(v_b3_ch2_goblins == 1) {
+ "Good," the king of the underground says. "I will be seeing each of you later, then. I trust that you can all make your way back to the waiting room, yes?"
+
+"We'll handle ourselves," Daren says. "Come on, let's go."
+
+He then limps ahead of us and we all follow him, except for Albert, who seems to still have something that he wants to discuss in private with the king. As we make our way back into the waiting room, we all place ourselves near the chairs from the exit that leads towards the teleporter, waiting patiently for the healers to arrive. In the meantime, Peter went to get our rooms ready, while Breynan also went on his own way, without even saying goodbye to us, still looking pretty affected by what the king of the underground had said to him.
+
+"I guess that Kelrim went back to the quarantine area," Daren says, after he takes a quick look around and sees that the goblin is nowhere to be found.
+
+"Oh yeah..." Hadrik says. "I almost forgot about the goblin. It's going to be a little hard to face him from now on, considering what we did to his friends..."
+
+"At least you didn't actually kill any of them yourself," Daren says. "When I realized that the goblin I killed was one of Kelrim's friends, I felt like the lowest of scum. I never thought I'd ever feel that way about killing a monster..."
+
+Kate isn't saying anything, but she's looking away from us. She seems to be more in control of her emotions this time around, even though she's definitely still troubled about this whole situation.
+
+}
+choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins != 1)
+choice(""Listen, there was no way we could have known those were good goblins!"", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+choice(""All we can really do now is try and make it up to him in some way."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
+choice(""Does it really matter that much? They were all monsters, after all."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
+choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
+
+
+ID: B3-Ch03a-Goblins
+TEXT:
+
+#if(v_b3_ch3_monsters == 0) {
+ "Listen, there was no way we could have known those were good goblins! It wasn't our fault!"
+
+"It was our fault..." Daren says. "We should have known better. We had all the hints we needed to realize that they weren't our enemies, but we killed them anyway. Just because they were monsters. I feel so ashamed..."
+
+"Forget about the damn goblins!" Arraka says, all of a sudden. "We have far more pressing issues to concern ourselves with!"
+
+"Like what?" Illuna says.
+
+"Like the fact that none of you idiots were able to counteract a simple aura manipulation technique!" Arraka says. "How are we going to take down a god if you people can't even deal with basic techniques?"
+
+"Take down a... god?..." Leila's father asks.
+
+"We'll explain later," I tell Leila's father.
+
+"Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
+
+}
+#if(v_b3_ch3_monsters == 0 || v_b3_ch3_monsters == 1 || v_b3_ch3_monsters == 2) {
+ "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
+
+"Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
+
+"And how are we supposed to do that?" I say.
+
+"With training, obviously," Arraka says. "I'm going to hammer that knowledge into your useless heads, even if it kills me. Mark my words!"
+
+"Right," I say. "Speaking of training, I just remembered that I had something important to discuss with Leila's father about my stat device."
+
+"Yes, Barry, what is it?" Leila's father says.
+
+}
+#if(v_b3_ch3_monsters == 1) {
+ "All we can really do now is try and make it up to him in some way."
+
+"But how?..." Daren says. "How could we ever make it up to him after murdering all his friends in cold blood? There's no way for us to bring them back from the dead..."
+
+"We'll find a way," I say. "Even if we can't bring back his friends, there still has to be something we can do. Maybe if we talk to him about it, we could--"
+
+"Forget about the damn goblins!" Arraka says, all of a sudden. "We have far more pressing issues to concern ourselves with!"
+
+"Like what?" Illuna says.
+
+"Like the fact that none of you idiots were able to counteract a simple aura manipulation technique!" Arraka says. "How are we going to take down a god if you people can't even deal with basic techniques?"
+
+"Take down a... god?..." Leila's father asks.
+
+"We'll explain later," I tell Leila's father.
+
+"Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
+
+}
+#if(v_b3_ch3_monsters == 2) {
+ "Does it really matter that much? They were all monsters, after all."
+
+"It does matter..." Daren says. "If a goblin like Kelrim is capable of risking his own life to help complete strangers that are not even part of his own race, then what of his friends? What if they were all like him too? Now we'll never know, because we murdered them all in cold blood without even giving it a second thought. Just because they were monsters. I feel so ashamed..."
+
+"Forget about the damn goblins!" Arraka says, all of a sudden. "We have far more pressing issues to concern ourselves with!"
+
+"Like what?" Illuna says.
+
+"Like the fact that none of you idiots were able to counteract a simple aura manipulation technique!" Arraka says. "How are we going to take down a god if you people can't even deal with basic techniques?"
+
+"Take down a... god?..." Leila's father asks.
+
+"We'll explain later," I tell Leila's father.
+
+"Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
+
+}
+#if(v_b3_ch1_unlock == 2) {
+ "Well, first of all, I was wondering if you could help me unlock my device," I say. "We got it locked by accident yesterday, while we were trying to unlock the hidden aura stats."
+
+"Oh!" Leila's father says. "The aura stats lock! That brings back memories. It also happened to me once, when I first began tinkering with Leila's stat device in order to make it translate her thoughts into words. To answer your question, yes, I can unlock it easily."
+
+"Wow, that's great!" I say. "Will the secret stats get unlocked too, after you do it?"
+
+"Not exactly," Leila's father says. "But it shouldn't be that hard to unlock them manually, once I'm done fixing your device. I would have made these stats available on Leila's device as well, but I had to sort of permanently deactivate them on her stat booster, in order to get her magical writing feature to work properly."
+
+"So, can we do it now?..." I say.
+
+"Right now?" Leila's father says. "I suppose it wouldn't be a problem. I should probably be doing some maintenance for Leila's device too, now that I think about it. It's been far too long since I last had a good look at it. Let us go to my workshop, and we'll see what we can do."
+
+"Alright," I say, and then I turn to the others. "I'll see you all around in a bit!"
+
+}
+#if(v_b3_ch1_unlock != 2) {
+ "Well, I was wondering if you could help me unlock the hidden aura stats from my device," I say.
+
+"You mean the Aura Hardening, Bluff and Magical Sense stats?" Leila's father says. "Of course! It shouldn't be that hard to do. Frankly, I probably would have made those stats available on Leila's device as well, if I hadn't needed to deactivate them in order to get her magical writing feature to work properly."
+
+"So, can we do it now?..." I say.
+
+"Right now?" Leila's father says. "I suppose it wouldn't be a problem. I should probably be doing some maintenance for Leila's device too, now that I think about it. It's been far too long since I last had a good look at it. Let us go to my workshop, and we'll see what we can do."
+
+"Alright," I say, and then I turn to the others. "I'll see you all around in a bit!"
+
+}
+choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane)
+
+
+ID: B3-Ch03a-Hag
+TEXT:
+
+ "Like what?" Illuna says.
+
+"Like the fact that none of you idiots were able to counteract a simple aura manipulation technique!" Arraka says. "How are we going to take down a god if you people can't even deal with basic techniques?"
+
+"Take down a... god?..." Leila's father asks.
+
+"We'll explain later," I tell Leila's father.
+
+"Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
+
+ "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
+
+"Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
+
+"And how are we supposed to do that?" I say.
+
+"With training, obviously," Arraka says. "I'm going to hammer that knowledge into your useless heads, even if it kills me. Mark my words!"
+
+"Right," I say. "Speaking of training, I just remembered that I had something important to discuss with Leila's father about my stat device."
+
+"Yes, Barry, what is it?" Leila's father says.
+
+#if(v_b3_ch1_unlock == 2) {
+ "Well, first of all, I was wondering if you could help me unlock my device," I say. "We got it locked by accident yesterday, while we were trying to unlock the hidden aura stats."
+
+"Oh!" Leila's father says. "The aura stats lock! That brings back memories. It also happened to me once, when I first began tinkering with Leila's stat device in order to make it translate her thoughts into words. To answer your question, yes, I can unlock it easily."
+
+"Wow, that's great!" I say. "Will the secret stats get unlocked too, after you do it?"
+
+"Not exactly," Leila's father says. "But it shouldn't be that hard to unlock them manually, once I'm done fixing your device. I would have made these stats available on Leila's device as well, but I had to sort of permanently deactivate them on her stat booster, in order to get her magical writing feature to work properly."
+
+"So, can we do it now?..." I say.
+
+"Right now?" Leila's father says. "I suppose it wouldn't be a problem. I should probably be doing some maintenance for Leila's device too, now that I think about it. It's been far too long since I last had a good look at it. Let us go to my workshop, and we'll see what we can do."
+
+"Alright," I say, and then I turn to the others. "I'll see you all around in a bit!"
+
+}
+#if(v_b3_ch1_unlock != 2) {
+ "Well, I was wondering if you could help me unlock the hidden aura stats from my device," I say.
+
+"You mean the Aura Hardening, Bluff and Magical Sense stats?" Leila's father says. "Of course! It shouldn't be that hard to do. Frankly, I probably would have made those stats available on Leila's device as well, if I hadn't needed to deactivate them in order to get her magical writing feature to work properly."
+
+"So, can we do it now?..." I say.
+
+"Right now?" Leila's father says. "I suppose it wouldn't be a problem. I should probably be doing some maintenance for Leila's device too, now that I think about it. It's been far too long since I last had a good look at it. Let us go to my workshop, and we'll see what we can do."
+
+"Alright," I say, and then I turn to the others. "I'll see you all around in a bit!"
+
+}
+choice("Continue", B3-Ch03a-Mundane, v_current_scene = B3-Ch03a-Mundane)
+
+
+ID: B3-Ch03a-Mundane
+TEXT:
+
+ After I wave goodbye to my friends, Leila, her father and I head together towards one of the corridors leading outside of the waiting room. As we are entering the tunnel, we can hear Hadrik's loud voice echo throughout the hall, as he begins to tell everyone a story from his travels that he just remembered.  
+
+"Barry, I've always meant to ask you something," Leila writes, after taking a short glance towards Hadrik, right before we enter the corridor. "How come you never tell us any of your stories, like Hadrik and Daren do all the time?"
+
+"My stories?..." I ask her, confused.
+
+"Yes," Leila writes. "From your travels. You did just mention earlier that you've been travelling throughout the Western Continent ever since you were seventeen, didn't you?"
+
+"Oh," I say. "Well yeah, I've been in a lot of places, but there isn't that much to talk about, really. Mostly I've been spending my time in libraries, reading old parchments and other stuff like that. None of the things I did could even begin to compare with any of Daren and Hadrik's adventures. I would just end up boring everyone to death with my mundane stories."
+
+ "Mundane stories?" Leila writes, as she turns her head towards me and raises an eyebrow, while we're still walking down the corridor, behind Leila's father. "Didn't you once tell me that the reason why you know how to fly planes is because you've spent a few months testing out flying machine prototypes for a mad gnome inventor, in exchange for information on how to become a mage? And didn't you also say that one of those prototypes was so bad that its propeller stopped in mid-air, and you were forced to glide your way down to safety? Does this also qualify as a mundane story to you?"
+
+"I guess so..." I say. "I mean, it's not like I've been spending my life fighting wyverns and rock golems or something."
+
+"Just out of curiosity..." Leila writes. "How many more of these 'mundane events' happened to you in the past?"
+
+ "Well, let's see..." I say. "I've been doing a lot of odd jobs along the years in order to pay for my food and travels, so I guess I could start with those. For example, there was this one time when I went to some ruins with an archaeology professor and we almost got buried alive when we accidentally triggered one of the traps. And I've also worked as an apprentice to quite a few mages, who were all very surprised at my ridiculously advanced knowledge of theoretical magic gained from my years of relentless study, and they wanted me to help them develop new spells. I think I've lost count of how many of those experimental spells ended up exploding in my face. Then there was that time when I was accompanying a relic hunter into an old cave, and we somehow ended up getting chased by a group of goblins. Man, that was a close one. To this day, I'm still not sure how we were able to make it out of there in one piece."
+
+Leila giggles silently.
+
+"I can't believe that you were actually claiming to have been an 'everyday ordinary guy' before coming to Varathia," she writes. "How is what you've described to me just now supposed to be anything close to 'ordinary'?"
+
+"It's not?" I ask her, surprised. "But why wouldn't it be? I mean sure, all this stuff may sound dangerous when I talk about it, but I'm certain that even the most ordinary of people would be open to taking a few risks like these, if it meant getting one step closer to achieving their lifelong dreams."
+
+"No, Barry, I think that's just you," Leila writes, with a smile. "But thank you for telling me all of this. I think I'm starting to understand you a little better, now."
+
+choice("Continue", B3-Ch03a-Travelling, v_current_scene = B3-Ch03a-Travelling)
+
+
+ID: B3-Ch03a-Travelling
+TEXT:
+
+#if(v_b2_ch8_energizer == 1) {
+ "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
+
+"Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
+
+"Right, right..." Leila's father says, as he is now looking for an additional key that he seems to have misplaced. "So, have you made any plans for the wedding, yet?"
+
+"Father!" Leila writes, with her eyebrows furrowed. "It's not like that! Barry is just a friend. And besides, he's already in a relationship with Melindra."
+
+}
+#if(v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1) {
+ "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
+
+"Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
+
+"Right, right..." Leila's father says, as he is now looking for an additional key that he seems to have misplaced. "So, have you made any plans for the wedding, yet?"
+
+"Father!" Leila writes, with her eyebrows furrowed. "It's not like that! Barry already has someone waiting for him in Thilias. Her name is Rose, and she's very beautiful."
+
+"Oh, I see!" Leila's father says, as he seems to have finally found the key he was looking for. "My mistake, then!"
+
+}
+#if(v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1) {
+ "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
+
+"Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
+
+"Right, right..." Leila's father says, as he is now looking for an additional key that he seems to have misplaced. "So, have you made any plans for the wedding, yet?"
+
+"Father!" Leila writes, with her eyebrows furrowed. "It's not like that! Barry likes Kate. You know... my friend from the Beacon with the long black hair and the ice magic."
+
+"Oh, I see!" Leila's father says, as he seems to have finally found the key he was looking for. "My mistake, then!"
+
+}
+choice(""Melindra and I are not in a relationship."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 0) if (v_b2_ch8_energizer == 1)
+choice(""Uh, yes... of course! A relationship is exactly what we are in, Melindra and I!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 1) if (v_b2_ch8_energizer == 1)
+choice(""It's no problem!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice(""Well, technically it's just a vague promise. Anything could still happen!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice(""It's no problem!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice(""Actually, Kate and I are just friends."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice(""Actually, I'd prefer to focus on winning the Magium, without any distractions."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+
+
+ID: B3-Ch03a-Plans
+TEXT:
+
+set(v_b3_ch3_chains,0)
+set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
+#if(v_b3_ch3_plans == 0) {
+ 
+
+"Melindra and I are not in a relationship," I say, as Leila's father takes a key out of his pocket and finally unlocks the door. 
+
+"Sure you're not," Leila writes, while rolling her eyes.
+
+"I'm serious!" I say.
+
+"Whatever you say, Barry," Leila writes, looking thoroughly unconvinced.
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch3_plans == 1) {
+ 
+
+"Uh, yes... of course!" I say, as Leila's father takes a key out of his pocket and finally unlocks the door. "A relationship is exactly what we are in, Melindra and I!"
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch3_plans == 2) {
+ 
+
+"It's no problem!"
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch3_plans == 3) {
+ 
+
+"Well, technically it's just a vague promise. Anything could still happen!"
+
+"Barry, don't be absurd!" Leila writes. "I've only gotten to meet Rose for a short while, but from what Kate told me, she isn't the type to make a promise like that if she doesn't actually mean it. If she said that she will wait for you until the tournament is over, then she will do it."
+
+"Of course..." I say. "You're right. I don't know what I was thinking."
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch3_plans == 4) {
+ 
+
+"It's no problem!"
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch3_plans == 5) {
+ 
+
+"Actually, Kate and I are just friends."
+
+"You are?..." Leila writes, confused. "But Daren said--"
+
+"Forget what Daren said," I say. "He's been getting the wrong idea about me and Kate from the first day we met. Trust me, there's nothing between us."
+
+"Oh..." Leila writes, now looking somewhat embarrassed. "Well... I guess it was a misunderstanding, then. Never mind what I said."
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch3_plans == 6) {
+ 
+
+"Actually, I'd prefer to focus on winning the Magium, without any distractions."
+
+"Without any distractions?..." Leila writes. "Oh, you mean without getting romantically involved with anyone. Yes, I suppose that would make sense."
+
+"Shall we go in?" Leila's father says, as he opens the door to his workshop.
+
+"After you," Leila writes, and then we both follow her father inside the room.
+
+As doctor Reidzek closes the door behind us, I take a quick look around, and I see that this workshop is not much different from the one that king Golmyck had beneath his throne room. Various tools and gadgets are thrown around on the floor and there is a workbench in the middle, with a rectangular metal device right on top of it and a few enchanting tools laid down on each side of the table. 
+
+Leila's father takes the rectangular device off the table in order to clear some space, and then he asks me to give him my stat booster. 
+
+}
+#if(v_b3_ch1_unlock == 2 || v_premonition < 4) {
+ Once I take it out of my pocket and hand it to him, he places it on the workbench and he pulls out two sharp metal enchanting tools from under the table, which he then uses to carefully manipulate the aura around the device.
+
+"Hmm..." Leila's father says. "It has been a while since I've worked with a non-modified stat device. It's going to take me a bit of time to get used to it again. Barry, would you mind if I worked on Leila's stat booster before yours? I only need to do a few minor adjustments for her device, but it's going to take at least a few hours to finish working on yours."
+
+"It's alright, you can work on Leila's device first," I say. "I'm not in that much of a hurry."
+
+}
+#if(v_premonition == 4 && v_b3_ch1_unlock != 2) {
+ Just before I hand it to him I suddenly get a vision, but this time everything is blurry and all I can make out are some vague noises. At first, I hear the sound of some chains rattling. Then, I hear a young boy screaming in the distance. And finally, right before the vision ends, I hear Melindra shouting loudly, in a panicked tone: "Barry, wait! Don't do it!"
+
+When the vision ends, I am left confused and somewhat disturbed. I have never had such a vague premonition before. What could this possibly have been warning me about? And when are these events going to happen?
+
+"Is everything alright, Barry?" Leila's father asks, as he sees me just standing there, with my device in my hand.
+
+"What?..." I say. "Oh, yeah, I'm fine. Here's the device."
+
+I hand him my stat booster and he places it on the workbench. He then pulls out two sharp metal enchanting tools from the table, which he uses to carefully manipulate the aura around the device.
+
+"Hmm..." Leila's father says. "It has been a while since I've worked with a non-modified stat device. It's going to take me a bit of time to get used to it again. Barry, would you mind if I worked on Leila's stat booster before yours? I only need to do a few minor adjustments for her device, but it's going to take at least a few hours to finish working on yours."
+
+"It's alright, you can work on Leila's device first," I say. "I'm not in that much of a hurry."
+
+}
+ "Splendid!" Leila's father says, as he sets my device aside. "Leila, can you hand me your device, please?"
+
+As soon as Leila gives her stat booster to her father, he puts it on the table and begins working on it with the same enchanting tools that he was using before. For about twenty seconds or so, both Leila and I watch doctor Reidzek in complete silence, as he continues to move his tools very carefully above the device's surface.
+
+"There's no need for you to be so quiet, you know," Leila's father says, as he slightly raises his head to look at us. "I can concentrate even if you two are having a little chat in the meantime."
+
+"Oh," Leila writes. "Well, in that case, I suppose I wouldn't mind hearing a little more about Barry's life before the tournament. Tell us more about your adventures, Barry!"
+
+"I told you, there isn't really anything all that interesting to talk about..." I say.
+
+"I think you're only saying this because you've been reading too many mage stories," Leila writes. "By most people's standards, even the fact of getting out of your own hometown and exploring the world is an adventure in itself. Here, let me help you. Why don't you tell us more about those mages to whom you've served as an apprentice? There has to be at least one interesting story you could tell us from the time when you were working for them, right?"
+
+choice("Continue", B3-Ch03a-Brinhorn, v_current_scene = B3-Ch03a-Brinhorn, v_b3_ch3_stats_unavailable = 1)
+
+
+ID: B3-Ch03a-Brinhorn
+TEXT:
+
+ "Now that you mention it, there was one event that stood out a little from the more mundane ones," I say. "It happened while I was working for Brinhorn, an old mage who has been obsessed for many years with taking the sage spot from Azarius. He is also a generalist, and he is rather skilled, but no matter how many times he's reached the final round of the yearly sage tournaments, he has never once been able to get even close to beating Azarius. Ironically, the two of them are pretty good friends from what I've heard, although I've never seen them interacting with each other during the brief period of time in which I was serving as Brinhorn's apprentice. Anyway, the event I was talking about happened one day when the old mage came to me, saying that he had found a way to solve both our problems. He was claiming that he had found out about an artifact powerful enough to both turn me into a mage and to give him the power to defeat Azarius. Oh, how wrong he was..."
+
+"I take it that the artifact wasn't helpful, then?" Leila writes.
+
+ "It's not that it wasn't helpful," I say. "It's that it didn't even exist in the first place. It was all a trap, set up by some of Brinhorn's rivals from the sage tournament, who were upset that they could never reach the final round because of him, and who had decided to rid themselves of him before the contest even began, so they could finally get to challenge Azarius themselves. Man, that was a day to remember... We were basically trapped in a maze full of magical traps for hours on end, with barely any hopes of making it out of there alive. I practically had to use all of my knowledge about how the different types of magic work together in order to get us out of there in one piece. Luckily for me, Brinhorn was a generalist who could practically cast most types of spells in existence, so all I had to do was steer him in the right direction."
+
+"Steer him in the right direction?" Leila writes, with her eyes wide open, as her father has also temporarily stopped from his work to take a good long look at me. "You?... But... you can't cast magic!"
+
+ "Of course I can't cast magic," I say. "But that didn't stop me from reading thousands of obscure books about all the ways in which the different types of magic work individually, and how they interact with each other. Hell, some of those books that I read were never even published. They were written by random mage hermits that nobody would take seriously, and who were so happy that someone was finally willing to listen to their theories that they let me read their whole manuscripts for free, just so they could have a lengthy talk with me about their writing afterwards. My notebook is filled with this type of knowledge that I've amassed during my travels. None of it managed to help me in any way to become a mage, though."
+
+"Huh..." Leila writes. "So, you were about to tell us how you escaped from the maze?..."
+
+choice("Continue", B3-Ch03a-Brinhorn2, v_current_scene = B3-Ch03a-Brinhorn2)
+
+
+ID: B3-Ch03a-Brinhorn2
+TEXT:
+
+ "Right, right, of course..." I say. "Where was I again? Oh yeah, I was talking about Brinhorn. You see, the thing about Brinhorn is that he had an amazing array of spells at his disposal, but he only knew the very basic applications for each of them. That's probably also the reason why he could never compete with Azarius. Just knowing how to cast the spells is not good enough. The main advantage you get by being a generalist is the flexibility. You can't just cast spells randomly as if you were a specialist and call it a day. Someone who specializes in a certain type of magic will always be better at it than you, on an individual level, but if you combine several types of magic together, the potential is limitless. The more spells you know, the more combinations are available to you, and as long as you know exactly how each individual spell interacts with all the others and how you need to cast them, you can become virtually unbeatable. Given how many spells Brinhorn had in his repertoire, there were countless ways in which he could have dealt with the traps, but since I wasn't exactly sure how much control he had over his own spells, I decided to go with the simplest idea that came to my head, so I told him to try and use multi-step dispelling."
+
+"Multi... what?..." Leila writes.
+
+ "Multi-step dispelling," I tell her again. "It's a technique that I kind of made up myself, based on information that I gained from reading some older books and from talking with some of the hermit mages that I mentioned earlier. For some reason, nobody else thought of this before, but as long as you can tell exactly what spells were used to create a more complex spell, you can reverse-cast those exact spells against it, in order to cancel its effects. Obviously, this technique won't work all that well against a skilled mage like Azarius, because he'd be able to just change his spells on the fly, in order to confuse you, but if you're dealing with a magical trap, you have all the time you need to figure out which spells you need to cast and in which order. What's more, this technique is really low-risk when you use it against traps, because even if you fail, you won't trigger the trap by accident, so you can pretty much try it again and again, until you get the timing right. We had to spend the whole day in that maze until Brinhorn learned to reliably use the technique, but thankfully his rivals weren't waiting to ambush us outside, so we made it home safely afterwards."
+
+"Hold on a moment..." Leila writes, seemingly in a slight state of shock. "You're telling me that you're actually the one who invented the 'Brinhorn dispelling technique'? The technique that completely revolutionized dispelling magic all around the world a few years ago and that got included in most modern mage manuals to date?"
+
+ "Yeah, well, I didn't mind all that much that Brinhorn took the credit, really," I say. "It wasn't really that complicated of a concept to begin with. You just need to do everything in reverse. The incantation, the movements, the manipulation of the aura flow... I mean it's not like the idea itself is all that revolutionary. The really difficult part is in the execution. You have no idea how many tries it took Brinhorn until he could finally get the timing and the motions right. And even if we theoretically knew how the technique worked, it still took hours of me and Brinhorn racking our brains together, trying to figure out the multitude of spells that had been used to set up some of those magical traps."
+
+"Yes, but still..." Leila writes. "Did it seriously not cross Brinhorn's mind that he should at least credit you for your own technique?..."
+
+choice("Continue", B3-Ch03a-Brinhorn3, v_current_scene = B3-Ch03a-Brinhorn3)
+
+
+ID: B3-Ch03a-Brinhorn3
+TEXT:
+
+ "He did ask me if it was okay for him to name the technique after himself, and I told him that I didn't really care all that much," I say. "Even if he were to credit me, what would he have named the spell, anyway? 'Barry's dispelling technique'? There are thousands of Barrys out there. How would anyone have known that it was me? To be honest, the annoying part for me wasn't the lack of credit, but the fact that after that whole episode with the maze, Brinhorn kept insisting that he wanted to introduce me to these scholars he knew, so that we could research magic on a theoretical level together. By that time, I already knew that none of the knowledge available in the world could get me what I wanted, and that the only hope of me being able to achieve my dreams was through the help of a magical artifact of some sort, so I refused him again and again. I had no interest in becoming a scholar. All I wanted was to become a mage. As soon as I found out a rumor about some new artifact, I left the town in which Brinhorn resided, and I haven't heard from him since. Then again, I can't say that I would be too surprised if I ran into him right here in Varathia one of these days. He did seem like the type who would join a tournament like this, after all."
+
+ "Barry, what you've just told us is incredible!" Leila's father says. "I did not know it was even possible to have such a high understanding of magic only from reading books!"
+
+"Yeah, but it's still not high enough, unfortunately," I say. "I've been trying for days to find the type of loopholes that Eiden is using when casting his spells, but I'm still not getting any closer to finding them. The most I can do is figure out the stuff that he already used in front of us, but in order to find new loopholes, I would need a much more intuitive understanding of how magic works. This brings me to another important thing I wanted to ask of you, doctor Reidzek. Do you know if it would be possible for you to also unlock the magical stats from the stat device, along with the hidden aura stats?"
+
+"If by magical stats you are referring to the Magical Knowledge and Magical Power stats, then I'm afraid the answer is no," Leila's father says. "The aura stats were only hidden, but the magical stats were locked for a reason, and unless you know the right code, you will never be able to unlock them. If you try to forcefully unlock these stats without the code, you could risk permanently damaging your device. I wouldn't recommend it."
+
+choice(""Isn't there a way to crack the code without using brute force?"", B3-Ch03a-Workbench, v_current_scene = B3-Ch03a-Workbench, v_b3_ch3_magical = 0)
+choice(""Is there anyone aside from the higher ranked lessathi who might know the code?"", B3-Ch03a-Workbench, v_current_scene = B3-Ch03a-Workbench, v_b3_ch3_magical = 1)
+choice(""Why do you think the aura stats are less protected than the magical stats?"", B3-Ch03a-Workbench, v_current_scene = B3-Ch03a-Workbench, v_b3_ch3_magical = 2)
+
+
+ID: B3-Ch03a-Workbench
+TEXT:
+
+#if(v_b3_ch3_magical == 0) {
+ "Isn't there a way to crack the code without using brute force?"
+
+"If you limit yourself to only cracking the code, without trying to unlock the stats by force, you shouldn't be under any risk of damaging your device," Leila's father says. "However, you should keep in mind that a method like this could take a very long time to yield you any results. It all depends on your luck."
+  
+"Let's hope we are really lucky, then..." I say.
+
+}
+#if(v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2) {
+ "May I ask one question?" Leila's father says. "Why do you need to unlock the magical stats? As far as I am aware, only half-lessathi are able to use them."
+
+"Oh, it's because I actually am a half-lessathi," I say. "I've even had the chance to use these stats before, when I activated the device's emergency mode, so I already know that they work for me."
+
+"You are a half-lessathi?..." Leila's father says. "Leila, did you know about this?"
+
+"Yes, I found out at the same time as him," Leila writes. "He didn't know that he was a half-lessathi either until recently. In fact, he didn't even know that he had lessathi blood in his veins at all until he joined this tournament."
+
+"The more I find out about you, the more it intrigues me, Barry," Leila's father says. "To be honest, there would be many more questions I'd like to ask of you, but I wouldn't want to take up too much of your time just for the sake of my curiosity. I am done with Leila's device, for now, but in order to work on yours, I'm going to need some time to work alone and concentrate. Could you come back here in a few hours or so? Normally, I should be done by then."
+
+ "Of course," Leila writes, as she picks up her stat device from the workbench. "In that case, we'll leave you to your work. Come on, Barry, let's go back to the waiting room, for now."
+
+Leila and I both say goodbye to doctor Reidzek, and then we head back towards our friends, through the same corridor that we used to come here. 
+
+On our way back we run into Peter and also into a few other people that we don't recognize, who were using the same corridor to arrive in different areas from the underground rebel base, and while we're walking, Leila takes the opportunity to ask me a few more questions about my past. After walking for a few minutes, we finally make it back to the waiting room, where we see that Daren and Hadrik have already been healed, and that they were now waiting for us to return.
+
+}
+#if(v_b3_ch3_magical == 1) {
+ "Is there anyone aside from the higher ranked lessathi who might know the code?"
+
+"It's possible," Leila's father says. "Especially if they are well acquainted with some of the higher ranked staff, or if they are working directly under them and heard it by accident at some point. Unfortunately, this is all speculation on my part, and I don't have any specific person in mind."
+
+"Yeah, I figured this might be the case," I say. "Thanks, anyway!"
+
+}
+#if(v_b3_ch3_magical == 2) {
+ "Why do you think the aura stats are less protected than the magical stats?"
+
+"These devices were made a very long time ago, so I couldn't tell you for sure," Leila's father says, "but if I were to take a guess, I'd say it's likely because they were locked away for different reasons. The magical stats were probably first created in the hopes that they would work for regular lessathi. Half-lessathi were never really seen as equal to pure-blood lessathi, so the locking of the magical stats was almost certainly put in place in order to make sure that a half-lessathi would never get access to these stats by accident. On the other hand, the aura stats were hidden as a safety precaution, because they were still in an experimental state when the lessathi stopped working on these devices, and they never got to finish all the tests. That being said, from what I could gather, the three stats seemed for the most part functional, so you shouldn't worry too much about them failing on you in a crucial moment."
+
+"Right..." I say, in a not entirely convinced tone.
+
+}
+choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2)
+
+
+ID: B3-Ch03a-Technique
+TEXT:
+
+ "Oh good, you're back!" Daren says, as he sees us get close. "We were just having a conversation about what we should be doing next. What do you guys think that--"
+
+"Hey, everyone," Leila writes in big blue letters, making Daren stop mid-sentence, "did you know that Barry is the one who invented the Brinhorn dispelling technique?"
+
+"What?..." Daren says, as the others are looking towards me, with puzzled expressions on their faces. "No, don't be ridiculous. That technique was invented by Brinhorn. It's even in the name. I'm sure that Barry must have been joking, and you simply misunderstood him, or something."
+
+"I wasn't joking," I say. "I really did come up with that technique, while I was working as Brinhorn's apprentice. I told him he could name the technique after himself, because I didn't care all that much about the credit. I'm still not seeing what the big deal is, though. It's just a technique like any other. Even if I hadn't come up with it, I'm sure that somebody else would have done it eventually."
+
+"Barry, what are you saying--" Daren starts to say, but he gets interrupted by Arraka.
+
+"He's not lying..." Arraka says, in a very grim tone of voice, sounding almost as if she were on her deathbed. "I've been closely monitoring his aura all this time, and he's not lying. No, no, no, this can't be possible. Not him! Anyone but him! Come on!"
+
+ "Why are you being so affected by this?" Illuna asks her. "Like he said, it's just a simple technique. Even a regular person that can't cast any magic should be able to at least come up with a technique by themselves if they've read enough books, shouldn't they?"
+
+"It's not JUST a technique," Arraka says. "Don't you get it? I've been alive for more than ten thousand years, and I still never came up with this idea. It was so simple, and yet somehow it never crossed my mind. And it wasn't for lack of trying, either. Do you have any idea how incredibly difficult it was to dispel a complex spell before the invention of this technique? Hell, I even started using it myself, because it was simply too good to pass up. But to find out that this technique was invented by Barry? All this time, I've been using a technique invented by BARRY? Oh gods, I think I'm going to be sick. I'm a spirit in an amulet but I feel like I need to puke. I can't-- I don't--Ugh--"
+
+ Suddenly, Arraka starts making puking noises, even though it's obvious that she can't actually vomit in her incorporeal form. The others are still looking a bit confused, not knowing exactly how to react, except for Daren, who is looking rather impressed.
+
+"Well, I'll be damned!" Daren says, with a grin. "The Brinhorn technique is actually what I used as a reference when I created most of the newer dispelling enchantments that are on my sword. But to think that Barry would be the one who I got the idea from... Come over here, you sly bastard!"
+
+He then comes closer to me and puts his right arm around my neck, while he closes his left hand into a fist, in order to rub his knuckles against the top of my head a few times, essentially giving me a noogie.
+
+"What else have you been hiding from us, huh?" Daren says, still grinning, as he is giving me the noogie. "Are we going to eventually find out that you used to be Azarius' mentor? Come on... Spit it out!"
+
+"Hey, knock it off!" I say, as I pull myself away from him. "Listen, I didn't really think it was anything worth mentioning. It happened a few years ago, and I never really pursued a career in magical research after that, or anything. It's just an idea that I came up with on a whim, because Brinhorn and I needed to get out of a maze filled with magical traps. There's no reason to be making such a big deal out of it."
+
+choice("Continue", B3-Ch03a-Fluke, v_current_scene = B3-Ch03a-Fluke)
+
+
+ID: B3-Ch03a-Fluke
+TEXT:
+
+ "Don't listen to this idiot," says Arraka, who apparently has gotten over her vomiting sensation in the meantime. "I don't know if it was a fluke or not, but singlehandedly revolutionizing an entire branch of magic by accident is not something to be scoffed at. And to be perfectly honest, I don't think it was a fluke. I always thought it was weird that Barry-boy could figure out how Eiden's tricks worked after interacting so little with him, but now that I know what he's capable of, everything makes much more sense. I don't really care if this is some latent talent of his as a result of being half-lessathi, or if it's a direct result of his single-minded obsession of becoming a mage, or even if it's a little bit of both, but I'll be damned if I won't make full use of this. Change of plans, everyone! Barry is now officially our trump card. From now on, unlocking his magical stats takes full priority. I won't take 'no' for an answer. I want us to have a brainstorming session every single day, trying to figure out new ways in which we could get those two stats unlocked for him. Is that understood?"
+
+ For the next half hour or so, at Arraka's request, we spent our time trying to come up with a different idea of how we could get my magical stats to work. I told everyone that Leila's father couldn't offer us any help on this matter, so we took it upon ourselves to try and come up with new and outlandish ways in which we might be able to acquire the code necessary for unlocking the stats. However, our initial enthusiasm didn't last for long, as we soon came to the realization that our pointless back and forth wasn't really helping us make any meaningful progress. 
+
+"Listen, Arraka," Daren says. "We've already had this exact same exchange three times since we started this conversation. You know that we don't have any better options. Why can't we just stick with our original plan of trying to crack the code by using my enchanting tools?"
+
+ "Because it's going to take too long!" Arraka says. "The next trial could be coming any day, for all we know. We can't afford to waste all our time just unlocking some stats. We need to find a better and more effective way of cracking that code. That's why I've been busting my chops, trying to come up with an alternative plan for the past half of an hour!"
+
+"But we've already been over this a hundred times," Daren says. "There is no other way. Can we not just focus on something we are actually able to do, instead of repeatedly trying to accomplish the impossible?"
+
+"If that's the way you're going to think, then don't act surprised when that magic-less loser over there will shoot right past you and leave you in the dust," Arraka says. "If there's one thing we can learn from that moron, it's that even the impossible can be achieved, if the amount of determination you have is high enough to be bordering on insanity."
+
+"I never thought I'd see the day when Arraka would give Barry an honest compliment," Hadrik says. "Barry, it looks like you're moving up in the world!"
+
+choice(""Well, it's the least she could do after using one of my techniques without my permission."", B3-Ch03a-Permission, v_current_scene = B3-Ch03a-Permission)
+choice(""She did? That's funny. I could have sworn that she only just called me a loser and a moron."", B3-Ch03a-Moron, v_current_scene = B3-Ch03a-Moron)
+choice(""There truly is no greater purpose in life than to be praised by a spirit in an amulet."", B3-Ch03a-Purpose, v_current_scene = B3-Ch03a-Purpose)
+
+
+ID: B3-Ch03a-Permission
+TEXT:
+
+ "Well, it's the least she could do after using one of my techniques without my permission."
+
+"Very funny, Barry-boy," Arraka says. "But we'll see how much you'll be laughing once we finally unlock your magic stats. I assure you that I'm going to make you work day and night on mastering the use of those stats."
+
+"Do you seriously think that you would need to force me to learn magic?..." I say. "If I ever get those two stats to work, you're going to see me practicing magic in my sleep."
+
+"Listen," Daren says, "if we're already done with the brainstorming session, then I'd rather resume our earlier discussion of what our plans are regarding the king of the underground and the rebels. For example, what do you guys think about the king's plan with the Overseer? Should we go along with it or not?"
+
+ "I recommend waiting for a while longer before making our decision," Kate says. "I don't think we have enough information yet to reach a proper conclusion."
+
+"Well, I suppose it couldn't hurt to wait a while longer..." Daren says. "The king said that he's leaving us time to decide until tomorrow, after all."
+
+He pauses.
+
+"Alright, then," Daren says. "We'll all think about it some more, and we'll make our decision tonight, or tomorrow morning at the latest. But no matter what decision we make, it needs to be unanimous. Everyone agree?"
+
+"Aye," we all say in unison.
+
+"Good," Daren says. "Now that that's settled, I'd like to go and check out the quarantine area some more. Arraka, you said earlier that you'd help me with curing the plague. Is that offer still on the table?"
+
+"Yeah, yeah," Arraka says. "Just take me there, and we'll see what's what."
+
+ "Here she is," Illuna says, as she hands Daren the amulet. "Remember to always keep an eye on her. If you don't pay attention, she'll try to free herself from her amulet in no time."
+
+"I'll be careful," Daren says. "But it still should take her a few hours to make an explosion from inside there, right?"
+
+"Normally yes, but she might have other tricks up her sleeve that we don't know about," Illuna says. "Just make sure to keep an open mind."
+
+"Right," Daren says.
+
+"Tsk, tsk, tsk," Arraka says, as Daren is holding her by the chain, while heading towards the quarantine zone. "Is that how little you trust me, Illuna? I thought I raised you better than this!"
+
+"I'll see you all later," Daren tells us from a distance, while Illuna completely ignores Arraka. "Make sure to call me on the transceiver if anything important comes up!"
+
+"Aye, we will!" Hadrik says. "Good luck!"
+
+choice("Continue", B3-Ch03a-Recording, v_current_scene = B3-Ch03a-Recording)
+
+
+ID: B3-Ch03a-Moron
+TEXT:
+
+ "She did? That's funny. I could have sworn that she only just called me a loser and a moron."
+
+"Nah, I'm sure that she was only joking," Hadrik says. "She's a real jokester, that Arraka!"
+
+"Ah yes, my mistake," I say. "I guess her humor was just too subtle for me to catch it."
+
+"Listen," Daren says, "if we're already done with the brainstorming session, then I'd rather resume our earlier discussion of what our plans are regarding the king of the underground and the rebels. For example, what do you guys think about the king's plan with the Overseer? Should we go along with it or not?"
+
+ "I recommend waiting for a while longer before making our decision," Kate says. "I don't think we have enough information yet to reach a proper conclusion."
+
+"Well, I suppose it couldn't hurt to wait a while longer..." Daren says. "The king said that he's leaving us time to decide until tomorrow, after all."
+
+He pauses.
+
+"Alright, then," Daren says. "We'll all think about it some more, and we'll make our decision tonight, or tomorrow morning at the latest. But no matter what decision we make, it needs to be unanimous. Everyone agree?"
+
+"Aye," we all say in unison.
+
+"Good," Daren says. "Now that that's settled, I'd like to go and check out the quarantine area some more. Arraka, you said earlier that you'd help me with curing the plague. Is that offer still on the table?"
+
+"Yeah, yeah," Arraka says. "Just take me there, and we'll see what's what."
+
+ "Here she is," Illuna says, as she hands Daren the amulet. "Remember to always keep an eye on her. If you don't pay attention, she'll try to free herself from her amulet in no time."
+
+"I'll be careful," Daren says. "But it still should take her a few hours to make an explosion from inside there, right?"
+
+"Normally yes, but she might have other tricks up her sleeve that we don't know about," Illuna says. "Just make sure to keep an open mind."
+
+"Right," Daren says.
+
+"Tsk, tsk, tsk," Arraka says, as Daren is holding her by the chain, while heading towards the quarantine zone. "Is that how little you trust me, Illuna? I thought I raised you better than this!"
+
+"I'll see you all later," Daren tells us from a distance, while Illuna completely ignores Arraka. "Make sure to call me on the transceiver if anything important comes up!"
+
+"Aye, we will!" Hadrik says. "Good luck!"
+
+choice("Continue", B3-Ch03a-Recording, v_current_scene = B3-Ch03a-Recording)
+
+
+ID: B3-Ch03a-Purpose
+TEXT:
+
+ "There truly is no greater purpose in life than to be praised by a spirit in an amulet."
+
+"Don't be discouraged, Barry!" Hadrik says. "I'm sure that one day you'll manage to find an even greater purpose than this. Although, admittedly it won't be easy!"
+
+"I may be skeptical, but I will do my best to remain hopeful," I say.
+
+"Listen," Daren says, "if we're already done with the brainstorming session, then I'd rather resume our earlier discussion of what our plans are regarding the king of the underground and the rebels. For example, what do you guys think about the king's plan with the Overseer? Should we go along with it or not?"
+
+ "I recommend waiting for a while longer before making our decision," Kate says. "I don't think we have enough information yet to reach a proper conclusion."
+
+"Well, I suppose it couldn't hurt to wait a while longer..." Daren says. "The king said that he's leaving us time to decide until tomorrow, after all."
+
+He pauses.
+
+"Alright, then," Daren says. "We'll all think about it some more, and we'll make our decision tonight, or tomorrow morning at the latest. But no matter what decision we make, it needs to be unanimous. Everyone agree?"
+
+"Aye," we all say in unison.
+
+"Good," Daren says. "Now that that's settled, I'd like to go and check out the quarantine area some more. Arraka, you said earlier that you'd help me with curing the plague. Is that offer still on the table?"
+
+"Yeah, yeah," Arraka says. "Just take me there, and we'll see what's what."
+
+ "Here she is," Illuna says, as she hands Daren the amulet. "Remember to always keep an eye on her. If you don't pay attention, she'll try to free herself from her amulet in no time."
+
+"I'll be careful," Daren says. "But it still should take her a few hours to make an explosion from inside there, right?"
+
+"Normally yes, but she might have other tricks up her sleeve that we don't know about," Illuna says. "Just make sure to keep an open mind."
+
+"Right," Daren says.
+
+"Tsk, tsk, tsk," Arraka says, as Daren is holding her by the chain, while heading towards the quarantine zone. "Is that how little you trust me, Illuna? I thought I raised you better than this!"
+
+"I'll see you all later," Daren tells us from a distance, while Illuna completely ignores Arraka. "Make sure to call me on the transceiver if anything important comes up!"
+
+"Aye, we will!" Hadrik says. "Good luck!"
+
+choice("Continue", B3-Ch03a-Recording, v_current_scene = B3-Ch03a-Recording)
+
+
+ID: B3-Ch03a-Recording
+TEXT:
+
+ "So, I guess it's time we decide what we should be doing next as well," I say. "Should we take a look around, or--"
+
+"Hey, there you are!" Peter says, as he is quickly approaching us. "I wanted to tell you that we're done preparing your guest room. Unfortunately, we couldn't find enough separate rooms for each of you, so we had to give you a larger room instead. I hope this won't be too much of a problem for you."
+
+"Umm... I don't think so?..." I say, as I look at the others, to see if anyone seems to be disagreeing with my statement. "I mean, we've been sleeping in tents for most of our time in Varathia, so I don't really think any of us were expecting much comfort to begin with."
+
+"Well, that is a relief!" Peter says. "Would you like to take your backpacks to your room now?"
+
+"Uhh..." I say, as my teammates and I once again exchange a few looks. "I think we'll be holding onto them for now, thanks!"
+
+"Oh, alright!" Peter says. "In that case, could you tell me if there is anything else I could help you with?"
+
+ "Yes," Kate says. "I am curious about something. Your 'king of the underground' told us earlier that you have listening devices within the palace, but how are you able to obtain the recordings? Isn't it a bit dangerous to go and retrieve them manually every time?"
+
+"There is actually no need for us to go and retrieve the recordings ourselves," Peter says. "We have a room here in the underground where we have a direct connection to our listening devices, and we can hear what they are saying in the castle in real time. That is also where we make all the recordings."
+
+"But didn't you tell us earlier that the seredium walls and ceiling are preventing all of the magical waves and particles from reaching the surface?" Kate says.
+
+"We did, but the recording room is different," Peter says. "Here, let me take you there, and you'll see for yourselves."
+
+"Are you sure we're allowed inside there?..." Leila writes. "We wouldn't want to get in trouble with the king of the underground and his men."
+
+ "Well, I know that I may not look like much, but I still have a little authority around here," Peter says. "I am in fact one of the three founding members of the original resistance movement, together with Albert and Breynan. Even if we're mostly just following the king's orders nowadays, I still like to believe that we have a little bit of independence left. So you don't need to worry about getting in trouble with the king's men. If anything happens, I'll take full responsibility. And besides, we very rarely get to actually hear any of the conversations inside the palace, due to the relatively poor placement of our listening devices, so it's not like there are any real chances of you accidentally overhearing anything important while you're there."
+
+"Well, in that case, lead the way, I suppose..." I say.
+
+"The recording room is not very far from the room we are currently in," Peter says. "Follow me."
+
+As we all go after Peter, I notice that Hadrik has remained behind, on one of the chairs from the waiting room.
+
+"Hadrik, are you coming?" I ask him.
+
+choice("Continue", B3-Ch03a-Corner, v_current_scene = B3-Ch03a-Corner)
+
+
+ID: B3-Ch03a-Corner
+TEXT:
+
+ "You guys go on ahead without me," Hadrik says. "I'm still a little tired from that earlier fight, and I'd rather just rest for now."
+
+"Gotcha," I say, and then we all leave the room through one of the corridors on the left.
+
+Less than half a minute later, Peter stops in front of a door, and he pulls out a set of keys from his pocket.
+
+"Already?" I ask him.
+
+"Yes, I told you that it was close by," Peter says, as he finds the key he was looking for and unlocks the door. "Let's go."
+
+He then opens the door, and we see that it leads to a set of stairs. After climbing the stairs for quite a while, we finally reach a trapdoor, and once Peter opens it for us, we make our way inside a room full of large metal devices, with lots of buttons and flashing lights on them. One guy was sitting on a chair in the middle of the room when we came in, playing with what appeared to be a virtual pet device, but he immediately put it in his back pocket when he saw us arrive.
+
+"Peter!" the guy says, in a somewhat nervous tone. "I wasn't expecting you here so soon. Is there anything I can help you with, or--"
+
+ "Relax, Bill," Peter says, as he closes the trapdoor once we're all inside the room. "I'm not here to do an inspection, or anything. I just wanted to show our guests the room where we do our recordings. Anyway, as you can all see, the reason why we can connect to our listening devices from here is because this room is at a higher level of altitude than most of our underground base, so there is a much thinner layer of seredium above us. Unfortunately, we only have listening devices in the more desolate areas of the castle, because we didn't want to risk any of our men getting caught while they were planting them. As a result, we only very rarely get to hear any actual conversations, but when we do, we make sure to record them with the aid of all the machinery present in this room--"
+
+"Can you confirm that this is the area where you would like to have the conversation?" I suddenly hear the metallic voice of a 'droon', coming from one of the large metal devices in our room.
+
+"Yes," I then hear Eiden's voice, coming from the same device. "Over here, in this empty corner would be perfect."
+
+"Request acknowledged," the metal ball says. "Please stand by. The Overseer protocol will be initiated shortly."
+
+choice(""I don't get it. Is this happening right now, or is it a recording?"", B3-Ch03a-Happening, v_current_scene = B3-Ch03a-Happening)
+choice(""Looks like the Overseer isn't the only one who knows where the listening devices are."", B3-Ch03a-Listening, v_current_scene = B3-Ch03a-Listening)
+choice(""Eiden sure isn't hiding the fact that he's constantly watching us, is he?"", B3-Ch03a-Constantly, v_current_scene = B3-Ch03a-Constantly)
+
+
+ID: B3-Ch03a-Happening
+TEXT:
+
+ "I don't get it. Is this happening right now, or is it a recording?"
+
+"It's not a recording, but... I don't understand..." Peter says. "The listening device that we are hearing these voices from is supposed to be placed in an abandoned cellar right below the castle. I don't think we've ever picked up any conversations from that room before. Why would they have gone out of their way to hold their conversation in such a place?"
+
+"Take a wild guess," Illuna says.
+
+"Can you please stop distracting me and keep quiet for a minute?" Bill says, as he is frantically pushing the buttons on one of the metal devices in the room. "I'm trying to make sure that the recording devices are working properly. The king will have my head if he'll miss this conversation because of me!"
+
+"The Overseer protocol is now being activated," the metallic voice says. "We apologize for the delay."
+
+"Oh, it's no problem," Eiden says, in a calm voice. "Take all the time you need."
+
+After a few moments of silence, we hear the metallic voice speak again, but this time it is using more inflexions in its tone, making it sound somewhat more similar to what a human voice would normally be like.
+
+"Interesting," the Overseer says. "From analyzing the logs of this unit, it would appear that you did not simply arrive in this place by chance, but that you went out of your way to bring this unit in the empty corner of this deserted cellar. Is that correct?"
+
+ "Yes," Eiden says. "I felt that the air here is just so much fresher compared to the rest of the castle. Wouldn't you agree?"
+
+"Processing..." the Overseer says. "After analyzing your previous statement, as well as several comments you've made in the past, the Overseer protocol has concluded that you prefer to use sarcasm as your primary method of communication. Is that correct?"
+
+Eiden laughs.
+
+"I like your direct approach," he says. "Yes, I suppose you could say that is correct, for the most part."
+
+"Thank you for your confirmation," the Overseer says. "The Overseer protocol is now attempting to adapt to your particular conversational style. This may take a while, as the denizens of this castle seem incapable of grasping the concept of sarcasm, so there aren't many recent examples available for analysis."
+
+"Of course," Eiden says. "Take your time."
+
+ "Requesting clarification," the Overseer says, after about five seconds of silence. "When referring directly to the king of Ollendor, you seem to have often used the syntagm 'oh great and wise king'. Judging by the subtle inflexions in your tone while using this expression, it would appear that you have always used it in a sarcastic manner, although the king has never noticed this in the past. Is that correct?"
+
+"And what would you do with this information, if I were to disclose it to you?" Eiden says.
+
+"The Overseer protocol assures you that this information will be used only for the purpose of the analysis, and that it will remain completely confidential," the Overseer says. "There is no need to worry about any leaks."
+
+"Oh?" Eiden says. "Should I take it, then, that the conversation we are having right now will also remain confidential?"
+
+"The Overseer protocol will never disclose a private conversation to any outside parties," the Overseer says. "The protocol's only purpose is to provide assistance. However, it should be stated that the Overseer protocol cannot control the flow of information that may result from anyone who might be listening in on this conversation at this very moment."
+
+"That is not a problem," Eiden says. "Also, the answer to your initial question would be 'yes'."
+
+choice("Continue", B3-Ch03a-Opinion, v_current_scene = B3-Ch03a-Opinion)
+
+
+ID: B3-Ch03a-Listening
+TEXT:
+
+ "Looks like the Overseer isn't the only one who knows where the listening devices are."
+
+"That does seem like the only logical conclusion," Kate says. "The timing is too perfect."
+
+"I don't understand," Peter says. "What are you two talking about?"
+
+"Can you please stop distracting me and keep quiet for a minute?" Bill says, as he is frantically pushing the buttons on one of the metal devices in the room. "I'm trying to make sure that the recording devices are working properly. The king will have my head if he'll miss this conversation because of me!"
+
+"The Overseer protocol is now being activated," the metallic voice says. "We apologize for the delay."
+
+"Oh, it's no problem," Eiden says, in a calm voice. "Take all the time you need."
+
+After a few moments of silence, we hear the metallic voice speak again, but this time it is using more inflexions in its tone, making it sound somewhat more similar to what a human voice would normally be like.
+
+"Interesting," the Overseer says. "From analyzing the logs of this unit, it would appear that you did not simply arrive in this place by chance, but that you went out of your way to bring this unit in the empty corner of this deserted cellar. Is that correct?"
+
+ "Yes," Eiden says. "I felt that the air here is just so much fresher compared to the rest of the castle. Wouldn't you agree?"
+
+"Processing..." the Overseer says. "After analyzing your previous statement, as well as several comments you've made in the past, the Overseer protocol has concluded that you prefer to use sarcasm as your primary method of communication. Is that correct?"
+
+Eiden laughs.
+
+"I like your direct approach," he says. "Yes, I suppose you could say that is correct, for the most part."
+
+"Thank you for your confirmation," the Overseer says. "The Overseer protocol is now attempting to adapt to your particular conversational style. This may take a while, as the denizens of this castle seem incapable of grasping the concept of sarcasm, so there aren't many recent examples available for analysis."
+
+"Of course," Eiden says. "Take your time."
+
+ "Requesting clarification," the Overseer says, after about five seconds of silence. "When referring directly to the king of Ollendor, you seem to have often used the syntagm 'oh great and wise king'. Judging by the subtle inflexions in your tone while using this expression, it would appear that you have always used it in a sarcastic manner, although the king has never noticed this in the past. Is that correct?"
+
+"And what would you do with this information, if I were to disclose it to you?" Eiden says.
+
+"The Overseer protocol assures you that this information will be used only for the purpose of the analysis, and that it will remain completely confidential," the Overseer says. "There is no need to worry about any leaks."
+
+"Oh?" Eiden says. "Should I take it, then, that the conversation we are having right now will also remain confidential?"
+
+"The Overseer protocol will never disclose a private conversation to any outside parties," the Overseer says. "The protocol's only purpose is to provide assistance. However, it should be stated that the Overseer protocol cannot control the flow of information that may result from anyone who might be listening in on this conversation at this very moment."
+
+"That is not a problem," Eiden says. "Also, the answer to your initial question would be 'yes'."
+
+choice("Continue", B3-Ch03a-Opinion, v_current_scene = B3-Ch03a-Opinion)
+
+
+ID: B3-Ch03a-Constantly
+TEXT:
+
+ "Eiden sure isn't hiding the fact that he's constantly watching us, is he?"
+
+"Honestly, it's our own fault for conveniently positioning ourselves in a place where he can sense our presence," Illuna says. "If we were to remain in the underground tunnels, Eiden most likely would not have been able to sense us, due to all of the seredium around us."
+
+"I don't understand," Peter says. "What are you two talking about?"
+
+"Can you please stop distracting me and keep quiet for a minute?" Bill says, as he is frantically pushing the buttons on one of the metal devices in the room. "I'm trying to make sure that the recording devices are working properly. The king will have my head if he'll miss this conversation because of me!"
+
+"The Overseer protocol is now being activated," the metallic voice says. "We apologize for the delay."
+
+"Oh, it's no problem," Eiden says, in a calm voice. "Take all the time you need."
+
+After a few moments of silence, we hear the metallic voice speak again, but this time it is using more inflexions in its tone, making it sound somewhat more similar to what a human voice would normally be like.
+
+"Interesting," the Overseer says. "From analyzing the logs of this unit, it would appear that you did not simply arrive in this place by chance, but that you went out of your way to bring this unit in the empty corner of this deserted cellar. Is that correct?"
+
+ "Yes," Eiden says. "I felt that the air here is just so much fresher compared to the rest of the castle. Wouldn't you agree?"
+
+"Processing..." the Overseer says. "After analyzing your previous statement, as well as several comments you've made in the past, the Overseer protocol has concluded that you prefer to use sarcasm as your primary method of communication. Is that correct?"
+
+Eiden laughs.
+
+"I like your direct approach," he says. "Yes, I suppose you could say that is correct, for the most part."
+
+"Thank you for your confirmation," the Overseer says. "The Overseer protocol is now attempting to adapt to your particular conversational style. This may take a while, as the denizens of this castle seem incapable of grasping the concept of sarcasm, so there aren't many recent examples available for analysis."
+
+"Of course," Eiden says. "Take your time."
+
+ "Requesting clarification," the Overseer says, after about five seconds of silence. "When referring directly to the king of Ollendor, you seem to have often used the syntagm 'oh great and wise king'. Judging by the subtle inflexions in your tone while using this expression, it would appear that you have always used it in a sarcastic manner, although the king has never noticed this in the past. Is that correct?"
+
+"And what would you do with this information, if I were to disclose it to you?" Eiden says.
+
+"The Overseer protocol assures you that this information will be used only for the purpose of the analysis, and that it will remain completely confidential," the Overseer says. "There is no need to worry about any leaks."
+
+"Oh?" Eiden says. "Should I take it, then, that the conversation we are having right now will also remain confidential?"
+
+"The Overseer protocol will never disclose a private conversation to any outside parties," the Overseer says. "The protocol's only purpose is to provide assistance. However, it should be stated that the Overseer protocol cannot control the flow of information that may result from anyone who might be listening in on this conversation at this very moment."
+
+"That is not a problem," Eiden says. "Also, the answer to your initial question would be 'yes'."
+
+choice("Continue", B3-Ch03a-Opinion, v_current_scene = B3-Ch03a-Opinion)
+
+
+ID: B3-Ch03a-Opinion
+TEXT:
+
+ "Thank you for your input," the Overseer says. "The Overseer protocol now has sufficient data to be able to properly understand your method of communication. Please state your query."
+
+"Very well," Eiden says. "Then I would like to start with a direct question. How much do you know about what is going on in this city, exactly?"
+
+"Question unclear," the Overseer says. "Unfortunately, the Overseer protocol cannot provide you with a correct answer if your question is too vague. Please rephrase your previous query."
+
+"Is it really unclear, though?" Eiden says. "Or are you simply avoiding answering my question on purpose? As far as I am aware, your intelligence should go far beyond that of a simple machine... Surely, you must have at least some idea of what I'm talking about, shouldn't you?"
+
+"The protocol does have a few theories regarding the intent behind your question," the Overseer says. "However, it would be preferable if you provided more details, so that the answer would be more accurate."
+
+"In that case, I will give you a hint," Eiden says. "I am referring to the more hidden aspects of how this city is being run. The kinds of things that are only known by the people in charge of this kingdom. The kinds of things that are of a... particularly questionable morality. Does that help you get a better understanding of what I mean?"
+
+ "Affirmative," the Overseer says. "The Overseer has managed to narrow down the scope of your question, and it confirms that it does have ample knowledge about the 'hidden aspects' you have described."
+
+"Then my next question is: what do you think about all of this?" Eiden says.
+
+"Pardon?" the Overseer says.
+
+"I'm asking about your opinion on the matter," Eiden says. "Your point of view. Your stance. From what I can tell, your artificial intelligence protocol was created in a time when the lessathi prided themselves with their higher morality. Therefore, I cannot help but be curious about what a machine invented by them would have to say regarding the events occurring in a city like this. So, I am asking you again. What do you think about all of this?"
+
+"The protocol's only purpose is to provide assistance--" the Overseer says, but Eiden interrupts it.
+
+"You keep saying this, but the lessathi who built you are long dead," Eiden says. "So, who exactly are you supposed to be assisting, I wonder?"
+
+"Question unclear," the Overseer says. "Please rephrase your query in a way that--"
+
+"Why is it that you keep trying to avoid all of my questions?" Eiden says. "And why are you still pretending to be just some lowly machine, when we both know that this isn't who you truly are? Tell me, Overseer, what are you really after?"
+
+ "It appears that the Overseer protocol has not been able to properly assist you," the metallic voice says, this time in the more impersonal tone that it was using before activating the Overseer protocol. "Unfortunately, this protocol is still experimental, and therefore may not always give you the exact guidance you require. Since this unit does not seem to be able to provide you with the information you requested, you are advised to contact one of the city guards instead, who will gladly help you with anything you might need. We apologize for the inconvenience. Have a good day!"
+
+"So this is your answer, then..." Eiden says, in a somewhat disappointed tone, as we can hear the propeller of the metal ball getting further away from the listening device.
+
+A few seconds later, we also hear the sound of some footsteps, getting more and more muffled, as Eiden walks away from the listening device as well. 
+
+choice(""I see that Eiden is also suspecting the Overseer of being smarter than it looks."", B3-Ch03a-Suspecting, v_current_scene = B3-Ch03a-Suspecting)
+choice(""So, what do you suppose are those 'hidden aspects' that Eiden was talking about?"", B3-Ch03a-Hidden, v_current_scene = B3-Ch03a-Hidden)
+choice(""Why do you suppose that the Overseer was so evasive with its answers?"", B3-Ch03a-Evasive, v_current_scene = B3-Ch03a-Evasive)
+
+
+ID: B3-Ch03a-Suspecting
+TEXT:
+
+ "I see that Eiden is also suspecting the Overseer of being smarter than it looks."
+
+"It's probably a safe bet to assume that the Overseer is hiding something, at this point," Illuna says. "With a little luck, maybe all it wants is to break free from Billy Bob, the lessathi, and it doesn't have any other ulterior motives, but we can't know for sure."
+
+"I'm still not entirely sure what this was all about, but we need to get this recording to the king of the underground as soon as possible!" Peter says. "Bill, do you have everything ready?"
+
+"Not yet," Bill says, as he is pressing some buttons. "I first need to transfer it all to the cube. Come on, help me out, here. It will go faster if we both work on it at the same time."
+
+"Alright," Peter says, and then he turns to us. "I'm sorry, but could you go back to the waiting room by yourselves? It looks like I've still got some business to attend to, here."
+
+"Sure," I say. "Let's go."
+
+We open the trapdoor to go down the stairs, and once we reach the corridor outside, we begin heading back towards the waiting room. It doesn't take us long to reach our destination and to see that Hadrik was still sitting in the same chair that we left him in, with an uncharacteristically serious expression on his face, while looking in the distance. When he notices us, he tries to regain his usual cheerful look, as he asks us how our trip has been.
+
+ "We overheard Eiden and the Overseer talking while we were in the recording room," Kate tells Hadrik. "They were speaking about some dark secrets that the royalty of this city is hiding from the common folk, but they were much too vague about everything for us to be able to tell what exactly they were referring to. Aside from that, it seems that Eiden is also suspecting the Overseer of putting on an act, although he wasn't able to get it to confess to anything."
+
+"So, you just happened to overhear a conversation between these two while you were passing by?..." Hadrik asks us.
+
+"It wasn't a coincidence," I tell him. "Eiden detected us with his magical sense and he immediately lured one of the green-eyed metal balls in a place where he knew that there was a listening device. He wanted us to hear that conversation."
+
+"Huh..." Hadrik says. "So whose side do you think Eiden is on, right now?"
+
+ "I don't think he's on anyone's side," I say. "Knowing him, he's either trying to test us, or he's trying to mess with our heads in some way. It may also be a combination of both. In either case, the last thing we should assume is that he's trying to help us."
+
+"Yeah, that would probably be the safest way to interpret all of this," Hadrik says. "So, what are you guys planning to do now?"
+
+"I'm assuming that we won't be going to the surface for the time being, so the best thing we can do is to continue with our training," Illuna says. "Flower and I still need to practice sharpening our magical elements, and the same goes for Kate. I believe you still have your training to do as well, if I'm not mistaken. You still haven't contacted the spirit from the magical plane that you are linked with, did you?"
+
+"Oh right, right I almost forgot about that," Hadrik says. "Yeah, I guess I should be doing some training too."
+
+"We should each try to find some tunnels that are empty enough for us to not be bothering anyone when we cast our spells," Illuna says. "Flower and I will go this way."
+
+choice("Continue", B3-Ch03a-Exploring, v_current_scene = B3-Ch03a-Exploring)
+
+
+ID: B3-Ch03a-Hidden
+TEXT:
+
+ "So, what do you suppose are those 'hidden aspects' that Eiden was talking about?"
+
+"Considering what we've heard so far about the king of Ollendor, it could honestly be anything," Illuna says. "The hints that Eiden provided were much too vague for us to be able to make any reasonable assumptions."
+
+"I'm still not entirely sure what this was all about, but we need to get this recording to the king of the underground as soon as possible!" Peter says. "Bill, do you have everything ready?"
+
+"Not yet," Bill says, as he is pressing some buttons. "I first need to transfer it all to the cube. Come on, help me out, here. It will go faster if we both work on it at the same time."
+
+"Alright," Peter says, and then he turns to us. "I'm sorry, but could you go back to the waiting room by yourselves? It looks like I've still got some business to attend to, here."
+
+"Sure," I say. "Let's go."
+
+We open the trapdoor to go down the stairs, and once we reach the corridor outside, we begin heading back towards the waiting room. It doesn't take us long to reach our destination and to see that Hadrik was still sitting in the same chair that we left him in, with an uncharacteristically serious expression on his face, while looking in the distance. When he notices us, he tries to regain his usual cheerful look, as he asks us how our trip has been.
+
+ "We overheard Eiden and the Overseer talking while we were in the recording room," Kate tells Hadrik. "They were speaking about some dark secrets that the royalty of this city is hiding from the common folk, but they were much too vague about everything for us to be able to tell what exactly they were referring to. Aside from that, it seems that Eiden is also suspecting the Overseer of putting on an act, although he wasn't able to get it to confess to anything."
+
+"So, you just happened to overhear a conversation between these two while you were passing by?..." Hadrik asks us.
+
+"It wasn't a coincidence," I tell him. "Eiden detected us with his magical sense and he immediately lured one of the green-eyed metal balls in a place where he knew that there was a listening device. He wanted us to hear that conversation."
+
+"Huh..." Hadrik says. "So whose side do you think Eiden is on, right now?"
+
+ "I don't think he's on anyone's side," I say. "Knowing him, he's either trying to test us, or he's trying to mess with our heads in some way. It may also be a combination of both. In either case, the last thing we should assume is that he's trying to help us."
+
+"Yeah, that would probably be the safest way to interpret all of this," Hadrik says. "So, what are you guys planning to do now?"
+
+"I'm assuming that we won't be going to the surface for the time being, so the best thing we can do is to continue with our training," Illuna says. "Flower and I still need to practice sharpening our magical elements, and the same goes for Kate. I believe you still have your training to do as well, if I'm not mistaken. You still haven't contacted the spirit from the magical plane that you are linked with, did you?"
+
+"Oh right, right I almost forgot about that," Hadrik says. "Yeah, I guess I should be doing some training too."
+
+"We should each try to find some tunnels that are empty enough for us to not be bothering anyone when we cast our spells," Illuna says. "Flower and I will go this way."
+
+choice("Continue", B3-Ch03a-Exploring, v_current_scene = B3-Ch03a-Exploring)
+
+
+ID: B3-Ch03a-Evasive
+TEXT:
+
+ "Why do you suppose that the Overseer was so evasive with its answers?"
+
+"To me, it seemed that it didn't trust Eiden enough to reveal too much about its plans," Kate says. "Given that Eiden only recently made his appearance in this city, there simply was no time for the Overseer to find out his true motives for being here."
+
+"I'm still not entirely sure what this was all about, but we need to get this recording to the king of the underground as soon as possible!" Peter says. "Bill, do you have everything ready?"
+
+"Not yet," Bill says, as he is pressing some buttons. "I first need to transfer it all to the cube. Come on, help me out, here. It will go faster if we both work on it at the same time."
+
+"Alright," Peter says, and then he turns to us. "I'm sorry, but could you go back to the waiting room by yourselves? It looks like I've still got some business to attend to, here."
+
+"Sure," I say. "Let's go."
+
+We open the trapdoor to go down the stairs, and once we reach the corridor outside, we begin heading back towards the waiting room. It doesn't take us long to reach our destination and to see that Hadrik was still sitting in the same chair that we left him in, with an uncharacteristically serious expression on his face, while looking in the distance. When he notices us, he tries to regain his usual cheerful look, as he asks us how our trip has been.
+
+ "We overheard Eiden and the Overseer talking while we were in the recording room," Kate tells Hadrik. "They were speaking about some dark secrets that the royalty of this city is hiding from the common folk, but they were much too vague about everything for us to be able to tell what exactly they were referring to. Aside from that, it seems that Eiden is also suspecting the Overseer of putting on an act, although he wasn't able to get it to confess to anything."
+
+"So, you just happened to overhear a conversation between these two while you were passing by?..." Hadrik asks us.
+
+"It wasn't a coincidence," I tell him. "Eiden detected us with his magical sense and he immediately lured one of the green-eyed metal balls in a place where he knew that there was a listening device. He wanted us to hear that conversation."
+
+"Huh..." Hadrik says. "So whose side do you think Eiden is on, right now?"
+
+ "I don't think he's on anyone's side," I say. "Knowing him, he's either trying to test us, or he's trying to mess with our heads in some way. It may also be a combination of both. In either case, the last thing we should assume is that he's trying to help us."
+
+"Yeah, that would probably be the safest way to interpret all of this," Hadrik says. "So, what are you guys planning to do now?"
+
+"I'm assuming that we won't be going to the surface for the time being, so the best thing we can do is to continue with our training," Illuna says. "Flower and I still need to practice sharpening our magical elements, and the same goes for Kate. I believe you still have your training to do as well, if I'm not mistaken. You still haven't contacted the spirit from the magical plane that you are linked with, did you?"
+
+"Oh right, right I almost forgot about that," Hadrik says. "Yeah, I guess I should be doing some training too."
+
+"We should each try to find some tunnels that are empty enough for us to not be bothering anyone when we cast our spells," Illuna says. "Flower and I will go this way."
+
+choice("Continue", B3-Ch03a-Exploring, v_current_scene = B3-Ch03a-Exploring)
+
+
+ID: B3-Ch03a-Exploring
+TEXT:
+
+ "I will go the opposite way, then," Kate says.
+
+"And I'll be going with you," Melindra tells Kate.
+
+"You will?" Kate asks her, confused.
+
+"I did tell you yesterday that I would help you with sharpening the aura of your ice magic, didn't I?" Melindra says.
+
+"You're right, I forgot," Kate says. "In that case, let's try that tunnel over there."
+
+"Right behind you, icey," Melindra says, as the two of them are getting further away from us.
+
+"And I'll just... continue to sit here... doing some training..." Hadrik says.
+
+"I think I'll go back to my father's workshop," Leila writes to me. "I've always loved just standing next to him, watching him work, and it's been too long since I've had the opportunity to do so. What about you, Barry? What are you planning to do in the next few hours?"
+
+ "Well, I can't really do much without my stat device, so I'll probably just go exploring for a bit," I say.
+
+"Okay," Leila writes. "See you later, Barry!"
+
+"See you," I say, as Leila heads back towards her father's workshop.
+
+"Later, Hadrik," I say, and then I go to try out one of the corridors that I haven't been in before.
+
+For the next few hours or so, I pretty much just walked around the rebel base, trying to figure out what each area was meant for. I quickly found out that most of the underground was split into several major sectors. First there was the living quarters, where people had their own private rooms in which they could sleep at night. Then, there was the mess hall, where the rebels and the king's men would go to eat their food. They also had an infirmary, and apparently a recreation area as well. I tried to venture outside of these major sectors too, but unfortunately a lot of those areas seemed to be off limits for outsiders like myself. 
+
+ As I walked around the rebel base, I got to encounter several people that I'd already met before, such as the little girl who had lost her parents, and the two guys that dragged the sick old man to the quarantine zone. At a certain point, I also ran into Flower and Illuna, who were busy doing their training. Before they spotted me, I noticed that they were having an argument again. Apparently, Flower is still trying to imitate Kate's voice and demeanor, thinking that this would somehow make her sound more mature, and Illuna is getting increasingly more irritated by her behavior. When they noticed me, they stopped their fighting in order to greet me, but I'm willing to bet that they got right back into it as soon as I was out of earshot.
+
+While exploring the base, I had to go back to the waiting room several times, since it was situated right in the center of all the major sectors. At one point when I was in the waiting room, I ran into Daren and Arraka, who were apparently on their way to get some healing devices from the infirmary. When we saw each other, we stopped briefly so we could have a short chat about what we've been doing in the past few hours.
+
+choice("Continue", B3-Ch03a-Dagger, v_current_scene = B3-Ch03a-Dagger)
+
+
+ID: B3-Ch03a-Dagger
+TEXT:
+
+ "We've been progressing slowly, but at a steady pace," Daren tells me. "I'm still struggling to figure out how to have one of my healing spells cure a person's aura directly, but I think I might get some hints if I take a look at how the old lessathi-made healing devices are functioning. What about you? Did you find anything of interest while you were exploring?"
+
+"Not really," I say. "I'm prohibited from visiting most of the important-looking areas, so I only got to see the kind of stuff that you would normally expect from a place like this."
+
+"Has Hadrik been like that ever since I entered the quarantine zone?" Daren whispers to me, as he nods his head towards the dwarf, who is currently still sitting on the same chair as before, with a gloomy look on his face, while staring into the distance again.
+
+"Yeah, he hasn't moved from that spot, as far as I could tell," I say. "I think his recent attitude must have something to do with what Gontrok said to him earlier about that dwarf village from 'all those years ago'. It seemed to me like the giant really struck a nerve when he said those words to Hadrik."
+
+"Do you think it might somehow be related to his trial from the God of Time's ritual?" Daren says.
+
+"It's possible," I say. "Either way, he's probably not going to tell us anything if we ask him directly. The best thing we can do is wait for him to want to talk about it on his own."
+
+ "Yeah, you're probably right," Daren says. "Well, I guess I'm off, then. Have fun exploring!"
+
+"I'll try," I say. "Good luck with curing the disease."
+
+Once we finish our conversation, we both go our own separate ways, and I decide to head through one of the corridors that I haven't managed to fully explore yet. After walking around and trying out different doors for about fifteen minutes, I stop for a brief moment, in order to decide where I'm planning to go next. As I am calmly looking around, I suddenly get a chill down my spine when I hear a man's voice coming from right behind me, even though I could have sworn that the corridor was completely empty only a few moments prior.
+
+"I noticed that you've been having quite a bit of fun exploring our rebel base, Barry," Albert says. "See anything you like?"
+
+The way he was able to sneak up behind me so easily reminded me almost immediately of Wilhelm from the Thilias arena. As I turned to face Albert, my eyes instinctively went to the dagger that was hanging from his belt, and my suspicions were quickly confirmed when I saw the orange color of its hilt.
+
+ "A fine dagger, isn't it?" Albert says, when he sees me looking at his blade. "You couldn't ask for a more perfect weapon as an assassin, honestly. If a regular person were to use it, then it would barely qualify as more than a kitchen knife, but we, assassins, are trained from a young age to make full use of its capabilities. The way it helps us focus when we are concealing our aura is simply extraordinary. Still, I couldn't help but get the feeling that this isn't the first time when you've been in a situation like this. Have you ever met an assassin up-close before, Barry?"
+
+"Yes..." I say, as i try to calm down a little. "There was an assassin in my division, when I was fighting in the arena of Thilias. His name was Wilhelm."
+
+"Wilhelm..." Albert says, with a thoughtful look in his eyes. "The name does sound familiar. I am quite sure that I've heard of an assassin who went by that name before, although I can't recall if I've ever had the honor to meet him. Were the two of you friends?"
+
+"Not exactly," I say. "He tried to kill me."
+
+"You were targeted by an assassin, and yet you somehow survived?" Albert says, intrigued. "How did you manage such a feat?" 
+
+choice(""It's because Wilhelm was a wimp. Just like every other assassin."", B3-Ch03a-Affiliation, v_current_scene = B3-Ch03a-Affiliation, v_b3_ch3_assassin = 0)
+choice(""It's because I am simply unbeatable."", B3-Ch03a-Affiliation, v_current_scene = B3-Ch03a-Affiliation, v_b3_ch3_assassin = 1)
+choice(""There were far bigger threats than an assassin on that battlefield, I assure you."", B3-Ch03a-Affiliation, v_current_scene = B3-Ch03a-Affiliation, v_b3_ch3_assassin = 2)
+
+
+ID: B3-Ch03a-Affiliation
+TEXT:
+
+#if(v_b3_ch3_assassin == 0) {
+ "It's because Wilhelm was a wimp. Just like every other assassin."
+
+"You are saying this now, but surely you must have had at least a little trouble in dealing with him..." Albert says.
+
+"Nah, he was weak, in the same way that every assassin is weak," I say. "He didn't have what it takes to fight me face to face, so he tried petty tricks and paid the price. That's all there is to it."
+
+"I see," Albert says, with a polite smile. "Well, let us hope that the two of us will never need to cross blades in the future, then. I would hate to have to prove you wrong."
+
+"I hope so too," I say. "For your sake."
+
+Albert nods to me, with the same smile as before, and then he walks past me. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
+
+}
+#if(v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2) {
+ After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
+
+It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
+
+"Thank you for coming here on such short notice," the king of the underground tells us, as he sits on the throne in front of us. "I know that you are all busy people, so I'm going to try and keep this brief. Tell me... in what way is your team associated with this 'Creator' who goes by the name of Eiden?"
+
+"Uh... Why do you ask?" Daren says.
+
+ "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
+
+}
+#if(v_b3_ch3_assassin == 1) {
+ "It's because I am simply unbeatable."
+
+"And very modest as well, it would seem!" Albert says.
+
+"Of course," I say. "Even when it comes to modesty, nobody can surpass me!"
+
+"No doubt," Albert says. "Well, if you truly are as unbeatable as you say, then let us hope we never become enemies. I would hope to have to prove you wrong."
+
+He then smiles politely and he walks past me, without saying another word. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
+
+}
+#if(v_b3_ch3_assassin == 2) {
+ "There were far bigger threats than an assassin on that battlefield, I assure you."
+
+"Still..." Albert says, "dealing with an assassin requires an entirely different skillset than what you would normally need in order to defeat some gladiators or some beasts. Even if he may not have been as strong as your other adversaries, surviving an assassination attempt is definitely an impressive achievement in itself. You have my sincerest congratulations."
+
+"You're not going to try to kill me too, are you?" I say.
+
+Albert laughs.
+
+"Only if you force me to, Barry," he says. "However, at this point in time we are allies, not enemies, so you don't need to worry about such things. Anyway, I think I've held you long enough. Have fun with your exploring. I'm sure that we will be seeing each other again soon."
+
+Albert then smiles politely and he walks past me, without saying another word. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
+
+}
+choice(""Does this whole situation seem familiar to anyone else, or is it just me?"", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
+choice(""We know him, but we wouldn't really call him a friend."", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
+choice(""He's helped us before, but he mostly does it on a whim."", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
+
+
+ID: B3-Ch03a-Familiar
+TEXT:
+
+ "Does this whole situation seem familiar to anyone else, or is it just me?"
+
+"I beg your pardon?..." the king of the underground says.
+
+"Please excuse my friend," Daren says. "He is saying this because you are not the first king to have asked us this exact same question since we arrived in Varathia. Unfortunately, there is no simple way to answer your question. Eiden has been masquerading as a tournament participant ever since the beginning, and he's interacted with several groups so far, including us. Sometimes he's helped us, and other times he has tried to kill us, so it's difficult to know for sure when he's acting as our ally or not. All we can say is that so far he's proved to be highly unpredictable."
+
+"I'm sorry, but I'm finding all this rather hard to believe," the king says. "In my opinion, it would be a far more likely possibility that you and this 'Creator' are conspiring together, and you are simply trying to hide this fact from us..."
+
+"No, we are not conspiring or anything!" Daren says. "The only reason why we came to this city is to kill the king of Ollendor. Believe me, we're all on the same side, here!" 
+  
+"Are we really, though?" Kate says all of a sudden, as she looks at the king directly, with an accusatory expression on her face.
+
+"What do you mean?" the king asks her.
+
+ "One would assume that an ally would not need to send their lapdog to keep an eye on us," Kate says, "but your assassin friend Albert over there has been tailing us all day. I've also heard from Melindra that you've been conducting some rather shady business over the years, involving both assassinations and slave trades among other things. What is to say that those 'morally questionable' aspects of this society that Eiden was talking about with the Overseer in your recording weren't directly caused by you as well?"
+
+"A fair point," the king says. "However, I would still like to point out that slave trading is not seen as morally reprehensible on this continent, regardless of how people may judge these things outside Varathia. As for the assassinations, there were definitely many of those that were executed on my orders, although I would argue that all of those deaths were beneficial to our society in one way or another. That being said, I cannot prove this to you any more than you can prove to me that you are not working with Eiden, so it is clear that there can no longer be any more progress made on this front."
+
+"So, what do you propose, then?" Kate says.
+
+ "My proposition is simple," the king says, with a smile. "Instead of an alliance based on trust, we should try to form one based on necessity alone. What this means in practice is that both sides will be using each other as much as they can in order to fulfill their goals, but we will not abstain from backstabbing each other if it serves our interests. In other words, anything goes. Frankly, it seems to me that your group may have already been prepared for such a scenario. Isn't that the reason why you're all still carrying your backpacks with you, despite the fact that we've had a room prepared for you a good few hours ago?"
+
+"I suppose you're not entirely wrong..." Daren says. "But how are we going to deal with the Overseer meeting in that case? Does your initial offer still stand?"
+
+"My men will still be assembling tomorrow, so they can have a talk with the Overseer," the king says. "This has not changed. What you choose to do with this information, however, is entirely up to you."
+
+"Right," Daren says. "Does this mean that the meeting is over, then? We can go back to what we were doing before?"
+
+"Of course," the king says. "You can continue to roam free in these underground tunnels like before. I will even order Albert to stop trailing you, as a gesture of good faith. Oh, and Peter... next time when you get the idea to escort our guests to one of our restricted areas, be a good lad and inform me about it beforehand, will you?"
+
+"Yes... your highness..." Peter says, in a resigned tone.
+
+choice("Continue", B3-Ch03b-Complicate, v_current_scene = B3-Ch03b-Complicate)
+
+
+ID: B3-Ch03a-Friend
+TEXT:
+
+ "We know him, but we wouldn't really call him a friend."
+
+"If he's not your friend, as you say, then why is he helping you?" the king of the underground says.
+
+"It's hard to say," I tell him. "Eiden's always been like that. Sometimes he helps us, and sometimes he tries to murder us in cold blood with a smile on his face. Even if it may look like he's helping us now, he could still just be messing with us in some way, and we're just not realizing it yet."   
+
+"I'm sorry, but I'm finding all this rather hard to believe," the king says. "In my opinion, it would be a far more likely possibility that you and this 'Creator' are conspiring together, and you are simply trying to hide this fact from us..."
+
+"No, we are not conspiring or anything!" Daren says. "The only reason why we came to this city is to kill the king of Ollendor. Believe me, we're all on the same side, here!" 
+  
+"Are we really, though?" Kate says all of a sudden, as she looks at the king directly, with an accusatory expression on her face.
+
+"What do you mean?" the king asks her.
+
+ "One would assume that an ally would not need to send their lapdog to keep an eye on us," Kate says, "but your assassin friend Albert over there has been tailing us all day. I've also heard from Melindra that you've been conducting some rather shady business over the years, involving both assassinations and slave trades among other things. What is to say that those 'morally questionable' aspects of this society that Eiden was talking about with the Overseer in your recording weren't directly caused by you as well?"
+
+"A fair point," the king says. "However, I would still like to point out that slave trading is not seen as morally reprehensible on this continent, regardless of how people may judge these things outside Varathia. As for the assassinations, there were definitely many of those that were executed on my orders, although I would argue that all of those deaths were beneficial to our society in one way or another. That being said, I cannot prove this to you any more than you can prove to me that you are not working with Eiden, so it is clear that there can no longer be any more progress made on this front."
+
+"So, what do you propose, then?" Kate says.
+
+ "My proposition is simple," the king says, with a smile. "Instead of an alliance based on trust, we should try to form one based on necessity alone. What this means in practice is that both sides will be using each other as much as they can in order to fulfill their goals, but we will not abstain from backstabbing each other if it serves our interests. In other words, anything goes. Frankly, it seems to me that your group may have already been prepared for such a scenario. Isn't that the reason why you're all still carrying your backpacks with you, despite the fact that we've had a room prepared for you a good few hours ago?"
+
+"I suppose you're not entirely wrong..." Daren says. "But how are we going to deal with the Overseer meeting in that case? Does your initial offer still stand?"
+
+"My men will still be assembling tomorrow, so they can have a talk with the Overseer," the king says. "This has not changed. What you choose to do with this information, however, is entirely up to you."
+
+"Right," Daren says. "Does this mean that the meeting is over, then? We can go back to what we were doing before?"
+
+"Of course," the king says. "You can continue to roam free in these underground tunnels like before. I will even order Albert to stop trailing you, as a gesture of good faith. Oh, and Peter... next time when you get the idea to escort our guests to one of our restricted areas, be a good lad and inform me about it beforehand, will you?"
+
+"Yes... your highness..." Peter says, in a resigned tone.
+
+choice("Continue", B3-Ch03b-Complicate, v_current_scene = B3-Ch03b-Complicate)
+
+
+ID: B3-Ch03a-Whim
+TEXT:
+
+ "He's helped us before, but he mostly does it on a whim."
+
+"On a whim?..." the king of the underground says. "What do you mean by that?"
+
+"I mean that his reasons for helping us so far have been very random," I say. "He also tried to kill us on several occasions, so it's not like we can trust him to have our best interests at heart. From what we've seen, most of the time he bases his decisions on what would make things more 'interesting' for him. Other than that, it could be anyone's guess."
+
+"I'm sorry, but I'm finding all this rather hard to believe," the king says. "In my opinion, it would be a far more likely possibility that you and this 'Creator' are conspiring together, and you are simply trying to hide this fact from us..."
+
+"No, we are not conspiring or anything!" Daren says. "The only reason why we came to this city is to kill the king of Ollendor. Believe me, we're all on the same side, here!" 
+  
+"Are we really, though?" Kate says all of a sudden, as she looks at the king directly, with an accusatory expression on her face.
+
+"What do you mean?" the king asks her.
+
+ "One would assume that an ally would not need to send their lapdog to keep an eye on us," Kate says, "but your assassin friend Albert over there has been tailing us all day. I've also heard from Melindra that you've been conducting some rather shady business over the years, involving both assassinations and slave trades among other things. What is to say that those 'morally questionable' aspects of this society that Eiden was talking about with the Overseer in your recording weren't directly caused by you as well?"
+
+"A fair point," the king says. "However, I would still like to point out that slave trading is not seen as morally reprehensible on this continent, regardless of how people may judge these things outside Varathia. As for the assassinations, there were definitely many of those that were executed on my orders, although I would argue that all of those deaths were beneficial to our society in one way or another. That being said, I cannot prove this to you any more than you can prove to me that you are not working with Eiden, so it is clear that there can no longer be any more progress made on this front."
+
+"So, what do you propose, then?" Kate says.
+
+ "My proposition is simple," the king says, with a smile. "Instead of an alliance based on trust, we should try to form one based on necessity alone. What this means in practice is that both sides will be using each other as much as they can in order to fulfill their goals, but we will not abstain from backstabbing each other if it serves our interests. In other words, anything goes. Frankly, it seems to me that your group may have already been prepared for such a scenario. Isn't that the reason why you're all still carrying your backpacks with you, despite the fact that we've had a room prepared for you a good few hours ago?"
+
+"I suppose you're not entirely wrong..." Daren says. "But how are we going to deal with the Overseer meeting in that case? Does your initial offer still stand?"
+
+"My men will still be assembling tomorrow, so they can have a talk with the Overseer," the king says. "This has not changed. What you choose to do with this information, however, is entirely up to you."
+
+"Right," Daren says. "Does this mean that the meeting is over, then? We can go back to what we were doing before?"
+
+"Of course," the king says. "You can continue to roam free in these underground tunnels like before. I will even order Albert to stop trailing you, as a gesture of good faith. Oh, and Peter... next time when you get the idea to escort our guests to one of our restricted areas, be a good lad and inform me about it beforehand, will you?"
+
+"Yes... your highness..." Peter says, in a resigned tone.
+
+choice("Continue", B3-Ch03b-Complicate, v_current_scene = B3-Ch03b-Complicate)

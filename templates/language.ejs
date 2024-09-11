@@ -1,0 +1,26 @@
+<div class="main-menu">
+    <% for (entry of Object.entries(locales)) { %>
+        <div class="response">
+            <button
+                onClick="storeItem('locale','<%= entry[0] %>')"
+            > 
+                <%= entry[1] %>
+            </button>
+        </div>
+    <% } %>
+    <div class="response">
+        <button
+            hx-get="/settings"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            Back to settings
+        </button>
+    </div>
+</div>
+<div style="display:none">
+    <h2 id="header" hx-swap-oob="true">
+        Language selection
+    </h2>
+</div>
