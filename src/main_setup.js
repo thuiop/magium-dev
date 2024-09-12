@@ -32,7 +32,6 @@ const stats_variables = [
 
 /// ---
 
-let magiumData = {};
 const chapters = [
     "ch1",
     "ch2",
@@ -184,7 +183,6 @@ function parseStatCheck(condition) {
 }
 
 function checkStats(setVariables, values) {
-    console.log(setVariables);
     let newStatChecks = [];
     let setVariable;
     for (setVariable of setVariables) {
@@ -218,6 +216,11 @@ function get_header_from_id(id) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
         return `Book ${book} - Chapter ${result.groups["chapter"]}`;
     }
+}
+
+function getLocaleData(fullData,cookies) {
+    let locale = cookies.locale ? cookies.locale : "en"
+    return Object.assign({},fullData[locale])
 }
 
 function render_full(req, callback, header = "") {
@@ -273,6 +276,21 @@ function render_menu(req) {
     );
 }
 
+
+function render_settings(req) {
+    return ejs.renderFile(
+        path.join(dirname, "templates/settings.ejs"),
+        req.cookies,
+    );
+}
+
+function render_language(req,locales) {
+    return ejs.renderFile(
+        path.join(dirname, "templates/language.ejs"),
+        {"locales":locales},
+    );
+}
+
 function render_achievements_menu(req) {
     return ejs.renderFile(
         path.join(dirname, "templates/achievements_menu.ejs"),
@@ -280,17 +298,17 @@ function render_achievements_menu(req) {
     );
 }
 
-function render_achievements_menu_book(req, achievements_data) {
+function render_achievements_menu_book(req, achievementsData) {
     return ejs.renderFile(
         path.join(dirname, "templates/achievements_menu_book.ejs"),
-        { achievements: achievements_data },
+        { achievements: getLocaleData(achievementsData,req.cookies) },
     );
 }
 
-function render_achievements_menu_chapter(req, achievements_data) {
+function render_achievements_menu_chapter(req, achievementsData) {
     return ejs.renderFile(
         path.join(dirname, "templates/achievements_menu_chapter.ejs"),
-        Object.assign({}, { achievements: achievements_data }, req.cookies),
+        Object.assign({}, { achievements: getLocaleData(achievementsData,req.cookies) }, req.cookies),
     );
 }
 
@@ -351,20 +369,27 @@ function render_about(req) {
 
 /// ---
 
+let locales = require(path.join(dirname, "data/locales.json"))
+let magiumData = {};
+let achievementsData = {};
 let chapter;
-for (chapter of chapters) {
-    parser
-        .parse(path.join(dirname, `chapters/${chapter}.magium`))
-        .then((val) => (magiumData = Object.assign(magiumData, val)));
-}
-
-let achievements_data = {};
 let book;
-for (book of [1, 2, 3]) {
-    achievements_data[book] = require(
-        path.join(dirname, `chapters/achievements${book}.json`),
-    );
-}
+
+Object.keys(locales).forEach( function(locale) {
+    magiumData[locale] = {}
+    for (chapter of chapters) {
+        parser
+            .parse(path.join(dirname, `data/${locale}/${chapter}.magium`))
+            .then((val) => Object.assign(magiumData[locale], val));
+    }
+
+    achievementsData[locale] = {}
+    for (book of [1, 2, 3]) {
+        achievementsData[locale][book] = require(
+            path.join(dirname, `data/${locale}/achievements${book}.json`),
+        );
+    }
+});
 
 const express = require("express");
 var cookieParser = require("cookie-parser");
@@ -375,14 +400,14 @@ expressApp.use(cookieParser());
 // Serve static files
 expressApp.use(express.static(path.join(dirname, "public")));
 
-// TODO: Move those inside `main_setup.js`?
 expressApp.get("/", (req, res) => {
     const id = req.cookies.v_current_scene
         ? req.cookies.v_current_scene
         : "Ch1-Intro1";
+    const data = getLocaleData(magiumData,req.cookies);
     render_full(
         req,
-        (r) => render_scene(r, magiumData[id], get_header_from_id(id)),
+        (r) => render_scene(r, data[id], get_header_from_id(id)),
         get_header_from_id(id),
     ).then((rendered) => res.send(rendered));
 });
@@ -393,11 +418,25 @@ expressApp.get("/menu", (req, res) => {
     );
 });
 
+expressApp.get("/settings", (req, res) => {
+    render_full(req, render_settings, "Settings").then((rendered) =>
+        res.send(rendered),
+    );
+});
+
+
+expressApp.get("/language", (req, res) => {
+    render_full(req, (req) => (render_language(req,locales)), "Language selection").then((rendered) =>
+        res.send(rendered),
+    );
+});
+
 expressApp.get("/scene/:id", (req, res) => {
+    const data = getLocaleData(magiumData,req.cookies);
     const callback = (r) =>
         render_scene(
             r,
-            magiumData[req.params.id],
+            data[req.params.id],
             get_header_from_id(req.params.id),
         );
     render_full(req, callback, get_header_from_id(req.params.id)).then(
@@ -418,10 +457,11 @@ expressApp.get("/achievements", (req, res) => {
 });
 
 expressApp.get("/achievements/book/:id", (req, res) => {
+    const data  = getLocaleData(achievementsData,req.cookies);
     const callback = (r) =>
         render_achievements_menu_book(
             r,
-            achievements_data[parseInt(r.params.id)],
+            data[parseInt(r.params.id)],
         );
     render_full(req, callback, "Achievements").then((rendered) =>
         res.send(rendered),
@@ -431,10 +471,11 @@ expressApp.get("/achievements/book/:id", (req, res) => {
 expressApp.get(
     "/achievements/book/(:idBook)/chapter/(:idChapter)",
     (req, res) => {
+        const data  = getLocaleData(achievementsData,req.cookies);
         const callback = (r) =>
             render_achievements_menu_chapter(
                 r,
-                achievements_data[parseInt(r.params.idBook)][
+                data[parseInt(r.params.idBook)][
                     `b${r.params.idBook}ch${r.params.idChapter}`
                 ],
             );
