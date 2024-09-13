@@ -1,4 +1,3 @@
-<script src="/scripts/night_mode.js"></script>
 <div class="main-menu">
     <div class="response">
         <button
@@ -34,7 +33,7 @@
     </div>
     <div class="response">
         <button
-            hx-post="/saves"
+            hx-post="/saves/0"
             hx-target="#content"
             hx-swap="innerHTML"
             hx-push-url="true"
@@ -64,8 +63,23 @@
         </button>
     </div>
     <div class="response">
-        <button id="themeToggleBtn" onclick="nightModeButtonClick()">
-            Activate night mode
+        <button
+            hx-get="/settings"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            Settings
+        </button>
+    </div>
+    <div class="response">
+        <button
+            hx-get="/about"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            About
         </button>
     </div>
 </div>

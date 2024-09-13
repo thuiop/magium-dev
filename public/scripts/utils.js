@@ -7,15 +7,15 @@ function getCookie(name) {
     return null;
 }
 
-var getCookies = function(){
-  var pairs = document.cookie.split(";");
-  var cookies = {};
-  for (var i=0; i<pairs.length; i++){
-    var pair = pairs[i].split("=");
-    cookies[(pair[0]+'').trim()] = unescape(pair.slice(1).join('='));
-  }
-  return cookies;
-}
+const getCookies = function () {
+    const pairs = document.cookie.split(";");
+    const cookies = {};
+    for (let i = 0; i < pairs.length; i++) {
+        const pair = pairs[i].split("=");
+        cookies[(pair[0] + '').trim()] = unescape(pair.slice(1).join('='));
+    }
+    return cookies;
+};
 
 function storeItem(key,value) {
     document.cookie = key+"="+value;
@@ -41,8 +41,13 @@ function navigateTo(url) {
     window.location.href = url;
 }
 
+function scrollToTop() {
+  window.scroll(0, 0);
+}
 
 function setResponseCookies(response) {
+  scrollToTop();
+
   for (const [key, value] of Object.entries(response.setVariables)) {
       if (value.startsWith("+")){
           cookieAdd(key,value.slice(1))

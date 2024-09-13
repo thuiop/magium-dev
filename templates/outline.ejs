@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/styles/achievements.css">
     <link rel="stylesheet" href="/styles/header.css">
     <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/about.css">
     <link rel="icon" href="/images/magium.ico" type="image/x-icon">
     <script src="/scripts/htmx.min.js"></script>
     <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
@@ -35,7 +36,7 @@
           <h2 id="header"><%= header %></h2>
           <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
         </div>
-        <% if ((locals.path=="/saves") || (locals.path=="/local_saves")) { %>
+        <% if ((locals.path.includes("/saves")) || (locals.path.includes("/local_saves"))) { %>
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage"></div>
         <% } else { %>
             <div id="content" class="content" hx-get hx-trigger="load"></div>

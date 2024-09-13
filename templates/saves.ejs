@@ -21,7 +21,7 @@
 </div>
 <div class="save-list-container" style="margin: auto;">
 <div class="save-list">
-    <% for (let i = 0; i < 9; i++) { %>
+    <% for (let i = (locals.page ? page : 0)*10; i < (locals.page ? page+1 : 1)*10; i++) { %>
         <div class="save-entry">
             <span style="flex-grow: 1;">Slot <%= i %></span>
             <button 
@@ -65,6 +65,35 @@
     <h2 id="header" hx-swap-oob="true">
         SAVE/LOAD MENU
     </h2>
+</div>
+<!--The number of pages is hard-coded over here, and in the above ejs code for save-list. 
+Same hard-coding is done in the backend-->
+<div class="pagination">
+    <button 
+        hx-post="/saves/0"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+        hx-ext="submitlocalstorage"
+    ><</button>
+    <% for (let j = 0; j < 5; j++) { %>
+        <button 
+            hx-post="/saves/<%= j%>"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+            hx-ext="submitlocalstorage"
+        >
+            <%= j + 1 %>
+        </button>
+    <% }; %>
+    <button 
+        hx-post="/saves/4"
+        hx-target="#content"
+        hx-swap="innerHTML"
+        hx-push-url="true"
+        hx-ext="submitlocalstorage"
+    >></button>
 </div>
 <div class="response">
     <button
