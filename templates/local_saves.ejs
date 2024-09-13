@@ -1,4 +1,8 @@
 <script>
+    document.addEventListener("localsaverestored", () => {
+        console.log("The Local Save Restoration has been initiated.");
+    });
+
     function downloadLocalStorageSave(save_key) {
         let data = JSON.parse(localStorage.getItem(save_key));
         let blob = new Blob([JSON.stringify(data)], {type: "application/json"});
@@ -13,14 +17,16 @@
 
     // function to upload a savegame into local storage
     function restoreLocalStorageSave(save_key, file_id) {
-        let file = document.getElementById(file_id).files[0];
+        let file_input = document.getElementById(file_id);
+        let file = file_input.files[0];
         let reader = new FileReader();
         console.log("Restore save: ", save_key);
         reader.onload = function(e) {
             let data = JSON.parse(e.target.result);
             localStorage.setItem(save_key, JSON.stringify(data));
 
-            window.location.reload();
+            // trigger the localsaverestored event
+            htmx.trigger(file_input, "localsaverestored");
         }
         reader.readAsText(file);
     }
@@ -42,7 +48,12 @@
             <span style="flex-grow: 1;">Slot <%= i %></span>
             <input type="file" hidden
                 id="file_<%= i %>"
-                hx-on::before-request="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>')"
+                onchange="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>')"
+                hx-post
+                hx-trigger="localsaverestored"
+                hx-ext="submitlocalstorage"
+                hx-target="#content"
+                hx-swap="innerHTML"
             />
             <label class="save-file-input" for="file_<%= i %>" style="flex-grow: 1;">Restore</label>
             <% if (saveData[`save${i}`]) { %>
