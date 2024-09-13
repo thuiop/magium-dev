@@ -16,7 +16,11 @@
     }
 
     // function to upload a savegame into local storage
-    function restoreLocalStorageSave(save_key, file_id) {
+    function restoreLocalStorageSave(save_key, file_id, overwrite = false) {
+        if (overwrite && !window.confirm("Do you want to overwrite your save by restoring the current save?")) {
+            return;
+        }
+
         let file_input = document.getElementById(file_id);
         let file = file_input.files[0];
         let reader = new FileReader();
@@ -48,7 +52,8 @@
             <span style="flex-grow: 1;">Slot <%= i %></span>
             <input type="file" hidden
                 id="file_<%= i %>"
-                onchange="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>')"
+                onchange="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>',
+                <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>)"
                 hx-post
                 hx-trigger="localsaverestored"
                 hx-ext="submitlocalstorage"
