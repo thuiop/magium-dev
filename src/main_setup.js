@@ -370,6 +370,19 @@ function render_saves_by_page(req, page) {
     return ejs.renderFile(path.join(dirname, "templates/saves.ejs"), data);
 }
 
+// Similar logic to render_saves_by_page
+function render_local_saves_by_page(req, page) {
+    let saveData = {};
+    Object.entries(req.body).forEach(function (entry) {
+        saveData[entry[0]] = { date: entry[1].date, name: entry[1].name };
+    });
+    let data = Object.assign({}, req.cookies, {
+        saveData: saveData,
+        page: parseInt(page),
+    });
+    return ejs.renderFile(path.join(dirname, "templates/local_saves.ejs"), data);
+}
+
 
 function render_about(req) {
     return ejs.renderFile(
@@ -509,17 +522,22 @@ expressApp.all("/saves/:page", bodyParser.json(), (req, res) => {
     );
 });
 
+expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
+    render_full(req,render_local_saves,"Local Save files").then((rendered) => res.send(rendered));
+});
+
+expressApp.all('/local_saves/:page', bodyParser.json(), (req, res) => {  
+    const callback = (r) => render_local_saves_by_page(r, req.params.page);
+    render_full(req, callback, "Local Save files").then((rendered) => 
+        res.send(rendered)
+    );
+});
 
 expressApp.get("/about", (req, res) => {
     render_full(req, render_about, "About").then(
         (rendered) => res.send(rendered),
     );
 });
-
-
-expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
-    render_full(req,render_local_saves,"Save files").then((rendered) => res.send(rendered));
-})
 
 expressApp.listen(port, () => {
     console.log(`Magium listening on port ${port}`);
