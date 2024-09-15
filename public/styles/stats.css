@@ -46,16 +46,15 @@
 #stats-button-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-top: 2em;
 }
 
 #stats-button-container > button {
     padding: 0.5em;
-    width: calc(30vw);
-    margin-left: calc(10vw);
-    margin-right: calc(10vw);
+    max-width: 15vw;
+    min-width: 75px;
 
     background-color: var(--button-color);
     color: var(--button-text-color);
@@ -65,27 +64,27 @@
 }
 
 .stats-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats-row {
+    display: flex;
     justify-items: center;
-
-    grid-template-columns: [left] 50% [col2] 50% [right];
-    grid-template-rows: repeat(10, 1fr);
-    row-gap: 0.5em;
-
-    width: 100%;
 }
 
 .stat-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
 }
 
 .stat-field {
-    padding: 0.5em;
-    width: calc(30vw);
-    margin-left: calc(10vw);
-    margin-right: calc(10vw);
+    padding: 1em 0.5em;
+    width: 160px;
+    min-width: 160px;
+    text-align: right;
 
     background-color: var(--stat-color);
     color: var(--stat-text-color);
@@ -94,6 +93,15 @@
     font-size: 1em;
 
     cursor: pointer;
+}
+
+@media (min-width: 800px) {
+    .stat-field {
+        padding: 1em 2.5em;
+        width: 30vw;
+        min-width: 145px;
+        text-align: center;
+    }
 }
 
 .magic-special {
