@@ -15,7 +15,9 @@
 <% } else { %>
     <div class='stat_fail'>
         <% if (statCheck.variable === "v_b3_ch1_unlock") { %>
-            [ Stat device locked - check failed ]
+            <% if (v_current_scene != "B3-Ch01a-Crossbow") { %>
+                [ Stat device locked - check failed ]
+            <% } %>
         <% } else { %>
             [ <%= statCheck.variable %> check failed - level <%= statCheck.value %>  ]
         <% } %>

@@ -206,7 +206,12 @@ function checkStats(setVariables, values) {
             }
         }
     }
-    return [...new Set(newStatChecks)].map(JSON.parse);
+    newStatChecks = [...new Set(newStatChecks)].map(JSON.parse);
+    // If stat device locked, do not display other checks
+    if (newStatChecks.some((statCheck)=>statCheck.variable == "v_b3_ch1_unlock")) {
+        newStatChecks = newStatChecks.filter((statCheck)=>statCheck.variable == "v_b3_ch1_unlock")
+    }
+    return newStatChecks
 }
 
 /* Initial Logic to get the header from the id.
