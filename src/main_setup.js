@@ -161,6 +161,10 @@ function parseStatCheck(condition) {
         console.log(condition);
         return;
     }
+    // Handle the case where you lock your stat device at the beginning of book 3
+    if (variable === "v_b3_ch1_unlock" && condType === "==" && value === 2){
+        return { variable: variable, value: value, success: false}
+    }
     if (!stats_variables.includes(variable)) {
         return;
     }

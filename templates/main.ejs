@@ -13,7 +13,13 @@
         [ <%= statCheck.variable %> check successful - level <%= statCheck.value %>  ]
     </div>
 <% } else { %>
-    <div class='stat_fail'>[ <%= statCheck.variable %> check failed - level <%= statCheck.value %>  ]</div>
+    <div class='stat_fail'>
+        <% if (statCheck.variable === "v_b3_ch1_unlock") { %>
+            [ Stat device locked - check failed ]
+        <% } else { %>
+            [ <%= statCheck.variable %> check failed - level <%= statCheck.value %>  ]
+        <% } %>
+    </div>
 <% }}); %>
 
 <% for (paragraph of scene.paragraphs) { %>
