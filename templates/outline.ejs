@@ -32,9 +32,9 @@
   <body>
     <main id="main">
         <div class="header">
-          <button class="header-button" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">MAIN MENU</button>
+            <button class="header-button" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineMenuButtonText %></button>
           <h2 id="header"><%= header %></h2>
-          <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true">STATS</button>
+          <button class="header-button" hx-get="/stats" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineStatsButtonText %></button>
         </div>
         <% if ((locals.path.includes("/saves")) || (locals.path.includes("/local_saves"))) { %>
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage"></div>

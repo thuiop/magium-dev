@@ -10,13 +10,7 @@
 </script>
 <div class="description">
     <div>
-    Select a savegame slot from below. 
-    <br><br>
-    To save or load your game: 
-    <br>
-    To change the save names:
-    <br>
-    To overwrite a save: 
+        <%- savesExplanationText %>
     </div>
 </div>
 <div class="save-list-container" style="margin: auto;">
@@ -32,7 +26,7 @@
             hx-ext="submitlocalstorage"
             hx-target="#content"
             hx-swap="innerHTML"> 
-                Save
+                <%= savesSaveText %>
             </button>
             <% if (saveData[`save${i}`]) { %>
                 <button 
@@ -43,9 +37,8 @@
                     hx-swap="innerHTML"
                     hx-push-url="true"
                 > 
-                    Load
+                    <%= savesLoadText %>
                 </button>
-                <!-- <% console.log(locals) %> -->
                 <input class="save-name-input" style="flex-grow: 1;" type="text" 
                 id="save_name_<%= i %>"
                 value="<%= saveData[`save${i}`].name %>"
@@ -63,7 +56,7 @@
 </div>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
-        Save/Load Menu
+        <%= savesHeaderText %>
     </h2>
 </div>
 <!--The number of pages is hard-coded over here, and in the above ejs code for save-list. 
@@ -102,6 +95,6 @@ Same hard-coding is done in the backend-->
         hx-swap="innerHTML"
         hx-push-url="true"
     > 
-        Return to game
+        <%= savesReturnToGameText %>
     </button>
 </div>

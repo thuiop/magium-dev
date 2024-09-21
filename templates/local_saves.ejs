@@ -60,13 +60,13 @@
                 hx-target="#content"
                 hx-swap="innerHTML"
             />
-            <label class="save-file-input" for="file_<%= i %>" style="flex-grow: 1;">Restore</label>
+            <label class="save-file-input" for="file_<%= i %>" style="flex-grow: 1;"><%= savesRestoreText %></label>
             <% if (saveData[`save${i}`]) { %>
                 <button 
                     style="flex-grow: 1;"
                     onclick="downloadLocalStorageSave('save<%= i %>')"
                 > 
-                    Download
+                    <%= savesDownloadText %>
                 </button>
                 <!-- <% console.log(locals) %> -->
                 <span class="save-name-label" style="flex-grow: 1;"><%= saveData[`save${i}`].name %></span>
@@ -114,6 +114,6 @@
         hx-swap="innerHTML"
         hx-push-url="true"
     > 
-        Return to game
+        <%= savesReturnToGameText %>
     </button>
 </div>

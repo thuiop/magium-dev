@@ -4,7 +4,7 @@
 
 <% if (scene.checkpoint) { %>
     <div class='stat_success'>
-        [ Checkpoint reached: Game saved. ] 
+        <%= mainCheckpointReachedText %>
     </div>
 <% } %>
 
@@ -25,7 +25,7 @@
         <button
         onClick="setResponseCookies(<%= JSON.stringify(choice) %>)"
         <% if (!choice.special) { %>
-            hx-get="/scene/<%= choice.target %>"
+            hx-get="/"
         <% } else if (choice.special=="stats") { %>
             hx-get="/stats"
             hx-push-url="true"
@@ -33,17 +33,17 @@
             hx-get="/"
             hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
         <% } else if (choice.special=="checkpoint_save") { %>
-            hx-get="/scene/<%= choice.target %>"
+            hx-get="/"
             hx-on::before-request="saveGameToLocalStorage('checkpoint')"
         <% } else if (choice.special=="restart") { %>
-            hx-get="/scene/<%= choice.target %>"
+            hx-get="/"
             hx-on::before-request="clearState()"
         <% } else if (choice.special=="saves") { %>
             hx-post="/saves/0"
             hx-ext="submitlocalstorage"
             hx-push-url="true"
         <% } else if (choice.special.startsWith("achievement")) { %>
-            hx-get="/scene/<%= choice.target %>"
+            hx-get="/"
             _="on click send achievementGained to #achievementModal<%= choice.special.split("-")[2] %>"
         <% } %>
             hx-target="#content"
@@ -63,7 +63,7 @@
                     <img src="/images/achievement_trophy.png" width="100" height="100" />
                     <div class="achievement-modal-content">
                         <div class="achievement-modal-title">
-                            ACHIEVEMENT UNLOCKED 
+                            <%= mainAchievementUnlockedText %>
                         </div>
                         <div class="achievement-modal-caption">
                           <%= choice.special.split("-")[1] %>
