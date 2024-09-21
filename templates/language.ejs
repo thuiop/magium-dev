@@ -2,7 +2,7 @@
     <% for (entry of Object.entries(locales)) { %>
         <div class="response">
             <button
-                onClick="storeItem('locale','<%= entry[0] %>')"
+                onClick="storeItem('locale','<%= entry[0] %>');window.location.reload()"
             > 
                 <%= entry[1] %>
             </button>
@@ -15,12 +15,12 @@
             hx-swap="innerHTML"
             hx-push-url="true"
         > 
-            Back to settings
+            <%= languageBackToSettingsText %>
         </button>
     </div>
 </div>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
-        Language selection
+        <%= languageHeaderText %>
     </h2>
 </div>
