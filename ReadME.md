@@ -29,6 +29,12 @@ based off of the notes for his original vision for the story.
 
 - [Original App - PlayStore](https://play.google.com/store/apps/details?id=com.magiumgames.magium)
 - [Original App - App Store](https://apps.apple.com/us/app/magium-text-adventure-cyoa/id1229498009)
+- [From Releases - Windows/Mac/Linux](https://github.com/thuiop/magium-dev/releases)
+
+- For Arch and derivetives
+  1. Download the [PKGBUILD](https://raw.githubusercontent.com/thuiop/magium-dev/refs/heads/main/Build-Scripts/PKGBUILD) and Save it to an empty folder.
+  2. Make sure you have the `base-devel` metapackage installed.
+  3. Run 'makepkg -i' in the Directory the package was saved to create and install the package.
 
 ### Join the team
 
