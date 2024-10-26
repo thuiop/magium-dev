@@ -34,7 +34,7 @@ based off of the notes for his original vision for the story.
 - For Arch and derivetives
   1. Download the [PKGBUILD](https://raw.githubusercontent.com/thuiop/magium-dev/refs/heads/main/Build-Scripts/PKGBUILD) and Save it to an empty folder.
   2. Make sure you have the `base-devel` metapackage installed.
-  3. Run 'makepkg -i' in the Directory the package was saved to create and install the package.
+  3. Run `makepkg -i` in the Directory the package was saved to create and install the package.
 
 ### Join the team
 
