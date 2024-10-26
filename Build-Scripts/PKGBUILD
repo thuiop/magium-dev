@@ -1,0 +1,52 @@
+# Maintainer: No one right now :)
+pkgname=magium-js
+pkgver=0.8.0
+pkgrel=1
+pkgdesc="Text based choose your own adventure game. This is a fan made recreation and the eventual continuation of the three original books created by the late Christian Mihailescu."
+license=("MIT")
+arch=('x86_64' 'aarch64')
+url="https://github.com/thuiop/magium-dev"
+# Would have used ${pkgver}, if the file link follwed the format https://github.com/thuiop/magium-dev/releases/download/v${pkgver}/MagiumJS-linux-x64-${pkgver}zip
+source_x86_64=("https://github.com/thuiop/magium-dev/releases/download/v0.8.0/MagiumJS-linux-x64-0.8.zip")
+source_aarch64=("https://github.com/thuiop/magium-dev/releases/download/v0.8.0/MagiumJS-linux-arm-0.8.zip")
+# No checksums provided now
+sha256sums_x86_64=('SKIP')
+sha256sums_aarch54=('SKIP') 
+depends=()
+makedepends=('unzip')
+noextract=('MagiumJS-linux-x64-0.8.zip' 'MagiumJS-linux-arm-0.8.zip')
+
+package() {
+    install -d "${pkgdir}/opt/magium/"
+    install -d "${pkgdir}/usr/bin/"
+    install -d "${pkgdir}/usr/share/applications/"
+
+# Extract the appropriate zip file based on architecture
+    if [[ "$CARCH" == "x86_64" ]]; then
+        unzip -q "${srcdir}/MagiumJS-linux-x64-0.8.zip" -d "${pkgdir}/opt/magium/"
+    elif [[ "$CARCH" == "aarch64" ]]; then
+        unzip -q "${srcdir}/MagiumJS-linux-arm-0.8.zip" -d "${pkgdir}/opt/magium/"
+    fi
+    
+# Move the extracted files to the target directory
+    mv "${pkgdir}/opt/magium/"MagiumJS*/* "${pkgdir}/opt/magium/"
+    rm -r "${pkgdir}/opt/magium/"MagiumJS-linux*
+
+# Create the executable bash file
+    echo '#!/bin/bash' > "${pkgdir}/usr/bin/magium"
+    echo "/opt/magium/MagiumJS" >> "${pkgdir}/usr/bin/magium"
+    chmod +x "${pkgdir}/usr/bin/magium"
+    
+# Add the .Desktop    
+    cat <<EOF > "${pkgdir}/usr/share/applications/magium.desktop"
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Magium JS
+Comment=Text-based choose your own adventure game
+Exec=/usr/bin/magium
+Icon=/opt/magium/resources/app/public/images/magium.ico
+Terminal=false
+Categories=Game;
+EOF
+}
