@@ -614,6 +614,24 @@ choice("Continue", B3-Ch03b-Vulnerability, v_current_scene = B3-Ch03b-Vulnerabil
 ID: B3-Ch03b-Vulnerability
 TEXT:
 
+ "What about the king?" Leila writes. "You keep mentioning the security of the palace, but never that of the king. Is the king in a more vulnerable position now than he was before?"
+
+The Overseer does not answer Leila, and he simply keeps hovering in the air, in complete silence.
+
+"I don't think he can read your writing, Leila," I say. "Hey, Overseer! Leila asked if the king of Ollendor is in a more vulnerable position now than he was before."
+
+"Affirmative," the Overseer says. "The king is indeed in a more vulnerable position than before, as a result of Eiden's arrival in the city."
+
+"How so?" Breynan asks.
+
+ "King Undriel used to spend most of his days in the palace until recently," the Overseer says, "but ever since Eiden made his appearance, his royal highness has begun visiting many important facilities from Ollendor, in order to personally inspect them and make sure that everything is in order. The king is afraid that Eiden might leave again if he finds the smallest imperfection within his city, so he is constantly going out of his way to ensure that everything is running as smoothly as possible. This puts him in a position of vulnerability, as it is more difficult for the royal guards to defend him while he's on the move than when he's sitting on his throne inside the palace. As long as you know the king's schedule and the routes he is planning to take in advance, the possibility of succeeding in an assassination attempt increases considerably."
+
+"And could you provide us with this schedule of his?" Breynan says.
+
+"Negative," the Overseer says. "That information is classified."
+
+"Classified, huh?..." Breynan says. "Well, is there any sort of unclassified information regarding the king's schedule or his routes that you could disclose to us? Or any information whatsoever that could be useful to us when organizing an assassination while he is moving from one place to another?"
+
 #if(v_b3_ch2_name == 0) {
  "The king likes to send scouts in advance to check the routes for potential traps," the Overseer says. "If you can identify who these scouts are, you could easily figure out which route king Undriel is planning to take next. The scouts are typically sent one day in advance, and then they are sent again a few hours before the actual trip, to see if anything has changed in the meantime. Knowing this information, you should be able to make reasonably accurate predictions of when the king and his guards would be leaving the palace. Another strategy that could be used is to simply wait for the king to visit one of the facilities, and then try to ambush him on his way back, but it is not advisable, because the king's inspections are usually very short, and there would be no time to set up any proper traps that wouldn't immediately be neutralized by the royal guards." 
 
@@ -666,26 +684,6 @@ choice(""Yes, can you stop calling us Daren?"", B3-Ch03b-Calling, v_current_scen
 ID: B3-Ch03b-Calling
 TEXT:
 
-#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
- "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
-
-"Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
-
-Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
-
-"Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
-
- "Does anyone else have any questions for the Overseer?" Breynan says.
-
-"I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
-
-"I think so too," Breynan says. "Maybe we should get ready to head back, then. Alright, Overseer, that will be all for today. Have a safe trip."
-
-"Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
-
-"Let's go this way," Breynan says, and then he heads back the way we came.
-
-}
 #if(v_b3_ch2_name == 0) {
  "Yes, can you stop calling us Felran?"
 
@@ -724,6 +722,26 @@ Breynan suddenly interrupts himself, because right before we reach the end of th
 "Unfortunately, changing your group's designation is not possible at this time," the Overseer says. "We apologize for the inconvenience."
 
 "Of course," I say. "I don't know why I was expecting anything different."
+
+}
+#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
+ "So, can we know for sure that anything of what the Overseer told us is true?" I say, as we're all moving towards the exit.
+
+"Not yet, but we should be able to easily verify all this information," Breynan says. "As soon as we get back to our base, we can start by--"
+
+Breynan suddenly interrupts himself, because right before we reach the end of the alley, three men dressed in rags place themselves in front of us, while holding daggers in their hands. Two of them have very scared looks in their eyes and they are shaking with fear, but even so, they don't seem like they're planning to step aside.
+
+"Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
+
+ "Does anyone else have any questions for the Overseer?" Breynan says.
+
+"I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
+
+"I think so too," Breynan says. "Maybe we should get ready to head back, then. Alright, Overseer, that will be all for today. Have a safe trip."
+
+"Goodbye, Breynan," the Overseer says, and then the metal ball flies into the air once more, in order to continue its patrols.
+
+"Let's go this way," Breynan says, and then he heads back the way we came.
 
 }
 choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
@@ -878,6 +896,16 @@ I quickly shoot him in the other leg, in order to try and slow his momentum, but
 "But father, we need to take you to a doctor!" the boy says. "You are bleeding!"
 
 }
+#if(v_b3_ch3_civilians == 1) {
+ Just from a glance, I can tell that these men have never held a blade before in their lives. Even without my stats, I should be able to deal with them easily.
+
+I waste no time and I use my dagger to stab the man in front of me in the leg. I then kick him in the stomach and make him fall on his back, as I quickly pull the crossbow out of my backpack and begin shooting the men behind me in their legs as well, in order to immobilize them.
+
+Just as the three men who were trying to flank us are falling to the ground, the man that I stabbed earlier recovers much faster than I anticipated, and he immediately dashes at me with his knife held firmly in his hands.
+
+I quickly realize that simply shooting him in the leg will not prevent me from getting stabbed, so I panic, and I use my crossbow to fire a bolt straight into the man's chest. Upon getting shot, my attacker drops his dagger and he tries to pull the crossbow bolt out with his bare hands, but he quickly loses the strength from both his arms and legs and he falls flat on the ground. After failing to get back up a few times, the man in rags finally stops moving and he slowly succumbs to his death. As I take a look around, I see that both Breynan and Leila have managed to knock out their adversaries, and they are now approaching me.
+
+}
 #if(v_b3_ch3_civilians == 1 || v_b3_ch3_civilians == 2) {
  "I will never forgive you..." the boy says, while gripping the clothes of the dead body in front of him even harder than before.
 
@@ -904,16 +932,6 @@ The boy then grips his father's shirt tightly with both hands, as he is trying v
 "You..." the boy says, just as we are about to move past him. "You did this..."
 
 When I turn my head back towards him, I see that the boy is now looking directly into my eyes, with a pained but determined look on his face. As he keeps staring at me, I suddenly realize that I am still holding the crossbow that fired the bolt which is now lodged in his father's chest.
-
-}
-#if(v_b3_ch3_civilians == 1) {
- Just from a glance, I can tell that these men have never held a blade before in their lives. Even without my stats, I should be able to deal with them easily.
-
-I waste no time and I use my dagger to stab the man in front of me in the leg. I then kick him in the stomach and make him fall on his back, as I quickly pull the crossbow out of my backpack and begin shooting the men behind me in their legs as well, in order to immobilize them.
-
-Just as the three men who were trying to flank us are falling to the ground, the man that I stabbed earlier recovers much faster than I anticipated, and he immediately dashes at me with his knife held firmly in his hands.
-
-I quickly realize that simply shooting him in the leg will not prevent me from getting stabbed, so I panic, and I use my crossbow to fire a bolt straight into the man's chest. Upon getting shot, my attacker drops his dagger and he tries to pull the crossbow bolt out with his bare hands, but he quickly loses the strength from both his arms and legs and he falls flat on the ground. After failing to get back up a few times, the man in rags finally stops moving and he slowly succumbs to his death. As I take a look around, I see that both Breynan and Leila have managed to knock out their adversaries, and they are now approaching me.
 
 }
 #if(v_b3_ch3_civilians == 2) {
@@ -1017,18 +1035,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_b2_ch7_dizziness == 1)
 set(v_is_dead,0) if (v_b2_ch7_dizziness == 0)
-#if(v_b2_ch7_dizziness == 0 || v_b2_ch7_dizziness == 1) {
- "I'm on it!" I say, and then I fly up high in the sky, in order to make sure that I can get over Melindra's invisible barrier so that I can start shooting at the man with the trident.
-
-As I get past the barrier, I position myself somewhere above the royal guard trainee, and I begin firing my crossbow in his direction. Unfortunately, the man anticipates my shots and he manages to get out of the way in time, while he also prepares a counter attack by using his weapon to create a few boulders out of thin air. When he's done making his rock projectiles, he points his trident towards me and he sends all of his boulders flying at me with great speed.
-
-I dodge the projectiles easily in mid-air and then I shoot a few more crossbow bolts at him, but this time the man doesn't even bother to step aside and he just conjures a wall of rock to block them.
-
-"Stop wasting your time with him and grab Leila!"  Melindra shouts, as I am reloading my crossbow. "The 'droons' are going to notice you! Damn it, they're already coming down!"
-
-When I hear what Melindra is saying, I look up and I see that there are now six red-eyed metal balls that are quickly heading towards me. I attempt to shoot them from a distance, but they dodge my attacks without much effort and then they continue to advance in my direction. In the meantime, the man with the trident takes advantage of this situation and he begins to send even more boulders my way, so he can keep me distracted.
-
-}
 #if(v_b2_ch7_dizziness == 1) {
  As I am busy dodging boulders in mid-air while reloading my crossbow, I suddenly get a strong headache and a feeling of intense disorientation, which causes me to stop moving and to grab my forehead with both hands, in an attempt to make the pain go away.
 
@@ -1055,6 +1061,18 @@ I continue to dodge the incoming boulders successfully, despite the minor headac
 All of a sudden, four icicles penetrate the remaining metal balls, which get sent crashing down to the ground while Kate is gesturing at me to come back down. I decide to take her advice and to get back to a lower altitude before any more 'droons' have the time to spot me. On my way back, I also grab Leila in my arms and I fly with her towards Melindra and Kate, while the royal guard trainee begins to shout furiously at his teammates.
 
 "What are you two doing?!" the man with the trident says. "Why are you still fighting those manticore illusions? Don't you understand that they're not real? Just stop moving around and let them hit you!"
+
+}
+#if(v_b2_ch7_dizziness == 0 || v_b2_ch7_dizziness == 1) {
+ "I'm on it!" I say, and then I fly up high in the sky, in order to make sure that I can get over Melindra's invisible barrier so that I can start shooting at the man with the trident.
+
+As I get past the barrier, I position myself somewhere above the royal guard trainee, and I begin firing my crossbow in his direction. Unfortunately, the man anticipates my shots and he manages to get out of the way in time, while he also prepares a counter attack by using his weapon to create a few boulders out of thin air. When he's done making his rock projectiles, he points his trident towards me and he sends all of his boulders flying at me with great speed.
+
+I dodge the projectiles easily in mid-air and then I shoot a few more crossbow bolts at him, but this time the man doesn't even bother to step aside and he just conjures a wall of rock to block them.
+
+"Stop wasting your time with him and grab Leila!"  Melindra shouts, as I am reloading my crossbow. "The 'droons' are going to notice you! Damn it, they're already coming down!"
+
+When I hear what Melindra is saying, I look up and I see that there are now six red-eyed metal balls that are quickly heading towards me. I attempt to shoot them from a distance, but they dodge my attacks without much effort and then they continue to advance in my direction. In the meantime, the man with the trident takes advantage of this situation and he begins to send even more boulders my way, so he can keep me distracted.
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch7_dizziness == 1)

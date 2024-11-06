@@ -382,9 +382,9 @@ choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwate
 ID: Ch2-Battle-stillwater
 TEXT:
 
-set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness < 3 || v_premonition > 0)
+set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 set(v_ch2_toughness_happened,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 set(v_is_dead,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 #if(v_premonition > 0) {
 
@@ -448,7 +448,7 @@ The young mage slashes his dagger towards my neck. The slash is too fast for me 
 The last thing I see is Daren trying in vain to heal my wound, as my consciousness slowly fades away.
 
 }
-choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 0 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load game", , , special:saves) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)

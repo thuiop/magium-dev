@@ -124,26 +124,6 @@ TEXT:
 "I doubt it," the guard says. "Everyone in this city knows that you need a password to enter. If he really didn't give you a password, then it must mean that he didn't have any urgent need of the goods you are selling him, and he was fine with you filing for the required paperwork, like any other outsider."
 
 }
-#if(v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4) {
- "And what do we need to do to file for these papers, exactly?" Daren says.
-
-"For the moment, you don't need to do anything," the guard says. "I will send someone later today to obtain all the necessary permissions from the higher ups, and then we'll bring you some papers to sign. This usually takes a while, though. You could try checking back tomorrow, but I wouldn't get my hopes up if I were you. People rarely get their entrance papers earlier than three days after their arrival."
-
-"Three days?!" Daren says, a little too loudly, but then he quickly calms himself down. "Oh... Alright. I understand. In that case, we'll be going back to our camp, and we will return tomorrow. Maybe we'll be lucky and there will be some news for us. Have a good day, and thanks for your help!"
-
-The guard nods at Daren, and then we all head back towards the woods that we came from, without saying a word. It is only after we are safe away from all the villagers that Hadrik's voice suddenly explodes, as if the pressure had been building up constantly the whole time that he had to keep himself from talking.
-
-"Three days!" Hadrik shouts. "Did you hear that guy?... The ambassador will have arrived three times by then! We may as well break through their front door right now! At least that way we'd get the element of surprise!"
-
- "Using brute force is our absolute last resort," Daren says. "Didn't you see those golems? Those are just one of their many defenses. Who knows what else they will be pulling out of their sleeves, while we try to fight our way to the palace. Anyway, it's not like we're completely out of options. We just found out that we need some sort of password to get in. All we need now is a plan to find out the password, and we will be right back on track." 
-
-"Maybe we could obtain that information from the villagers, somehow," Leila writes. "I'm guessing that the farmers should know the password, since they would need to enter the city on a daily basis to shop for supplies."
-
-"Leila makes a good point," Illuna says. "We could try to bribe one of the villagers. I'm guessing that it shouldn't be too hard to find someone willing to break the rules for some extra money in a village full of impoverished people."
-
-"It's not as easy as you might think," Melindra says. "This city isn't like Thilias. Breaking the law here may well get your entire family murdered, or worse. Most people wouldn't take that risk, no matter how much money was at stake." 
-
-}
 #if(v_b3_ch2_pass2 == 1) {
  "The password is 'shut your mouth and open the gate' "
 
@@ -178,6 +158,26 @@ The guard nods at Daren, and then we all head back towards the woods that we cam
  "The password is 'griffin beak'. "
 
 "No it isn't," the guard says. "I'm not sure if you were guessing randomly just now or if somebody actually misled you, but if you want to enter the city without knowing the actual password, then you're going to have to file for the required paperwork, like any other outsider."
+
+}
+#if(v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4) {
+ "And what do we need to do to file for these papers, exactly?" Daren says.
+
+"For the moment, you don't need to do anything," the guard says. "I will send someone later today to obtain all the necessary permissions from the higher ups, and then we'll bring you some papers to sign. This usually takes a while, though. You could try checking back tomorrow, but I wouldn't get my hopes up if I were you. People rarely get their entrance papers earlier than three days after their arrival."
+
+"Three days?!" Daren says, a little too loudly, but then he quickly calms himself down. "Oh... Alright. I understand. In that case, we'll be going back to our camp, and we will return tomorrow. Maybe we'll be lucky and there will be some news for us. Have a good day, and thanks for your help!"
+
+The guard nods at Daren, and then we all head back towards the woods that we came from, without saying a word. It is only after we are safe away from all the villagers that Hadrik's voice suddenly explodes, as if the pressure had been building up constantly the whole time that he had to keep himself from talking.
+
+"Three days!" Hadrik shouts. "Did you hear that guy?... The ambassador will have arrived three times by then! We may as well break through their front door right now! At least that way we'd get the element of surprise!"
+
+ "Using brute force is our absolute last resort," Daren says. "Didn't you see those golems? Those are just one of their many defenses. Who knows what else they will be pulling out of their sleeves, while we try to fight our way to the palace. Anyway, it's not like we're completely out of options. We just found out that we need some sort of password to get in. All we need now is a plan to find out the password, and we will be right back on track." 
+
+"Maybe we could obtain that information from the villagers, somehow," Leila writes. "I'm guessing that the farmers should know the password, since they would need to enter the city on a daily basis to shop for supplies."
+
+"Leila makes a good point," Illuna says. "We could try to bribe one of the villagers. I'm guessing that it shouldn't be too hard to find someone willing to break the rules for some extra money in a village full of impoverished people."
+
+"It's not as easy as you might think," Melindra says. "This city isn't like Thilias. Breaking the law here may well get your entire family murdered, or worse. Most people wouldn't take that risk, no matter how much money was at stake." 
 
 }
 choice(""What if we tried to get one of them drunk, instead?"", B3-Ch02a-Drunk, v_current_scene = B3-Ch02a-Drunk, v_b3_ch2_infiltration = 0, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
@@ -677,16 +677,6 @@ choice("Continue", B3-Ch02a-Dialect2, v_current_scene = B3-Ch02a-Dialect2)
 ID: B3-Ch02a-Dialect2
 TEXT:
 
-#if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3) {
- "What do you mean 'gargoyle wings'?..." I ask him, confused. "Doesn't that writing say 'griffin beak'?"
-
-"Ah... I see you can read our old dialect!" the old goblin says, surprised. "Quite impressive! As for your question, the symbols describing the password can indeed be directly translated as 'griffin beak', but we have a code with our friend that we always use when we transmit messages to each other. If we rearrange those symbols according to our secret code, the meaning of the words changes completely, and it reads as 'gargoyle wings' instead. Do you understand now?"
-
-"Yeah, I guess that makes sense," I say. "So, was this the information that you wanted to give us in exchange for the rock?"
-
-"No, actually the information in question was about the fact that the password is not the only thing required, if you want to enter the city," the old goblin says. "You also need to wink three times with your left eye while saying it, or they won't let you in. This was added a while ago as an extra precaution, in order to prevent eavesdropping. The passwords change every week, but the number of winks do not change, as far as I'm aware."
-
-}
 #if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 2) {
  "Now that is indeed something we did not know..." I say. "We'll keep that in mind. Thanks!"
 
@@ -711,6 +701,16 @@ TEXT:
 "That's very generous of you!" Melindra says, as the goblin hands her back the rock. "Many thanks!"
 
 "Well, now that our business is done, I believe it's time we head towards the city," the old goblin says. "It might not be the best idea for us to go all at once, though, as we may seem suspicious. You can go first, if you want, and then we'll be following you soon afterwards."
+
+}
+#if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3) {
+ "What do you mean 'gargoyle wings'?..." I ask him, confused. "Doesn't that writing say 'griffin beak'?"
+
+"Ah... I see you can read our old dialect!" the old goblin says, surprised. "Quite impressive! As for your question, the symbols describing the password can indeed be directly translated as 'griffin beak', but we have a code with our friend that we always use when we transmit messages to each other. If we rearrange those symbols according to our secret code, the meaning of the words changes completely, and it reads as 'gargoyle wings' instead. Do you understand now?"
+
+"Yeah, I guess that makes sense," I say. "So, was this the information that you wanted to give us in exchange for the rock?"
+
+"No, actually the information in question was about the fact that the password is not the only thing required, if you want to enter the city," the old goblin says. "You also need to wink three times with your left eye while saying it, or they won't let you in. This was added a while ago as an extra precaution, in order to prevent eavesdropping. The passwords change every week, but the number of winks do not change, as far as I'm aware."
 
 }
 #if(v_b3_ch2_infiltration == 3) {
@@ -810,22 +810,6 @@ It takes us a while, but once we're done traversing the village again, we eventu
 "I see you're back," the guard says. "Should I take it that you've finally managed to get that 'client' of yours to give you the password?..."
 
 }
-#if(v_b3_ch2_goblins == 3) {
- "Yeah, we reached him through the transceiver eventually, and he told us the password," I say, as I wink three times with my left eye. "It's 'gargoyle wings'. "
-
-"Hmm..." the guard says. "That is indeed the correct password."
-
-He then gives a signal to the two metal golems behind him, who immediately open the large gates for us.
-
-"I'm not sure what you came here to do exactly, but you'd better not cause any trouble," the guard tells us.
-
-"No, sir!" I say. "We won't be bothering you at all!"
-
-"Go on," the guard says. "Get moving."
-
-We all move past the guard and enter the city, and as soon as we're inside, the gates behind us slam shut.
-
-}
 #if(v_b3_ch2_goblins == 3 && v_b3_ch2_infiltration == 1) {
  "Sounds good. Let's go!"
 
@@ -840,6 +824,22 @@ We all move past the guard and enter the city, and as soon as we're inside, the 
 It takes us a while, but once we're done traversing the village again, we eventually reach the gates for a second time. The guard at the gates is now staring at us with the same suspicious look that he had the first time, and he addresses us as soon as we stop in front of him.
 
 "I see you're back," the guard says. "Should I take it that you've finally managed to get that 'client' of yours to give you the password?..."
+
+}
+#if(v_b3_ch2_goblins == 3) {
+ "Yeah, we reached him through the transceiver eventually, and he told us the password," I say, as I wink three times with my left eye. "It's 'gargoyle wings'. "
+
+"Hmm..." the guard says. "That is indeed the correct password."
+
+He then gives a signal to the two metal golems behind him, who immediately open the large gates for us.
+
+"I'm not sure what you came here to do exactly, but you'd better not cause any trouble," the guard tells us.
+
+"No, sir!" I say. "We won't be bothering you at all!"
+
+"Go on," the guard says. "Get moving."
+
+We all move past the guard and enter the city, and as soon as we're inside, the gates behind us slam shut.
 
 }
 choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 3 || v_b3_ch2_goblins == 4)
