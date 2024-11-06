@@ -5,34 +5,27 @@
 
     function downloadLocalStorageSave(save_key) {
         let data = JSON.parse(localStorage.getItem(save_key));
-        let blob = new Blob([JSON.stringify(data)], {type: "application/json"});
-        let url = URL.createObjectURL(blob);
-        let a = document.createElement('a');
-        a.href = url;
-        a.download = `${data.name}.json`;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
+        navigator.clipboard.writeText(btoa(JSON.stringify(data)));
+        alert("Save copied to clipboard!")
     }
 
     // function to upload a savegame into local storage
-    function restoreLocalStorageSave(save_key, file_id, overwrite = false) {
+    function restoreLocalStorageSave(i, overwrite = false) {
         if (overwrite && !window.confirm("Do you want to overwrite your save by restoring the current save?")) {
             return;
         }
 
-        let file_input = document.getElementById(file_id);
-        let file = file_input.files[0];
-        let reader = new FileReader();
-        console.log("Restore save: ", save_key);
-        reader.onload = function(e) {
-            let data = JSON.parse(e.target.result);
-            localStorage.setItem(save_key, JSON.stringify(data));
-
-            // trigger the localsaverestored event
-            htmx.trigger(file_input, "localsaverestored");
+        let save_input = document.getElementById(`file_${i}`);
+        let save_string = atob(save_input.value);
+        try {
+            JSON.parse(save_string);
+        } catch (e) {
+            alert("The given string is not a valid save!")
+            return;
         }
-        reader.readAsText(file);
+        console.log("Restore save: ", i);
+        localStorage.setItem(`save${i}`, save_string);
+        htmx.trigger(save_input, "localsaverestored");
     }
 </script>
 <div class="description">
@@ -50,17 +43,23 @@
     <% for (let i = (locals.page ? page : 0)*10; i < (locals.page ? page+1 : 1)*10; i++) { %>
         <div class="save-entry">
             <span style="flex-grow: 1;">Slot <%= i %></span>
-            <input type="file" hidden
+            <input type="text"
                 id="file_<%= i %>"
-                onchange="restoreLocalStorageSave('save<%= i %>', 'file_<%= i %>',
-                <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>)"
                 hx-post
                 hx-trigger="localsaverestored"
                 hx-ext="submitlocalstorage"
                 hx-target="#content"
                 hx-swap="innerHTML"
             />
-            <label class="save-file-input" for="file_<%= i %>" style="flex-grow: 1;"><%= savesRestoreText %></label>
+            <label 
+                class="save-file-input"
+                for="file_<%= i %>"
+                style="flex-grow: 1;"
+                onclick="restoreLocalStorageSave(<%= i %>,
+                <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>)"
+            >
+                <%= savesRestoreText %>
+            </label>
             <% if (saveData[`save${i}`]) { %>
                 <button 
                     style="flex-grow: 1;"
@@ -68,7 +67,6 @@
                 > 
                     <%= savesDownloadText %>
                 </button>
-                <!-- <% console.log(locals) %> -->
                 <span class="save-name-label" style="flex-grow: 1;"><%= saveData[`save${i}`].name %></span>
             <% } %>
         </div>
