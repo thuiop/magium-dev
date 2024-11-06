@@ -196,22 +196,6 @@ A prophecy about a great disaster... Two old enemies... Does this mean that we w
 "This is not Arraka's doing," Melindra says, as she struggles to remain calm. "I already told you. That sage battle from earlier will seem like nothing, compared to what's about to happen."
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- "Hey, I could make that prophecy happen in less than a day, if you want," Arraka says. "That way, you wouldn't have to waste any more time trying to figure it out. All you have to do is let me out of this amulet. What do you say?"
-
-"I think I'd rather figure it out by myself, if you don't mind," I say.
-
-"Your loss," Arraka says.
-
-"So, is this it?..." Daren says. "Is the prophecy over?"
-
-"If you're asking only about the prophecy, then yes, it is over," Melindra says.
-
-"You're saying that we should be expecting something else, right after the prophecy?" Daren says.
-
-"Only if everything happens in the same way that it did six hundred years ago," Melindra says. "The last time I've had the honor of witnessing a time weaver's prophecy, I didn't have to wait long until--"
-
-}
 #if(v_ch11_saved_rose == 1) {
  "As two old enemies clash one final time,
 
@@ -240,26 +224,28 @@ A prophecy about a great disaster... Two old enemies... Does this mean that we w
 "This is not Arraka's doing," Melindra says, as she struggles to remain calm. "I already told you. That sage battle from earlier will seem like nothing, compared to what's about to happen."
 
 }
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ "Hey, I could make that prophecy happen in less than a day, if you want," Arraka says. "That way, you wouldn't have to waste any more time trying to figure it out. All you have to do is let me out of this amulet. What do you say?"
+
+"I think I'd rather figure it out by myself, if you don't mind," I say.
+
+"Your loss," Arraka says.
+
+"So, is this it?..." Daren says. "Is the prophecy over?"
+
+"If you're asking only about the prophecy, then yes, it is over," Melindra says.
+
+"You're saying that we should be expecting something else, right after the prophecy?" Daren says.
+
+"Only if everything happens in the same way that it did six hundred years ago," Melindra says. "The last time I've had the honor of witnessing a time weaver's prophecy, I didn't have to wait long until--"
+
+}
 choice("Continue", B2-Ch11a-Prophecy2, v_current_scene = B2-Ch11a-Prophecy2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
 
 ID: B2-Ch11a-Prophecy2
 TEXT:
 
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- She is right. I don't think I've experienced such a feeling of dread, ever since I saw Arraka get out of her amulet. It's like every single fiber of my being is telling me to run the hell away from here, as far as possible, and as fast as my feet can carry me. I can't let this fear overcome me. Not now. I'm almost certain that even the smallest wrong decision made at this point could lead to my instant obliteration. Just who is it exactly, that we are facing, here?
-
-"Greetings, mortals..." we hear several male voices, speaking in unison, all around us.
-
-This speech pattern is very similar to the way in which Arraka speaks sometimes, when she loses control over her voice. A laugh made up from several different voices... Could this be tied to the prophecy as well?
-
-"You have been blessed by the presence of a god," the voices say, as they reverberate throughout the entire area. "Kneel before me, and I will then give you permission to gaze upon my magnificent form, in admiration."
-
-"And just who exactly--" Daren starts to say, but Melindra puts her hand over his mouth to silence him, with a panicked look on her face.
-
-"This is the God of Time," Melindra says. "Don't ask him any questions. He has the power to end us all in a matter of seconds. Just... kneel..."
-
-}
 #if(v_ch11_saved_rose == 0) {
  She then kneels before the God of Time, with her head bowed down, while she signals Daren to do the same.
 
@@ -282,6 +268,20 @@ While I was standing there, considering my options, the God of Time was slowly m
 "It is not wise to keep a god waiting..." the God of Time says. "I told you to kneel."
 
 "Don't listen to what he says," Arraka tells us. "He needs you alive for his plans to work. He can't do anything to you. He's just bluffing."
+
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ She is right. I don't think I've experienced such a feeling of dread, ever since I saw Arraka get out of her amulet. It's like every single fiber of my being is telling me to run the hell away from here, as far as possible, and as fast as my feet can carry me. I can't let this fear overcome me. Not now. I'm almost certain that even the smallest wrong decision made at this point could lead to my instant obliteration. Just who is it exactly, that we are facing, here?
+
+"Greetings, mortals..." we hear several male voices, speaking in unison, all around us.
+
+This speech pattern is very similar to the way in which Arraka speaks sometimes, when she loses control over her voice. A laugh made up from several different voices... Could this be tied to the prophecy as well?
+
+"You have been blessed by the presence of a god," the voices say, as they reverberate throughout the entire area. "Kneel before me, and I will then give you permission to gaze upon my magnificent form, in admiration."
+
+"And just who exactly--" Daren starts to say, but Melindra puts her hand over his mouth to silence him, with a panicked look on her face.
+
+"This is the God of Time," Melindra says. "Don't ask him any questions. He has the power to end us all in a matter of seconds. Just... kneel..."
 
 }
 choice("Kneel before the God of Time", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -320,20 +320,6 @@ We are now all being squashed against the rocky soil by an incredible force, and
 During this time, I can't manage to pay attention to anything around me. Every ounce of my energy is being focused into withstanding the pain. I can no longer tell if the screams that I'm hearing are coming from me, or from my friends. It's as if I've voluntarily entered some sort of trance, trying to become one with the pain. Trying to let it flow through me. No matter how hard I try, however, the pain keeps getting the better of me, and then I need to regain my focus all over again.
 
 }
-#if(v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 1 || v_b2_ch11_kneel == 2) {
- "Can you STOP with the time reversals, already?" Arraka says, exasperated, after a while. "You're making me dizzy!"
-
-Upon hearing Arraka's words, the God of Time casts one last time-reversal spell, and then he lowers the amount of pressure in the air above us, making sure that he is no longer hurting us, but still keeping us pressed against the ground.
-
-"THANK you!" Arraka says, in the same exasperated tone.
-
-"I see that living amongst these mortals has taught you some long-overdue basic etiquette, Arraka," the God of Time says. "It is regrettable that you could not learn these manners before we were forced to banish you from our realm."
-
-"Forced?..." Arraka says. "Hah! You only did it because you were afraid of me. It's funny, because while we were both living in the magical plane, I hadn't pegged you as the cowardly type. And yet, twice, you ran away from me. Once with the banishment, and a second time six hundred years ago. What happened to that unfinished duel of ours, eh? Didn't you say that we would settle our scores, eventually?"
-
-"And we will," the God of Time says. "As soon as we are both back to our peak conditions. You wouldn't want to fight me from inside an amulet, would you?"
-
-}
 #if(v_b2_ch11_kneel == 0) {
  "Arraka is right," I say. "We shouldn't have to kneel before anyone. Even if they are gods. No matter what happens, I am going to stand my ground."
 
@@ -348,20 +334,6 @@ Arraka laughs, when she sees the look on my face.
 "I guess I forgot that he can also reverse time, as long as he has control of the time weaver," Arraka says. "My bad!"
 
 }
-#if(v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 2) {
- "I will not repeat myself again," the God of Time says. "Kneel."
-
-The others and I exchange a few hesitant looks, but neither of us seems to be in a hurry to follow the god's orders, even after his previous display of power. 
-
-"Sorry," Hadrik says, with half a grin, while trying to mimic his usual confident tone. "My doctor told me that kneeling is bad for my--"
-
-"I said KNEEL!" the god shouts, and then an immense amount of pressure pushes us all to the ground, including Melindra, who was already kneeling.
-
-We are now all being squashed against the rocky soil by an incredible force, and I can already feel the pain from my internal organs bleeding, as the enormous pressure above us just keeps getting more and more unbearable. In order to make sure that he doesn't kill us, the God of Time keeps casting time reversal spells every ten seconds or so, thus healing our internal wounds, just so they can be reformed again and again, over the course of the next few minutes. 
-
-During this time, I can't manage to pay attention to anything around me. Every ounce of my energy is being focused into withstanding the pain. I can no longer tell if the screams that I'm hearing are coming from me, or from my friends. It's as if I've voluntarily entered some sort of trance, trying to become one with the pain. Trying to let it flow through me. No matter how hard I try, however, the pain keeps getting the better of me, and then I need to regain my focus all over again.
-
-}
 #if(v_b2_ch11_kneel == 2) {
  "It's not like I was planning to kneel, or anything," I say. "You can't just come here, looking like that and expect me to treat you like a god. At least put some clothes on, man. And a face. It's embarrassing for all of us."
 
@@ -374,6 +346,34 @@ Everything is now getting much colder, and I can feel shivers all throughout my 
 Arraka laughs, when she sees the look on my face.
 
 "I guess I forgot that he can also reverse time, as long as he has control of the time weaver," Arraka says. "My bad!"
+
+}
+#if(v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 1 || v_b2_ch11_kneel == 2) {
+ "Can you STOP with the time reversals, already?" Arraka says, exasperated, after a while. "You're making me dizzy!"
+
+Upon hearing Arraka's words, the God of Time casts one last time-reversal spell, and then he lowers the amount of pressure in the air above us, making sure that he is no longer hurting us, but still keeping us pressed against the ground.
+
+"THANK you!" Arraka says, in the same exasperated tone.
+
+"I see that living amongst these mortals has taught you some long-overdue basic etiquette, Arraka," the God of Time says. "It is regrettable that you could not learn these manners before we were forced to banish you from our realm."
+
+"Forced?..." Arraka says. "Hah! You only did it because you were afraid of me. It's funny, because while we were both living in the magical plane, I hadn't pegged you as the cowardly type. And yet, twice, you ran away from me. Once with the banishment, and a second time six hundred years ago. What happened to that unfinished duel of ours, eh? Didn't you say that we would settle our scores, eventually?"
+
+"And we will," the God of Time says. "As soon as we are both back to our peak conditions. You wouldn't want to fight me from inside an amulet, would you?"
+
+}
+#if(v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 2) {
+ "I will not repeat myself again," the God of Time says. "Kneel."
+
+The others and I exchange a few hesitant looks, but neither of us seems to be in a hurry to follow the god's orders, even after his previous display of power. 
+
+"Sorry," Hadrik says, with half a grin, while trying to mimic his usual confident tone. "My doctor told me that kneeling is bad for my--"
+
+"I said KNEEL!" the god shouts, and then an immense amount of pressure pushes us all to the ground, including Melindra, who was already kneeling.
+
+We are now all being squashed against the rocky soil by an incredible force, and I can already feel the pain from my internal organs bleeding, as the enormous pressure above us just keeps getting more and more unbearable. In order to make sure that he doesn't kill us, the God of Time keeps casting time reversal spells every ten seconds or so, thus healing our internal wounds, just so they can be reformed again and again, over the course of the next few minutes. 
+
+During this time, I can't manage to pay attention to anything around me. Every ounce of my energy is being focused into withstanding the pain. I can no longer tell if the screams that I'm hearing are coming from me, or from my friends. It's as if I've voluntarily entered some sort of trance, trying to become one with the pain. Trying to let it flow through me. No matter how hard I try, however, the pain keeps getting the better of me, and then I need to regain my focus all over again.
 
 }
 choice("Continue", B2-Ch11a-Absorb, v_current_scene = B2-Ch11a-Absorb) if (v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 1 || v_b2_ch11_kneel == 2)
@@ -499,22 +499,6 @@ choice("Continue.", B2-Ch11a-Invitation, v_current_scene = B2-Ch11a-Invitation) 
 ID: B2-Ch11a-Sanity
 TEXT:
 
-#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
- "As soon as every preparation is in place," the God of Time says. "But this does not mean that you should spend the remaining time holding conversations with these lowly creatures. Why do you bother answering every single one of their questions? I very much doubt that these people will even make it past the first stage of the ritual."
-
-Arraka laughs.
-
-"I think you will be very surprised of their upcoming performance," she says. "These aren't the types to give up easily."
-
-"We shall see about that soon enough..." the God of Time says.
-
-He then flies over to Rose's position, and he grabs her by her chin, turning her head left and right a few times, while bringing his face closer to hers.
-
-"Get your hands off her, you bastard!" Flower shouts, from the ground, while she is trying, in vain, to force her way back up.
-
-"You want me to get my hands off her?..." the god asks, surprised. "Oh, this time weaver is your friend... How interesting. Then, perhaps it would be more fitting for her to join you in your future trials. That way, you can all be together, in your moments of suffering. Let me just pull her out of her trance."
-
-}
 #if(v_ch4_spared_dave == 1) {
  After he stops talking, the God of Time releases Rose from his grasp, and then he waves his hand in front of her face, which causes the bright light to fade from her eyes. Rose is now looking all around her, confused, trying to understand where she is, and why she is floating above the ground, next to a blue man with no face.
 
@@ -529,6 +513,22 @@ He pauses.
 "Hah!" Arraka says. "I knew it!"
 
 "Let the ritual commence," the god says, and then a blinding white light fills our entire area, making it impossible to see any further than my own hands.
+
+}
+#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
+ "As soon as every preparation is in place," the God of Time says. "But this does not mean that you should spend the remaining time holding conversations with these lowly creatures. Why do you bother answering every single one of their questions? I very much doubt that these people will even make it past the first stage of the ritual."
+
+Arraka laughs.
+
+"I think you will be very surprised of their upcoming performance," she says. "These aren't the types to give up easily."
+
+"We shall see about that soon enough..." the God of Time says.
+
+He then flies over to Rose's position, and he grabs her by her chin, turning her head left and right a few times, while bringing his face closer to hers.
+
+"Get your hands off her, you bastard!" Flower shouts, from the ground, while she is trying, in vain, to force her way back up.
+
+"You want me to get my hands off her?..." the god asks, surprised. "Oh, this time weaver is your friend... How interesting. Then, perhaps it would be more fitting for her to join you in your future trials. That way, you can all be together, in your moments of suffering. Let me just pull her out of her trance."
 
 }
 #if(v_ch4_spared_dave == 0) {
@@ -553,22 +553,6 @@ choice("Continue.", B2-Ch11a-Cabin, v_current_scene = B2-Ch11a-Cabin) if (v_ch4_
 ID: B2-Ch11a-Invitation
 TEXT:
 
-#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
- "As soon as every preparation is in place," the God of Time says. "But this does not mean that you should spend the remaining time holding conversations with these lowly creatures. Why do you bother answering every single one of their questions? I very much doubt that these people will even make it past the first stage of the ritual."
-
-Arraka laughs.
-
-"I think you will be very surprised of their upcoming performance," she says. "These aren't the types to give up easily."
-
-"We shall see about that soon enough..." the God of Time says.
-
-He then flies over to the revenant's position, and he grabs her by her chin, turning her head left and right a few times, while bringing his face closer to hers.
-
-"Hmm..." the God of Time says. "I sense traces of the God of Death's aura coming from this time weaver. A revenant, perhaps? Or maybe some other form of undead. Well, whatever she is, she just managed to earn an invitation to my ritual. Let me just pull her out of her trance."
-
-After he stops talking, the God of Time releases the revenant from his grasp, and then he waves his hand in front of her face, which causes the bright light to fade from her eyes. After she regains her senses, the revenant looks around her, with her calm, emotionless gaze, and then she addresses the God of Time, directly.
-
-}
 #if(v_ch4_spared_dave == 1) {
  "I see that you've removed me from my trance," the revenant says. "Should I take it that you're going to force me to participate in your ritual?"
 
@@ -597,6 +581,22 @@ He pauses.
 "At long last, Ulruk has found himself a follower that can compensate for his lack of wits," the God of Time says. "But let's see how far your wits can carry you in the trials ahead. The ritual is about to begin. Prepare yourself."
 
 After the god is done talking, a blinding white light fills our entire area, making it impossible to see any further than my own hands.
+
+}
+#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
+ "As soon as every preparation is in place," the God of Time says. "But this does not mean that you should spend the remaining time holding conversations with these lowly creatures. Why do you bother answering every single one of their questions? I very much doubt that these people will even make it past the first stage of the ritual."
+
+Arraka laughs.
+
+"I think you will be very surprised of their upcoming performance," she says. "These aren't the types to give up easily."
+
+"We shall see about that soon enough..." the God of Time says.
+
+He then flies over to the revenant's position, and he grabs her by her chin, turning her head left and right a few times, while bringing his face closer to hers.
+
+"Hmm..." the God of Time says. "I sense traces of the God of Death's aura coming from this time weaver. A revenant, perhaps? Or maybe some other form of undead. Well, whatever she is, she just managed to earn an invitation to my ritual. Let me just pull her out of her trance."
+
+After he stops talking, the God of Time releases the revenant from his grasp, and then he waves his hand in front of her face, which causes the bright light to fade from her eyes. After she regains her senses, the revenant looks around her, with her calm, emotionless gaze, and then she addresses the God of Time, directly.
 
 }
 choice("Continue.", B2-Ch11a-Cabin, v_current_scene = B2-Ch11a-Cabin) if (v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1)
@@ -876,14 +876,6 @@ choice("Continue", B2-Ch11a-Eliminated, v_current_scene = B2-Ch11a-Eliminated)
 ID: B2-Ch11a-Eliminated
 TEXT:
 
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- This was the one and only time when I ever froze up from fear. In fact, if I come to think of it, what happened after this incident was that I developed an almost suicidal tendency to completely ignore danger, no matter how dire the situation was. It's almost as if my desire for something like this to never happen again was so strong, that it fried my brain, and it eliminated my instinct of self-preservation. So many things are starting to make sense, now... I can't believe that I've been keeping this memory repressed for so long. I suppose I have the God of Time to thank for this stunning revelation. I would shake his hand, but with the amount of rage that I am feeling towards him right now, I'm afraid that I might crush it by mistake.
-
-The banshee is now starting to chase after my brother. I waste no time, and I dash towards her, impaling her through her back with my pitchfork, without giving her any chance to retaliate. As the banshee slowly dies before my eyes, a white light once again fills the area, and I get transported through time once more. This time, however, I am not worried. I already know that I have passed this stage of the ritual.
-
-Just as I was expecting, as soon as the light fades, I find myself back in my twenty-eight year old body, surrounded by all my friends, as Arraka lets out one of her usual laughs.
-
-}
 #if(v_ch11_saved_rose == 0) {
  "It looks like you are one of the first to pass this part of the ritual, Barry-boy," Arraka says. "Come, have a seat, and let us enjoy ourselves, while we watch the rest of your friends suffering in their own trials!"
 
@@ -924,6 +916,14 @@ I take a quick glance around me to see what our current situation is. The God of
 "Which ones are you talking about?" Arraka says. "The ones that already passed, or the ones still inside the trance?"
 
 }
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ This was the one and only time when I ever froze up from fear. In fact, if I come to think of it, what happened after this incident was that I developed an almost suicidal tendency to completely ignore danger, no matter how dire the situation was. It's almost as if my desire for something like this to never happen again was so strong, that it fried my brain, and it eliminated my instinct of self-preservation. So many things are starting to make sense, now... I can't believe that I've been keeping this memory repressed for so long. I suppose I have the God of Time to thank for this stunning revelation. I would shake his hand, but with the amount of rage that I am feeling towards him right now, I'm afraid that I might crush it by mistake.
+
+The banshee is now starting to chase after my brother. I waste no time, and I dash towards her, impaling her through her back with my pitchfork, without giving her any chance to retaliate. As the banshee slowly dies before my eyes, a white light once again fills the area, and I get transported through time once more. This time, however, I am not worried. I already know that I have passed this stage of the ritual.
+
+Just as I was expecting, as soon as the light fades, I find myself back in my twenty-eight year old body, surrounded by all my friends, as Arraka lets out one of her usual laughs.
+
+}
 choice(""Both, I guess?..."", B2-Ch11a-Transparent, v_current_scene = B2-Ch11a-Transparent, v_b2_ch11_both = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 choice(""The ones that are still inside their rituals, obviously."", B2-Ch11a-Transparent, v_current_scene = B2-Ch11a-Transparent, v_b2_ch11_both = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
 
@@ -941,6 +941,48 @@ TEXT:
 "Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
 
 In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, and so is Ella.
+
+}
+#if(v_b2_ch11_both == 1 && v_ch11_saved_slave == 3) {
+ "Both, I guess?..."
+
+"Well," Arraka says, "I didn't get to see Melindra's ritual, but Illuna was forced to reenact the whole 'sacred woods massacre' down to its very last detail. Her ritual wasn't nearly as funny as yours, because she realized from the start what she needed to do, but I could still tell that she was pretty pissed off about it, even if she didn't really show it. Flower, on the other hand, just kept trying to save her friends from the destruction of Olmnar over and over, even after failing dozens of times in a row. In the end, it was Illuna who convinced her to finally let them go, after she got out of her own ritual, and saw what the foolish girl was doing."
+
+"What about the ones who are still inside their rituals?" I say.
+
+"Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
+
+In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, but they are not saying anything.
+
+}
+#if(v_b2_ch11_both == 0 && v_ch11_saved_slave != 3) {
+ "The ones that are still inside their rituals, obviously."
+
+"Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
+
+In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, and so is Ella.
+
+}
+#if(v_b2_ch11_both == 0 && v_ch11_saved_slave != 3 || v_b2_ch11_both == 1 && v_ch11_saved_slave != 3) {
+ "He can't see or hear us, by the way," Arraka tells me, as we are still in our semi-transparent form. "Just thought I'd make it clear, in case you didn't figure it out by now."
+
+"She could have died..." I hear Daren's voice reverberating from the walls, even though Daren's mouth is still closed. "She could have died right before my eyes, and I would have been powerless to save her..."
+
+"What was that?" I ask Arraka, as I look all around us, to try and find the source of the sound. "Were those... Daren's thoughts?"
+
+"Of course they were his thoughts," Arraka says. "What else could they have been?"
+
+"You have the ability to read people's minds?" I say, starting to panic a little.
+
+"No, you idiot!" Arraka says. "How many times do I need to tell you that your friends are connected to the Magium, right now? Reading their thoughts while they are in this state is easy if you have some decent knowledge of how auras work. Now shut up and pay attention! I didn't bring you here for nothing."
+
+}
+#if(v_b2_ch11_both == 0 && v_ch11_saved_slave == 3) {
+ "The ones that are still inside their rituals, obviously."
+
+"Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
+
+In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, but they are not saying anything.
 
 }
 #if(v_b2_ch11_both == 0 || v_b2_ch11_both == 1) {
@@ -963,32 +1005,6 @@ In a single instant, the scenery around me changes completely, and everyone exce
 Once again, the whole scenery around us changes in an instant, and we both find ourselves inside Daren's room from Rose's mansion, where Daren is currently sitting on the bed, with his torso leaning forward, and his elbows propped on his knees, while he is holding his head with both his hands. Just like before, he seems to be completely unaware of our presence.
 
 }
-#if(v_b2_ch11_both == 0 && v_ch11_saved_slave != 3 || v_b2_ch11_both == 1 && v_ch11_saved_slave != 3) {
- "He can't see or hear us, by the way," Arraka tells me, as we are still in our semi-transparent form. "Just thought I'd make it clear, in case you didn't figure it out by now."
-
-"She could have died..." I hear Daren's voice reverberating from the walls, even though Daren's mouth is still closed. "She could have died right before my eyes, and I would have been powerless to save her..."
-
-"What was that?" I ask Arraka, as I look all around us, to try and find the source of the sound. "Were those... Daren's thoughts?"
-
-"Of course they were his thoughts," Arraka says. "What else could they have been?"
-
-"You have the ability to read people's minds?" I say, starting to panic a little.
-
-"No, you idiot!" Arraka says. "How many times do I need to tell you that your friends are connected to the Magium, right now? Reading their thoughts while they are in this state is easy if you have some decent knowledge of how auras work. Now shut up and pay attention! I didn't bring you here for nothing."
-
-}
-#if(v_b2_ch11_both == 1 && v_ch11_saved_slave == 3) {
- "Both, I guess?..."
-
-"Well," Arraka says, "I didn't get to see Melindra's ritual, but Illuna was forced to reenact the whole 'sacred woods massacre' down to its very last detail. Her ritual wasn't nearly as funny as yours, because she realized from the start what she needed to do, but I could still tell that she was pretty pissed off about it, even if she didn't really show it. Flower, on the other hand, just kept trying to save her friends from the destruction of Olmnar over and over, even after failing dozens of times in a row. In the end, it was Illuna who convinced her to finally let them go, after she got out of her own ritual, and saw what the foolish girl was doing."
-
-"What about the ones who are still inside their rituals?" I say.
-
-"Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
-
-In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, but they are not saying anything.
-
-}
 #if(v_b2_ch11_both == 0 && v_ch11_saved_slave == 3 || v_b2_ch11_both == 1 && v_ch11_saved_slave == 3) {
  "He can't see or hear us, by the way," Arraka tells me, as we are still in our semi-transparent form. "Just thought I'd make it clear, in case you didn't figure it out by now."
 
@@ -1001,22 +1017,6 @@ In a single instant, the scenery around me changes completely, and everyone exce
 "You have the ability to read people's minds?" I say, starting to panic a little.
 
 "No, you idiot!" Arraka says. "How many times do I need to tell you that your friends are connected to the Magium, right now? Reading their thoughts while they are in this state is easy if you have some decent knowledge of how auras work. Now shut up and pay attention! I didn't bring you here for nothing."
-
-}
-#if(v_b2_ch11_both == 0 && v_ch11_saved_slave != 3) {
- "The ones that are still inside their rituals, obviously."
-
-"Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
-
-In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, and so is Ella.
-
-}
-#if(v_b2_ch11_both == 0 && v_ch11_saved_slave == 3) {
- "The ones that are still inside their rituals, obviously."
-
-"Hmm..." Arraka says. "I think it would be quicker to show you directly. Let's start with the healer."
-
-In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, but they are not saying anything.
 
 }
 choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 0 || v_b2_ch11_both == 1)
@@ -1045,20 +1045,6 @@ Suddenly, we hear Ella screaming in fear, as the earl of Ollendor is now holding
 "Then you should have thought of that before wasting my time, wench," the noble says. "Now stand still. I will make your death as swift as possible."
 
 }
- "Okay," Arraka tells me. "This is where Daren's ritual actually started. What I've been showing you so far were just fragments of his memories, so you could better understand his motivations. Is everything clear, so far?"
-
-"I guess so..." I say.
-
-"Good," Arraka says. "Now let's watch the show."
-
-"What happened?" I hear Daren's thoughts, echoing throughout the area, as he looks around him confused. "Is this the ritual that Arraka was talking about? Did I get sent to the past?"
-
-"How interesting..." Eiden says, all of a sudden. "The flow of the healer's aura has changed completely, in a matter of seconds. It's as if he's now a different person from the one he was a few moments ago. What could trigger such a change, I wonder... Memory loss? No, no, no... This is something else. Time travel, perhaps? A trial from the God of Time?"
-
-"I don't know what you're talking about," Daren says, trying to feign ignorance. "Who is this God of Time you speak of? I've never heard of him."
-
-"So you did receive a trial, then!" Eiden says, with a grin, as he sees right through Daren's bluff. "But what could be the purpose of the ritual?... Is it to save the slave girl? Either way, I must make sure to not interfere. I would not want you to fail your trial on my account!"
-
 #if(v_ch11_saved_slave == 3) {
  "No..." I hear Daren's voice echoing throughout the room again. "It's not that I was powerless. I could have gotten the power, if I wanted it. But I didn't ask for it. I was too proud. I was too arrogant. I thought that I could find a way to save her, against all odds, like I always do. I couldn't accept the idea that I could fail, to such an extent. Even when the noble pulled out the knife, I still refused to see the truth before my eyes. I let that poor innocent girl die, because I couldn't bring myself to beg Eiden for help. Even if he is evil, his motives were clear. All that he was asking in return for the power was for me to admit my weakness in front of him. Nothing more. And I couldn't even do such a simple thing. Not only that, but I also killed that noble and endangered us all, just for the sake of pointless revenge. Why couldn't I have killed that noble before he murdered the girl in cold blood? What use are all these years of training and travelling throughout the world, if I can't even save one helpless girl that is standing right in front of me?"
 
@@ -1079,6 +1065,20 @@ Suddenly, we hear the slave girl screaming in fear, as the earl of Ollendor is n
 "Then you should have thought of that before wasting my time, wench," the noble says. "Now stand still. I will make your death as swift as possible."
 
 }
+ "Okay," Arraka tells me. "This is where Daren's ritual actually started. What I've been showing you so far were just fragments of his memories, so you could better understand his motivations. Is everything clear, so far?"
+
+"I guess so..." I say.
+
+"Good," Arraka says. "Now let's watch the show."
+
+"What happened?" I hear Daren's thoughts, echoing throughout the area, as he looks around him confused. "Is this the ritual that Arraka was talking about? Did I get sent to the past?"
+
+"How interesting..." Eiden says, all of a sudden. "The flow of the healer's aura has changed completely, in a matter of seconds. It's as if he's now a different person from the one he was a few moments ago. What could trigger such a change, I wonder... Memory loss? No, no, no... This is something else. Time travel, perhaps? A trial from the God of Time?"
+
+"I don't know what you're talking about," Daren says, trying to feign ignorance. "Who is this God of Time you speak of? I've never heard of him."
+
+"So you did receive a trial, then!" Eiden says, with a grin, as he sees right through Daren's bluff. "But what could be the purpose of the ritual?... Is it to save the slave girl? Either way, I must make sure to not interfere. I would not want you to fail your trial on my account!"
+
 choice("Continue", B2-Ch11a-Tightly, v_current_scene = B2-Ch11a-Tightly)
 
 
@@ -1287,10 +1287,6 @@ All of a sudden, the now all-too-familiar white light fills the area around us, 
 "Yes, most of your rituals were made in the same way," Arraka says. "As long as the past version of you is the one that saves the slave, using Eiden's power, he should be fine. Well, I'm sure he'll figure it out, eventually. Come on, let's go visit some of the other rituals."
 
 }
- "What happened?" I hear Daren's thoughts in the background. "What did I do wrong? What does this ritual want from me?!"
-
-"And, our next destination is the Beacon of Hope!" Arraka says. "Hold on, tight! It's going to be a bumpy ride. Nah, I'm just kidding. We're already here."
-
 #if(v_ch11_saved_slave == 3) {
  "Prove you wrong?" Daren asks, confused, as Eiden lowers his arms, and the wind around him stops. "What do you mean by--"
 
@@ -1319,6 +1315,10 @@ All of a sudden, the now all-too-familiar white light fills the area around us, 
 "Yes, most of your rituals were made in the same way," Arraka says. "If he wants to pass the trial, the first thing he'll need to do is to calm the hell down, because otherwise Eiden will always be able to tell that something is wrong, from seeing the sudden fluctuations in his aura. Then he'll need to refuse Eiden's offer once again, and to try to convince the noble of his errant ways, which will eventually lead to the slave's death. Well, I'm sure he'll figure it out, eventually. Come on, let's go visit some of the other rituals."
 
 }
+ "What happened?" I hear Daren's thoughts in the background. "What did I do wrong? What does this ritual want from me?!"
+
+"And, our next destination is the Beacon of Hope!" Arraka says. "Hold on, tight! It's going to be a bumpy ride. Nah, I'm just kidding. We're already here."
+
 choice("Continue", B2-Ch11a-Underground, v_current_scene = B2-Ch11a-Underground)
 
 

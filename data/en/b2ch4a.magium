@@ -414,14 +414,6 @@ As I am lost in thought, while mechanically turning the pages of my notebook one
 I suddenly remember Eiden's lecture, before we entered the city, when he was telling me that if you mess enough with a person's aura, you can even stop them from aging. If what he told me is true, then it wouldn't be that far of a stretch to assume that a special type of aura could grant someone a high regeneration rate. If that is the case, then could this aura perhaps also help in keeping the limbs functional, even if they are severed from the body? 
 
 }
- I'll admit that my knowledge about auras is limited, but from the little I know, a person's aura is not supposed to have unlimited range.  What were to happen, then, if the troll's head would be taken too far away from the body after it's been cut off? Would his consciousness fade away? Would that make him die for good? If we ever manage to cut that troll's head off again, this is definitely something that's worth testing out.
-
-I ended up spending the day trying to look for more information to confirm my theory. Unfortunately, not a lot of research has been done on this subject, since most people can barely even read the level of magic power in someone's aura, so the theory that an aura could influence a body's regeneration has been deemed as 'not grounded in facts' by most respectable groups of scholars, and the few who wanted to pursue this theory did not receive the appropriate funding to do so.
-
-I spent my whole day researching this, and all I have to show for it is an outlandish theory, based on another outlandish theory whose validity hinges mostly on one of Eiden's offhanded remarks. Better than nothing, I guess...
-
-I put my notebook back in my backpack, and I prepare to go to sleep. I'll have more time to study tomorrow.
-
 #if(v_b2_ch2_deal != 3) {
  No, I shouldn't make them worry needlessly. If I am to tell them of this, then it will be after the arena, when everyone will be safe. 
 
@@ -430,6 +422,14 @@ As I am lost in thought, while mechanically turning the pages of my notebook one
 I suddenly remember Eiden's lecture, before we entered the city, when he was telling me that if you mess enough with a person's aura, you can even stop them from aging. If what he told me is true, then it wouldn't be that far of a stretch to assume that a special type of aura could grant someone a high regeneration rate. If that is the case, then could this aura perhaps also help in keeping the limbs functional, even if they are severed from the body? 
 
 }
+ I'll admit that my knowledge about auras is limited, but from the little I know, a person's aura is not supposed to have unlimited range.  What were to happen, then, if the troll's head would be taken too far away from the body after it's been cut off? Would his consciousness fade away? Would that make him die for good? If we ever manage to cut that troll's head off again, this is definitely something that's worth testing out.
+
+I ended up spending the day trying to look for more information to confirm my theory. Unfortunately, not a lot of research has been done on this subject, since most people can barely even read the level of magic power in someone's aura, so the theory that an aura could influence a body's regeneration has been deemed as 'not grounded in facts' by most respectable groups of scholars, and the few who wanted to pursue this theory did not receive the appropriate funding to do so.
+
+I spent my whole day researching this, and all I have to show for it is an outlandish theory, based on another outlandish theory whose validity hinges mostly on one of Eiden's offhanded remarks. Better than nothing, I guess...
+
+I put my notebook back in my backpack, and I prepare to go to sleep. I'll have more time to study tomorrow.
+
 choice("Continue", B2-Ch04a-Cards, v_current_scene = B2-Ch04a-Cards)
 
 
@@ -556,6 +556,42 @@ choice("Continue", B2-Ch04a-Strategy, v_current_scene = B2-Ch04a-Strategy)
 ID: B2-Ch04a-Strategy
 TEXT:
 
+#if(v_b2_ch4_inform == 0) {
+ As Wilhelm stops talking, a blue writing appears in the middle of us, with large characters, so that we can all see it clearly.
+
+"Please excuse me," the text says, "but I would like to begin discussing our strategy for tomorrow, now, if you all don't mind."
+
+We all turn towards Leila, who is staring at us with an upset look on her face.
+
+"Oh, uh..." Bruce says. "Of course, of course... Maybe we should start doing that."
+
+"I could not agree more," Wilhelm says.
+
+"And just what are we supposed to talk about, exactly?" the mage says. "We still haven't been given any information in regards to tomorrow's events. The only thing we know so far is that we're likely going to be battling mythical creatures of some kind, in one of the rounds."  
+
+Leila gives me a look. 
+
+I wonder if she's having second thoughts about us not telling them of what we found out in the caverns. If I were to change my mind, then there would definitely not be a better moment than this.
+
+}
+#if(v_b2_ch4_inform == 1) {
+ As Wilhelm stops talking, a blue writing appears in the middle of us, with large characters, so that we can all see it clearly.
+
+"Please excuse me," the text says, "but I would like to begin discussing our strategy for tomorrow, now, if you all don't mind."
+
+We all turn towards Leila, who is staring at us with an upset look on her face.
+
+"Oh, uh..." Bruce says. "Of course, of course... Maybe we should start doing that."
+
+"I could not agree more," Wilhelm says.
+
+"And just what are we supposed to talk about, exactly?" the mage says. "We still haven't been given any information in regards to tomorrow's events. The only thing we know so far is that we're likely going to be battling mythical creatures of some kind, in one of the rounds."  
+
+Leila gives me a look. 
+
+I think she's trying to tell me that this would be the best moment for me to let everyone know about what we found out in the caverns. Then again, I suppose it's still not too late to change my mind, either.
+
+}
 choice("Ask Wilhelm if he overheard the guards say anything about the arena event", B2-Ch04a-Overheard, v_current_scene = B2-Ch04a-Overheard, v_b2_ch4_inform2 = 0) if (v_b2_ch2_threatened != 2)
 choice("Tell everyone about what we found out in the caverns", B2-Ch04a-Caverns, v_current_scene = B2-Ch04a-Caverns, v_b2_ch4_inform2 = 1, v_b2_ch4_inform3 = 0)
 choice("Ask if somebody overheard the guards say anything about the arena event", B2-Ch04a-Overheard, v_current_scene = B2-Ch04a-Overheard, v_b2_ch4_inform2 = 0) if (v_b2_ch2_threatened == 2)
@@ -572,6 +608,16 @@ I then start telling everyone about our trip to the underground caverns, and wha
 "This is all very useful information," Wilhelm says. "I happened to overhear the guards last night saying that we'd be fighting a troll named Velgos in the second round, but I would have never imagined him to be so powerful. What I would like to add is that I've also heard them talk about manticores, which I don't believe you've met in the underground caverns. If your notebook has as much information in it as you've claimed, maybe you should do some research about them as well."
 
 "I actually already did some research about them," I say. "I forgot to mention it before, but I also managed to overhear the guards talking about some of the monsters we might have to fight in the arena. In that discussion they mentioned manticores and giant scorpions. I'll give you the briefing on them later."
+
+}
+#if(v_b2_ch2_heard == 0) {
+ "Actually there is some information that I would like to share with you," I say. "But you'd better brace yourselves, because this is going to get long."
+
+I then start telling everyone about our trip to the underground caverns, and what we discovered there. I omitted to tell them how exactly we reached the tunnels, and I did not tell them about our encounter with Flower and Illuna either, but I tried to describe the rest of our adventure to them in as much detail as possible, while simultaneously avoiding to tell them any information that might lead them to know that we are lessathi, and that we are using stat devices. After I got done with the story, I also gave them a quick summary of what I know about each of the creatures we've met, including their behaviors and their weaknesses, and I also told them my theory about the troll's unusual regeneration ability.
+
+"This is all very useful information," Wilhelm says. "I happened to overhear the guards last night saying that we'd be fighting a troll named Velgos in the second round, but I would have never imagined him to be so powerful. What I would like to add is that I've also heard them talk about manticores, which I don't believe you've met in the underground caverns. If your notebook has as much information in it as you've claimed, maybe you should do some research about them as well."
+
+I'll definitely look into it," I say. "Thanks for letting me know."
 
 }
 #if(v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1) {
@@ -596,16 +642,6 @@ I then start telling everyone about our trip to the underground caverns, and wha
  For once, everyone agreed with Wilhelm, even if some did so more begrudgingly than others, and we decided to spend the rest of the recreation period discussing various strategies that could work against the monsters that we knew about, but also against other monsters that I've read about in my notes. We even agreed to have a second meeting later, after we'd spend some time alone in our rooms, mulling over the information that we had at our disposal.
 
 }
-#if(v_b2_ch2_heard == 0) {
- "Actually there is some information that I would like to share with you," I say. "But you'd better brace yourselves, because this is going to get long."
-
-I then start telling everyone about our trip to the underground caverns, and what we discovered there. I omitted to tell them how exactly we reached the tunnels, and I did not tell them about our encounter with Flower and Illuna either, but I tried to describe the rest of our adventure to them in as much detail as possible, while simultaneously avoiding to tell them any information that might lead them to know that we are lessathi, and that we are using stat devices. After I got done with the story, I also gave them a quick summary of what I know about each of the creatures we've met, including their behaviors and their weaknesses, and I also told them my theory about the troll's unusual regeneration ability.
-
-"This is all very useful information," Wilhelm says. "I happened to overhear the guards last night saying that we'd be fighting a troll named Velgos in the second round, but I would have never imagined him to be so powerful. What I would like to add is that I've also heard them talk about manticores, which I don't believe you've met in the underground caverns. If your notebook has as much information in it as you've claimed, maybe you should do some research about them as well."
-
-I'll definitely look into it," I say. "Thanks for letting me know."
-
-}
 choice("Continue", B2-Ch04a-Leaving, v_current_scene = B2-Ch04a-Leaving) if (v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1)
 
 
@@ -622,16 +658,6 @@ TEXT:
 "Except for the fact that a hydra can't fly," the mage says. "I'd much rather fight a hydra on the ground, than fight a horde of flying creatures without magic or ranged weaponry."
 
 "This is not all I've heard the guards say about the arena," Wilhelm says. "I also heard them speak about who we'd be facing in the second round. Apparently it's some famous troll mercenary known by the name of Velgos. They were saying that he's fought in the arena before, and that he is considered to be on par with the undefeated champion of the arena."
-
-}
-#if(v_b2_ch4_inform == 0 || v_b2_ch4_inform == 1) {
- "Velgos?" Bruce says. "Never heard of him."
-
-"Neither have I," the mage says.
-
-"If a troll is the best they've got," Bruce says, "then maybe I've been overestimating the organizers a little. I've killed plenty of trolls before. All you need to do is cut off their heads. It's as simple as that."
-
-"Forget the troll," the mage says. "We need to focus on the creatures. Does anyone know of any weaknesses we can use against them?"
 
 }
 #if(v_b2_ch4_inform == 1 && v_b2_ch2_threatened != 2) {
@@ -672,6 +698,16 @@ Realizing that I'm not planning to tell them about the creatures anymore, Leila 
 "Except for the fact that a hydra can't fly," the mage says. "I'd much rather fight a hydra on the ground, than fight a horde of flying creatures without magic or ranged weaponry."
 
 "This is not all I've heard the guards say about the arena," Wilhelm says. "I also heard them speak about who we'd be facing in the second round. Apparently it's some famous troll mercenary known by the name of Velgos. They were saying that he's fought in the arena before, and that he is considered to be on par with the undefeated champion of the arena."
+
+}
+#if(v_b2_ch4_inform == 0 || v_b2_ch4_inform == 1) {
+ "Velgos?" Bruce says. "Never heard of him."
+
+"Neither have I," the mage says.
+
+"If a troll is the best they've got," Bruce says, "then maybe I've been overestimating the organizers a little. I've killed plenty of trolls before. All you need to do is cut off their heads. It's as simple as that."
+
+"Forget the troll," the mage says. "We need to focus on the creatures. Does anyone know of any weaknesses we can use against them?"
 
 }
 choice("Tell them the creatures' weaknesses", B2-Ch04a-Weaknesses, v_current_scene = B2-Ch04a-Weaknesses, v_b2_ch4_inform3 = 1) if (v_b2_ch4_inform == 0 || v_b2_ch4_inform == 1)
@@ -719,12 +755,6 @@ Once I get back to my room, late in the evening, I lay down on my bed, and I fal
 The next day, I get woken up in the morning by one of the guards, telling me to pack my bags, because we're leaving in twenty minutes. I put all my stuff back in my backpack, and then I walk out the door and into the recreation room, where the other members of my division were slowly starting to gather up. As soon as we're all set to go, we begin to leave our division's area one by one, and we stop outside the door, where we are greeted by an employee of the arena, who collects all of our keys, and tells us to follow him.
 
 }
-#if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_lessathi == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_threatened == 0 || v_b2_ch2_threatened == 1) {
- As we all walk through the dimly lit tunnels, members from other divisions are slowly beginning to walk out of their division areas as well, and follow their guides through the corridors. When we finally reach the upper levels, we are told to line up in an orderly fashion, so that the guards who were sent to escort us to the arena will have an easier time keeping an eye on us. I didn't get to see any of my friends as we advanced towards the arena, but I did see a pretty big crowd of people making its way to the arena to see the show, and a very long line at the ticket booth. 
-
-The guards lead us through the gladiator entrance of the arena, and they show us to our locker rooms, where we get to store our belongings for the duration of the show. After we're done putting our backpacks in the lockers, the guards tell us that we're allowed to roam freely through the area designated for the gladiators until the events begin, but that we will need to gather up in the waiting area of our division after the sound of the first horn.  
-
-}
 #if(v_b2_ch2_threatened == 1) {
  By the end of the day, we didn't manage to come up with better plans against the troll than our original ones, so all we could do was hope that at least one of them would work out alright.
 
@@ -753,6 +783,12 @@ After going back to my room in the evening and laying down on my bed, my last th
 Normally, I don't think he'd try anything anymore after the scare I gave him two days ago, but I'm a little worried that he might have seen Leila's comment about me being a lessathi when he was spying on us, before I went to her room for the first time. I'll definitely have to keep an eye on him so he doesn't take me by surprise. I decide to think no further about this, and I go to sleep.
 
 The next day, I get woken up in the morning by one of the guards, telling me to pack my bags, because we're leaving in twenty minutes. I put all my stuff back in my backpack, and then I walk out the door and into the recreation room, where the other members of my division were slowly starting to gather up. As soon as we're all set to go, we begin to leave our division's area one by one, and we stop outside the door, where we are greeted by an employee of the arena, who collects all of our keys, and tells us to follow him.
+
+}
+#if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_lessathi == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_threatened == 0 || v_b2_ch2_threatened == 1) {
+ As we all walk through the dimly lit tunnels, members from other divisions are slowly beginning to walk out of their division areas as well, and follow their guides through the corridors. When we finally reach the upper levels, we are told to line up in an orderly fashion, so that the guards who were sent to escort us to the arena will have an easier time keeping an eye on us. I didn't get to see any of my friends as we advanced towards the arena, but I did see a pretty big crowd of people making its way to the arena to see the show, and a very long line at the ticket booth. 
+
+The guards lead us through the gladiator entrance of the arena, and they show us to our locker rooms, where we get to store our belongings for the duration of the show. After we're done putting our backpacks in the lockers, the guards tell us that we're allowed to roam freely through the area designated for the gladiators until the events begin, but that we will need to gather up in the waiting area of our division after the sound of the first horn.  
 
 }
 choice("Continue", B2-Ch04a-Trace, v_current_scene = B2-Ch04a-Trace) if (v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_lessathi == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_threatened == 0 || v_b2_ch2_threatened == 1)
@@ -1017,16 +1053,6 @@ choice("Continue", B2-Ch04a-Manticores, v_current_scene = B2-Ch04a-Manticores)
 ID: B2-Ch04a-Manticores
 TEXT:
 
-#if(v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform3 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch2_heard == 0) {
- There is a mixed sound of applause and shouts coming from the spectator seats, as the gladiators from the first division make their way out of the gates, and towards the center of the arena. I do not recognize any of the warriors in this division, but judging by the continued cheers of the crowd, I'd say that most of the spectators have seen them perform at least once before. Some of the gladiators seem a little bit too confident. Former victors, perhaps? Either way, they'd better get their act together, and quick. From what Bruce said on my first day here, the events until now could not even begin to compare with what's coming. 
-
-A large iron gate on the opposite side of the arena makes a loud creaking noise as it opens. From beyond the gate, a lion with black wings, red eyes, two horns on its head and a scorpion's tail is making its way into the fighting area. The manticore wastes no time, and it soars directly into the sky. Two more manticores follow its lead, and they all start circling the skies above the arena, watching their prey intently. Seeing the beasts leave the fighting area with such ease, some of the spectators in the crowd are beginning to show signs of uneasiness.
-
-"Do not worry," the announcer says, trying to calm down the crowd. "These beasts have been well trained. They would not dare to lay their claws on anyone other than the gladiators in the arena."
-
-Several giant scorpions are now also joining the arena, coming from beyond the same gate that the manticores entered from. They are slowly advancing towards the warriors, in a straight line, without any attempt to surround them. 
-
-}
 #if(v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0) {
  It's a good thing that I heard the guards talking about the scorpions while I was in my cell.  I've had all the time in the world to prepare against them, and I've also told Leila all the information she needed to know about them.
 
@@ -1041,6 +1067,16 @@ Okay... Calm down! Desert marauders are pretty much just giant scorpions with sm
 At least as far as the giant scorpions are concerned, we shouldn't have any... Hey, wait a minute! Those aren't giant scorpions... Those aren't giant scorpions at all. Those are desert marauders. Damn those idiot guards! Could they not tell the difference?
 
 Okay... Calm down! Desert marauders are pretty much just giant scorpions with smaller heads. They should have more or less the same behaviors. But do they also have the same weaknesses? I think they do, but I'm not completely certain. If only I had my notebook with me now...
+
+}
+#if(v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform3 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch2_heard == 0) {
+ There is a mixed sound of applause and shouts coming from the spectator seats, as the gladiators from the first division make their way out of the gates, and towards the center of the arena. I do not recognize any of the warriors in this division, but judging by the continued cheers of the crowd, I'd say that most of the spectators have seen them perform at least once before. Some of the gladiators seem a little bit too confident. Former victors, perhaps? Either way, they'd better get their act together, and quick. From what Bruce said on my first day here, the events until now could not even begin to compare with what's coming. 
+
+A large iron gate on the opposite side of the arena makes a loud creaking noise as it opens. From beyond the gate, a lion with black wings, red eyes, two horns on its head and a scorpion's tail is making its way into the fighting area. The manticore wastes no time, and it soars directly into the sky. Two more manticores follow its lead, and they all start circling the skies above the arena, watching their prey intently. Seeing the beasts leave the fighting area with such ease, some of the spectators in the crowd are beginning to show signs of uneasiness.
+
+"Do not worry," the announcer says, trying to calm down the crowd. "These beasts have been well trained. They would not dare to lay their claws on anyone other than the gladiators in the arena."
+
+Several giant scorpions are now also joining the arena, coming from beyond the same gate that the manticores entered from. They are slowly advancing towards the warriors, in a straight line, without any attempt to surround them. 
 
 }
 #if(v_b2_ch2_heard == 0) {
@@ -1094,20 +1130,6 @@ I leave the area of our division and hurry towards the locker rooms. Shortly aft
 "Okay," I say. "How do I ask for permission, then?"
 
 }
-#if(v_ch6_secure == 0 || v_ch6_secure == 1) {
- The guard scratches his head. I don't think anyone's ever asked him this question before.
-
-"Wait here," the guard says. "I'll go ask the owner. You'd better not move from this spot till I come back, or you'll be in trouble."
-
-The guard goes to climb a flight of stairs, and then he disappears from my sight. He returns a few minutes later, with a paper in his hand.
-
-"Here is a free pass, signed by the owner," the guard says, as he hands me the piece of paper. "If any other guards try to stop you, you show them this paper. When you're done, you come back here, and you hand this paper to me. Is that clear?"
-
-"Crystal," I say, and then I head towards the locker room.
-
-When I finally reach my locker, I open it with my key, and then I get the notebook out of my backpack. I quickly rip out the pages I need, then I place my notebook back in my backpack and I close the locker.
-
-}
 #if(v_ch6_secure == 0) {
  I'll go read the notebook myself. It's safer that way.
 
@@ -1126,6 +1148,20 @@ I leave the area of our division and hurry towards the locker rooms. Shortly aft
 "You're not supposed to leave your designated area without permission," the guard tells me.
 
 "Okay," I say. "How do I ask for permission, then?"
+
+}
+#if(v_ch6_secure == 0 || v_ch6_secure == 1) {
+ The guard scratches his head. I don't think anyone's ever asked him this question before.
+
+"Wait here," the guard says. "I'll go ask the owner. You'd better not move from this spot till I come back, or you'll be in trouble."
+
+The guard goes to climb a flight of stairs, and then he disappears from my sight. He returns a few minutes later, with a paper in his hand.
+
+"Here is a free pass, signed by the owner," the guard says, as he hands me the piece of paper. "If any other guards try to stop you, you show them this paper. When you're done, you come back here, and you hand this paper to me. Is that clear?"
+
+"Crystal," I say, and then I head towards the locker room.
+
+When I finally reach my locker, I open it with my key, and then I get the notebook out of my backpack. I quickly rip out the pages I need, then I place my notebook back in my backpack and I close the locker.
 
 }
 choice("Continue", B2-Ch04a-Himself, v_current_scene = B2-Ch04a-Himself) if (v_ch6_secure == 0 || v_ch6_secure == 1)
@@ -1148,18 +1184,6 @@ It seems that both the first and the second division fights have already ended. 
 "Your dwarf friend just defeated all those monsters by himself," Leila writes.
 
 }
-#if(v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1) {
- "By himself?" I ask, surprised. "What about the first division?"
-
-"They were all killed," Leila writes. "You can see their bodies over there."
-
-She then points towards several dead gladiators that are hidden behind some marauder carcasses.
-
-"Damn..." I say. "We'd better get ourselves ready, then. It will be our turn after the next division."
-
-It takes about another minute for the cheering to finally die down, and for Hadrik and the others to step off the stage, so that the next division can enter the fighting area.
-
-}
 #if(v_b2_ch2_heard == 0) {
  As I study the information on my way back from the locker room, I notice the guard waiting for me where I left him, and I hand him back his paper.
 
@@ -1170,6 +1194,18 @@ It seems that both the first and the second division fights have already ended. 
 "What's going on, here?" I ask Leila.
 
 "Your dwarf friend just defeated all those monsters by himself," Leila writes.
+
+}
+#if(v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1) {
+ "By himself?" I ask, surprised. "What about the first division?"
+
+"They were all killed," Leila writes. "You can see their bodies over there."
+
+She then points towards several dead gladiators that are hidden behind some marauder carcasses.
+
+"Damn..." I say. "We'd better get ourselves ready, then. It will be our turn after the next division."
+
+It takes about another minute for the cheering to finally die down, and for Hadrik and the others to step off the stage, so that the next division can enter the fighting area.
 
 }
 choice("Continue", B2-Ch04a-Daft, v_current_scene = B2-Ch04a-Daft) if (v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1)
@@ -1561,14 +1597,6 @@ choice("Continue", B2-Ch04a-Concentrate, v_current_scene = B2-Ch04a-Concentrate)
 ID: B2-Ch04a-Concentrate
 TEXT:
 
-#if(v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch4_inform2 == 1 || v_b2_ch4_inform3 == 1) {
- The tramplers have finished their first tour of the arena, and they're now coming back towards Daren for a second round. Some of his teammates have managed to evade the stampede, but two of them were not so lucky, and they got trampled to death before they could get out of harm's way. Daren waits patiently until the last moment yet again, and then he runs his blade through the side of the creature, slicing it in half. The crowds are going wild once more.
-
-Seeing that the first wave of beasts is already being dealt with, the announcer signals the beginning of the second wave. Three giant cobras are now making their way towards Daren, while the tramplers decide to try chasing some of the easier prey. The cobras are both taller and wider than Daren, but their size is not the only dangerous thing about them. By the looks of the black spots on their necks, I'm almost certain that these are in fact acid-spitting cobras, and not regular ones. 
-
-Acid that comes from cobras is not as strong as the acid from mage spells, but it's definitely not something to be sneezed at. While it may not significantly damage weapons and armor that have been sufficiently enchanted, the acid from a cobra can still burn through most regular metals in a matter of minutes, and it can burn through human flesh in a matter of seconds.
-
-}
 #if(v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0) {
  Being now faced with ranged attackers, Daren decides that it is no longer safe to maintain his position, and he switches to the offensive. Advancing slowly, with his shield in front, Daren gradually closes the gap between himself and the cobras, until he gets near enough to be able to make a dash attack. The cobras have been spitting at him all this time, but judging by the impact it's had on Daren's shield, they may as well have been spraying water.
 
@@ -1581,6 +1609,14 @@ While Daren was busy with the cobras, the other gladiators had somehow managed t
 "I very much doubt that anyone was counting on your help to begin with," Wilhelm says. "Now could you please keep quiet? Our battle will begin shortly, and I would like to concentrate."
 
 Great. Our fight didn't even start yet, and our team is already falling apart. I knew from the beginning that these people couldn't be trusted.
+
+}
+#if(v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch4_inform2 == 1 || v_b2_ch4_inform3 == 1) {
+ The tramplers have finished their first tour of the arena, and they're now coming back towards Daren for a second round. Some of his teammates have managed to evade the stampede, but two of them were not so lucky, and they got trampled to death before they could get out of harm's way. Daren waits patiently until the last moment yet again, and then he runs his blade through the side of the creature, slicing it in half. The crowds are going wild once more.
+
+Seeing that the first wave of beasts is already being dealt with, the announcer signals the beginning of the second wave. Three giant cobras are now making their way towards Daren, while the tramplers decide to try chasing some of the easier prey. The cobras are both taller and wider than Daren, but their size is not the only dangerous thing about them. By the looks of the black spots on their necks, I'm almost certain that these are in fact acid-spitting cobras, and not regular ones. 
+
+Acid that comes from cobras is not as strong as the acid from mage spells, but it's definitely not something to be sneezed at. While it may not significantly damage weapons and armor that have been sufficiently enchanted, the acid from a cobra can still burn through most regular metals in a matter of minutes, and it can burn through human flesh in a matter of seconds.
 
 }
 #if(v_b2_ch4_inform2 == 1 || v_b2_ch4_inform3 == 1) {

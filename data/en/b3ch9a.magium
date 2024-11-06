@@ -157,16 +157,18 @@ TEXT:
 "And if you get attacked while I'm in the air, what happens then?" I say. "Will I be stuck in the middle of the sky, unable to move?"
 
 }
- "You would still retain partial control over the currents," Melindra says, "but they would be less responsive, and you might have to repeat the same movements a few times until they work. I can still cast the usual version of the spell on you if you want, which would give you full control, but that would make it about as unreliable as piloting a gnomish flying contraption in the middle of a hurricane. I'm not sure if you get what I mean."
-
-"Hey, I've piloted a plane in a storm before," I say. "It's not that bad! I mean, I nearly died like ten times during the same flight, but I did land safely in the end."
-
-"Well, you can choose whatever type of air currents you want," Melindra says. "Just remember that I can no longer switch the type of currents once you're in the air, so you should take the decision before we go outside."
-
 #if(v_b3_ch6_kelrim == 1 && v_b3_ch8_king != 5 || v_b3_ch6_plan == 3 && v_b3_ch8_king != 5) {
  "Oh, I forgot to tell you," Daren says. "I had a little chat with him before we left for the teleporter room, and he told me that the king of the underground refused his request to come with us. The king said that only highly skilled combat veterans were allowed to join, and that Kelrim would be of much more help if he remained in the underground base, so he could heal the wounded when we'd come back. Kelrim only followed us to the teleporter room to see us off, not to join us."
 
 "I see," Kate says.
+
+}
+#if(v_b3_ch6_kelrim == 1 && v_b3_ch8_king == 5 || v_b3_ch6_plan == 3 && v_b3_ch8_king == 5) {
+ "Oh, I forgot to tell you," Daren says. "I had a little chat with him before we left for the teleporter room, and he told me that the king of the underground refused his request to come with us. The king said that only highly skilled combat veterans were allowed to join, and that Kelrim would be of much more help if he remained in the underground base, so he could heal the wounded when we'd come back. Kelrim only followed us to the teleporter room to see us off, not to join us."
+
+"I would not have expected the king of the underground himself to turn him down," Kate says. "I thought this would have been the perfect opportunity for him to assassinate the goblin, along with the rest of us."
+
+"Yeah, I wasn't expecting it either," Daren says. "I told Kelrim to stick with Breynan at all times while we're gone, just to be on the safe side, but I don't think there's any point in having him killed while he's still underground. It would raise too much suspicion from everyone."
 
 }
 #if(v_b3_ch6_kelrim == 1 || v_b3_ch6_plan == 3) {
@@ -179,14 +181,12 @@ TEXT:
 "And if you get attacked while I'm in the air, what happens then?" I say. "Will I be stuck in the middle of the sky, unable to move?"
 
 }
-#if(v_b3_ch6_kelrim == 1 && v_b3_ch8_king == 5 || v_b3_ch6_plan == 3 && v_b3_ch8_king == 5) {
- "Oh, I forgot to tell you," Daren says. "I had a little chat with him before we left for the teleporter room, and he told me that the king of the underground refused his request to come with us. The king said that only highly skilled combat veterans were allowed to join, and that Kelrim would be of much more help if he remained in the underground base, so he could heal the wounded when we'd come back. Kelrim only followed us to the teleporter room to see us off, not to join us."
+ "You would still retain partial control over the currents," Melindra says, "but they would be less responsive, and you might have to repeat the same movements a few times until they work. I can still cast the usual version of the spell on you if you want, which would give you full control, but that would make it about as unreliable as piloting a gnomish flying contraption in the middle of a hurricane. I'm not sure if you get what I mean."
 
-"I would not have expected the king of the underground himself to turn him down," Kate says. "I thought this would have been the perfect opportunity for him to assassinate the goblin, along with the rest of us."
+"Hey, I've piloted a plane in a storm before," I say. "It's not that bad! I mean, I nearly died like ten times during the same flight, but I did land safely in the end."
 
-"Yeah, I wasn't expecting it either," Daren says. "I told Kelrim to stick with Breynan at all times while we're gone, just to be on the safe side, but I don't think there's any point in having him killed while he's still underground. It would raise too much suspicion from everyone."
+"Well, you can choose whatever type of air currents you want," Melindra says. "Just remember that I can no longer switch the type of currents once you're in the air, so you should take the decision before we go outside."
 
-}
 choice(""Fine, I'll have the stable air currents then, please."", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 1)
 choice(""It's okay, you can cast the same air currents as always. I'll handle it."", B3-Ch09a-Currents, v_current_scene = B3-Ch09a-Currents, v_b3_ch9_currents = 0)
 
@@ -222,20 +222,20 @@ As I begin to feel the air flowing around me, I immediately recognize the differ
 "If he doesn't want us to fight alongside them, then it's their loss," Daren says. "I don't think that's the case, though. I say we wait for a few more minutes and if we still don't hear a word from them, we'll take a peek outside to see what's going on."
 
 }
-#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
- Just like Daren said, it didn't take long until one of the underground troops came to the door to announce that the king was expecting us. We all headed outside together and then we followed the king of the underground's envoy for about twenty seconds through the raging storm, until we reached the place where all of the underground forces were stationed. There were about a hundred men here, give or take, and judging by their auras, only about ten or so were mages. Of course, I couldn't be completely sure of that, since the king of the underground and Peter are always suppressing the magic from their auras, so there could be others doing the same thing.
-
-Some of the mages were still casting protection spells on the area when we arrived, while the warriors were just standing with their crossbows, swords and shields at the ready, looking anxiously at the drones in the sky that were minding their own business, simply ignoring the armed fighters that were waiting in the middle of an open plaza, during a city-wide quarantine.
-
-"Make way, please," the king of the underground says to his men, when he sees us approaching him. "I wish to speak to them."
-
-}
 #if(v_b3_ch8_overseer2 == 1) {
  "No," Daren says. "The king explicitly told us to wait here while they set up their defenses for the battle against the drones. He said that he doesn't want the Overseer to be aware of our presence initially, so that he'll miscalculate the number of drones that he needs to send to deal with his enemies."
 
 "Or maybe the king of the underground simply doesn't trust us, and that was just an excuse to keep us from joining the battle," Kate says.
 
 "If they already suspect us," Daren says, "then going against the king's orders would make it even more difficult for us to set up the ambush properly. Don't worry, the Overseer said that he won't start the fight until we're all in position. I'm sure the king will call us after waiting for a few more minutes and seeing that nothing is happening."
+
+}
+#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
+ Just like Daren said, it didn't take long until one of the underground troops came to the door to announce that the king was expecting us. We all headed outside together and then we followed the king of the underground's envoy for about twenty seconds through the raging storm, until we reached the place where all of the underground forces were stationed. There were about a hundred men here, give or take, and judging by their auras, only about ten or so were mages. Of course, I couldn't be completely sure of that, since the king of the underground and Peter are always suppressing the magic from their auras, so there could be others doing the same thing.
+
+Some of the mages were still casting protection spells on the area when we arrived, while the warriors were just standing with their crossbows, swords and shields at the ready, looking anxiously at the drones in the sky that were minding their own business, simply ignoring the armed fighters that were waiting in the middle of an open plaza, during a city-wide quarantine.
+
+"Make way, please," the king of the underground says to his men, when he sees us approaching him. "I wish to speak to them."
 
 }
 choice("Continue", B3-Ch09a-Gregory, v_current_scene = B3-Ch09a-Gregory) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1 || v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1)
@@ -308,18 +308,6 @@ After saying this, the king of the underground raises his arms and then he begin
 "I actually got this idea from your friend, Barry," the king of the underground shouts loudly from above, answering Hadrik's question. "I heard from my men about the air current spell he was using to fly around, and I asked my air elementalists if they couldn't come up with something similar to what Melindra had been casting."
 
 }
-#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
- He then does a few dashes through the air, and he appears to lose control for about a second due to the strong wind, before quickly regaining his balance.
-
-"The controls are a little crude, but I can make a few adjustments with my aura manipulation, so it's not that big of a problem," the king says. "Now, then... where are the drones?"
-
-As the king of the underground flies higher into the sky, it is getting harder to see him because of the heavy rain, but it does not take long for the Overseer's drones to take the bait and to light up the whole area around the king with their bright red eyes.
-
-The king of the underground does not engage them, and he instead makes a semi-transparent spherical barrier around himself, made up of hardened aura, which is protecting him both from the drones' magical attacks and from the downpour of rain. More and more drones are now flocking around the king's barrier, trying to break it with elemental attacks of all types.
-
-The king of the underground keeps baiting the drones for another minute or so, until about a hundred or more of them are surrounding him, and just as we are about to lose sight of him due to the high number of metal balls swarming him from all directions, the king unleashes a shockwave so powerful that it makes all of the drones around him explode at once.
-
-}
 #if(v_b3_ch8_overseer2 == 1) {
  "Don't you think the two of you are jumping to conclusions just a little bit?" I say. "From what you said, it sounds like the Overseer was simply waiting to see if we would join the fight as well, so that he could know how many drones to send to fight us."
 
@@ -350,6 +338,18 @@ After saying this, the king of the underground raises his arms and then he begin
 "I actually got this idea from your friend, Barry," the king of the underground shouts loudly from above, answering Hadrik's question. "I heard from my men about the air current spell he was using to fly around, and I asked my air elementalists if they couldn't come up with something similar to what Melindra had been casting."
 
 }
+#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
+ He then does a few dashes through the air, and he appears to lose control for about a second due to the strong wind, before quickly regaining his balance.
+
+"The controls are a little crude, but I can make a few adjustments with my aura manipulation, so it's not that big of a problem," the king says. "Now, then... where are the drones?"
+
+As the king of the underground flies higher into the sky, it is getting harder to see him because of the heavy rain, but it does not take long for the Overseer's drones to take the bait and to light up the whole area around the king with their bright red eyes.
+
+The king of the underground does not engage them, and he instead makes a semi-transparent spherical barrier around himself, made up of hardened aura, which is protecting him both from the drones' magical attacks and from the downpour of rain. More and more drones are now flocking around the king's barrier, trying to break it with elemental attacks of all types.
+
+The king of the underground keeps baiting the drones for another minute or so, until about a hundred or more of them are surrounding him, and just as we are about to lose sight of him due to the high number of metal balls swarming him from all directions, the king unleashes a shockwave so powerful that it makes all of the drones around him explode at once.
+
+}
 choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
 
 
@@ -374,32 +374,6 @@ set(v_b3_ch9_conclusions,3) if (v_b3_ch8_overseer2 == 1 && v_bluff < 3)
 "Hey, hey, let's not get ahead of ourselves, here," Daren says. "It's true that we've been hiding some things, but the same goes for you! When we talked to the Overseer, he played a recording for us where you told Albert to deal with us 'discretely' if we wouldn't agree with you being crowned as the new king of Ollendor. Surely you can see how this would cause us to have some trust issues regarding you and your group?"
 
 "Ah, I see now what is going on," the king of the underground says. "I cannot fault you for your actions, if this is indeed what you've heard. Seeing as how we do not have much time, I will choose to trust your words for now, and we will revisit this conversation later, once we are all out of here safely."
-
-}
-#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
- He then taps his transceiver, so that he can talk to his scout.
-
-"Gregory, how long until the flying metal balls reach us?" the king of the underground says.
-
-"Uh... they should be there any minute, my lord," Gregory says.
-
-"Perfect," the king says. "Let's give them an easy target to shoot at, then."
-
-After saying this, the king of the underground raises his arms and then he begins  to slowly rise into the air, as a bolt of lightning from the storm can be seen striking somewhere in the distance.
-
-"He can fly?!" Hadrik asks.
-
-"I actually got this idea from your friend, Barry," the king of the underground shouts loudly from above, answering Hadrik's question. "I heard from my men about the air current spell he was using to fly around, and I asked my air elementalists if they couldn't come up with something similar to what Melindra had been casting."
-
- He then does a few dashes through the air, and he appears to lose control for about a second due to the strong wind, before quickly regaining his balance.
-
-"The controls are a little crude, but I can make a few adjustments with my aura manipulation, so it's not that big of a problem," the king says. "Now, then... where are the drones?"
-
-As the king of the underground flies higher into the sky, it is getting harder to see him because of the heavy rain, but it does not take long for the Overseer's drones to take the bait and to light up the whole area around the king with their bright red eyes.
-
-The king of the underground does not engage them, and he instead makes a semi-transparent spherical barrier around himself, made up of hardened aura, which is protecting him both from the drones' magical attacks and from the downpour of rain. More and more drones are now flocking around the king's barrier, trying to break it with elemental attacks of all types.
-
-The king of the underground keeps baiting the drones for another minute or so, until about a hundred or more of them are surrounding him, and just as we are about to lose sight of him due to the high number of metal balls swarming him from all directions, the king unleashes a shockwave so powerful that it makes all of the drones around him explode at once.
 
 }
 #if(v_b3_ch8_overseer2 == 1 && v_bluff < 3) {
@@ -442,6 +416,32 @@ The king of the underground keeps baiting the drones for another minute or so, u
 "Ah, I see now what is going on," the king of the underground says. "I cannot fault you for your actions, if this is indeed what you've heard. Seeing as how we do not have much time, I will choose to trust your words for now, and we will revisit this conversation later, once we are all out of here safely."
 
 }
+#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
+ He then taps his transceiver, so that he can talk to his scout.
+
+"Gregory, how long until the flying metal balls reach us?" the king of the underground says.
+
+"Uh... they should be there any minute, my lord," Gregory says.
+
+"Perfect," the king says. "Let's give them an easy target to shoot at, then."
+
+After saying this, the king of the underground raises his arms and then he begins  to slowly rise into the air, as a bolt of lightning from the storm can be seen striking somewhere in the distance.
+
+"He can fly?!" Hadrik asks.
+
+"I actually got this idea from your friend, Barry," the king of the underground shouts loudly from above, answering Hadrik's question. "I heard from my men about the air current spell he was using to fly around, and I asked my air elementalists if they couldn't come up with something similar to what Melindra had been casting."
+
+ He then does a few dashes through the air, and he appears to lose control for about a second due to the strong wind, before quickly regaining his balance.
+
+"The controls are a little crude, but I can make a few adjustments with my aura manipulation, so it's not that big of a problem," the king says. "Now, then... where are the drones?"
+
+As the king of the underground flies higher into the sky, it is getting harder to see him because of the heavy rain, but it does not take long for the Overseer's drones to take the bait and to light up the whole area around the king with their bright red eyes.
+
+The king of the underground does not engage them, and he instead makes a semi-transparent spherical barrier around himself, made up of hardened aura, which is protecting him both from the drones' magical attacks and from the downpour of rain. More and more drones are now flocking around the king's barrier, trying to break it with elemental attacks of all types.
+
+The king of the underground keeps baiting the drones for another minute or so, until about a hundred or more of them are surrounding him, and just as we are about to lose sight of him due to the high number of metal balls swarming him from all directions, the king unleashes a shockwave so powerful that it makes all of the drones around him explode at once.
+
+}
 choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
 
 
@@ -454,6 +454,20 @@ TEXT:
 "Ah, so you admit to it, then," the king of the underground says.
 
 "Wait, Barry was just joking! We didn't actually--" Daren starts to say, but the king interrupts him.
+
+"I think I've heard enough," the king of the underground says, as my friends remain quiet. "Albert, Peter, make sure to keep an eye on them. If it looks like they're trying anything, don't hesitate to neutralize them. In the meantime, I'll go deal with the drones."
+
+"Alone, my king?" Albert asks, surprised.
+
+"Yes," the king of the underground says. "I want to test something."
+
+}
+#if(v_b3_ch8_overseer2 == 1) {
+ "Fine, you caught us," I say. "We've been talking to the Overseer in secret and made plans to ambush you."
+
+"Ah, so you admit to it, then," the king of the underground says.
+
+"Wait, I can explain--" Daren starts to say, but the king interrupts him.
 
 "I think I've heard enough," the king of the underground says, as my friends remain quiet. "Albert, Peter, make sure to keep an eye on them. If it looks like they're trying anything, don't hesitate to neutralize them. In the meantime, I'll go deal with the drones."
 
@@ -486,20 +500,6 @@ After saying this, the king of the underground raises his arms and then he begin
 "He can fly?!" Hadrik asks.
 
 "I actually got this idea from your friend, Barry," the king of the underground shouts loudly from above, answering Hadrik's question. "I heard from my men about the air current spell he was using to fly around, and I asked my air elementalists if they couldn't come up with something similar to what Melindra had been casting."
-
-}
-#if(v_b3_ch8_overseer2 == 1) {
- "Fine, you caught us," I say. "We've been talking to the Overseer in secret and made plans to ambush you."
-
-"Ah, so you admit to it, then," the king of the underground says.
-
-"Wait, I can explain--" Daren starts to say, but the king interrupts him.
-
-"I think I've heard enough," the king of the underground says, as my friends remain quiet. "Albert, Peter, make sure to keep an eye on them. If it looks like they're trying anything, don't hesitate to neutralize them. In the meantime, I'll go deal with the drones."
-
-"Alone, my king?" Albert asks, surprised.
-
-"Yes," the king of the underground says. "I want to test something."
 
 }
 choice("Continue", B3-Ch09a-Carcasses, v_current_scene = B3-Ch09a-Carcasses) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
@@ -739,30 +739,6 @@ She then conjures a feather in front of her, she grabs it in her hand and she gi
 "Um, yes!" I say, as I look at the feather. "Tell me the incantation!"
 
 }
-#if(v_b3_ch9_illuna == 0 || v_b3_ch9_illuna == 1 || v_b3_ch9_illuna == 2) {
- "Repeat after me," Illuna says. "Sehok amon rik tus selem."
-
-"Sehok... amon rik tus... selem!" I say, as I keep staring at the feather very intently.
-
-As soon as I'm done saying the words, I look down and I see how my arms are slowly materializing, and then my torso, and then my legs. In less than a few seconds, my whole body appears out of nowhere, as if it's only been invisible this whole time, and I am wearing the exact same clothes that I had on the earthen plane.
-
-"That's amazing!" I say. "What did the incantation mean? I didn't recognize the language."
-
-"It meant nothing," Illuna says, simply.
-
-"Pardon?" I ask her, confused.
-
-"It was gibberish," Illuna says. "Just something that I invented on the spot to make the ritual sound more believable."
-
-"And the thing about looking at the feather?" I say. "Was that something you made up too?"
-
- "Yes," Illuna says. "In this place, you can do anything with your mind, as long as your thoughts are powerful enough. For something as simple as gaining back your body, all you need is to be convinced that you can do it, and you will be successful. That is why I gave you these simple tasks to accomplish. You already knew that I had helped Leila and Hadrik recover their bodies, so you were convinced that as long as you'd follow my instructions to the letter, the same would apply to you. If I were to have instead told you something vague like how you'd need to 'erase any doubts in your head and be completely confident in your own abilities', you probably would have tried to think about it logically, and you would have begun to doubt yourself, because there would be no way for you to accurately measure your level of confidence."
-
-"You said that it's easier to obtain my body than it is to do other stuff," I say. "What about making things appear out of nothing? I saw Flower do it outside. She just made a palm tree and a cart show up, out of nowhere."
-
-"Flower has been living here a long time, so naturally she is more accustomed to the ways of this place," Illuna says. "Aside from her advantage of being an ethereal, I think there's also the fact that on the ethereal plane you benefit from having stronger emotions rather than from analyzing every little detail, and Flower typically has strong emotions about anything. This is the only place in the world where her illogical way of thinking actually gives her the upper hand, instead of being one of her weak points."
-
-}
 #if(v_b3_ch9_illuna == 1) {
  "Hey, you look pretty good for an elf spirit that is several hundred years old!"
 
@@ -793,6 +769,30 @@ She then conjures a feather in front of her, she grabs it in her hand and she gi
 "Hold this," she tells me. "I want you to focus on the feather while you speak the incantation that I am about to say to you. As long as you don't lose focus of the feather and you say all the words correctly, you should gain back your body. Are you ready?"
 
 "Um, yes!" I say, as I look at the feather. "Tell me the incantation!"
+
+}
+#if(v_b3_ch9_illuna == 0 || v_b3_ch9_illuna == 1 || v_b3_ch9_illuna == 2) {
+ "Repeat after me," Illuna says. "Sehok amon rik tus selem."
+
+"Sehok... amon rik tus... selem!" I say, as I keep staring at the feather very intently.
+
+As soon as I'm done saying the words, I look down and I see how my arms are slowly materializing, and then my torso, and then my legs. In less than a few seconds, my whole body appears out of nowhere, as if it's only been invisible this whole time, and I am wearing the exact same clothes that I had on the earthen plane.
+
+"That's amazing!" I say. "What did the incantation mean? I didn't recognize the language."
+
+"It meant nothing," Illuna says, simply.
+
+"Pardon?" I ask her, confused.
+
+"It was gibberish," Illuna says. "Just something that I invented on the spot to make the ritual sound more believable."
+
+"And the thing about looking at the feather?" I say. "Was that something you made up too?"
+
+ "Yes," Illuna says. "In this place, you can do anything with your mind, as long as your thoughts are powerful enough. For something as simple as gaining back your body, all you need is to be convinced that you can do it, and you will be successful. That is why I gave you these simple tasks to accomplish. You already knew that I had helped Leila and Hadrik recover their bodies, so you were convinced that as long as you'd follow my instructions to the letter, the same would apply to you. If I were to have instead told you something vague like how you'd need to 'erase any doubts in your head and be completely confident in your own abilities', you probably would have tried to think about it logically, and you would have begun to doubt yourself, because there would be no way for you to accurately measure your level of confidence."
+
+"You said that it's easier to obtain my body than it is to do other stuff," I say. "What about making things appear out of nothing? I saw Flower do it outside. She just made a palm tree and a cart show up, out of nowhere."
+
+"Flower has been living here a long time, so naturally she is more accustomed to the ways of this place," Illuna says. "Aside from her advantage of being an ethereal, I think there's also the fact that on the ethereal plane you benefit from having stronger emotions rather than from analyzing every little detail, and Flower typically has strong emotions about anything. This is the only place in the world where her illogical way of thinking actually gives her the upper hand, instead of being one of her weak points."
 
 }
 choice("Continue", B3-Ch09a-Reference, v_current_scene = B3-Ch09a-Reference) if (v_b3_ch9_illuna == 0 || v_b3_ch9_illuna == 1 || v_b3_ch9_illuna == 2)
@@ -953,22 +953,6 @@ As we wait in silence for Flower to return, a slight smell of burnt food is slow
 "Hold on, I'll give you some medicine!" Flower says, as she opens up a drawer and takes a small wooden box out of it.
 
 }
- She then opens the box and takes a pill in her hand, which she tries to hand over to Daren. As she gives it to him, the pill simply falls on the ground, while we're all just looking at Flower in complete silence.
-
-"Oh no!" Flower says. "I forgot that you don't have a body. Wait, I'll just turn it into light essence so that I can feed it to you properly!"
-
-"Okay?..." Daren says, in an unconvinced tone.
-
-Flower does a few motions with her hands and the pill on the ground turns into a stream of liquid light that begins to spin in circles around the area where Daren's voice was coming from. She then stretches her arms in front of her with her palms open, and the light slowly fades away.
-
-"Does that feel better, now?" Flower asks.
-
-"It feels..." Daren says. "It feels... MUCH better now, thank you! My nausea is practically completely gone! How did you do it?"
-
-"Oh, it's because the light thingy around your... um... around your spinning essence is not aligned with your uh--"
-
-"Your soul wasn't correctly linked to your body from the earthen plane," Illuna says. "We've met a lost soul several years ago in the ether who had a similar problem, which is why Flower had that medicine ready in her drawer in case it happened again."
-
 #if(v_b3_ch9_premonition == 2) {
  Just as Hadrik is done talking, Flower pops up into the room, with what I assume to be the rest of our friends, although I can't see their bodies.
 
@@ -985,12 +969,40 @@ Flower does a few motions with her hands and the pill on the ground turns into a
 "Hold on, I'll give you some medicine!" Flower says, as she opens up a drawer and takes a small wooden box out of it.
 
 }
+ She then opens the box and takes a pill in her hand, which she tries to hand over to Daren. As she gives it to him, the pill simply falls on the ground, while we're all just looking at Flower in complete silence.
+
+"Oh no!" Flower says. "I forgot that you don't have a body. Wait, I'll just turn it into light essence so that I can feed it to you properly!"
+
+"Okay?..." Daren says, in an unconvinced tone.
+
+Flower does a few motions with her hands and the pill on the ground turns into a stream of liquid light that begins to spin in circles around the area where Daren's voice was coming from. She then stretches her arms in front of her with her palms open, and the light slowly fades away.
+
+"Does that feel better, now?" Flower asks.
+
+"It feels..." Daren says. "It feels... MUCH better now, thank you! My nausea is practically completely gone! How did you do it?"
+
+"Oh, it's because the light thingy around your... um... around your spinning essence is not aligned with your uh--"
+
+"Your soul wasn't correctly linked to your body from the earthen plane," Illuna says. "We've met a lost soul several years ago in the ether who had a similar problem, which is why Flower had that medicine ready in her drawer in case it happened again."
+
 choice("Continue", B3-Ch09a-Linked, v_current_scene = B3-Ch09a-Linked)
 
 
 ID: B3-Ch09a-Linked
 TEXT:
 
+#if(v_b3_ch9_premonition != 2) {
+ "NO!" Flower shouts from the other room. "My cookies!"
+
+"While we're waiting for Flower to clean up the mess from the kitchen," Illuna tells us, "might I suggest teaching our newest visitors how to regain their bodies? I'd rather not be speaking to disembodied ghosts for the rest of your stay here, if you don't mind."
+
+For the next few minutes, Illuna shows Daren, Melindra and Kate how to will their bodies into existence in the same way that she taught me. Soon after she is done, Flower comes out of the kitchen with a large plate of cookies that she is now putting on a table in the middle of the room.
+
+"There's no way you could have fixed the mess and baked new cookies in such a short amount of time," Illuna tells Flower. "You cheated, didn't you?"
+
+"No!" Flower shouts. "I did everything by the book! I didn't make them appear out of nothing. I just... sped up the oven a little, that's all..."
+
+}
  "I see," Daren says. "I suppose there's no point in asking you why my soul wasn't properly linked to my body on the earthen plane, is it?"
 
 "I'm afraid there's no way for me to know that," Illuna says. "But it might be related in some way to the reason why your link to the spirit in the magical plane that is allowing you to cast magic is also defective. You're going to have to figure this out on your own."
@@ -1009,18 +1021,6 @@ She then runs into the room where the burning smell was coming from, which has o
 
 "It's not the same thing!" Flower says, while she is putting the cups on the table. "You and I are living together. They are our guests. It's normal that they get special treatment. And besides, we've been using the same oven almost every day for the past twenty years! You're already used to it!"
 
-#if(v_b3_ch9_premonition != 2) {
- "NO!" Flower shouts from the other room. "My cookies!"
-
-"While we're waiting for Flower to clean up the mess from the kitchen," Illuna tells us, "might I suggest teaching our newest visitors how to regain their bodies? I'd rather not be speaking to disembodied ghosts for the rest of your stay here, if you don't mind."
-
-For the next few minutes, Illuna shows Daren, Melindra and Kate how to will their bodies into existence in the same way that she taught me. Soon after she is done, Flower comes out of the kitchen with a large plate of cookies that she is now putting on a table in the middle of the room.
-
-"There's no way you could have fixed the mess and baked new cookies in such a short amount of time," Illuna tells Flower. "You cheated, didn't you?"
-
-"No!" Flower shouts. "I did everything by the book! I didn't make them appear out of nothing. I just... sped up the oven a little, that's all..."
-
-}
 #if(v_b3_ch9_premonition == 2) {
  "NO!" Flower shouts from the other room. "My cookies!"
 
@@ -1213,6 +1213,22 @@ TEXT:
 "Have you learned how to turn back to your normal form without red shining eyes, yet?" Illuna says.
 
 }
+#if(v_b3_ch9_premonition == 2) {
+ "No..." Flower says. "But I'm working on it!"
+
+"Then we won't be using magic on the earthen plane unless it's our last alternative," Illuna says. "We should be focusing instead on fixing the situation for everybody else."
+
+"What if we tried to--" we hear Leila's inner voice, but Daren interrupts her.
+
+"Whoa, who said that?" Daren says, as he is looking around the room.
+
+"It was me," Leila says again, with her mouth closed. "I said that."
+
+"But you're not opening your mouth when you're talking!" Daren says. "Is that-- does this mean I'm hearing your thoughts, like we did with Barry earlier?"
+
+"Exactly," Leila says.
+
+}
  "Ah crap," we suddenly hear Daren say in a really loud voice, although his lips are not moving. "I just realized something. If I can hear Barry and Leila's thoughts, does this mean everyone in the room can hear mine too? Can they hear me even now, as I'm thinking all this?"
 
 "Yes, Daren we can all hear you," Illuna says. "Also, you might want to turn the volume down a notch. You sound like you're shouting when you're thinking out loud."
@@ -1231,22 +1247,6 @@ When he sees us trying hard to contain our laughter while looking at him, Daren 
 
 "Well, that's just... fantastic," Daren says. "What am I supposed to do now?"
 
-#if(v_b3_ch9_premonition == 2) {
- "No..." Flower says. "But I'm working on it!"
-
-"Then we won't be using magic on the earthen plane unless it's our last alternative," Illuna says. "We should be focusing instead on fixing the situation for everybody else."
-
-"What if we tried to--" we hear Leila's inner voice, but Daren interrupts her.
-
-"Whoa, who said that?" Daren says, as he is looking around the room.
-
-"It was me," Leila says again, with her mouth closed. "I said that."
-
-"But you're not opening your mouth when you're talking!" Daren says. "Is that-- does this mean I'm hearing your thoughts, like we did with Barry earlier?"
-
-"Exactly," Leila says.
-
-}
 #if(v_b3_ch9_premonition != 2) {
  "No..." Flower says. "But I'm working on it!"
 
@@ -1351,6 +1351,20 @@ As Hadrik is teaching Daren how to avoid thinking out loud, the rest of us take 
 "You're forgetting that the Overseer is the one who used the displacement technique that got everyone's souls into the ether in the first place," Illuna says. "He clearly gained a lot of knowledge about the ethereal plane from his temporary merge with the Magium 'fragment', so underestimating his abilities would be very foolish. Even Flower might have trouble facing him in the ether if she's not careful."
 
 }
+#if(v_b3_ch8_overseer2 == 1) {
+ "Oh yeah!" Leila says, with her lips still not moving as she speaks. "I wanted to ask Flower if there is any way for us to fight the rebels here on the ethereal plane."
+
+"If you're asking me if it's possible to have battles in the ethereal plane, then the answer is yes, but I wouldn't really recommend it," Flower says.
+
+"Why not?" Hadrik asks.
+
+"You didn't even know how to create a body for yourself on this plane of existence until recently and you're asking why it would be a bad idea for you to get into a fight?" Illuna says. "I think the answer to that question should be self-explanatory."
+
+"Yeah, but the same thing goes for the rebels as well!" Hadrik says. "I bet they've never been kicked out of their own minds before either. That should put us on equal terms!"
+
+"Not entirely equal," Illuna says. "As Flower mentioned before, there's a good chance that Peter is an ethereal too, and we have no way of knowing how good of a fighter he is on this plane of existence. If Flower were to take him on alone in the ether, she might win, but if any of you were to accompany her, it would only make things more difficult for her because you would all be easy targets that she'd need to defend constantly during her duel against Peter."
+
+}
 #if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  "How would Flower fight in the ether, exactly?" Daren says. "Would she be using fire magic, like in the real world?"
 
@@ -1367,20 +1381,6 @@ As Hadrik is teaching Daren how to avoid thinking out loud, the rest of us take 
 "Great!" I say. "I'll try to cast one right now, then. Give me a second!"
 
 }
-#if(v_b3_ch8_overseer2 == 1) {
- "Oh yeah!" Leila says, with her lips still not moving as she speaks. "I wanted to ask Flower if there is any way for us to fight the rebels here on the ethereal plane."
-
-"If you're asking me if it's possible to have battles in the ethereal plane, then the answer is yes, but I wouldn't really recommend it," Flower says.
-
-"Why not?" Hadrik asks.
-
-"You didn't even know how to create a body for yourself on this plane of existence until recently and you're asking why it would be a bad idea for you to get into a fight?" Illuna says. "I think the answer to that question should be self-explanatory."
-
-"Yeah, but the same thing goes for the rebels as well!" Hadrik says. "I bet they've never been kicked out of their own minds before either. That should put us on equal terms!"
-
-"Not entirely equal," Illuna says. "As Flower mentioned before, there's a good chance that Peter is an ethereal too, and we have no way of knowing how good of a fighter he is on this plane of existence. If Flower were to take him on alone in the ether, she might win, but if any of you were to accompany her, it would only make things more difficult for her because you would all be easy targets that she'd need to defend constantly during her duel against Peter."
-
-}
 choice("Attempt to cast a fireball.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 0) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1 || v_b3_ch9_food == 0 || v_b3_ch9_food == 1 || v_b3_ch9_food == 2)
 choice("Attempt to shoot a gust of wind.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 1) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1 || v_b3_ch9_food == 0 || v_b3_ch9_food == 1 || v_b3_ch9_food == 2)
 choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-Ch09a-Stance, v_b3_ch9_attempt = 2) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1 || v_b3_ch9_food == 0 || v_b3_ch9_food == 1 || v_b3_ch9_food == 2)
@@ -1389,16 +1389,6 @@ choice("Attempt to create a water jet.", B3-Ch09a-Stance, v_current_scene = B3-C
 ID: B3-Ch09a-Stance
 TEXT:
 
-#if(v_b3_ch9_attempt == 0 || v_b3_ch9_attempt == 1 || v_b3_ch9_attempt == 2) {
- I take the correct stance and I stretch my arms forward, with my palms facing away from me. If I'm going to do this, then I'll do everything by the book.
-
-I've memorized these flows a thousand times. This isn't anything new for me. The only difference between now and then is that now I know for certain that it can be done. This time I won't fail.
-
-As I'm imagining the positions of the magical particles in my head, I can sense the flow of magic accumulating in front of my palms, just like the books said it would. The volatility of the magical flow takes me by surprise for a moment, but then I immediately remember the advice of an old hermit that I used to visit on a regular basis, back when I still thought that it would be possible for a non-mage to cast magic.
-
-"When the flow seems like it's getting away from you, you shouldn't try to correct it," the old hermit used to say. "That will only make you lose control faster. What you should do instead is follow it. I've told this to many young mages before, but they wouldn't listen. As long as your form is correct and your theory is sound, there is no reason for your spell to fail. Just follow the flow of magic until it comes back to its optimal position, and then continue casting the spell. Trust me... no matter how far the flow may seem to stray away from its course, it will always come back."
-
-}
 #if(v_b3_ch9_attempt == 0) {
  I follow the direction of the stream of magical particles with my hands, just like the hermit said, even though it looks like my spell could break apart any second. Right before the spell is about to cancel itself, the particles are heading back, as if an invisible force were guiding them to their correct path. As soon as they are back in place, I resume my spell casting, channeling all of my imagined magical energy into a single point, in front of my hands.
 
@@ -1423,6 +1413,16 @@ A gust of wind suddenly shoots out of my palms and straight for the flowers in t
 "There used to be a time when I was under the illusion that even a normal person could cast magic if they knew every little detail that goes into the process of spell casting by heart," I say. "You have no idea how much time I spent on memorizing every particle position, every hand and body movement required, every last bit of theory that went into creating the spells... These are the types of things that you never forget."
 
 }
+#if(v_b3_ch9_attempt == 0 || v_b3_ch9_attempt == 1 || v_b3_ch9_attempt == 2) {
+ I take the correct stance and I stretch my arms forward, with my palms facing away from me. If I'm going to do this, then I'll do everything by the book.
+
+I've memorized these flows a thousand times. This isn't anything new for me. The only difference between now and then is that now I know for certain that it can be done. This time I won't fail.
+
+As I'm imagining the positions of the magical particles in my head, I can sense the flow of magic accumulating in front of my palms, just like the books said it would. The volatility of the magical flow takes me by surprise for a moment, but then I immediately remember the advice of an old hermit that I used to visit on a regular basis, back when I still thought that it would be possible for a non-mage to cast magic.
+
+"When the flow seems like it's getting away from you, you shouldn't try to correct it," the old hermit used to say. "That will only make you lose control faster. What you should do instead is follow it. I've told this to many young mages before, but they wouldn't listen. As long as your form is correct and your theory is sound, there is no reason for your spell to fail. Just follow the flow of magic until it comes back to its optimal position, and then continue casting the spell. Trust me... no matter how far the flow may seem to stray away from its course, it will always come back."
+
+}
 #if(v_b3_ch9_attempt == 2) {
  I follow the direction of the stream of magical particles with my hands, just like the hermit said, even though it looks like my spell could break apart any second. Right before the spell is about to cancel itself, the particles are heading back, as if an invisible force were guiding them to their correct path. As soon as they are back in place, I resume my spell casting, channeling all of my imagined magical energy into a single point, in front of my hands.
 
@@ -1441,6 +1441,10 @@ choice("Continue", B3-Ch09a-Lunatic, v_current_scene = B3-Ch09a-Lunatic) if (v_b
 ID: B3-Ch09a-Lunatic
 TEXT:
 
+#if(v_b3_ch9_premonition == 2) {
+ "That's what I thought," Illuna says. "Our time is limited, so I suggest that you focus on only one element if you want to actually become semi-competent in a fight. You can learn water magic from me, fire magic from Flower or air magic from Melindra. Which element would you prefer?"
+
+}
  "I'm actually more interested to know why you decided to follow the flow of magic once your spell started to fail, instead of trying to correct it," Illuna says. "I just can't understand the logic behind taking such an action."
 
 "Oh," I say, "I only followed the advice of some old hermit who told me that the flow of magic will always return to its intended path, as long as my form is correct and my theory is sound."
@@ -1457,10 +1461,6 @@ She pauses.
 
 "Yeah, I learned a few spells from each traditional and non-traditional element, but not much more than that," I say. "Oh, and I should probably also be able to cast the air currents that allow me to fly, because I had to create them myself during that fight with the stillwater skeletons, so I am familiar enough with them. Hopefully they'll work out there in the ether, even though there's no actual, uh... air... on this plane. Anyway, as for the other spells, I do know the theory behind them, but I can't say that I know the flows well enough to be able to cast them without help."
 
-#if(v_b3_ch9_premonition == 2) {
- "That's what I thought," Illuna says. "Our time is limited, so I suggest that you focus on only one element if you want to actually become semi-competent in a fight. You can learn water magic from me, fire magic from Flower or air magic from Melindra. Which element would you prefer?"
-
-}
 #if(v_b3_ch9_premonition != 2) {
  "That's what I thought," Illuna says. "Our time is limited, so I suggest that you focus on only one element if you want to actually become semi-competent in a fight. You can learn water magic from me, fire magic from Flower, air magic from Melindra or ice magic from Kate. Which element would you prefer?"
 
@@ -1492,26 +1492,6 @@ She then rushes to our side of the room and stops in front of me.
 I spend the next few minutes showing Flower the fire spells that I already know how to cast, while she gives me some tips on how to improve my stance and my movements so that I can make the spells more effective. When we're done with the ones that I know, Flower tries to teach me some of her own spells, but unfortunately her explanations are... not exactly as helpful as I would have hoped.
 
 "So, the easiest way to learn the flow of this spell is to first do a backflip, and then to land on one hand," Flower says. "Here, let me show you!"
-
-}
-#if(v_b3_ch9_attempt == 0 || v_b3_ch9_attempt == 1 || v_b3_ch9_attempt == 2) {
- "No, no," I say. "There's no need to show me. I believe you! I was only hoping that you could maybe teach me something that requires... a little less movement?"
-
-"Oh, right, right, of course!" Flower says. "I'm sorry, it's just that I'm trying to figure out how to explain this to you in a way that doesn't sound too much like an elementalist."
-
-"What do you mean?" I ask.
-
-"Well, for example when I was teaching Kate yesterday how to better control her freezing beam," Flower says, "I could just tell her to put less intensity into the middle of the beam and to spread the energy more to the sides, and she would instinctively know how to do that. It's hard to think of a way to explain it to you when you've never actually experienced it yourself, and only read about it from books..."
-
-"Oh, I get what you're saying now," I say. "I did sort of experience what it's like to be an elementalist when I had my magical stats temporarily unlocked during my fights with Tyrath and the stillwater skeletons, but now that the instinctive magical knowledge I was getting from the device is gone, I can't really make heads or tails of it. If I remember correctly, it was less about visualizing the flow of magic in my head and more about being in tune with some sort of energy from inside me that I could mold into whatever shape I wanted, with an infinite number of possibilities."
-
- "Yeah, something like that!" Flower says. "The main advantage of being an elementalist is that you can just create spells from your element on a whim, without following any rules! The problem is that I can't really teach you any of those spells, because most of them are improvised, and I wouldn't even know how to begin explaining them to you."
-
-"But there was this one spell that you thought you invented and it turned out that somebody else actually invented it before you, remember?" I say. "We talked about it when we were disarming traps in the tunnels beneath Ollendor. Maybe you also have some other spells like that in your repertoire and you just don't know it yet. Let me give you a quick summary of all the fire spells I know from books, and you'll tell me if any of these sound familiar to you, alright?"
-
-"Okay!" Flower says. "Let's give it a shot!"
-
-For about forty minutes or so, I exchange information with Flower about the fire spells I know, and whenever we find one that she recognizes, I ask her to give me as many details as she can, until I can figure out what types of flows and patterns best fit her description. Fortunately, since I already know so many spells, it is easier for me to observe repetitive patterns between them, so I can mostly guess the directions and movements of the magical particles even if the information is incomplete.
 
 }
 #if(v_b3_ch9_attempt == 1) {
@@ -1550,6 +1530,26 @@ I spend the next few minutes showing Flower the fire spells that I already know 
 "So, the easiest way to learn the flow of this spell is to first do a backflip, and then to land on one hand," Flower says. "Here, let me show you!"
 
 }
+#if(v_b3_ch9_attempt == 0 || v_b3_ch9_attempt == 1 || v_b3_ch9_attempt == 2) {
+ "No, no," I say. "There's no need to show me. I believe you! I was only hoping that you could maybe teach me something that requires... a little less movement?"
+
+"Oh, right, right, of course!" Flower says. "I'm sorry, it's just that I'm trying to figure out how to explain this to you in a way that doesn't sound too much like an elementalist."
+
+"What do you mean?" I ask.
+
+"Well, for example when I was teaching Kate yesterday how to better control her freezing beam," Flower says, "I could just tell her to put less intensity into the middle of the beam and to spread the energy more to the sides, and she would instinctively know how to do that. It's hard to think of a way to explain it to you when you've never actually experienced it yourself, and only read about it from books..."
+
+"Oh, I get what you're saying now," I say. "I did sort of experience what it's like to be an elementalist when I had my magical stats temporarily unlocked during my fights with Tyrath and the stillwater skeletons, but now that the instinctive magical knowledge I was getting from the device is gone, I can't really make heads or tails of it. If I remember correctly, it was less about visualizing the flow of magic in my head and more about being in tune with some sort of energy from inside me that I could mold into whatever shape I wanted, with an infinite number of possibilities."
+
+ "Yeah, something like that!" Flower says. "The main advantage of being an elementalist is that you can just create spells from your element on a whim, without following any rules! The problem is that I can't really teach you any of those spells, because most of them are improvised, and I wouldn't even know how to begin explaining them to you."
+
+"But there was this one spell that you thought you invented and it turned out that somebody else actually invented it before you, remember?" I say. "We talked about it when we were disarming traps in the tunnels beneath Ollendor. Maybe you also have some other spells like that in your repertoire and you just don't know it yet. Let me give you a quick summary of all the fire spells I know from books, and you'll tell me if any of these sound familiar to you, alright?"
+
+"Okay!" Flower says. "Let's give it a shot!"
+
+For about forty minutes or so, I exchange information with Flower about the fire spells I know, and whenever we find one that she recognizes, I ask her to give me as many details as she can, until I can figure out what types of flows and patterns best fit her description. Fortunately, since I already know so many spells, it is easier for me to observe repetitive patterns between them, so I can mostly guess the directions and movements of the magical particles even if the information is incomplete.
+
+}
 choice("Continue", B3-Ch09a-Afford, v_current_scene = B3-Ch09a-Afford) if (v_b3_ch9_attempt == 0 || v_b3_ch9_attempt == 1 || v_b3_ch9_attempt == 2)
 
 
@@ -1568,6 +1568,18 @@ I spend the next few minutes showing Illuna the water spells that I already know
 "Less than an hour, huh?..." I say. "If we're really fast, we might be able to cover the first two chapters from 'A beginner's guide to water magic', but no more than that."
 
 }
+#if(v_b3_ch8_overseer2 == 1) {
+ "If I only have time for one, water would be my choice," I say.
+
+"Very well," Illuna says. "Let us get started, then. First of all, I would like you to show me the spells that you are already familiar with, and we'll see how we'll move forward from there."
+
+I spend the next few minutes showing Illuna the water spells that I already know how to cast, while she gives me some tips on how to improve my stance and my movements so that I can make the spells more effective. When we're done with the ones that I know, Illuna takes a bit of time to think, so she can figure out what are the most appropriate spells she can teach me in the limited time that we have at our disposal.
+ 
+"You mentioned that you know the theory behind most spells by heart..." Illuna says. "What would in your opinion be the spells that you would have the highest chance to learn from me, assuming that we likely have less than an hour left to work with before the rebels remember the way back to their own minds."
+
+"Less than an hour, huh?..." I say. "If we're really fast, we might be able to cover the first two chapters from 'A beginner's guide to water magic', but no more than that."
+
+}
 #if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  "It is refreshing to see that your expectations are realistic, for once, but this is not the answer I was looking for, I'm afraid," Illuna says.
 
@@ -1580,18 +1592,6 @@ I spend the next few minutes showing Illuna the water spells that I already know
 "I believe I do," Illuna says. "If we start training immediately, you might actually have the chance to become proficient in a good number of them, depending on your performance. Let's get to it."
 
 For about forty minutes or so, Illuna helps me learn the majority of the spells on her list. I can clearly see that she has studied the theory behind these spells from the way she's teaching them to me, and thanks to her clear and concise explanations, I manage to learn a lot more than I would have hoped in such a brief period of time. I guess I made a good call when I chose her as the teacher.
-
-}
-#if(v_b3_ch8_overseer2 == 1) {
- "If I only have time for one, water would be my choice," I say.
-
-"Very well," Illuna says. "Let us get started, then. First of all, I would like you to show me the spells that you are already familiar with, and we'll see how we'll move forward from there."
-
-I spend the next few minutes showing Illuna the water spells that I already know how to cast, while she gives me some tips on how to improve my stance and my movements so that I can make the spells more effective. When we're done with the ones that I know, Illuna takes a bit of time to think, so she can figure out what are the most appropriate spells she can teach me in the limited time that we have at our disposal.
- 
-"You mentioned that you know the theory behind most spells by heart..." Illuna says. "What would in your opinion be the spells that you would have the highest chance to learn from me, assuming that we likely have less than an hour left to work with before the rebels remember the way back to their own minds."
-
-"Less than an hour, huh?..." I say. "If we're really fast, we might be able to cover the first two chapters from 'A beginner's guide to water magic', but no more than that."
 
 }
 choice("Continue", B3-Ch09a-Afford, v_current_scene = B3-Ch09a-Afford) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
@@ -1648,6 +1648,18 @@ TEXT:
 "Is that so?" Kate says, with her arms crossed, while raising an eyebrow. "Let's see if you can cast magic as well as you can brag, then. Get in your stance. I want you to show me how cold you can make the air around us in the next thirty seconds."
 
 }
+#if(v_b3_ch8_overseer2 == 1) {
+ "If I only have time for one, ice would be my choice," I say.
+
+"Well, you heard him, Kate," Illuna says, as Kate is now approaching us. "Try to make the most of your time. You will likely have less than an hour at your disposal before the rebels remember the way back to their own minds."
+
+"I never thought I'd see the day when I'd be teaching you ice magic," Kate says, after she stops in front of me.
+
+"Time sure flies, doesn't it?" I say. "Who knows? If you don't keep up, I might be the one teaching you ice magic in the not-so-distant future!"
+
+"Is that so?" Kate says, with her arms crossed, while raising an eyebrow. "Let's see if you can cast magic as well as you can brag, then. Get in your stance. I want you to show me how cold you can make the air around us in the next thirty seconds."
+
+}
 #if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  I spend the next few minutes showing Kate the ice spells that I already know how to cast, while she gives me some tips on how to improve my stance and my movements so that I can make the spells more effective. When we're done with the ones that I know, she begins teaching me some new spells, which I immediately recognize as being from one of the intermediate magic manuals that I've read in the past. Her explanations are all clear and to the point, which makes the process of learning a lot faster than I was expecting. I guess I made a good call when I chose her as the teacher.
 
@@ -1668,25 +1680,29 @@ I pause from my magic practice for a brief time, to ponder over Kate's words.
 Once I manage to shoot a beam of ice of acceptable proportions, Kate continues to teach me a few more of her spells, and as I am focusing on the task at hand, forty minutes pass us by without me even noticing.
 
 }
-#if(v_b3_ch8_overseer2 == 1) {
- "If I only have time for one, ice would be my choice," I say.
-
-"Well, you heard him, Kate," Illuna says, as Kate is now approaching us. "Try to make the most of your time. You will likely have less than an hour at your disposal before the rebels remember the way back to their own minds."
-
-"I never thought I'd see the day when I'd be teaching you ice magic," Kate says, after she stops in front of me.
-
-"Time sure flies, doesn't it?" I say. "Who knows? If you don't keep up, I might be the one teaching you ice magic in the not-so-distant future!"
-
-"Is that so?" Kate says, with her arms crossed, while raising an eyebrow. "Let's see if you can cast magic as well as you can brag, then. Get in your stance. I want you to show me how cold you can make the air around us in the next thirty seconds."
-
-}
 choice("Continue", B3-Ch09a-Afford, v_current_scene = B3-Ch09a-Afford) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
 
 
 ID: B3-Ch09a-Afford
 TEXT:
 
+#if(v_b3_ch8_overseer2 == 0) {
+ "Oh, right," Leila says. "I suppose that makes sense."
+
+"So... are you ready, Barry?" Flower says, as I am now casting my air currents on myself, so that I'll be able to fly through the ether at a moment's notice.  "Where do you think we should teleport first? We could go and fight the Overseer directly, or we could try to meet up with Peter first and team up with him. I don't know how well Peter can handle himself in the ethereal plane, so he might get in our way more than helping us, but I still think it might be worth a shot to go talk to him."
+
+}
 #if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
+ "No, unfortunately I will need to stay here," Illuna says. "If we both leave your mind, there will be nobody left to control your earthen plane body. You and Barry will have to go out there alone, I'm afraid."
+
+"Can't we wait just another minute?" Daren says. "I feel like I've almost got this ethereal spell casting thing figured out. For real this time! And once I do, I'll be able to come with you and help with the healing, at least!"
+
+"You've been saying that you need 'just another minute' for the past fifteen minutes," Illuna tells him. "Somehow I doubt that this time is going to be any different. Either way, on the off-chance that you do manage to figure it out, Flower and I are telepathically linked due to our soul fusion, so I can contact her no matter where she is on the ethereal plane and she will come back to teleport you to the battlefield."
+
+"You two are telepathically linked?" Leila asks, surprised. "Does this mean that you are hearing each other's thoughts all the time?"
+
+"I'm not hearing her thoughts any more than I'm hearing yours while we are in the same room," Illuna says. "As long as we are both careful to not use words when we're thinking, we can keep our thoughts to ourselves."
+
  While I am still busy practicing, Flower suddenly turns around and she looks intently at one of the room's walls, as if she were trying to see through them. This catches the attention of Illuna, who now asks her a question.
 
 "What's wrong?" Illuna says. "Did something happen in the ether?"
@@ -1698,22 +1714,6 @@ As Illuna and Flower are talking, we can hear some grunts in the background from
 "In that case, I don't think we can afford to wait any longer," Illuna says. "If you want to join the battle on the ethereal plane, you should probably do it before it begins."
 
 "Won't you be coming with us?" Flower asks.
-
- "No, unfortunately I will need to stay here," Illuna says. "If we both leave your mind, there will be nobody left to control your earthen plane body. You and Barry will have to go out there alone, I'm afraid."
-
-"Can't we wait just another minute?" Daren says. "I feel like I've almost got this ethereal spell casting thing figured out. For real this time! And once I do, I'll be able to come with you and help with the healing, at least!"
-
-"You've been saying that you need 'just another minute' for the past fifteen minutes," Illuna tells him. "Somehow I doubt that this time is going to be any different. Either way, on the off-chance that you do manage to figure it out, Flower and I are telepathically linked due to our soul fusion, so I can contact her no matter where she is on the ethereal plane and she will come back to teleport you to the battlefield."
-
-"You two are telepathically linked?" Leila asks, surprised. "Does this mean that you are hearing each other's thoughts all the time?"
-
-"I'm not hearing her thoughts any more than I'm hearing yours while we are in the same room," Illuna says. "As long as we are both careful to not use words when we're thinking, we can keep our thoughts to ourselves."
-
-}
-#if(v_b3_ch8_overseer2 == 0) {
- "Oh, right," Leila says. "I suppose that makes sense."
-
-"So... are you ready, Barry?" Flower says, as I am now casting my air currents on myself, so that I'll be able to fly through the ether at a moment's notice.  "Where do you think we should teleport first? We could go and fight the Overseer directly, or we could try to meet up with Peter first and team up with him. I don't know how well Peter can handle himself in the ethereal plane, so he might get in our way more than helping us, but I still think it might be worth a shot to go talk to him."
 
 }
 #if(v_b3_ch8_overseer2 == 1) {

@@ -111,16 +111,6 @@ He then stretches his arm forward, while pointing his palm towards us, and an in
 "It's a bit weaker than on the earthen plane, but it looks like I'll be able to use aura manipulation on this plane of existence as well," the king of the underground says, as he now turns to us. "Sorry to keep you waiting. I'm ready whenever you are. Just say the word and we'll start the battle!"
 
 }
-#if(v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1) {
- "Okay," I tell him, as I get in a special stance and I make some very fast hand movements while I'm imagining the magical energy building up in my fingertips. "I'm saying the word, then."
-
-Before the king has the time to respond, I point my finger at him and a bolt of lightning shoots out of it, straight for his chest. The lightning bolt seems to hit him at first, but then I realize that the only thing I did was to slightly graze his invisible shield made out of hardened aura that is surrounding him.
-
-Following my lead, Flower also commences the attack, by hitting both Peter and the king of the underground with a barrage of fireballs. When the flames from the explosions fade away, I see that Peter had managed to create a dome of ice around them, which shielded them completely but is now quickly melting from all the heat.
-
-"That was quite the powerful attack you fired towards us, little girl," the king of the underground says, once the ice dome is completely gone. "If I didn't know any better, I might even get the wrong idea that you were trying to kill us."
-
-}
 #if(v_b3_ch9_backup == 1) {
  "Yes, my king?" Peter says.
 
@@ -139,6 +129,16 @@ He then stretches his arm forward, while pointing his palm towards us, and an in
 "It's a bit weaker than on the earthen plane, but it looks like I'll be able to use aura manipulation on this plane of existence as well," the king of the underground says, as he now turns to us. "Sorry to keep you waiting. I'm ready whenever you are. Just say the word and we'll start the battle!"
 
 }
+#if(v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1) {
+ "Okay," I tell him, as I get in a special stance and I make some very fast hand movements while I'm imagining the magical energy building up in my fingertips. "I'm saying the word, then."
+
+Before the king has the time to respond, I point my finger at him and a bolt of lightning shoots out of it, straight for his chest. The lightning bolt seems to hit him at first, but then I realize that the only thing I did was to slightly graze his invisible shield made out of hardened aura that is surrounding him.
+
+Following my lead, Flower also commences the attack, by hitting both Peter and the king of the underground with a barrage of fireballs. When the flames from the explosions fade away, I see that Peter had managed to create a dome of ice around them, which shielded them completely but is now quickly melting from all the heat.
+
+"That was quite the powerful attack you fired towards us, little girl," the king of the underground says, once the ice dome is completely gone. "If I didn't know any better, I might even get the wrong idea that you were trying to kill us."
+
+}
 choice(""Nobody is trying to kill anyone. All we want is to defeat you and bring this war to an end."", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 0) if (v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1)
 choice(""Of course we're trying to kill you. That's what you get for plotting to assassinate us."", B3-Ch09b-Impenetrable, v_current_scene = B3-Ch09b-Impenetrable, v_b3_ch9_assassinate = 1) if (v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1)
 
@@ -150,14 +150,6 @@ TEXT:
  "Nobody is trying to kill anyone. All we want is to defeat you and bring this war to an end."
 
 "Is that so?" the king of the underground says. "In that case, I will consider this as a friendly sparring match between two former allies with differing opinions. Now, then... let's put those newly acquired magical powers of yours to the test, shall we?"
-
-}
-#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
- As he finishes his sentence, the king extends his arms towards us and right afterwards Flower and I get surrounded by a box made out of semi-transparent impenetrable walls, which look very similar to the ones that were being used by Talmak's elf subordinate. Before I get to ask myself what the king is trying to do, the air inside the box starts to get colder and colder, to the point that we would likely become frozen statues if we were to spend more than half a minute in here.
-
-"Hold on tight," Flower tells me, as she grabs my arm. "We're teleporting out."
-
-As usual, a bright light surrounds us and our bodies start to vibrate loudly. A few seconds later, we find ourselves outside the box, but it looks like we have a slight problem on our hands. A new semi-transparent box was created just as quickly around us, and the air inside it is also beginning to freeze at a rapid pace, likely as a result of one of Peter's spells.
 
 }
 #if(v_b3_ch9_assassinate == 1) {
@@ -172,6 +164,14 @@ As usual, a bright light surrounds us and our bodies start to vibrate loudly. A 
 "Now, then..." the king of the underground says, as he turns towards me. "Let's put those newly acquired magical powers of yours to the test, shall we?"
 
 }
+#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
+ As he finishes his sentence, the king extends his arms towards us and right afterwards Flower and I get surrounded by a box made out of semi-transparent impenetrable walls, which look very similar to the ones that were being used by Talmak's elf subordinate. Before I get to ask myself what the king is trying to do, the air inside the box starts to get colder and colder, to the point that we would likely become frozen statues if we were to spend more than half a minute in here.
+
+"Hold on tight," Flower tells me, as she grabs my arm. "We're teleporting out."
+
+As usual, a bright light surrounds us and our bodies start to vibrate loudly. A few seconds later, we find ourselves outside the box, but it looks like we have a slight problem on our hands. A new semi-transparent box was created just as quickly around us, and the air inside it is also beginning to freeze at a rapid pace, likely as a result of one of Peter's spells.
+
+}
 choice("Tell Flower to teleport us closer to the king and Peter this time.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 0) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
 choice("Tell Flower that we should move in separate directions as soon as we teleport again.", B3-Ch09b-Separate, v_current_scene = B3-Ch09b-Separate, v_b3_ch9_teleport = 1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
 choice("Ask Flower if she can attack the king with a pillar of fire to break his concentration.", B3-Ch09b-Blabbering, v_current_scene = B3-Ch09b-Blabbering, v_b3_ch9_teleport = 2) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
@@ -182,6 +182,20 @@ TEXT:
 
 set(v_is_dead,1) if (v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0 || v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0)
 set(v_is_dead,0) if (v_b3_ch9_backup == 1)
+#if(v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0) {
+ After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
+
+"We can't just leave them here, damn it!" the king of the underground says. "They're going to get killed at this rate."
+
+"With all due respect, sir... why do you care so much about what happens to them?" Peter says. "They betrayed us and our cause. They allied themselves with the Overseer. What obligation do we have to save their lives?"
+
+"They may have been our enemies in this fight, but that does not negate all the help that their group has given us in our time of need," the king of the underground says. "At least wake them up before we leave. Give them a chance to defend themselves from... whatever this is!"
+
+"As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
+
+Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
 #if(v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0 || v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0) {
  "Let's try to move in separate directions after we teleport again," I tell Flower in a low voice. "I don't think he can maintain two boxes at the same time with his aura technique."
 
@@ -200,20 +214,6 @@ Seeing what happened, Flower panics and she quickly teleports inside my box, gra
  While the king is talking, I am not processing any of his words, because my mind is too busy going through every single spell I've ever learned in a matter of seconds, in a desperate attempt to figure out if there's anything at all that could help me get out of this situation alive. While my head is filled with hundreds of possible combinations of spells, I can slowly feel the cold creeping in, until my whole body is trembling uncontrollably.
 
 During this time, Flower attempts to get us out of the box a few times, but she just can't concentrate enough to cast her teleportation spell, and the ever-increasing coldness in the air is only making it harder for her to stay awake. Eventually, we both succumb to the freezing cold, and we lose our consciousness.
-
-}
-#if(v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0) {
- After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
-
-"We can't just leave them here, damn it!" the king of the underground says. "They're going to get killed at this rate."
-
-"With all due respect, sir... why do you care so much about what happens to them?" Peter says. "They betrayed us and our cause. They allied themselves with the Overseer. What obligation do we have to save their lives?"
-
-"They may have been our enemies in this fight, but that does not negate all the help that their group has given us in our time of need," the king of the underground says. "At least wake them up before we leave. Give them a chance to defend themselves from... whatever this is!"
-
-"As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
-
-Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
 
 }
 #if(v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0) {
@@ -309,6 +309,14 @@ Just like before, Flower grabs my arm and then we teleport out of the box, but t
 Flower, however does not give the king of the underground the time to use his technique, and she shoots a beam of fire at him, thus forcing him to focus all of his efforts on reinforcing the aura shield around himself. In the meantime, I also take advantage of their confusion to strike Peter with the lightning spell that I used before on the king.
 
 }
+#if(v_b3_ch9_teleport == 2) {
+ "Can you try attacking the king with a pillar of fire?" I ask Flower. "Maybe that will be enough to break his concentration."
+
+"Okay," Flower says. "I'm trying it now!"
+
+As she is saying her words, a column of fire starts forming from below the king and just as I predicted, he is forced to release us from the box in order to focus his efforts on reinforcing his aura shield so that he can defend himself against the flames. In the meantime, I take advantage of the king's temporary distraction to strike Peter with the same lightning spell that I used at the beginning of the battle.
+
+}
 #if(v_b3_ch9_teleport == 0 || v_b3_ch9_teleport == 2) {
  To my surprise, instead of trying to evade it, Peter makes the exact same movements as me, only in reverse, and my lightning disappears as soon as it reaches him.
 
@@ -321,14 +329,6 @@ Ah, crap. I forgot to think without words again. I'd better make sure to think f
 Okay, so the way I see it, this technique has one major weakness, which is the fact that you need to figure out what your enemy is casting very quickly, so that you can do all of the movements in reverse and somehow still finish them fast enough to counter your opponent's spell. Due to this fact, multi-step dispelling is particularly vulnerable to feints.
 
 Oh, boy... I really hope I didn't think all that out loud, or I'll be making a complete fool of myself.
-
-}
-#if(v_b3_ch9_teleport == 2) {
- "Can you try attacking the king with a pillar of fire?" I ask Flower. "Maybe that will be enough to break his concentration."
-
-"Okay," Flower says. "I'm trying it now!"
-
-As she is saying her words, a column of fire starts forming from below the king and just as I predicted, he is forced to release us from the box in order to focus his efforts on reinforcing his aura shield so that he can defend himself against the flames. In the meantime, I take advantage of the king's temporary distraction to strike Peter with the same lightning spell that I used at the beginning of the battle.
 
 }
 choice("Continue", B3-Ch09b-Invent, v_current_scene = B3-Ch09b-Invent) if (v_b3_ch9_teleport == 0 || v_b3_ch9_teleport == 2)
@@ -531,20 +531,6 @@ choice("Let the Overseer fight Peter while I dispel all of Peter's spells.", B3-
 ID: B3-Ch09b-Dispel
 TEXT:
 
-#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
- Peter's first attack against the Overseer is to try to create a stone cage around him in order to limit his movement. Since the spell he is using is easy to predict from the first few hand motions, I dispel it with ease, forcing Peter to retreat as the green-eyed drone is now the one going on the offensive.
-
-After I cancel his second and third spell, Peter finally figures out what I'm doing and he stops using any of his complicated spells, limiting himself only to the simplest and most basic type of magic in his repertoire, so that he won't give me enough time to use my dispelling technique before he finishes his casting. I try in vain to predict his next few spells, but I soon realize that there's no point in using this tactic anymore. I might as well just fight him with regular spells, because right now I'm not making any meaningful contributions to this battle.
-
-Just as I am about to fly closer to Peter, I feel two ropes tying themselves tightly around my ankles, and then not even a second later, two other ropes bind themselves around my wrists as well, pulling my arms behind my back. When I turn my head around, I realize that the four ropes had been conjured from below me while I wasn't looking. 
-
- I was so focused on their battle that it didn't even cross my mind to check my surroundings. Was this his plan all along? To distract me with his fight against the Overseer while secretly using conjuration magic to make these restraints appear out of nowhere? Damn it, if only I could move my arms a little, I might be able to burn the ropes with a fire spell or something. I'm not at a level where I can cast spells without moving my arms, yet. Isn't there some spell that requires me to only move my fingers which could be helpful in this situation? What about the Overseer? Maybe he can get me out of this! I need to call out to him.
-
-"Hey, Overseer, can you help--"
-
-"Time's up," Peter says, before I get the time to finish my sentence, and then he uses my initial lightning spell against me, making me lose my consciousness in a matter of seconds.
-
-}
 #if(v_b3_ch9_assassinate == 0) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -573,38 +559,26 @@ Shortly after their talk, I hear the sound of their bodies vibrating loudly as t
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
 
 }
+#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
+ Peter's first attack against the Overseer is to try to create a stone cage around him in order to limit his movement. Since the spell he is using is easy to predict from the first few hand motions, I dispel it with ease, forcing Peter to retreat as the green-eyed drone is now the one going on the offensive.
+
+After I cancel his second and third spell, Peter finally figures out what I'm doing and he stops using any of his complicated spells, limiting himself only to the simplest and most basic type of magic in his repertoire, so that he won't give me enough time to use my dispelling technique before he finishes his casting. I try in vain to predict his next few spells, but I soon realize that there's no point in using this tactic anymore. I might as well just fight him with regular spells, because right now I'm not making any meaningful contributions to this battle.
+
+Just as I am about to fly closer to Peter, I feel two ropes tying themselves tightly around my ankles, and then not even a second later, two other ropes bind themselves around my wrists as well, pulling my arms behind my back. When I turn my head around, I realize that the four ropes had been conjured from below me while I wasn't looking. 
+
+ I was so focused on their battle that it didn't even cross my mind to check my surroundings. Was this his plan all along? To distract me with his fight against the Overseer while secretly using conjuration magic to make these restraints appear out of nowhere? Damn it, if only I could move my arms a little, I might be able to burn the ropes with a fire spell or something. I'm not at a level where I can cast spells without moving my arms, yet. Isn't there some spell that requires me to only move my fingers which could be helpful in this situation? What about the Overseer? Maybe he can get me out of this! I need to call out to him.
+
+"Hey, Overseer, can you help--"
+
+"Time's up," Peter says, before I get the time to finish my sentence, and then he uses my initial lightning spell against me, making me lose my consciousness in a matter of seconds.
+
+}
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
 
 
 ID: B3-Ch09b-Together
 TEXT:
 
-#if(v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3) {
- Since I could pretty much guess what spell he was going to use before he even started moving his hands, I easily managed to cast the spell in reverse and to dispel it before he could finish his motions. That being said, there is no way for me to dispel the box itself, so the drone is still trapped, even if it is no longer in mortal danger.
-
-"Unfortunately, the Overseer protocol is unable to free itself from its captivity or cast spells outside of the box without the use of its experimental features,"  the green-eyed drone says. "The Overseer apologizes for the inconvenience, and hopes that the current circumstances will not negatively impact the rating you will give it in the end-of-month survey."
-
-"Don't worry, Overseer, I got you covered!" I say. "No matter what spell he casts while you're inside that box, I'm pretty confident that I can dispel it."
-
-As I am saying these words, Peter gives me one long look, and he just stands there for about ten seconds, contemplating on what I've said.
-
-"What's the matter, Peter?" I say. "Did you give up already?"
-
-"No..." Peter says. "But I think it's safe to say that I might have been underestimating you a little bit, until now. After thinking things over for a short while, I realized that you are for all intents and purposes a mage and a generalist in this realm, and maybe I should start treating you as such. Tell me, Barry, have you ever seen a fight between Brinhorn and Azarius?"
-
- "Yeah, I did see a few of those," I say. "Brinhorn always used to insist on me coming to watch his official matches while I was still apprenticing under him."
-
-"Apprenticing under Brinh--" Peter begins to say, but then he interrupts himself, as he closes his eyes and starts to massage his forehead with his fingers. "Never mind. I don't care if you actually were that man's apprentice or not. The point I was trying to make is that whenever two generalists fight, they have a certain way of doing battle that is not comparable to any other kinds of mage fights. Do you know what I'm talking about?"
-
-"I mean, yeah, it would have been pretty hard to not see the difference," I say.
-
-"Good," Peter says. "I only had the opportunity to see one of their duels, due to how insanely hard it is to obtain permission to leave Varathia as an Ollendor citizen, but that one duel will remain imprinted in my mind forever."
-
-While Peter is talking, I can slowly feel the whole world beginning to spin around me, as if I'd just gulped down an entire bottle of dwarven ale.
-
-"As a former apprentice of Brinhorn, I'm sure that you will immediately recognize the famous battle that I am about to recreate before your eyes. Let us see if you can live up to your old mentor's teachings."
-
-}
 #if(v_b3_ch9_element == 0) {
  Peter's first attack against the Overseer is to create a stone cage around him in order to limit his movement. The green-eyed drone, however, does not let itself get trapped so easily, and it uses a spray of acid to melt the cage bars in a matter of seconds. I decide to join the Overseer, by putting some pressure on Peter with a few of the fire spells that I practiced with Flower, which quickly forces our enemy into focusing all of his efforts on defensive tactics.
 
@@ -653,6 +627,32 @@ Just when it seems like we're finally gaining the upper hand in this battle, the
 "...As you wish, sire," Peter says, and then he turns towards the Overseer, starting to cast the freezing spell that he used against Flower and me when we were also being trapped by the king.
 
 }
+#if(v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3) {
+ Since I could pretty much guess what spell he was going to use before he even started moving his hands, I easily managed to cast the spell in reverse and to dispel it before he could finish his motions. That being said, there is no way for me to dispel the box itself, so the drone is still trapped, even if it is no longer in mortal danger.
+
+"Unfortunately, the Overseer protocol is unable to free itself from its captivity or cast spells outside of the box without the use of its experimental features,"  the green-eyed drone says. "The Overseer apologizes for the inconvenience, and hopes that the current circumstances will not negatively impact the rating you will give it in the end-of-month survey."
+
+"Don't worry, Overseer, I got you covered!" I say. "No matter what spell he casts while you're inside that box, I'm pretty confident that I can dispel it."
+
+As I am saying these words, Peter gives me one long look, and he just stands there for about ten seconds, contemplating on what I've said.
+
+"What's the matter, Peter?" I say. "Did you give up already?"
+
+"No..." Peter says. "But I think it's safe to say that I might have been underestimating you a little bit, until now. After thinking things over for a short while, I realized that you are for all intents and purposes a mage and a generalist in this realm, and maybe I should start treating you as such. Tell me, Barry, have you ever seen a fight between Brinhorn and Azarius?"
+
+ "Yeah, I did see a few of those," I say. "Brinhorn always used to insist on me coming to watch his official matches while I was still apprenticing under him."
+
+"Apprenticing under Brinh--" Peter begins to say, but then he interrupts himself, as he closes his eyes and starts to massage his forehead with his fingers. "Never mind. I don't care if you actually were that man's apprentice or not. The point I was trying to make is that whenever two generalists fight, they have a certain way of doing battle that is not comparable to any other kinds of mage fights. Do you know what I'm talking about?"
+
+"I mean, yeah, it would have been pretty hard to not see the difference," I say.
+
+"Good," Peter says. "I only had the opportunity to see one of their duels, due to how insanely hard it is to obtain permission to leave Varathia as an Ollendor citizen, but that one duel will remain imprinted in my mind forever."
+
+While Peter is talking, I can slowly feel the whole world beginning to spin around me, as if I'd just gulped down an entire bottle of dwarven ale.
+
+"As a former apprentice of Brinhorn, I'm sure that you will immediately recognize the famous battle that I am about to recreate before your eyes. Let us see if you can live up to your old mentor's teachings."
+
+}
 choice("Continue", B3-Ch09b-Balance, v_current_scene = B3-Ch09b-Balance) if (v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
 
 
@@ -693,6 +693,34 @@ choice("Try to dispel the freezing rain before Peter finishes casting the spell.
 ID: B3-Ch09b-Roof
 TEXT:
 
+#if(v_b3_ch9_assassinate == 0) {
+ After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
+
+"We can't just leave them here, damn it!" the king of the underground says. "They're going to get killed at this rate."
+
+"With all due respect, sir... why do you care so much about what happens to them?" Peter says. "They betrayed us and our cause. They allied themselves with the Overseer. What obligation do we have to save their lives?"
+
+"They may have been our enemies in this fight, but that does not negate all the help that their group has given us in our time of need," the king of the underground says. "At least wake them up before we leave. Give them a chance to defend themselves from... whatever this is!"
+
+"As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
+
+Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
+#if(v_b3_ch9_assassinate == 1) {
+ After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
+
+"We can't just leave them here, damn it!" the king of the underground says. "They're going to get killed at this rate."
+
+"With all due respect, sir... why do you care so much about what happens to them?" Peter says. "They were more than willing to kill us earlier, when they fought against us. What obligation do we have to save their lives?"
+
+"They may have been our enemies in this fight, but that does not negate all the help that their group has given us in our time of need," the king of the underground says. "At least wake them up before we leave. Give them a chance to defend themselves from... whatever this is!"
+
+"As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
+
+Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
 #if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
  I quickly cast a spell that creates a floating platform made out of rock, and then I place it above my head so that it can defend me from the freezing rain.
 
@@ -703,6 +731,12 @@ Just as I am done positioning my roof, I feel two ropes tying themselves tightly
 "Time's up," Peter says, and then he uses my initial lightning spell against me, making me lose my consciousness in a matter of seconds.
 
 }
+choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
+
+
+ID: B3-Ch09b-Freezing
+TEXT:
+
 #if(v_b3_ch9_assassinate == 0) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -731,12 +765,6 @@ Shortly after their talk, I hear the sound of their bodies vibrating loudly as t
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
 
 }
-choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
-
-
-ID: B3-Ch09b-Freezing
-TEXT:
-
 #if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
  I quickly begin to cast the same spell as Peter in reverse, struggling to keep up with his speed so that I can finish it in time for the dispelling to work.
 
@@ -745,34 +773,6 @@ As I am busy concentrating on my hand movements, I feel two ropes tying themselv
  Does this mean it was all a ruse? He faked the spell in order to distract me and just used conjuration magic to create these ropes instead? Damn it, if only I could move my arms a little, I might be able to burn these ropes with a fire spell or something. I'm not at a level where I can cast spells without moving my arms, yet. Isn't there some spell that requires me to only move my fingers which could be helpful in this situation? Think, Barry! There has to be something!
 
 "Time's up," Peter says, and then he uses my initial lightning spell against me, making me lose my consciousness in a matter of seconds.
-
-}
-#if(v_b3_ch9_assassinate == 0) {
- After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
-
-"We can't just leave them here, damn it!" the king of the underground says. "They're going to get killed at this rate."
-
-"With all due respect, sir... why do you care so much about what happens to them?" Peter says. "They betrayed us and our cause. They allied themselves with the Overseer. What obligation do we have to save their lives?"
-
-"They may have been our enemies in this fight, but that does not negate all the help that their group has given us in our time of need," the king of the underground says. "At least wake them up before we leave. Give them a chance to defend themselves from... whatever this is!"
-
-"As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
-
-Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
-
-}
-#if(v_b3_ch9_assassinate == 1) {
- After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
-
-"We can't just leave them here, damn it!" the king of the underground says. "They're going to get killed at this rate."
-
-"With all due respect, sir... why do you care so much about what happens to them?" Peter says. "They were more than willing to kill us earlier, when they fought against us. What obligation do we have to save their lives?"
-
-"They may have been our enemies in this fight, but that does not negate all the help that their group has given us in our time of need," the king of the underground says. "At least wake them up before we leave. Give them a chance to defend themselves from... whatever this is!"
-
-"As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
-
-Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
 
 }
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
@@ -825,6 +825,16 @@ choice("Continue", B3-Ch09b-Versatile, v_current_scene = B3-Ch09b-Versatile)
 ID: B3-Ch09b-Versatile
 TEXT:
 
+#if(v_b3_ch9_backup == 0) {
+ "I'm really glad to see how well you two are getting along," the king of the underground says loudly, from a distance, as he is still busy building barriers around himself to defend from Flower, who is attacking him from all possible angles, trying to find a weak spot in his defenses, "but maybe you could hurry it up just a little, Peter?... I can barely hold off this ethereal girl on my own with how weak my aura is in this realm. Surely, you don't want to have to fight both her and Barry at the same time, do you?"
+
+"No, my king..." Peter says. "I will try my best to hasten things on my end."
+
+"And how exactly are you planning to do that?" I ask Peter. "Just to be clear, your trick with the invisible ear plugs won't work a second time. If you want to cast that sonic spell again, you'd better be prepared to dunk yourself in cold water afterwards."
+
+"Have you already forgotten that we're supposed to be reenacting one of the battles between Brinhorn and Azarius?" Peter says. "We've barely even recreated the first few seconds of that fight so far. There is so much more that we need to do."
+
+}
 #if(v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1) {
  "Well, it's not like I had much choice in the matter," I answer him, having finally stopped my trembling. "That sonic attack you did just now is too high-pitched to be perceived by our ears, but its effects are almost impossible to dispel unless you are a highly-skilled, specialized white mage. That is probably one of the reasons why Azarius enjoys sonic spells so much. They are incredibly versatile and ridiculously hard to counter through normal means. Brinhorn might not have given me much reason to genuinely look up to him during the time we've spent together, but I will say that this one particular way he chose to counter Azarius' spell was nothing short of genius."
 
@@ -837,16 +847,6 @@ TEXT:
 "Just because we're doing a reenactment doesn't mean that I can't go off-script just a tiny bit," I say. "Don't worry, you'll get to see the source of my confidence soon enough."
 
 "Let's see it, then," Peter says, and then he begins to attack me in the same way that Azarius attacked Brinhorn all those years ago.
-
-}
-#if(v_b3_ch9_backup == 0) {
- "I'm really glad to see how well you two are getting along," the king of the underground says loudly, from a distance, as he is still busy building barriers around himself to defend from Flower, who is attacking him from all possible angles, trying to find a weak spot in his defenses, "but maybe you could hurry it up just a little, Peter?... I can barely hold off this ethereal girl on my own with how weak my aura is in this realm. Surely, you don't want to have to fight both her and Barry at the same time, do you?"
-
-"No, my king..." Peter says. "I will try my best to hasten things on my end."
-
-"And how exactly are you planning to do that?" I ask Peter. "Just to be clear, your trick with the invisible ear plugs won't work a second time. If you want to cast that sonic spell again, you'd better be prepared to dunk yourself in cold water afterwards."
-
-"Have you already forgotten that we're supposed to be reenacting one of the battles between Brinhorn and Azarius?" Peter says. "We've barely even recreated the first few seconds of that fight so far. There is so much more that we need to do."
 
 }
 #if(v_b3_ch9_backup == 1) {
@@ -867,22 +867,6 @@ choice("Begin by copying Brinhorn's spells, but switch to my own spells later on
 ID: B3-Ch09b-Adversary
 TEXT:
 
-#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
- I am now finding myself surrounded by a hundred or so manticores, which are flying around me from all directions, including directly below me. I already know from the battle between Brinhorn and Azarius that the majority of these are supposed to be illusions, but in the original fight, five of the winged lions were real and Azarius was also hiding amongst them, shapeshifted as a manticore while waiting for the ideal moment to strike.
-
-Just like in the battle that we are copying, Peter has managed to successfully cast an illusion spell, a summoning spell and a shapeshifting spell almost simultaneously, without giving me much time to react. The fact that he managed to cast all three spells without making any movements at all caught me completely off-guard. He must have been secretly preparing the spells while I was being distracted by our previous conversation.
-
-Unfortunately, while I was initially able to track which were the real manticores and which were the illusions, it has gotten harder and harder for me to tell them apart as they've been shuffling their positions constantly for the past twenty seconds. Similarly to what Azarius did against Brinhorn, Peter is in no hurry to attack me, because he knows that the more time passes, the more I will doubt myself on which of the flying monsters I need to defend myself from and which I'll need to ignore.
-
- If I attempt the same tactics as Brinhorn now, Peter will surely be prepared for it, and I will have fallen into one of his traps yet again. I will need to catch him by surprise if I want to gain the upper hand in this battle.
-
-Instead of waiting for my adversary to make the first move, I fly through the swarm of fake manticores, and I head straight for Peter, whom I've been monitoring closely ever since he shapeshifted. On my way to him, one of the real manticores tries to intercept me, but I quickly dodge to the side and then I continue onwards, getting increasingly closer to my target by the second.
-
-If I can get close enough to cast a paralysis spell on him before he shifts back to his human form, I win. He should be vulnerable in that state, because shapeshifting does not happen instantly. Or will he attack me as a manticore, instead? Either way, I'm ready for him. Come on, Peter, what will you choose to do?
-
-Just as I get within casting range of my spell, the image of the manticore in front of me disappears, and it is replaced with Peter, who was already aiming a paralysis spell of his own at me, which manages to hit me before I have the time to react. Apparently, Peter had never shapeshifted in the first place, and was only using illusion magic to trick me into thinking that he did. As I'm trying in vain to dispel the paralysis spell without moving, Peter casts another spell on me that puts me to sleep.
-
-}
 #if(v_b3_ch9_assassinate == 0) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -909,6 +893,22 @@ Shortly after their talk, I hear the sound of their bodies vibrating loudly as t
 "As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
 
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
+#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
+ I am now finding myself surrounded by a hundred or so manticores, which are flying around me from all directions, including directly below me. I already know from the battle between Brinhorn and Azarius that the majority of these are supposed to be illusions, but in the original fight, five of the winged lions were real and Azarius was also hiding amongst them, shapeshifted as a manticore while waiting for the ideal moment to strike.
+
+Just like in the battle that we are copying, Peter has managed to successfully cast an illusion spell, a summoning spell and a shapeshifting spell almost simultaneously, without giving me much time to react. The fact that he managed to cast all three spells without making any movements at all caught me completely off-guard. He must have been secretly preparing the spells while I was being distracted by our previous conversation.
+
+Unfortunately, while I was initially able to track which were the real manticores and which were the illusions, it has gotten harder and harder for me to tell them apart as they've been shuffling their positions constantly for the past twenty seconds. Similarly to what Azarius did against Brinhorn, Peter is in no hurry to attack me, because he knows that the more time passes, the more I will doubt myself on which of the flying monsters I need to defend myself from and which I'll need to ignore.
+
+ If I attempt the same tactics as Brinhorn now, Peter will surely be prepared for it, and I will have fallen into one of his traps yet again. I will need to catch him by surprise if I want to gain the upper hand in this battle.
+
+Instead of waiting for my adversary to make the first move, I fly through the swarm of fake manticores, and I head straight for Peter, whom I've been monitoring closely ever since he shapeshifted. On my way to him, one of the real manticores tries to intercept me, but I quickly dodge to the side and then I continue onwards, getting increasingly closer to my target by the second.
+
+If I can get close enough to cast a paralysis spell on him before he shifts back to his human form, I win. He should be vulnerable in that state, because shapeshifting does not happen instantly. Or will he attack me as a manticore, instead? Either way, I'm ready for him. Come on, Peter, what will you choose to do?
+
+Just as I get within casting range of my spell, the image of the manticore in front of me disappears, and it is replaced with Peter, who was already aiming a paralysis spell of his own at me, which manages to hit me before I have the time to react. Apparently, Peter had never shapeshifted in the first place, and was only using illusion magic to trick me into thinking that he did. As I'm trying in vain to dispel the paralysis spell without moving, Peter casts another spell on me that puts me to sleep.
 
 }
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
@@ -935,14 +935,6 @@ choice("Continue", B3-Ch09b-Mistake, v_current_scene = B3-Ch09b-Mistake)
 ID: B3-Ch09b-Mistake
 TEXT:
 
-#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
- Now that I don't need to worry about losing sight of the summoned manticores anymore, I can finally concentrate on winning this battle.
-
-From what I remember, Brinhorn was doing fine for most of this fight, and the only real mistake he made was towards the end, so it should be okay for me to copy his spells until then, right? Let's see... Next up was a spell that slightly boosts my reflexes. If I recall correctly, the moves required for this one are-- hey wait a minute, why is Peter suddenly diving for me? That's not what Azarius did. Doesn't he know that he's making himself into an easy target by attacking me like this? He can't instantly shift back to his human form, so he will be highly vulnerable during that time. Or is he planning to attack me in his manticore form? It doesn't matter either way. If that's how he wants to play this, then I'll just hit him with a paralysis spell as soon as he gets within range, and that will be the end of it.
-
- Seeing that Peter is still making a beeline for me, I get in my stance and I prepare my attack, aiming for his chest area. Just as I fire my spell, the image of the manticore in front of me disappears, and it is replaced by Peter, who had apparently never shapeshifted in the first place, and only used illusion magic to make me think that he did. The discrepancy between the positioning of his real body and the one of his fake manticore body makes me miss my shot, and before I have the chance to recover, Peter hits me with a paralysis spell of his own, followed by a sleep spell, making me lose consciousness soon afterwards.
-
-}
 #if(v_b3_ch9_assassinate == 0) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -969,6 +961,14 @@ Shortly after their talk, I hear the sound of their bodies vibrating loudly as t
 "As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
 
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
+#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
+ Now that I don't need to worry about losing sight of the summoned manticores anymore, I can finally concentrate on winning this battle.
+
+From what I remember, Brinhorn was doing fine for most of this fight, and the only real mistake he made was towards the end, so it should be okay for me to copy his spells until then, right? Let's see... Next up was a spell that slightly boosts my reflexes. If I recall correctly, the moves required for this one are-- hey wait a minute, why is Peter suddenly diving for me? That's not what Azarius did. Doesn't he know that he's making himself into an easy target by attacking me like this? He can't instantly shift back to his human form, so he will be highly vulnerable during that time. Or is he planning to attack me in his manticore form? It doesn't matter either way. If that's how he wants to play this, then I'll just hit him with a paralysis spell as soon as he gets within range, and that will be the end of it.
+
+ Seeing that Peter is still making a beeline for me, I get in my stance and I prepare my attack, aiming for his chest area. Just as I fire my spell, the image of the manticore in front of me disappears, and it is replaced by Peter, who had apparently never shapeshifted in the first place, and only used illusion magic to make me think that he did. The discrepancy between the positioning of his real body and the one of his fake manticore body makes me miss my shot, and before I have the chance to recover, Peter hits me with a paralysis spell of his own, followed by a sleep spell, making me lose consciousness soon afterwards.
 
 }
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
@@ -1013,16 +1013,6 @@ Hah. I knew it! I knew that asking Flower to teach me a spell that affects a lar
 When I look towards Peter to see what happened to him I notice that he is unharmed, because he had conjured a large wall of reinforced stone in front of him in the nick of time. I do not give him the opportunity to summon new manticores and I rain down a swarm of fire arrows on him, forcing him to fly away from his position. Instead of going on the defensive, Peter fights back immediately by creating a huge cloud of poison mist that quickly engulfs us both, before I get to move away from it.
 
 }
-#if(v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3) {
- So this is what he had up his sleeve... At least now there shouldn't be any more tricks, so I can focus on--
-
-Once again my thoughts get interrupted, because two manticores suddenly lunge at me from opposite directions. I instinctively dodge them both, but then four more of the flying creatures make a dive for me, and the other hundred or so of them seem to be preparing to engage me as well. Now I get what this guy was doing.
-
-In order to pay attention to all of those manticores at once I needed my focus to remain uninterrupted, but Peter's surprise attack from earlier was just the thing he needed to break my concentration. Now I am no longer certain of which manticores are real, and I no longer have the luxury to sit back and calmly analyze the situation. For all intents and purposes, I am now practically fighting against one hundred manticores and a generalist all at once. Well played. 
-
-It looks like I'm going to have to make some serious improvisations if I want to make it out of this alive. Sorry Brinhorn, it's nothing personal, but I'm afraid that your previous performance during this battle is no longer of any use to me.
-
-}
 #if(v_b3_ch9_element == 1) {
  Just as the manticores are about to reach me, I conjure two long water whips from my hands and I spin them around very fast, slicing everything around me, including the enemies from above and below. The illusions are unaffected by this, but all of the real manticores get easily turned into minced meat and then they keep floating in place, because there is no force in this realm to make them fall down.
 
@@ -1045,6 +1035,16 @@ When I look towards Peter to see what happened to him I notice that he is unharm
 Hah. I knew it! I knew that asking Kate to teach me a spell that affects a large area would be a good idea!
 
 When I look towards Peter to see what happened to him I notice that he is unharmed, because he had conjured a large wall of reinforced stone in front of him in the nick of time. I do not give him the opportunity to summon new manticores and I rain down a swarm of icicles on him, forcing him to fly away from his position. Instead of going on the defensive, Peter fights back immediately by creating a huge cloud of poison mist that quickly engulfs us both, before I get to move away from it.
+
+}
+#if(v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3) {
+ So this is what he had up his sleeve... At least now there shouldn't be any more tricks, so I can focus on--
+
+Once again my thoughts get interrupted, because two manticores suddenly lunge at me from opposite directions. I instinctively dodge them both, but then four more of the flying creatures make a dive for me, and the other hundred or so of them seem to be preparing to engage me as well. Now I get what this guy was doing.
+
+In order to pay attention to all of those manticores at once I needed my focus to remain uninterrupted, but Peter's surprise attack from earlier was just the thing he needed to break my concentration. Now I am no longer certain of which manticores are real, and I no longer have the luxury to sit back and calmly analyze the situation. For all intents and purposes, I am now practically fighting against one hundred manticores and a generalist all at once. Well played. 
+
+It looks like I'm going to have to make some serious improvisations if I want to make it out of this alive. Sorry Brinhorn, it's nothing personal, but I'm afraid that your previous performance during this battle is no longer of any use to me.
 
 }
 choice("Continue", B3-Ch09b-Poison, v_current_scene = B3-Ch09b-Poison) if (v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
@@ -1072,18 +1072,6 @@ choice("Fight Peter now with everything I've got.", B3-Ch09b-Struggle, v_current
 ID: B3-Ch09b-Struggle
 TEXT:
 
-#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
- If this is going to be my last stand, then I'd better give it my all.
-
-As I struggle to endure the pain from the headache, I begin to cast a combination of three spells with overlapping patterns that, if done correctly, should unleash an explosion of a quick-drying glue-like substance that will greatly restrict my enemy's movements.
-
- Just as I'm about to finish casting the spells, I get a strong nausea and I lose my focus completely, which essentially causes my technique to be cancelled.
-
-"I'm not sure what you were trying to do, but I'm going to assume that this was supposed to be your secret technique," Peter says. "I was a fool for being so cautious around you until now. Have a good night."
-
-"What do you mean--" I start to say, but then Peter casts one final spell on me and he immediately puts me to sleep.
-
-}
 #if(v_b3_ch9_assassinate == 0) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -1110,6 +1098,18 @@ Shortly after their talk, I hear the sound of their bodies vibrating loudly as t
 "As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
 
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
+#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1) {
+ If this is going to be my last stand, then I'd better give it my all.
+
+As I struggle to endure the pain from the headache, I begin to cast a combination of three spells with overlapping patterns that, if done correctly, should unleash an explosion of a quick-drying glue-like substance that will greatly restrict my enemy's movements.
+
+ Just as I'm about to finish casting the spells, I get a strong nausea and I lose my focus completely, which essentially causes my technique to be cancelled.
+
+"I'm not sure what you were trying to do, but I'm going to assume that this was supposed to be your secret technique," Peter says. "I was a fool for being so cautious around you until now. Have a good night."
+
+"What do you mean--" I start to say, but then Peter casts one final spell on me and he immediately puts me to sleep.
 
 }
 choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1)
@@ -1169,28 +1169,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_b3_ch9_assassinate == 0 && v_aura_hardening < 4 || v_b3_ch9_assassinate == 1 && v_aura_hardening < 4)
 set(v_is_dead,0) if (v_aura_hardening >= 4)
-#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1 || v_aura_hardening >= 4) {
- 
-
-"Until we know who that voice belonged to, continuing to fight here would be too risky," the king says.
-
-"I'm afraid you might be right," Peter responds to him.
-
-He then sighs deeply, before continuing to talk.
-
-"I did not want to do this, but I am left with no other choice," Peter says, now turning to me.
-
-"Didn't want to do what?..." I say, but then I immediately find out what he meant, as my body in the earthen plane gets zapped with a powerful electrical current.
-
-"If we can no longer fight in this plane of existence, then I am forced to bring an end to our battle in the material world instead," Peter tells me in the ethereal plane, as his real-world counter-part is still using his lightning spell on me.
-
-}
-#if(v_b3_ch9_assassinate == 0 && v_aura_hardening < 4 || v_b3_ch9_assassinate == 1 && v_aura_hardening < 4) {
- As much as I struggle to keep my consciousness, the shock from the electricity is just too much to bear, and I eventually succumb to it.
-
-"Of all the low-down... dirty tricks..." I manage to say, before I end up fainting in both the ethereal and the earthen plane.
-
-}
 #if(v_b3_ch9_assassinate == 0 && v_aura_hardening < 4) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -1205,6 +1183,12 @@ He then sighs deeply, before continuing to talk.
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
 
 }
+#if(v_b3_ch9_assassinate == 0 && v_aura_hardening < 4 || v_b3_ch9_assassinate == 1 && v_aura_hardening < 4) {
+ As much as I struggle to keep my consciousness, the shock from the electricity is just too much to bear, and I eventually succumb to it.
+
+"Of all the low-down... dirty tricks..." I manage to say, before I end up fainting in both the ethereal and the earthen plane.
+
+}
 #if(v_b3_ch9_assassinate == 1 && v_aura_hardening < 4) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -1217,6 +1201,22 @@ Shortly after their talk, I hear the sound of their bodies vibrating loudly as t
 "As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
 
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
+#if(v_b3_ch9_assassinate == 0 || v_b3_ch9_assassinate == 1 || v_aura_hardening >= 4) {
+ 
+
+"Until we know who that voice belonged to, continuing to fight here would be too risky," the king says.
+
+"I'm afraid you might be right," Peter responds to him.
+
+He then sighs deeply, before continuing to talk.
+
+"I did not want to do this, but I am left with no other choice," Peter says, now turning to me.
+
+"Didn't want to do what?..." I say, but then I immediately find out what he meant, as my body in the earthen plane gets zapped with a powerful electrical current.
+
+"If we can no longer fight in this plane of existence, then I am forced to bring an end to our battle in the material world instead," Peter tells me in the ethereal plane, as his real-world counter-part is still using his lightning spell on me.
 
 }
 #if(v_aura_hardening >= 4) {
@@ -1258,6 +1258,16 @@ As Peter's illusory manticores are now all disappearing, I fly over to the king,
 "Listen, I didn't survive the Magium twice just to let myself be intimidated by the likes of this... personification of the ethereal plane, or whatever that voice was supposed to be," I say. "If the ether was patient enough to let us take the fight this far, then I'm sure it can wait one more minute for us to bring a proper end to it. The king of the underground is the only one left. Let's finish him off quick, before we get kicked out of here."
 
 }
+#if(v_b3_ch9_listen == 1) {
+ As Peter's illusory manticores are now all disappearing, I fly over to the king, so that I can finally give Flower a helping hand.
+
+"Flower, are you ready?" I say, once I get closer to her and the king. "Let's attack him together on the count of three!"
+
+"Attack him?" Flower asks. "But what about the voice in our heads? It warned us not to--"
+
+"Listen, I didn't survive the Magium twice just to let myself be intimidated by the likes of this... personification of the ethereal plane, or whatever that voice was supposed to be," I say. "If the ether was patient enough to let us take the fight this far, then I'm sure it can wait one more minute for us to bring a proper end to it. The king of the underground is the only one left. Let's finish him off quick, before we get kicked out of here."
+
+}
 #if(v_b3_ch9_listen == 0 || v_b3_ch9_listen == 1) {
  "You are making a mistake..." the king of the underground tells us.
 
@@ -1276,16 +1286,6 @@ While I am busy contemplating my own existence, I suddenly detect the king of th
 "It looks like your luck may have finally run out," the king of the underground tells me, and then I begin to feel a powerful pressure forming on top of me.
 
 }
-#if(v_b3_ch9_listen == 1) {
- As Peter's illusory manticores are now all disappearing, I fly over to the king, so that I can finally give Flower a helping hand.
-
-"Flower, are you ready?" I say, once I get closer to her and the king. "Let's attack him together on the count of three!"
-
-"Attack him?" Flower asks. "But what about the voice in our heads? It warned us not to--"
-
-"Listen, I didn't survive the Magium twice just to let myself be intimidated by the likes of this... personification of the ethereal plane, or whatever that voice was supposed to be," I say. "If the ether was patient enough to let us take the fight this far, then I'm sure it can wait one more minute for us to bring a proper end to it. The king of the underground is the only one left. Let's finish him off quick, before we get kicked out of here."
-
-}
 choice("Continue", B3-Ch09b-Floating, v_current_scene = B3-Ch09b-Floating) if (v_b3_ch9_listen == 0 || v_b3_ch9_listen == 1)
 
 
@@ -1302,14 +1302,6 @@ Instead of engaging him in the material world, I prefer to fly away from him and
 Taking a look at Peter and the king's unconscious bodies that are floating in the ether, a sudden thought occurs to me. If I were to kill them right now, in this place, there would be no evidence on the earthen plane to point towards me being the murderer. Most of the rebels would probably just assume that they died as a result of the Overseer's soul displacement technique. If I actually wanted them dead, there would be no better opportunity than this to rid myself of them.
 
 }
-#if(v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0 && v_toughness < 4 || v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0 && v_toughness < 4) {
- 
-
-The invisible force above me pins me against the ground, making it impossible for me to move anything other than my head and neck. As I am struggling to break free from the aura manipulation technique, I feel the equivalent of an invisible rock being smashed into the back of my head, likely also as a result of the king's aura technique.
-
- Since the blow was too powerful for me to withstand, I quickly lost my consciousness, which made me faint in the ethereal world as well.
-
-}
 #if(v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0 && v_toughness < 4) {
  After being unconscious for some time, I begin to vaguely hear the voices of the king of the underground and Peter, who both sound rather tense. When I try to wake up, I realize that I can't move my body at all and even my eyes won't open. It feels like I'm only half-awake right now, with my mind still trying to decide if what I'm hearing is really happening, or if it's all just a dream.
 
@@ -1322,6 +1314,14 @@ The invisible force above me pins me against the ground, making it impossible fo
 "As you wish, my lord," Peter says. "But I will only wake the little girl up. The other one may know of a way to cancel my teleportation, and I do not want to risk it."
 
 Shortly after their talk, I hear the sound of their bodies vibrating loudly as they are teleporting away, and then there is only silence for a while. The silence doesn't last for long, however, because it soon gets replaced with the sound of Flower shouting in my ear, while she is shaking me violently. 
+
+}
+#if(v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0 && v_toughness < 4 || v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0 && v_toughness < 4) {
+ 
+
+The invisible force above me pins me against the ground, making it impossible for me to move anything other than my head and neck. As I am struggling to break free from the aura manipulation technique, I feel the equivalent of an invisible rock being smashed into the back of my head, likely also as a result of the king's aura technique.
+
+ Since the blow was too powerful for me to withstand, I quickly lost my consciousness, which made me faint in the ethereal world as well.
 
 }
 #if(v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0 && v_toughness < 4) {
@@ -1368,6 +1368,18 @@ choice("Continue", B3-Ch09b-Melding, v_current_scene = B3-Ch09b-Melding, v_ac_b3
 ID: B3-Ch09b-Kill
 TEXT:
 
+#if(v_b3_ch9_backup == 0) {
+ "So, what are you going to tell Daren, then?..." Flower says. "I thought we both promised him that we'd try our best to keep all casualties to a minimum."
+
+}
+#if(v_b3_ch9_backup == 1) {
+ "The Overseer protocol would like to point out that it does not appreciate the fact that you didn't consider consulting it before making such an important decision," the green-eyed drone says. "The king of the underground and Peter could have both been used as valuable hostages if they were to be kept alive. Please refrain from taking such rash actions in the future if you do not want to put any more unnecessary strain on our already fragile alliance."
+
+"Duly noted," I tell the Overseer.
+
+"So, what are you going to tell Daren, then?..." Flower says. "I thought we both promised him that we'd try our best to keep all casualties to a minimum."
+
+}
 #if(v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1) {
  They're both our enemies. They need to be killed. I'm sure they would have done the same thing to us if given the chance.
 
@@ -1394,18 +1406,6 @@ She cancels her fire jets a few seconds later when she comes back to her senses,
 "I don't know!" Flower says. "We could have asked the Overseer to put them in an anti-magic prison cell or something! Wasn't that one of the main reasons why we allied ourselves with him?"
 
 "It would have been too risky," I say. "We barely managed to beat them this one time. If they escaped from their cells, there was no guarantee that we could have beaten them again. Killing them was the only way to make sure that we wouldn't need to fight them anymore."
-
-}
-#if(v_b3_ch9_backup == 0) {
- "So, what are you going to tell Daren, then?..." Flower says. "I thought we both promised him that we'd try our best to keep all casualties to a minimum."
-
-}
-#if(v_b3_ch9_backup == 1) {
- "The Overseer protocol would like to point out that it does not appreciate the fact that you didn't consider consulting it before making such an important decision," the green-eyed drone says. "The king of the underground and Peter could have both been used as valuable hostages if they were to be kept alive. Please refrain from taking such rash actions in the future if you do not want to put any more unnecessary strain on our already fragile alliance."
-
-"Duly noted," I tell the Overseer.
-
-"So, what are you going to tell Daren, then?..." Flower says. "I thought we both promised him that we'd try our best to keep all casualties to a minimum."
 
 }
 choice(""I'll tell him the truth."", B3-Ch09b-Cube, v_current_scene = B3-Ch09b-Cube, v_b3_ch9_enemies = 2) if (v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1)
@@ -1640,6 +1640,14 @@ choice("Continue", B3-Ch09b-Eyelids, v_current_scene = B3-Ch09b-Eyelids)
 ID: B3-Ch09b-Eyelids
 TEXT:
 
+#if(v_b3_ch9_backup == 0) {
+ While I'm busy looking for any kind of bindings to restrain the unconscious rebels with, several dozen red-eyed drones suddenly swarm the area out of nowhere, with long metal prongs coming out of their lower sides which they are using to hold some stretchers. Once they lower their altitudes, the drones keep holding the stretchers from both sides, while other drones help to lift the rebels onto them. As soon as a rebel has been successfully placed on a stretcher, the two drones that are holding the stretcher lift it into the air and leave the plaza, while new drones with additional stretchers join in so that they can take away the rest of the underground king's troops.
+
+"The Overseer protocol will handle things from here," a red-eyed drone says, as it descends somewhere close to me. "Thank you for your cooperation. The Overseer protocol would also like to issue a formal apology to your group for accidentally teleporting your souls outside of your minds from the ethereal plane. Unfortunately, the technique that was used was still experimental, and it ended up affecting the whole area of the battlefield instead of only the rebels. If you are in need of any assistance or you wish to discuss more details about your alliance with the Overseer, including his future plans for Ollendor, a green-eyed drone will be waiting for you inside the palace. Have a nice day!"
+
+"Hey wait, where are you taking the rebels?" I say, but the red-eyed drone does not seem to be smart enough to answer any questions, so it simply flies away and leaves the plaza after having delivered its message.
+
+}
 #if(v_b3_ch9_backup == 0 || v_b3_ch9_backup == 1) {
  "Okay, Flower has calmed down for now," Illuna says. "What were we talking about again? Oh right, the darkness. Well, there's not much to say about it, really. Darkness is the absence of light. The light from the ethereal plane is the ether itself. The ether was the one attacking you, so Flower decided to teleport you in the only place where you'd be truly safe from it. However, the only way to get yourself out of the ethereal abyss is by imagining a place very clearly in your head, and being firmly convinced that you can transport yourself there through your own powers. Seeing that you were no longer breathing on the earthen plane, I assumed that you had failed at your task, so I had to get a little creative."
 
@@ -1658,14 +1666,6 @@ As Illuna turns her focus back to the ethereal plane, leaving Flower's body to l
 It feels strange to not be able to see the perspective of my soul from the ethereal plane anymore, after everything that's happened. Even though I know for a fact that all the things I've experienced on that plane of existence were real, I still can't shake off the feeling that I've only just woken up from a very long dream. 
 
 I wish I could have explored that world more. I wish I could have tested my spells more. I wonder if I'll ever have the chance to see that place again...
-
-}
-#if(v_b3_ch9_backup == 0) {
- While I'm busy looking for any kind of bindings to restrain the unconscious rebels with, several dozen red-eyed drones suddenly swarm the area out of nowhere, with long metal prongs coming out of their lower sides which they are using to hold some stretchers. Once they lower their altitudes, the drones keep holding the stretchers from both sides, while other drones help to lift the rebels onto them. As soon as a rebel has been successfully placed on a stretcher, the two drones that are holding the stretcher lift it into the air and leave the plaza, while new drones with additional stretchers join in so that they can take away the rest of the underground king's troops.
-
-"The Overseer protocol will handle things from here," a red-eyed drone says, as it descends somewhere close to me. "Thank you for your cooperation. The Overseer protocol would also like to issue a formal apology to your group for accidentally teleporting your souls outside of your minds from the ethereal plane. Unfortunately, the technique that was used was still experimental, and it ended up affecting the whole area of the battlefield instead of only the rebels. If you are in need of any assistance or you wish to discuss more details about your alliance with the Overseer, including his future plans for Ollendor, a green-eyed drone will be waiting for you inside the palace. Have a nice day!"
-
-"Hey wait, where are you taking the rebels?" I say, but the red-eyed drone does not seem to be smart enough to answer any questions, so it simply flies away and leaves the plaza after having delivered its message.
 
 }
 #if(v_b3_ch9_backup == 1) {
@@ -1714,20 +1714,6 @@ TEXT:
 "I mean... is he really wrong, though?" I say. "He's clearly in a superior bargaining position at this point. All major threats to him in this city are now gone. We are practically the only ones left who can still somewhat challenge him."
 
 }
- "Yes," Daren says. "That is what worries me..."
-
-"Alright, I cast the spell," Melindra tells Flower.
-
-"Thanks, Melindra!" Flower says, as she is now being lifted in the air by some of Melindra's air currents. "Sorry for asking this of you out of the blue, but Petal wants to avoid moving my body herself as much as possible until I find a way to, um... turn off the red flames in my eyes."
-
-"It's fine, don't worry," Melindra says. "You just want me to carry you like this until we reach the palace, right?"
-
-"Yes, please," Flower says. "Right now, I'm a little busy guiding the rebels from the ether back to their own sanctuaries, so I can't afford to cancel the transformation yet."
-
-"...You're helping the rebels?" Hadrik asks, confused.
-
-"Well, I can't just let them all die out there!" Flower says.
-
 #if(v_b3_ch9_enemies == 0) {
  "Make sure that you leave Albert, Peter and the king of the underground for last," Daren says. "We want to be absolutely certain that the Overseer has had enough time to move them to their appropriate prison cells before they wake up. The last thing we'd want is to have to fight them again on the earthen plane. Especially the king."
 
@@ -1752,6 +1738,20 @@ TEXT:
 "Let's get going, then," Daren says as he moves on ahead, and the others go to follow him. "Destination: palace of Ollendor."
 
 }
+ "Yes," Daren says. "That is what worries me..."
+
+"Alright, I cast the spell," Melindra tells Flower.
+
+"Thanks, Melindra!" Flower says, as she is now being lifted in the air by some of Melindra's air currents. "Sorry for asking this of you out of the blue, but Petal wants to avoid moving my body herself as much as possible until I find a way to, um... turn off the red flames in my eyes."
+
+"It's fine, don't worry," Melindra says. "You just want me to carry you like this until we reach the palace, right?"
+
+"Yes, please," Flower says. "Right now, I'm a little busy guiding the rebels from the ether back to their own sanctuaries, so I can't afford to cancel the transformation yet."
+
+"...You're helping the rebels?" Hadrik asks, confused.
+
+"Well, I can't just let them all die out there!" Flower says.
+
 choice("Continue", B3-Ch09b-Fluke, v_current_scene = B3-Ch09b-Fluke)
 
 

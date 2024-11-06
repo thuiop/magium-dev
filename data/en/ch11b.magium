@@ -874,16 +874,6 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 "Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
 
 }
-#if(v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4) {
- "That's some tough talk coming from someone who couldn't even identify an obvious weakness in their enemy's defenses," Arraka says. "You all would have been toast if it weren't for me. I'm the one who saved all of you losers. Where's my reward for that, huh?"
-
-"Oh, I've got your reward right here!" Hadrik says, as he grabs Arraka's amulet from Flower's neck, and he starts spinning it by the chain.
-
-"Wait," Flower says. "Don't do that! Didn't I tell you that she has motion sickness?"
-
-"Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
-
-}
 #if(v_ch11_strategy == 3 || v_ch11_strategy == 4) {
  "No!" Zack shouts, as the barrier around him begins to disappear. "I won't let it end like this!"
 
@@ -898,6 +888,16 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 "That wasn't just some empty threat," Illuna says, while she looks around frantically, as if she were expecting something to blow up. "That thing he just cast was a sacrificial spell. A kind of spell that requires the death of its caster as payment, in exchange for providing effects that would not be obtainable through normal means. The curse of death that the ogre shaman cast on me before we left the fort was also one of these spells. This isn't over yet..."
 
 "Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
+
+}
+#if(v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4) {
+ "That's some tough talk coming from someone who couldn't even identify an obvious weakness in their enemy's defenses," Arraka says. "You all would have been toast if it weren't for me. I'm the one who saved all of you losers. Where's my reward for that, huh?"
+
+"Oh, I've got your reward right here!" Hadrik says, as he grabs Arraka's amulet from Flower's neck, and he starts spinning it by the chain.
+
+"Wait," Flower says. "Don't do that! Didn't I tell you that she has motion sickness?"
+
+"Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
 
 }
 choice(""Put her down, Hadrik. It's not worth the bother."", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
@@ -966,6 +966,20 @@ When he reaches her, Daren starts casting a healing spell, but Rose does not rea
 "Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
 
 }
+#if(v_hearing == 4 && v_perception < 4) {
+ 
+
+While Hadrik and Arraka are talking, I hear the sound of stones starting to crumble somewhere on the opposite side of the market square. I turn around, in order to try and identify the source of the sound, but I don't see anyone in that direction except Rose.   
+
+Suddenly, the stones on the ground in front of Rose get sent flying into the air, as a skeleton emerges from underneath them and quickly uses a rusted knife to stab her in the heart. Rose had no time to react. At first, there was only shock in her eyes, but soon, her facial expression turned blank, while her arms hung beside her, motionless. As the light leaves Rose's eyes completely, her attacker presses the knife harder into her chest, making her fall on her back, while the skeleton crumbles into pieces.
+
+"Rose!" Daren shouts, as he rushes towards her.
+
+When he reaches her, Daren starts casting a healing spell, but Rose does not react to it in any way. We all gather around the two of them, and watch them without saying a word, as Daren continues to cast healing spell after healing spell, while Rose is staring blankly into the distance, without moving a muscle.
+
+"Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
+
+}
 #if(v_hearing == 4 && v_perception < 4 || v_hearing < 4) {
  It's no use... I'm sure that Daren must have realized it as well. Rose is no longer breathing. She stopped breathing even before she hit the ground. She's dead. After all we've been through to bring her back home safely. After everything that's happened this past week. She died, just like that. And not even Daren can bring her back.
 
@@ -984,20 +998,6 @@ Kate stops for a few seconds, in order to rub her eyes with her hands, as she tr
  "Hey, now, hold on there!" Hadrik says. "You can't just go and blame this all on yourself. Rose knew very well what she was getting into when she decided to stick with us after what happened yesterday with the noble. She made her own choice and she stuck by it until the end. She died with honor, and we should all respect her for that."
 
 "What do you know about Rose?!" Daren shouts furiously, all of a sudden. "Do you think she wanted to live her last moments in a cesspool like this? Do you think she died happily, knowing that she left her little siblings behind to fend for themselves? Do you seriously think that everything in the world can be measured by your primitive values? What gives you the right to talk about Rose this way? Tell me!"
-
-}
-#if(v_hearing == 4 && v_perception < 4) {
- 
-
-While Hadrik and Arraka are talking, I hear the sound of stones starting to crumble somewhere on the opposite side of the market square. I turn around, in order to try and identify the source of the sound, but I don't see anyone in that direction except Rose.   
-
-Suddenly, the stones on the ground in front of Rose get sent flying into the air, as a skeleton emerges from underneath them and quickly uses a rusted knife to stab her in the heart. Rose had no time to react. At first, there was only shock in her eyes, but soon, her facial expression turned blank, while her arms hung beside her, motionless. As the light leaves Rose's eyes completely, her attacker presses the knife harder into her chest, making her fall on her back, while the skeleton crumbles into pieces.
-
-"Rose!" Daren shouts, as he rushes towards her.
-
-When he reaches her, Daren starts casting a healing spell, but Rose does not react to it in any way. We all gather around the two of them, and watch them without saying a word, as Daren continues to cast healing spell after healing spell, while Rose is staring blankly into the distance, without moving a muscle.
-
-"Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
 
 }
 #if(v_hearing == 4 && v_perception == 4 && v_agility < 4) {
@@ -1134,6 +1134,24 @@ choice("Proceed towards book 2", Ch11b-Credits, v_current_scene = Ch11b-Credits,
 
 ID: Ch11b-Credits
 TEXT:
+
+ This marks the end of the first Magium book.
+
+The second book has been completed and is ready to unlock, but only the first eleven chapters of book 3 are available so far, with the next chapters to be released one by one, as I write them. (the main series will likely have 5 books in total)
+
+My current estimate is that the 12th chapter of the third book should be released within the next few months.
+
+If you already paid to unlock the 2nd book, you can tap on the button below to proceed. Otherwise, you will need to complete 25 achievements from the 1st book in order to unlock the second one.
+
+You can see how many more achievements you need to complete in the achievements menu. 
+
+I would also like to add that I strongly suggest you save the game now on a save slot you won't overwrite, if you're planning to start completing achievements, since otherwise you'll lose the progress of your current playthrough and you'll have to finish the game again in order to be able to progress to the next book.
+
+You should also be careful to not uninstall the game, since all of the next books will be uploaded within the same app, and if you uninstall the game, all your local progress, including your achievements, will be lost.
+
+Thank you for playing!
+
+P.S. If you enjoyed the game, don't forget to recommend it to your friends. 
 
 choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_b1_strength = Strength aux, v_b1_agility = Agility aux, v_b1_toughness = Toughness aux, v_b1_reflexes = Reflexes aux, v_b1_hearing = Hearing aux, v_b1_perception = Perception aux, v_b1_ancient_languages = Ancient languages aux, v_b1_combat_technique = Combat technique aux, v_b1_premonition = Premonition aux, v_b1_available_points = Available points aux, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements >= 25 || v_first_book_purchased == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)

@@ -534,14 +534,6 @@ As I do what he says, I realize that he is right. When I imagined myself hitting
 I waste no time and I run towards the noble, while I ready up my right fist. As soon as I reach him, I punch him hard in the face, which makes him fall on his back. 
 
 }
-#if(v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2) {
- "What is the meaning of this?!" the noble shouts, furious, from the ground. "How DARE you? Do you know who I am?!"
-
-"Sure," I tell him. "You're just another rich jackass who let all his wealth and social status go to his head. Welcome to the real world, buddy!"
-
-"Do you think you can afford to act cocky just because you somehow managed to break through the tournament's protection spell?" the noble says. "You have no idea who you're dealing with here, boy. Being eliminated from the mage tournament will be the least of your worries when I'm done with you."
-
-}
 #if(v_ch11_saved_slave == 2) {
  "Fine," I say. "Give me the power. I'll go save the girl."
 
@@ -558,6 +550,14 @@ The stillwater then raises his hands, and a powerful wind starts spinning around
 As I do what he says, I realize that he is right. When I imagined myself hitting the noble before, I definitely felt some sort of force that was trying to stop my very train of thoughts from forming, but none of that happened anymore.
  
 I waste no time and I run towards the noble, while I ready up my right fist. As soon as I reach him, I punch him hard in the face, which makes him fall on his back and drop his knife.
+
+}
+#if(v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2) {
+ "What is the meaning of this?!" the noble shouts, furious, from the ground. "How DARE you? Do you know who I am?!"
+
+"Sure," I tell him. "You're just another rich jackass who let all his wealth and social status go to his head. Welcome to the real world, buddy!"
+
+"Do you think you can afford to act cocky just because you somehow managed to break through the tournament's protection spell?" the noble says. "You have no idea who you're dealing with here, boy. Being eliminated from the mage tournament will be the least of your worries when I'm done with you."
 
 }
 choice("Kill the noble and be done with it.", Ch11a-Thousands, v_current_scene = Ch11a-Thousands, v_ch11_kill_noble = 1) if (v_ch11_saved_slave == 1 || v_ch11_saved_slave == 2)
@@ -607,6 +607,22 @@ Rose is looking a bit scared, as the noble points his finger towards her.
 Before he gets to finish his threat, the noble gets engulfed in flames, and within a matter of seconds, he turns into ashes, while the fire dies out almost as quickly as it appeared. The townsfolk who were walking down the street until now are all stopping to look at the pile of ashes gathering on the ground, with a terrified look in their eyes.
 
 }
+#if(v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2) {
+ "Listen closely, because I'm only going to say this once," I say. "You're going to get the hell out of my sight and you're going to leave the girl with us. Do you understand?"
+
+"The slave girl?!" the noble says. "You've just forfeited your life and that of your friends for the sake of a worthless slave? I'm going to give her to you if that's what you want, outsider. But I hope you're not stupid enough to think that I'm going to hand her over in one piece."
+
+The noble tries to grab his knife from the ground, but I step on his hand with my boot before he takes the weapon, which makes him scream in pain and retract his arm as quickly as possible.
+
+"You're going to pay for this, outsider!" the noble says, as he jumps back from me. "You all will! Including you, herbalist girl!"
+
+Rose is looking a bit scared, as the noble points his finger towards her.
+
+"That's right!" he says. "I remember who you are! I know where you live! Say goodbye to the peaceful life you've been leading until now. It's only going to be hell for you after I-- AAAARRRGH!!!"
+
+Before he gets to finish his threat, the noble gets engulfed in flames, and within a matter of seconds, he turns into ashes, while the fire dies out almost as quickly as it appeared. The townsfolk who were walking down the street until now are all stopping to look at the pile of ashes gathering on the ground, with a terrified look in their eyes.
+
+}
 #if(v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1 || v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2) {
  ”See, Barry, this is how you get the job done right," Eiden says. "You wouldn't want to cause your lovely host more trouble than you already have, would you?"
 
@@ -623,22 +639,6 @@ Eiden smiles.
 Eiden smiles widely.
 
 "Unless of course, you only plan on saving the ones that cross your path, so you can pat yourself on the back, and pretend that you made a difference."
-
-}
-#if(v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2) {
- "Listen closely, because I'm only going to say this once," I say. "You're going to get the hell out of my sight and you're going to leave the girl with us. Do you understand?"
-
-"The slave girl?!" the noble says. "You've just forfeited your life and that of your friends for the sake of a worthless slave? I'm going to give her to you if that's what you want, outsider. But I hope you're not stupid enough to think that I'm going to hand her over in one piece."
-
-The noble tries to grab his knife from the ground, but I step on his hand with my boot before he takes the weapon, which makes him scream in pain and retract his arm as quickly as possible.
-
-"You're going to pay for this, outsider!" the noble says, as he jumps back from me. "You all will! Including you, herbalist girl!"
-
-Rose is looking a bit scared, as the noble points his finger towards her.
-
-"That's right!" he says. "I remember who you are! I know where you live! Say goodbye to the peaceful life you've been leading until now. It's only going to be hell for you after I-- AAAARRRGH!!!"
-
-Before he gets to finish his threat, the noble gets engulfed in flames, and within a matter of seconds, he turns into ashes, while the fire dies out almost as quickly as it appeared. The townsfolk who were walking down the street until now are all stopping to look at the pile of ashes gathering on the ground, with a terrified look in their eyes.
 
 }
 choice(""Yes, I'm going to save them all."", Ch11a-Difference, v_current_scene = Ch11a-Difference, v_ch11_difference = 1) if (v_ch11_kill_noble == 0 && v_ch11_saved_slave == 1 || v_ch11_kill_noble == 0 && v_ch11_saved_slave == 2 || v_ch11_kill_noble == 1)
@@ -659,16 +659,6 @@ As I was talking, I noticed that Eiden opened his eyes for the first time since 
 Eiden raises himself in the air and he prepares to teleport out of the city.
 
 "Oh, there's one last thing I should tell you before I go," the stillwater says, as he turns to Daren and Kate. "The spell I cast just now on Barry was an area of effect spell and not a targeted one. This means that it affected the whole area around me and not just him, so the two of you have been given the same gift as your friend. The effect of my spell lasts indefinitely, so this power is yours to use as you please from this day forward. With this said and done, I bid you farewell!"
-
-}
-#if(v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3) {
- Eiden then snaps his fingers, and he immediately disappears without a trace.
-
-"Sir..." the slave girl says, as she pulls on my sleeve softly. "Excuse me, sir..."
-
-As I turn around, the girl takes a bow, and then she introduces herself.
-
-"My name is Ella," she says, "but most of my masters simply called me 'slave girl'. I know I may not look like much, but if you will have me, I vow to serve you to the best of my ability, until the day I die. Just give me my first order, and our contract will be complete."
 
 }
 #if(v_ch11_difference == 2) {
@@ -693,6 +683,16 @@ Eiden pauses a bit to ponder on my question.
 Eiden raises himself in the air and he prepares to teleport out of the city.
 
 "Oh, there's one last thing I should tell you before I go," the stillwater says, as he turns to Daren and Kate. "The spell I cast just now on Barry was an area of effect spell and not a targeted one. This means that it affected the whole area around me and not just him, so the two of you have been given the same gift as your friend. The effect of my spell lasts indefinitely, so this power is yours to use as you please from this day forward. With this said and done, I bid you farewell!"
+
+}
+#if(v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3) {
+ Eiden then snaps his fingers, and he immediately disappears without a trace.
+
+"Sir..." the slave girl says, as she pulls on my sleeve softly. "Excuse me, sir..."
+
+As I turn around, the girl takes a bow, and then she introduces herself.
+
+"My name is Ella," she says, "but most of my masters simply called me 'slave girl'. I know I may not look like much, but if you will have me, I vow to serve you to the best of my ability, until the day I die. Just give me my first order, and our contract will be complete."
 
 }
 choice(""Sure thing! I guess you can start by shining my boots! They're a little dirty."", Ch11a-Boots, v_current_scene = Ch11a-Boots) if (v_ch11_difference == 1 || v_ch11_difference == 2 || v_ch11_difference == 3)

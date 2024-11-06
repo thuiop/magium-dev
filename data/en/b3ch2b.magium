@@ -142,20 +142,6 @@ TEXT:
 "It appears that you would like to change your initial designation," the metal ball says. "Unfortunately, it is not possible to change your group's name at this time. You will therefore continue to be referred to as 'Felran, the strongest fire elementalist on the Eastern Continent' for the time being. We apologize for the inconvenience."
 
 }
-#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
- "Hey, no problem!" I say. "In that case, I guess we'll be goin--"
-
-"In order for this unit to be able to properly guide you through the city, you will first need to specify your intended destination," the metal ball says.
-
-"I just told you that we don't need a guide!" I say. "We can handle ourselves just fine."
-
-"Negative," the metal ball says. "All merchants coming from foreign cities are our esteemed guests. It is this unit's job to ensure that your business is conducted as smoothly as possible. However, in order to guide you, this unit will first need to know where you are headed."
-
-"And what if we don't give you our destination?..." Daren says.
-
-"Error," the metal ball says. "This unit is not equipped to deal with such a scenario. Initiating experimental artificial intelligence protocol: designation Overseer. Please standby. Your inquiry will be answered shortly."
-
-}
 #if(v_b3_ch2_name == 1) {
  After we walk for a few more minutes, another flying metal ball with a propeller on top is slowly making its way towards us, except this one seems to have its eye illuminated by a green light instead of a red one. The 'droon' stops in front of us and just like the one before, it rotates left and right, so its eye can get a good look at everyone in our group.
 
@@ -210,6 +196,20 @@ TEXT:
 "Oh, we were being asked what our group's name was?" I say. "I thought we were supposed to give our individual names. Can we still change our designation after we already gave it?"
 
 "It appears that you would like to change your initial designation," the metal ball says. "Unfortunately, it is not possible to change your group's name at this time. You will therefore continue to be referred to as 'Da-ren' for the time being. We apologize for the inconvenience."
+
+}
+#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
+ "Hey, no problem!" I say. "In that case, I guess we'll be goin--"
+
+"In order for this unit to be able to properly guide you through the city, you will first need to specify your intended destination," the metal ball says.
+
+"I just told you that we don't need a guide!" I say. "We can handle ourselves just fine."
+
+"Negative," the metal ball says. "All merchants coming from foreign cities are our esteemed guests. It is this unit's job to ensure that your business is conducted as smoothly as possible. However, in order to guide you, this unit will first need to know where you are headed."
+
+"And what if we don't give you our destination?..." Daren says.
+
+"Error," the metal ball says. "This unit is not equipped to deal with such a scenario. Initiating experimental artificial intelligence protocol: designation Overseer. Please standby. Your inquiry will be answered shortly."
 
 }
 choice("Continue", B3-Ch02b-Formulating, v_current_scene = B3-Ch02b-Formulating) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
@@ -335,18 +335,6 @@ choice("Continue", B3-Ch02b-Crisis, v_current_scene = B3-Ch02b-Crisis, v_b3_ch2_
 ID: B3-Ch02b-Premonition
 TEXT:
 
- 
-
-After we walk for a few more minutes, we start to notice that a lot more metal balls with propellers on top are slowly gathering in the air above, and that they are all flying in one big circle. No matter how fast or how slow we're moving, the metal balls are always making sure that they're positioned right above us, although aside from following us, they don't seem to be doing much else. At least for now...
-
-"Melindra," Kate says, "is it normal for the flying golem heads to behave in this way?"
-
-"No, I've never seen them act like this before," Melindra says. "It looks like they're preparing for something. But I'm not sure exactly what."
-
-"We haven't seen any guards since we got past the gates, and I'm noticing that there are fewer and fewer civilians the further we move into the city," Daren says. "Logically speaking, there should be at least some sort of ambush waiting for us soon. Don't you think that these flying contraptions are also a part of the ambush in some way?"
-
-"I don't know," Melindra says. "I've never seen them attack anyone before. As far as I'm aware, they shouldn't have any offensive capabilities, but it's been a long time, so things might have changed since the last time I saw them."
-
 #if(v_premonition < 3) {
  "They could still be transmitting our position to the other guards, so they can better know where to wait for us," Daren says. "I think it would be safer to take all the metal balls out before we go any further. Kate, could you do the honors?"
 
@@ -369,6 +357,18 @@ All of a sudden, I see a premonition in which the metal balls swiftly dodge almo
 "Flower and I could also ready up some fire arrows and water lances, in order to shoot the metal balls right as they try to dodge Kate's icicles," Illuna says. "No matter how good they are at evading attacks in mid-air, I doubt they'd be able to avoid three consecutive waves of projectiles."
 
 }
+ 
+
+After we walk for a few more minutes, we start to notice that a lot more metal balls with propellers on top are slowly gathering in the air above, and that they are all flying in one big circle. No matter how fast or how slow we're moving, the metal balls are always making sure that they're positioned right above us, although aside from following us, they don't seem to be doing much else. At least for now...
+
+"Melindra," Kate says, "is it normal for the flying golem heads to behave in this way?"
+
+"No, I've never seen them act like this before," Melindra says. "It looks like they're preparing for something. But I'm not sure exactly what."
+
+"We haven't seen any guards since we got past the gates, and I'm noticing that there are fewer and fewer civilians the further we move into the city," Daren says. "Logically speaking, there should be at least some sort of ambush waiting for us soon. Don't you think that these flying contraptions are also a part of the ambush in some way?"
+
+"I don't know," Melindra says. "I've never seen them attack anyone before. As far as I'm aware, they shouldn't have any offensive capabilities, but it's been a long time, so things might have changed since the last time I saw them."
+
 choice("Let Kate shoot the metal balls", B3-Ch02b-Contraptions0, v_current_scene = B3-Ch02b-Contraptions0, v_b3_ch2_contraptions = 0) if (v_premonition < 3)
 choice(""Maybe Daren should make a barrier for us first, just in case."", B3-Ch02b-Contraptions1, v_current_scene = B3-Ch02b-Contraptions1, v_b3_ch2_contraptions = 1) if (v_premonition < 3)
 choice(""Yeah, that could work."", B3-Ch02b-Contraptions2, v_current_scene = B3-Ch02b-Contraptions2, v_b3_ch2_contraptions = 2) if (v_premonition >= 3)
@@ -639,16 +639,6 @@ After smacking the floor two more times with his scepter, the man in blue robes 
 "My beloved people!" the king says. "As I've announced yesterday, our Creator has finally returned. I've spoken to him yesterday, and he has gracefully agreed to participate in this ceremony, in order to receive the blessing of the God of the Seas, just like every other citizen of Ollendor. Once he becomes one of us, I'm certain that he will guide us to new heights, and together with him we will no longer need to fear any of our enemies!"
 
 }
- "Actually, oh great and wise king," Eiden says, "my role for now will be that of an observer, rather than an active participant in your politics. I have reasons to believe that your kingdom will face a great challenge in the near future, and I am very interested to see how you and your people will handle this crisis. I have heard many praises about your skilled leadership, and I am most anxious to witness your decision-making process up-close. I am confident that you will not betray my expectations."
-
-"Of course, Creator!" the king says. "Whatever this crisis may be, I will make sure that you won't be disappointed. High priest, you may begin the ceremony!"
-
-As soon as the king gives the signal, the priest begins chanting again, and both the king and Eiden fall silent once more.
-
-"I knew it..." Daren says. "That bastard knows exactly what we're planning to do, and the only reason why he came here is to get a better view of the show. He's just going to sit there, sipping his tea, while the rest of us murder each other for his amusement."
-
-"As long as he's not planning to interfere in any way, he can drink as much tea as he wants, for all I care," Melindra says. "Let's just hope that he won't get bored of watching and decide to join in the fun, later."
-
 #if(v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3) {
  As Melindra begins to concentrate on remembering the right way towards the palace, I can feel the air currents around me disappearing, likely because she can no longer maintain her focus on them.
 
@@ -661,6 +651,16 @@ After smacking the floor two more times with his scepter, the man in blue robes 
 "My beloved people!" the king says. "As I've announced yesterday, our Creator has finally returned. I've spoken to him yesterday, and he has gracefully agreed to participate in this ceremony, in order to receive the blessing of the God of the Seas, just like every other citizen of Ollendor. Once he becomes one of us, I'm certain that he will guide us to new heights, and together with him we will no longer need to fear any of our enemies!"
 
 }
+ "Actually, oh great and wise king," Eiden says, "my role for now will be that of an observer, rather than an active participant in your politics. I have reasons to believe that your kingdom will face a great challenge in the near future, and I am very interested to see how you and your people will handle this crisis. I have heard many praises about your skilled leadership, and I am most anxious to witness your decision-making process up-close. I am confident that you will not betray my expectations."
+
+"Of course, Creator!" the king says. "Whatever this crisis may be, I will make sure that you won't be disappointed. High priest, you may begin the ceremony!"
+
+As soon as the king gives the signal, the priest begins chanting again, and both the king and Eiden fall silent once more.
+
+"I knew it..." Daren says. "That bastard knows exactly what we're planning to do, and the only reason why he came here is to get a better view of the show. He's just going to sit there, sipping his tea, while the rest of us murder each other for his amusement."
+
+"As long as he's not planning to interfere in any way, he can drink as much tea as he wants, for all I care," Melindra says. "Let's just hope that he won't get bored of watching and decide to join in the fun, later."
+
 choice(""I think he just wants to see how things will play out. I doubt he'll join in."", B3-Ch02b-Doubt, v_current_scene = B3-Ch02b-Doubt)
 choice(""Even if there is interference from him, I don't think it will be anything too major."", B3-Ch02b-Major, v_current_scene = B3-Ch02b-Major)
 choice(""You think he might want to fight us?"", B3-Ch02b-Fight, v_current_scene = B3-Ch02b-Fight)
@@ -671,20 +671,6 @@ TEXT:
 
 set(v_b3_ch2_hearing,0) if (v_b3_ch1_unlock == 2 || v_hearing < 3)
 set(v_b3_ch2_hearing,1) if (v_hearing >= 3 && v_b3_ch1_unlock != 2)
- When we get a little closer to the margin of the plaza, Melindra suddenly signals us to stop, and she begins watching the entrance to an alleyway in front of her very attentively. As we try to understand what got her attention, we see that three men are currently entering the plaza, two of which appear to be participants in the tournament, given that I'm not seeing any warnings to not injure them.
-
-The three of them are wearing similar looking blue-colored uniforms on top of their armors, although the man who is a local from Varathia seems to have different markings drawn on his garments, likely as a result of being higher ranked than the others. Of the two tournament participants, one of them is particularly bulky and tall, reminding me somewhat of Bruce from the Thilias arena, except that he has a long black beard, a bald head, the look of a seasoned war veteran in his eyes, and he does not appear to be holding any weapons.
-
-The second tournament participant is dark-skinned, although his skin tone is of a lighter shade than that of Daren and his ex-mentor. He has short black hair, he seems to be in his early thirties, and he has two long swords hanging from his belt, which indicates that he's likely using a dual-wielding combat style when he fights.
-
- The man who is of higher rank is also the oldest one in the group, looking like he's over sixty years of age, with long white hair and quite a few wrinkles on his face. Just like the bulky man in their group, he is not holding any weapons, although if I were to take a guess, I'd say that's because he probably uses only magic when he fights, as opposed to his muscular companion, who most likely prefers to fight with his fists.
-
-As the men notice us, they begin to slowly head in our direction, while looking straight at us.
-
-"By the looks of those uniforms, these are likely the king's royal guards," Melindra tells us in a low voice. "Be cautious. They're all heavily suppressing their auras, so I can't tell just how strong they are."
-
-"Well, if it isn't my good old friend, Hadrik!" the bulky man says, with a smirk. "Somehow, I had a feeling that you'd also be participating in this tournament."
-
 #if(v_b3_ch1_unlock == 2 || v_hearing < 3) {
  
 
@@ -717,6 +703,20 @@ As we distance ourselves from the crowd, a short conversation between two people
 "Whatever you say, captain," the first voice says, and then they both fall silent.
 
 }
+ The man who is of higher rank is also the oldest one in the group, looking like he's over sixty years of age, with long white hair and quite a few wrinkles on his face. Just like the bulky man in their group, he is not holding any weapons, although if I were to take a guess, I'd say that's because he probably uses only magic when he fights, as opposed to his muscular companion, who most likely prefers to fight with his fists.
+
+As the men notice us, they begin to slowly head in our direction, while looking straight at us.
+
+"By the looks of those uniforms, these are likely the king's royal guards," Melindra tells us in a low voice. "Be cautious. They're all heavily suppressing their auras, so I can't tell just how strong they are."
+
+"Well, if it isn't my good old friend, Hadrik!" the bulky man says, with a smirk. "Somehow, I had a feeling that you'd also be participating in this tournament."
+
+ When we get a little closer to the margin of the plaza, Melindra suddenly signals us to stop, and she begins watching the entrance to an alleyway in front of her very attentively. As we try to understand what got her attention, we see that three men are currently entering the plaza, two of which appear to be participants in the tournament, given that I'm not seeing any warnings to not injure them.
+
+The three of them are wearing similar looking blue-colored uniforms on top of their armors, although the man who is a local from Varathia seems to have different markings drawn on his garments, likely as a result of being higher ranked than the others. Of the two tournament participants, one of them is particularly bulky and tall, reminding me somewhat of Bruce from the Thilias arena, except that he has a long black beard, a bald head, the look of a seasoned war veteran in his eyes, and he does not appear to be holding any weapons.
+
+The second tournament participant is dark-skinned, although his skin tone is of a lighter shade than that of Daren and his ex-mentor. He has short black hair, he seems to be in his early thirties, and he has two long swords hanging from his belt, which indicates that he's likely using a dual-wielding combat style when he fights.
+
 choice("Continue", B3-Ch02b-Gontrok, v_current_scene = B3-Ch02b-Gontrok)
 
 
@@ -725,20 +725,6 @@ TEXT:
 
 set(v_b3_ch2_hearing,0) if (v_b3_ch1_unlock == 2 || v_hearing < 3)
 set(v_b3_ch2_hearing,1) if (v_hearing >= 3 && v_b3_ch1_unlock != 2)
- When we get a little closer to the margin of the plaza, Melindra suddenly signals us to stop, and she begins watching the entrance to an alleyway in front of her very attentively. As we try to understand what got her attention, we see that three men are currently entering the plaza, two of which appear to be participants in the tournament, given that I'm not seeing any warnings to not injure them.
-
-The three of them are wearing similar looking blue-colored uniforms on top of their armors, although the man who is a local from Varathia seems to have different markings drawn on his garments, likely as a result of being higher ranked than the others. Of the two tournament participants, one of them is particularly bulky and tall, reminding me somewhat of Bruce from the Thilias arena, except that he has a long black beard, a bald head, the look of a seasoned war veteran in his eyes, and he does not appear to be holding any weapons.
-
-The second tournament participant is dark-skinned, although his skin tone is of a lighter shade than that of Daren and his ex-mentor. He has short black hair, he seems to be in his early thirties, and he has two long swords hanging from his belt, which indicates that he's likely using a dual-wielding combat style when he fights.
-
- The man who is of higher rank is also the oldest one in the group, looking like he's over sixty years of age, with long white hair and quite a few wrinkles on his face. Just like the bulky man in their group, he is not holding any weapons, although if I were to take a guess, I'd say that's because he probably uses only magic when he fights, as opposed to his muscular companion, who most likely prefers to fight with his fists.
-
-As the men notice us, they begin to slowly head in our direction, while looking straight at us.
-
-"By the looks of those uniforms, these are likely the king's royal guards," Melindra tells us in a low voice. "Be cautious. They're all heavily suppressing their auras, so I can't tell just how strong they are."
-
-"Well, if it isn't my good old friend, Hadrik!" the bulky man says, with a smirk. "Somehow, I had a feeling that you'd also be participating in this tournament."
-
 #if(v_b3_ch1_unlock == 2 || v_hearing < 3) {
  
 
@@ -771,6 +757,20 @@ As we distance ourselves from the crowd, a short conversation between two people
 "Whatever you say, captain," the first voice says, and then they both fall silent.
 
 }
+ The man who is of higher rank is also the oldest one in the group, looking like he's over sixty years of age, with long white hair and quite a few wrinkles on his face. Just like the bulky man in their group, he is not holding any weapons, although if I were to take a guess, I'd say that's because he probably uses only magic when he fights, as opposed to his muscular companion, who most likely prefers to fight with his fists.
+
+As the men notice us, they begin to slowly head in our direction, while looking straight at us.
+
+"By the looks of those uniforms, these are likely the king's royal guards," Melindra tells us in a low voice. "Be cautious. They're all heavily suppressing their auras, so I can't tell just how strong they are."
+
+"Well, if it isn't my good old friend, Hadrik!" the bulky man says, with a smirk. "Somehow, I had a feeling that you'd also be participating in this tournament."
+
+ When we get a little closer to the margin of the plaza, Melindra suddenly signals us to stop, and she begins watching the entrance to an alleyway in front of her very attentively. As we try to understand what got her attention, we see that three men are currently entering the plaza, two of which appear to be participants in the tournament, given that I'm not seeing any warnings to not injure them.
+
+The three of them are wearing similar looking blue-colored uniforms on top of their armors, although the man who is a local from Varathia seems to have different markings drawn on his garments, likely as a result of being higher ranked than the others. Of the two tournament participants, one of them is particularly bulky and tall, reminding me somewhat of Bruce from the Thilias arena, except that he has a long black beard, a bald head, the look of a seasoned war veteran in his eyes, and he does not appear to be holding any weapons.
+
+The second tournament participant is dark-skinned, although his skin tone is of a lighter shade than that of Daren and his ex-mentor. He has short black hair, he seems to be in his early thirties, and he has two long swords hanging from his belt, which indicates that he's likely using a dual-wielding combat style when he fights.
+
 choice("Continue", B3-Ch02b-Gontrok, v_current_scene = B3-Ch02b-Gontrok)
 
 
@@ -795,14 +795,6 @@ The three of them are wearing similar looking blue-colored uniforms on top of th
 The second tournament participant is dark-skinned, although his skin tone is of a lighter shade than that of Daren and his ex-mentor. He has short black hair, he seems to be in his early thirties, and he has two long swords hanging from his belt, which indicates that he's likely using a dual-wielding combat style when he fights.
 
 }
- The man who is of higher rank is also the oldest one in the group, looking like he's over sixty years of age, with long white hair and quite a few wrinkles on his face. Just like the bulky man in their group, he is not holding any weapons, although if I were to take a guess, I'd say that's because he probably uses only magic when he fights, as opposed to his muscular companion, who most likely prefers to fight with his fists.
-
-As the men notice us, they begin to slowly head in our direction, while looking straight at us.
-
-"By the looks of those uniforms, these are likely the king's royal guards," Melindra tells us in a low voice. "Be cautious. They're all heavily suppressing their auras, so I can't tell just how strong they are."
-
-"Well, if it isn't my good old friend, Hadrik!" the bulky man says, with a smirk. "Somehow, I had a feeling that you'd also be participating in this tournament."
-
 #if(v_hearing >= 3 && v_b3_ch1_unlock != 2) {
  
 
@@ -831,6 +823,14 @@ The three of them are wearing similar looking blue-colored uniforms on top of th
 The second tournament participant is dark-skinned, although his skin tone is of a lighter shade than that of Daren and his ex-mentor. He has short black hair, he seems to be in his early thirties, and he has two long swords hanging from his belt, which indicates that he's likely using a dual-wielding combat style when he fights.
 
 }
+ The man who is of higher rank is also the oldest one in the group, looking like he's over sixty years of age, with long white hair and quite a few wrinkles on his face. Just like the bulky man in their group, he is not holding any weapons, although if I were to take a guess, I'd say that's because he probably uses only magic when he fights, as opposed to his muscular companion, who most likely prefers to fight with his fists.
+
+As the men notice us, they begin to slowly head in our direction, while looking straight at us.
+
+"By the looks of those uniforms, these are likely the king's royal guards," Melindra tells us in a low voice. "Be cautious. They're all heavily suppressing their auras, so I can't tell just how strong they are."
+
+"Well, if it isn't my good old friend, Hadrik!" the bulky man says, with a smirk. "Somehow, I had a feeling that you'd also be participating in this tournament."
+
 choice("Continue", B3-Ch02b-Gontrok, v_current_scene = B3-Ch02b-Gontrok)
 
 
@@ -863,6 +863,42 @@ Gontrok then laughs heartily, as Hadrik is looking like he could easily murder h
 "This man is no dwarf, captain," Gontrok says. "He's a giant, just like I am. He probably got ordered by one of the tournament organizers to stay in his dwarf form if he didn't want to get kicked out, just like they told me to stay in my human form. All giants who want to travel outside their home country need to learn shapeshifting magic to make themselves smaller, or they won't be accepted into other societies."
 
 }
+#if(v_b3_ch2_goblins == 3 || v_b3_ch2_goblins == 4 || v_b3_ch2_infiltration == 3) {
+ "I don't care about your race's history, recruit," the captain says in a cold tone. "What I do want to know, on the other hand, is who invited all of these tournament participants into our city. Tell me, travelers, what is the name of the citizen of Ollendor who gave you the password?"
+
+"We can't tell you his name," Daren says. "He asked us to keep his identity a secret."
+
+"There are no secrets to be kept from the royal guard," the captain says. "I will ask you only one more time. What is the name of the person who invited you here?"
+
+Gontrok laughs.
+
+"You know full well that nobody invited them," he says. "They probably overheard some villagers talking about the password or something and then told the guard at the entrance the same story that they told us."
+
+"If you people are not going to give me a name, then we will have to take you into custody," the captain tells us.
+
+"And if we refuse to come with you?" Daren asks.
+
+"Then we will execute you on the spot," the captain says.
+
+"See, now that's what I've been waiting to hear!" Gontrok says. "To be perfectly honest, I've been itching to have another fight with Hadrik for a long time, and I don't think I'll ever get a better opportunity than this. You two stay back! I alone should be enough to finish them all off!"
+
+}
+#if(v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3) {
+ "I don't care about your race's history, recruit," the captain says, in a cold tone. "What I do care about, however, is the reason why these criminals have still not been apprehended by our city guards. From the descriptions we received, these are clearly the hoodlums that destroyed our front gates and invaded our city."
+
+"As long as we deal with them ourselves, it doesn't really matter that much, does it, captain?" Gontrok says. "To be perfectly honest, I've been itching to have another fight with Hadrik for a long time, and I don't think I'll ever get a better opportunity than this. You two stay back! I alone should be enough to finish them all off!"
+
+}
+ "Even if you hadn't asked me, I still wouldn't have joined the fight," the dark-skinned royal guard says. "Our orders from the king were to defend the plaza from any possible attackers, not to pick random fights with outsiders. If these people truly are lawbreakers, then let the city guards deal with them. Why should we have to get involved?"
+
+"Do you two not realize that this is insubordination?!" the captain says. "I'm ordering you right now to fight as a team, or I will make sure you'll face the consequences!"
+
+"Zip it," Gontrok says. "I don't have to listen to you. I only take orders from the king. If you don't like the way I'm handling things, then go file a complaint. Meanwhile, I'll be starting off by quickly disposing of my good old friend over there."
+
+"You really think you can take me on by yourself?" Hadrik asks, with a somewhat forced grin.
+
+"Perhaps you've forgotten, Hadrik," Gontrok says, "but I've learned many of the weaknesses in your combat style, back when we were sparring repeatedly in our homeland. You likely learned many of my weaknesses too, but I've worked hard to overcome them since then, and I've already changed my combat style dramatically in these last years. But the question is... did you change yours?"
+
 choice("Continue", B3-Ch02b-Gontrok2, v_current_scene = B3-Ch02b-Gontrok2) if (v_b3_ch2_hearing == 0 || v_b3_ch2_hearing == 1)
 
 
@@ -893,16 +929,36 @@ choice("Continue", B3-Ch02b-Gontrok3, v_current_scene = B3-Ch02b-Gontrok3)
 ID: B3-Ch02b-Gontrok3
 TEXT:
 
+#if(v_b2_ch5_scimitar == 0) {
+ When Daren reaches him, Gontrok dodges his first strike, and then he tries to hit him with a spinning kick to the side. Daren raises his shield up to defend himself, but that doesn't help him counteract the immense force behind the blow, which sends him flying straight into a wall. Before he manages to get back up, Gontrok is already standing next to him, and he kicks him one more time in the chest, launching him with his back into the wall, which makes him lose his grip on his sword and to drop it on the ground.
+
+"You won't be needing this anymore," Gontrok says, as he grabs his sword and throws it to the side. "Not where you're going."
+
+A feeling of intense panic overwhelms me as I see what's happening before my eyes. Daren is no match for him. Hadrik is still missing. Everybody else is busy with the captain and they can't help us. I'm on my own. How do I deal with this?
+
+Neither my dagger nor my crossbow bolts are sharp enough to cut through a giant's skin. There has to be some other way in which I can fight him. There has to be a way. I'm sure that if I calm down I'll be able to think of something. I just know it. So why can't I calm down?!
+
+}
+#if(v_b2_ch5_scimitar != 0) {
+ When Daren reaches him, Gontrok dodges his first strike, and then he tries to hit him with a spinning kick to the side. Daren raises his shield up to defend himself, but that doesn't help him counteract the immense force behind the blow, which sends him flying straight into a wall. Before he manages to get back up, Gontrok is already standing next to him, and he kicks him one more time in the chest, launching him with his back into the wall, which makes him lose his grip on his sword and to drop it on the ground.
+
+"You won't be needing this anymore," Gontrok says, as he grabs his sword and throws it to the side. "Not where you're going."
+
+A feeling of intense panic overwhelms me as I see what's happening before my eyes. Daren is no match for him. Hadrik is still missing. Everybody else is busy with the captain and they can't help us. I'm on my own. How do I deal with this?
+
+Neither my scimitar nor my crossbow bolts are sharp enough to cut through a giant's skin. There has to be some other way in which I can fight him. There has to be a way. I'm sure that if I calm down I'll be able to think of something. I just know it. So why can't I calm down?!
+
+}
+#if(v_b3_ch2_confess == 1) {
+ Just as I'm trying to figure out what strategy to use, a sudden thought crosses my mind. Didn't that green-eyed drone tell me earlier that the captain doesn't trust the new recruits? It even went as far as suggesting that I could use this conflict of theirs to my advantage in a fight. From what I understood, the problem they're having is that the captain thinks Gontrok and the other guy are planning to steal from their treasury. I wonder what would happen if I tried to stir the pot a little?
+
+}
  As my body is shivering uncontrollably, I suddenly feel several air currents beginning to flow around me, and for some reason, the feeling of the wind moving slowly against my skin has a weirdly calming effect on me, which helps me to regain my composure and to stop my trembling. I immediately realize that this is Melindra's flying spell, and as I turn around to face her, she gives me a very serious look, and she nods her head towards Daren, who is still being kicked around by Gontrok.
 
 She's telling me to go help him. But how? 
 
 As I look around myself to see what I could possibly make use of, I notice that Daren's sword is simply lying on the ground, ripe for the taking. Yes... with a weapon like this I should definitely be able to hurt the giant. That is to say, as long as I can manage to land a hit...
 
-#if(v_b3_ch2_confess == 1) {
- Just as I'm trying to figure out what strategy to use, a sudden thought crosses my mind. Didn't that green-eyed drone tell me earlier that the captain doesn't trust the new recruits? It even went as far as suggesting that I could use this conflict of theirs to my advantage in a fight. From what I understood, the problem they're having is that the captain thinks Gontrok and the other guy are planning to steal from their treasury. I wonder what would happen if I tried to stir the pot a little?
-
-}
 #if(v_b3_ch2_hearing == 1 && v_b3_ch2_confess != 1) {
  Just as I'm trying to figure out what strategy to use, a sudden thought crosses my mind. Didn't I hear the captain and the giant having a fight in that alleyway before they came here? They were definitely not on good terms with each other. In fact, it felt like they were a moment away from jumping at each other's throats. I wonder what would happen if I tried to stir the pot a little?
 

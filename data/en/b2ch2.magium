@@ -126,6 +126,28 @@ The servant smiles.
 "Is there any chance you could enchant my crossbow as well?" I ask.
 
 }
+#if(v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 1) {
+ I pull the stat device out of my pocket and show it to him.
+
+"I'm talking about this item," I say. "Do you know of it?"
+
+The servant smiles.
+
+"Yes, I am familiar with it," he says. "Do not worry. The stat booster's effect does not count as spell casting. The magic detectors in the arenas will most definitely ignore it."
+
+"Hey, Barry," Daren says, and both the king's servant and I turn our heads towards him.
+
+"How long can we delay our trip to the arena?" Daren says, looking at the king's servant. "Can it wait half an hour? I was thinking that I could cast some basic sharpness and durability enchantments on my friends' daggers, if I find a shop that sells elven steel along the way."
+
+"There is enough time," the king's servant says. "If you're looking for a shop that sells enchanting materials, there should be one in the marketplace we'll be reaching shortly."
+
+"Why do you need elven steel, specifically?" I ask Daren.
+
+"Elven steel is the best quality steel that money can buy," Daren says, "and basic enchantments like sharpness and durability are highly dependent on the quality of the materials used for enchantment."
+
+"Is there any chance you could enchant my crossbow as well?" I ask.
+
+}
 #if(v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 0) {
  "You are not allowed to use ranged weapons within the arenas of Varathia," the king's servant says.
 
@@ -140,14 +162,8 @@ Daren frowns at him.
 Once he found the shop, Daren went in, and he didn't come out until exactly half an hour had passed. 
 
 }
-#if(v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 1) {
- I pull the stat device out of my pocket and show it to him.
-
-"I'm talking about this item," I say. "Do you know of it?"
-
-The servant smiles.
-
-"Yes, I am familiar with it," he says. "Do not worry. The stat booster's effect does not count as spell casting. The magic detectors in the arenas will most definitely ignore it."
+#if(v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1) {
+ "Oh, okay," I say. "Never mind, then."
 
 "Hey, Barry," Daren says, and both the king's servant and I turn our heads towards him.
 
@@ -176,22 +192,6 @@ Daren frowns at him.
 Once he found the shop, Daren went in, and he didn't come out until exactly half an hour had passed. 
 
  During this time, I used my transceiver to contact Rose, and to tell her that we wouldn't make it home in time for dinner tonight. She was shocked at first, but after she heard the whole story, she was relieved that we were at least given a chance to free ourselves. She then promised me that she will be there, in the audience, to cheer for us when the time comes.
-
-}
-#if(v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1) {
- "Oh, okay," I say. "Never mind, then."
-
-"Hey, Barry," Daren says, and both the king's servant and I turn our heads towards him.
-
-"How long can we delay our trip to the arena?" Daren says, looking at the king's servant. "Can it wait half an hour? I was thinking that I could cast some basic sharpness and durability enchantments on my friends' daggers, if I find a shop that sells elven steel along the way."
-
-"There is enough time," the king's servant says. "If you're looking for a shop that sells enchanting materials, there should be one in the marketplace we'll be reaching shortly."
-
-"Why do you need elven steel, specifically?" I ask Daren.
-
-"Elven steel is the best quality steel that money can buy," Daren says, "and basic enchantments like sharpness and durability are highly dependent on the quality of the materials used for enchantment."
-
-"Is there any chance you could enchant my crossbow as well?" I ask.
 
 }
 choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 1)
@@ -308,26 +308,6 @@ I nod to him and then go through the open door.
 "Farewell," the desk worker says, as he closes the door behind me.
 
 }
-#if(v_b2_ch2_cell == 1 || v_b2_ch2_cell == 2 || v_b2_ch2_cell == 3) {
- The room I am now finding myself in is only being lit by a few candles. The recreational area appears to be empty, except for one particularly bulky man, wearing leather armor, who is now steadily approaching me. 
-
-"I've been waiting for you," the man says, in a menacing tone. "I heard that they'd be bringing you in tonight."
-
-"Do I know you?" I ask him, confused.
-
-"No, I don't see why you would," the bulky man says, as he stops a few feet in front of me. "I don't know who you are either."
-
-"Then why were you waiting for me?" I say.
-
-"Because I've heard the guards talking," the man says. "They were talking about a group of mages who killed the earl of Ollendor, and I heard them say that a member of that group would be sent to our division tonight. I'll have to admit that I wasn't expecting a stillwater."
-
-I remain silent. There would be no point in correcting him. I'd much rather have everyone think I'm an all-powerful stillwater than give away the fact that I'm not a mage at all.
-
-"It doesn't matter, though," the bulky man continues. "You may as well be one of the four sages, for all the good it will do you. Magic is not allowed in here. I could very well crush your puny head with my bare hands and you wouldn't be able to do anything about it."
-
-"Now, why would you want to do that?" I ask him. "Aren't we supposed to be part of the same team?"
-
-}
 #if(v_b2_ch2_cell == 2) {
  "I guess I'll go with cell number five, then," I say.
 
@@ -362,6 +342,26 @@ The desk worker then pulls another key out of his pocket, and he uses it to open
 I nod to him and then go through the open door.
 
 "Farewell," the desk worker says, as he closes the door behind me.
+
+}
+#if(v_b2_ch2_cell == 1 || v_b2_ch2_cell == 2 || v_b2_ch2_cell == 3) {
+ The room I am now finding myself in is only being lit by a few candles. The recreational area appears to be empty, except for one particularly bulky man, wearing leather armor, who is now steadily approaching me. 
+
+"I've been waiting for you," the man says, in a menacing tone. "I heard that they'd be bringing you in tonight."
+
+"Do I know you?" I ask him, confused.
+
+"No, I don't see why you would," the bulky man says, as he stops a few feet in front of me. "I don't know who you are either."
+
+"Then why were you waiting for me?" I say.
+
+"Because I've heard the guards talking," the man says. "They were talking about a group of mages who killed the earl of Ollendor, and I heard them say that a member of that group would be sent to our division tonight. I'll have to admit that I wasn't expecting a stillwater."
+
+I remain silent. There would be no point in correcting him. I'd much rather have everyone think I'm an all-powerful stillwater than give away the fact that I'm not a mage at all.
+
+"It doesn't matter, though," the bulky man continues. "You may as well be one of the four sages, for all the good it will do you. Magic is not allowed in here. I could very well crush your puny head with my bare hands and you wouldn't be able to do anything about it."
+
+"Now, why would you want to do that?" I ask him. "Aren't we supposed to be part of the same team?"
 
 }
 choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell == 1 || v_b2_ch2_cell == 2 || v_b2_ch2_cell == 3)
@@ -658,14 +658,6 @@ TEXT:
 An orange hilted dagger, huh? If my memory doesn't fail me, those are a special kind of enchanted daggers that are used by trained assassins to help conceal their presence. I'd better be careful around this guy. 
 
 }
-#if(v_b2_ch2_threatened == 1 || v_b2_ch2_threatened == 2) {
- After Wilhelm closes his door, the girl with the silver hair watches me for another few seconds, and then she also goes inside her room, shutting the door behind her. I decide that there's no use in lingering around any longer, so I head towards my room as well. When I get inside my cell, I see that the only piece of furniture available to me is a bed made entirely out of stone. I lock the door with the key I got from the desk worker, I throw my backpack on the ground, and then I go to sit down on the bed. 
-
-The only source of light in the room appears to be coming from a very small window above me, which gives me a direct view towards the corridor outside the recreation area. There doesn't seem to be any movement in the tunnels outside my cell. The guards must either be sleeping, or patrolling a different corridor. I take a sweater out of my backpack and I use it as a makeshift pillow to put on my cold stone bed. As soon as I place my head on it, I fall asleep, and I wake up about seven hours later, to the sound of a guard's voice, coming from outside my cell.
-
-"Get up," the guard says. "It's recreation time. Go recreate. Come on, get out of here!"
-
-}
 #if(v_b2_ch2_threatened == 2) {
  "It's really good to know that I have a friend who won't stab me in the back with an orange hilted dagger in the middle of the arena event!" I say, in a casual tone.
 
@@ -686,30 +678,40 @@ The only source of light in the room appears to be coming from a very small wind
 See? I can pull off Eiden's smile too, you two-faced bastard. 
 
 }
+#if(v_b2_ch2_threatened == 1 || v_b2_ch2_threatened == 2) {
+ After Wilhelm closes his door, the girl with the silver hair watches me for another few seconds, and then she also goes inside her room, shutting the door behind her. I decide that there's no use in lingering around any longer, so I head towards my room as well. When I get inside my cell, I see that the only piece of furniture available to me is a bed made entirely out of stone. I lock the door with the key I got from the desk worker, I throw my backpack on the ground, and then I go to sit down on the bed. 
+
+The only source of light in the room appears to be coming from a very small window above me, which gives me a direct view towards the corridor outside the recreation area. There doesn't seem to be any movement in the tunnels outside my cell. The guards must either be sleeping, or patrolling a different corridor. I take a sweater out of my backpack and I use it as a makeshift pillow to put on my cold stone bed. As soon as I place my head on it, I fall asleep, and I wake up about seven hours later, to the sound of a guard's voice, coming from outside my cell.
+
+"Get up," the guard says. "It's recreation time. Go recreate. Come on, get out of here!"
+
+}
 choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened == 1 || v_b2_ch2_threatened == 2)
 
 
 ID: B2-Ch02a-Recreation
 TEXT:
 
-#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2) {
- I reluctantly get out of bed, put my sweater in my backpack and then head back towards the recreation area. I make sure to lock the door behind me on my way out, and then I head towards a corner of the room where there are no people around. 
-
-I take a quick look around the room to see who else they placed in my division. Aside from Bruce and Wilhelm who I met yesterday, there's the silver haired girl that was staring at me, and then there are two more individuals that both look like the gladiator versions of Cutthroat Dave. The two thugs seem to be the only ones who are actually talking to each other. The other three are each standing somewhere as far as possible from everyone else, leaning with their backs against the walls, their arms crossed, waiting for the recreation period to be over. 
-
-What am I supposed to do now? I can't say that I feel like talking with any of these people. What is there to talk about? We weren't even told what the first round will be like. How are we supposed to make a strategy? Maybe I should just go back and get a book to read or something.
-
-As I stand there and think about going back to my cell,  Bruce suddenly moves away from the wall, and he starts to head towards me. When he stops in front of me, I see that he has an unusually serious look on his face.
-
-"Listen," he says. "I saw that you were talking to Wilhelm yesterday, after your fight with me, so I wanted to give you a warning."
-
-"A warning?" I say.
-
-}
 #if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 0) {
  "Yeah," Bruce says. "About Wilhelm. He might seem like an ordinary guy to you, but in reality he's a trained assassin. I can tell by the way he moves and speaks. These assassin types can never be trusted. They're not real warriors like you and me. The only way they know how to fight is by stabbing people in the back. You should be careful around him. Don't believe anything he says!"
 
 "Huh," I say. "That's good to know. I'll look out for him. Thanks!"
+
+"Just make sure that you don't get yourself killed before the arena," Bruce says. "You're the only one besides me who can actually put up a fight in this blasted division."
+
+Bruce then pats me on the shoulder, and he goes back to where he was standing at the beginning. Just as I was about to go get that book, it is now Wilhelm who is approaching me, with a determined look on his face.
+
+"Listen," Wilhelm says. "I'm not sure exactly what you were talking about with Bruce, but you should be careful around him."
+
+"I should?" I ask him.
+
+"Yes," Wilhelm says. "You already saw the way he treated you yesterday. He is the kind of person who likes to act before he thinks, and these types of individuals are always dangerous. He might act friendly towards you now, but who knows what he'll do tomorrow. When you're up against unpredictable brutes that prefer to rely on their fists instead of their reason, you can never know when they'll turn against you."
+
+}
+#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1) {
+ "Yeah," Bruce says. "About Wilhelm. He might seem like an ordinary guy to you, but in reality he's a trained assassin. I can tell by the way he moves and speaks. These assassin types can never be trusted. They're not real warriors like you and me. The only way they know how to fight is by stabbing people in the back. You should be careful around him. Don't believe anything he says!"
+
+Oh, yeah," I say. "I figured that he was an assassin. Don't worry, I'll look out for him."
 
 "Just make sure that you don't get yourself killed before the arena," Bruce says. "You're the only one besides me who can actually put up a fight in this blasted division."
 
@@ -734,20 +736,18 @@ Bruce then pats me on the shoulder, and he goes back to where he was standing at
 "Of course," I say.
 
 }
-#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1) {
- "Yeah," Bruce says. "About Wilhelm. He might seem like an ordinary guy to you, but in reality he's a trained assassin. I can tell by the way he moves and speaks. These assassin types can never be trusted. They're not real warriors like you and me. The only way they know how to fight is by stabbing people in the back. You should be careful around him. Don't believe anything he says!"
+#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2) {
+ I reluctantly get out of bed, put my sweater in my backpack and then head back towards the recreation area. I make sure to lock the door behind me on my way out, and then I head towards a corner of the room where there are no people around. 
 
-Oh, yeah," I say. "I figured that he was an assassin. Don't worry, I'll look out for him."
+I take a quick look around the room to see who else they placed in my division. Aside from Bruce and Wilhelm who I met yesterday, there's the silver haired girl that was staring at me, and then there are two more individuals that both look like the gladiator versions of Cutthroat Dave. The two thugs seem to be the only ones who are actually talking to each other. The other three are each standing somewhere as far as possible from everyone else, leaning with their backs against the walls, their arms crossed, waiting for the recreation period to be over. 
 
-"Just make sure that you don't get yourself killed before the arena," Bruce says. "You're the only one besides me who can actually put up a fight in this blasted division."
+What am I supposed to do now? I can't say that I feel like talking with any of these people. What is there to talk about? We weren't even told what the first round will be like. How are we supposed to make a strategy? Maybe I should just go back and get a book to read or something.
 
-Bruce then pats me on the shoulder, and he goes back to where he was standing at the beginning. Just as I was about to go get that book, it is now Wilhelm who is approaching me, with a determined look on his face.
+As I stand there and think about going back to my cell,  Bruce suddenly moves away from the wall, and he starts to head towards me. When he stops in front of me, I see that he has an unusually serious look on his face.
 
-"Listen," Wilhelm says. "I'm not sure exactly what you were talking about with Bruce, but you should be careful around him."
+"Listen," he says. "I saw that you were talking to Wilhelm yesterday, after your fight with me, so I wanted to give you a warning."
 
-"I should?" I ask him.
-
-"Yes," Wilhelm says. "You already saw the way he treated you yesterday. He is the kind of person who likes to act before he thinks, and these types of individuals are always dangerous. He might act friendly towards you now, but who knows what he'll do tomorrow. When you're up against unpredictable brutes that prefer to rely on their fists instead of their reason, you can never know when they'll turn against you."
+"A warning?" I say.
 
 }
 #if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2) {
@@ -772,16 +772,6 @@ Bruce then pats me on the shoulder, and he goes back to where he was standing at
 He then turns to leave.
 
 }
-#if(v_b2_ch2_fist == 3 || v_b2_ch2_fist == 4 || v_b2_ch2_fist == 5) {
- I reluctantly get out of bed, put my sweater in my backpack and then head back towards the recreation area. I make sure to lock the door behind me on my way out, and then I head towards a corner of the room where there are no people around. 
-
-I take a quick look around the room to see who else they placed in my division. Aside from Bruce and Wilhelm who I met yesterday, there's the silver haired girl that was staring at me, and then there are two more individuals that both look like the gladiator versions of Cutthroat Dave. The two thugs seem to be the only ones who are actually talking to each other. The other three are each standing somewhere as far as possible from everyone else, leaning with their backs against the walls, their arms crossed, waiting for the recreation period to be over. 
-
-What am I supposed to do now? I can't say that I feel like talking with any of these people. What is there to talk about? We weren't even told what the first round will be like. How are we supposed to make a strategy? Maybe I should just go back and get a book to read or something.
-
-As I stand there and think about going back to my cell,  Wilhelm suddenly moves away from the wall, and he starts to head towards me. When he stops in front of me, I see that he has an unusually determined look on his face.
-
-}
 #if(v_b2_ch2_fist == 3 && v_b2_ch2_threatened != 2 || v_b2_ch2_fist == 4 && v_b2_ch2_threatened != 2 || v_b2_ch2_fist == 5 && v_b2_ch2_threatened != 2) {
  "Good morning," Wilhelm says. "I've got some news for you that I think you might find useful. From what I've heard, in a few hours from now, the ambassador and the arena's owner should be discussing important matters about the organization of the arena events. The guards from this place have a habit of overhearing these types of conversations and they usually like to discuss them amongst themselves. Make sure you pay close attention to what they're saying when they're outside your cell. I will do the same. "
 
@@ -790,6 +780,16 @@ As I stand there and think about going back to my cell,  Wilhelm suddenly moves 
 "Alright," Wilhelm says. "That's all I wanted to tell you. I'll make sure to let you know if I hear anything. I hope you will do the same."
 
 "Of course," I say.
+
+}
+#if(v_b2_ch2_fist == 3 || v_b2_ch2_fist == 4 || v_b2_ch2_fist == 5) {
+ I reluctantly get out of bed, put my sweater in my backpack and then head back towards the recreation area. I make sure to lock the door behind me on my way out, and then I head towards a corner of the room where there are no people around. 
+
+I take a quick look around the room to see who else they placed in my division. Aside from Bruce and Wilhelm who I met yesterday, there's the silver haired girl that was staring at me, and then there are two more individuals that both look like the gladiator versions of Cutthroat Dave. The two thugs seem to be the only ones who are actually talking to each other. The other three are each standing somewhere as far as possible from everyone else, leaning with their backs against the walls, their arms crossed, waiting for the recreation period to be over. 
+
+What am I supposed to do now? I can't say that I feel like talking with any of these people. What is there to talk about? We weren't even told what the first round will be like. How are we supposed to make a strategy? Maybe I should just go back and get a book to read or something.
+
+As I stand there and think about going back to my cell,  Wilhelm suddenly moves away from the wall, and he starts to head towards me. When he stops in front of me, I see that he has an unusually determined look on his face.
 
 }
 #if(v_b2_ch2_fist == 3 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 4 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 5 && v_b2_ch2_threatened == 2) {
@@ -1231,6 +1231,12 @@ choice("Continue", B2-Ch02a-Soundproof, v_current_scene = B2-Ch02a-Soundproof)
 ID: B2-Ch02a-Soundproof
 TEXT:
 
+#if(v_b2_ch1_interfere == 0) {
+ "Then what is it that you are trying to do?"
+
+"We are trying to subtly interfere with the way that one of the gnome's own devices works. One of the gnome king's inventions is currently making his secret room completely soundproof, which stops us from listening in on his private conversations. However, at the moment, we do not have any agents that the king trusts enough to allow them access to his secret room. This is why we turn to you. We are not asking you to do this for free, of course. There are ways in which we could make your fights here in the arena much easier for you. All you need to do is agree to help us, and we will take care of the rest."
+
+}
 #if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "You see," the voice continues, "we couldn't help but notice that the king of Thilias seems to have placed an unusual amount of trust in you and your companions. Enough trust to invite you into his secret room below the throne. That is not the kind of invitation that is acquired easily."
 
@@ -1243,12 +1249,6 @@ He pauses again, to see if I have anything to say. He waits for a few more secon
 The voice laughs softly.
 
 "Of course not," he says. "If we wanted to assassinate the king, I assure you that there would be much easier, risk-free methods to use in order to get the job done."
-
-}
-#if(v_b2_ch1_interfere == 0) {
- "Then what is it that you are trying to do?"
-
-"We are trying to subtly interfere with the way that one of the gnome's own devices works. One of the gnome king's inventions is currently making his secret room completely soundproof, which stops us from listening in on his private conversations. However, at the moment, we do not have any agents that the king trusts enough to allow them access to his secret room. This is why we turn to you. We are not asking you to do this for free, of course. There are ways in which we could make your fights here in the arena much easier for you. All you need to do is agree to help us, and we will take care of the rest."
 
 }
 #if(v_b2_ch1_interfere == 1) {

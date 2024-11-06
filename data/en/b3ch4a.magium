@@ -83,14 +83,6 @@ TEXT:
 "They're still on the surface," Illuna says. "Meanwhile, we've been teleported to an unidentified underground tunnel by accident, and we're trying to find our way out. We'll explain more as we walk. Let's get moving."
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- After Breynan heals Leila's concussion that she got from hitting her head against the pavement earlier, we all begin to head in the direction that seems the most likely to lead us towards the surface. With Melindra's help, we manage to avoid the paths leading directly to magical traps for a while, although according to her own words, we will probably be forced to start disarming some of them rather soon.
-
-While we're walking down the corridors, I suddenly hear a long beep coming from my pocket. I immediately realize that the sound is coming from my stat device and I take it out as quickly as I can, in order to get a good look at it. What I'm currently seeing on the screen is a text message, notifying me about the experimental stat activation and asking me if I want to see a quick introduction about what these stats can do.
-
-It looks like I won't be able to see any of my stats until I answer the question on this screen.
-
-}
 #if(v_ch11_saved_rose == 0) {
  "There is... no time to rest," Illuna says, as she slowly gets up on her feet and then nearly falls back to the ground. "For all we know, we could be inside enemy territory right now. We need to keep moving."
 
@@ -105,6 +97,14 @@ Illuna tries to take a few steps forward, but she trips again, as Kate and I rus
 "What happened?" Leila writes, after she calms down a little. "Where are all the royal guard trainees?"
 
 "They're still on the surface," Illuna says. "Meanwhile, we've been teleported to an unidentified underground tunnel by accident, and we're trying to find our way out. We'll explain more as we walk. Let's get moving."
+
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ After Breynan heals Leila's concussion that she got from hitting her head against the pavement earlier, we all begin to head in the direction that seems the most likely to lead us towards the surface. With Melindra's help, we manage to avoid the paths leading directly to magical traps for a while, although according to her own words, we will probably be forced to start disarming some of them rather soon.
+
+While we're walking down the corridors, I suddenly hear a long beep coming from my pocket. I immediately realize that the sound is coming from my stat device and I take it out as quickly as I can, in order to get a good look at it. What I'm currently seeing on the screen is a text message, notifying me about the experimental stat activation and asking me if I want to see a quick introduction about what these stats can do.
+
+It looks like I won't be able to see any of my stats until I answer the question on this screen.
 
 }
 choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -140,18 +140,18 @@ choice("Continue", B3-Ch04a-Introduction2, v_strength = 0, v_strength_aux = 0, v
 ID: B3-Ch04a-Introduction2
 TEXT:
 
-#if(v_b3_ch4_introduction == 1) {
- 'The Bluff or Aura Concealment stat is designed to help you control your aura," the text says. "It has two primary purposes. First of all, this stat will allow you to keep the flow of your aura stable enough to avoid lie detection if your level is high enough. Just like with the Magical Sense stat, the effects it will have on you will highly depend on your own ability to control your aura. If your aura control is very poor, then you will need to invest more points in this stat to make it reasonably effective.'
-
-'The second utility of this stat was discovered during testing,' the next page says. 'While the initial purpose of this stat was only to keep the aura flow stable, a few of the test subjects found out that with enough practice it could also be used to hide their auras completely, making themselves undetectable in terms of magical sense. After receiving this new information, we made a few adjustments to the Bluff stat and also gave it a secondary name, in order to better reflect its potential. If you are unable to use this stat to conceal your aura, please contact the person in charge of your stat activation, so they can readjust your device.'
-
-}
 #if(v_b3_ch4_introduction == 1 && v_b3_ch1_unlock != 2) {
  When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
 
 'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
 
 As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
+
+}
+#if(v_b3_ch4_introduction == 1) {
+ 'The Bluff or Aura Concealment stat is designed to help you control your aura," the text says. "It has two primary purposes. First of all, this stat will allow you to keep the flow of your aura stable enough to avoid lie detection if your level is high enough. Just like with the Magical Sense stat, the effects it will have on you will highly depend on your own ability to control your aura. If your aura control is very poor, then you will need to invest more points in this stat to make it reasonably effective.'
+
+'The second utility of this stat was discovered during testing,' the next page says. 'While the initial purpose of this stat was only to keep the aura flow stable, a few of the test subjects found out that with enough practice it could also be used to hide their auras completely, making themselves undetectable in terms of magical sense. After receiving this new information, we made a few adjustments to the Bluff stat and also gave it a secondary name, in order to better reflect its potential. If you are unable to use this stat to conceal your aura, please contact the person in charge of your stat activation, so they can readjust your device.'
 
 }
 #if(v_b3_ch1_unlock == 2 && v_b3_ch4_introduction == 1) {
@@ -195,18 +195,18 @@ choice("Invest points later(by pressing the stats button on the top of the scree
 ID: B3-Ch04a-Stats-spent
 TEXT:
 
-#if(v_b3_ch4_introduction == 1) {
- 'The Bluff or Aura Concealment stat is designed to help you control your aura," the text says. "It has two primary purposes. First of all, this stat will allow you to keep the flow of your aura stable enough to avoid lie detection if your level is high enough. Just like with the Magical Sense stat, the effects it will have on you will highly depend on your own ability to control your aura. If your aura control is very poor, then you will need to invest more points in this stat to make it reasonably effective.'
-
-'The second utility of this stat was discovered during testing,' the next page says. 'While the initial purpose of this stat was only to keep the aura flow stable, a few of the test subjects found out that with enough practice it could also be used to hide their auras completely, making themselves undetectable in terms of magical sense. After receiving this new information, we made a few adjustments to the Bluff stat and also gave it a secondary name, in order to better reflect its potential. If you are unable to use this stat to conceal your aura, please contact the person in charge of your stat activation, so they can readjust your device.'
-
-}
 #if(v_b3_ch4_introduction == 1 && v_b3_ch1_unlock != 2) {
  When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
 
 'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
 
 As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
+
+}
+#if(v_b3_ch4_introduction == 1) {
+ 'The Bluff or Aura Concealment stat is designed to help you control your aura," the text says. "It has two primary purposes. First of all, this stat will allow you to keep the flow of your aura stable enough to avoid lie detection if your level is high enough. Just like with the Magical Sense stat, the effects it will have on you will highly depend on your own ability to control your aura. If your aura control is very poor, then you will need to invest more points in this stat to make it reasonably effective.'
+
+'The second utility of this stat was discovered during testing,' the next page says. 'While the initial purpose of this stat was only to keep the aura flow stable, a few of the test subjects found out that with enough practice it could also be used to hide their auras completely, making themselves undetectable in terms of magical sense. After receiving this new information, we made a few adjustments to the Bluff stat and also gave it a secondary name, in order to better reflect its potential. If you are unable to use this stat to conceal your aura, please contact the person in charge of your stat activation, so they can readjust your device.'
 
 }
 #if(v_b3_ch1_unlock == 2 && v_b3_ch4_introduction == 1) {
@@ -465,18 +465,6 @@ choice("Continue", B3-Ch04a-Disarm, v_current_scene = B3-Ch04a-Disarm)
 ID: B3-Ch04a-Disarm
 TEXT:
 
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- We travel through the underground corridors for another twenty minutes or so until we finally reach a dead end, in the sense that no matter which way we go from here we will be forced to disarm one of the magical traps. As we get closer to a tunnel entrance where one of the traps has been placed, Breynan steps to the front so he can have a good look at it. 
-
-The trap is practically invisible to the naked eye, but we can all feel its presence even if we don't see it. Still, it is difficult to tell what triggering it would do just from sensing the aura and magical energy around it.
-
-"I recognize some of these spells," Breynan says. "One of them is a mind affecting spell and there are also around three different types of earth spells thrown in there. That being said, I can't say that I'd feel very confident trying to disarm this just with the knowledge that I have. Maybe we could try studying some of the traps in the other corridors to see if we'll get luckier with those."
-
-"I doubt it," Melindra says. "The reason why I brought you to this corridor, specifically, is because the trap over here seemed to be the easiest one to dispel. The other ones are much more complicated."
-
-"Well, I'm telling you that I can't deal with this one on my own," Breynan says. "Even if it's supposed to be 'easy', disarming traps has never been one of my specialties. I don't have anywhere near the level of skill required to dispel it." 
-
-}
 #if(v_ch11_saved_rose == 0) {
  "Hmm," I say. "Is Breynan really the only one here who can disarm traps, though? Illuna, I'm pretty sure Flower mentioned that you two have been visiting lots of ruins in the past. Those ruins must have had traps in them, right? How did you get past them?"
 
@@ -491,6 +479,18 @@ The trap is practically invisible to the naked eye, but we can all feel its pres
 "Knowing how it works and being able to perform it successfully are two entirely different things..." Illuna says.
 
 }
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ We travel through the underground corridors for another twenty minutes or so until we finally reach a dead end, in the sense that no matter which way we go from here we will be forced to disarm one of the magical traps. As we get closer to a tunnel entrance where one of the traps has been placed, Breynan steps to the front so he can have a good look at it. 
+
+The trap is practically invisible to the naked eye, but we can all feel its presence even if we don't see it. Still, it is difficult to tell what triggering it would do just from sensing the aura and magical energy around it.
+
+"I recognize some of these spells," Breynan says. "One of them is a mind affecting spell and there are also around three different types of earth spells thrown in there. That being said, I can't say that I'd feel very confident trying to disarm this just with the knowledge that I have. Maybe we could try studying some of the traps in the other corridors to see if we'll get luckier with those."
+
+"I doubt it," Melindra says. "The reason why I brought you to this corridor, specifically, is because the trap over here seemed to be the easiest one to dispel. The other ones are much more complicated."
+
+"Well, I'm telling you that I can't deal with this one on my own," Breynan says. "Even if it's supposed to be 'easy', disarming traps has never been one of my specialties. I don't have anywhere near the level of skill required to dispel it." 
+
+}
 #if(v_ch11_saved_rose == 1) {
  "But what if Illuna were to help you?" I say. "Do you think you might be able to handle it then?"
 
@@ -503,6 +503,14 @@ choice("Continue", B3-Ch04a-Inventor, v_current_scene = B3-Ch04a-Inventor) if (v
 ID: B3-Ch04a-Inventor
 TEXT:
 
+#if(v_ch11_saved_rose == 0) {
+ As I briefly walk beside her, I immediately notice that Illuna is breathing very heavily and that her walking is in fact a lot more uneven than she lets on. I could have sworn that she had already mostly recovered from her previous injury, but now that I get a closer look I'm beginning to think that she's only pretending to be fine in order to avoid getting us too worried. I really hope that she knows what she's doing.
+
+"I'm not sure what that whole 'Brinhorn dispelling technique inventor' thing was about, but come take a look here," Breynan says, as he points at the empty air in front of him. "You see this weird flow that keeps going back and forth? This must be coming from an electricity spell of some kind, but I'm not familiar at all with it."
+
+"It's not electricity, it's acid," Illuna says. "I recognize it because Arraka has taught me about this spell in the past, back when she was acting as my mentor."
+
+}
 #if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Well then, I guess it's a good thing we have an expert in dispelling magic right here with us!" Melindra says, as she pats me hard on the back. "Wouldn't you agree, mister inventor of the Brinhorn dispelling technique?"
 
@@ -511,14 +519,6 @@ TEXT:
 "Of course, of course," Melindra says, and then she pushes both Illuna and me from behind, in order to get us closer to Breynan. "Now you two go over there and see what you can do to help. It won't hurt you if you just give it one try, will it?"
 
 "I suppose not," I say, and then I begin to slowly advance towards Breynan, alongside Illuna.
-
-}
-#if(v_ch11_saved_rose == 0) {
- As I briefly walk beside her, I immediately notice that Illuna is breathing very heavily and that her walking is in fact a lot more uneven than she lets on. I could have sworn that she had already mostly recovered from her previous injury, but now that I get a closer look I'm beginning to think that she's only pretending to be fine in order to avoid getting us too worried. I really hope that she knows what she's doing.
-
-"I'm not sure what that whole 'Brinhorn dispelling technique inventor' thing was about, but come take a look here," Breynan says, as he points at the empty air in front of him. "You see this weird flow that keeps going back and forth? This must be coming from an electricity spell of some kind, but I'm not familiar at all with it."
-
-"It's not electricity, it's acid," Illuna says. "I recognize it because Arraka has taught me about this spell in the past, back when she was acting as my mentor."
 
 }
 #if(v_ch11_saved_rose == 1) {
@@ -709,6 +709,20 @@ While she was talking, Flower suddenly looked like she was about to faint and fa
 "Illuna, how did you manage to get hurt this badly?" Flower asks, shocked. "I can barely even stand up! And how did we get here?... This doesn't look like the rebel base at all!"
 
 }
+#if(v_ch11_saved_rose == 1) {
+ "Even if she casts spells instinctively, I still think it will be less risky than if two of you use the dispelling technique at the same time," I say. "Look, if anything bad happens while she's doing the dispelling, I'll tell her to stop. I'll make sure to monitor the trap's aura closely so that there are no dangerous fluctuations. And if you don't feel like talking to Flower, it's fine. I can teach her all of the motions and incantations myself. You won't have to interact with her at all if you don't want to."
+
+"Really?" Illuna says, while raising an eyebrow. "You'll teach her the motions yourself? With no help from me whatsoever?"
+
+"Yeah, sure," I say. "How hard can it be?"
+
+"Very well, then," Illuna says. "In that case, I will wake her up. She will be with you shortly."
+
+After a few seconds of silence, the blue light in Illuna's eyes disappears, and Flower's eyes regain their natural green color.
+
+"Okay, I'm up, I'm up..." Flower says in a sleepy voice. "What's going on-- wait what is this place? I don't recognize it at all! When did we get out of the rebel base?"
+
+}
 #if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Flower, we'll explain the situation to you later," I say. "For now, we need you to help us disarm this trap. It is made only of fire spells, so you should be able to do the dispelling naturally as long as you simply copy my movements and say the correct incantations. Can you help us?"
 
@@ -751,20 +765,6 @@ When Flower tries to imitate me, she somehow gets the movements completely wrong
 "Right, so with both of your knees slightly bent, you first put the arm on your left side in front like this," I say.
 
 "Got it!" Flower says, as she tries to copy my movements again.
-
-}
-#if(v_ch11_saved_rose == 1) {
- "Even if she casts spells instinctively, I still think it will be less risky than if two of you use the dispelling technique at the same time," I say. "Look, if anything bad happens while she's doing the dispelling, I'll tell her to stop. I'll make sure to monitor the trap's aura closely so that there are no dangerous fluctuations. And if you don't feel like talking to Flower, it's fine. I can teach her all of the motions and incantations myself. You won't have to interact with her at all if you don't want to."
-
-"Really?" Illuna says, while raising an eyebrow. "You'll teach her the motions yourself? With no help from me whatsoever?"
-
-"Yeah, sure," I say. "How hard can it be?"
-
-"Very well, then," Illuna says. "In that case, I will wake her up. She will be with you shortly."
-
-After a few seconds of silence, the blue light in Illuna's eyes disappears, and Flower's eyes regain their natural green color.
-
-"Okay, I'm up, I'm up..." Flower says in a sleepy voice. "What's going on-- wait what is this place? I don't recognize it at all! When did we get out of the rebel base?"
 
 }
 choice("Continue", B3-Ch04a-Coach, v_current_scene = B3-Ch04a-Coach) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -1041,6 +1041,16 @@ We stay perfectly quiet while we climb up the stairs, in order to not give away 
 As soon as we reach the wall at the end of the stairs, Illuna gives us a signal to get ready, and then she knocks lightly on the secret door like before, causing it to slide away and to make way for us to exit the tunnel. To our disappointment, the stairs did not in fact lead us to the surface, but to yet another underground room, although this one seems less like a natural cavern and more of a man-made cellar with a rather high ceiling. This particular room that we ended up in seems to be some sort of closet, because there are a lot of buckets filled with water in here, along with some wet rags that have probably been recently used to wipe the floors.
 
 }
+#if(v_b3_ch4_insist == 1) {
+ Once we are all inside the hidden passage, Illuna touches the wall from before with her hand, causing it to slowly slide back into its original position. We then begin climbing up the stairs, which are being lit by bright blue crystals embedded into the cavern walls, just like the tunnels outside, but also like the tunnels from the rebel base and the ones below the arena from Thilias. 
+
+ There sure seem to be a lot of crystals and seredium rocks underneath Varathia. I wonder if they are in any way connected to all the peculiar stuff happening on this continent, like the talking animals, the mythical creatures and the fact that this is the 'only place' on the earthen plane where you can access the Magium, according to Arraka. Maybe I'll ask her about these things after we get back.
+
+We stay perfectly quiet while we climb up the stairs, in order to not give away our position in case anyone is waiting for us at the other end of this tunnel. According to Melindra, the wall on the other side has an unusually large concentration of seredium in it, which makes it almost impossible to sense anything beyond it. However, this also means that the enemy should not be able to sense us approaching either, which gives us the element of surprise.
+
+As soon as we reach the wall at the end of the stairs, Illuna gives us a signal to get ready, and then she knocks lightly on the secret door like before, causing it to slide away and to make way for us to exit the tunnel. To our disappointment, the stairs did not in fact lead us to the surface, but to yet another underground room, although this one seems less like a natural cavern and more of a man-made cellar with a rather high ceiling. This particular room that we ended up in seems to be some sort of closet, because there are a lot of buckets filled with water in here, along with some wet rags that have probably been recently used to wipe the floors.
+
+}
 #if(v_b3_ch4_insist == 0 || v_b3_ch4_insist == 1) {
  Once Illuna closes the secret door behind us, she steps to the front of the group again and she starts walking towards the next room, which appears to be full of people, judging by what I can sense of their auras from here.
 
@@ -1055,22 +1065,26 @@ Melindra is suddenly interrupted by Flower, who just opened the door leading out
 When we reach the door and we take a look inside the next room, we immediately understand why Flower was having such a hard time finding her words.
 
 }
-#if(v_b3_ch4_insist == 1) {
- Once we are all inside the hidden passage, Illuna touches the wall from before with her hand, causing it to slowly slide back into its original position. We then begin climbing up the stairs, which are being lit by bright blue crystals embedded into the cavern walls, just like the tunnels outside, but also like the tunnels from the rebel base and the ones below the arena from Thilias. 
-
- There sure seem to be a lot of crystals and seredium rocks underneath Varathia. I wonder if they are in any way connected to all the peculiar stuff happening on this continent, like the talking animals, the mythical creatures and the fact that this is the 'only place' on the earthen plane where you can access the Magium, according to Arraka. Maybe I'll ask her about these things after we get back.
-
-We stay perfectly quiet while we climb up the stairs, in order to not give away our position in case anyone is waiting for us at the other end of this tunnel. According to Melindra, the wall on the other side has an unusually large concentration of seredium in it, which makes it almost impossible to sense anything beyond it. However, this also means that the enemy should not be able to sense us approaching either, which gives us the element of surprise.
-
-As soon as we reach the wall at the end of the stairs, Illuna gives us a signal to get ready, and then she knocks lightly on the secret door like before, causing it to slide away and to make way for us to exit the tunnel. To our disappointment, the stairs did not in fact lead us to the surface, but to yet another underground room, although this one seems less like a natural cavern and more of a man-made cellar with a rather high ceiling. This particular room that we ended up in seems to be some sort of closet, because there are a lot of buckets filled with water in here, along with some wet rags that have probably been recently used to wipe the floors.
-
-}
 choice("Continue", B3-Ch04a-Machine, v_current_scene = B3-Ch04a-Machine) if (v_b3_ch4_insist == 0 || v_b3_ch4_insist == 1)
 
 
 ID: B3-Ch04a-Machine
 TEXT:
 
+#if(v_b3_ch3_chains == 0) {
+ "Did... this happen recently?" I ask him. "Is your daughter's name 'Alice', by any chance?"
+
+"Yes!" the man shouts, somewhat excitedly. "That's her name! You've met her? Is she safe?"
+
+"She is safe, for now," I say. "She's been looking for you."
+
+"You have to take me to her!" the man says. "Please, you need to cut off these chains and set me free! I beg you!"
+
+Kate, Leila and I exchange a look and then I walk forward, in order to get closer to the chains that are tied to the man's wrists. The chains don't look very strong. I'm pretty confident that my enchanted dagger should be able to slice through these as through butter.
+
+I take my dagger out of its sheath and I hold it in my hand for a few seconds, considering my options, while the scream of a young boy echoes faintly in the distance.
+
+}
 #if(v_b3_ch3_chains == 0 || v_b3_ch3_chains == 1) {
  What we are looking at right now is a large hall filled with hundreds of men and young boys dressed in dirty rags who are hanging from the ceiling by long iron chains that are tied to their wrists, while their feet are barely touching the ground. All of them have such pale skin and such lifeless looks in their eyes that it's honestly a wonder they are still alive. 
 
@@ -1091,20 +1105,6 @@ While Melindra is still looking at the chains, one of the prisoners on the metal
 "No," I say, as I get closer to him. "We don't work here. We stumbled into this place by accident."
 
 "You're... you're not with them?..." the man says. "Please, you have to help me! These people who trapped us here... they are using us like cattle. Milking us dry of our energy to feed this machine.  My boy and I, we did nothing wrong! We were just taken from our homes one night without being given any reason. I don't even know where they took him. And I don't know if anything happened to my wife and daughter after that. Please, I need to know if they are safe... I need to get out of here!"
-
-}
-#if(v_b3_ch3_chains == 0) {
- "Did... this happen recently?" I ask him. "Is your daughter's name 'Alice', by any chance?"
-
-"Yes!" the man shouts, somewhat excitedly. "That's her name! You've met her? Is she safe?"
-
-"She is safe, for now," I say. "She's been looking for you."
-
-"You have to take me to her!" the man says. "Please, you need to cut off these chains and set me free! I beg you!"
-
-Kate, Leila and I exchange a look and then I walk forward, in order to get closer to the chains that are tied to the man's wrists. The chains don't look very strong. I'm pretty confident that my enchanted dagger should be able to slice through these as through butter.
-
-I take my dagger out of its sheath and I hold it in my hand for a few seconds, considering my options, while the scream of a young boy echoes faintly in the distance.
 
 }
 #if(v_b3_ch3_chains == 1) {
@@ -1146,6 +1146,20 @@ After a few seconds of simply staring in shock at the dead man in front of me, I
 "The metal that these chains are made of is special," Melindra says, as she slowly approaches the table and then grabs one of the chains in her hand. "If it stays in contact with a person's aura for too long, it forms a symbiotic relationship with them. You can't just remove it by force, because it would be the same as if you were removing one of their vital organs. I'm sorry that I didn't realize this sooner."
 
 }
+#if(v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1) {
+ I instinctively cut the chains off before giving Melindra the chance to say anything else.
+
+I'm sure this was the right decision. If I were to have reacted any slower, she would have probably cast an air barrier or something to stop me from saving this person, just because she wouldn't want us to carry any dead weight with us while we're escaping. This must be what the premonition was warning me about. It has to be.
+
+Unfortunately for me, my rushed decision costs me dearly. Not long after the chains are cut, Alice's father begins to have violent seizures, making his body shake uncontrollably for five seconds. Immediately afterwards, his body stops moving completely but so does his breathing, while his aura begins to slowly fade away. 
+
+After a few seconds of simply staring in shock at the dead man in front of me, I finally manage to muster up enough strength to speak.
+
+"What... what happened?..." I ask Melindra, in a weak tone of voice. "I don't understand..."
+
+"The metal that these chains are made of is special," Melindra says, as she slowly approaches the table and then grabs one of the chains in her hand. "If it stays in contact with a person's aura for too long, it forms a symbiotic relationship with them. You can't just remove it by force, because it would be the same as if you were removing one of their vital organs. I'm sorry that I didn't realize this sooner."
+
+}
 #if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 1 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1) {
  "But there's a way to reverse this, right?..." I ask her helplessly, even though I already know the answer she's going to give me. "A way to reattach the chains and to bring this man back to life?..."
 
@@ -1164,20 +1178,6 @@ After a few seconds of simply staring in shock at the dead man in front of me, I
 Before I get to finish my sentence, the metal container and all of the chains suddenly begin shining with a bright blue light, as the prisoners from the entire room start screaming in unison.
 
 }
-#if(v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1) {
- I instinctively cut the chains off before giving Melindra the chance to say anything else.
-
-I'm sure this was the right decision. If I were to have reacted any slower, she would have probably cast an air barrier or something to stop me from saving this person, just because she wouldn't want us to carry any dead weight with us while we're escaping. This must be what the premonition was warning me about. It has to be.
-
-Unfortunately for me, my rushed decision costs me dearly. Not long after the chains are cut, Alice's father begins to have violent seizures, making his body shake uncontrollably for five seconds. Immediately afterwards, his body stops moving completely but so does his breathing, while his aura begins to slowly fade away. 
-
-After a few seconds of simply staring in shock at the dead man in front of me, I finally manage to muster up enough strength to speak.
-
-"What... what happened?..." I ask Melindra, in a weak tone of voice. "I don't understand..."
-
-"The metal that these chains are made of is special," Melindra says, as she slowly approaches the table and then grabs one of the chains in her hand. "If it stays in contact with a person's aura for too long, it forms a symbiotic relationship with them. You can't just remove it by force, because it would be the same as if you were removing one of their vital organs. I'm sorry that I didn't realize this sooner."
-
-}
 #if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 0) {
  "Barry, wait! Don't do it!" Melindra shouts suddenly in a panicked tone, just as I was deciding to leave the man chained for now.
 
@@ -1190,20 +1190,6 @@ After a few seconds of simply staring in shock at the dead man in front of me, I
 "You'd have to find the control room, and deactivate them manually from there," Melindra says. "That would be the only way."
 
 }
-#if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0) {
- "What if we tried to destroy the metal container?" Leila writes. "Would that not have the same effect as deactivating the chains?"
-
-"If you try to destroy that energy-filled container, it's going to cause an explosion large enough to kill every single person in this room, including us," Melindra says, as she drops the chain from her hand. "Like I said before, deactivating the chains from the control room is the only way to free the prisoners."
-
-"Then we could try to reach that room quickly, before any of the guards--" Kate starts to say, but Melindra interrupts her.
-
-"We have absolutely no way of knowing where they might have placed the control room in this place," Melindra says. "And given the importance of that room, it is no doubt going to be very heavily guarded. We're all weakened after that last fight, and we don't even have all our team members here with us, let alone any of the rebels except Breynan. What we should be focusing on right now is finding a way out. This is no time to be playing hero."   
-
- "So you're just going to leave me here, then?" Alice's father says, with fear in his voice. "If you're just going to abandon me, then at least try cutting the chains! You can't know for sure that I'll die. You can't know! Oh no, I can feel the container activating itself again. Cut the chains! Cut the chains, quick before-- AAGHHH!"
-
-Suddenly, the metal container and all of the chains begin shining with a bright blue light, as the prisoners from the entire room start screaming in unison.
-
-}
 #if(v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0) {
  "Why?" I ask Melindra. "What's wrong?"
 
@@ -1212,6 +1198,20 @@ Suddenly, the metal container and all of the chains begin shining with a bright 
 "Are you serious?..." I say. "Then how exactly are you supposed to take off these chains without killing the prisoners?"
 
 "You'd have to find the control room, and deactivate them manually from there," Melindra says. "That would be the only way."
+
+}
+#if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0) {
+ "So you're just going to leave me here, then?" Alice's father says, with fear in his voice. "If you're just going to abandon me, then at least try cutting the chains! You can't know for sure that I'll die. You can't know! Oh no, I can feel the container activating itself again. Cut the chains! Cut the chains, quick before-- AAGHHH!"
+
+Suddenly, the metal container and all of the chains begin shining with a bright blue light, as the prisoners from the entire room start screaming in unison.
+
+ "What if we tried to destroy the metal container?" Leila writes. "Would that not have the same effect as deactivating the chains?"
+
+"If you try to destroy that energy-filled container, it's going to cause an explosion large enough to kill every single person in this room, including us," Melindra says, as she drops the chain from her hand. "Like I said before, deactivating the chains from the control room is the only way to free the prisoners."
+
+"Then we could try to reach that room quickly, before any of the guards--" Kate starts to say, but Melindra interrupts her.
+
+"We have absolutely no way of knowing where they might have placed the control room in this place," Melindra says. "And given the importance of that room, it is no doubt going to be very heavily guarded. We're all weakened after that last fight, and we don't even have all our team members here with us, let alone any of the rebels except Breynan. What we should be focusing on right now is finding a way out. This is no time to be playing hero."   
 
 }
 choice("Continue", B3-Ch04a-Spectacle, v_current_scene = B3-Ch04a-Spectacle, v_b3_ch4_beg = 0, v_b3_ch4_billy = 0, v_b3_ch4_tasked = 0, v_b3_ch4_drones = 0) if (v_b3_ch3_chains == 0 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 0 && v_b3_ch4_cut == 1 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1)
