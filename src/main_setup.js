@@ -277,7 +277,7 @@ function render_stats(req) {
         maximized:
             req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" &&
             req.cookies.v_maximized_stats_used === "1",
-    });
+    }, req.cookies);
     return ejs.renderFile(path.join(dirname, "templates/stats.ejs"), data);
 }
 
