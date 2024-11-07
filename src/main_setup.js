@@ -9,8 +9,8 @@ if (!isNaN(parseInt(process.argv[2]))) {
     port = parseInt(process.argv[2]);
 }
 
-const dirname = process.cwd();
 
+const dirname = process.resourcesPath ? path.join(process.resourcesPath,"app") : process.cwd();
 const stats_variables = [
     "v_available_points",
     "v_strength",
@@ -220,8 +220,8 @@ TODO: Discuss possibilities of alternate logic that do not need inference,
 */
 function get_header_from_id(id) {
     const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]?-.*$/;
-    let result;
-    if ((result = regex.exec(id))) {
+    let result = regex.exec(id)
+    if (result) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
         return `Book ${book} - Chapter ${result.groups["chapter"]}`;
     }
@@ -268,7 +268,7 @@ function render_scene(req) {
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
-    let data = Object.assign({}, { id: id, scene: sceneData }, cookieData, req.data);
+    let data = Object.assign({}, { id: id, header: get_header_from_id(id), scene: sceneData }, cookieData, req.data);
     return ejs.renderFile(path.join(dirname, "templates/main.ejs"), data);
 }
 
@@ -405,6 +405,7 @@ function render_about(req) {
 
 /// ---
 
+console.log(dirname,)
 let locales = require(path.join(dirname, "data/locales.json"))
 let localeData = {};
 let magiumData = {};
