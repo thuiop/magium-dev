@@ -3,14 +3,15 @@ const ejs = require("ejs");
 const path = require("path");
 
 const parser = require("./parser.js");
+const { globSync } = require('glob');
 
 let port = process.env.PORT || 3000;
 if (!isNaN(parseInt(process.argv[2]))) {
     port = parseInt(process.argv[2]);
 }
 
-const dirname = process.cwd();
 
+const dirname = process.resourcesPath ? path.join(process.resourcesPath,"app") : process.cwd();
 const stats_variables = [
     "v_available_points",
     "v_strength",
@@ -31,63 +32,6 @@ const stats_variables = [
 ];
 
 /// ---
-
-const chapters = [
-    "ch1",
-    "ch2",
-    "ch3",
-    "ch4",
-    "ch5",
-    "ch6",
-    "ch7",
-    "ch8",
-    "ch9",
-    "ch10",
-    "ch11a",
-    "ch11b",
-    "b2ch1",
-    "b2ch2",
-    "b2ch3",
-    "b2ch4a",
-    "b2ch4b",
-    "b2ch5a",
-    "b2ch5b",
-    "b2ch6",
-    "b2ch7",
-    "b2ch8",
-    "b2ch9a",
-    "b2ch9b",
-    "b2ch10a",
-    "b2ch10b",
-    "b2ch11a",
-    "b2ch11b",
-    "b2ch11c",
-    "b3ch1",
-    "b3ch2a",
-    "b3ch2b",
-    "b3ch2c",
-    "b3ch3a",
-    "b3ch3b",
-    "b3ch4a",
-    "b3ch4b",
-    "b3ch5a",
-    "b3ch5b",
-    "b3ch6a",
-    "b3ch6b",
-    "b3ch6c",
-    "b3ch7a",
-    "b3ch8a",
-    "b3ch8b",
-    "b3ch9a",
-    "b3ch9b",
-    "b3ch9c",
-    "b3ch10a",
-    "b3ch10b",
-    "b3ch10c",
-    "b3ch11a",
-    "b3ch12a",
-    "b3ch12b",
-];
 
 function apply_condition(entry, values) {
     if (!entry) {
@@ -220,8 +164,8 @@ TODO: Discuss possibilities of alternate logic that do not need inference,
 */
 function get_header_from_id(id) {
     const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]?-.*$/;
-    let result;
-    if ((result = regex.exec(id))) {
+    let result = regex.exec(id)
+    if (result) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
         return `Book ${book} - Chapter ${result.groups["chapter"]}`;
     }
@@ -268,7 +212,7 @@ function render_scene(req) {
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
-    let data = Object.assign({}, { id: id, scene: sceneData }, cookieData, req.data);
+    let data = Object.assign({}, { id: id, header: get_header_from_id(id), scene: sceneData }, cookieData, req.data);
     return ejs.renderFile(path.join(dirname, "templates/main.ejs"), data);
 }
 
@@ -277,7 +221,7 @@ function render_stats(req) {
         maximized:
             req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" &&
             req.cookies.v_maximized_stats_used === "1",
-    });
+    }, req.cookies);
     return ejs.renderFile(path.join(dirname, "templates/stats.ejs"), data);
 }
 
@@ -405,6 +349,7 @@ function render_about(req) {
 
 /// ---
 
+console.log(dirname,)
 let locales = require(path.join(dirname, "data/locales.json"))
 let localeData = {};
 let magiumData = {};
@@ -414,9 +359,10 @@ let book;
 
 Object.keys(locales).forEach( function(locale) {
     magiumData[locale] = {}
-    for (chapter of chapters) {
+    const chapterFiles = globSync(path.join(dirname,`data/${locale}/*.magium`))
+    for (chapterFile of chapterFiles) {
         parser
-            .parse(path.join(dirname, `data/${locale}/${chapter}.magium`))
+            .parse(chapterFile)
             .then((val) => Object.assign(magiumData[locale], val));
     }
 
