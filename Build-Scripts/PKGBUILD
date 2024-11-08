@@ -6,14 +6,14 @@ pkgdesc="Text based choose your own adventure game. This is a fan made recreatio
 license=("MIT")
 arch=('x86_64' 'aarch64')
 url="https://github.com/thuiop/magium-dev"
-source_x86_64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.0/MagiumJS-linux-x64-0.8.zip")
-source_aarch64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.0/MagiumJS-linux-arm-0.8.zip")
+source_x86_64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.0/MagiumJS-linux-x64-0.9.zip")
+source_aarch64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.0/MagiumJS-linux-arm-0.9.zip")
 # No checksums provided now
 sha256sums_x86_64=('SKIP')
 sha256sums_aarch54=('SKIP') 
 depends=()
 makedepends=('unzip')
-noextract=('MagiumJS-linux-x64-0.8.zip' 'MagiumJS-linux-arm-0.8.zip')
+noextract=('MagiumJS-linux-x64-0.9.zip' 'MagiumJS-linux-arm-0.9.zip')
 
 package() {
     install -d "${pkgdir}/opt/magium/"
@@ -22,9 +22,9 @@ package() {
 
 # Extract the appropriate zip file based on architecture
     if [[ "$CARCH" == "x86_64" ]]; then
-        unzip -q "${srcdir}/MagiumJS-linux-x64-0.8.zip" -d "${pkgdir}/opt/magium/"
+        unzip -q "${srcdir}/MagiumJS-linux-x64-0.9.zip" -d "${pkgdir}/opt/magium/"
     elif [[ "$CARCH" == "aarch64" ]]; then
-        unzip -q "${srcdir}/MagiumJS-linux-arm-0.8.zip" -d "${pkgdir}/opt/magium/"
+        unzip -q "${srcdir}/MagiumJS-linux-arm-0.9.zip" -d "${pkgdir}/opt/magium/"
     fi
     
 # Move the extracted files to the target directory
