@@ -180,7 +180,7 @@ function render_full(req, callback, header = "") {
     if (req.get("HX-Request")) {
         return callback(req);
     } else {
-        return ejs.renderFile(path.join(dirname, "templates/outline.ejs"), Object.assign({
+        return ejs.renderFile(path.join(dirname, "templates","outline.ejs"), Object.assign({
             header: header,
             path: req.path,
         },req.data));
@@ -213,7 +213,7 @@ function render_scene(req) {
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
     let data = Object.assign({}, { id: id, header: get_header_from_id(id), scene: sceneData }, cookieData, req.data);
-    return ejs.renderFile(path.join(dirname, "templates/main.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates","main.ejs"), data);
 }
 
 function render_stats(req) {
@@ -222,12 +222,12 @@ function render_stats(req) {
             req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" &&
             req.cookies.v_maximized_stats_used === "1",
     }, req.cookies);
-    return ejs.renderFile(path.join(dirname, "templates/stats.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates","stats.ejs"), data);
 }
 
 function render_menu(req) {
     return ejs.renderFile(
-        path.join(dirname, "templates/menu.ejs"),
+        path.join(dirname, "templates","menu.ejs"),
         req.data,
     );
 }
@@ -235,35 +235,35 @@ function render_menu(req) {
 
 function render_settings(req) {
     return ejs.renderFile(
-        path.join(dirname, "templates/settings.ejs"),
+        path.join(dirname, "templates","settings.ejs"),
         req.data,
     );
 }
 
 function render_language(req,locales) {
     return ejs.renderFile(
-        path.join(dirname, "templates/language.ejs"),
+        path.join(dirname, "templates","language.ejs"),
         Object.assign({},req.data,{"locales":locales}),
     );
 }
 
 function render_achievements_menu(req) {
     return ejs.renderFile(
-        path.join(dirname, "templates/achievements_menu.ejs"),
+        path.join(dirname, "templates","achievements_menu.ejs"),
         Object.assign({},req.data,req.cookies),
     );
 }
 
 function render_achievements_menu_book(req, achievementsData) {
     return ejs.renderFile(
-        path.join(dirname, "templates/achievements_menu_book.ejs"),
+        path.join(dirname, "templates","achievements_menu_book.ejs"),
         Object.assign({}, req.data, { achievements: achievementsData }),
     );
 }
 
 function render_achievements_menu_chapter(req, achievementsData) {
     return ejs.renderFile(
-        path.join(dirname, "templates/achievements_menu_chapter.ejs"),
+        path.join(dirname, "templates","achievements_menu_chapter.ejs"),
         Object.assign({}, { achievements: achievementsData }, req.cookies, req.data),
     );
 }
@@ -274,7 +274,7 @@ function render_saves(req) {
         saveData[entry[0]] = { date: entry[1].date, name: entry[1].name };
     });
     let data = Object.assign({}, req.cookies, { saveData: saveData }, req.data);
-    return ejs.renderFile(path.join(dirname, "templates/saves.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates","saves.ejs"), data);
 }
 
 // For now, it is the same as render_saves
@@ -285,7 +285,7 @@ function render_local_saves(req) {
         saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
     })
     let data = Object.assign({},req.cookies, {"saveData":saveData}, req.data)
-    return ejs.renderFile(path.join(dirname,"templates/local_saves.ejs"),data)
+    return ejs.renderFile(path.join(dirname,"templates","local_saves.ejs"),data)
 }
 
 // While this is not the best way to handle pagination-based requests,
@@ -323,7 +323,7 @@ function render_saves_by_page(req, page) {
         saveData: saveData,
         page: parseInt(page),
     }, req.data);
-    return ejs.renderFile(path.join(dirname, "templates/saves.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates","saves.ejs"), data);
 }
 
 // Similar logic to render_saves_by_page
@@ -336,13 +336,13 @@ function render_local_saves_by_page(req, page) {
         saveData: saveData,
         page: parseInt(page),
     }, req.data);
-    return ejs.renderFile(path.join(dirname, "templates/local_saves.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates", "local_saves.ejs"), data);
 }
 
 
 function render_about(req) {
     return ejs.renderFile(
-        path.join(dirname, "templates/about.ejs"),
+        path.join(dirname, "templates", "about.ejs"),
         Object.assign({},req.cookies,req.data),
     );
 }
@@ -350,7 +350,7 @@ function render_about(req) {
 /// ---
 
 console.log(dirname,)
-let locales = require(path.join(dirname, "data/locales.json"))
+let locales = require(path.join(dirname, "data", "locales.json"))
 let localeData = {};
 let magiumData = {};
 let achievementsData = {};
@@ -359,7 +359,7 @@ let book;
 
 Object.keys(locales).forEach( function(locale) {
     magiumData[locale] = {}
-    const chapterFiles = globSync(path.join(dirname,`data/${locale}/*.magium`))
+    const chapterFiles = globSync(path.join(dirname,"data",locale,"*.magium").replace(/\\/g,'/'))
     for (chapterFile of chapterFiles) {
         parser
             .parse(chapterFile)
@@ -369,12 +369,12 @@ Object.keys(locales).forEach( function(locale) {
     achievementsData[locale] = {}
     for (book of [1, 2, 3]) {
         achievementsData[locale][book] = require(
-            path.join(dirname, `data/${locale}/achievements${book}.json`),
+            path.join(dirname, "data",locale,`achievements${book}.json`),
         );
     }
 
     localeData[locale] = require(
-        path.join(dirname, `data/${locale}/ui.json`),
+        path.join(dirname, "data", locale, "ui.json"),
     );
 });
 
