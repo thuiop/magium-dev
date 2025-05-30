@@ -51,6 +51,8 @@ choice(""I think he was the least bad choice available at the time."", B3-Ch10c-
 ID: B3-Ch10c-Leader
 TEXT:
 
+set(v_ac_b3_ch10_behind,1) if (v_b3_ch4_cut == 0 && v_b3_ch8_king == 5 && v_b3_ch8_overseer2 == 0)
+achievement("No man left behind",v_ac_b3_ch10_behind)
 #if(v_b3_ch8_king == 0 && v_b3_ch8_overseer2 == 0) {
  "I think he will be a great leader."
 
@@ -415,6 +417,8 @@ choice("Threaten the revenant.", B3-Ch10c-Revenant3, v_current_scene = B3-Ch10c-
 ID: B3-Ch10c-Revenant3
 TEXT:
 
+set(v_ac_b3_ch10_reasonable,1) if (v_b3_ch10_reason == 1)
+achievement("Let's be reasonable!",v_ac_b3_ch10_reasonable)
 #if(v_b3_ch10_reason == 1) {
  "Think about what you're doing!" I tell the revenant. "Is this really what the God of Death wanted? To kill Flower indiscriminately if Eiden doesn't give in to your demands? Do you really want to lose your only hostage? Can you not find any other way to resolve this?"
 
@@ -1337,6 +1341,8 @@ choice("Continue", B3-Ch10c-Informed, v_current_scene = B3-Ch10c-Informed) if (v
 ID: B3-Ch10c-Informed
 TEXT:
 
+set(v_ac_b3_ch10_forbidden,1) if (v_b3_ch10_node == 1)
+achievement("Forbidden knowledge",v_ac_b3_ch10_forbidden)
 #if(v_b3_ch10_node == 1) {
  "Aha-Ahahahahahahaha!" Arraka laughs very loudly. "That's it. That is exactly it. 'Source of everything'. Those were the three words that I have been avoiding to say all this time, because they would have divulged the true nature of the Magium. And since you two are still here and have not been erased from before our eyes, then this confirms that we should be able to speak freely of this subject matter from now on, as long as we are not standing right next to a Magium node and as long as we are not in the middle of one of Selkram's rituals. Still, I can't believe it took you THIS long to figure it out."
 

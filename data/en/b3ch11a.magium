@@ -482,6 +482,8 @@ choice("Refuse to take a puzzle piece for myself.", B3-Ch11a-Heksol, v_current_s
 ID: B3-Ch11a-Heksol
 TEXT:
 
+set(v_ac_b3_ch11_fourth,1) if (v_b3_ch11_puzzle4 == 1)
+achievement("Fourth piece of the puzzle",v_ac_b3_ch11_fourth)
 #if(v_b3_ch11_puzzle4 == 1) {
  I put my palm on the stone, like Flower asked, and then I get the same puzzle piece and message as her. Shortly afterwards, the gray stone with the writing goes back inside the wall by itself, making way for the initial rock to take its place once again.
 
@@ -1439,6 +1441,8 @@ choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Ge
 ID: B3-Ch11a-Generous
 TEXT:
 
+set(v_ac_b3_ch11_taste,1) if (v_b3_ch11_red == 1)
+achievement("A small taste of the big prize",v_ac_b3_ch11_taste)
 #if(v_b3_ch11_red == 0) {
  I decide to listen to Meridith's warning and to not press the red button. After a few more seconds of looking around at the endless library of unattainable information, I figure that I've had enough, so I press the green button again to close my connection to the Magium.
 
@@ -1539,6 +1543,8 @@ choice("Continue", B3-Ch11a-Recording, v_current_scene = B3-Ch11a-Recording)
 ID: B3-Ch11a-Recording
 TEXT:
 
+set(v_ac_b3_ch11_aftermath,1) if (v_b3_ch4_billy == 7 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 8 && v_b3_ch8_overseer2 == 1)
+achievement("Hidden alliance aftermath",v_ac_b3_ch11_aftermath)
 #if(v_b3_ch8_overseer2 == 0) {
  "Did you just call us friends?" Hadrik says. "You do realize that I'm the one who destroyed your core, right?"
 

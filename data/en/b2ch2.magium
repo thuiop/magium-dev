@@ -396,11 +396,13 @@ choice("Continue", B2-Ch02a-Fist, v_current_scene = B2-Ch02a-Fist)
 ID: B2-Ch02a-Fist
 TEXT:
 
+set(v_ac_b2_ch2_bro,1) if (v_toughness >= 2)
 set(v_b2_ch2_fist,1) if (v_toughness >= 2)
 set(v_b2_ch2_fist,2) if (v_strength >= 2 && v_toughness < 2)
 set(v_b2_ch2_fist,3) if (v_combat_technique >= 2 && v_strength < 2 && v_toughness < 2)
 set(v_b2_ch2_fist,4) if (v_reflexes >= 2 && v_combat_technique < 2 && v_strength < 2 && v_toughness < 2)
 set(v_b2_ch2_fist,5) if (v_combat_technique < 2 && v_reflexes < 2 && v_strength < 2 && v_toughness < 2)
+achievement("Come at me, bro!",v_ac_b2_ch2_bro)
 #if(v_toughness >= 2) {
  
 
@@ -1071,7 +1073,7 @@ The girl gives the device one long pondering look, before she writes again.
 }
 choice(""I wanted to save them for an emergency."", B2-Ch02a-Emergency, v_current_scene = B2-Ch02a-Emergency) if (v_available_points == 19)
 choice(""I wanted to see how long I could last on my own!"", B2-Ch02a-Last, v_current_scene = B2-Ch02a-Last) if (v_available_points == 19)
-choice(""It's because I'm aiming to complete the 'Average Joe' achievement."", B2-Ch02a-Average, v_ac_b2_ch2_wall = 1, v_current_scene = B2-Ch02a-Average, special:achievement-Fourth wall breaker-v_ac_b2_ch2_wall) if (v_available_points == 19)
+choice(""It's because I'm aiming to complete the 'Average Joe' achievement."", B2-Ch02a-Average, v_ac_b2_ch2_wall = 1, v_current_scene = B2-Ch02a-Average) if (v_available_points == 19)
 choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup) if (v_available_points != 19)
 
 
@@ -1106,6 +1108,7 @@ choice("Continue", B2-Ch02a-Backup, v_current_scene = B2-Ch02a-Backup)
 ID: B2-Ch02a-Average
 TEXT:
 
+achievement("Fourth wall breaker",v_ac_b2_ch2_wall)
  "It's because I'm aiming to complete the 'Average Joe' achievement."
 
 "Complete the... what?" Leila writes.
@@ -1260,7 +1263,7 @@ There's no way I could agree to take this deal after I already convinced everyon
 
 }
 choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
-choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_ac_b2_ch2_easy = 1, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3, special:achievement-The easy way out-v_ac_b2_ch2_easy) if (v_b2_ch1_interfere == 0)
+choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_ac_b2_ch2_easy = 1, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3) if (v_b2_ch1_interfere == 0)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 1 || v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 1)
 choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 0 || v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 0)
 
@@ -1296,6 +1299,7 @@ choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene 
 ID: B2-Ch02a-Deal-conclusion
 TEXT:
 
+achievement("The easy way out",v_ac_b2_ch2_easy)
 #if(v_b2_ch2_deal == 1) {
  "Well, mister lessathi, sir, I guess you've got yourself a deal!" I say.
 
@@ -2042,8 +2046,10 @@ choice("Kill the griffin directly", B2-Ch02a-Directly, v_current_scene = B2-Ch02
 ID: B2-Ch02a-Rider
 TEXT:
 
+set(v_ac_b2_ch2_griffin,1) if (v_toughness >= 3)
 set(v_is_dead,0) if (v_toughness >= 3)
 set(v_is_dead,1) if (v_toughness < 3)
+achievement("Griffin rider",v_ac_b2_ch2_griffin)
 #if(v_toughness >= 3) {
  
 

@@ -401,9 +401,11 @@ choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage) if (v_ch3_tactics
 ID: Ch3-Vantage
 TEXT:
 
+set(v_ac_ch3_message,1) if (v_ancient_languages >= 2 && v_perception >= 1)
 set(v_ch3_star_message,0) if (v_perception < 1)
 set(v_ch3_star_message,1) if (v_perception >= 1 && v_ancient_languages < 2)
 set(v_ch3_star_message,2) if (v_ancient_languages >= 2 && v_perception >= 1)
+achievement("A message in the sky",v_ac_ch3_message)
 #if(v_perception < 1) {
 
 As we stand guard,  Daren starts telling me stories about his travels around the world, and the adventures he's had. He tells me of the fifty foot giants that live in the far east of the Northern Continent. He tells me how he's cured the dreaded Iknar plague of the Eastern Continent by himself, and how he defeated the green wyvern of the north. 
@@ -1139,8 +1141,10 @@ choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry =
 ID: Ch3-Dart
 TEXT:
 
+set(v_ac_ch3_close,1) if (v_perception == 3 && v_hearing >= 2 || v_perception == 3 && v_premonition >= 2)
 set(v_ch3_saved_from_dart,1) if (v_perception == 3 && v_hearing >= 2 || v_perception == 3 && v_premonition >= 2)
 set(v_ch3_saved_from_dart,0) if (v_hearing < 2 && v_premonition < 2 || v_perception < 3)
+achievement("That was close!",v_ac_ch3_close)
 #if(v_perception == 3 && v_premonition >= 2) {
 
 Suddenly I see a vision of a dart being shot towards Kate. I realize immediately that what I've just seen was a premonition. But where did the dart come from? 
@@ -2943,6 +2947,8 @@ choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-fin
 ID: Ch3-Crossbowmen-finish
 TEXT:
 
+set(v_ac_ch3_army,1)
+achievement("One man army",v_ac_ch3_army)
 The last man standing, their leader, is now on his knees, crying and begging me for mercy. By the looks of his fancy garments, he appears to be some rich noble from one of the more prosperous cities of the west. That would explain how he could motivate so many people to follow him on this suicide mission.
 
 "Please!" He yells in his girly voice, while sobbing. "I only wanted to become famous by winning the tournament! I'm sorry I attacked you! Please, don't kill me! I have a lot of money! Here, you can take it. You can take it all! Just spare me my life. Please!"

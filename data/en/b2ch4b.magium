@@ -431,6 +431,8 @@ choice("Continue", B2-Ch04b-Wilhelm-checks, v_current_scene = B2-Ch04b-Wilhelm-c
 ID: B2-Ch04b-Wilhelm-charge
 TEXT:
 
+set(v_ac_b2_ch4_intimidation,1) if (v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2)
+achievement("Intimidation successful",v_ac_b2_ch4_intimidation)
 #if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 && v_b2_ch4_charge == 1) {
  Perfect! Two creatures are already down. But what about Wilhelm? Is he trying to kill me, yet?
 
@@ -600,6 +602,8 @@ choice("Ask Leila if she can deal with the tramplers, while I deal with the cobr
 ID: B2-Ch04b-Manticore-first
 TEXT:
 
+set(v_ac_b2_ch4_spear,1) if (v_combat_technique >= 1 && v_strength >= 1)
+achievement("Spear thrower",v_ac_b2_ch4_spear)
 #if(v_strength < 1 && v_b2_ch2_fist != 2) {
  
 
@@ -941,6 +945,8 @@ choice("Continue", B2-Ch04b-Strength-check, v_current_scene = B2-Ch04b-Strength-
 ID: B2-Ch04b-Barry-tramplers
 TEXT:
 
+set(v_ac_b2_ch4_trampler,1)
+achievement("Trampler slayer",v_ac_b2_ch4_trampler)
 #if(v_b2_ch2_fist != 2 && v_b2_ch4_tactic != 1) {
  I make a dash towards one of the tramplers, and I make sure to avoid its tail, before I step to its right side, and stab it in the neck with my knife. As the beast falls down, I waste no time, and I rush towards the other. The second trampler attempts to attack me with its horns, but I easily move out of the way, and I slit its throat with my blade, causing it to fall slowly to the ground as well, and die from the loss of blood.
 
@@ -1016,6 +1022,8 @@ choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-fi
 ID: B2-Ch04b-Signal
 TEXT:
 
+set(v_ac_b2_ch4_player,1) if (v_b2_ch2_fist == 1 && v_b2_ch2_heard == 0 || v_b2_ch2_fist == 2 && v_b2_ch2_heard == 0 || v_b2_ch2_fist == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch2_fist == 2 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0)
+achievement("Not a team player",v_ac_b2_ch4_player)
 #if(v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 1 && v_b2_ch2_fist != 2 || v_b2_ch2_heard == 1 && v_b2_ch4_inform3 == 1 && v_b2_ch2_fist != 2) {
  As I look towards the other members of my team, I see that they are all still alive, surprisingly, and they've even managed to take down a marauder all by themselves. I signal Leila, and we head towards them. 
 
@@ -1196,6 +1204,8 @@ choice("Load game", , , special:saves) if (v_reflexes < 3 && v_strength < 3)
 ID: B2-Ch04b-Wilhelm-team
 TEXT:
 
+set(v_ac_b2_ch4_intimidation,1) if (v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2)
+achievement("Intimidation successful",v_ac_b2_ch4_intimidation)
 #if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2) {
  Perfect! Two creatures are already down. But what about Wilhelm? Is he trying to kill me, yet?
 
@@ -1524,6 +1534,8 @@ choice("Continue", B2-Ch04b-Wilhelm-final, v_current_scene = B2-Ch04b-Wilhelm-fi
 ID: B2-Ch04b-Wilhelm-final
 TEXT:
 
+set(v_ac_b2_ch4_stats,1) if (v_available_points == 22 && v_b2_ch2_deal != 3)
+achievement("Who needs stats?",v_ac_b2_ch4_stats)
 #if(v_b2_ch4_charge == 3 && v_b2_ch2_lessathi != 0 || v_b2_ch4_charge == 3 && v_b2_ch2_threatened != 2) {
  "Wait, where's Wilhelm?" Bruce asks me, all of a sudden. "Wasn't he with you?
 
@@ -1650,8 +1662,10 @@ choice("Continue", B2-Ch04b-Hearing2, v_current_scene = B2-Ch04b-Hearing2) if (v
 ID: B2-Ch04b-Hearing2
 TEXT:
 
+set(v_ac_b2_ch4_motive,1) if (v_hearing >= 2)
 set(v_b2_ch4_hearing2,0) if (v_b2_ch2_creatures == 1 || v_hearing < 2)
 set(v_b2_ch4_hearing2,1) if (v_hearing >= 2)
+achievement("The assassin's motive",v_ac_b2_ch4_motive)
 #if(v_hearing < 2) {
  
 
@@ -1773,6 +1787,8 @@ choice("Continue", B2-Ch04b-Killed3, v_current_scene = B2-Ch04b-Killed3) if (v_c
 ID: B2-Ch04b-Killed3
 TEXT:
 
+set(v_ac_b2_ch4_time,1) if (v_ch11_saved_rose == 1)
+achievement("Time stop",v_ac_b2_ch4_time)
 #if(v_ch11_saved_rose == 1) {
  "Secondly," the owner says. "Our rules clearly state that in order for a magic spell to be considered illegal, it needs to set off our magical detectors. Obviously, this is more of a loophole than anything else, and I am not planning to let this go completely unpunished, however, I believe that ordering her execution in this case would be a bit too much, given the nature of her transgression. I will therefore agree to only turn her into an undesirable, as long as she agrees to tell us how she managed to bypass our magic detection system."
 
@@ -1919,12 +1935,13 @@ He then jumps off the creature, and he heads towards Kate.
 "Are you alright, milady?" Hadrik says, with a bow.
 
 }
-choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus, special:achievement-Hadrik saves the day!-v_ac_b2_ch4_hadrik) if (v_b2_ch4_forsake == 1 || v_b2_ch4_forsake == 2 || v_b2_ch4_forsake == 3)
+choice("Continue", B2-Ch04b-Bonus, v_ac_b2_ch4_hadrik = 1, v_current_scene = B2-Ch04b-Bonus) if (v_b2_ch4_forsake == 1 || v_b2_ch4_forsake == 2 || v_b2_ch4_forsake == 3)
 
 
 ID: B2-Ch04b-Bonus
 TEXT:
 
+achievement("Hadrik saves the day!",v_ac_b2_ch4_hadrik)
  "Hadrik, what are you doing here?" Kate says, shocked. "You're not allowed to help me! They'll ban you from the tournament!"
 
 "No, they won't," Hadrik says. "There was never any such rule. Didn't you pay attention to the announcements at the beginning?"

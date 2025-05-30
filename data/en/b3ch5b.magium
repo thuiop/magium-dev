@@ -1,6 +1,8 @@
 ID: B3-Ch05b-Refreshed
 TEXT:
 
+set(v_ac_b3_ch5_passed,1) if (v_b3_ch5_moustache == 2)
+achievement("Challenge accepted",v_ac_b3_ch5_passed)
 #if(v_b3_ch5_moustache == 2) {
  "Yeah, yeah, I'm awake," Arraka says. "Oh and I've already used a water spell to clean up that fake moustache, in case you were looking for it. Very amusing, by the way. I'm glad to know that you're putting all that free time to good use. Really looking forward to seeing you use these new skills of yours against Selkram in our final confrontation."
 
@@ -410,8 +412,10 @@ choice("Stand there and do nothing, hoping that everything will work out on its 
 ID: B3-Ch05b-Hearing
 TEXT:
 
+set(v_ac_b3_ch5_footsteps,1) if (v_b2_ch6_stat == 1 && v_hearing >= 4)
 set(v_b3_ch5_fight,0) if (v_hearing < 4 || v_b2_ch6_stat != 1)
 set(v_b3_ch5_fight,4) if (v_b2_ch6_stat == 1 && v_hearing >= 4)
+achievement("I can hear footsteps.",v_ac_b3_ch5_footsteps)
 #if(v_hearing < 4) {
  
 

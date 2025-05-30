@@ -1003,8 +1003,10 @@ choice("Load game", , , special:saves) if (v_perception < 3 && v_reflexes < 3)
 ID: Ch10-Volunteer2
 TEXT:
 
+set(v_ac_ch10_shaman,1) if (v_agility >= 2 || v_strength >= 3)
 set(v_is_dead,0) if (v_agility >= 2 || v_strength >= 3)
 set(v_is_dead,1) if (v_agility < 2 && v_strength < 3)
+achievement("Defeated ogre shaman",v_ac_ch10_shaman)
 #if(v_agility >= 2) {
  
 
@@ -1449,6 +1451,8 @@ choice("Leave the toast for some other time", Ch10-Other-time, v_current_scene =
 ID: Ch10-Drink
 TEXT:
 
+set(v_ac_ch10_toast,1)
+achievement("A toast!",v_ac_ch10_toast)
  Since nobody else offered, I told Hadrik that I'd share one drink with him before taking my shift. He pulled out two bottles of dwarven ale from his backpack, and then we went to sit ourselves down on two rocks that were facing each other, away from the tents.
 
 "When giants make a toast, they first spill a bit of ale on the ground, to also give the warriors fallen in battle something to drink," Hadrik says, as he opens our two bottles. "I always get in trouble when I do this in dwarven taverns, so it's refreshing to do it outside for a change."
@@ -1883,6 +1887,8 @@ choice("Continue", Ch10-Minimize, v_current_scene = Ch10-Minimize) if (v_ch2_dee
 ID: Ch10-Elaria
 TEXT:
 
+set(v_ac_ch10_reunion,1) if (v_ch6_rose_deer == 1)
+achievement("A touching reunion",v_ac_ch10_reunion)
 #if(v_ch6_rose_deer == 0) {
  A few minutes after leaving the ruins, we hear the leopard calling out to us.  
 

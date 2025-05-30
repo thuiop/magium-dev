@@ -1,6 +1,8 @@
 ID: B3-Ch06c-Explanation
 TEXT:
 
+set(v_ac_b3_ch6_average,1) if (v_agility == 0 && v_ancient_languages == 0 && v_aura_hardening == 0 && v_bluff == 0 && v_combat_technique == 0 && v_hearing == 0 && v_magical_sense == 0 && v_perception == 0 && v_premonition == 0 && v_reflexes == 0 && v_strength == 0 && v_toughness == 0)
+achievement("Average is my middle name",v_ac_b3_ch6_average)
 #if(v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3) {
  "We should be going back to the waiting room as well," Daren tells us. "See you later, Barry. And thanks for the help!"
 
@@ -289,6 +291,8 @@ choice("Continue", B3-Ch06c-Herbs, v_current_scene = B3-Ch06c-Herbs) if (v_b3_ch
 ID: B3-Ch06c-Herbs
 TEXT:
 
+set(v_ac_b3_ch6_quarantine,1) if (v_ch11_saved_rose == 1 && v_b3_ch6_secret >= 1 || v_b3_ch6_secret == 0 && v_b3_ch6_sleep == 0 && v_ch11_saved_rose == 1 || v_b3_ch6_password == 3 || v_b3_ch6_labels >= 2)
+achievement("Quarantine ender",v_ac_b3_ch6_quarantine)
  "Doctor Reidzek's been missing for a while, and the last thing we know about him is that he went to the teleporter room to do some regular maintenance," Albert says. "We tried calling both him and Barry on the transceiver, but neither of them are answering. Could you pay Barry a quick visit to see if anything is wrong? And make sure that you have your transceiver open, so you can contact us in case of an emergency."
 
 "Roger that," Peter says. "I'll be right back!"
@@ -406,8 +410,10 @@ choice("Try calling my friends through the transceivers to tell them what happen
 ID: B3-Ch06c-Hearing
 TEXT:
 
+set(v_ac_b3_ch6_echoes,1) if (v_hearing >= 4)
 set(v_b3_ch6_transceivers,0) if (v_hearing < 4)
 set(v_b3_ch6_transceivers,2) if (v_hearing >= 4)
+achievement("Do you hear an echo?",v_ac_b3_ch6_echoes)
 #if(v_hearing < 4) {
  
 

@@ -263,6 +263,8 @@ choice("Continue", B2-Ch08a-Trailing, v_current_scene = B2-Ch08a-Trailing)
 ID: B2-Ch08a-Trailing
 TEXT:
 
+set(v_ac_b2_ch8_trivia,1) if (v_b2_ch8_tickle == 0)
+achievement("Stillwater trivia",v_ac_b2_ch8_trivia)
 #if(v_b2_ch8_tickle == 0) {
  "Because Eiden decided after the still winter that we should keep what happened to us a secret," Melindra says. "He was worried that if people found out how we became stillwaters, certain individuals might try to exploit that knowledge for their own benefit."
 
@@ -598,10 +600,12 @@ choice("Continue", B2-Ch08a-Crossbow, v_current_scene = B2-Ch08a-Crossbow)
 ID: B2-Ch08a-Crossbow
 TEXT:
 
+set(v_ac_b2_ch8_savior,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 && v_reflexes < 2)
 set(v_b2_ch8_saved,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 set(v_b2_ch8_saved,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 && v_reflexes < 2)
 set(v_is_dead,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 set(v_is_dead,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
+achievement("Unexpected savior",v_ac_b2_ch8_savior)
 #if(v_combat_technique >= 1) {
  
 
@@ -722,6 +726,8 @@ choice("Continue", B2-Ch08a-Fight, v_current_scene = B2-Ch08a-Fight) if (v_b2_ch
 ID: B2-Ch08a-Goblins
 TEXT:
 
+set(v_ac_b2_ch8_effects,1) if (v_b2_ch7_dizziness == 0)
+achievement("Side effects",v_ac_b2_ch8_effects)
 #if(v_b2_ch7_dizziness == 0) {
  "Flower! Illuna!" I say. "I want to go check why the two goblin mages haven't attacked us yet. Could you come with me? We should be able to find where they're hiding, with a little help from Arraka."
 
@@ -984,6 +990,8 @@ choice("Load game", , , special:saves) if (v_combat_technique < 2 && v_toughness
 ID: B2-Ch08a-Retreat
 TEXT:
 
+set(v_ac_b2_ch8_tree,1) if (v_b2_ch8_goblins == 2)
+achievement("Tree wielder",v_ac_b2_ch8_tree)
 #if(v_b2_ch8_goblins == 0) {
  "Crap, they're getting away!" Daren says, as he rushes towards the captain, but it is too late.
 
@@ -1860,6 +1868,8 @@ choice("Let her sleep in the tent for a few hours, and go join Kate on her night
 ID: B2-Ch08a-Gentleman
 TEXT:
 
+set(v_ac_b2_ch8_gentleman,1)
+achievement("A true gentleman",v_ac_b2_ch8_gentleman)
  "Actually, I think I have another idea," I say.
 
 I then struggle to crawl over her on all fours, in order to reach the entrance of the tent.

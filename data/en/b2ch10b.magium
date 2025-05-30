@@ -656,7 +656,7 @@ I keep dodging and punching rocks until it looks as if Talmak has all of his foc
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique < 4)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique < 4)
 choice("Load game", , , special:saves) if (v_combat_technique < 4)
-choice("Continue", B2-Ch10b-Mosquito, v_ac_b2_ch10_demolition = 1, v_current_scene = B2-Ch10b-Mosquito, special:achievement-Demolition man-v_ac_b2_ch10_demolition) if (v_combat_technique == 4)
+choice("Continue", B2-Ch10b-Mosquito, v_ac_b2_ch10_demolition = 1, v_current_scene = B2-Ch10b-Mosquito) if (v_combat_technique == 4)
 
 
 ID: B2-Ch10b-Reaction
@@ -744,6 +744,7 @@ choice("Continue", B2-Ch10b-Mosquito, v_current_scene = B2-Ch10b-Mosquito) if (v
 ID: B2-Ch10b-Mosquito
 TEXT:
 
+achievement("Demolition man",v_ac_b2_ch10_demolition)
  "Stop flying around like a damn mosquito!" Talmak shouts, as I dodge yet another one of his boulders.
 
 "Sorry, pal!" I say. "It's just that I'm pretty good at flying planes, and those skills seem to translate rather well to magical flying. Tough luck, eh?"
@@ -1544,6 +1545,8 @@ choice("Don't activate the secret code", B2-Ch10b-Boost, v_current_scene = B2-Ch
 ID: B2-Ch10b-Boost
 TEXT:
 
+set(v_ac_b2_ch10_stalker,1) if (v_ch4_spared_dave == 1)
+achievement("Stalker detected",v_ac_b2_ch10_stalker)
 #if(v_b2_ch10_activate == 1) {
  I decide to take out my device, and to activate the secret code that Melindra taught me a few days ago, just like the revenant asked. Once I'm done, I put my device back in my pocket, and I continue to walk alongside the others.
 
@@ -1624,6 +1627,8 @@ choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene
 ID: B2-Ch10b-Details
 TEXT:
 
+set(v_ac_b2_ch10_stalker,1) if (v_ch4_spared_dave == 1)
+achievement("Stalker detected",v_ac_b2_ch10_stalker)
  Not long after we are done talking, I suddenly hear Rose's voice through the transceiver. As soon as I hear her, I immediately remember the last time when the revenant contacted me, and how she asked me to keep the transceiver open, so she could call me again.
 
 "Barry, do you hear me?" the revenant says.
@@ -1690,6 +1695,8 @@ choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene
 ID: B2-Ch10b-Except
 TEXT:
 
+set(v_ac_b2_ch10_stalker,1) if (v_ch4_spared_dave == 1)
+achievement("Stalker detected",v_ac_b2_ch10_stalker)
  We walk for a while longer, following Melindra, and at a certain point, I can hear Illuna talking to Arraka, somewhere at the back of the group.
 
 "Arraka, are there any mages in this area left, except for us?" Illuna says.

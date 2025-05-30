@@ -1500,6 +1500,8 @@ choice("Tell Kate that it's just a normal headache and that she shouldn't worry 
 ID: B3-Ch10a-Proposition
 TEXT:
 
+set(v_ac_b3_ch10_benefits,1) if (v_b3_ch10_benefits == 1)
+achievement("Friends with benefits",v_ac_b3_ch10_benefits)
 #if(v_b3_ch10_benefits == 1) {
  "Hey, that sounds good to me," I say. "Let's give it a try!"
 
@@ -1971,6 +1973,8 @@ choice("Load game", , , special:saves) if (v_b3_ch10_puzzle == 1 && v_b3_ch10_sp
 ID: B3-Ch10a-Interesting
 TEXT:
 
+set(v_ac_b3_ch10_third,1) if (v_b3_ch10_puzzle == 1)
+achievement("Third piece of the puzzle",v_ac_b3_ch10_third)
 #if(v_b3_ch10_puzzle == 1) {
  "Oh, they'll stop, don't worry," Melindra says. "And as soon as they do, we'll pull that last lever one more time, we'll get the damn puzzle piece and then we'll make ourselves scarce."
 

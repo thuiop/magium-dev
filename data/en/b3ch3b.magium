@@ -63,6 +63,8 @@ choice(""Are there any unwanted side-effects that I should be worrying about?"",
 ID: B3-Ch03b-Functional
 TEXT:
 
+set(v_ac_b3_ch3_unexpected,1) if (v_b3_ch1_unlock == 2)
+achievement("An unexpected bonus",v_ac_b3_ch3_unexpected)
 #if(v_b3_ch3_functional == 0) {
  "Did you manage to unlock all of the aura stats?"
 
@@ -1033,8 +1035,10 @@ choice("Fly towards the man with the trident, and try to kill him.", B3-Ch03b-Tr
 ID: B3-Ch03b-Trident
 TEXT:
 
+set(v_ac_b3_ch3_job,1) if (v_b2_ch7_dizziness == 1)
 set(v_is_dead,1) if (v_b2_ch7_dizziness == 1)
 set(v_is_dead,0) if (v_b2_ch7_dizziness == 0)
+achievement("A job well done!",v_ac_b3_ch3_job)
 #if(v_b2_ch7_dizziness == 1) {
  As I am busy dodging boulders in mid-air while reloading my crossbow, I suddenly get a strong headache and a feeling of intense disorientation, which causes me to stop moving and to grab my forehead with both hands, in an attempt to make the pain go away.
 
@@ -1303,6 +1307,8 @@ choice("Next chapter", B3-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene
 ID: B3-Ch03b-Transceiver
 TEXT:
 
+set(v_ac_b3_ch3_unforeseen,1)
+achievement("An unforeseen premonition",v_ac_b3_ch3_unforeseen)
  "Barry!" I suddenly hear Rose's voice coming from my transceiver. "Answer me quickly! Where are you right now? Is Illuna with you? Are you on a street with lots of oddly shaped buildings?"
 
 "Umm yes..." I say, as I tap on my transceiver through my pocket. "Yes, to both your previous questions, but how did you--"

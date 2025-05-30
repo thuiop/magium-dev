@@ -827,6 +827,8 @@ choice("Try to forcefully unlock the hidden stats.", B3-Ch01a-Crossbow, v_curren
 ID: B3-Ch01a-Crossbow
 TEXT:
 
+set(v_ac_b3_ch1_regrets,1) if (v_b3_ch1_unlock == 2)
+achievement("No regrets",v_ac_b3_ch1_regrets)
 #if(v_b3_ch1_unlock == 1) {
  "Yeah, we shouldn't risk it," I say. "We'll just have to continue this in Ollendor."
 
@@ -1169,8 +1171,10 @@ choice("Continue", B3-Ch01a-Infiltrate, v_current_scene = B3-Ch01a-Infiltrate)
 ID: B3-Ch01a-Infiltrate
 TEXT:
 
+set(v_ac_b3_ch1_password,1) if (v_ancient_languages == 4 && v_perception == 4 && v_b3_ch1_unlock != 2)
 set(v_b3_ch1_password,0) if (v_perception == 4 && v_ancient_languages < 4 || v_b3_ch1_unlock == 2 || v_perception < 4)
 set(v_b3_ch1_password,1) if (v_ancient_languages == 4 && v_perception == 4 && v_b3_ch1_unlock != 2)
+achievement("Password acquired",v_ac_b3_ch1_password)
 #if(v_b3_ch1_unlock == 2 || v_perception < 4) {
  
 

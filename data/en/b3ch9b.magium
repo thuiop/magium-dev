@@ -1292,8 +1292,10 @@ choice("Continue", B3-Ch09b-Floating, v_current_scene = B3-Ch09b-Floating) if (v
 ID: B3-Ch09b-Floating
 TEXT:
 
+set(v_ac_b3_ch9_targets,1) if (v_b3_ch9_backup == 0 && v_b3_ch9_premonition == 1 && v_toughness >= 4)
 set(v_is_dead,0) if (v_b3_ch9_backup == 0 && v_toughness >= 4 || v_b3_ch9_backup == 1)
 set(v_is_dead,1) if (v_b3_ch9_assassinate == 0 && v_b3_ch9_backup == 0 && v_toughness < 4 || v_b3_ch9_assassinate == 1 && v_b3_ch9_backup == 0 && v_toughness < 4)
+achievement("High-value targets",v_ac_b3_ch9_targets)
 #if(v_b3_ch9_backup == 1) {
  Right before he gets to pin me to the ground with his aura manipulation, the king gets an intense headache and the invisible force above me disappears completely. When I switch my focus to the ethereal plane to see what happened, I realize that the Overseer has now also joined the fight, likely because the king was no longer able to keep him contained after all of the back and forth between the two planes of existence affected his concentration.
 

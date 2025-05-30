@@ -1,6 +1,8 @@
 ID: Ch5-Intro
 TEXT:
 
+set(v_ac_ch5_wielder,1) if (v_ch4_dave_defeat == 1 && v_ch4_ending == 5)
+achievement("Stat device wielder",v_ac_ch5_wielder)
 #if(v_ch4_ending == 1) {
 
 "Daren!" I shout. "Daren, can you hear me?"
@@ -628,6 +630,8 @@ choice("Don't say anything to Daren", Ch5-No-admit, v_current_scene = Ch5-No-adm
 ID: Ch5-Admit-lie
 TEXT:
 
+set(v_ac_ch5_liar,1)
+achievement("Admitted liar",v_ac_ch5_liar)
 #if(v_ch2_human_reason == 2) {
 Maybe Kate's right. What was I thinking when I lied to Daren like that? He's shown me nothing but honesty so far, and I've betrayed his trust. He's going to get upset about this, but I'd rather tell him the truth now than have him find out later on his own.
 
@@ -829,6 +833,8 @@ choice("Continue", Ch5-Creator, v_current_scene = Ch5-Creator)
 ID: Ch5-Stead
 TEXT:
 
+set(v_ac_ch5_shameless,1)
+achievement("Shameless",v_ac_ch5_shameless)
 "We only did what anyone else would have done in our stead."
 
 The woman smiles.
@@ -930,6 +936,8 @@ choice("Don't give them anything and send them on their way.", Ch5-Goblins2, v_c
 ID: Ch5-Goblins2
 TEXT:
 
+set(v_ac_ch5_deed,1) if (v_ch5_goblins == 1)
+achievement("A good deed",v_ac_ch5_deed)
 #if(v_ch5_goblins == 1) {
 I grab two copper pieces out of my right pocket and toss them over to the goblins. Their leader caught the two coins from the air, and is now looking at them as if he can't believe his eyes.
 

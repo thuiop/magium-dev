@@ -1095,8 +1095,10 @@ choice("Continue", B2-Ch07a-Hearing, v_current_scene = B2-Ch07a-Hearing)
 ID: B2-Ch07a-Hearing
 TEXT:
 
+set(v_ac_b2_ch7_culprit,1) if (v_ancient_languages >= 3 && v_hearing >= 2)
 set(v_b2_ch7_overheard,0) if (v_ancient_languages < 3 || v_hearing < 2)
 set(v_b2_ch7_overheard,1) if (v_ancient_languages >= 3 && v_hearing >= 2)
+achievement("Found the culprit",v_ac_b2_ch7_culprit)
 #if(v_hearing < 2) {
  
 
@@ -1353,8 +1355,10 @@ choice("Continue", B2-Ch07a-Trident, v_current_scene = B2-Ch07a-Trident)
 ID: B2-Ch07a-Trident
 TEXT:
 
+set(v_ac_b2_ch7_cookie,1) if (v_toughness == 4)
 set(v_is_dead,1) if (v_toughness < 4)
 set(v_is_dead,0) if (v_b2_ch7_wait == 0 && v_toughness == 4 || v_b2_ch7_wait == 1 && v_toughness == 4)
+achievement("One tough cookie",v_ac_b2_ch7_cookie)
 #if(v_toughness < 4) {
  
 
@@ -1398,6 +1402,8 @@ choice("Continue", B2-Ch07a-Blinded, v_current_scene = B2-Ch07a-Blinded) if (v_b
 ID: B2-Ch07a-Winter
 TEXT:
 
+set(v_ac_b2_ch7_delivered,1)
+achievement("Message delivered",v_ac_b2_ch7_delivered)
  "Hey, I just remembered something!" I say. "Eiden asked me to give you a message. He said that you should remember the still winter!"
 
 "What did you... just say?" the scythes-wielding lessathi says, as he drops Leila's head, and he stares at me, with a mixture of shock and fear in his eyes.
@@ -1576,6 +1582,8 @@ choice("Refuse the king's offer.", B2-Ch07a-Tailored, v_current_scene = B2-Ch07a
 ID: B2-Ch07a-Tailored
 TEXT:
 
+set(v_ac_b2_ch7_average,1) if (v_available_points == 22)
+achievement("Just an average assassin",v_ac_b2_ch7_average)
 #if(v_b2_ch7_overheard == 1 && v_b2_ch7_reward == 1) {
  "We'll take it," I say. "I'm not sure how much use we'll get out of it, but you never know!"
 

@@ -1124,8 +1124,10 @@ choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_agi
 ID: B3-Ch02a-Strength
 TEXT:
 
+set(v_ac_b3_ch2_metal,1) if (v_strength == 4 && v_toughness == 4 && v_b3_ch1_unlock != 2)
 set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 || v_b3_ch1_unlock == 2 || v_toughness < 4)
 set(v_is_dead,0) if (v_strength == 4 && v_toughness == 4 && v_b3_ch1_unlock != 2)
+achievement("Metal golem slayer",v_ac_b3_ch2_metal)
 #if(v_b3_ch1_unlock == 2 || v_toughness < 4) {
  
 
