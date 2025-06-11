@@ -556,6 +556,8 @@ choice("Stab him in the right leg, but spare his life", B2-Ch05b-Spare, v_curren
 ID: B2-Ch05b-Spare
 TEXT:
 
+set(v_ac_b2_ch5_speaker,1) if (v_b2_ch5_spare == 1)
+achievement("Public speaker",v_ac_b2_ch5_speaker)
 #if(v_b2_ch5_spare == 0) {
  I take my weapon away from the man's throat, and then I use it to stab him directly in the heart, granting him a quick death.
 
@@ -702,6 +704,8 @@ choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b
 ID: B2-Ch05b-Caliber
 TEXT:
 
+set(v_ac_b2_ch5_united,1) if (v_b2_ch5_spare == 1 && v_b2_ch5_wilhelm == 1)
+achievement("United we stand",v_ac_b2_ch5_united)
 #if(v_b2_ch5_spare == 0) {
  "Very well," the announcer says. "While we're at it, is there anyone else who would like to join the undesirables' side?"
 

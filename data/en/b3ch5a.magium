@@ -76,6 +76,8 @@ choice("Tell him that ten gold coins is too small a sum to be worth any answer."
 ID: B3-Ch05a-Contacting
 TEXT:
 
+set(v_ac_b3_ch5_opportunist,1) if (v_b3_ch5_negotiations == 3)
+achievement("Opportunist",v_ac_b3_ch5_opportunist)
 #if(v_b3_ch5_negotiations == 1 && v_b3_ch4_billy != 8) {
  "I mean, the cat's out of the bag already, so I guess we might as well tell you."
 
@@ -1124,6 +1126,8 @@ choice("Continue", B3-Ch05a-Sleeve, v_current_scene = B3-Ch05a-Sleeve) if (v_b3_
 ID: B3-Ch05a-Sleeve
 TEXT:
 
+set(v_ac_b3_ch5_days,1) if (v_ch11_saved_rose == 1)
+achievement("The good old days",v_ac_b3_ch5_days)
  "Of course you couldn't," Melindra says, as she reaches us. "I was suppressing my aura completely, and it's already difficult enough to sense the aura of a stillwater as it is. You would have needed to have a magical sense that is at least as good as mine to be able to detect me."
 
 "Okay, but what were you doing there?" I say. "I thought you went out for a walk."

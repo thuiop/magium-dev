@@ -2444,7 +2444,9 @@ choice("Continue", Ch6-Win-fight, v_current_scene = Ch6-Win-fight, v_ch6_won_dra
 ID: Ch6-Lose-fight
 TEXT:
 
+set(v_ac_ch6_berserker,1)
 set(v_maximized_stats_used,1)
+achievement("Berserker mode activated",v_ac_ch6_berserker)
 #if(v_ch6_improvise == 2 && v_ch6_offense == 2) {
 I'm starting to get angry. I can feel my body starting to radiate heat. I can even see steam coming out of me. Suddenly, I can feel my speed increase by the tenfold. What kind of spell did I just cast? My stat device never told me I had access to anything like this. I feel like I can never lose to anyone ever again. I don't need this sword anymore.
 
@@ -2632,6 +2634,8 @@ choice(""Who are the lessathi?"", Ch6-Lose-fight2, v_current_scene = Ch6-Lose-fi
 ID: Ch6-Win-fight
 TEXT:
 
+set(v_ac_ch6_tyrath,1)
+achievement("Defeated Tyrath",v_ac_ch6_tyrath)
 #if(v_ch6_offense != 2) {
 Suddenly, the whole area gets covered in a blue light, and I'm starting to feel an immense magical power coming from the air all around us.
 

@@ -620,8 +620,10 @@ choice(""Actually, I'd prefer to focus on winning the Magium, without any distra
 ID: B3-Ch03a-Plans
 TEXT:
 
+set(v_ac_b3_ch3_ominous,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
 set(v_b3_ch3_chains,0) if (v_premonition < 4 && v_b3_ch1_unlock != 2 || v_b3_ch1_unlock == 2 || v_b3_ch3_plans == 0 || v_b3_ch3_plans == 1 || v_b3_ch3_plans == 2 || v_b3_ch3_plans == 3 || v_b3_ch3_plans == 4 || v_b3_ch3_plans == 5 || v_b3_ch3_plans == 6)
 set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
+achievement("Ominous foreshadowing",v_ac_b3_ch3_ominous)
 #if(v_b3_ch3_plans == 0) {
  
 

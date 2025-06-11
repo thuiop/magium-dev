@@ -469,6 +469,8 @@ choice(""Actually, I'd rather keep my stat device, if you don't mind."", B2-Ch06
 ID: B2-Ch06a-Distinction
 TEXT:
 
+set(v_ac_b2_ch6_secret,1) if (v_b2_ch6_stat == 1)
+achievement("Secret code discovered",v_ac_b2_ch6_secret)
 #if(v_b2_ch6_stat == 0) {
  "Actually, I'd rather keep my stat device, if you don't mind."
 
@@ -1060,12 +1062,13 @@ I look around the ranged weapons section one more time to see if there aren't an
 }
 choice("Buy the cheaper crossbow", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 0) if (v_ch10_gems == 0 || v_ch10_gems == 1 || v_ch3_treasure != 0)
 choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_b2_ch5_scimitar == 2 && v_ch10_gems == 0 || v_ch10_gems == 1 || v_ch3_treasure != 0)
-choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_ac_b2_ch6_edge = 1, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1, special:achievement-Living on the edge-v_ac_b2_ch6_edge) if (v_ch10_gems == 0 && v_ch3_treasure == 0 && v_b2_ch5_scimitar != 2)
+choice("Buy the expensive crossbow ", B2-Ch06a-Elixir, v_ac_b2_ch6_edge = 1, v_current_scene = B2-Ch06a-Elixir, v_b2_ch6_crossbow = 1) if (v_ch10_gems == 0 && v_ch3_treasure == 0 && v_b2_ch5_scimitar != 2)
 
 
 ID: B2-Ch06a-Elixir
 TEXT:
 
+achievement("Living on the edge",v_ac_b2_ch6_edge)
 #if(v_b2_ch6_crossbow == 0) {
  I decide to buy the cheaper crossbow. It's already leagues better than the one that I have, and it's not like I'm planning to participate in a sharpshooting contest. There is no need for me to buy the most expensive option available.
 

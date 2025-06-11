@@ -44,6 +44,7 @@ async function parse(filename) {
                 statChecks: [],
                 setVariables: [],
                 choices: [],
+                achievements: [],
             };
         } else if (line.startsWith("TEXT")) {
             skip = true; // There is a blank line after TEXT
@@ -62,6 +63,15 @@ async function parse(filename) {
                 value: match.groups.value,
                 conditions: conditions,
             });
+        } else if (
+            (match = line.match(
+                /achievement\("(?<text>.*)",(?<variable>.*)\)/,
+            ))
+        ) {
+            currentScene.achievements.push({
+                text: match.groups.text,
+                variable: match.groups.variable,
+            })
         } else if (
             (match = line.match(
                 /choice\("(?<text>.*)", (?<target>[\w\-\s]*), (?<setVariables>(\w* = [\w\-\s+]*(, )?)*)((, )?special:(?<special>.*?))?\)( if (?<condition>.*))?/,

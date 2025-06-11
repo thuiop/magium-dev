@@ -625,6 +625,8 @@ choice("Continue", Ch11b-Strongest2, v_current_scene = Ch11b-Strongest2)
 ID: Ch11b-Strongest2
 TEXT:
 
+set(v_ac_ch11_stillwater,1)
+achievement("Stillwater slayer",v_ac_ch11_stillwater)
  Using air magic to fly is nowhere near as easy as it sounds, and I'm feeling a lot clumsier than when I was using the flight spell in my fight with the dragon, but at least I can move around easier now. The air elementalist sees that I'm not dead, and he quickly teleports himself back inside the safety of his ally's barrier, before I get the chance to pay him back in kind.
 
 "No, no, no, you're doing it all wrong!" Arraka shouts at me from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
@@ -671,8 +673,10 @@ choice("Continue", Ch11b-Civilians2, v_current_scene = Ch11b-Civilians2)
 ID: Ch11b-Civilians2
 TEXT:
 
+set(v_ac_ch11_stillwater,1) if (v_hearing >= 3 || v_perception >= 2)
 set(v_is_dead,0) if (v_hearing >= 3 || v_perception >= 2)
 set(v_is_dead,1) if (v_hearing < 3 && v_perception < 2)
+achievement("Stillwater slayer",v_ac_ch11_stillwater)
 #if(v_perception >= 2) {
  
 
@@ -950,8 +954,10 @@ choice("Continue", Ch11b-Hole, v_current_scene = Ch11b-Hole)
 ID: Ch11b-Hole
 TEXT:
 
+set(v_ac_ch11_casualties,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
 set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
 set(v_ch11_saved_rose,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
+achievement("No casualties",v_ac_ch11_casualties)
 #if(v_hearing < 4) {
  
 
@@ -1103,6 +1109,8 @@ choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending)
 ID: Ch11b-Ending
 TEXT:
 
+set(v_ac_ch11_average,1) if (v_available_points == 19)
+achievement("Average Joe",v_ac_ch11_average)
  The sky above us then quickly gets filled with very large holographic screens, as people are slowly starting to open their windows in order to get a good look, even if they seem to be too scared to come anywhere near us. It appears that all of the screens are displaying the same thing, which is to say a gnome with messy hair, wearing protection goggles and an oil-stained lab coat, who is currently fiddling with some wires in some kind of a workshop, while he's humming a joyful tune. After a few more seconds of humming, the gnome suddenly looks towards us, takes off his goggles, and he glues his face to the screen.
 
 "How peculiar," the gnome says, as he backs away from the screen. "How very peculiar! I could swear that I've already connected these wires a million times before, but I've never seen the red light turn green until now! Well, no matter! Can everyone hear me?"

@@ -86,13 +86,14 @@ I quickly pull my head back behind the tree, and press my back against it, tryin
 
 }
 choice("Stay silent", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 1) if (v_ch1_intro_feeling == 1 || v_ch1_intro_feeling == 2 || v_ch1_intro_feeling == 3)
-choice("Show myself", Ch1-Cutthroat Dave, v_ac_ch1_coward = 1, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 2, special:achievement-Who are you calling a coward?-v_ac_ch1_coward) if (v_ch1_intro_feeling == 1 || v_ch1_intro_feeling == 2 || v_ch1_intro_feeling == 3)
+choice("Show myself", Ch1-Cutthroat Dave, v_ac_ch1_coward = 1, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 2) if (v_ch1_intro_feeling == 1 || v_ch1_intro_feeling == 2 || v_ch1_intro_feeling == 3)
 choice(""I see no reason to show myself to you."", Ch1-Cutthroat Dave, v_current_scene = Ch1-Cutthroat Dave, v_ch1_show_yourself = 3) if (v_ch1_intro_feeling == 1 || v_ch1_intro_feeling == 2 || v_ch1_intro_feeling == 3)
 
 
 ID: Ch1-Cutthroat Dave
 TEXT:
 
+achievement("Who are you calling a coward?",v_ac_ch1_coward)
 #if(v_ch1_show_yourself == 1) {
 I keep my breathing as silent as possible and don't say anything. He must be bluffing. He never got the chance to see me. He'll give up once he sees there's no answer.
 
@@ -153,13 +154,14 @@ Stillwaters, however, have the same aura as normal humans. And if you were to ru
 "You don't scare me, stillwater! I'm going to fill you with holes and you'll end up begging me for mercy! I bet your legends are no more true than they were for this sad excuse for a mage standing next to me."
 
 }
-choice("Give him until the count of ten to retreat", Ch1-Retreat, v_ac_ch1_die = 1, v_current_scene = Ch1-Retreat, special:achievement-Off to a good start-v_ac_ch1_die) if (v_ch1_show_yourself == 1 || v_ch1_show_yourself == 2 || v_ch1_show_yourself == 3)
+choice("Give him until the count of ten to retreat", Ch1-Retreat, v_ac_ch1_die = 1, v_current_scene = Ch1-Retreat) if (v_ch1_show_yourself == 1 || v_ch1_show_yourself == 2 || v_ch1_show_yourself == 3)
 choice("Imply that I'm the one who destroyed the city of Olmnar", Ch1-Imply, v_current_scene = Ch1-Imply) if (v_ch1_show_yourself == 1 || v_ch1_show_yourself == 2 || v_ch1_show_yourself == 3)
 
 
 ID: Ch1-Retreat
 TEXT:
 
+achievement("Off to a good start",v_ac_ch1_die)
 #if(v_ch1_show_yourself == 1) {
 "I'm going to give you until the count of ten to get out of my sight," I tell him.
 
@@ -406,7 +408,7 @@ I knew then that there would never be another chance like this.
 
 "Why did you join this tournament, Barry?" Daren asks me again.
 
-choice("Tell him the truth", Ch1-Truth, v_ac_ch1_honesty = 1, v_current_scene = Ch1-Truth, v_ch2_human_reason = 1, special:achievement-Honesty is the best policy.-v_ac_ch1_honesty)
+choice("Tell him the truth", Ch1-Truth, v_ac_ch1_honesty = 1, v_current_scene = Ch1-Truth, v_ch2_human_reason = 1)
 choice("Tell him I was forced into it", Ch1-Forced, v_current_scene = Ch1-Forced, v_ch2_human_reason = 2)
 choice("Tell him I'm looking for a cure for my sick sister", Ch1-Sister, v_current_scene = Ch1-Sister, v_ch2_human_reason = 3)
 
@@ -414,6 +416,7 @@ choice("Tell him I'm looking for a cure for my sick sister", Ch1-Sister, v_curre
 ID: Ch1-Truth
 TEXT:
 
+achievement("Honesty is the best policy.",v_ac_ch1_honesty)
 "I'm after the same thing as you, Daren," I tell him. "I'm after the Magium.  It's been my dream ever since I was little to become a mage, and the Magium can grant me that wish."
 
 "Come on, Barry. You're going to have to make up a better lie than that if you want me to believe you!"

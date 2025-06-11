@@ -773,8 +773,10 @@ choice(""Of course I didn't detect him by sensing his aura."", B3-Ch08a-Sensing,
 ID: B3-Ch08a-Detected
 TEXT:
 
+set(v_ac_b3_ch8_bluffer,1) if (v_bluff >= 4)
 set(v_b3_ch8_precisely,1) if (v_bluff < 4)
 set(v_b3_ch8_precisely,2) if (v_bluff >= 4)
+achievement("Master of bluffing",v_ac_b3_ch8_bluffer)
 #if(v_bluff < 4) {
  
 

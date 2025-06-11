@@ -1104,7 +1104,7 @@ Hold on, I also have another choice! I could send Leila to go read my notebook, 
 choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_ch6_secure == 0 || v_ch6_secure == 1)
 choice("Go read the notebook.", B2-Ch04a-Read, v_current_scene = B2-Ch04a-Read, v_b2_ch4_backpack = 2) if (v_ch6_secure == 0 || v_ch6_secure == 1)
 choice("Send Leila to bring me the notebook pages.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 3) if (v_ch6_secure == 0)
-choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_ac_b2_ch4_risk = 1, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1, special:achievement-A calculated risk-v_ac_b2_ch4_risk) if (v_b2_ch2_heard == 1 && v_ch6_secure == 0 || v_b2_ch2_heard == 1 && v_ch6_secure == 1)
+choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_ac_b2_ch4_risk = 1, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_b2_ch2_heard == 1 && v_ch6_secure == 0 || v_b2_ch2_heard == 1 && v_ch6_secure == 1)
 
 
 ID: B2-Ch04a-Read
@@ -1214,6 +1214,7 @@ choice("Continue", B2-Ch04a-Daft, v_current_scene = B2-Ch04a-Daft) if (v_b2_ch2_
 ID: B2-Ch04a-Remain
 TEXT:
 
+achievement("A calculated risk",v_ac_b2_ch4_risk)
 #if(v_b2_ch4_backpack == 1) {
  Forget the notebook. For all I know, they might not even use the marauders for our division, and I'd just be wasting time.
 

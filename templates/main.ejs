@@ -50,9 +50,6 @@
             hx-post="/saves/0"
             hx-ext="submitlocalstorage"
             hx-push-url="true"
-        <% } else if (choice.special.startsWith("achievement")) { %>
-            hx-get="/"
-            _="on click send achievementGained to #achievementModal<%= choice.special.split("-")[2] %>"
         <% } %>
             hx-target="#content"
             hx-swap="innerHTML"
@@ -60,28 +57,25 @@
                 <%= choice.text %>
         </button>
     </div>
-    <% if (choice.special && choice.special.startsWith("achievement") && ((locals[choice.special.split("-")[2]] || 0) === 0)) { %>
-        <div id="modalOob" hx-swap-oob="afterbegin:#main">
-            <div
-            id="achievementModal<%= choice.special.split("-")[2] %>"
-            class="achievement-modal"
-            _="on achievementGained show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
-               on click remove me end">
-               <div class="achievement-modal-columns">
-                    <img class="trophy-image" src="/images/achievement_trophy.png" />
-                    <div class="achievement-modal-content">
-                        <div class="achievement-modal-title">
-                            <%= mainAchievementUnlockedText %>
-                        </div>
-                        <div class="achievement-modal-caption">
-                          <%= choice.special.split("-")[1] %>
-                        </div>
-                    </div>
-              </div>
-        </div>
-    </div>
-    <% } %>
 <% }; %>
+<% for (achievement of scene.achievements) {%>
+    <div
+    class="achievement-modal"
+    _="on load show with visibility then wait 2s then transition *opacity to 0 over 250ms then remove me end
+       on click remove me end">
+       <div class="achievement-modal-columns">
+            <img class="trophy-image" src="/images/achievement_trophy.png" />
+            <div class="achievement-modal-content">
+                <div class="achievement-modal-title">
+                    <%= mainAchievementUnlockedText %>
+                </div>
+                <div class="achievement-modal-caption">
+                  <%= achievement.text %>
+                </div>
+            </div>
+      </div>
+<% }; %>
+</div>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
         <%= header %>

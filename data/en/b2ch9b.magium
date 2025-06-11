@@ -292,6 +292,8 @@ choice("Don't tell him about Eiden's spell.", B2-Ch09b-Spell, v_current_scene = 
 ID: B2-Ch09b-Spell
 TEXT:
 
+set(v_ac_b2_ch9_helper,1) if (v_b2_ch9_spell == 1)
+achievement("I'm a helper!",v_ac_b2_ch9_helper)
 #if(v_b2_ch9_spell == 1) {
  "We actually did run into such a spell," I say. "In order to find it, you'll need to walk in that direction for a few hours, until you reach a river. Then, you'll need to follow that river downstream for about another hour, and you should be able to detect the spell, as long as your magic sense is good enough."
 
@@ -755,6 +757,8 @@ choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b
 ID: B2-Ch09b-Thilias
 TEXT:
 
+set(v_ac_b2_ch9_king,1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_deal == 3)
+achievement("Long live the king!",v_ac_b2_ch9_king)
 #if(v_b2_ch1_interfere == 1) {
  "There hasn't really been much going on since you left," Rose says. "I suppose the biggest news would be the fact that mister Venard has announced his retirement."
 
@@ -959,6 +963,8 @@ choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene
 ID: B2-Ch09b-Conversation
 TEXT:
 
+set(v_ac_b2_ch9_cards,1) if (v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1)
+achievement("Master of cards",v_ac_b2_ch9_cards)
 #if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1) {
  "But how are we going to convince them to get along with Melindra otherwise?" Hadrik says.
 

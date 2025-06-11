@@ -487,7 +487,9 @@ choice("Continue", B3-Ch06b-Echoing, v_current_scene = B3-Ch06b-Echoing) if (v_i
 ID: B3-Ch06b-Rating
 TEXT:
 
+set(v_ac_b3_ch6_assist,1)
 set(v_b3_ch6_air,2)
+achievement("Nice assist",v_ac_b3_ch6_assist)
  While I am busy evading the semi-transparent blades of air, I suddenly hear the Overseer's voice coming from behind me.
 
 "Warning! Warning!" says the green-eyed drone that was apparently still following me. "A non-combat unit is being under attack. Requesting backup immediately."
@@ -738,8 +740,10 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch
 ID: B3-Ch06b-Mustache
 TEXT:
 
+set(v_ac_b3_ch6_peek,1) if (v_b2_ch5_scimitar == 0 && v_strength >= 4 || v_strength >= 3 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 4 || v_strength < 3 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_strength >= 4 || v_strength >= 3 && v_b2_ch5_scimitar != 0)
+achievement("Peek-a-boo!",v_ac_b3_ch6_peek)
 #if(v_strength < 3 && v_b2_ch5_scimitar != 0) {
  I sheathe my dagger and pull out my scimitar which should be much better for the job, because even though it's not any sharper than my other weapon, it still has considerably longer reach. I then slash at the boulder with all of my might, trying to slice it in half.
 
@@ -895,8 +899,10 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed)
 ID: B3-Ch06b-Robed
 TEXT:
 
+set(v_ac_b3_ch6_credo,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
 set(v_is_dead,0) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
 set(v_is_dead,1) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
+achievement("An assassin's credo",v_ac_b3_ch6_credo)
 #if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1) {
  Kate manages to get out of the way in time, but now the black-robed man is creating weapons out of thin air and making them fly towards her and Illuna while he keeps teleporting around, waving his dagger at them. As Kate is busy blocking the flying weapons, she is also making sure to keep the pressure on the ambassador, so that he doesn't get a chance to escape during all the confusion.
 
@@ -1524,6 +1530,8 @@ choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2) if (v_b
 ID: B3-Ch06b-Trance2
 TEXT:
 
+set(v_ac_b3_ch6_freeze,1)
+achievement("Time freeze enthusiast",v_ac_b3_ch6_freeze)
 #if(v_b3_ch6_air == 0) {
  "Don't come any closer!" says the air elementalist elf, who is now standing right beside the captain. "I'm warning you!"
 
@@ -1565,8 +1573,10 @@ choice("Don't say anything to Kelrim.", B3-Ch06b-Panic, v_current_scene = B3-Ch0
 ID: B3-Ch06b-Touching
 TEXT:
 
+set(v_ac_b3_ch6_guardian,1) if (v_b3_ch6_manipulators == 2)
 set(v_is_dead,1) if (v_b3_ch6_manipulators != 2)
 set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0 || v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
+achievement("Guardian angel",v_ac_b3_ch6_guardian)
 #if(v_b3_ch6_manipulators != 2) {
  As the pain becomes greater, it gets increasingly difficult to maintain my consciousness. During this time, Kate and Flower shoot a few projectiles at the captain, but they get easily blocked by him. Daren also tries desperately to get his sword back, but he is much too weakened to focus on his aura technique properly.
 
@@ -2047,6 +2057,8 @@ choice("Suggest running as far away from the drone as our legs can carry us.", B
 ID: B3-Ch06b-Curiosity
 TEXT:
 
+set(v_ac_b3_ch6_curiosity,1)
+achievement("Curiosity killed the cat",v_ac_b3_ch6_curiosity)
  "Maybe we can figure out what happened to the drone if we take a closer look," I say.
 
 "Don't you think it would be better to just concentrate on teleporting out of here?" Daren asks me.

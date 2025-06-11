@@ -51,6 +51,8 @@ choice("Tell Rose that her plan sounds stupid", B2-Ch11c-Encourage, v_current_sc
 ID: B2-Ch11c-Encourage
 TEXT:
 
+set(v_ac_b2_ch11_supportive,1) if (v_b2_ch11_encourage == 1)
+achievement("Supportive friend",v_ac_b2_ch11_supportive)
 #if(v_b2_ch11_encourage == 1) {
  "Don't listen to Arraka," I tell Rose. "I'm sure you'll be able to master your powers in no time, with enough practice!"
 
@@ -794,6 +796,8 @@ choice("Let Melindra do whatever she wants with the items.", B2-Ch11c-Items, v_c
 ID: B2-Ch11c-Items
 TEXT:
 
+set(v_ac_b2_ch11_elephant,1) if (v_ch3_kate_badly_hurt == 1)
+achievement("The elephant in the room",v_ac_b2_ch11_elephant)
 #if(v_b2_ch11_items == 1) {
  "Hey, Melindra," I say. "Can I have those items?"
 
@@ -1055,8 +1059,10 @@ choice("Try to stall for time, in the hopes that the others can come up with a p
 ID: B2-Ch11c-Shelter
 TEXT:
 
+set(v_ac_b2_ch11_madman,1) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 1)
 set(v_is_dead,0) if (v_b2_ch11_dagger == 0 && v_b2_ch11_echoes == 0 || v_b2_ch11_echoes == 1)
 set(v_is_dead,1) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 0)
+achievement("Madman",v_ac_b2_ch11_madman)
 #if(v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 1) {
  "You won't be able to take us down that easily," I say, as I take out my dagger and begin to approach her.
 
@@ -1327,6 +1333,8 @@ choice("Continue", B2-Ch11c-Forehead, v_current_scene = B2-Ch11c-Forehead) if (v
 ID: B2-Ch11c-Dave
 TEXT:
 
+set(v_ac_b2_ch11_cutthroat,1)
+achievement("Cutthroat vs god",v_ac_b2_ch11_cutthroat)
  "Kneel?" Cutthroat Dave says, making us realize that he's also been transported out of the ritual, together with us. "Kneel?!"
 
 He steps in front of us, so he can see the god closer.
@@ -1429,6 +1437,8 @@ choice("Continue", B2-Ch11c-Ending, v_current_scene = B2-Ch11c-Ending) if (v_ch1
 ID: B2-Ch11c-Ending
 TEXT:
 
+set(v_ac_b2_ch11_average2,1) if (v_available_points == 25)
+achievement("Average Joe 2",v_ac_b2_ch11_average2)
  "So..." I say, as I approach Daren. "What exactly are you planning to do after this 'break'?" 
 
 "What do you mean?" Daren says, as he continues to sharpen his sword, without looking at me. "After the break, we'll continue to march towards Ollendor, like before. Isn't this what we set out to do, when we left Thilias?"

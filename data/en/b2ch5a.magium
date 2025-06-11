@@ -1140,8 +1140,10 @@ choice("Continue", B2-Ch05a-Mage-Rampage, v_current_scene = B2-Ch05a-Mage-Rampag
 ID: B2-Ch05a-Mage-Rampage
 TEXT:
 
+set(v_ac_b2_ch5_tribal,1) if (v_agility >= 2)
 set(v_is_dead,0) if (v_agility >= 2)
 set(v_is_dead,1) if (v_agility < 2)
+achievement("Tribal dancer",v_ac_b2_ch5_tribal)
 #if(v_agility >= 2) {
  
 
@@ -1219,6 +1221,8 @@ choice("Take both scimitars", B2-Ch05a-Troll-Aftermath, v_current_scene = B2-Ch0
 ID: B2-Ch05a-Troll-Aftermath
 TEXT:
 
+set(v_ac_b2_ch5_divide,1) if (v_b2_ch5_negotiate == 1)
+achievement("Divide and conquer",v_ac_b2_ch5_divide)
 #if(v_b2_ch5_scimitar == 0) {
  My dagger is more than enough. I wouldn't want an extra weapon weighing me down while I'm fighting.
 

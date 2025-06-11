@@ -199,16 +199,22 @@ function render_scene(req) {
     sceneData.setVariables.forEach(
         (setVariable) => (cookieData[setVariable.name] = setVariable.value),
     );
-    sceneData.choices = sceneData.choices.filter((choice) =>
-        apply_conditions(choice.conditions, cookieData),
+    sceneData.choices = sceneData.choices.filter(
+        (choice) => apply_conditions(choice.conditions, cookieData),
     );
-    sceneData.paragraphs = sceneData.paragraphs.filter((paragraph) =>
-        apply_conditions(paragraph.conditions, cookieData),
+    sceneData.paragraphs = sceneData.paragraphs.filter(
+        (paragraph) => apply_conditions(paragraph.conditions, cookieData),
     );
     sceneData.statChecks = checkStats(
         sceneData.setVariables.concat(sceneData.paragraphs, sceneData.choices),
         cookieData,
     );
+    console.log(sceneData.achievements);
+    console.log(cookieData);
+    sceneData.achievements = sceneData.achievements.filter(
+        (achievement) => cookieData[achievement.variable] == "1" ,
+    );
+    console.log(sceneData.achievements);
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );

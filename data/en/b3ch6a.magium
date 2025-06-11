@@ -759,8 +759,10 @@ choice("Tell the shopkeeper that I already gave him the password and that he sai
 ID: B3-Ch06a-Secret2
 TEXT:
 
+set(v_ac_b3_ch6_natural,1) if (v_b3_ch6_password == 2 && v_bluff >= 4 || v_b3_ch6_password == 3 && v_bluff >= 4)
 set(v_b3_ch6_password,0) if (v_b3_ch6_password == 2 && v_bluff < 4 || v_b3_ch6_password == 0 || v_b3_ch6_password == 1 || v_b3_ch6_password == 3)
 set(v_b3_ch6_password,3) if (v_b3_ch6_password == 2 && v_bluff >= 4)
+achievement("A natural liar",v_ac_b3_ch6_natural)
 #if(v_b3_ch6_password == 0) {
  "The password is to shut your whore mouth and to open the door before we blow it open," I shout loudly, so the shopkeeper can hear me.
 

@@ -774,6 +774,8 @@ choice(""Actually, after hearing all of this, I think I'd rather keep Billy Bob 
 ID: B3-Ch04b-Voluntarily4
 TEXT:
 
+set(v_ac_b3_ch4_alliance,1) if (v_b3_ch4_billy == 7)
+achievement("A hidden alliance",v_ac_b3_ch4_alliance)
 #if(v_b3_ch4_billy == 7) {
  "Sounds like a plan!"
 
@@ -995,8 +997,10 @@ choice("Tell them that it's none of their business.", B3-Ch04b-Business, v_curre
 ID: B3-Ch04b-Tasked
 TEXT:
 
+set(v_ac_b3_ch4_deception,1) if (v_bluff >= 4)
 set(v_b3_ch4_tasked,5) if (v_bluff < 4)
 set(v_b3_ch4_tasked,1) if (v_bluff >= 4)
+achievement("A master of deception",v_ac_b3_ch4_deception)
 #if(v_bluff < 4) {
  
 
@@ -1533,8 +1537,10 @@ choice("Continue", B3-Ch04b-Stuck, v_current_scene = B3-Ch04b-Stuck) if (v_aura_
 ID: B3-Ch04b-Drones2
 TEXT:
 
+set(v_ac_b3_ch4_thrower,1) if (v_strength >= 3)
 set(v_is_dead,0) if (v_aura_hardening >= 4 || v_strength >= 3)
 set(v_is_dead,1) if (v_aura_hardening < 4 && v_strength < 3)
+achievement("Rock throwing champion",v_ac_b3_ch4_thrower)
 #if(v_strength >= 3) {
  
 
