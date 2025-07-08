@@ -209,12 +209,9 @@ function render_scene(req) {
         sceneData.setVariables.concat(sceneData.paragraphs, sceneData.choices),
         cookieData,
     );
-    console.log(sceneData.achievements);
-    console.log(cookieData);
     sceneData.achievements = sceneData.achievements.filter(
         (achievement) => cookieData[achievement.variable] == "1" ,
     );
-    console.log(sceneData.achievements);
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
@@ -355,7 +352,6 @@ function render_about(req) {
 
 /// ---
 
-console.log(dirname,)
 let locales = require(path.join(dirname, "data", "locales.json"))
 let localeData = {};
 let magiumData = {};

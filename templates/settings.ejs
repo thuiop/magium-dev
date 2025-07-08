@@ -17,6 +17,21 @@
     </div>
     <div class="response">
         <button
+           _="on click show #cheatModeModal with visibility"
+        >
+            <%= settingsCheatModeText %>
+        </button>
+    </div>
+    <div id="cheatModeModal" class="cheatmode-modal-content" _="on closeModal hide with visibility">
+        <div>
+            <%- settingsCheatModeModalText %>
+        </div>
+            <button class="cheatmode-modal-yes" _="on click cookieAdd('v_available_points',50) trigger closeModal"><%= localeYes %></button>
+        <br>
+            <button class="cheatmode-modal-no" _="on click trigger closeModal"><%= localeNo %></button>
+    </div>
+    <div class="response">
+        <button
             hx-get="/menu"
             hx-target="#content"
             hx-swap="innerHTML"
