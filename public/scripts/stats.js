@@ -38,7 +38,7 @@ function initStats(event) {
             }
             // Temporary points
             if (stat === 'v_available_points') {
-                storeItem(stat, "30")
+                storeItem(stat, "0")
             }
         });
         window.location.reload();
