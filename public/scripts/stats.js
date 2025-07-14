@@ -23,14 +23,13 @@ function initStats(event) {
         return;
     }
     locals = getCookies()
-    const stats_missing = stats_variables.some(function(stat) {
-        const value = locals[stat];
-        return value === null || value === undefined;
-    });
 
-    if (stats_missing) {
-        stats_variables.forEach(function(stat) {
-            console.log(stat)
+    var reload = false;
+    stats_variables.forEach(function(stat) {
+        const value = locals[stat];
+        console.log(stat);
+        console.log(value);
+        if (value === null || value === undefined) {
             if (stat === 'v_max_stat') {
                 storeItem(stat, "3") // From the utils.js file
             } else {
@@ -40,7 +39,10 @@ function initStats(event) {
             if (stat === 'v_available_points') {
                 storeItem(stat, "0")
             }
-        });
+            reload = true;
+        }
+    });
+    if (reload) {
         window.location.reload();
     }
 }

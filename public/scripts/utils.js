@@ -22,7 +22,7 @@ function storeItem(key,value) {
 }
 
 function cookieAdd(name,value) {
-    const current_value = getCookie(name)
+    const current_value = getCookie(name) || 0
     storeItem(name,parseInt(current_value)+parseInt(value))
 }
 
