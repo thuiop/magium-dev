@@ -124,26 +124,6 @@ TEXT:
 "I doubt it," the guard says. "Everyone in this city knows that you need a password to enter. If he really didn't give you a password, then it must mean that he didn't have any urgent need of the goods you are selling him, and he was fine with you filing for the required paperwork, like any other outsider."
 
 }
-#if(v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4) {
- "And what do we need to do to file for these papers, exactly?" Daren says.
-
-"For the moment, you don't need to do anything," the guard says. "I will send someone later today to obtain all the necessary permissions from the higher ups, and then we'll bring you some papers to sign. This usually takes a while, though. You could try checking back tomorrow, but I wouldn't get my hopes up if I were you. People rarely get their entrance papers earlier than three days after their arrival."
-
-"Three days?!" Daren says, a little too loudly, but then he quickly calms himself down. "Oh... Alright. I understand. In that case, we'll be going back to our camp, and we will return tomorrow. Maybe we'll be lucky and there will be some news for us. Have a good day, and thanks for your help!"
-
-The guard nods at Daren, and then we all head back towards the woods that we came from, without saying a word. It is only after we are safe away from all the villagers that Hadrik's voice suddenly explodes, as if the pressure had been building up constantly the whole time that he had to keep himself from talking.
-
-"Three days!" Hadrik shouts. "Did you hear that guy?... The ambassador will have arrived three times by then! We may as well break through their front door right now! At least that way we'd get the element of surprise!"
-
- "Using brute force is our absolute last resort," Daren says. "Didn't you see those golems? Those are just one of their many defenses. Who knows what else they will be pulling out of their sleeves, while we try to fight our way to the palace. Anyway, it's not like we're completely out of options. We just found out that we need some sort of password to get in. All we need now is a plan to find out the password, and we will be right back on track." 
-
-"Maybe we could obtain that information from the villagers, somehow," Leila writes. "I'm guessing that the farmers should know the password, since they would need to enter the city on a daily basis to shop for supplies."
-
-"Leila makes a good point," Illuna says. "We could try to bribe one of the villagers. I'm guessing that it shouldn't be too hard to find someone willing to break the rules for some extra money in a village full of impoverished people."
-
-"It's not as easy as you might think," Melindra says. "This city isn't like Thilias. Breaking the law here may well get your entire family murdered, or worse. Most people wouldn't take that risk, no matter how much money was at stake." 
-
-}
 #if(v_b3_ch2_pass2 == 1) {
  "The password is 'shut your mouth and open the gate' "
 
@@ -180,9 +160,29 @@ The guard nods at Daren, and then we all head back towards the woods that we cam
 "No it isn't," the guard says. "I'm not sure if you were guessing randomly just now or if somebody actually misled you, but if you want to enter the city without knowing the actual password, then you're going to have to file for the required paperwork, like any other outsider."
 
 }
-choice(""What if we tried to get one of them drunk, instead?"", B3-Ch02a-Drunk, v_current_scene = B3-Ch02a-Drunk, v_b3_ch2_infiltration = 0, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
-choice(""To be honest, I agree with Hadrik. We should just smash through their front gates."", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
-choice(""I could try to eavesdrop on someone from afar." (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2, v_strength = Strength aux, v_agility = Agility aux, v_toughness = Toughness aux, v_reflexes = Reflexes aux, v_hearing = Hearing aux, v_perception = Perception aux, v_ancient_languages = Ancient languages aux, v_combat_technique = Combat technique aux, v_premonition = Premonition aux, v_available_points = Available points aux) if (v_b3_ch2_pass2 == 0 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 1 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 2 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 3 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 4 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
+#if(v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4) {
+ "And what do we need to do to file for these papers, exactly?" Daren says.
+
+"For the moment, you don't need to do anything," the guard says. "I will send someone later today to obtain all the necessary permissions from the higher ups, and then we'll bring you some papers to sign. This usually takes a while, though. You could try checking back tomorrow, but I wouldn't get my hopes up if I were you. People rarely get their entrance papers earlier than three days after their arrival."
+
+"Three days?!" Daren says, a little too loudly, but then he quickly calms himself down. "Oh... Alright. I understand. In that case, we'll be going back to our camp, and we will return tomorrow. Maybe we'll be lucky and there will be some news for us. Have a good day, and thanks for your help!"
+
+The guard nods at Daren, and then we all head back towards the woods that we came from, without saying a word. It is only after we are safe away from all the villagers that Hadrik's voice suddenly explodes, as if the pressure had been building up constantly the whole time that he had to keep himself from talking.
+
+"Three days!" Hadrik shouts. "Did you hear that guy?... The ambassador will have arrived three times by then! We may as well break through their front door right now! At least that way we'd get the element of surprise!"
+
+ "Using brute force is our absolute last resort," Daren says. "Didn't you see those golems? Those are just one of their many defenses. Who knows what else they will be pulling out of their sleeves, while we try to fight our way to the palace. Anyway, it's not like we're completely out of options. We just found out that we need some sort of password to get in. All we need now is a plan to find out the password, and we will be right back on track." 
+
+"Maybe we could obtain that information from the villagers, somehow," Leila writes. "I'm guessing that the farmers should know the password, since they would need to enter the city on a daily basis to shop for supplies."
+
+"Leila makes a good point," Illuna says. "We could try to bribe one of the villagers. I'm guessing that it shouldn't be too hard to find someone willing to break the rules for some extra money in a village full of impoverished people."
+
+"It's not as easy as you might think," Melindra says. "This city isn't like Thilias. Breaking the law here may well get your entire family murdered, or worse. Most people wouldn't take that risk, no matter how much money was at stake." 
+
+}
+choice(""What if we tried to get one of them drunk, instead?"", B3-Ch02a-Drunk, v_current_scene = B3-Ch02a-Drunk, v_b3_ch2_infiltration = 0) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
+choice(""To be honest, I agree with Hadrik. We should just smash through their front gates."", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
+choice(""I could try to eavesdrop on someone from afar." (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2) if (v_b3_ch2_pass2 == 0 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 1 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 2 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 3 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 4 && v_hearing_aux == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch02a-Drunk
@@ -810,22 +810,6 @@ It takes us a while, but once we're done traversing the village again, we eventu
 "I see you're back," the guard says. "Should I take it that you've finally managed to get that 'client' of yours to give you the password?..."
 
 }
-#if(v_b3_ch2_goblins == 3) {
- "Yeah, we reached him through the transceiver eventually, and he told us the password," I say, as I wink three times with my left eye. "It's 'gargoyle wings'. "
-
-"Hmm..." the guard says. "That is indeed the correct password."
-
-He then gives a signal to the two metal golems behind him, who immediately open the large gates for us.
-
-"I'm not sure what you came here to do exactly, but you'd better not cause any trouble," the guard tells us.
-
-"No, sir!" I say. "We won't be bothering you at all!"
-
-"Go on," the guard says. "Get moving."
-
-We all move past the guard and enter the city, and as soon as we're inside, the gates behind us slam shut.
-
-}
 #if(v_b3_ch2_goblins == 3 && v_b3_ch2_infiltration == 1) {
  "Sounds good. Let's go!"
 
@@ -840,6 +824,22 @@ We all move past the guard and enter the city, and as soon as we're inside, the 
 It takes us a while, but once we're done traversing the village again, we eventually reach the gates for a second time. The guard at the gates is now staring at us with the same suspicious look that he had the first time, and he addresses us as soon as we stop in front of him.
 
 "I see you're back," the guard says. "Should I take it that you've finally managed to get that 'client' of yours to give you the password?..."
+
+}
+#if(v_b3_ch2_goblins == 3) {
+ "Yeah, we reached him through the transceiver eventually, and he told us the password," I say, as I wink three times with my left eye. "It's 'gargoyle wings'. "
+
+"Hmm..." the guard says. "That is indeed the correct password."
+
+He then gives a signal to the two metal golems behind him, who immediately open the large gates for us.
+
+"I'm not sure what you came here to do exactly, but you'd better not cause any trouble," the guard tells us.
+
+"No, sir!" I say. "We won't be bothering you at all!"
+
+"Go on," the guard says. "Get moving."
+
+We all move past the guard and enter the city, and as soon as we're inside, the gates behind us slam shut.
 
 }
 choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 3 || v_b3_ch2_goblins == 4)
@@ -1008,10 +1008,6 @@ However, what I didn't realize was that a second golem from behind me was also r
 
 }
 #if(v_perception == 4 && v_b3_ch1_unlock != 2) {
- Seeing that the golems aren't planning on leaving me alone, I decide to place myself between them and the crossbowmen, and I wait to see what happens. My plan seems to be working, as the golems have immediately stopped using their beam attacks, in order to avoid hurting their own troops by accident, and they are now simply looking at me without doing anything. I make sure to maintain the exact same level of height and I begin flying horizontally, shooting the crossbowmen in their legs one at a time, while also dodging the crossbow bolts that they're shooting at me. When they realize that I'm not planning to move away from their allies, the two golems that were shooting at me decide to switch their targets, and to go after Hadrik, who is already done with the golem at the gate and is now rushing towards one of the others.
-
-In the meantime Daren, who now has less fire attacks focusing him, can finally move with his barrier a little, so he is heading slowly for the gates, along with Kate, Leila and Melindra. As Illuna and I deal with a few more of the crossbowmen and archers, Kate decides that she can now dismiss some of her defensive ice platforms, and she is focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor.
-
  
 
 "I'll go help Illuna," I say. "The sooner we deal with the crossbowmen, the better."
@@ -1021,6 +1017,10 @@ I take the crossbow out of my backpack, I raise my arms in the air in order to t
 As I struggle to evade the beam and the arrows in mid-air by flying as unpredictably as possible, Illuna fires a torrent of water out of her hands, flooding some of the crossbowmen that were shooting at me and her.
 
 However, it seems that the golem in front of me and the crossbowmen are not my only problems. With the tail of my eye, I somehow manage to see another golem readying his fire beam from behind me, which gives me just enough time to fly out of its way and to avoid death by a mere few inches.
+
+ Seeing that the golems aren't planning on leaving me alone, I decide to place myself between them and the crossbowmen, and I wait to see what happens. My plan seems to be working, as the golems have immediately stopped using their beam attacks, in order to avoid hurting their own troops by accident, and they are now simply looking at me without doing anything. I make sure to maintain the exact same level of height and I begin flying horizontally, shooting the crossbowmen in their legs one at a time, while also dodging the crossbow bolts that they're shooting at me. When they realize that I'm not planning to move away from their allies, the two golems that were shooting at me decide to switch their targets, and to go after Hadrik, who is already done with the golem at the gate and is now rushing towards one of the others.
+
+In the meantime Daren, who now has less fire attacks focusing him, can finally move with his barrier a little, so he is heading slowly for the gates, along with Kate, Leila and Melindra. As Illuna and I deal with a few more of the crossbowmen and archers, Kate decides that she can now dismiss some of her defensive ice platforms, and she is focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor.
 
  After we incapacitate a few more of the crossbowmen, Kate shoots her giant icicle with an incredible force, causing an explosion of air behind it and going straight through one of the golems' heads, immediately sending it falling to the ground with a loud thud. At the same time, Hadrik also finishes off another one of the golems and he is moving on to his fourth.
 
@@ -1053,10 +1053,6 @@ Dodging three beams of fire constantly proved to be a little more than I could h
 
 }
 #if(v_reflexes == 4 && v_b3_ch1_unlock != 2) {
- As the three beams of fire keep following me through the sky, I am often required to make full use of my superhuman reflexes to dodge the enemies' attacks effectively. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively. 
-
-After spending a bit more time flying around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
-
  
 
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1064,6 +1060,10 @@ After spending a bit more time flying around, I take a look towards Daren's barr
 I take the crossbow out of my backpack, I raise my arms in the air in order to tell the air currents that I want to go up, and then I begin heading towards the area where there are more golems close to each other, so I can distract as many of them as possible. While flying, I make sure to stay as far away from the walls as I can, because the last thing I would want is to also be focused by the crossbowmen while I'm dealing with the golems. I'll let Illuna handle the guards on the wall. I have enough enemies to worry about as it is.
 
 Once I get close enough to the golems, I shoot a few crossbow bolts at them, in order to grab their attention. As I suspected, the bolts do no damage to them whatsoever, but at least it looks like I've succeeded in my primary purpose of providing a good distraction. All three of the golems close to me have already stopped targeting Daren's barrier and they are turning their heads towards me, preparing to charge up their fire beams. As soon as they start shooting at me, I begin flying around erratically, trying to make it as difficult as possible for them to predict my moves.
+
+ As the three beams of fire keep following me through the sky, I am often required to make full use of my superhuman reflexes to dodge the enemies' attacks effectively. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively. 
+
+After spending a bit more time flying around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
 
  Once the preparations are complete, Kate shoots her giant icicle with an incredible force, causing an explosion of air behind it and going straight through the head of one of the golems on my side, immediately sending it falling to the ground with a loud thud. At the same time, Hadrik also finishes off the golem he was fighting, and he is now moving on to his fourth.
 
@@ -1096,10 +1096,6 @@ Sadly, I wasn't fast enough to be able to avoid three fire beams targeting me at
 
 }
 #if(v_agility == 4 && v_b3_ch1_unlock != 2) {
- Avoiding three fire beams that are targeting me at the same time is by no means an easy task, but thanks to my incredible speed I am always one step ahead of my enemies, even when the odds are very clearly not stacked in my favor. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively.
-
-After spending a bit more time running around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
-
  
 
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1107,6 +1103,10 @@ After spending a bit more time running around, I take a look towards Daren's bar
 I take the crossbow out of my backpack, I dash out of Daren's barrier, and then I begin heading towards the area where there are more golems close to each other, so I can distract as many of them as possible. While running, I make sure to stay as far away from the walls as I can, because the last thing I would want is to also be focused by the crossbowmen while I'm dealing with the golems. I'll let Illuna handle the guards on the wall. I have enough enemies to worry about as it is.
 
 Once I get close enough to the golems, I shoot a few crossbow bolts at them, in order to grab their attention. As I suspected, the bolts do no damage to them whatsoever, but at least it looks like I've succeeded in my primary purpose of providing a good distraction. All three of the golems close to me have already stopped targeting Daren's barrier and they are turning their heads towards me, preparing to charge up their fire beams. As soon as they start shooting at me, I begin running around erratically, trying to make it as difficult as possible for them to predict my moves.
+
+ Avoiding three fire beams that are targeting me at the same time is by no means an easy task, but thanks to my incredible speed I am always one step ahead of my enemies, even when the odds are very clearly not stacked in my favor. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively.
+
+After spending a bit more time running around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
 
  Once the preparations are complete, Kate shoots her giant icicle with an incredible force, causing an explosion of air behind it and going straight through the head of one of the golems on my side, immediately sending it falling to the ground with a loud thud. At the same time, Hadrik also finishes off the golem he was fighting, and he is now moving on to his fourth.
 
@@ -1124,8 +1124,10 @@ choice("Continue", B3-Ch02a-Rubble, v_current_scene = B3-Ch02a-Rubble) if (v_agi
 ID: B3-Ch02a-Strength
 TEXT:
 
+set(v_ac_b3_ch2_metal,1) if (v_strength == 4 && v_toughness == 4 && v_b3_ch1_unlock != 2)
 set(v_is_dead,1) if (v_toughness == 4 && v_strength < 4 || v_b3_ch1_unlock == 2 || v_toughness < 4)
 set(v_is_dead,0) if (v_strength == 4 && v_toughness == 4 && v_b3_ch1_unlock != 2)
+achievement("Metal golem slayer",v_ac_b3_ch2_metal)
 #if(v_b3_ch1_unlock == 2 || v_toughness < 4) {
  
 

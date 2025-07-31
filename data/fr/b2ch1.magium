@@ -38,7 +38,7 @@ Daren pauses.
 
 "One of us will also have to deliver the news of Rose's death to her siblings when we get there," he says.
 
-choice("Volunteer to deliver the news to the kids", B2-Ch01a-Volunteer, v_ac_b2_ch1_news = 1, v_current_scene = B2-Ch01a-Volunteer, v_b2_ch1_volunteer = 1, special:achievement-Bearer of bad news-v_ac_b2_ch1_news)
+choice("Volunteer to deliver the news to the kids", B2-Ch01a-Volunteer, v_ac_b2_ch1_news = 1, v_current_scene = B2-Ch01a-Volunteer, v_b2_ch1_volunteer = 1)
 choice("Stay silent", B2-Ch01a-Silent, v_current_scene = B2-Ch01a-Silent, v_b2_ch1_volunteer = 0)
 
 
@@ -77,6 +77,7 @@ choice("Continue", B2-Ch01a-Spin, v_current_scene = B2-Ch01a-Spin)
 ID: B2-Ch01a-Volunteer
 TEXT:
 
+achievement("Bearer of bad news",v_ac_b2_ch1_news)
  "I'll do it," I say. "I'll try to break it to them as gently as possible."
 
 Daren gives me a long look for a few seconds. He doesn't appear to be very comfortable leaving this matter in my hands, but he doesn't seem to want to be the one to deal with it either, and neither does anyone else, by the looks of it.
@@ -783,8 +784,8 @@ We all say our goodbyes to Enrique and to Rose's siblings and then we begin our 
 
 "I don't blame her," Daren says. "I think even my wife would have been wary around you after hearing something like that."
 
-choice(""You're married?"", B2-Ch01a-Married, v_ac_b2_ch1_distance = 1, v_current_scene = B2-Ch01a-Married, special:achievement-Long-distance-v_ac_b2_ch1_distance)
-choice(""Wait a minute. I'm pretty sure I read somewhere that you were never married."", B2-Ch01a-Somewhere, v_ac_b2_ch1_distance = 1, v_current_scene = B2-Ch01a-Somewhere, special:achievement-Long-distance-v_ac_b2_ch1_distance)
+choice(""You're married?"", B2-Ch01a-Married, v_ac_b2_ch1_distance = 1, v_current_scene = B2-Ch01a-Married)
+choice(""Wait a minute. I'm pretty sure I read somewhere that you were never married."", B2-Ch01a-Somewhere, v_ac_b2_ch1_distance = 1, v_current_scene = B2-Ch01a-Somewhere)
 
 
 ID: B2-Ch01a-Offend
@@ -829,6 +830,7 @@ choice(""Actually, I was thinking that we could keep in contact by using Daren's
 ID: B2-Ch01a-Married
 TEXT:
 
+achievement("Long-distance",v_ac_b2_ch1_distance)
  "You're married?"
 
 "Sort of..." Daren says. 
@@ -857,6 +859,7 @@ choice("Continue", B2-Ch01a-Entrance, v_current_scene = B2-Ch01a-Entrance)
 ID: B2-Ch01a-Somewhere
 TEXT:
 
+achievement("Long-distance",v_ac_b2_ch1_distance)
  "Wait a minute. I'm pretty sure I read somewhere that you were never married."
 
 "Yes," Daren says. "That's because I spread a lot of false information, in order to protect her. I've made many enemies in my life, and most of them would not shy away from using my wife to get back at me. "
@@ -1068,6 +1071,8 @@ choice("Continue", B2-Ch01a-Bricks2, v_current_scene = B2-Ch01a-Bricks2) if (v_b
 ID: B2-Ch01a-Bricks2
 TEXT:
 
+set(v_ac_b2_ch1_second,1) if (v_b2_ch1_puzzle2 == 1)
+achievement("Second piece of the puzzle",v_ac_b2_ch1_second)
 #if(v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1) {
  Suddenly, a hole appears at the base of the pedestal, and two small objects get thrown out of it. As I reach to get them, the hole closes itself back up again. Getting a closer look at the two items, I see that one of them is a piece of a puzzle, while the other one is a small parchment. I hold the parchment in my hand, so that both Flower and I can see what's written on it.
 
@@ -1084,28 +1089,6 @@ She puts her palm on the pedestal again, but this time, nothing happens.
 "It doesn't let me get another one!" Flower says. "Barry, you try it!"
 
 "Hey, Barry, can you hear me?" I hear Daren's voice, coming from the transceiver.
-
-}
-#if(v_b2_ch1_puzzle2 == 1) {
- "Yeah, I hear you," I say, as I grab the transceiver in my right hand.
-
-Flower frowns at me, for ignoring her, and she takes my left hand herself, placing it on the pedestal. Just like before, the base of the pedestal opens up and throws out another puzzle piece and parchment. Flower takes both items and puts them in her pocket.
-
-"The castle servant came back," Daren says. "He said the king will see us now. Hurry up and get back here, will you?"
-
-"Yeah, we're on our way," I say. 
-
-After we make our way out of the dark room behind the wall, Flower pulls on the lever again, and the bricks go back into their original position. She then grabs the brick off the ground, and carefully places it back into the wall.
-
-"We wouldn't want anyone else to discover the secret before us, would we, Barry?" Flower says, with a smile.
-
-"I suppose not," I say, as we start to head back to where everyone else was waiting for us.
-
-"Well?" Daren says when we reach them. "Did you find what you were looking for?"
-
-"Yep!" Flower says, with a cheerful smile.
-
-"Spectacular," Daren says. "Now, let's get moving."
 
 }
 #if(v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1) {
@@ -1150,6 +1133,28 @@ While the bricks move back into place, the girl picks up the brick she pulled ou
 "Whatever," Daren says. "Come on, let's get moving!"
 
 }
+#if(v_b2_ch1_puzzle2 == 1) {
+ "Yeah, I hear you," I say, as I grab the transceiver in my right hand.
+
+Flower frowns at me, for ignoring her, and she takes my left hand herself, placing it on the pedestal. Just like before, the base of the pedestal opens up and throws out another puzzle piece and parchment. Flower takes both items and puts them in her pocket.
+
+"The castle servant came back," Daren says. "He said the king will see us now. Hurry up and get back here, will you?"
+
+"Yeah, we're on our way," I say. 
+
+After we make our way out of the dark room behind the wall, Flower pulls on the lever again, and the bricks go back into their original position. She then grabs the brick off the ground, and carefully places it back into the wall.
+
+"We wouldn't want anyone else to discover the secret before us, would we, Barry?" Flower says, with a smile.
+
+"I suppose not," I say, as we start to head back to where everyone else was waiting for us.
+
+"Well?" Daren says when we reach them. "Did you find what you were looking for?"
+
+"Yep!" Flower says, with a cheerful smile.
+
+"Spectacular," Daren says. "Now, let's get moving."
+
+}
 choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 0 || v_b2_ch1_puzzle2 == 1)
 
 
@@ -1182,6 +1187,8 @@ choice(""We killed him because he placed absolutely no value on human life."", B
 ID: B2-Ch01a-Asking
 TEXT:
 
+set(v_ac_b2_ch1_breed,1) if (v_b2_ch1_spin == 0)
+achievement("Half-breed",v_ac_b2_ch1_breed)
 #if(v_b2_ch1_spin == 0) {
  "The guy was asking for it."
 
@@ -1252,6 +1259,8 @@ choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b
 ID: B2-Ch01a-Value
 TEXT:
 
+set(v_ac_b2_ch1_breed,1) if (v_b2_ch1_spin == 0)
+achievement("Half-breed",v_ac_b2_ch1_breed)
 #if(v_b2_ch1_spin == 0) {
  "We killed him because he placed absolutely no value on human life."
 
@@ -1322,6 +1331,8 @@ choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b
 ID: B2-Ch01a-Innocent
 TEXT:
 
+set(v_ac_b2_ch1_breed,1) if (v_b2_ch1_spin == 0)
+achievement("Half-breed",v_ac_b2_ch1_breed)
 #if(v_b2_ch1_spin == 0 && v_ch11_kill_noble == 1) {
  "We didn't kill him! We're innocent!" 
 

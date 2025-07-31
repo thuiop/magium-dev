@@ -119,6 +119,8 @@ choice("Continue", Ch8-Talk2, v_current_scene = Ch8-Talk2)
 ID: Ch8-Talk2
 TEXT:
 
+set(v_ac_ch8_democratie,1)
+achievement("Vive la democratie!",v_ac_ch8_democratie)
  "Oh, come on!" Daren says, exasperated. "You were all on my side a few moments ago!"
 
 "What's the matter, Daren?" I ask him, with a smirk. "Don't you like democracy anymore?"
@@ -365,6 +367,8 @@ choice("Tell Daren it's some cryptic warning, and don't touch the glyphs", Ch8-C
 ID: Ch8-Follow
 TEXT:
 
+set(v_ac_ch8_first,1)
+achievement("First piece of the puzzle",v_ac_ch8_first)
  I tap all of the glyphs in order, one by one, just as the instructions said.
 
 Suddenly, the stone with the markings on it slides itself to the side, and two small objects get thrown out of the hole it left in the wall. The stone then slides back into its original position. Upon closer inspection, I see that the two objects that came out of the wall are a small parchment and what appears to be a piece of a puzzle. I take them both from the ground, and read the piece of parchment. The text on it is written in the common language this time, and it says: "Find all of the pieces of the puzzle, and I will share with you my greatest secret. I've left one of these in each of the buildings I've designed."
@@ -401,6 +405,8 @@ choice("Continue", Ch8-Training, v_current_scene = Ch8-Training)
 ID: Ch8-Translate
 TEXT:
 
+set(v_ac_ch8_first,1)
+achievement("First piece of the puzzle",v_ac_ch8_first)
  "It says: 'If you like discovering secrets, tap each of these glyphs in rapid succession.' "
 
 "Okay..." Daren says. "So, why aren't you tapping the glyphs, then?"
@@ -958,8 +964,10 @@ choice("Continue", Ch8-Awakened, v_current_scene = Ch8-Awakened)
 ID: Ch8-Rush
 TEXT:
 
+set(v_ac_ch8_hydra,1) if (v_agility >= 3)
 set(v_is_dead,1) if (v_agility < 3)
 set(v_is_dead,0) if (v_agility >= 3)
+achievement("Hydra slayer",v_ac_ch8_hydra)
 #if(v_agility < 3) {
  
 

@@ -49,20 +49,6 @@ TEXT:
 "Who knows?" Melindra says, shrugging. "It's been a long time since I've actually had a discussion with Eiden, so I don't really know what's going on in his head anymore."
 
 }
-#if(v_b2_ch9_tyrath == 0 || v_b2_ch9_tyrath == 1 || v_b2_ch9_tyrath == 2) {
- "You've been sharing quite a lot of things with us about Eiden's past today, Melindra..." Illuna says, all of a sudden. "May I ask to what do we owe this sudden change of heart on your part?"
-
-"Well, since I am obviously Eiden's spy," Melindra says, with a sarcastic tone in her voice, "I can't just keep everything a secret from you. I need to reveal some sensitive information here and there, to make sure that you people actually start to trust me."
-
-She then looks straight at Kate, with a mocking smile.
-
-"Wouldn't you agree?" she asks her.
-
-Kate frowns at her, but she doesn't say anything.
-
-"Uh... maybe it's about time we changed the subject," Hadrik says, in an attempt to avoid another argument breaking out between Kate and Melindra. "Like for instance, did you guys also notice that we haven't really encountered a lot of animals while we've been walking through these forests? I would have expected these places to be teeming with wildlife, but we've mostly only run into monsters and other mages."
-
-}
 #if(v_b2_ch9_tyrath == 1) {
  "Why does it sound to me like you're making up excuses for losing in the still winter?"
 
@@ -77,6 +63,20 @@ Kate frowns at her, but she doesn't say anything.
 "How should I know that?" Arraka says. "By the time I fused with Therius, the stillwaters were already at war with the lessathi. I don't know the history of how the stillwaters came to be, and I didn't care to find out."
 
 "Right," I say.
+
+}
+#if(v_b2_ch9_tyrath == 0 || v_b2_ch9_tyrath == 1 || v_b2_ch9_tyrath == 2) {
+ "You've been sharing quite a lot of things with us about Eiden's past today, Melindra..." Illuna says, all of a sudden. "May I ask to what do we owe this sudden change of heart on your part?"
+
+"Well, since I am obviously Eiden's spy," Melindra says, with a sarcastic tone in her voice, "I can't just keep everything a secret from you. I need to reveal some sensitive information here and there, to make sure that you people actually start to trust me."
+
+She then looks straight at Kate, with a mocking smile.
+
+"Wouldn't you agree?" she asks her.
+
+Kate frowns at her, but she doesn't say anything.
+
+"Uh... maybe it's about time we changed the subject," Hadrik says, in an attempt to avoid another argument breaking out between Kate and Melindra. "Like for instance, did you guys also notice that we haven't really encountered a lot of animals while we've been walking through these forests? I would have expected these places to be teeming with wildlife, but we've mostly only run into monsters and other mages."
 
 }
 choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles) if (v_b2_ch9_tyrath == 0 || v_b2_ch9_tyrath == 1 || v_b2_ch9_tyrath == 2)
@@ -292,6 +292,8 @@ choice("Don't tell him about Eiden's spell.", B2-Ch09b-Spell, v_current_scene = 
 ID: B2-Ch09b-Spell
 TEXT:
 
+set(v_ac_b2_ch9_helper,1) if (v_b2_ch9_spell == 1)
+achievement("I'm a helper!",v_ac_b2_ch9_helper)
 #if(v_b2_ch9_spell == 1) {
  "We actually did run into such a spell," I say. "In order to find it, you'll need to walk in that direction for a few hours, until you reach a river. Then, you'll need to follow that river downstream for about another hour, and you should be able to detect the spell, as long as your magic sense is good enough."
 
@@ -610,6 +612,26 @@ I then wait for all the others to reach my position, before continuing to talk.
 "Okay, they're here," I tell Rose, as I try hard to keep my voice calm, while ignoring the headache. "What was it that you wanted to talk to us about?"
 
 }
+#if(v_b2_ch8_energizer != 1) {
+ "Barry?" Rose says. "Can you hear me?"
+
+"Yeah, I can hear you," I say, as I tap on the transceiver through my pocket, so she can hear me.
+
+"Was that Rose I just heard?" Hadrik shouts, from a distance.
+
+"Yes," I shout back, and then I take my transceiver out of my pocket in order to show it to him. "She's on the transceiver."
+
+"Alright, let's take a break," Hadrik says, as he and all the others place their cards on the ground, and then head towards me.
+
+"Barry, is everyone else there with you?" Rose asks me.
+
+"Yeah, they're coming right now," I say. "Hold on a sec."
+
+I then wait for all the others to reach my position, before continuing to talk.
+
+"Okay, they're here," I tell Rose. "What was it that you wanted to talk to us about?"
+
+}
  "I'm... not sure how to explain..." Rose says. "Something happened a few minutes ago... And it was really scary. I was just walking around the house, when I noticed that everything around me was completely frozen. I tried calling out to my siblings, but they wouldn't answer, they wouldn't breathe, they were just standing there, looking straight ahead, while even the leaves falling from the trees were floating in mid-air, completely frozen. And there was nothing I could do. The time eventually got unfrozen by itself, but I have no idea why, and no idea if this might happen again. I can only assume that I somehow activated my time powers by mistake, but I had absolutely no control over them. I'm really scared that the next time this happens, I might not be able to undo the spell, and I'll just get trapped like this forever, in a world where everyone is frozen in time, except for me..."
 
 "Oh, I wouldn't worry too much about that," Melindra says, all of a sudden.
@@ -632,26 +654,6 @@ I then wait for all the others to reach my position, before continuing to talk.
 
 "Yeah, yeah," Daren interrupts her. "You told Eiden that you wouldn't talk to anyone about the still winter, for whatever reason. We get it."
 
-#if(v_b2_ch8_energizer != 1) {
- "Barry?" Rose says. "Can you hear me?"
-
-"Yeah, I can hear you," I say, as I tap on the transceiver through my pocket, so she can hear me.
-
-"Was that Rose I just heard?" Hadrik shouts, from a distance.
-
-"Yes," I shout back, and then I take my transceiver out of my pocket in order to show it to him. "She's on the transceiver."
-
-"Alright, let's take a break," Hadrik says, as he and all the others place their cards on the ground, and then head towards me.
-
-"Barry, is everyone else there with you?" Rose asks me.
-
-"Yeah, they're coming right now," I say. "Hold on a sec."
-
-I then wait for all the others to reach my position, before continuing to talk.
-
-"Okay, they're here," I tell Rose. "What was it that you wanted to talk to us about?"
-
-}
 choice(""Could you at least tell us what you know about time weavers in general?"", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer == 1)
 choice(""Rose, do you remember what you were doing before the time froze?"", B2-Ch09b-Energizer-Rose, v_current_scene = B2-Ch09b-Energizer-Rose, v_b2_ch9_weavers = 0) if (v_b2_ch8_energizer == 1)
 choice(""Could you at least tell us what you know about time weavers in general?"", B2-Ch09b-Weaver, v_current_scene = B2-Ch09b-Weaver, v_b2_ch9_weavers = 1) if (v_b2_ch8_energizer != 1)
@@ -663,6 +665,18 @@ TEXT:
 
 #if(v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 1) {
  "Could you at least tell us what you know about-- Ugh..."
+
+As I was talking, I suddenly felt a strong urge to vomit, and I had to reign myself in, although by this point it was getting pretty obvious that I could no longer hide my condition from the others.
+
+"Barry... is something wrong?" Rose asks.
+
+"Oh, the energizer spell must have run out again..." Melindra says. "I guess I should be preparing for some strong feeling of fatigue to hit me in the next few minutes."
+
+"Wait, energizer spell?" Rose says. "What is she talking about?"
+
+}
+#if(v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1) {
+ "Rose, do you remember what you were doing before-- Ugh..."
 
 As I was talking, I suddenly felt a strong urge to vomit, and I had to reign myself in, although by this point it was getting pretty obvious that I could no longer hide my condition from the others.
 
@@ -697,18 +711,6 @@ The tone of her voice when she addressed me sounded almost as if she was pleadin
 After I finish my sentence, there is a long pause, during which none of us says anything.
 
 "So, uh..." Hadrik says, trying to change the subject. "How are things going in Thilias?"
-
-}
-#if(v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1) {
- "Rose, do you remember what you were doing before-- Ugh..."
-
-As I was talking, I suddenly felt a strong urge to vomit, and I had to reign myself in, although by this point it was getting pretty obvious that I could no longer hide my condition from the others.
-
-"Barry... is something wrong?" Rose asks.
-
-"Oh, the energizer spell must have run out again..." Melindra says. "I guess I should be preparing for some strong feeling of fatigue to hit me in the next few minutes."
-
-"Wait, energizer spell?" Rose says. "What is she talking about?"
 
 }
 choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 1)
@@ -755,6 +757,8 @@ choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b
 ID: B2-Ch09b-Thilias
 TEXT:
 
+set(v_ac_b2_ch9_king,1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_deal == 3)
+achievement("Long live the king!",v_ac_b2_ch9_king)
 #if(v_b2_ch1_interfere == 1) {
  "There hasn't really been much going on since you left," Rose says. "I suppose the biggest news would be the fact that mister Venard has announced his retirement."
 
@@ -767,22 +771,6 @@ TEXT:
  "There's also the fact that his stock of creatures got completely depleted after the last event," Daren says, "so he probably didn't want to deal with the hassle of procuring new creatures all over again. I'm guessing that there will be a long break before Thilias will have another arena event."
 
 "The events involving creatures have been suspended for an indefinite period of time," Rose says, "but the gladiatorial fights will go on, as scheduled. I'm not sure how many people will still be attending the events when they'll find out that there will be no more creatures, though..."
-
-}
-#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
- "Rooooose!" we hear Suzie's voice coming from the transceiver. "Kevin is being mean to me again!"
-
-"I'll be right there, Suzie!" Rose shouts.
-
-She then goes back to addressing us.
-
-"Sorry, I need to leave you for now," Rose says. "We'll talk again some other time. Thanks for the help!"
-
-We all say our goodbyes to Rose, and then she closes the transceiver, in order to go deal with her siblings.
-
-"So, are we going to get back to our game, then?" Hadrik asks.
-
-"I say we finish the round we were playing before we got interrupted and then call it a day," Daren says. "I want to make sure that I get some sleep before some new storm comes out of nowhere to wake us up."
 
 }
 #if(v_b2_ch1_interfere == 0 && v_b2_ch2_deal != 3) {
@@ -819,24 +807,40 @@ After hearing Daren's words, I suddenly realize what happened. The reason why th
 "I see..." Rose says.
 
 }
+#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
+ "Rooooose!" we hear Suzie's voice coming from the transceiver. "Kevin is being mean to me again!"
+
+"I'll be right there, Suzie!" Rose shouts.
+
+She then goes back to addressing us.
+
+"Sorry, I need to leave you for now," Rose says. "We'll talk again some other time. Thanks for the help!"
+
+We all say our goodbyes to Rose, and then she closes the transceiver, in order to go deal with her siblings.
+
+"So, are we going to get back to our game, then?" Hadrik asks.
+
+"I say we finish the round we were playing before we got interrupted and then call it a day," Daren says. "I want to make sure that I get some sleep before some new storm comes out of nowhere to wake us up."
+
+}
 choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
 
 
 ID: B2-Ch09b-Shift
 TEXT:
 
-#if(v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 2) {
- After Hadrik and the others got done with their card game, we all went to sleep in our tents, except for Illuna, who took the first shift. This time around, I asked Daren to lend Melindra a tent, so I could get a good night's sleep, without any more interruptions.
-
-It didn't take me long to fall asleep, and I woke up several hours later, at the sound of Hadrik's voice, who came to tell me that our night shift was about to begin.
-
-"Come on, Barry," Hadrik says. "We're up next. I hope you're in the mood for drinking tonight, because I've got these dwarven ale bottles with me that are just begging to be emptied."
-
-}
 #if(v_b2_ch8_energizer == 1) {
  After Hadrik and the others got done with their card game, we all went to sleep in our tents, except for Illuna, who took the first shift. This time around, Daren made sure to lend Melindra a tent, so I could get a good night's sleep, without any more interruptions.
 
 I had a little trouble falling asleep for the first hour, due to the nausea and the headaches, but after a bit of rest, the pain went away, and so did my sleep problems. I woke up several hours later, at the sound of Hadrik's voice, who came to tell me that our night shift was about to begin.
+
+"Come on, Barry," Hadrik says. "We're up next. I hope you're in the mood for drinking tonight, because I've got these dwarven ale bottles with me that are just begging to be emptied."
+
+}
+#if(v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 2) {
+ After Hadrik and the others got done with their card game, we all went to sleep in our tents, except for Illuna, who took the first shift. This time around, I asked Daren to lend Melindra a tent, so I could get a good night's sleep, without any more interruptions.
+
+It didn't take me long to fall asleep, and I woke up several hours later, at the sound of Hadrik's voice, who came to tell me that our night shift was about to begin.
 
 "Come on, Barry," Hadrik says. "We're up next. I hope you're in the mood for drinking tonight, because I've got these dwarven ale bottles with me that are just begging to be emptied."
 
@@ -933,23 +937,23 @@ So, the question here is... Did he place down a good card? Or a bad card?
 
 }
 #if(v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3) {
- He then looks at his cards, and he gets a confident grin on his face, as he places one of his cards on the ground, facing down. Now, the rules of this game state that you can interrupt any round, at any moment, to ask your adversary to turn all his cards face up. In case his card is bad, his round would be immediately forfeited, and I would gain five times more points than I would have gained, if I waited for the round to be over. However, if I do this, and the card facing down was actually a good card, I would be losing five times the points that I'd lose normally. 
-
-So, the question here is... Did he place down a good card? Or a bad card?
-
  "It's hard to say," I tell him, as I place a card on the ground, facing up, as well. "I've had a little discussion with her this morning, and she promised me that she would try to antagonize people less from now on, but a lot of harm has already been done. Kate, at least, doesn't seem to trust her at all. I'm not sure about the others, but it's pretty clear that aside from Flower, nobody is really trying to be her friend."
 
 "I know," Hadrik says. "That's why I tried to arrange that card game before we went to sleep. I was hoping that maybe if they all got to talk to each other more, they'd reach some kind of understanding. I haven't had any luck so far, though."
 
-}
-#if(v_b2_ch8_energizer == 0) {
  He then looks at his cards, and he gets a confident grin on his face, as he places one of his cards on the ground, facing down. Now, the rules of this game state that you can interrupt any round, at any moment, to ask your adversary to turn all his cards face up. In case his card is bad, his round would be immediately forfeited, and I would gain five times more points than I would have gained, if I waited for the round to be over. However, if I do this, and the card facing down was actually a good card, I would be losing five times the points that I'd lose normally. 
 
 So, the question here is... Did he place down a good card? Or a bad card?
 
+}
+#if(v_b2_ch8_energizer == 0) {
  "It's hard to say," I tell him, as I place a card on the ground, facing up, as well. "Honestly, I can't say that I've been on the best terms with her, so far. I somehow managed to call a truce with her this afternoon, so at least our little feud is over, for now, but from what I've seen, most people in our group don't seem to have a very good opinion of her. Kate, at least, doesn't seem to trust her at all. I'm not sure about the others, but it's pretty clear that aside from Flower, nobody is really trying to be her friend."
 
 "I know," Hadrik says. "That's why I tried to arrange that card game before we went to sleep. I was hoping that maybe if they all got to talk to each other more, they'd reach some kind of understanding. I haven't had any luck so far, though."
+
+ He then looks at his cards, and he gets a confident grin on his face, as he places one of his cards on the ground, facing down. Now, the rules of this game state that you can interrupt any round, at any moment, to ask your adversary to turn all his cards face up. In case his card is bad, his round would be immediately forfeited, and I would gain five times more points than I would have gained, if I waited for the round to be over. However, if I do this, and the card facing down was actually a good card, I would be losing five times the points that I'd lose normally. 
+
+So, the question here is... Did he place down a good card? Or a bad card?
 
 }
 choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0 || v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3 || v_b2_ch9_amused == 1)
@@ -959,6 +963,8 @@ choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene
 ID: B2-Ch09b-Conversation
 TEXT:
 
+set(v_ac_b2_ch9_cards,1) if (v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1)
+achievement("Master of cards",v_ac_b2_ch9_cards)
 #if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1) {
  "Flip your card, Hadrik," I tell him.
 
@@ -971,28 +977,6 @@ He then takes another sip from his ale bottle, before shuffling the deck again, 
 "So, anyway," Hadrik says, as we both start to place our cards on the ground, in order to begin a new round. "I was thinking that maybe we could have a discussion with the others about Melindra. I'm not sure if it's a good idea to leave things like this until we get to Ollendor. It's bad enough that we'll need to infiltrate a heavily fortified city on our own. I'd rather not also have us fighting each other every step of the way."
 
 "If we'll have another private conversation without Melindra, we'll just piss her off even more," I say. "She's made it pretty clear today that she has been bothered by all those times when we were excluding her from conversations, because we didn't trust her. There's no need for us to twist the knife in the wound even more."
-
-}
-#if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1) {
- "But how are we going to convince them to get along with Melindra otherwise?" Hadrik says.
-
-"I don't know," I say. "But it most certainly won't be through talking. Let's be serious, here. If simply having a conversation would have been enough to get this whole situation fixed, we wouldn't be where we are now. It's through her actions that Melindra needs to earn the team's trust, not through words. I doubt that anything you and I could say at this point would make much of a difference."
-
-As I finish talking, I take a look towards the cards that I have on the ground, and I suddenly realize that the round was already over, and that I had won it by a fair margin. In fact, the points that I gained in this round were just enough to win me the whole game.
-
-Huh... Well, I guess there's a first time for everything.
-
-"Congratulations on winning a Met-Zek match for the first time, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
-
-}
-#if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1) {
- "But how are we going to convince them to get along with Melindra otherwise?" Hadrik says.
-
-"I don't know," I say. "But it most certainly won't be through talking. Let's be serious, here. If simply having a conversation would have been enough to get this whole situation fixed, we wouldn't be where we are now. It's through her actions that Melindra needs to earn the team's trust, not through words. I doubt that anything you and I could say at this point would make much of a difference."
-
-As I finish talking, I take a look towards the cards that I have on the ground, and I suddenly realize that the round was already over, and that I had won it by a fair margin. 
-
-"Congratulations on winning the round, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
 
 }
 #if(v_b2_ch9_drink == 1 && v_b2_ch9_flip == 0) {
@@ -1029,6 +1013,28 @@ Once Hadrik is done shuffling the deck, he deals our cards, and we begin a new r
 "So, anyway," Hadrik says, as we both start to place our cards on the ground. "I was thinking that maybe we could have a discussion with the others about Melindra. I'm not sure if it's a good idea to leave things like this until we get to Ollendor. It's bad enough that we'll need to infiltrate a heavily fortified city on our own. I'd rather not also have us fighting each other every step of the way."
 
 "If we'll have another private conversation without Melindra, we'll just piss her off even more," I say. "She's made it pretty clear today that she has been bothered by all those times when we were excluding her from conversations, because we didn't trust her. There's no need for us to twist the knife in the wound even more."
+
+}
+#if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1) {
+ "But how are we going to convince them to get along with Melindra otherwise?" Hadrik says.
+
+"I don't know," I say. "But it most certainly won't be through talking. Let's be serious, here. If simply having a conversation would have been enough to get this whole situation fixed, we wouldn't be where we are now. It's through her actions that Melindra needs to earn the team's trust, not through words. I doubt that anything you and I could say at this point would make much of a difference."
+
+As I finish talking, I take a look towards the cards that I have on the ground, and I suddenly realize that the round was already over, and that I had won it by a fair margin. In fact, the points that I gained in this round were just enough to win me the whole game.
+
+Huh... Well, I guess there's a first time for everything.
+
+"Congratulations on winning a Met-Zek match for the first time, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
+
+}
+#if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1) {
+ "But how are we going to convince them to get along with Melindra otherwise?" Hadrik says.
+
+"I don't know," I say. "But it most certainly won't be through talking. Let's be serious, here. If simply having a conversation would have been enough to get this whole situation fixed, we wouldn't be where we are now. It's through her actions that Melindra needs to earn the team's trust, not through words. I doubt that anything you and I could say at this point would make much of a difference."
+
+As I finish talking, I take a look towards the cards that I have on the ground, and I suddenly realize that the round was already over, and that I had won it by a fair margin. 
+
+"Congratulations on winning the round, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
 
 }
 choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_drink == 0 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1)

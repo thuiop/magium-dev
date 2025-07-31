@@ -1032,6 +1032,14 @@ TEXT:
 "This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
 
 }
+#if(v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
+ "Yes, I've also had the same suspicion, but I wasn't quite sure of it," Meridith says. "Accessing the node can be done by simply linking his aura to it, so it wouldn't require him to have any offensive capabilities. We should probably not completely dismiss the possibility that he could have some sort of hidden attack up his sleeve, but for the moment we will go with the assumption that he isn't able to cast any spells while he is inside the crystals."
+
+"While I do understand that it is important to be ready for anything," Uverg says, "have you considered the option of an open alliance with the Overseer? The information that he could share with us might prove to be extremely valuable..."
+
+"This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
+
+}
 #if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "While that is indeed true," Uverg says, "you should also remember that you were the first one to provoke him, by openly stating that you would not allow him access to the Magium node. This gave the Overseer no option but to see you as his direct enemy, and to try to ally with your adversaries, instead. If you were to show more lenience towards him, then maybe he would--"
 
@@ -1046,26 +1054,12 @@ TEXT:
 "Good," Meridith says. "Follow me."
 
 }
-#if(v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
- "Yes, I've also had the same suspicion, but I wasn't quite sure of it," Meridith says. "Accessing the node can be done by simply linking his aura to it, so it wouldn't require him to have any offensive capabilities. We should probably not completely dismiss the possibility that he could have some sort of hidden attack up his sleeve, but for the moment we will go with the assumption that he isn't able to cast any spells while he is inside the crystals."
-
-"While I do understand that it is important to be ready for anything," Uverg says, "have you considered the option of an open alliance with the Overseer? The information that he could share with us might prove to be extremely valuable..."
-
-"This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
-
-}
 choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 0 || v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 1 || v_b3_ch11_weakness == 2 && v_b3_ch4_billy == 9 || v_b3_ch11_weakness == 2 && v_b3_ch4_billy != 9 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1 || v_b3_ch11_weakness == 0)
 
 
 ID: B3-Ch11a-Analysis
 TEXT:
 
-#if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0) {
- "Oh yeah," Hadrik says, as he now turns to the rest of us. "She totally killed him."
-
-We walk together for a few minutes, until we get back to the place where the two tunnels intersected. During this time, pretty much the only person that talked was Uverg, who made sure to give Meridith the most detailed and boring analysis about the crystals that anyone could have come up with. I couldn't understand half of the words that he used in his report, and I've studied all aspects of magic quite extensively. I wonder just how much Meridith was able to understand from all of this.
-
-}
 #if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "Lady Meridith, there was something that I needed to discuss with you as well," Uverg says. "May I come with you?"
 
@@ -1088,6 +1082,12 @@ We walk together for a few minutes, until we get back to the place where the two
 "If you're trying to rile me up, then you should know that it's not working," Meridith tells him.
 
  "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
+
+}
+#if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0) {
+ "Oh yeah," Hadrik says, as he now turns to the rest of us. "She totally killed him."
+
+We walk together for a few minutes, until we get back to the place where the two tunnels intersected. During this time, pretty much the only person that talked was Uverg, who made sure to give Meridith the most detailed and boring analysis about the crystals that anyone could have come up with. I couldn't understand half of the words that he used in his report, and I've studied all aspects of magic quite extensively. I wonder just how much Meridith was able to understand from all of this.
 
 }
 #if(v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
@@ -1402,12 +1402,6 @@ choice("Continue", B3-Ch11a-Endless, v_current_scene = B3-Ch11a-Endless)
 ID: B3-Ch11a-Endless
 TEXT:
 
-#if(v_b3_ch10_node == 1) {
- Having touched the Magium node once already, I can tell with a high degree of certainty that the information available to me right now is only a small fraction of what the Magium has to offer.
-
-I'm actually starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
-
-}
 #if(v_b3_ch10_node == 0 || v_b3_ch10_node == 1) {
  "So, all I have to do is press this green button over here, right?" Daren asks Meridith.
 
@@ -1428,6 +1422,12 @@ I'm actually starting to think that the green button is meant to only give me a 
 "Let's see..." I say, as I get closer to the node and press the green button.
 
 As soon as I do that, I immediately understand what Daren was talking about. I am still aware of the world around me, but at the same time I feel like my mind is connected to an endless library, full of books containing knowledge dating all the way back to the beginning of the universe. However, the access to them is clearly limited, and I don't think this is just because of me being inexperienced. In fact, it is far more likely that the limit has been placed by the designers of this device, in order to avoid traumatizing people who are still not ready to see the real thing.
+
+}
+#if(v_b3_ch10_node == 1) {
+ Having touched the Magium node once already, I can tell with a high degree of certainty that the information available to me right now is only a small fraction of what the Magium has to offer.
+
+I'm actually starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
 #if(v_b3_ch10_node == 0) {

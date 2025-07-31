@@ -51,6 +51,22 @@ TEXT:
 "So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
 
 }
+#if(v_b3_ch3_interest == 1) {
+ "We do care about what happens with the city after the king's death, actually." 
+
+"Oh?" the king of the underground says. "Does this mean that you would seek to make yourselves rulers of this kingdom once you've rid yourselves of the current king?"
+
+"No, no, nothing of the sort!" Daren says. "We simply want to make sure that whoever takes on the mantle of leadership next will have the people of Ollendor's best interests at heart."
+
+"Hmm..." the king of the underground says. "Well, it hasn't yet been decided who will become the next ruler after we deal with the king, but I assure you that we only want what's best for Ollendor. We've all had to suffer the consequences of king Undriel's tyranny in one way or another, and we do not intend to make the same mistakes as him."
+
+"You said that it hasn't yet been decided who will become the next ruler," Illuna says. "Does this mean that you are not planning to become king yourself?"
+
+"Well, no... not necessarily," the king of the underground says. "There are many good people here, both among my followers and among the rebels, who would make suitable candidates. We could even try to elect a council, in order to avoid giving one person too much power again. However, these matters will be discussed in more detail once we achieve our primary goal of dethroning the mad king. Everything else comes second."
+
+"So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
+
+}
 #if(v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1) {
  "That would be the main gist of it, yes," the king of the underground says. "However, I would first like to ask you one important question. How exactly were you planning to get past all of the defenses the king has in place, before you could get close enough to assassinate him?"
 
@@ -71,22 +87,6 @@ TEXT:
 The king picks up the device and then presses on one of the buttons. Immediately afterwards, we begin to hear two voices coming from the cube, although we can't really make out what they are saying just yet.
 
 "This is a conversation between Billy Bob and the Overseer," the king says. "The Overseer is the one with the more metallic-sounding voice, in case you couldn't tell. Please tell me what you think of this discussion, once you're done listening to it."
-
-}
-#if(v_b3_ch3_interest == 1) {
- "We do care about what happens with the city after the king's death, actually." 
-
-"Oh?" the king of the underground says. "Does this mean that you would seek to make yourselves rulers of this kingdom once you've rid yourselves of the current king?"
-
-"No, no, nothing of the sort!" Daren says. "We simply want to make sure that whoever takes on the mantle of leadership next will have the people of Ollendor's best interests at heart."
-
-"Hmm..." the king of the underground says. "Well, it hasn't yet been decided who will become the next ruler after we deal with the king, but I assure you that we only want what's best for Ollendor. We've all had to suffer the consequences of king Undriel's tyranny in one way or another, and we do not intend to make the same mistakes as him."
-
-"You said that it hasn't yet been decided who will become the next ruler," Illuna says. "Does this mean that you are not planning to become king yourself?"
-
-"Well, no... not necessarily," the king of the underground says. "There are many good people here, both among my followers and among the rebels, who would make suitable candidates. We could even try to elect a council, in order to avoid giving one person too much power again. However, these matters will be discussed in more detail once we achieve our primary goal of dethroning the mad king. Everything else comes second."
-
-"So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
 
 }
 choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1)
@@ -400,20 +400,6 @@ TEXT:
 "Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
 
 }
-#if(v_b3_ch3_monsters == 0 || v_b3_ch3_monsters == 1 || v_b3_ch3_monsters == 2) {
- "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
-
-"Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
-
-"And how are we supposed to do that?" I say.
-
-"With training, obviously," Arraka says. "I'm going to hammer that knowledge into your useless heads, even if it kills me. Mark my words!"
-
-"Right," I say. "Speaking of training, I just remembered that I had something important to discuss with Leila's father about my stat device."
-
-"Yes, Barry, what is it?" Leila's father says.
-
-}
 #if(v_b3_ch3_monsters == 1) {
  "All we can really do now is try and make it up to him in some way."
 
@@ -450,6 +436,20 @@ TEXT:
 "We'll explain later," I tell Leila's father.
 
 "Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
+
+}
+#if(v_b3_ch3_monsters == 0 || v_b3_ch3_monsters == 1 || v_b3_ch3_monsters == 2) {
+ "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
+
+"Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
+
+"And how are we supposed to do that?" I say.
+
+"With training, obviously," Arraka says. "I'm going to hammer that knowledge into your useless heads, even if it kills me. Mark my words!"
+
+"Right," I say. "Speaking of training, I just remembered that I had something important to discuss with Leila's father about my stat device."
+
+"Yes, Barry, what is it?" Leila's father says.
 
 }
 #if(v_b3_ch1_unlock == 2) {
@@ -620,8 +620,10 @@ choice(""Actually, I'd prefer to focus on winning the Magium, without any distra
 ID: B3-Ch03a-Plans
 TEXT:
 
-set(v_b3_ch3_chains,0)
+set(v_ac_b3_ch3_ominous,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
+set(v_b3_ch3_chains,0) if (v_premonition < 4 && v_b3_ch1_unlock != 2 || v_b3_ch1_unlock == 2 || v_b3_ch3_plans == 0 || v_b3_ch3_plans == 1 || v_b3_ch3_plans == 2 || v_b3_ch3_plans == 3 || v_b3_ch3_plans == 4 || v_b3_ch3_plans == 5 || v_b3_ch3_plans == 6)
 set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
+achievement("Ominous foreshadowing",v_ac_b3_ch3_ominous)
 #if(v_b3_ch3_plans == 0) {
  
 
@@ -840,6 +842,22 @@ TEXT:
 "Let's hope we are really lucky, then..." I say.
 
 }
+#if(v_b3_ch3_magical == 1) {
+ "Is there anyone aside from the higher ranked lessathi who might know the code?"
+
+"It's possible," Leila's father says. "Especially if they are well acquainted with some of the higher ranked staff, or if they are working directly under them and heard it by accident at some point. Unfortunately, this is all speculation on my part, and I don't have any specific person in mind."
+
+"Yeah, I figured this might be the case," I say. "Thanks, anyway!"
+
+}
+#if(v_b3_ch3_magical == 2) {
+ "Why do you think the aura stats are less protected than the magical stats?"
+
+"These devices were made a very long time ago, so I couldn't tell you for sure," Leila's father says, "but if I were to take a guess, I'd say it's likely because they were locked away for different reasons. The magical stats were probably first created in the hopes that they would work for regular lessathi. Half-lessathi were never really seen as equal to pure-blood lessathi, so the locking of the magical stats was almost certainly put in place in order to make sure that a half-lessathi would never get access to these stats by accident. On the other hand, the aura stats were hidden as a safety precaution, because they were still in an experimental state when the lessathi stopped working on these devices, and they never got to finish all the tests. That being said, from what I could gather, the three stats seemed for the most part functional, so you shouldn't worry too much about them failing on you in a crucial moment."
+
+"Right..." I say, in a not entirely convinced tone.
+
+}
 #if(v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2) {
  "May I ask one question?" Leila's father says. "Why do you need to unlock the magical stats? As far as I am aware, only half-lessathi are able to use them."
 
@@ -856,22 +874,6 @@ TEXT:
 Leila and I both say goodbye to doctor Reidzek, and then we head back towards our friends, through the same corridor that we used to come here. 
 
 On our way back we run into Peter and also into a few other people that we don't recognize, who were using the same corridor to arrive in different areas from the underground rebel base, and while we're walking, Leila takes the opportunity to ask me a few more questions about my past. After walking for a few minutes, we finally make it back to the waiting room, where we see that Daren and Hadrik have already been healed, and that they were now waiting for us to return.
-
-}
-#if(v_b3_ch3_magical == 1) {
- "Is there anyone aside from the higher ranked lessathi who might know the code?"
-
-"It's possible," Leila's father says. "Especially if they are well acquainted with some of the higher ranked staff, or if they are working directly under them and heard it by accident at some point. Unfortunately, this is all speculation on my part, and I don't have any specific person in mind."
-
-"Yeah, I figured this might be the case," I say. "Thanks, anyway!"
-
-}
-#if(v_b3_ch3_magical == 2) {
- "Why do you think the aura stats are less protected than the magical stats?"
-
-"These devices were made a very long time ago, so I couldn't tell you for sure," Leila's father says, "but if I were to take a guess, I'd say it's likely because they were locked away for different reasons. The magical stats were probably first created in the hopes that they would work for regular lessathi. Half-lessathi were never really seen as equal to pure-blood lessathi, so the locking of the magical stats was almost certainly put in place in order to make sure that a half-lessathi would never get access to these stats by accident. On the other hand, the aura stats were hidden as a safety precaution, because they were still in an experimental state when the lessathi stopped working on these devices, and they never got to finish all the tests. That being said, from what I could gather, the three stats seemed for the most part functional, so you shouldn't worry too much about them failing on you in a crucial moment."
-
-"Right..." I say, in a not entirely convinced tone.
 
 }
 choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2)
@@ -1512,18 +1514,6 @@ TEXT:
 Albert nods to me, with the same smile as before, and then he walks past me. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
 
 }
-#if(v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2) {
- After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
-
-It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
-
-"Thank you for coming here on such short notice," the king of the underground tells us, as he sits on the throne in front of us. "I know that you are all busy people, so I'm going to try and keep this brief. Tell me... in what way is your team associated with this 'Creator' who goes by the name of Eiden?"
-
-"Uh... Why do you ask?" Daren says.
-
- "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
-
-}
 #if(v_b3_ch3_assassin == 1) {
  "It's because I am simply unbeatable."
 
@@ -1548,6 +1538,18 @@ Albert laughs.
 "Only if you force me to, Barry," he says. "However, at this point in time we are allies, not enemies, so you don't need to worry about such things. Anyway, I think I've held you long enough. Have fun with your exploring. I'm sure that we will be seeing each other again soon."
 
 Albert then smiles politely and he walks past me, without saying another word. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
+
+}
+#if(v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2) {
+ After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
+
+It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
+
+"Thank you for coming here on such short notice," the king of the underground tells us, as he sits on the throne in front of us. "I know that you are all busy people, so I'm going to try and keep this brief. Tell me... in what way is your team associated with this 'Creator' who goes by the name of Eiden?"
+
+"Uh... Why do you ask?" Daren says.
+
+ "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
 
 }
 choice(""Does this whole situation seem familiar to anyone else, or is it just me?"", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)

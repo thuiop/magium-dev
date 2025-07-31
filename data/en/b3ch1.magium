@@ -494,6 +494,12 @@ choice("Continue", B3-Ch01a-Unfortunate, v_current_scene = B3-Ch01a-Unfortunate)
 ID: B3-Ch01a-Unfortunate
 TEXT:
 
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ "No," Daren says. "But I wish I had given him one when I had the chance. I made sure to enchant a lot of these transceivers before coming to Varathia when I heard rumors that they might allow teams in the earlier stages of the tournament, but I wasn't really sure how Azarius would react to me giving him a transceiver out of the blue, especially since he went out of his way to not assemble any sort of team before coming here, unlike the rest of the sages."
+
+"Well, that is unfortunate," Arraka says. "I was hoping that we would at least get a bit of a head start for this part of the plan, but I guess we'll need to do it all from scratch, again. Anyway, ignoring the fact that we have no way of contacting these people, our biggest problem is that aside from Azarius, we have no idea who else was visited by the time weaver. My guess is that Eiden was probably left out of the prophecy this time around, since he will likely be directly involved in triggering the events that are prophesized, so other than him, I can only assume that the prophecy has been given to the strongest groups of mages participating in this tournament, and maybe some of the hotshots from Varathia, like Tyrath, the golden fox, or some of the kings. We can't just throw around guesses, though. We need some solid information. And the only one who could have this information is the time weaver herself."
+
+}
 #if(v_ch11_saved_rose == 1) {
  "Rose already told us that the only people she remembered visiting after leaving us were Azarius and his pupil," I say. "She said that everything in her head was blurry after that."
 
@@ -506,12 +512,6 @@ TEXT:
 "Uhm... okay," I say. "I'll tell her that. Not sure how much it will help, but I'll tell her."
 
 "She'll be fine," Arraka says. "If she was smart enough to figure out how to use her time powers while connected to the Magium, she should also be able to figure out what my words mean. It's probably going to take her a while to actually put it all into practice, though."
-
-}
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- "No," Daren says. "But I wish I had given him one when I had the chance. I made sure to enchant a lot of these transceivers before coming to Varathia when I heard rumors that they might allow teams in the earlier stages of the tournament, but I wasn't really sure how Azarius would react to me giving him a transceiver out of the blue, especially since he went out of his way to not assemble any sort of team before coming here, unlike the rest of the sages."
-
-"Well, that is unfortunate," Arraka says. "I was hoping that we would at least get a bit of a head start for this part of the plan, but I guess we'll need to do it all from scratch, again. Anyway, ignoring the fact that we have no way of contacting these people, our biggest problem is that aside from Azarius, we have no idea who else was visited by the time weaver. My guess is that Eiden was probably left out of the prophecy this time around, since he will likely be directly involved in triggering the events that are prophesized, so other than him, I can only assume that the prophecy has been given to the strongest groups of mages participating in this tournament, and maybe some of the hotshots from Varathia, like Tyrath, the golden fox, or some of the kings. We can't just throw around guesses, though. We need some solid information. And the only one who could have this information is the time weaver herself."
 
 }
 #if(v_ch11_saved_rose == 0) {
@@ -718,18 +718,6 @@ TEXT:
 "Oh..." Kate says, as she looks to the side, and her serious expression from before becomes a bit more relaxed, probably in an attempt to no longer hide her current state of mind from me.
 
 }
-#if(v_b3_ch1_kate2 == 0 || v_b3_ch1_kate2 == 1 || v_b3_ch1_kate2 == 2) {
- As she becomes less tense, I can see that she has a very tired look in her eyes, as if she's been overexerting herself for a long while, even though we haven't had any fights in the past few days.
-
-"I've had a little trouble sleeping, lately, but nothing too serious," Kate says, as she continues to look to her side. "It's been three days already, so I've mostly gotten over it by now."
-
-"It really doesn't look like you've gotten over it to me!" I say. "If I didn't know any better, I'd think you've been battling an army of dragons by yourself for hours on end, judging by how tired you look right now."
-
-Kate frowns at me.
-
-"See, this is why I try to never let it show on my face how I really feel," she says. "I don't want other people to start worrying about me, when they've already got their own problems to deal with."
-
-}
 #if(v_b3_ch1_kate2 == 2) {
  "Wait a minute. Is this your way of saying that you were worried about me?"
 
@@ -742,6 +730,18 @@ Kate frowns at me.
 "How are you... holding up?" I say. "You always make sure to not let your true feelings show on your face, so I can never tell when something is affecting you or not. That's why I'm trying to ask you directly..."
 
 "Oh..." Kate says, as she looks to the side, and her serious expression from before becomes a bit more relaxed, probably in an attempt to no longer hide her current state of mind from me.
+
+}
+#if(v_b3_ch1_kate2 == 0 || v_b3_ch1_kate2 == 1 || v_b3_ch1_kate2 == 2) {
+ As she becomes less tense, I can see that she has a very tired look in her eyes, as if she's been overexerting herself for a long while, even though we haven't had any fights in the past few days.
+
+"I've had a little trouble sleeping, lately, but nothing too serious," Kate says, as she continues to look to her side. "It's been three days already, so I've mostly gotten over it by now."
+
+"It really doesn't look like you've gotten over it to me!" I say. "If I didn't know any better, I'd think you've been battling an army of dragons by yourself for hours on end, judging by how tired you look right now."
+
+Kate frowns at me.
+
+"See, this is why I try to never let it show on my face how I really feel," she says. "I don't want other people to start worrying about me, when they've already got their own problems to deal with."
 
 }
 choice(""But I want to worry about you!"", B3-Ch01a-Approached, v_current_scene = B3-Ch01a-Approached, v_b3_ch1_kate3 = 0) if (v_b3_ch1_kate2 == 0 || v_b3_ch1_kate2 == 1 || v_b3_ch1_kate2 == 2)
@@ -897,14 +897,6 @@ choice(""Want me to do a little dance too, while I'm at it?"", B3-Ch01a-Dance, v
 ID: B3-Ch01a-Backwards
 TEXT:
 
-#if(v_ch11_saved_slave != 3) {
- "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
-
-He pauses, as his gaze now turns to the side.
-
-"Or how Eiden offered to give me the power to save Ella simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
-
-}
  I turn around again, making sure that he has a good view of me from the side this time. After about ten more seconds, Daren still doesn't seem to have found what he was looking for, and he makes yet another request of me.
 
 "Could you turn back to face me again?" Daren says. "And maybe take two steps to the front? Actually no, forget what I said! I need you to step further back. Just start walking slowly backwards and I'll tell you when to stop."
@@ -927,6 +919,14 @@ He then pauses for a little while, looking somewhat embarrassed by what he is ab
 
 "Huh..." I say, in a thoughtful voice. "That's funny. I could have sworn that your real reason for not wanting to follow Arraka's advice was because she's evil, and you suspected she had ulterior motives for wanting to help us."
 
+#if(v_ch11_saved_slave != 3) {
+ "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
+
+He pauses, as his gaze now turns to the side.
+
+"Or how Eiden offered to give me the power to save Ella simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
+
+}
 #if(v_ch11_saved_slave == 3) {
  "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
 
@@ -941,14 +941,6 @@ choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity)
 ID: B3-Ch01a-Accomplish
 TEXT:
 
-#if(v_ch11_saved_slave != 3) {
- "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
-
-He pauses, as his gaze now turns to the side.
-
-"Or how Eiden offered to give me the power to save Ella simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
-
-}
  "Are you maybe going to tell me why I'm doing this, first?" I ask Daren, as I turn to face him. "Because I'm not gonna lie, this feels a little bit awkward."
 
 "Oh, right, right, sorry..." Daren says, as he finally realizes how ridiculous this whole situation must have seemed from my point of view. "I should have started by telling you what was going on."
@@ -967,6 +959,14 @@ He then pauses for a little while, looking somewhat embarrassed by what he is ab
 
 "Huh..." I say, in a thoughtful voice. "That's funny. I could have sworn that your real reason for not wanting to follow Arraka's advice was because she's evil, and you suspected she had ulterior motives for wanting to help us."
 
+#if(v_ch11_saved_slave != 3) {
+ "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
+
+He pauses, as his gaze now turns to the side.
+
+"Or how Eiden offered to give me the power to save Ella simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
+
+}
 #if(v_ch11_saved_slave == 3) {
  "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
 
@@ -981,14 +981,6 @@ choice("Continue", B3-Ch01a-Humanity, v_current_scene = B3-Ch01a-Humanity)
 ID: B3-Ch01a-Dance
 TEXT:
 
-#if(v_ch11_saved_slave != 3) {
- "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
-
-He pauses, as his gaze now turns to the side.
-
-"Or how Eiden offered to give me the power to save Ella simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
-
-}
  "Want me to do a little dance too, while I'm at it?" I tell Daren, as I turn around to face him.
 
 "Actually, that's not a bad idea!" Daren says, with a grin. "You could try doing that dwarven dance where you jump on one foot with your arms behind your head, while you keep rotating in place over and over. Don't worry, I'll tell you when to stop."
@@ -1011,6 +1003,14 @@ He then pauses for a little while, looking somewhat embarrassed by what he is ab
 
 "Huh..." I say, in a thoughtful voice. "That's funny. I could have sworn that your real reason for not wanting to follow Arraka's advice was because she's evil, and you suspected she had ulterior motives for wanting to help us."
 
+#if(v_ch11_saved_slave != 3) {
+ "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
+
+He pauses, as his gaze now turns to the side.
+
+"Or how Eiden offered to give me the power to save Ella simply because he wanted to see me humiliate myself, and not because he had any other ulterior motives," Daren says, with a much heavier tone in his voice.
+
+}
 #if(v_ch11_saved_slave == 3) {
  "Yeah, well," Daren says, "if there's anything I've learned from that whole ordeal with the rituals, it's that just because someone is evil, it doesn't mean that they will always have evil intentions. Especially if we're talking about unpredictable characters like Eiden or Arraka. Even if they help you completely out of the blue, it might still just be something they decided to do on a whim, or for a reason that is merely selfish, but not insincere. Like how Arraka is putting so much effort into this plan simply because the scenario of such a weak group defeating the God of Time amuses her."
 

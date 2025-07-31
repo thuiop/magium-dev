@@ -93,14 +93,6 @@ She then pauses for a few seconds, to take a good look at each of us in turn.
 "Illuna..." Kate says. "Right now, like it or not, we ARE on the same side. At least until this whole conflict with the God of Time gets resolved. I thought we had all already agreed that we would accept her help."
 
 }
-#if(v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1) {
- "Accepting her help and treating her as if she is truly an ally are two completely different things," Illuna says. "When I agreed to have her train us, it was under the assumption that we would all know who we are dealing with. Regardless of how helpful Arraka is, she is NOT to be trusted. Please tell me that you understand this."
-
-"Look," Daren says, "nobody is saying that we should suddenly become friends with her, hold hands and sing happy songs together. We're just saying that in the past few days she's changed slightly for the better, that's all."
-
-"No, she has NOT changed," Illuna says, in a louder voice, as she is now finally losing her cool. "She will never change! She will always be the same ruthless, sadistic and manipulative mass murderer that she has been since long before she even came to the earthen plane. You cannot afford to treat her like an ally. You cannot afford to even consider that possibility. Do not make the same mistake I did! I guarantee you that you will regret it for as long as you'll live!"
-
-}
 #if(v_b3_ch10_spin == 1) {
  "Sure thing," I say. "Give her to me!"
 
@@ -131,6 +123,14 @@ She then pauses for a few seconds, to take a good look at each of us in turn.
 "Illuna..." Kate says. "Right now, like it or not, we ARE on the same side. At least until this whole conflict with the God of Time gets resolved. I thought we had all already agreed that we would accept her help."
 
 }
+#if(v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1) {
+ "Accepting her help and treating her as if she is truly an ally are two completely different things," Illuna says. "When I agreed to have her train us, it was under the assumption that we would all know who we are dealing with. Regardless of how helpful Arraka is, she is NOT to be trusted. Please tell me that you understand this."
+
+"Look," Daren says, "nobody is saying that we should suddenly become friends with her, hold hands and sing happy songs together. We're just saying that in the past few days she's changed slightly for the better, that's all."
+
+"No, she has NOT changed," Illuna says, in a louder voice, as she is now finally losing her cool. "She will never change! She will always be the same ruthless, sadistic and manipulative mass murderer that she has been since long before she even came to the earthen plane. You cannot afford to treat her like an ally. You cannot afford to even consider that possibility. Do not make the same mistake I did! I guarantee you that you will regret it for as long as you'll live!"
+
+}
 choice("Continue", B3-Ch10a-Trumpets, v_current_scene = B3-Ch10a-Trumpets) if (v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1)
 
 
@@ -145,6 +145,18 @@ We all nod slowly in agreement without saying anything else, as we are still in 
 "Very well," Illuna says, now in a slightly more reserved tone. "I just wanted to make sure that we are all on the same page, that's all. Let us proceed, then. The Overseer must surely be waiting for us in one of the next rooms." 
 
 As Illuna goes to the front of the group, the rest of us exchange a few more looks, and then we all follow her into the long hallway that likely leads directly to the throne room. 
+
+Once we're done traversing the hallway, we open the door leading into the next room, and we are suddenly greeted by the sound of two loud trumpets, which are apparently being used by two red-eyed drones that are hovering on each side of the throne in front of us.
+
+}
+#if(v_b3_ch10_spin == 1) {
+ "Okay, okay, we understand your point," Hadrik says, trying to calm her down. "We'll try to be more careful around Arraka from now on. And we won't say that she is our teammate or anything again either. Right, guys?"
+
+We all nod slowly in agreement without saying anything else, as we are still in somewhat of a shock after having seen Illuna's sudden outburst. It is not often that we see Illuna losing her calm and collected demeanor like this, and if I'm not mistaken, the only times I've ever seen her get so upset it has always been because of Arraka. I suppose this shouldn't surprise me, given their past together.
+
+"Very well," Illuna says, now in a slightly more reserved tone. "I just wanted to make sure that we are all on the same page, that's all. Let us proceed, then. The Overseer must surely be waiting for us in one of the next rooms." 
+
+As Illuna goes to the front of the group, the rest of us exchange a few looks, and then we all follow her into the long hallway that likely leads directly to the throne room. 
 
 Once we're done traversing the hallway, we open the door leading into the next room, and we are suddenly greeted by the sound of two loud trumpets, which are apparently being used by two red-eyed drones that are hovering on each side of the throne in front of us.
 
@@ -169,18 +181,6 @@ Two other red-eyed drones are now approaching the green-eyed one while holding a
 "Precisely," the Overseer says. "It should also be easier for us to have a conversation, now that we are each aware of our own social status. If you have any trouble finding ways to address me from now on, you can try calling me 'your majesty' or 'my king'. Either one will do."
 
 }
-#if(v_b3_ch10_spin == 1) {
- "Okay, okay, we understand your point," Hadrik says, trying to calm her down. "We'll try to be more careful around Arraka from now on. And we won't say that she is our teammate or anything again either. Right, guys?"
-
-We all nod slowly in agreement without saying anything else, as we are still in somewhat of a shock after having seen Illuna's sudden outburst. It is not often that we see Illuna losing her calm and collected demeanor like this, and if I'm not mistaken, the only times I've ever seen her get so upset it has always been because of Arraka. I suppose this shouldn't surprise me, given their past together.
-
-"Very well," Illuna says, now in a slightly more reserved tone. "I just wanted to make sure that we are all on the same page, that's all. Let us proceed, then. The Overseer must surely be waiting for us in one of the next rooms." 
-
-As Illuna goes to the front of the group, the rest of us exchange a few looks, and then we all follow her into the long hallway that likely leads directly to the throne room. 
-
-Once we're done traversing the hallway, we open the door leading into the next room, and we are suddenly greeted by the sound of two loud trumpets, which are apparently being used by two red-eyed drones that are hovering on each side of the throne in front of us.
-
-}
 choice(""Yes, your majesty."", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 0) if (v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1)
 choice(""Yes, my king."", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 1) if (v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1)
 choice(""I hope you're joking."", B3-Ch10a-Intimidation, v_current_scene = B3-Ch10a-Intimidation, v_b3_ch10_majesty = 2) if (v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1)
@@ -201,16 +201,6 @@ TEXT:
 "Incorrect," the Overseer says. "The Overseer protocol is not designed to use such underhanded intimidation tactics to achieve its goals. My methods of intimidation are far more direct and to the point. I assure you that summoning you here was only meant as a stalling tactic and nothing else. There was no other hidden meaning behind my actions."
 
 "What do you mean it was a stalling tactic?" Hadrik asks. "A stalling tactic for what?..."
-
-}
-#if(v_b3_ch10_majesty == 0 || v_b3_ch10_majesty == 1 || v_b3_ch10_majesty == 2) {
- "I believe it would be quicker to give you a demonstration than to explain it to you ," the Overseer says. "Please stand by. If you are to experience any discomfort during the next few minutes, you are advised to seek out the nearest red-eyed unit for a quick medical check-up."
-
-As soon as the green-eyed drone stops talking, the world around us suddenly disappears, and it is replaced by a sea of light, as far as the eye can see. It doesn't take me long to realize that my perspective has once again been forcefully switched to that of my soul on the ethereal plane, and that all of our souls were kicked out of our minds again by the Overseer.
-
-When I look around us, I see that aside from all of my friends and the green-eyed drone that we were talking to earlier, we are also being accompanied by about a hundred or so red-eyed drones that are surrounding us from every direction, making it impossible for us to escape from them. One other thing I'm noticing is that both Flower and Illuna's souls are here with us as well, which means that there is currently nobody inside Flower's sanctuary from the ethereal plane to control Flower's body from the earthen plane. 
-
-"As you can see," the green-eyed drone tells us, on the ethereal plane, "while you were busy making your way to the palace, I have been working on improving my soul displacement technique so that it now transports your souls to an exact location on the ethereal plane instead of randomly teleporting you all across the ether. I have also made use of this time to further develop a disintegration beam that can only function on the ethereal plane. Would you like to see it in action?"
 
 }
 #if(v_b3_ch10_majesty == 1) {
@@ -239,6 +229,16 @@ When I look around us, I see that aside from all of my friends and the green-eye
 "Incorrect," the Overseer says. "The Overseer protocol is not designed to use such underhanded intimidation tactics to achieve its goals. My methods of intimidation are far more direct and to the point. I assure you that summoning you here was only meant as a stalling tactic and nothing else. There was no other hidden meaning behind my actions."
 
 "What do you mean it was a stalling tactic?" Hadrik asks. "A stalling tactic for what?..."
+
+}
+#if(v_b3_ch10_majesty == 0 || v_b3_ch10_majesty == 1 || v_b3_ch10_majesty == 2) {
+ "I believe it would be quicker to give you a demonstration than to explain it to you ," the Overseer says. "Please stand by. If you are to experience any discomfort during the next few minutes, you are advised to seek out the nearest red-eyed unit for a quick medical check-up."
+
+As soon as the green-eyed drone stops talking, the world around us suddenly disappears, and it is replaced by a sea of light, as far as the eye can see. It doesn't take me long to realize that my perspective has once again been forcefully switched to that of my soul on the ethereal plane, and that all of our souls were kicked out of our minds again by the Overseer.
+
+When I look around us, I see that aside from all of my friends and the green-eyed drone that we were talking to earlier, we are also being accompanied by about a hundred or so red-eyed drones that are surrounding us from every direction, making it impossible for us to escape from them. One other thing I'm noticing is that both Flower and Illuna's souls are here with us as well, which means that there is currently nobody inside Flower's sanctuary from the ethereal plane to control Flower's body from the earthen plane. 
+
+"As you can see," the green-eyed drone tells us, on the ethereal plane, "while you were busy making your way to the palace, I have been working on improving my soul displacement technique so that it now transports your souls to an exact location on the ethereal plane instead of randomly teleporting you all across the ether. I have also made use of this time to further develop a disintegration beam that can only function on the ethereal plane. Would you like to see it in action?"
 
 }
 #if(v_b3_ch4_billy == 9) {
@@ -287,6 +287,74 @@ TEXT:
  "Hey, Overseer," Melindra says. "You mentioned earlier that you would only rule the city from the shadows. Who is going to be the official king, then?"
 
 }
+#if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 2) {
+ "What about the king of the underground and the rebels?" Daren asks, in an anxious voice. "You promised that you would not harm any of them!"
+
+"Those of them who are still alive are safe... for now," the Overseer says. "However, that situation might change, depending on how the other rebels will react to the news of their imprisonment. If they try to openly oppose my reign, then the safety of the hostages may no longer be guaranteed."
+
+"I see..." Daren says, in a somewhat defeated tone.
+
+"One clarification that needs to be made is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
+
+"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
+
+"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
+
+"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
+
+"I couldn't just leave them there," I say. "They were too dangerous to be kept alive."
+
+"So, you're just going to kill anyone who might pose a danger to you in the future, is that it?" Daren asks me.
+
+}
+#if(v_b3_ch9_enemies == 2 && v_b3_ch4_billy < 9) {
+ "One clarification that needs to be made, however, is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
+
+"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
+
+"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
+
+"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
+
+"I couldn't just leave them there," I say. "They were too dangerous to be kept alive."
+
+"So, you're just going to kill anyone who might pose a danger to you in the future, is that it?" Daren asks me.
+
+}
+#if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 3) {
+ "What about the king of the underground and the rebels?" Daren asks, in an anxious voice. "You promised that you would not harm any of them!"
+
+"Those of them who are still alive are safe... for now," the Overseer says. "However, that situation might change, depending on how the other rebels will react to the news of their imprisonment. If they try to openly oppose my reign, then the safety of the hostages may no longer be guaranteed."
+
+"I see..." Daren says, in a somewhat defeated tone.
+
+"One clarification that needs to be made is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
+
+"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
+
+"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
+
+"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
+
+"They gave me no choice," I say. "It was either them or me."
+
+"Actually, that is incorrect," the Overseer says. "Both the king of the underground and Peter were unconscious when you killed them, so they did not in fact pose any threat to you whatsoever at that particular point in time."
+
+}
+#if(v_b3_ch9_enemies == 3 && v_b3_ch4_billy < 9) {
+ "One clarification that needs to be made, however, is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
+
+"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
+
+"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
+
+"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
+
+"They gave me no choice," I say. "It was either them or me."
+
+"Actually, that is incorrect," the Overseer says. "Both the king of the underground and Peter were unconscious when you killed them, so they did not in fact pose any threat to you whatsoever at that particular point in time."
+
+}
 #if(v_b3_ch9_enemies == 0 && v_b3_ch4_billy != 8) {
  "That remains to be seen," the Overseer says. "Ideally, it should be someone who is easily manipulatable, but also not stupid enough to give away his connection to me. Most people would react badly if they found out that a machine was the real ruler behind the scenes, so it would be best to avoid such a scenario."
 
@@ -311,26 +379,6 @@ TEXT:
 "Yes," the Overseer says. "That is my intention."
 
 }
-#if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 2) {
- "What about the king of the underground and the rebels?" Daren asks, in an anxious voice. "You promised that you would not harm any of them!"
-
-"Those of them who are still alive are safe... for now," the Overseer says. "However, that situation might change, depending on how the other rebels will react to the news of their imprisonment. If they try to openly oppose my reign, then the safety of the hostages may no longer be guaranteed."
-
-"I see..." Daren says, in a somewhat defeated tone.
-
-"One clarification that needs to be made is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
-
-"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
-
-"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
-
-"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
-
-"I couldn't just leave them there," I say. "They were too dangerous to be kept alive."
-
-"So, you're just going to kill anyone who might pose a danger to you in the future, is that it?" Daren asks me.
-
-}
 #if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 2 || v_b3_ch9_enemies == 2 && v_b3_ch4_billy < 9) {
  "No, but we already know that the king of the underground wanted to have us assassinated," I say. "What was to guarantee that he wouldn't try the same thing again if he got out of prison? And what about Leila and doctor Reidzek? How could we leave them in this city with that madman still running loose?"
 
@@ -347,18 +395,22 @@ He pauses.
 "Hey, Overseer," Melindra says. "You mentioned earlier that you would only rule the city from the shadows. Who is going to be the official king, then?"
 
 }
-#if(v_b3_ch9_enemies == 2 && v_b3_ch4_billy < 9) {
- "One clarification that needs to be made, however, is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
+#if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 3 || v_b3_ch9_enemies == 3 && v_b3_ch4_billy < 9) {
+ "Barry, I can't believe what I'm hearing..." Daren says. "I know that the king of the underground was a jerk, but--"
 
-"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
+"He was more than just a jerk," I say. "He wanted to have us assassinated. What was to guarantee that he wouldn't try the same thing again if he got out of prison? And what about Leila and doctor Reidzek? How could we leave them in this city with that madman still running loose?"
 
-"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
+"You can't just decide things like this on a whim," Daren says. "We're talking about people's lives, here! You say that the king wanted us assassinated, but there's barely any proof that Peter was even involved in that plot. Why would you kill him too? Just because he was a witness?"
 
-"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
+"That is... one of the reasons," I admit to him. "But he was also one of the rebel leaders working directly under him. Even if he wasn't directly involved in the plot to kill us, he surely must have at least known about it!"
 
-"I couldn't just leave them there," I say. "They were too dangerous to be kept alive."
+"You disappoint me, Barry," Daren says, in a sad tone of voice. "I thought you were better than this... I don't understand how you could--"
 
-"So, you're just going to kill anyone who might pose a danger to you in the future, is that it?" Daren asks me.
+He pauses.
+
+"Never mind..." he continues, after a short while. "It doesn't look like any words from me will make you change your mind, so I think it might be better to drop the subject altogether. What's done is done. Let's try to focus on the future."
+
+"Hey, Overseer," Melindra says. "You mentioned earlier that you would only rule the city from the shadows. Who is going to be the official king, then?"
 
 }
 #if(v_b3_ch9_enemies == 2 && v_b3_ch4_billy != 8 || v_b3_ch9_enemies == 3 && v_b3_ch4_billy != 8) {
@@ -385,58 +437,6 @@ He pauses.
 "Yes," the Overseer says. "That is my intention."
 
 }
-#if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 3) {
- "What about the king of the underground and the rebels?" Daren asks, in an anxious voice. "You promised that you would not harm any of them!"
-
-"Those of them who are still alive are safe... for now," the Overseer says. "However, that situation might change, depending on how the other rebels will react to the news of their imprisonment. If they try to openly oppose my reign, then the safety of the hostages may no longer be guaranteed."
-
-"I see..." Daren says, in a somewhat defeated tone.
-
-"One clarification that needs to be made is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
-
-"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
-
-"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
-
-"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
-
-"They gave me no choice," I say. "It was either them or me."
-
-"Actually, that is incorrect," the Overseer says. "Both the king of the underground and Peter were unconscious when you killed them, so they did not in fact pose any threat to you whatsoever at that particular point in time."
-
-}
-#if(v_b3_ch4_billy == 9 && v_b3_ch9_enemies == 3 || v_b3_ch9_enemies == 3 && v_b3_ch4_billy < 9) {
- "Barry, I can't believe what I'm hearing..." Daren says. "I know that the king of the underground was a jerk, but--"
-
-"He was more than just a jerk," I say. "He wanted to have us assassinated. What was to guarantee that he wouldn't try the same thing again if he got out of prison? And what about Leila and doctor Reidzek? How could we leave them in this city with that madman still running loose?"
-
-"You can't just decide things like this on a whim," Daren says. "We're talking about people's lives, here! You say that the king wanted us assassinated, but there's barely any proof that Peter was even involved in that plot. Why would you kill him too? Just because he was a witness?"
-
-"That is... one of the reasons," I admit to him. "But he was also one of the rebel leaders working directly under him. Even if he wasn't directly involved in the plot to kill us, he surely must have at least known about it!"
-
-"You disappoint me, Barry," Daren says, in a sad tone of voice. "I thought you were better than this... I don't understand how you could--"
-
-He pauses.
-
-"Never mind..." he continues, after a short while. "It doesn't look like any words from me will make you change your mind, so I think it might be better to drop the subject altogether. What's done is done. Let's try to focus on the future."
-
-"Hey, Overseer," Melindra says. "You mentioned earlier that you would only rule the city from the shadows. Who is going to be the official king, then?"
-
-}
-#if(v_b3_ch9_enemies == 3 && v_b3_ch4_billy < 9) {
- "One clarification that needs to be made, however, is that the king of the underground is not in fact still alive," the Overseer says. "He was killed in the ethereal plane along with Peter by your friend, Barry."
-
-"What?..." Daren first asks confused, but then he turns to me. "You killed them?! And you didn't even tell me?"
-
-"I was going to tell you about it," I say. "I was just... waiting for the right opportunity."
-
-"Barry, we all agreed that we would try our best to keep as many of the rebels alive as possible!" Daren says. "Why would you do something like this?"
-
-"They gave me no choice," I say. "It was either them or me."
-
-"Actually, that is incorrect," the Overseer says. "Both the king of the underground and Peter were unconscious when you killed them, so they did not in fact pose any threat to you whatsoever at that particular point in time."
-
-}
 choice("Continue", B3-Ch10a-Towers, v_current_scene = B3-Ch10a-Towers) if (v_b3_ch9_enemies == 0 || v_b3_ch9_enemies == 2 || v_b3_ch9_enemies == 3)
 
 
@@ -444,24 +444,6 @@ ID: B3-Ch10a-Towers
 TEXT:
 
 #if(v_b3_ch4_billy != 8) {
- "Yes..." Kate says, looking very exhausted from her previous exchange with the Overseer. "I'm... sure we won't."
-
-"Now, then," the Overseer says, "Is there anything else you would like to discuss, or would that be all?"
-
-"No," Daren says. "I think we're done."
-
-"Very well," the Overseer says. "Then I shall return you to your sanctuaries."
-
-One moment later, we all find ourselves back on the earthen plane, inside the royal palace. It looks like the Overseer really did gain full control over his soul displacement technique. We didn't even have to return to our own minds by ourselves this time around.
-
-"As always, it has been a pleasure talking to you," the Overseer says, this time from the earthen plane. "If you have any more questions, feel free to contact any of the green-eyed drones that are patrolling the city, and we will get back to you with an answer in a timely manner."
-
-"Uh-huh," Hadrik says. "That's great. I'm sure this time you won't ignore us, like you did while we were on our way to the castle."
-
-"Come on, Hadrik, let's get out of here," Daren says, as he heads for the door, along with the rest of us.
-
-"If you were satisfied with the Overseer protocol's services, please do not forget to leave a positive rating at one of the green-eyed units," the Overseer tells us, as we are exiting the throne room. "Remember: your feedback always matters!"
-
  "So, what are you planning to do about the seredium towers, now that you have full control of the city?" Kate asks.
 
 "The Overseer protocol would like to remind you that we had not reached a proper conclusion when we discussed this subject before the battle," the Overseer says.
@@ -485,6 +467,24 @@ Kate does not answer the Overseer, but I can see on her face that she is very co
 "Wait!" Kate shouts, as the red-eyed drones were just about to fire their disintegration beams. "I understand. I won't ask any more questions. I'll... take your word for it that the issues concerning the seredium towers will truly be resolved."
 
 "The Overseer protocol thanks you for your understanding," the Overseer says, as the red-eyed drones are now all cancelling their beams. "There is no need to worry. The Overseer protocol is designed to carry out all of its assignments with utmost efficiency. We assure you that you will have no reason to complain."
+
+ "Yes..." Kate says, looking very exhausted from her previous exchange with the Overseer. "I'm... sure we won't."
+
+"Now, then," the Overseer says, "Is there anything else you would like to discuss, or would that be all?"
+
+"No," Daren says. "I think we're done."
+
+"Very well," the Overseer says. "Then I shall return you to your sanctuaries."
+
+One moment later, we all find ourselves back on the earthen plane, inside the royal palace. It looks like the Overseer really did gain full control over his soul displacement technique. We didn't even have to return to our own minds by ourselves this time around.
+
+"As always, it has been a pleasure talking to you," the Overseer says, this time from the earthen plane. "If you have any more questions, feel free to contact any of the green-eyed drones that are patrolling the city, and we will get back to you with an answer in a timely manner."
+
+"Uh-huh," Hadrik says. "That's great. I'm sure this time you won't ignore us, like you did while we were on our way to the castle."
+
+"Come on, Hadrik, let's get out of here," Daren says, as he heads for the door, along with the rest of us.
+
+"If you were satisfied with the Overseer protocol's services, please do not forget to leave a positive rating at one of the green-eyed units," the Overseer tells us, as we are exiting the throne room. "Remember: your feedback always matters!"
 
 }
 #if(v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8) {
@@ -521,42 +521,6 @@ choice("Continue", B3-Ch10a-Feedback, v_current_scene = B3-Ch10a-Feedback)
 ID: B3-Ch10a-Feedback
 TEXT:
 
- "One minute!" Illuna says. "All I ask is for one minute without you doing something stupid! Can you not at least rest a little before you transform again? What if you got stuck again, and couldn't turn back? What then?"
-
-"Sorry!" Flower says. "I guess I just wanted to brag a little. I won't do it again, I promise!"
-
-"You can practice your transformations all you like after you get a good night's sleep," Illuna says. "All I'm asking is that you don't take this lightly. You've been doing high-distance teleportation throughout the ethereal plane all day. It's a miracle that you didn't reach your limit yet. Let's try not to tempt fate any more than we already have, shall we?"
-
-"Yes, Petal," Flower says. "I understand."
-
-"Good," Illuna says.
-
-"Can I say just one more thing?" Flower says.
-
-"What?" Illuna asks, in an apprehensive tone.
-
-"Now that we're done with the coronation and everything," Flower says, "could we maybe pay a really quick visit to that building from Ollendor where Melindra told me that there's a puzzle piece lying in wait?"
-
-"Unbelievable..." Illuna says. "After everything we've been through, you're still thinking about your puzzle pieces..."
-
- Soon after we get out of the palace, we hear Flower gasping loudly, while she is still being carried by Melindra's air currents.
-
-"I think I got it!" Flower says, in a loud voice. "Melindra, can you put me down for a second?"
-
-"Huh?" Melindra says. "Oh yeah, sure."
-
-She then waves her hands towards her, and Flower is gently lowered to the ground.
-
-"Thanks!" Flower says. "Alright, here I go. Wish me luck!"
-
-Before any of us have the time to ask what she's doing, Flower begins to squeeze her fists really hard, while her arms are trembling in front of her. As she is apparently gathering every ounce of focus that she has in order to concentrate on her current task, her eyes begin to gradually turn back to their normal green color, while the invisible burning flames in her aura also seem to be slowly getting extinguished.
-
-A few seconds later, Flower returns completely back to normal, with a big smile on her face.
-
-"Hah!" she says, happily. "I did it! I can't believe I managed to do it! I have it all under control, now! Look!"
-
-She then squeezes her fists again, and her eyes begin to turn back to their glowy red color from earlier. Right in the middle of her transformation, her eyes turn blue all of a sudden and Flower smacks herself in the head very hard, which causes her eyes to turn back to normal immediately.
-
 #if(v_b3_ch4_billy != 8) {
  "So, what do we do now?" Hadrik asks, once the door behind us closes, and we are walking through the corridor that leads out of the palace.
 
@@ -583,6 +547,42 @@ She then squeezes her fists again, and her eyes begin to turn back to their glow
 "Yeah, I suppose you're right," Hadrik says. "He did say that he would find a way to free the prisoners from the towers after all. I guess we're going to have to wait and see what he does in the next few weeks, then."
 
 }
+ Soon after we get out of the palace, we hear Flower gasping loudly, while she is still being carried by Melindra's air currents.
+
+"I think I got it!" Flower says, in a loud voice. "Melindra, can you put me down for a second?"
+
+"Huh?" Melindra says. "Oh yeah, sure."
+
+She then waves her hands towards her, and Flower is gently lowered to the ground.
+
+"Thanks!" Flower says. "Alright, here I go. Wish me luck!"
+
+Before any of us have the time to ask what she's doing, Flower begins to squeeze her fists really hard, while her arms are trembling in front of her. As she is apparently gathering every ounce of focus that she has in order to concentrate on her current task, her eyes begin to gradually turn back to their normal green color, while the invisible burning flames in her aura also seem to be slowly getting extinguished.
+
+A few seconds later, Flower returns completely back to normal, with a big smile on her face.
+
+"Hah!" she says, happily. "I did it! I can't believe I managed to do it! I have it all under control, now! Look!"
+
+She then squeezes her fists again, and her eyes begin to turn back to their glowy red color from earlier. Right in the middle of her transformation, her eyes turn blue all of a sudden and Flower smacks herself in the head very hard, which causes her eyes to turn back to normal immediately.
+
+ "One minute!" Illuna says. "All I ask is for one minute without you doing something stupid! Can you not at least rest a little before you transform again? What if you got stuck again, and couldn't turn back? What then?"
+
+"Sorry!" Flower says. "I guess I just wanted to brag a little. I won't do it again, I promise!"
+
+"You can practice your transformations all you like after you get a good night's sleep," Illuna says. "All I'm asking is that you don't take this lightly. You've been doing high-distance teleportation throughout the ethereal plane all day. It's a miracle that you didn't reach your limit yet. Let's try not to tempt fate any more than we already have, shall we?"
+
+"Yes, Petal," Flower says. "I understand."
+
+"Good," Illuna says.
+
+"Can I say just one more thing?" Flower says.
+
+"What?" Illuna asks, in an apprehensive tone.
+
+"Now that we're done with the coronation and everything," Flower says, "could we maybe pay a really quick visit to that building from Ollendor where Melindra told me that there's a puzzle piece lying in wait?"
+
+"Unbelievable..." Illuna says. "After everything we've been through, you're still thinking about your puzzle pieces..."
+
 choice(""Hey, that's not a bad idea. I've actually been meaning to ask about this too!"", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 1)
 choice(""I really couldn't care any less about those puzzle pieces right now."", B3-Ch10a-Puzzle, v_current_scene = B3-Ch10a-Puzzle, v_b3_ch10_puzzle = 0)
 
@@ -602,20 +602,6 @@ At the moment, our group is standing somewhere in the back of the large room, so
 "Albert used to be one of the main rebel leaders before he started serving the king of the underground, and I don't think most of the rebels forgot that," Daren says. "I'm sure that many of them would relish the opportunity to place their old leader into a position of power again."
 
 "Hmm... that could be true," Hadrik says. "I guess we'll find out soon enough."
-
-}
-#if(v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5) {
- Not long after our discussion, the men in charge of gathering the votes pass by us and collect our voting papers. We all paid close attention to what they were doing, but even though the crowd of people obscured our view a few times, it didn't seem like they had the opportunity to switch such a large number of votes without us noticing. Once the votes have been gathered, the men placed the papers on the podium and then they started counting them, while several supposedly neutral observers were checking on them, to make sure that they were doing the count correctly.
-
-"Do you think they could just fake the counting?" Hadrik says. "I have no idea who those observers are supposed to be. Can they be trusted?"
-
- "I asked around," Daren says, "and apparently they are all people with strong reasons to dislike the king of the underground, who have been insisting that they should be allowed to oversee the voting process since yesterday. Normally, it should be almost impossible for the vote counters to cheat while having those guys looking over their shoulders constantly."
-
-"So, this is it, then?" Hadrik says. "We can stop watching their every move?"
-
-"I suppose so," Daren says.
-
-"Good," Hadrik says, looking slightly relieved. "It was getting a little stressful!"
 
 }
 #if(v_b3_ch8_king == 1) {
@@ -672,6 +658,20 @@ At the moment, our group is standing somewhere in the back of the large room, so
 "Almost certainly," Daren says. "You saw how much support he got from the people when it was first announced that he'd be running for king. To be frank, I would have expected the king of the underground to try to assassinate him by now, considering how much of a threat he was to his rule. The only reason I can think of for why he hasn't done it already is that he must be extremely confident in his ability to cheat in this election. That's why I'm being extra cautious right now."
 
 "Hmm... I suppose you do have a point," Hadrik says. "Let's keep our eyes peeled, then."
+
+}
+#if(v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5) {
+ Not long after our discussion, the men in charge of gathering the votes pass by us and collect our voting papers. We all paid close attention to what they were doing, but even though the crowd of people obscured our view a few times, it didn't seem like they had the opportunity to switch such a large number of votes without us noticing. Once the votes have been gathered, the men placed the papers on the podium and then they started counting them, while several supposedly neutral observers were checking on them, to make sure that they were doing the count correctly.
+
+"Do you think they could just fake the counting?" Hadrik says. "I have no idea who those observers are supposed to be. Can they be trusted?"
+
+ "I asked around," Daren says, "and apparently they are all people with strong reasons to dislike the king of the underground, who have been insisting that they should be allowed to oversee the voting process since yesterday. Normally, it should be almost impossible for the vote counters to cheat while having those guys looking over their shoulders constantly."
+
+"So, this is it, then?" Hadrik says. "We can stop watching their every move?"
+
+"I suppose so," Daren says.
+
+"Good," Hadrik says, looking slightly relieved. "It was getting a little stressful!"
 
 }
 choice("Continue", B3-Ch10a-Podium, v_current_scene = B3-Ch10a-Podium) if (v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5)
@@ -741,14 +741,6 @@ She then pauses for a few seconds, to take a good look at each of us in turn.
 "Illuna..." Kate says. "Right now, like it or not, we ARE on the same side. At least until this whole conflict with the God of Time gets resolved. I thought we had all already agreed that we would accept her help."
 
 }
-#if(v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1) {
- "Accepting her help and treating her as if she is truly an ally are two completely different things," Illuna says. "When I agreed to have her train us, it was under the assumption that we would all know who we are dealing with. Regardless of how helpful Arraka is, she is NOT to be trusted. Please tell me that you understand this."
-
-"Look," Daren says, "nobody is saying that we should suddenly become friends with her, hold hands and sing happy songs together. We're just saying that in the past few days she's changed slightly for the better, that's all."
-
-"No, she has NOT changed," Illuna says, in a louder voice, as she is now finally losing her cool. "She will never change! She will always be the same ruthless, sadistic and manipulative mass murderer that she has been since long before she even came to the earthen plane. You cannot afford to treat her like an ally. You cannot afford to even consider that possibility. Do not make the same mistake I did! I guarantee you that you will regret it for as long as you'll live!"
-
-}
 #if(v_b3_ch10_spin == 1) {
  "Sure thing," I say. "Give her to me!"
 
@@ -777,6 +769,14 @@ She then pauses for a few seconds, to take a good look at each of us in turn.
 "I'm not talking about the spinning anymore," Illuna says. "I'm talking about her being part of the team! Do any of you really think that? Do you genuinely think that she could ever be on your side?"
 
 "Illuna..." Kate says. "Right now, like it or not, we ARE on the same side. At least until this whole conflict with the God of Time gets resolved. I thought we had all already agreed that we would accept her help."
+
+}
+#if(v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1) {
+ "Accepting her help and treating her as if she is truly an ally are two completely different things," Illuna says. "When I agreed to have her train us, it was under the assumption that we would all know who we are dealing with. Regardless of how helpful Arraka is, she is NOT to be trusted. Please tell me that you understand this."
+
+"Look," Daren says, "nobody is saying that we should suddenly become friends with her, hold hands and sing happy songs together. We're just saying that in the past few days she's changed slightly for the better, that's all."
+
+"No, she has NOT changed," Illuna says, in a louder voice, as she is now finally losing her cool. "She will never change! She will always be the same ruthless, sadistic and manipulative mass murderer that she has been since long before she even came to the earthen plane. You cannot afford to treat her like an ally. You cannot afford to even consider that possibility. Do not make the same mistake I did! I guarantee you that you will regret it for as long as you'll live!"
 
 }
 choice("Continue", B3-Ch10a-Speech, v_current_scene = B3-Ch10a-Speech) if (v_b3_ch10_spin == 0 || v_b3_ch10_spin == 1)
@@ -921,24 +921,6 @@ choice("Continue", B3-Ch10a-Morning, v_current_scene = B3-Ch10a-Morning) if (v_b
 ID: B3-Ch10a-Morning
 TEXT:
 
-#if(v_b3_ch8_king == 0) {
- "I wanted him to ruin your reputations, of course," the king says. "Albert was to spread rumors of you secretly working with the Overseer, so that the people here would lose their trust in you and refuse to join your side in case you were planning to oppose the idea of the election. Of course, this plan was only to be enacted if you actively tried to delegitimize the election, which thankfully is not something that you chose to do."
-
-"What about the seredium towers?" Kate interjects. "What's going to happen to all those prisoners now?"
-
-"That will depend on what Albert will ultimately decide to do," the king says, "but normally, he should go with the initial plan that I described to you in the past. First of all, we will prioritize the safety of all the relatives of our underground denizens. Then, we will try to rescue as many of the prisoners as we can, without critically affecting the energy supply of the city, starting with the children and the elderly. Lastly, for the rest of the mages that will remain trapped in the towers, we will have to find a way to replace the power source, but it won't be easy, and it might take some time. However, we will try to expedite our research as much as we can, in order to not prolong their suffering needlessly."
-
-"I see..." Kate says.
-
-}
-#if(v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5) {
- "Now, if you'll excuse me," the king of the underground says, "I have some business to attend to, so I will take my leave. As always, you are free to roam these caverns as much as you like, although I suspect that we will be relocating to the surface very soon, now that old king is finally gone. It will be nice to see the sun in the morning when I wake up, after all this time spent in the underground. I'm actually looking forward to it. Farewell!"
-
-"Yeah, see you later," Daren says, and then the king of the underground walks out the door, without looking back.
-
-"Huh..." Daren tells us, once the king is out of the room. "I'm starting to think that we may have had the wrong idea about this guy all along. Maybe he wasn't as bad as we thought he was, after all."
-
-}
 #if(v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4) {
  "Like I said before, it was only a misunderstanding," the king says. "I never told Albert to kill any of you."
 
@@ -947,6 +929,40 @@ TEXT:
 "And wanton murder would be discreet, in your eyes?" the king of the underground says, while raising an eyebrow. "Everyone in this underground society knows that I've ordered Albert to assassinate enemies of mine in the past. If either of you were to have disappeared mysteriously, I would have been the first to blame."
 
 "Oh, yeah?" Hadrik says. "So, what exactly would you have had him do, then?"
+
+}
+#if(v_b3_ch8_king == 5) {
+ "So, you never even so much as entertained the idea of murdering Kelrim?" Hadrik says. "Is that what you're saying?"
+
+"Of course that's what I'm saying!" the king of the underground tells us. "I'm not sure what you people have heard about me, but the only individuals that I've ever had assassinated were very clear dangers to the welfare of Ollendor as a whole, and none of them were living in my underground domain. If I were the kind of person that would kill people left and right just because I didnt't like them, none of the rebel leaders would have ever agreed to cooperate with me."
+
+"Hey, don't act like you're some kind of saint," I say. "Don't forget that we know you were planning to have us assassinated!"
+
+"Like I said before, it was only a misunderstanding," the king says. "I never told Albert to kill any of you."
+
+"You told him to deal with us 'discreetly'," I say.
+
+"And wanton murder would be discreet, in your eyes?" the king of the underground says, while raising an eyebrow. "Everyone in this underground society knows that I've ordered Albert to assassinate enemies of mine in the past. If either of you were to have disappeared mysteriously, I would have been the first to blame."
+
+"Oh, yeah?" Hadrik says. "So, what exactly would you have had him do, then?"
+
+ "I wanted him to ruin your reputations, of course," the king says. "Albert was to spread rumors of you secretly working with the Overseer, so that the people here would lose their trust in you and refuse to join your side in case you were planning to oppose the idea of the election. Of course, this plan was only to be enacted if you actively tried to delegitimize the election, which thankfully is not something that you chose to do."
+
+"What about the seredium towers?" Kate interjects. "What's going to happen to all those prisoners now?"
+
+"I'm afraid that this is something you will have to ask our newly elected goblin king instead of me," the king of the underground says. "I honestly have no idea what he'll decide to do about this particular matter. I have no idea what he'll decide to do about many other things, in fact. We'll just have to wait and see."
+
+"Right..." Kate says.
+
+}
+#if(v_b3_ch8_king == 0) {
+ "I wanted him to ruin your reputations, of course," the king says. "Albert was to spread rumors of you secretly working with the Overseer, so that the people here would lose their trust in you and refuse to join your side in case you were planning to oppose the idea of the election. Of course, this plan was only to be enacted if you actively tried to delegitimize the election, which thankfully is not something that you chose to do."
+
+"What about the seredium towers?" Kate interjects. "What's going to happen to all those prisoners now?"
+
+"That will depend on what Albert will ultimately decide to do," the king says, "but normally, he should go with the initial plan that I described to you in the past. First of all, we will prioritize the safety of all the relatives of our underground denizens. Then, we will try to rescue as many of the prisoners as we can, without critically affecting the energy supply of the city, starting with the children and the elderly. Lastly, for the rest of the mages that will remain trapped in the towers, we will have to find a way to replace the power source, but it won't be easy, and it might take some time. However, we will try to expedite our research as much as we can, in order to not prolong their suffering needlessly."
+
+"I see..." Kate says.
 
 }
 #if(v_b3_ch8_king == 1) {
@@ -969,28 +985,12 @@ TEXT:
 "I see..." Kate says.
 
 }
-#if(v_b3_ch8_king == 5) {
- "I wanted him to ruin your reputations, of course," the king says. "Albert was to spread rumors of you secretly working with the Overseer, so that the people here would lose their trust in you and refuse to join your side in case you were planning to oppose the idea of the election. Of course, this plan was only to be enacted if you actively tried to delegitimize the election, which thankfully is not something that you chose to do."
+#if(v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5) {
+ "Now, if you'll excuse me," the king of the underground says, "I have some business to attend to, so I will take my leave. As always, you are free to roam these caverns as much as you like, although I suspect that we will be relocating to the surface very soon, now that old king is finally gone. It will be nice to see the sun in the morning when I wake up, after all this time spent in the underground. I'm actually looking forward to it. Farewell!"
 
-"What about the seredium towers?" Kate interjects. "What's going to happen to all those prisoners now?"
+"Yeah, see you later," Daren says, and then the king of the underground walks out the door, without looking back.
 
-"I'm afraid that this is something you will have to ask our newly elected goblin king instead of me," the king of the underground says. "I honestly have no idea what he'll decide to do about this particular matter. I have no idea what he'll decide to do about many other things, in fact. We'll just have to wait and see."
-
-"Right..." Kate says.
-
- "So, you never even so much as entertained the idea of murdering Kelrim?" Hadrik says. "Is that what you're saying?"
-
-"Of course that's what I'm saying!" the king of the underground tells us. "I'm not sure what you people have heard about me, but the only individuals that I've ever had assassinated were very clear dangers to the welfare of Ollendor as a whole, and none of them were living in my underground domain. If I were the kind of person that would kill people left and right just because I didnt't like them, none of the rebel leaders would have ever agreed to cooperate with me."
-
-"Hey, don't act like you're some kind of saint," I say. "Don't forget that we know you were planning to have us assassinated!"
-
-"Like I said before, it was only a misunderstanding," the king says. "I never told Albert to kill any of you."
-
-"You told him to deal with us 'discreetly'," I say.
-
-"And wanton murder would be discreet, in your eyes?" the king of the underground says, while raising an eyebrow. "Everyone in this underground society knows that I've ordered Albert to assassinate enemies of mine in the past. If either of you were to have disappeared mysteriously, I would have been the first to blame."
-
-"Oh, yeah?" Hadrik says. "So, what exactly would you have had him do, then?"
+"Huh..." Daren tells us, once the king is out of the room. "I'm starting to think that we may have had the wrong idea about this guy all along. Maybe he wasn't as bad as we thought he was, after all."
 
 }
 choice(""You may be right."", B3-Ch10a-Prisoners, v_current_scene = B3-Ch10a-Prisoners, v_b3_ch10_wrong = 0) if (v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5)
@@ -1017,34 +1017,6 @@ Just as Daren is saying this, Kelrim walks over to us, with Sir Horace right beh
 "Well done, Kelrim!" Daren tells him. "I knew you could do it!"
 
 "I'm still in shock..." Kelrim says. "I never could have imagined that so many people would vote for me. Thank you for believing in me! I could not have done this without your support!"
-
-}
-#if(v_b3_ch10_wrong == 0 && v_b3_ch8_king == 5 || v_b3_ch10_wrong == 1 && v_b3_ch8_king == 5 || v_b3_ch10_wrong == 2 && v_b3_ch8_king == 5) {
- "Umm... Kelrim!" Kate says, a little awkwardly. "I don't know if this is the right time, but there's something very important that I need to ask you about. Do you know of the mage prisoners from the seredium towers?"
-
-"Yes..." Kelrim says, looking very distraught. "Breynan told me about them. Those poor people... I can't imagine what they must be going through, even as we speak..."
-
-"Have you thought about what you are going to do with them, once you become king of Ollendor?" Kate asks him.
-
-"I'm going to free them all, of course!" Kelrim says. "As soon as possible! They have already suffered enough!"
-
-"Have you spoken to the king of the underground about this?" Kate says. "His point of view is that if all the prisoners were to be released at once, it would cause too much chaos throughout the city, because all of the magically-powered devices will stop working, including the flying vehicles. His plan was to only free the relatives of the people from the underground, and to leave the other prisoners there until later."
-
- "No, no, no, they must all be freed!" Kelrim says. "That will be our number one priority! If this will cause chaos, then we'll just have to find the best way to manage it! In fact, I think I'll go speak to the king of the underground about this right now!"
-
-"Uh... can I speak to him about this instead?" Sir Horace asks Kelrim. "I've known him for a very long time, so I'm sure that I can convince him to cooperate with us on this matter. He might disagree to it at first, but eventually he'll find some way to make things work. He always does."
-
-"Of course!" Kelrim says. "Then I'll leave this matter in your hands for now, Sir Horace!"
-
-"Make sure not to remove the prisoners' chains by force, or they will die!" Kate says. "You need to go to the control room first, in order to deactivate the energy extracting devices!"
-
-"We'll keep that in mind," Sir Horace says. "Alright, your majesty, now that you've been elected as king, we'll need to have our first strategy meeting. Follow me, if you please."
-
-"Okay, lead the way!" Kelrim says, as he follows Sir Horace out of the room. "Bye, everyone! I'll see you again soon!"
-
-"See?" Daren tells Kate, after Kelrim leaves. "There was nothing to worry about! All of the prisoners are going to be safe!"
-
-"Yes..." Kate says, in a relieved tone. "I'm glad!"
 
 }
 #if(v_b3_ch10_wrong == 1 && v_b3_ch8_king == 5) {
@@ -1093,16 +1065,6 @@ Just as Daren is saying this, Kelrim walks over to us, with Sir Horace right beh
 "It doesn't really matter to me if he wanted to assassinate us or not," Kate says. "What I'm more worried about is what is going to happen to those prisoners in the towers."
 
 }
-#if(v_b3_ch10_wrong == 0 && v_b3_ch8_king != 5 || v_b3_ch10_wrong == 1 && v_b3_ch8_king != 5 || v_b3_ch10_wrong == 2 && v_b3_ch8_king != 5) {
- "Didn't the king of the underground say that they were planning to rescue all of the prisoners, in the end?" Daren says. "It's just that some will be rescued sooner than others."
-
-"Yes, but what if they never find an alternative power source?" Kate says. "Will those imprisoned mages stay there forever?"
-
-"All we can do is take his word for it that they will do their best to free everyone, eventually," Daren says. "We were the ones who put the rebels in charge of the city, so we're going to have to trust their judgment for now."
-
-"You're right..." Kate says. "We were the ones who sided with them against the Overseer. I just hope that we didn't make the wrong decision..."
-
-}
 #if(v_b3_ch10_wrong == 1 && v_b3_ch8_king != 5) {
  "Nah, I think he was lying through his teeth about not planning to kill us."
 
@@ -1121,6 +1083,44 @@ Just as Daren is saying this, Kelrim walks over to us, with Sir Horace right beh
 "It's possible, but I suppose we'll never know for sure," Daren says.
 
 "It doesn't really matter to me if he wanted to assassinate us or not," Kate says. "What I'm more worried about is what is going to happen to those prisoners in the towers."
+
+}
+#if(v_b3_ch10_wrong == 0 && v_b3_ch8_king == 5 || v_b3_ch10_wrong == 1 && v_b3_ch8_king == 5 || v_b3_ch10_wrong == 2 && v_b3_ch8_king == 5) {
+ "Umm... Kelrim!" Kate says, a little awkwardly. "I don't know if this is the right time, but there's something very important that I need to ask you about. Do you know of the mage prisoners from the seredium towers?"
+
+"Yes..." Kelrim says, looking very distraught. "Breynan told me about them. Those poor people... I can't imagine what they must be going through, even as we speak..."
+
+"Have you thought about what you are going to do with them, once you become king of Ollendor?" Kate asks him.
+
+"I'm going to free them all, of course!" Kelrim says. "As soon as possible! They have already suffered enough!"
+
+"Have you spoken to the king of the underground about this?" Kate says. "His point of view is that if all the prisoners were to be released at once, it would cause too much chaos throughout the city, because all of the magically-powered devices will stop working, including the flying vehicles. His plan was to only free the relatives of the people from the underground, and to leave the other prisoners there until later."
+
+ "No, no, no, they must all be freed!" Kelrim says. "That will be our number one priority! If this will cause chaos, then we'll just have to find the best way to manage it! In fact, I think I'll go speak to the king of the underground about this right now!"
+
+"Uh... can I speak to him about this instead?" Sir Horace asks Kelrim. "I've known him for a very long time, so I'm sure that I can convince him to cooperate with us on this matter. He might disagree to it at first, but eventually he'll find some way to make things work. He always does."
+
+"Of course!" Kelrim says. "Then I'll leave this matter in your hands for now, Sir Horace!"
+
+"Make sure not to remove the prisoners' chains by force, or they will die!" Kate says. "You need to go to the control room first, in order to deactivate the energy extracting devices!"
+
+"We'll keep that in mind," Sir Horace says. "Alright, your majesty, now that you've been elected as king, we'll need to have our first strategy meeting. Follow me, if you please."
+
+"Okay, lead the way!" Kelrim says, as he follows Sir Horace out of the room. "Bye, everyone! I'll see you again soon!"
+
+"See?" Daren tells Kate, after Kelrim leaves. "There was nothing to worry about! All of the prisoners are going to be safe!"
+
+"Yes..." Kate says, in a relieved tone. "I'm glad!"
+
+}
+#if(v_b3_ch10_wrong == 0 && v_b3_ch8_king != 5 || v_b3_ch10_wrong == 1 && v_b3_ch8_king != 5 || v_b3_ch10_wrong == 2 && v_b3_ch8_king != 5) {
+ "Didn't the king of the underground say that they were planning to rescue all of the prisoners, in the end?" Daren says. "It's just that some will be rescued sooner than others."
+
+"Yes, but what if they never find an alternative power source?" Kate says. "Will those imprisoned mages stay there forever?"
+
+"All we can do is take his word for it that they will do their best to free everyone, eventually," Daren says. "We were the ones who put the rebels in charge of the city, so we're going to have to trust their judgment for now."
+
+"You're right..." Kate says. "We were the ones who sided with them against the Overseer. I just hope that we didn't make the wrong decision..."
 
 }
 choice("Continue", B3-Ch10a-Surface, v_current_scene = B3-Ch10a-Surface) if (v_b3_ch10_wrong == 0 || v_b3_ch10_wrong == 1 || v_b3_ch10_wrong == 2)
@@ -1500,6 +1500,8 @@ choice("Tell Kate that it's just a normal headache and that she shouldn't worry 
 ID: B3-Ch10a-Proposition
 TEXT:
 
+set(v_ac_b3_ch10_benefits,1) if (v_b3_ch10_benefits == 1)
+achievement("Friends with benefits",v_ac_b3_ch10_benefits)
 #if(v_b3_ch10_benefits == 1) {
  "Hey, that sounds good to me," I say. "Let's give it a try!"
 
@@ -1524,6 +1526,16 @@ TEXT:
 Melindra then goes to the farther end of the corridor and she pulls one of the levers from the left wall.
 
 }
+#if(v_b3_ch10_benefits == 0) {
+ "To be honest, I'm not sure if this type of relationship is really what I'm looking for," I say.
+
+"Alright, suit yourself," Melindra says, while shrugging.
+
+ "No hard feelings, right?" I say.
+
+"None whatsoever," she says, and then she goes to pull on another lever.
+
+}
 #if(v_b3_ch10_benefits == 0 || v_b3_ch10_benefits == 1) {
  All of a sudden, I get a splitting headache, and my consciousness gets switched between the ethereal and earthen planes several times in a row, in quick succession, very similarly to how it happened when the ether was attacking me. Just when I thought it was over, the same thing happens again, except that I go back and forth between the two planes more than ten times in one second.
 
@@ -1534,16 +1546,6 @@ Melindra then goes to the farther end of the corridor and she pulls one of the l
 The headache takes over me again, and I spend a good few moments alternating between my soul's and my body's perspectives constantly. I think this time I may have switched between the two planes at least a hundred times.
 
 "Do you have any idea what's causing this?" Kate asks me. "Does it feel like a normal headache, or is it something else?"
-
-}
-#if(v_b3_ch10_benefits == 0) {
- "To be honest, I'm not sure if this type of relationship is really what I'm looking for," I say.
-
-"Alright, suit yourself," Melindra says, while shrugging.
-
- "No hard feelings, right?" I say.
-
-"None whatsoever," she says, and then she goes to pull on another lever.
 
 }
 choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b3_ch10_benefits == 0 || v_b3_ch10_benefits == 1)
@@ -1971,6 +1973,8 @@ choice("Load game", , , special:saves) if (v_b3_ch10_puzzle == 1 && v_b3_ch10_sp
 ID: B3-Ch10a-Interesting
 TEXT:
 
+set(v_ac_b3_ch10_third,1) if (v_b3_ch10_puzzle == 1)
+achievement("Third piece of the puzzle",v_ac_b3_ch10_third)
 #if(v_b3_ch10_puzzle == 1) {
  "Oh, they'll stop, don't worry," Melindra says. "And as soon as they do, we'll pull that last lever one more time, we'll get the damn puzzle piece and then we'll make ourselves scarce."
 
@@ -2286,6 +2290,26 @@ After more than ten seconds of silence, I decide that I simply can't take it any
 "Yes, I'm pretty sure we did," Leila writes.
 
 }
+#if(v_b3_ch10_biscuit == 0) {
+ "Hey, do you know the joke about the rock golem and the three-legged trampler?" I ask Leila.
+
+"Of course, Barry," Leila writes. "Everybody knows that joke."
+
+"Oh... right," I say.
+
+This isn't working. Once again, we are just sitting around awkwardly, without either of us being able to come up with anything to talk about.
+
+After more than ten seconds of silence, I decide that I simply can't take it anymore, and I blurt out the first thing that comes to my mind.
+
+"So..." I say. "Has your stat device been getting any points lately? I think I haven't gotten even a single point since we arrived in Ollendor."
+
+"Umm... no," Leila writes. "Now that you mention it, I don't think I've been getting any points either."
+
+"Then it might be true that there is something happening inside the cities that's causing us to get fewer points," I say. "Didn't we also have a similar problem in Thilias?"
+
+"Yes, I'm pretty sure we did," Leila writes.
+
+}
 #if(v_b3_ch10_biscuit == 0 || v_b3_ch10_biscuit == 1) {
  "Here's a crazy idea..." I say. "What if the reason why we're having so much trouble harnessing energy with our devices in the cities is because there are hundreds of other devices gathered in these places, and the energy is getting divided equally between them?"
 
@@ -2310,26 +2334,6 @@ After more than ten seconds of silence, I decide that I simply can't take it any
 "You're right..." I say, as I am slowly processing Leila's words in my head. "You're absolutely right! I don't know what I was getting so worked up about! We're practically only taking a short trip of a few weeks or maybe a month, and then we'll be back. People wouldn't normally be so tense just because they won't see each other for a few weeks, right?"
 
 "Exactly!" Leila writes. "So, let's just forget all about it and talk normally, like we always do."
-
-}
-#if(v_b3_ch10_biscuit == 0) {
- "Hey, do you know the joke about the rock golem and the three-legged trampler?" I ask Leila.
-
-"Of course, Barry," Leila writes. "Everybody knows that joke."
-
-"Oh... right," I say.
-
-This isn't working. Once again, we are just sitting around awkwardly, without either of us being able to come up with anything to talk about.
-
-After more than ten seconds of silence, I decide that I simply can't take it anymore, and I blurt out the first thing that comes to my mind.
-
-"So..." I say. "Has your stat device been getting any points lately? I think I haven't gotten even a single point since we arrived in Ollendor."
-
-"Umm... no," Leila writes. "Now that you mention it, I don't think I've been getting any points either."
-
-"Then it might be true that there is something happening inside the cities that's causing us to get fewer points," I say. "Didn't we also have a similar problem in Thilias?"
-
-"Yes, I'm pretty sure we did," Leila writes.
 
 }
 choice("Continue", B3-Ch10a-Appropriate, v_current_scene = B3-Ch10a-Appropriate) if (v_b3_ch10_biscuit == 0 && v_b3_ch8_heartfelt == 2 || v_b3_ch10_biscuit == 1 && v_b3_ch8_heartfelt == 2)
@@ -2517,16 +2521,6 @@ By the time that Kate's turn finally came to say her goodbye, she could no longe
 "See you later," Leila writes with a smile, and then we give the engineer the signal to teleport us out, while waving goodbye to Leila one last time.
 
 }
-#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
- "What is WRONG with you people?!" Arraka shouts all of a sudden from her amulet. "You're all going to be seeing each other again in one week, but you're whining and crying like children! Is there really no limit to your stupidity?!"
-
-"How do you know it's going to be only one week?" Daren asks her. "At the moment, we have no idea when the tournament will end. It could be well over a month before--"
-
-"I'm not talking about the end of the tournament, you cretin!" Arraka says. "I'm talking about Selkram's ritual! Did you already forget that he had to interrupt the second trial and that he said we will continue it next time?! We're all going to be taking that trial again together, whether you like it or not!"
-
-"Yeah, but Leila will no longer be travelling with us at that time," Hadrik says. "How is he going to get her into the trial if she won't even be there with us anymore?"
-
-}
 #if(v_b3_ch8_overseer2 == 1) {
  As soon as everyone was up on their feet, we left our room together and then we stopped in front of the inn, so that we could each say goodbye to Leila, one by one.
 
@@ -2541,6 +2535,16 @@ By the time that Kate's turn finally came to say her goodbye, she could no longe
 "Well..." Kate tells Leila, as she is wiping the last tears from her face. "In that case, I guess I'll... see you later, then?"
 
 "See you later," Leila writes with a smile, as the rest of us begin to head towards Ollendor's gates, while waving goodbye to Leila one last time.
+
+}
+#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
+ "What is WRONG with you people?!" Arraka shouts all of a sudden from her amulet. "You're all going to be seeing each other again in one week, but you're whining and crying like children! Is there really no limit to your stupidity?!"
+
+"How do you know it's going to be only one week?" Daren asks her. "At the moment, we have no idea when the tournament will end. It could be well over a month before--"
+
+"I'm not talking about the end of the tournament, you cretin!" Arraka says. "I'm talking about Selkram's ritual! Did you already forget that he had to interrupt the second trial and that he said we will continue it next time?! We're all going to be taking that trial again together, whether you like it or not!"
+
+"Yeah, but Leila will no longer be travelling with us at that time," Hadrik says. "How is he going to get her into the trial if she won't even be there with us anymore?"
 
 }
 choice("Proceed to next section of chapter", B3-Ch10b-Preoccupied, v_current_scene = B3-Ch10b-Preoccupied) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)

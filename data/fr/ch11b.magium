@@ -625,6 +625,8 @@ choice("Continue", Ch11b-Strongest2, v_current_scene = Ch11b-Strongest2)
 ID: Ch11b-Strongest2
 TEXT:
 
+set(v_ac_ch11_stillwater,1)
+achievement("Stillwater slayer",v_ac_ch11_stillwater)
  Using air magic to fly is nowhere near as easy as it sounds, and I'm feeling a lot clumsier than when I was using the flight spell in my fight with the dragon, but at least I can move around easier now. The air elementalist sees that I'm not dead, and he quickly teleports himself back inside the safety of his ally's barrier, before I get the chance to pay him back in kind.
 
 "No, no, no, you're doing it all wrong!" Arraka shouts at me from inside her amulet. "Stop attacking the whole barrier and focus on just one point! Can't you see how slowly their supporting mage is reinforcing individual parts of the barrier? It's because he never learned how to properly localize his energy output! I kept telling him about it six hundred years ago, but the idiot wouldn't believe me until I demonstrated it to him by using a goddamned tree branch to break through his barrier and puncture his lungs."
@@ -671,8 +673,10 @@ choice("Continue", Ch11b-Civilians2, v_current_scene = Ch11b-Civilians2)
 ID: Ch11b-Civilians2
 TEXT:
 
+set(v_ac_ch11_stillwater,1) if (v_hearing >= 3 || v_perception >= 2)
 set(v_is_dead,0) if (v_hearing >= 3 || v_perception >= 2)
 set(v_is_dead,1) if (v_hearing < 3 && v_perception < 2)
+achievement("Stillwater slayer",v_ac_ch11_stillwater)
 #if(v_perception >= 2) {
  
 
@@ -874,16 +878,6 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 "Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
 
 }
-#if(v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4) {
- "That's some tough talk coming from someone who couldn't even identify an obvious weakness in their enemy's defenses," Arraka says. "You all would have been toast if it weren't for me. I'm the one who saved all of you losers. Where's my reward for that, huh?"
-
-"Oh, I've got your reward right here!" Hadrik says, as he grabs Arraka's amulet from Flower's neck, and he starts spinning it by the chain.
-
-"Wait," Flower says. "Don't do that! Didn't I tell you that she has motion sickness?"
-
-"Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
-
-}
 #if(v_ch11_strategy == 3 || v_ch11_strategy == 4) {
  "No!" Zack shouts, as the barrier around him begins to disappear. "I won't let it end like this!"
 
@@ -898,6 +892,16 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 "That wasn't just some empty threat," Illuna says, while she looks around frantically, as if she were expecting something to blow up. "That thing he just cast was a sacrificial spell. A kind of spell that requires the death of its caster as payment, in exchange for providing effects that would not be obtainable through normal means. The curse of death that the ogre shaman cast on me before we left the fort was also one of these spells. This isn't over yet..."
 
 "Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
+
+}
+#if(v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4) {
+ "That's some tough talk coming from someone who couldn't even identify an obvious weakness in their enemy's defenses," Arraka says. "You all would have been toast if it weren't for me. I'm the one who saved all of you losers. Where's my reward for that, huh?"
+
+"Oh, I've got your reward right here!" Hadrik says, as he grabs Arraka's amulet from Flower's neck, and he starts spinning it by the chain.
+
+"Wait," Flower says. "Don't do that! Didn't I tell you that she has motion sickness?"
+
+"Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
 
 }
 choice(""Put her down, Hadrik. It's not worth the bother."", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
@@ -950,8 +954,10 @@ choice("Continue", Ch11b-Hole, v_current_scene = Ch11b-Hole)
 ID: Ch11b-Hole
 TEXT:
 
+set(v_ac_ch11_casualties,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
 set(v_ch11_saved_rose,0) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
 set(v_ch11_saved_rose,1) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
+achievement("No casualties",v_ac_ch11_casualties)
 #if(v_hearing < 4) {
  
 
@@ -964,26 +970,6 @@ There is a hole in the ground, with broken stones all around it at the place whe
 When he reaches her, Daren starts casting a healing spell, but Rose does not react to it in any way. We all gather around the two of them, and watch them without saying a word, as Daren continues to cast healing spell after healing spell, while Rose is staring blankly into the distance, without moving a muscle.
 
 "Rose, stay with me!" Daren shouts, as he keeps desperately casting his spells.
-
-}
-#if(v_hearing == 4 && v_perception < 4 || v_hearing < 4) {
- It's no use... I'm sure that Daren must have realized it as well. Rose is no longer breathing. She stopped breathing even before she hit the ground. She's dead. After all we've been through to bring her back home safely. After everything that's happened this past week. She died, just like that. And not even Daren can bring her back.
-
-"No..." Kate says. "This isn't right. This has to be an illusion! The necromancer could never harm her like this. The tournament's spell would have prevented him! This has to be a--"
-
-"The necromancer is dead," Illuna interrupts her. "The tournament's spell that was preventing him from hurting Rose disappeared along with his aura. This trap was specifically designed to activate after his death, in order to circumvent the protection spell's effects. He used a loophole. This isn't an illusion. Rose died, and the necromancer is the one who killed her."
-
-"No, this can't be!" Kate says, as tears start flowing from her eyes. "She can't just die like this. This isn't fair. She didn't deserve this!"
-
-Kate stops for a few seconds, in order to rub her eyes with her hands, as she tries to hold back her tears.
-
-"She didn't deserve this..." Kate says again, this time in a much lower voice.
-
-"This is my fault..." Daren says, as he finally lets go of Rose. "I was the one who offered to escort her home. I was the one who promised we'd protect her. I failed her. It's my fault that she's dead..."
-
- "Hey, now, hold on there!" Hadrik says. "You can't just go and blame this all on yourself. Rose knew very well what she was getting into when she decided to stick with us after what happened yesterday with the noble. She made her own choice and she stuck by it until the end. She died with honor, and we should all respect her for that."
-
-"What do you know about Rose?!" Daren shouts furiously, all of a sudden. "Do you think she wanted to live her last moments in a cesspool like this? Do you think she died happily, knowing that she left her little siblings behind to fend for themselves? Do you seriously think that everything in the world can be measured by your primitive values? What gives you the right to talk about Rose this way? Tell me!"
 
 }
 #if(v_hearing == 4 && v_perception < 4) {
@@ -1062,6 +1048,26 @@ Just as I reach her, all of the stones in front of Rose suddenly get sent flying
 Soon after Daren starts to heal us, a loud booming noise suddenly starts to echo all throughout the city. 
 
 }
+#if(v_hearing == 4 && v_perception < 4 || v_hearing < 4) {
+ It's no use... I'm sure that Daren must have realized it as well. Rose is no longer breathing. She stopped breathing even before she hit the ground. She's dead. After all we've been through to bring her back home safely. After everything that's happened this past week. She died, just like that. And not even Daren can bring her back.
+
+"No..." Kate says. "This isn't right. This has to be an illusion! The necromancer could never harm her like this. The tournament's spell would have prevented him! This has to be a--"
+
+"The necromancer is dead," Illuna interrupts her. "The tournament's spell that was preventing him from hurting Rose disappeared along with his aura. This trap was specifically designed to activate after his death, in order to circumvent the protection spell's effects. He used a loophole. This isn't an illusion. Rose died, and the necromancer is the one who killed her."
+
+"No, this can't be!" Kate says, as tears start flowing from her eyes. "She can't just die like this. This isn't fair. She didn't deserve this!"
+
+Kate stops for a few seconds, in order to rub her eyes with her hands, as she tries to hold back her tears.
+
+"She didn't deserve this..." Kate says again, this time in a much lower voice.
+
+"This is my fault..." Daren says, as he finally lets go of Rose. "I was the one who offered to escort her home. I was the one who promised we'd protect her. I failed her. It's my fault that she's dead..."
+
+ "Hey, now, hold on there!" Hadrik says. "You can't just go and blame this all on yourself. Rose knew very well what she was getting into when she decided to stick with us after what happened yesterday with the noble. She made her own choice and she stuck by it until the end. She died with honor, and we should all respect her for that."
+
+"What do you know about Rose?!" Daren shouts furiously, all of a sudden. "Do you think she wanted to live her last moments in a cesspool like this? Do you think she died happily, knowing that she left her little siblings behind to fend for themselves? Do you seriously think that everything in the world can be measured by your primitive values? What gives you the right to talk about Rose this way? Tell me!"
+
+}
 choice("Continue", Ch11b-Revenant, v_current_scene = Ch11b-Revenant) if (v_hearing == 4 && v_perception < 4 || v_hearing == 4 && v_perception == 4 && v_agility < 4 || v_hearing < 4)
 choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending) if (v_agility == 4 && v_hearing == 4 && v_perception == 4)
 
@@ -1103,6 +1109,8 @@ choice("Continue", Ch11b-Ending, v_current_scene = Ch11b-Ending)
 ID: Ch11b-Ending
 TEXT:
 
+set(v_ac_ch11_average,1) if (v_available_points == 19)
+achievement("Average Joe",v_ac_ch11_average)
  The sky above us then quickly gets filled with very large holographic screens, as people are slowly starting to open their windows in order to get a good look, even if they seem to be too scared to come anywhere near us. It appears that all of the screens are displaying the same thing, which is to say a gnome with messy hair, wearing protection goggles and an oil-stained lab coat, who is currently fiddling with some wires in some kind of a workshop, while he's humming a joyful tune. After a few more seconds of humming, the gnome suddenly looks towards us, takes off his goggles, and he glues his face to the screen.
 
 "How peculiar," the gnome says, as he backs away from the screen. "How very peculiar! I could swear that I've already connected these wires a million times before, but I've never seen the red light turn green until now! Well, no matter! Can everyone hear me?"
@@ -1135,7 +1143,25 @@ choice("Proceed towards book 2", Ch11b-Credits, v_current_scene = Ch11b-Credits,
 ID: Ch11b-Credits
 TEXT:
 
-choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_b1_strength = Strength aux, v_b1_agility = Agility aux, v_b1_toughness = Toughness aux, v_b1_reflexes = Reflexes aux, v_b1_hearing = Hearing aux, v_b1_perception = Perception aux, v_b1_ancient_languages = Ancient languages aux, v_b1_combat_technique = Combat technique aux, v_b1_premonition = Premonition aux, v_b1_available_points = Available points aux, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements >= 25 || v_first_book_purchased == 1)
+ This marks the end of the first Magium book.
+
+The second book has been completed and is ready to unlock, but only the first eleven chapters of book 3 are available so far, with the next chapters to be released one by one, as I write them. (the main series will likely have 5 books in total)
+
+My current estimate is that the 12th chapter of the third book should be released within the next few months.
+
+If you already paid to unlock the 2nd book, you can tap on the button below to proceed. Otherwise, you will need to complete 25 achievements from the 1st book in order to unlock the second one.
+
+You can see how many more achievements you need to complete in the achievements menu. 
+
+I would also like to add that I strongly suggest you save the game now on a save slot you won't overwrite, if you're planning to start completing achievements, since otherwise you'll lose the progress of your current playthrough and you'll have to finish the game again in order to be able to progress to the next book.
+
+You should also be careful to not uninstall the game, since all of the next books will be uploaded within the same app, and if you uninstall the game, all your local progress, including your achievements, will be lost.
+
+Thank you for playing!
+
+P.S. If you enjoyed the game, don't forget to recommend it to your friends. 
+
+choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements >= 25 || v_first_book_purchased == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
 choice("Load game", , , special:saves) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)

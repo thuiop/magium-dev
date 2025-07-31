@@ -51,6 +51,8 @@ choice(""I think he was the least bad choice available at the time."", B3-Ch10c-
 ID: B3-Ch10c-Leader
 TEXT:
 
+set(v_ac_b3_ch10_behind,1) if (v_b3_ch4_cut == 0 && v_b3_ch8_king == 5 && v_b3_ch8_overseer2 == 0)
+achievement("No man left behind",v_ac_b3_ch10_behind)
 #if(v_b3_ch8_king == 0 && v_b3_ch8_overseer2 == 0) {
  "I think he will be a great leader."
 
@@ -415,12 +417,22 @@ choice("Threaten the revenant.", B3-Ch10c-Revenant3, v_current_scene = B3-Ch10c-
 ID: B3-Ch10c-Revenant3
 TEXT:
 
+set(v_ac_b3_ch10_reasonable,1) if (v_b3_ch10_reason == 1)
+achievement("Let's be reasonable!",v_ac_b3_ch10_reasonable)
 #if(v_b3_ch10_reason == 1) {
  "Think about what you're doing!" I tell the revenant. "Is this really what the God of Death wanted? To kill Flower indiscriminately if Eiden doesn't give in to your demands? Do you really want to lose your only hostage? Can you not find any other way to resolve this?"
 
 "Another way..." the revenant says, as she is gradually loosening her grip on Flower and moving the knife away from her neck. "Yes... there has to be another way!"
 
 Seeing that the revenant is no longer paying full attention to her, Flower takes advantage of the opportunity to duck underneath her arms and to dash away from her captor. She then immediately jumps up and propels herself towards the sky with fire jets coming out of her feet, so that the revenant can no longer reach her.
+
+}
+#if(v_b3_ch10_reason == 0) {
+ "If you don't remove that knife from her neck right now, you're going to regret it," I tell the revenant, in a menacing tone.
+
+"Your threats mean nothing to me!" the revenant says, looking as if my words actually helped her muster up her determination instead of intimidating her. "The God of Death's will is absolute. If this girl is to die because of it, then it is a necessary sacrifice for--"
+
+Before she gets to finish her sentence, a water whip lashes at the revenant from behind, and it coils itself around the wrist of the arm holding the knife, pulling it back. Taking advantage of this opportunity provided to her by Illuna, Flower ducks underneath her captor's arms and she dashes away from her. She then immediately jumps up and propels herself towards the sky with fire jets coming out of her feet, so that the revenant can no longer reach her.
 
 }
 #if(v_b3_ch10_reason == 0 || v_b3_ch10_reason == 1) {
@@ -439,14 +451,6 @@ He then sends a wind blade straight for her neck, beheading her in an instant.
 Just like the time when Daren killed the revenant during the God of Time's ritual, all of this feels like a dream inside my head, but I know for a fact that it was real. Considering that the revenant is now alive and well, standing in the exact same place where she was right before Eiden began strangling her, I can only assume that the automatic spell from the Magium meant to keep her alive activated itself once again, and it reversed time only for the revenant and her attacker, while the rest of the world only remembers what happened before the time reversal as a distant dream, or not at all.
 
 "Fascinating!" Eiden says. "I always assumed that this was how the Magium keeps time weavers from dying before they finish delivering their prophecies, but seeing it in practice is an entirely different experience! The spell seems to have reversed the time just enough for you to be able to escape using your own powers, but what were to happen if I kept killing you over and over again, I wonder? Can the spell keep up, or does it have limitations? Shall we find out together?"
-
-}
-#if(v_b3_ch10_reason == 0) {
- "If you don't remove that knife from her neck right now, you're going to regret it," I tell the revenant, in a menacing tone.
-
-"Your threats mean nothing to me!" the revenant says, looking as if my words actually helped her muster up her determination instead of intimidating her. "The God of Death's will is absolute. If this girl is to die because of it, then it is a necessary sacrifice for--"
-
-Before she gets to finish her sentence, a water whip lashes at the revenant from behind, and it coils itself around the wrist of the arm holding the knife, pulling it back. Taking advantage of this opportunity provided to her by Illuna, Flower ducks underneath her captor's arms and she dashes away from her. She then immediately jumps up and propels herself towards the sky with fire jets coming out of her feet, so that the revenant can no longer reach her.
 
 }
 choice("Continue", B3-Ch10c-Revenant4, v_current_scene = B3-Ch10c-Revenant4) if (v_b3_ch10_reason == 0 || v_b3_ch10_reason == 1)
@@ -501,6 +505,14 @@ While Kate, Flower and I dismantle the tents, Hadrik helps Daren with putting hi
 "I talked with Meridith," she says, as soon as she lands on the ground next to us. "It turns out that she has an EXTRA condition for us before she will agree to meet with us. She said that-- wait a minute, where's Eiden?"
 
 }
+#if(v_ch11_saved_rose == 0) {
+ "We should probably get ready to meet the leader of the lessathi," Kate says. "We don't know who she will bring with her as her bodyguards, so we might want to prepare for a battle, just in case."
+
+While Kate, Flower and I dismantle the tents, Hadrik helps Daren with putting his armor pieces in his backpack, like they had discussed previously. Soon after we are all done, Melindra returns to us, with a somewhat displeased look on her face.
+
+"I talked with Meridith," she says, as soon as she lands on the ground next to us. "It turns out that she has an EXTRA condition for us before she will agree to meet with us. She said that-- wait a minute, where's Eiden?"
+
+}
 #if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "He left while you were gone," Kate tells her.
 
@@ -513,14 +525,6 @@ While Kate, Flower and I dismantle the tents, Hadrik helps Daren with putting hi
 "She wants us to go into the midst of the lessathi's lair?..." Daren says. "I'm not sure how much I like the sound of this."
 
 "I agree," Kate says. "It would be too risky for all of us to go. Maybe it should be just me. I'm the only one that Meridith specifically asked to meet."
-
-}
-#if(v_ch11_saved_rose == 0) {
- "We should probably get ready to meet the leader of the lessathi," Kate says. "We don't know who she will bring with her as her bodyguards, so we might want to prepare for a battle, just in case."
-
-While Kate, Flower and I dismantle the tents, Hadrik helps Daren with putting his armor pieces in his backpack, like they had discussed previously. Soon after we are all done, Melindra returns to us, with a somewhat displeased look on her face.
-
-"I talked with Meridith," she says, as soon as she lands on the ground next to us. "It turns out that she has an EXTRA condition for us before she will agree to meet with us. She said that-- wait a minute, where's Eiden?"
 
 }
 choice("Tell Kate that it's too dangerous to go there alone.", B3-Ch10c-Brother, v_current_scene = B3-Ch10c-Brother, v_b3_ch10_worry = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -542,6 +546,32 @@ When Kate hears my words, her face quickly begins to redden, and she turns her h
 Seeing her reaction, I quickly realize that she must have been reminded of that time when we were discussing the great toll that the God of Time's ritual took on her, mentally, and I told her that she shouldn't hide such things from me because I 'want' to worry about her.
 
 "Barry is right," Daren says. "Letting you go there by yourself is out of the question. The most we can try is to negotiate something with the lessathi that Meridith will be sending to the surface to talk to us, but if there is nothing we can do about it, then we'll just have to accept the risk. We've come too far to give up on that pinecone detector now."
+
+All of a sudden, one of Illuna's water whips coils itself around Kate's waist, while Kate turns around to understand what's happening.
+
+"Illuna, what are you doing?" Kate asks.
+
+}
+#if(v_b3_ch10_worry == 1 && v_b3_ch1_kate3 != 0) {
+ "You can't go there alone!" I tell Kate. "It's too dangerous!"
+
+"I can handle myself," Kate says. "There's no need to worry about me."
+
+"I'll worry about you as much as I like, thank you very much," I say.
+
+"Barry is right," Daren says. "Letting you go there by yourself is out of the question. The most we can try is to negotiate something with the lessathi that Meridith will be sending to the surface to talk to us, but if there is nothing we can do about it, then we'll just have to accept the risk. We've come too far to give up on that pinecone detector now."
+
+All of a sudden, one of Illuna's water whips coils itself around Kate's waist, while Kate turns around to understand what's happening.
+
+"Illuna, what are you doing?" Kate asks.
+
+}
+#if(v_b3_ch10_worry == 0) {
+ "That is not an option," Daren tells Kate. "Either we all go with you to the underground lair, or nobody does."
+
+"You think I can't handle myself?" Kate says, with a frown.
+
+"I don't know," Daren says. "Maybe you can, maybe you can't. There is too much of an unknown risk in travelling to a base full of potential enemies for us to split up. Even going there as a group might prove challenging, depending on how our negotiations with Meridith will go."
 
 All of a sudden, one of Illuna's water whips coils itself around Kate's waist, while Kate turns around to understand what's happening.
 
@@ -578,32 +608,6 @@ She pauses for a second, realizing that she may have said too much.
 "You're right," Daren says. "This might be for the best. We already have enough powerful enemies as it is. There's no need to add another one to the list. So, do we go this way, or...?"
 
 "No," Melindra says. "We need to go around these bushes and then to the left. Not much further now."
-
-}
-#if(v_b3_ch10_worry == 1 && v_b3_ch1_kate3 != 0) {
- "You can't go there alone!" I tell Kate. "It's too dangerous!"
-
-"I can handle myself," Kate says. "There's no need to worry about me."
-
-"I'll worry about you as much as I like, thank you very much," I say.
-
-"Barry is right," Daren says. "Letting you go there by yourself is out of the question. The most we can try is to negotiate something with the lessathi that Meridith will be sending to the surface to talk to us, but if there is nothing we can do about it, then we'll just have to accept the risk. We've come too far to give up on that pinecone detector now."
-
-All of a sudden, one of Illuna's water whips coils itself around Kate's waist, while Kate turns around to understand what's happening.
-
-"Illuna, what are you doing?" Kate asks.
-
-}
-#if(v_b3_ch10_worry == 0) {
- "That is not an option," Daren tells Kate. "Either we all go with you to the underground lair, or nobody does."
-
-"You think I can't handle myself?" Kate says, with a frown.
-
-"I don't know," Daren says. "Maybe you can, maybe you can't. There is too much of an unknown risk in travelling to a base full of potential enemies for us to split up. Even going there as a group might prove challenging, depending on how our negotiations with Meridith will go."
-
-All of a sudden, one of Illuna's water whips coils itself around Kate's waist, while Kate turns around to understand what's happening.
-
-"Illuna, what are you doing?" Kate asks.
 
 }
 choice("Continue", B3-Ch10c-Designated, v_current_scene = B3-Ch10c-Designated) if (v_b3_ch10_worry == 0 || v_b3_ch10_worry == 1)
@@ -1082,6 +1086,18 @@ TEXT:
 "No," Meridith says, "but it is a very sacred place that needs to be given proper respect."
 
 }
+#if(v_b3_ch10_crystals == 0) {
+ After thinking things through, I decide that it's better to not tell Meridith the true cause for the crystals' strange behavior. It's better to not give her more information than necessary until I learn exactly how much she can be trusted.
+
+"Is it just me, or have we not seen a single lessathi since we left the teleporter room?" Kate asks, as we continue to walk through the brightly lit underground cavern.
+
+"These particular corridors are restricted to only the highest ranked members of our community," Meridith says. "Other people cannot come through here without my express permission."
+
+"So, this is like a place of gathering for the most important lessathi, then?" Daren says.
+
+"No," Meridith says, "but it is a very sacred place that needs to be given proper respect."
+
+}
 #if(v_b3_ch10_crystals == 0 || v_b3_ch10_crystals == 1) {
  She then stops in front of the only seredium wall that does not have any crystals embedded into it, and she turns towards us.
 
@@ -1098,18 +1114,6 @@ Just like in the previous tunnel, the wall reacts to her wand's touch, and the s
 Now that the inside of the next room is visible to us, we see that the only thing waiting for us over there is a very large sphere of solid blue light that is constantly flowing around a pitch-black center.
 
 "Allow me to introduce you to our true Creator," Meridith says. "The Magium!"
-
-}
-#if(v_b3_ch10_crystals == 0) {
- After thinking things through, I decide that it's better to not tell Meridith the true cause for the crystals' strange behavior. It's better to not give her more information than necessary until I learn exactly how much she can be trusted.
-
-"Is it just me, or have we not seen a single lessathi since we left the teleporter room?" Kate asks, as we continue to walk through the brightly lit underground cavern.
-
-"These particular corridors are restricted to only the highest ranked members of our community," Meridith says. "Other people cannot come through here without my express permission."
-
-"So, this is like a place of gathering for the most important lessathi, then?" Daren says.
-
-"No," Meridith says, "but it is a very sacred place that needs to be given proper respect."
 
 }
 choice("Continue", B3-Ch10c-Panicked, v_current_scene = B3-Ch10c-Panicked) if (v_b3_ch10_crystals == 0 || v_b3_ch10_crystals == 1)
@@ -1337,6 +1341,8 @@ choice("Continue", B3-Ch10c-Informed, v_current_scene = B3-Ch10c-Informed) if (v
 ID: B3-Ch10c-Informed
 TEXT:
 
+set(v_ac_b3_ch10_forbidden,1) if (v_b3_ch10_node == 1)
+achievement("Forbidden knowledge",v_ac_b3_ch10_forbidden)
 #if(v_b3_ch10_node == 1) {
  "Aha-Ahahahahahahaha!" Arraka laughs very loudly. "That's it. That is exactly it. 'Source of everything'. Those were the three words that I have been avoiding to say all this time, because they would have divulged the true nature of the Magium. And since you two are still here and have not been erased from before our eyes, then this confirms that we should be able to speak freely of this subject matter from now on, as long as we are not standing right next to a Magium node and as long as we are not in the middle of one of Selkram's rituals. Still, I can't believe it took you THIS long to figure it out."
 
@@ -1422,22 +1428,6 @@ My friends and I exchange a look, and after a few moments of silence, Daren is t
 "Anything I want?" I say, while raising an eyebrow. "Alright, then. In that case, could you tell me if you are the one who's been buying up all of the stat devices from the other continents shortly before the beginning of the mage tournament?"
 
 }
-#if(v_b3_ch10_mention == 0 || v_b3_ch10_mention == 1) {
- For a few seconds, there is only silence, while Meridith and I just keep looking directly at each other, without averting our eyes.
-
-"What made you arrive at that conclusion?" Meridith asks me simply, without showing any change in her facial expression.
-
-"Well, for starters," I say, "whoever pulled off that stunt must have been someone with a lot of money, who knew that the stat boosters were more than fortune teller's trinkets, and who needed to get hold of all those devices before the tournament began. I can't think of many people who would fit that description."
-
-I then pause for several moments, to see if the expression on Meridith's face changes in any way, but she is able to control herself perfectly.
-
-"Is that it?" Meridith says. "Are these the only reasons that led you to believe I was the one who amassed all those devices?"
-
-"No," I say. "There's also the fact that my stat booster has been harnessing considerably less energy in Thilias and Ollendor than outside of the two cities. Aside from this, I know of another person with a stat device who's been in Thilias since the beginning of the tournament, and who has gathered far fewer stat points than me because of that. If there were some other harnessers of magical energy in those cities, like for example let's say... a thousand stat devices, then it would make a lot of sense."
-
-"What exactly are you implying?" Meridith asks me.
-
-}
 #if(v_b3_ch10_mention == 0) {
  "We should probably avoid mentioning any of this to Meridith, for now," I say. "If we were to bring up the subject by ourselves, it might give off the wrong impression that we've already accepted the Magium fragment's request. I'd rather hear what she has to say about it first."
 
@@ -1472,6 +1462,22 @@ My friends and I exchange a look, and after a few moments of silence, Daren is t
 "Anything I want?" I say, while raising an eyebrow. "Alright, then. In that case, could you tell me if you are the one who's been buying up all of the stat devices from the other continents shortly before the beginning of the mage tournament?"
 
 }
+#if(v_b3_ch10_mention == 0 || v_b3_ch10_mention == 1) {
+ For a few seconds, there is only silence, while Meridith and I just keep looking directly at each other, without averting our eyes.
+
+"What made you arrive at that conclusion?" Meridith asks me simply, without showing any change in her facial expression.
+
+"Well, for starters," I say, "whoever pulled off that stunt must have been someone with a lot of money, who knew that the stat boosters were more than fortune teller's trinkets, and who needed to get hold of all those devices before the tournament began. I can't think of many people who would fit that description."
+
+I then pause for several moments, to see if the expression on Meridith's face changes in any way, but she is able to control herself perfectly.
+
+"Is that it?" Meridith says. "Are these the only reasons that led you to believe I was the one who amassed all those devices?"
+
+"No," I say. "There's also the fact that my stat booster has been harnessing considerably less energy in Thilias and Ollendor than outside of the two cities. Aside from this, I know of another person with a stat device who's been in Thilias since the beginning of the tournament, and who has gathered far fewer stat points than me because of that. If there were some other harnessers of magical energy in those cities, like for example let's say... a thousand stat devices, then it would make a lot of sense."
+
+"What exactly are you implying?" Meridith asks me.
+
+}
 choice("Continue", B3-Ch10c-Sham, v_current_scene = B3-Ch10c-Sham) if (v_b3_ch10_mention == 0 || v_b3_ch10_mention == 1)
 
 
@@ -1494,18 +1500,6 @@ TEXT:
 She pauses.
 
 }
-#if(v_b2_ch7_overheard == 0 || v_b2_ch7_overheard == 1) {
- "However," Meridith continues, "I would like to point out that there were in fact two things that my nephew got wrong in his analysis. First of all, we do not in fact have thousands of stat boosters hidden inside the cities of Varathia. We bought all those devices so that we could disassemble them and use their parts to create energy extractors, which would be far more potent than the stat boosters themselves. And secondly, nobody ever said that we would not grant you access to the Magium."
-
-"Are you serious?" I ask Meridith. "You're saying I'm supposed to believe that you'll give the tournament winner their prize when you've already admitted that the whole contest is just a ruse?"
-
-"You misunderstand me," Meridith says. "Obviously, the tournament winner won't be getting anything. What I was saying is that I am willing to give YOU access to the Magium. You and all of your friends. And all you need to do for this is to provide a little assistance to me."
-
-"Provide assistance?" Kate says. "What kind of assistance, exactly?"
-
-"You see," Meridith says, "the reality is that this whole tournament that you've been part of until now has only been organized because of one person. Ever since the destruction of Olmnar, twenty years ago, the kings of Varathia and the lessathi have been working together for a single, common purpose, and after twenty arduous years, we have finally found a way to achieve it. By the end of this tournament, there will finally be justice. By the end of this tournament, Eiden will be dead."
-
-}
 #if(v_b2_ch7_overheard == 1) {
  "Do I really need to spell it out?" I say. "What I am 'implying' is that this whole tournament is a sham. You never planned to give anyone access to the Magium. The only reason why you even considered offering it as a prize was because you knew for certain that this was the only thing which could possibly lure so many mages to a single place. The real purpose of this tournament was never to choose a champion to defend Varathia. It was to use all those stat devices that you bought to extract a huge amount of energy from the participants."
 
@@ -1522,6 +1516,18 @@ She pauses.
 "Yes, why not?" Meridith says. "It seems that my own underlings gave away the plan, so what use is there in hiding it any further?"
 
 She pauses.
+
+}
+#if(v_b2_ch7_overheard == 0 || v_b2_ch7_overheard == 1) {
+ "However," Meridith continues, "I would like to point out that there were in fact two things that my nephew got wrong in his analysis. First of all, we do not in fact have thousands of stat boosters hidden inside the cities of Varathia. We bought all those devices so that we could disassemble them and use their parts to create energy extractors, which would be far more potent than the stat boosters themselves. And secondly, nobody ever said that we would not grant you access to the Magium."
+
+"Are you serious?" I ask Meridith. "You're saying I'm supposed to believe that you'll give the tournament winner their prize when you've already admitted that the whole contest is just a ruse?"
+
+"You misunderstand me," Meridith says. "Obviously, the tournament winner won't be getting anything. What I was saying is that I am willing to give YOU access to the Magium. You and all of your friends. And all you need to do for this is to provide a little assistance to me."
+
+"Provide assistance?" Kate says. "What kind of assistance, exactly?"
+
+"You see," Meridith says, "the reality is that this whole tournament that you've been part of until now has only been organized because of one person. Ever since the destruction of Olmnar, twenty years ago, the kings of Varathia and the lessathi have been working together for a single, common purpose, and after twenty arduous years, we have finally found a way to achieve it. By the end of this tournament, there will finally be justice. By the end of this tournament, Eiden will be dead."
 
 }
 choice("Continue", B3-Ch10c-Ending, v_current_scene = B3-Ch10c-Ending) if (v_b2_ch7_overheard == 0 || v_b2_ch7_overheard == 1)

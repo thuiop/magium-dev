@@ -677,6 +677,16 @@ choice("Continue", B3-Ch02a-Dialect2, v_current_scene = B3-Ch02a-Dialect2)
 ID: B3-Ch02a-Dialect2
 TEXT:
 
+#if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3) {
+ "What do you mean 'gargoyle wings'?..." I ask him, confused. "Doesn't that writing say 'griffin beak'?"
+
+"Ah... I see you can read our old dialect!" the old goblin says, surprised. "Quite impressive! As for your question, the symbols describing the password can indeed be directly translated as 'griffin beak', but we have a code with our friend that we always use when we transmit messages to each other. If we rearrange those symbols according to our secret code, the meaning of the words changes completely, and it reads as 'gargoyle wings' instead. Do you understand now?"
+
+"Yeah, I guess that makes sense," I say. "So, was this the information that you wanted to give us in exchange for the rock?"
+
+"No, actually the information in question was about the fact that the password is not the only thing required, if you want to enter the city," the old goblin says. "You also need to wink three times with your left eye while saying it, or they won't let you in. This was added a while ago as an extra precaution, in order to prevent eavesdropping. The passwords change every week, but the number of winks do not change, as far as I'm aware."
+
+}
 #if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 2) {
  "Now that is indeed something we did not know..." I say. "We'll keep that in mind. Thanks!"
 
@@ -701,16 +711,6 @@ TEXT:
 "That's very generous of you!" Melindra says, as the goblin hands her back the rock. "Many thanks!"
 
 "Well, now that our business is done, I believe it's time we head towards the city," the old goblin says. "It might not be the best idea for us to go all at once, though, as we may seem suspicious. You can go first, if you want, and then we'll be following you soon afterwards."
-
-}
-#if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3) {
- "What do you mean 'gargoyle wings'?..." I ask him, confused. "Doesn't that writing say 'griffin beak'?"
-
-"Ah... I see you can read our old dialect!" the old goblin says, surprised. "Quite impressive! As for your question, the symbols describing the password can indeed be directly translated as 'griffin beak', but we have a code with our friend that we always use when we transmit messages to each other. If we rearrange those symbols according to our secret code, the meaning of the words changes completely, and it reads as 'gargoyle wings' instead. Do you understand now?"
-
-"Yeah, I guess that makes sense," I say. "So, was this the information that you wanted to give us in exchange for the rock?"
-
-"No, actually the information in question was about the fact that the password is not the only thing required, if you want to enter the city," the old goblin says. "You also need to wink three times with your left eye while saying it, or they won't let you in. This was added a while ago as an extra precaution, in order to prevent eavesdropping. The passwords change every week, but the number of winks do not change, as far as I'm aware."
 
 }
 #if(v_b3_ch2_infiltration == 3) {
@@ -1008,10 +1008,6 @@ However, what I didn't realize was that a second golem from behind me was also r
 
 }
 #if(v_perception == 4 && v_b3_ch1_unlock != 2) {
- Seeing that the golems aren't planning on leaving me alone, I decide to place myself between them and the crossbowmen, and I wait to see what happens. My plan seems to be working, as the golems have immediately stopped using their beam attacks, in order to avoid hurting their own troops by accident, and they are now simply looking at me without doing anything. I make sure to maintain the exact same level of height and I begin flying horizontally, shooting the crossbowmen in their legs one at a time, while also dodging the crossbow bolts that they're shooting at me. When they realize that I'm not planning to move away from their allies, the two golems that were shooting at me decide to switch their targets, and to go after Hadrik, who is already done with the golem at the gate and is now rushing towards one of the others.
-
-In the meantime Daren, who now has less fire attacks focusing him, can finally move with his barrier a little, so he is heading slowly for the gates, along with Kate, Leila and Melindra. As Illuna and I deal with a few more of the crossbowmen and archers, Kate decides that she can now dismiss some of her defensive ice platforms, and she is focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor.
-
  
 
 "I'll go help Illuna," I say. "The sooner we deal with the crossbowmen, the better."
@@ -1021,6 +1017,10 @@ I take the crossbow out of my backpack, I raise my arms in the air in order to t
 As I struggle to evade the beam and the arrows in mid-air by flying as unpredictably as possible, Illuna fires a torrent of water out of her hands, flooding some of the crossbowmen that were shooting at me and her.
 
 However, it seems that the golem in front of me and the crossbowmen are not my only problems. With the tail of my eye, I somehow manage to see another golem readying his fire beam from behind me, which gives me just enough time to fly out of its way and to avoid death by a mere few inches.
+
+ Seeing that the golems aren't planning on leaving me alone, I decide to place myself between them and the crossbowmen, and I wait to see what happens. My plan seems to be working, as the golems have immediately stopped using their beam attacks, in order to avoid hurting their own troops by accident, and they are now simply looking at me without doing anything. I make sure to maintain the exact same level of height and I begin flying horizontally, shooting the crossbowmen in their legs one at a time, while also dodging the crossbow bolts that they're shooting at me. When they realize that I'm not planning to move away from their allies, the two golems that were shooting at me decide to switch their targets, and to go after Hadrik, who is already done with the golem at the gate and is now rushing towards one of the others.
+
+In the meantime Daren, who now has less fire attacks focusing him, can finally move with his barrier a little, so he is heading slowly for the gates, along with Kate, Leila and Melindra. As Illuna and I deal with a few more of the crossbowmen and archers, Kate decides that she can now dismiss some of her defensive ice platforms, and she is focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor.
 
  After we incapacitate a few more of the crossbowmen, Kate shoots her giant icicle with an incredible force, causing an explosion of air behind it and going straight through one of the golems' heads, immediately sending it falling to the ground with a loud thud. At the same time, Hadrik also finishes off another one of the golems and he is moving on to his fourth.
 
@@ -1053,10 +1053,6 @@ Dodging three beams of fire constantly proved to be a little more than I could h
 
 }
 #if(v_reflexes == 4 && v_b3_ch1_unlock != 2) {
- As the three beams of fire keep following me through the sky, I am often required to make full use of my superhuman reflexes to dodge the enemies' attacks effectively. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively. 
-
-After spending a bit more time flying around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
-
  
 
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1064,6 +1060,10 @@ After spending a bit more time flying around, I take a look towards Daren's barr
 I take the crossbow out of my backpack, I raise my arms in the air in order to tell the air currents that I want to go up, and then I begin heading towards the area where there are more golems close to each other, so I can distract as many of them as possible. While flying, I make sure to stay as far away from the walls as I can, because the last thing I would want is to also be focused by the crossbowmen while I'm dealing with the golems. I'll let Illuna handle the guards on the wall. I have enough enemies to worry about as it is.
 
 Once I get close enough to the golems, I shoot a few crossbow bolts at them, in order to grab their attention. As I suspected, the bolts do no damage to them whatsoever, but at least it looks like I've succeeded in my primary purpose of providing a good distraction. All three of the golems close to me have already stopped targeting Daren's barrier and they are turning their heads towards me, preparing to charge up their fire beams. As soon as they start shooting at me, I begin flying around erratically, trying to make it as difficult as possible for them to predict my moves.
+
+ As the three beams of fire keep following me through the sky, I am often required to make full use of my superhuman reflexes to dodge the enemies' attacks effectively. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively. 
+
+After spending a bit more time flying around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
 
  Once the preparations are complete, Kate shoots her giant icicle with an incredible force, causing an explosion of air behind it and going straight through the head of one of the golems on my side, immediately sending it falling to the ground with a loud thud. At the same time, Hadrik also finishes off the golem he was fighting, and he is now moving on to his fourth.
 
@@ -1096,10 +1096,6 @@ Sadly, I wasn't fast enough to be able to avoid three fire beams targeting me at
 
 }
 #if(v_agility == 4 && v_b3_ch1_unlock != 2) {
- Avoiding three fire beams that are targeting me at the same time is by no means an easy task, but thanks to my incredible speed I am always one step ahead of my enemies, even when the odds are very clearly not stacked in my favor. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively.
-
-After spending a bit more time running around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
-
  
 
 "I'll go distract some of the golems," I say. "You guys try to get closer to the city entrance in the meantime. I'll join you when you're at the gates."
@@ -1107,6 +1103,10 @@ After spending a bit more time running around, I take a look towards Daren's bar
 I take the crossbow out of my backpack, I dash out of Daren's barrier, and then I begin heading towards the area where there are more golems close to each other, so I can distract as many of them as possible. While running, I make sure to stay as far away from the walls as I can, because the last thing I would want is to also be focused by the crossbowmen while I'm dealing with the golems. I'll let Illuna handle the guards on the wall. I have enough enemies to worry about as it is.
 
 Once I get close enough to the golems, I shoot a few crossbow bolts at them, in order to grab their attention. As I suspected, the bolts do no damage to them whatsoever, but at least it looks like I've succeeded in my primary purpose of providing a good distraction. All three of the golems close to me have already stopped targeting Daren's barrier and they are turning their heads towards me, preparing to charge up their fire beams. As soon as they start shooting at me, I begin running around erratically, trying to make it as difficult as possible for them to predict my moves.
+
+ Avoiding three fire beams that are targeting me at the same time is by no means an easy task, but thanks to my incredible speed I am always one step ahead of my enemies, even when the odds are very clearly not stacked in my favor. Luckily for me, I don't need to keep this up for too long, because Hadrik soon manages to finish off the golem at the gates, and then he comes over to my side to engage one of my opponents in combat, forcing it to cancel its beam attack and to fight more defensively.
+
+After spending a bit more time running around, I take a look towards Daren's barrier and I am happy to see that my efforts were not in vain, and that even though Daren, Kate, Melindra and Leila are still being attacked by one of the fire beams, they have nevertheless gotten quite a lot closer to the gate while I've been keeping these golems company. Furthermore, given that Illuna also managed to deal with some of the guards on the wall in the meantime, Kate decided that she could dismiss some of her defensive ice platforms, and she is currently focusing on reinforcing a large icicle in the sky, making sure that the projectile is strong enough to go through the golems' anti-magical armor. 
 
  Once the preparations are complete, Kate shoots her giant icicle with an incredible force, causing an explosion of air behind it and going straight through the head of one of the golems on my side, immediately sending it falling to the ground with a loud thud. At the same time, Hadrik also finishes off the golem he was fighting, and he is now moving on to his fourth.
 
