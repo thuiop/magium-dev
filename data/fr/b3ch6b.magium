@@ -263,18 +263,6 @@ As soon as Hadrik gets close enough to our group, Kate sends a quick wave of fre
 The wave of freezing magic catches Gontrok and a royal guard wearing a red cape and a hood completely by surprise, turning them both into statues of ice. Illuna does not miss this opportunity and she immediately conjures three huge flying water serpents, just like yesterday, each of them going after their own target. The first serpent goes after Gontrok and the other royal guard who was frozen. 
 
 }
-#if(v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1) {
- Just when it seems like the giant is about to be engulfed by the water, he somehow cracks open the ice he was encased in, and he jumps out of the way in the nick of time. The guard with the red cape, on the other hand, is not so lucky. The serpent swallows him whole, and then it continues to fly away, carrying him far from the battlefield.
-
-Meanwhile, the other two serpents are not doing so well. The elf air elementalist appears to have created a small but very powerful tornado in front of him, which is making short work of Illuna's water construct, despite its large size. In a different part of the battlefield, it looks like the captain of the guards transformed a part of his aura into some kind of invisible sword, because he is acting as if he were holding a weapon by the hilt with both hands, while cutting the water serpent in half.
-
-"Stay behind me, ambassador," the captain says, as he is still cutting through the large serpent. "I'll make sure that nothing happens to you."
-
-"That's it!" Illuna tells us. "The ambassador is their weak link. If we target him specifically, their formation will crumble."
-
-"I agree," Kate says. "We should try to attack the ambassador with everything we've got."
-
-}
 #if(v_b3_ch6_tie == 0 && v_b3_ch6_secret != 0) {
  "Hey, Loyrang, are you hearing these people?" Gontrok says. "They think they can win this fight without my help!"
 
@@ -283,6 +271,20 @@ Meanwhile, the other two serpents are not doing so well. The elf air elementalis
 "Careful, there," Gontrok says, with a menacing look in his eyes. "That's my friend you're talking about. You might want to take back what you said before things get ugly."
 
 "Logic won't work on this one, Gontrok," Loyrang says. "He's as dumb as a brick. I've told him the whole way here that I never received the message to come to this place, but he wouldn't listen."
+
+"Hadrik!" Kate says as loud as she can while still keeping her voice low enough to not draw attention to herself from the others.
+
+As Hadrik finally turns to look in our direction, Kate signals him to come closer to us through a hand gesture, and when he understands what she means, the dwarf begins to approach us with small steps, in order to not distract our enemies while they are still arguing.
+
+}
+#if(v_b3_ch6_secret == 0 && v_b3_ch6_tie == 0) {
+ "Hey, Loyrang, are you hearing these people?" Gontrok says. "They think they can win this fight without my help!"
+
+"Don't talk to this traitor," says a royal guard with pointy ears and short blond hair, who appears to be an elf. "I caught him while he was trying to flee the city. If I hadn't brought him back by force, he would've been long gone by now."
+
+"Careful, there," Gontrok says, with a menacing look in his eyes. "That's my friend you're talking about. You might want to take back what you said before things get ugly."
+
+"Logic won't work on this one, Gontrok," says Loyrang, the dark-skinned royal guard that was accompanying Gontrok and the captain when we first met them. "He's as dumb as a brick. I've told him the whole way here that I never received the message to come to this place, but he wouldn't listen."
 
 "Hadrik!" Kate says as loud as she can while still keeping her voice low enough to not draw attention to herself from the others.
 
@@ -301,18 +303,16 @@ As soon as Hadrik gets close enough to our group, Kate sends a quick wave of fre
 The wave of freezing magic catches Gontrok and a royal guard wearing a red cape and a hood completely by surprise, turning them both into statues of ice. Illuna does not miss this opportunity and she immediately conjures three huge flying water serpents, just like yesterday, each of them going after their own target. The first serpent goes after Gontrok and the other royal guard who was frozen. 
 
 }
-#if(v_b3_ch6_secret == 0 && v_b3_ch6_tie == 0) {
- "Hey, Loyrang, are you hearing these people?" Gontrok says. "They think they can win this fight without my help!"
+#if(v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1) {
+ Just when it seems like the giant is about to be engulfed by the water, he somehow cracks open the ice he was encased in, and he jumps out of the way in the nick of time. The guard with the red cape, on the other hand, is not so lucky. The serpent swallows him whole, and then it continues to fly away, carrying him far from the battlefield.
 
-"Don't talk to this traitor," says a royal guard with pointy ears and short blond hair, who appears to be an elf. "I caught him while he was trying to flee the city. If I hadn't brought him back by force, he would've been long gone by now."
+Meanwhile, the other two serpents are not doing so well. The elf air elementalist appears to have created a small but very powerful tornado in front of him, which is making short work of Illuna's water construct, despite its large size. In a different part of the battlefield, it looks like the captain of the guards transformed a part of his aura into some kind of invisible sword, because he is acting as if he were holding a weapon by the hilt with both hands, while cutting the water serpent in half.
 
-"Careful, there," Gontrok says, with a menacing look in his eyes. "That's my friend you're talking about. You might want to take back what you said before things get ugly."
+"Stay behind me, ambassador," the captain says, as he is still cutting through the large serpent. "I'll make sure that nothing happens to you."
 
-"Logic won't work on this one, Gontrok," says Loyrang, the dark-skinned royal guard that was accompanying Gontrok and the captain when we first met them. "He's as dumb as a brick. I've told him the whole way here that I never received the message to come to this place, but he wouldn't listen."
+"That's it!" Illuna tells us. "The ambassador is their weak link. If we target him specifically, their formation will crumble."
 
-"Hadrik!" Kate says as loud as she can while still keeping her voice low enough to not draw attention to herself from the others.
-
-As Hadrik finally turns to look in our direction, Kate signals him to come closer to us through a hand gesture, and when he understands what she means, the dwarf begins to approach us with small steps, in order to not distract our enemies while they are still arguing.
+"I agree," Kate says. "We should try to attack the ambassador with everything we've got."
 
 }
 choice(""You guys take care of him. I'll go deal with the earth elementalist in the sky."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
@@ -487,7 +487,9 @@ choice("Continue", B3-Ch06b-Echoing, v_current_scene = B3-Ch06b-Echoing) if (v_i
 ID: B3-Ch06b-Rating
 TEXT:
 
+set(v_ac_b3_ch6_assist,1)
 set(v_b3_ch6_air,2)
+achievement("Nice assist",v_ac_b3_ch6_assist)
  While I am busy evading the semi-transparent blades of air, I suddenly hear the Overseer's voice coming from behind me.
 
 "Warning! Warning!" says the green-eyed drone that was apparently still following me. "A non-combat unit is being under attack. Requesting backup immediately."
@@ -537,16 +539,6 @@ TEXT:
 set(v_b3_ch6_air,0) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1 || v_ancient_languages < 2)
 set(v_b3_ch6_air,1) if (v_ancient_languages >= 2)
 #if(v_ancient_languages < 2) {
- We do what Daren says and then he charges at the hydra, swinging his sword at it as hard as he can. Unfortunately, instead of absorbing anything, the sword simply passes through the semi-transparent hydra as if he were just using some normal weapon to cut through non-magical air.
-
-"Damn, it's not working!" Daren says. "Get back from the hydra. Get back now!"
-
-Daren jumps away as two of the hydra's heads lunge towards him and we all distance ourselves from the large creature without being harmed. It appears that the hydra is not planning to follow us, but it also won't let us get anywhere near the elf. Now that the elf is safe from our attacks, he decides to resume his previous tactic of throwing wind blades at us until he hits someone. While I am dodging again in mid-air, Daren calls out to me from below.
-
-"Barry, Leila, come hide inside my barrier for now," he says. "There's no use tiring yourselves out like that until we make another plan of attack."
-
-Leila and I both graciously accept Daren's offer and after evading a few more of the elf's attacks, we manage to move inside Daren's barrier safely.
-
  
 
 While I am busy evading the semi-transparent blades of air, I suddenly hear a man's voice echoing around us, although it is hard to pinpoint the exact location it's coming from.
@@ -557,18 +549,18 @@ The elf then begins chanting something, while he moves his hands around in circl
 
 "Everyone step back!" Daren says. "I'll try to see if I can absorb the air element out of the hydra with my sword."
 
+ We do what Daren says and then he charges at the hydra, swinging his sword at it as hard as he can. Unfortunately, instead of absorbing anything, the sword simply passes through the semi-transparent hydra as if he were just using some normal weapon to cut through non-magical air.
+
+"Damn, it's not working!" Daren says. "Get back from the hydra. Get back now!"
+
+Daren jumps away as two of the hydra's heads lunge towards him and we all distance ourselves from the large creature without being harmed. It appears that the hydra is not planning to follow us, but it also won't let us get anywhere near the elf. Now that the elf is safe from our attacks, he decides to resume his previous tactic of throwing wind blades at us until he hits someone. While I am dodging again in mid-air, Daren calls out to me from below.
+
+"Barry, Leila, come hide inside my barrier for now," he says. "There's no use tiring yourselves out like that until we make another plan of attack."
+
+Leila and I both graciously accept Daren's offer and after evading a few more of the elf's attacks, we manage to move inside Daren's barrier safely.
+
 }
 #if(v_ancient_languages >= 2) {
- "Actually, that won't be necessary," I say. "I understood what they were talking about just now, and that hydra is just an illusion. We can simply go through it and nothing will happen to us."
-
-"Are you absolutely sure about this?" Daren says.
-
-"Yes, I guarantee it," I say. "If it were some bluff, they would have talked in the Common language, not in an obscure dialect that we'd normally have no way of understanding."
-
-"Well, let's see if you're right, then," Daren says, as he blocks a wind blade with his shield and then charges straight through the hydra, along with Leila.
-
-I fly through the illusion as well, and as we get close to the air elementalist, we begin to flank him. The elf tries to push us away from him again, but Leila manages to sneak up behind him and she runs a dagger through the back of his throat before he has the time to react. Once Leila removes her dagger, the elf puts his hand on his neck, trying to stop the flow of blood but there's just too much of it pouring out for him to be able to do anything. Not long afterwards, the elf loses the strength from his legs and he falls flat on the ground, with nothing left to do but to slowly bleed out and die.
-
  
 
 While I am busy evading the semi-transparent blades of air, I suddenly hear a man's voice echoing around us, although it is hard to pinpoint the exact location it's coming from.
@@ -582,6 +574,16 @@ I immediately recognize the language spoken as being an older elven dialect that
 The elf then begins chanting something, while he moves his hands around in circles. A few seconds after the chant, a large hydra with six heads, made entirely of wind appears in front of us, blocking our way towards the air elementalist. Even though the monster is technically made of air, we can still tell that it's supposed to be a hydra because of the way the sun's light is reflecting from its surface.
 
 "Everyone step back!" Daren says. "I'll try to see if I can absorb the air element out of the hydra with my sword."
+
+ "Actually, that won't be necessary," I say. "I understood what they were talking about just now, and that hydra is just an illusion. We can simply go through it and nothing will happen to us."
+
+"Are you absolutely sure about this?" Daren says.
+
+"Yes, I guarantee it," I say. "If it were some bluff, they would have talked in the Common language, not in an obscure dialect that we'd normally have no way of understanding."
+
+"Well, let's see if you're right, then," Daren says, as he blocks a wind blade with his shield and then charges straight through the hydra, along with Leila.
+
+I fly through the illusion as well, and as we get close to the air elementalist, we begin to flank him. The elf tries to push us away from him again, but Leila manages to sneak up behind him and she runs a dagger through the back of his throat before he has the time to react. Once Leila removes her dagger, the elf puts his hand on his neck, trying to stop the flow of blood but there's just too much of it pouring out for him to be able to do anything. Not long afterwards, the elf loses the strength from his legs and he falls flat on the ground, with nothing left to do but to slowly bleed out and die.
 
 }
 #if(v_b3_ch6_tie == 0 && v_ancient_languages < 2) {
@@ -678,12 +680,12 @@ The drone does not get to finish calling for its friends, because another rock h
 With the sheer number of rocks that are attempting to smash my head in right now, I am honestly required to use all of the flying expertise that I've accumulated so far to be able to avoid them. The problem is that it's now impossible for me to get any closer to the earth elementalist, because he keeps moving away from me and I'm already too busy just trying to stay alive.
 
 }
-#if(v_magical_sense >= 2 && v_bluff < 3) {
- After dodging for a while longer, the rocks finally manage to surround me completely, leaving no room for me to escape. They then all come flying towards me at once, from every direction, killing me on impact.
-
-}
 #if(v_b3_ch6_concealed == 0 && v_magical_sense >= 2 && v_b3_ch6_selected != 3 || v_b3_ch6_concealed == 1 && v_magical_sense >= 2 && v_b3_ch6_selected != 3 || v_magical_sense >= 2 && v_bluff < 3 && v_b3_ch6_selected != 3) {
  With the sheer number of rocks that are attempting to smash my head in right now, I am honestly required to use all of the flying expertise that I've accumulated so far to be able to avoid them. The problem is that it's now impossible for me to get any closer to the earth elementalist, because he keeps moving away from me and I'm already too busy just trying to stay alive.
+
+}
+#if(v_magical_sense >= 2 && v_bluff < 3) {
+ After dodging for a while longer, the rocks finally manage to surround me completely, leaving no room for me to escape. They then all come flying towards me at once, from every direction, killing me on impact.
 
 }
 #if(v_b3_ch6_concealed == 0 && v_bluff >= 3 && v_magical_sense >= 2) {
@@ -738,8 +740,10 @@ choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch
 ID: B3-Ch06b-Mustache
 TEXT:
 
+set(v_ac_b3_ch6_peek,1) if (v_b2_ch5_scimitar == 0 && v_strength >= 4 || v_strength >= 3 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch5_scimitar == 0 && v_strength < 4 || v_strength < 3 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,0) if (v_b2_ch5_scimitar == 0 && v_strength >= 4 || v_strength >= 3 && v_b2_ch5_scimitar != 0)
+achievement("Peek-a-boo!",v_ac_b3_ch6_peek)
  
 
 I doubt I'm going to get a better chance than this to deal with the earth elementalist, so I should probably keep chasing him. I'm sure that my friends will be fine without me for a while longer.
@@ -843,10 +847,6 @@ He then stretches his right arm towards me and he quickly pulls it down, with hi
 I take advantage of the captain's distraction to shoot a few bolts into the now weakened barrier, and I manage to hit the ambassador in the right side of his chest.
 
 }
- "Hah!" I say. "I did it!"
-
-I barely get to finish what I was saying before I feel an immensely powerful pressure pushing me down, making me fall with my back against the captain's semi-transparent barrier and completely restricting all of my movements. As I am trying to break myself free from the aura manipulation technique, the captain pulls out a heavily enchanted dagger and he uses it to stab me in the back of the head from below. His magically sharpened weapon passes through my skull with ease, killing me on the spot.
-
 #if(v_b3_ch6_selected != 3) {
  "As you wish, ambassador..." the captain says, looking clearly displeased.
 
@@ -855,6 +855,10 @@ He then stretches his right arm towards me and he quickly pulls it down, with hi
 I shoot a few bolts at him and one of them actually gets through the barrier, hitting the ambassador in the right side of his chest.
 
 }
+ "Hah!" I say. "I did it!"
+
+I barely get to finish what I was saying before I feel an immensely powerful pressure pushing me down, making me fall with my back against the captain's semi-transparent barrier and completely restricting all of my movements. As I am trying to break myself free from the aura manipulation technique, the captain pulls out a heavily enchanted dagger and he uses it to stab me in the back of the head from below. His magically sharpened weapon passes through my skull with ease, killing me on the spot.
+
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
 choice("Load game", , , special:saves)
@@ -871,6 +875,12 @@ He then stretches his right arm towards me and he quickly pulls it down, with hi
 "Warning! Warning!" I hear the voice of the Overseer, whose green-eyed drone is apparently still following close behind me. "The Overseer protocol is detecting aura manipulation techniques dangerously close to this unit's coordinates. If you do not stop immediately, this unit will be forced to call for backup."
 
 }
+#if(v_b3_ch6_selected != 3) {
+ "As you wish, ambassador..." the captain says, looking clearly displeased.
+
+He then stretches his right arm towards me and he quickly pulls it down, with his hand being closed into a fist, as if he were grabbing onto a rope that's attached to me or something. Not even a second afterwards, an invisible force pulls me down several feet before I manage to break free from it and to fly away as fast as I can. The captain tries to pull me towards him again, but this time I can feel the effect of his aura manipulation effect getting weaker. It looks like his range of attack is limited as long as he is still maintaining the barrier. He will probably become unable to use his invisible force on me in a few more seconds.
+
+}
  "What are you doing, you fool?!" the ambassador shouts at the captain. "He's getting away!"
 
 "The further away he gets, the harder it will be to attack him without dismissing this barrier completely," the captain says. "He will die soon enough, don't worry. There's no need to rush things."
@@ -883,20 +893,16 @@ Neither Melindra nor Kelrim can really do much to help them either, and Daren is
 
 I decide to slightly change my flight direction, trying to somehow end up behind the black robed mage in order to take him by surprise.
 
-#if(v_b3_ch6_selected != 3) {
- "As you wish, ambassador..." the captain says, looking clearly displeased.
-
-He then stretches his right arm towards me and he quickly pulls it down, with his hand being closed into a fist, as if he were grabbing onto a rope that's attached to me or something. Not even a second afterwards, an invisible force pulls me down several feet before I manage to break free from it and to fly away as fast as I can. The captain tries to pull me towards him again, but this time I can feel the effect of his aura manipulation effect getting weaker. It looks like his range of attack is limited as long as he is still maintaining the barrier. He will probably become unable to use his invisible force on me in a few more seconds.
-
-}
 choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed)
 
 
 ID: B3-Ch06b-Robed
 TEXT:
 
+set(v_ac_b3_ch6_credo,1) if (v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
 set(v_is_dead,0) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
 set(v_is_dead,1) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
+achievement("An assassin's credo",v_ac_b3_ch6_credo)
 #if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1) {
  Kate manages to get out of the way in time, but now the black-robed man is creating weapons out of thin air and making them fly towards her and Illuna while he keeps teleporting around, waving his dagger at them. As Kate is busy blocking the flying weapons, she is also making sure to keep the pressure on the ambassador, so that he doesn't get a chance to escape during all the confusion.
 
@@ -907,28 +913,6 @@ After dodging the black-robed man's attacks a few times, Illuna suddenly decides
 So it was an illusion after all... I had considered the possibility but I wasn't completely sure, since it was also possible that Kate killed the wrong guy before. Glad to see they figured it out by themselves.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1) {
- With the black-robed guy now confirmed to be dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
-
-}
-#if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
- What catches my eye the most is what's currently happening in the sky. The big rocks that were floating high above us have more than doubled in number since the last time I looked at them. Does this mean that the earth elementalist has just been creating boulders non-stop since the beginning of the battle? 
-
-All of a sudden, the rocks in the sky begin to move around in a very unusual manner, as if the earth elementalist were preparing for something. This isn't looking good. Maybe I should tell the others about this.
-
-"Those boulders up in the sky have begun to move," I tell Kate and Illuna. "I think we're going to need some magical barriers soon."
-
-"I'll make a wind barrier, but you'll need to get a little closer together first," Melindra says.
-
-As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begins to cast her protective spell and a semi-transparent barrier slowly materializes all around us.
-
-"I'd rather keep focusing on attacking the captain until Melindra's barrier fails," Kate says. "The last thing we need is for him to immobilize us again while rocks are falling on our heads."
-
-"Can't you make your ice dome slightly transparent so that you can see the captain through it and continue to shoot your icicles at him?" I say.
-
-"Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
-
-}
 #if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1) {
  As I am approaching the battlefield, Illuna suddenly decides to stop moving and she just stands there for a few seconds, while her attacker swings his dagger towards her.
 
@@ -937,22 +921,6 @@ Seeing that she is not planning to evade his strike, the man stops his slash rig
 "I think we've let this poorly made illusion distract us long enough," Illuna says, as she sends a few water lances towards the ambassador, while the black-robed man slowly fades away. "Let's keep attacking the ambassador. As long as the captain is required to keep his barrier up, he won't be able to use his powers to immobilize us again."
 
 So it was an illusion after all... I had considered the possibility but I wasn't completely sure, since it was also possible that Kate killed the wrong guy before. Glad to see they figured it out by themselves.
-
-}
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
- What catches my eye the most is the unusual movement of the boulders in the sky. It looks like the earth elementalist is preparing for something. Is he finally going to use the rocks to attack everyone on the ground?
-
-"Those boulders up in the sky have begun to move," I tell Kate and Illuna. "I think we're going to need some magical barriers soon."
-
-"I'll make a wind barrier, but you'll need to get a little closer together first," Melindra says.
-
-As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begins to cast her protective spell and a semi-transparent barrier slowly materializes all around us.
-
-"I'd rather keep focusing on attacking the captain until Melindra's barrier fails," Kate says. "The last thing we need is for him to immobilize us again while rocks are falling on our heads."
-
-"Can't you make your ice dome slightly transparent so that you can see the captain through it and continue to shoot your icicles at him?" I say.
-
-"Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
 
 }
 #if(v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1) {
@@ -973,20 +941,6 @@ As the black-robed man is now conjuring swords out of nowhere and making them fl
 Suddenly, out of nowhere, the black-robed man's head gets cut clean off his shoulders and all of the weapons that were floating in mid-air are now dropping to the ground, along with the robed man's lifeless body.
 
 It takes me a few moments to understand what happened but as soon as I figure it out, I start to address the empty air in front of Kate and Illuna, in a loud voice.
-
-}
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
- "It's about time you showed up, Albert," I say. "I was beginning to think that you ran away."
-
-"A true assassin only reveals himself once he is absolutely certain that he will succeed in killing his target," we hear Albert's voice coming from an empty place in the middle of the street.
-
-"So in other words, you're only planning to help us when there is absolutely no risk in it for you?" I ask him.
-
-"Exactly," Albert says.
-
-"Well, it's good that you're being honest, at least," I say.
-
-With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
 
 }
 #if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
@@ -1013,10 +967,6 @@ As the black-robed man is now conjuring swords out of nowhere and making them fl
 Before Daren and Leila get the chance to answer, I fly away from them and straight for the man in black robes, hoping to take him by surprise. What happens instead is that he is the one who surprises me, because as soon as I get close enough to him he teleports right in front of me and he shoots a spray of acid out of his left palm, aiming for my neck.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4) {
- The acid almost immediately melts through my skin and muscles, causing me a huge amount of pain while I also become unable to breathe. After a few more agonizing moments, I finally begin to lose my senses, as I slowly succumb to my death.
-
-}
 #if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4) {
  
 
@@ -1027,6 +977,40 @@ What happens instead is that he is the one who surprises me, because as soon as 
  
 
 What happens instead is that he is the one who surprises me, because as soon as I get close enough to him he teleports right in front of me and he shoots a spray of acid out of his left palm, aiming for my neck.
+
+}
+#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1) {
+ With the black-robed guy now confirmed to be dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
+
+}
+#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
+ "It's about time you showed up, Albert," I say. "I was beginning to think that you ran away."
+
+"A true assassin only reveals himself once he is absolutely certain that he will succeed in killing his target," we hear Albert's voice coming from an empty place in the middle of the street.
+
+"So in other words, you're only planning to help us when there is absolutely no risk in it for you?" I ask him.
+
+"Exactly," Albert says.
+
+"Well, it's good that you're being honest, at least," I say.
+
+With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
+
+}
+#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4) {
+ The acid almost immediately melts through my skin and muscles, causing me a huge amount of pain while I also become unable to breathe. After a few more agonizing moments, I finally begin to lose my senses, as I slowly succumb to my death.
+
+}
+#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 && v_b3_ch5_fight < 4) {
+ Thanks to my aura hardening stat the acid doesn't do any serious damage, even though it still stings a little, so I decide to wipe it off with my hand and to fling it back towards my attacker with a quick motion of my wrist.
+
+The black-robed man was not expecting this at all, so he was too slow to react properly. As soon as the acid touched his face he instinctively teleported away and back to the ground, but that didn't help him get the burning liquid out of his eyes so now he's just wiping his face constantly with his hands while groaning in pain.
+
+These few seconds of distraction cost him dearly, because Illuna was waiting all this time for him to stop teleporting, and his momentary pause was all she needed to swing one of her water whips towards him at high speed and to behead him in a single movement.
+
+As I give Illuna a victory salute, she nods back at me and then she begins to attack the captain of the guards again, together with Kate and Flower.
+
+With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
 
 }
 #if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 && v_b3_ch5_fight < 4) {
@@ -1041,16 +1025,38 @@ As I give Illuna a victory salute, she nods back at me and then she begins to at
 With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 && v_b3_ch5_fight < 4) {
- Thanks to my aura hardening stat the acid doesn't do any serious damage, even though it still stings a little, so I decide to wipe it off with my hand and to fling it back towards my attacker with a quick motion of my wrist.
+#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
+ What catches my eye the most is the unusual movement of the boulders in the sky. It looks like the earth elementalist is preparing for something. Is he finally going to use the rocks to attack everyone on the ground?
 
-The black-robed man was not expecting this at all, so he was too slow to react properly. As soon as the acid touched his face he instinctively teleported away and back to the ground, but that didn't help him get the burning liquid out of his eyes so now he's just wiping his face constantly with his hands while groaning in pain.
+"Those boulders up in the sky have begun to move," I tell Kate and Illuna. "I think we're going to need some magical barriers soon."
 
-These few seconds of distraction cost him dearly, because Illuna was waiting all this time for him to stop teleporting, and his momentary pause was all she needed to swing one of her water whips towards him at high speed and to behead him in a single movement.
+"I'll make a wind barrier, but you'll need to get a little closer together first," Melindra says.
 
-As I give Illuna a victory salute, she nods back at me and then she begins to attack the captain of the guards again, together with Kate and Flower.
+As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begins to cast her protective spell and a semi-transparent barrier slowly materializes all around us.
 
-With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
+"I'd rather keep focusing on attacking the captain until Melindra's barrier fails," Kate says. "The last thing we need is for him to immobilize us again while rocks are falling on our heads."
+
+"Can't you make your ice dome slightly transparent so that you can see the captain through it and continue to shoot your icicles at him?" I say.
+
+"Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
+
+}
+#if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
+ What catches my eye the most is what's currently happening in the sky. The big rocks that were floating high above us have more than doubled in number since the last time I looked at them. Does this mean that the earth elementalist has just been creating boulders non-stop since the beginning of the battle? 
+
+All of a sudden, the rocks in the sky begin to move around in a very unusual manner, as if the earth elementalist were preparing for something. This isn't looking good. Maybe I should tell the others about this.
+
+"Those boulders up in the sky have begun to move," I tell Kate and Illuna. "I think we're going to need some magical barriers soon."
+
+"I'll make a wind barrier, but you'll need to get a little closer together first," Melindra says.
+
+As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begins to cast her protective spell and a semi-transparent barrier slowly materializes all around us.
+
+"I'd rather keep focusing on attacking the captain until Melindra's barrier fails," Kate says. "The last thing we need is for him to immobilize us again while rocks are falling on our heads."
+
+"Can't you make your ice dome slightly transparent so that you can see the captain through it and continue to shoot your icicles at him?" I say.
+
+"Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
 
 }
 choice(""I say it's still worth it. We're going to need every possible defense against that many rocks."", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
@@ -1073,22 +1079,6 @@ TEXT:
 When Daren and Leila hear me, they rush out of their barrier as fast as they can, while Daren uses his shield to defend against any wind blades that the air elementalist is still sending towards them. Once they get inside Melindra's wind barrier, Kate creates her ice dome and then Daren uses his shield to make another barrier on top of that, to defend us against the air elementalist's attacks.
 
 }
-#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 1 || v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1) {
- "Do you think your barrier will work against any of the rocks?" I ask Daren.
-
-"From what I've seen they all seem to have been created magically, so it should work fine," Daren says. "If there are any regular rocks in there, they'll pass right through the barrier, though."
-
-"It's all well and good," I say. "We practically have three barriers stacked on top of each other now. It would be hard to top this, in terms of defense."
-
-}
-#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 0 || v_b3_ch6_air == 0 && v_b3_ch6_defense == 1 || v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1) {
- Not long after we set up our defenses, the earth elementalist also finishes his preparations and now all of his boulders are nicely aligned so that he can more easily throw them at us. The first wave he sends towards us is made up of only ten rocks, probably to test the durability of our barriers. Fortunately for us, none of them manage to get past Daren's protective spell, even if the boulders were all fairly large and were coming from every direction.
-
-Now that he has gotten a better idea of what to expect, the earth elementalist is sending down around fifty large rocks at very high speeds, from every angle possible. Some of the rocks are round, while others have sharp tips, likely enhanced by magical sharpening as well as heavy reinforcement. Once they hit Daren's semi-transparent barrier, the majority of the boulders either slide off it or break into pieces from the force of the impact, but none of them are getting through.
-
-That is a relief. For a moment there, I wasn't sure if Daren's defenses could withstand such a relentless assault, but I'm glad to see I was mistaken--
-
-}
 #if(v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1) {
  "I say it's still worth it. We're going to need every possible defense against that many rocks."
 
@@ -1109,14 +1099,6 @@ I then turn towards Daren and Leila, who are still hiding inside Daren's barrier
 When Daren and Leila hear me, they rush out of their barrier as fast as they can, while Daren uses his shield to defend against any wind blades that the air elementalist is still sending towards them. Once they get inside Melindra's wind barrier, Daren uses his shield to make a barrier of his own to defend us against any incoming wind blades.
 
 }
-#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 0 || v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1) {
- "Do you think your barrier will work against any of the rocks?" I ask Daren.
-
-"From what I've seen they all seem to have been created magically, so it should work fine," Daren says. "If there are any regular rocks in there, they'll pass right through the barrier, though."
-
-"It's all well and good," I say. "We still have Melindra's wind barrier as backup in case yours fails. That should be enough to defend us for the time being."
-
-}
 #if(v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1) {
  "Alright. Let's keep the ice dome as a last alternative, then."
 
@@ -1125,6 +1107,30 @@ I then turn towards Daren and Leila, who seem to still be searching for the guy 
 "Hey, Daren, Leila!" I shout. "Come over here fast! The earth elementalist in the sky might attack us any moment now!"
 
 When Daren and Leila hear me, they come running towards us and once they get inside Melindra's wind barrier, Daren uses his shield to make a barrier of his own on top of that for good measure.
+
+}
+#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 1 || v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1) {
+ "Do you think your barrier will work against any of the rocks?" I ask Daren.
+
+"From what I've seen they all seem to have been created magically, so it should work fine," Daren says. "If there are any regular rocks in there, they'll pass right through the barrier, though."
+
+"It's all well and good," I say. "We practically have three barriers stacked on top of each other now. It would be hard to top this, in terms of defense."
+
+}
+#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 0 || v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1) {
+ "Do you think your barrier will work against any of the rocks?" I ask Daren.
+
+"From what I've seen they all seem to have been created magically, so it should work fine," Daren says. "If there are any regular rocks in there, they'll pass right through the barrier, though."
+
+"It's all well and good," I say. "We still have Melindra's wind barrier as backup in case yours fails. That should be enough to defend us for the time being."
+
+}
+#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 0 || v_b3_ch6_air == 0 && v_b3_ch6_defense == 1 || v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1) {
+ Not long after we set up our defenses, the earth elementalist also finishes his preparations and now all of his boulders are nicely aligned so that he can more easily throw them at us. The first wave he sends towards us is made up of only ten rocks, probably to test the durability of our barriers. Fortunately for us, none of them manage to get past Daren's protective spell, even if the boulders were all fairly large and were coming from every direction.
+
+Now that he has gotten a better idea of what to expect, the earth elementalist is sending down around fifty large rocks at very high speeds, from every angle possible. Some of the rocks are round, while others have sharp tips, likely enhanced by magical sharpening as well as heavy reinforcement. Once they hit Daren's semi-transparent barrier, the majority of the boulders either slide off it or break into pieces from the force of the impact, but none of them are getting through.
+
+That is a relief. For a moment there, I wasn't sure if Daren's defenses could withstand such a relentless assault, but I'm glad to see I was mistaken--
 
 }
 choice("Continue", B3-Ch06b-Underneath, v_current_scene = B3-Ch06b-Underneath) if (v_b3_ch6_air == 0 && v_b3_ch6_defense == 1 || v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1)
@@ -1211,18 +1217,18 @@ TEXT:
 After I say this, the first thing that Kate does is to send an icicle into the head of the black-robed royal guard from yesterday, who was apparently in the middle of a fight with her and Illuna but got distracted by my shouts.
 
 }
+#if(v_b3_ch6_preparing == 1 || v_b3_ch5_fight >= 4) {
+ I don't give him a chance to retaliate and I slit his throat, making him bleed out and die several moments later. I don't wait to confirm my kill and I fly out of the boulder zone, towards the ground as fast as I can so that I can warn my friends before the magic holding the rocks afloat wears off.
+
+"Look out!" I shout as I get somewhat closer to the ground, while the rocks above me are already beginning to fall. "Boulders incoming! Boulders incoming!"
+
+}
 #if(v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1 || v_b3_ch5_fight >= 4) {
  What happens next is that the whole battlefield becomes completely chaotic, as everyone except Hadrik and Gontrok abandon their current fights and focus solely on surviving the hundreds of boulders that are about to rain down upon them.
 
 As my friends gather in one place and Kate builds a dome out of reinforced ice around them, I try to help out as well as I can by positioning myself directly above them and slicing through as many of the falling rocks as possible.
 
 Eventually, the large boulders stop falling and everyone escapes unharmed, including our enemies, while Hadrik and Gontrok are still continuing their fight as if nothing happened. Just as Kate dismisses her ice dome, we feel an enormous pressure coming from above us, which pushes us all to the ground and completely prevents us from moving.
-
-}
-#if(v_b3_ch6_preparing == 1 || v_b3_ch5_fight >= 4) {
- I don't give him a chance to retaliate and I slit his throat, making him bleed out and die several moments later. I don't wait to confirm my kill and I fly out of the boulder zone, towards the ground as fast as I can so that I can warn my friends before the magic holding the rocks afloat wears off.
-
-"Look out!" I shout as I get somewhat closer to the ground, while the rocks above me are already beginning to fall. "Boulders incoming! Boulders incoming!"
 
 }
 choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1 || v_b3_ch5_fight >= 4)
@@ -1259,6 +1265,20 @@ The captain does not notice what Daren is trying to do, and instead he directs h
 "I don't," the captain says, "but with the amount of tricks they've pulled out of their sleeves so far, I wouldn't be surprised if they were to make use of your own wind blades to free themselves or even kill you. I'm not taking that risk. The ambassador's safety remains our highest priority."
 
 }
+#if(v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_air >= 1) {
+ Right after the captain stops talking, Daren is slammed into the ground by an invisible force, like the rest of us. For a moment, I see Daren's sword budging a few inches as he tries to make it fly back into his hand, but the pain in his wrist is clearly preventing him from focusing properly. 
+
+The captain does not notice what Daren is trying to do, and instead he directs his attention towards Gontrok, who is still fighting Hadrik.
+
+"Gontrok!" the captain shouts. "Come here and help me destroy this ice wall behind me! The ambassador is trapped and can't get to safety!"
+
+"I'm a little busy here, captain," Gontrok says, as he blocks Hadrik's fist with his right hand and then crouches to avoid a kick to his face.
+
+"Damn it..." the captain says, and now he turns his gaze towards the sky, shouting loudly in the hopes that his voice will reach the earth elementalist. "Bolwick, can you hear me?!"
+
+He waits for a few seconds, but he gets no answer.
+
+}
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0) {
  "What about Loyrang, then?" Felsig says. "Why don't you send him to execute the criminals while I deal with the ice wall? This traitor hasn't lifted a finger to help in our fight so far, and he was even planning to leave the city before the battle began! He needs to be set straight! He needs to show us that he is still loyal to the king and to the people of Ollendor!"
 
@@ -1273,20 +1293,6 @@ The captain does not notice what Daren is trying to do, and instead he directs h
 }
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 1) {
  "Fine, I'll be right there," Felsig says, and then he begins heading towards the captain.
-
-}
-#if(v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_air >= 1) {
- Right after the captain stops talking, Daren is slammed into the ground by an invisible force, like the rest of us. For a moment, I see Daren's sword budging a few inches as he tries to make it fly back into his hand, but the pain in his wrist is clearly preventing him from focusing properly. 
-
-The captain does not notice what Daren is trying to do, and instead he directs his attention towards Gontrok, who is still fighting Hadrik.
-
-"Gontrok!" the captain shouts. "Come here and help me destroy this ice wall behind me! The ambassador is trapped and can't get to safety!"
-
-"I'm a little busy here, captain," Gontrok says, as he blocks Hadrik's fist with his right hand and then crouches to avoid a kick to his face.
-
-"Damn it..." the captain says, and now he turns his gaze towards the sky, shouting loudly in the hopes that his voice will reach the earth elementalist. "Bolwick, can you hear me?!"
-
-He waits for a few seconds, but he gets no answer.
 
 }
 #if(v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1) {
@@ -1396,16 +1402,6 @@ He then does a short waving motion with his hands and all of the cage's bars beg
 As the ambassador makes his way towards one of the alleys leading out of the main street, Kate manages to send two icicles his way but they are easily blocked by a small barrier made by the captain, so the ambassador eventually manages to get away from us and to retreat to safety.
 
 }
-#if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_air >= 1) {
- "Now, then..." the captain says to us, once he confirms that the ambassador is no longer in danger. "I think I'm done taking risks with you lot. I will finish you all myself."
-
-He then begins to slowly amplify the pressure on top of us, probably trying to squish us to death.
-
-"I've been trying to avoid this technique lately because of the huge strain it places on my frail, old body," the captain tells us, "but even if this puts me out of commission for a whole week, it will have been worth it. There will be no more tricks to save you this time. The only thing left for you to do is to lie there quietly and accept your deaths with dignity."
-
-The invisible force above us is getting stronger with each passing moment. The pain is becoming more and more unbearable to the point that most of us have already given up on trying to keep quiet and we're now just screaming our lungs out.
-
-}
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 1) {
  "You should have paid more attention to whatever lessons that spirit in the amulet taught you," the captain says, as he looks directly at Illuna. "What you did here was nothing more than a waste of time."
 
@@ -1456,6 +1452,16 @@ He then tries to stab me in my right shoulder with his blade, but I pull out my 
 "Aye, aye, captain," Loyrang says, as he now walks back from us in the same lazy way that he's moved since he first came here.
 
 The captain now begins to slowly amplify the pressure on top of us, probably trying to squish us to death.
+
+"I've been trying to avoid this technique lately because of the huge strain it places on my frail, old body," the captain tells us, "but even if this puts me out of commission for a whole week, it will have been worth it. There will be no more tricks to save you this time. The only thing left for you to do is to lie there quietly and accept your deaths with dignity."
+
+The invisible force above us is getting stronger with each passing moment. The pain is becoming more and more unbearable to the point that most of us have already given up on trying to keep quiet and we're now just screaming our lungs out.
+
+}
+#if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_air >= 1) {
+ "Now, then..." the captain says to us, once he confirms that the ambassador is no longer in danger. "I think I'm done taking risks with you lot. I will finish you all myself."
+
+He then begins to slowly amplify the pressure on top of us, probably trying to squish us to death.
 
 "I've been trying to avoid this technique lately because of the huge strain it places on my frail, old body," the captain tells us, "but even if this puts me out of commission for a whole week, it will have been worth it. There will be no more tricks to save you this time. The only thing left for you to do is to lie there quietly and accept your deaths with dignity."
 
@@ -1524,6 +1530,8 @@ choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2) if (v_b
 ID: B3-Ch06b-Trance2
 TEXT:
 
+set(v_ac_b3_ch6_freeze,1)
+achievement("Time freeze enthusiast",v_ac_b3_ch6_freeze)
 #if(v_b3_ch6_air == 0) {
  "Don't come any closer!" says the air elementalist elf, who is now standing right beside the captain. "I'm warning you!"
 
@@ -1565,8 +1573,10 @@ choice("Don't say anything to Kelrim.", B3-Ch06b-Panic, v_current_scene = B3-Ch0
 ID: B3-Ch06b-Touching
 TEXT:
 
+set(v_ac_b3_ch6_guardian,1) if (v_b3_ch6_manipulators == 2)
 set(v_is_dead,1) if (v_b3_ch6_manipulators != 2)
 set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0 || v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
+achievement("Guardian angel",v_ac_b3_ch6_guardian)
 #if(v_b3_ch6_uninjured == 0 || v_b3_ch6_uninjured == 1 || v_b3_ch6_manipulators != 2) {
  "Kelrim, don't do it!" I shout loudly. "Don't cast the nausea spell!"
 
@@ -1860,18 +1870,6 @@ TEXT:
 "We probably should," Daren says. "Hopefully, there will no longer be any signal interference now that the royal guards are gone. Let's all get closer together first, so that Barry from the teleporter room can lock onto us easier."
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
- "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
-
-"Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
-
-As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
-
-}
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
- After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
-
-}
 #if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
  "Kelrim..." Daren says. "What you tried to do was very noble, but there are still people down there who need your help. They're not just waiting for me to save them, they are waiting for you, and they would all be sad if you were gone. You understand this, right?"
 
@@ -1886,6 +1884,18 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 "No, but it sure would have been nice if you had at least tried to attack the captain while he was crushing us to death," I say.
 
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
+
+}
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+ "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
+
+"Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
+
+As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
+
+}
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
+ After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
 #if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
@@ -1928,18 +1938,6 @@ TEXT:
 "Anyway," Daren says, "I think we should try teleporting back to the rebel base again. The royal guards are gone now, so with a little luck maybe our signal isn't being blocked anymore. Let's first get closer together, so that Barry from the teleporter room will be able to lock onto our signal easier."
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
- "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
-
-"Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
-
-As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
-
-}
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
- After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
-
-}
 #if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
  "I'd say it's about time we teleported out of here, don't you think?" Albert says, as he finally cancels his invisibility spell and reveals himself to now be standing right next to us.
 
@@ -1950,6 +1948,18 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 "No, but it sure would have been nice if you had at least tried to attack the captain while he was crushing us to death," I say.
 
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
+
+}
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+ "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
+
+"Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
+
+As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
+
+}
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
+ After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
 #if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
@@ -1983,6 +1993,18 @@ TEXT:
  "If the royal guards are gone, then maybe our signal isn't being blocked anymore either," Daren says. "Let's try teleporting back to the rebel base again. Oh, but first we should probably get a little closer together, so that Barry from the teleporter room can get a better lock onto our signal."
 
 }
+#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
+ "Then we should teleport out of here before anyone else arrives," Albert says, as he finally cancels his invisibility spell and reveals himself to now be standing right next to us.
+
+ "Nice timing, Albert!" I say. "You sure were a lot of help back there, when we most needed you!"
+
+"Spare me your sarcasm," Albert says. "I said that I'd help you and I did. I killed the black-robed royal guard, didn't I? Surely, you weren't expecting me to kill all of the guards myself?"
+
+"No, but it sure would have been nice if you had at least tried to attack the captain while he was crushing us to death," I say.
+
+"The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
+
+}
 #if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
  "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
 
@@ -1993,18 +2015,6 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 }
 #if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
  After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
-
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
- "Nice timing, Albert!" I say. "You sure were a lot of help back there, when we most needed you!"
-
-"Spare me your sarcasm," Albert says. "I said that I'd help you and I did. I killed the black-robed royal guard, didn't I? Surely, you weren't expecting me to kill all of the guards myself?"
-
-"No, but it sure would have been nice if you had at least tried to attack the captain while he was crushing us to death," I say.
-
-"The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
-
- "Then we should teleport out of here before anyone else arrives," Albert says, as he finally cancels his invisibility spell and reveals himself to now be standing right next to us.
 
 }
 #if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
@@ -2047,6 +2057,8 @@ choice("Suggest running as far away from the drone as our legs can carry us.", B
 ID: B3-Ch06b-Curiosity
 TEXT:
 
+set(v_ac_b3_ch6_curiosity,1)
+achievement("Curiosity killed the cat",v_ac_b3_ch6_curiosity)
  "Maybe we can figure out what happened to the drone if we take a closer look," I say.
 
 "Don't you think it would be better to just concentrate on teleporting out of here?" Daren asks me.
@@ -2075,18 +2087,6 @@ TEXT:
 We all sprint away from the drone, with Daren making sure to be the last one in the group so that he can hold a protective barrier between us and the metal ball with his shield. When he reaches Kelrim's dead body, Daren picks it up from the ground and puts it on his right shoulder, while he continues to run. As we are distancing ourselves from the drone, we suddenly hear it beeping three times and then it self-destructs, generating an explosion so big that it almost reaches the buildings on the side of the street and creating a wide crater in the ground.
 
 }
- Even with the distance we've put between us and the drone, the impact of the blast still managed to reach us but we were already pretty far from the center of the explosion so it was nothing that Daren’s barrier couldn’t handle. As we now stop to look at the singeing hot earth forming the crater behind us and at all the windows that were broken by the explosion’s shockwave, I immediately turn my eyes towards the drones in the sky that are still floating innocently, as if they were completely unaware of what's happening below.
-
-"I guess you're not our Overseer expert for nothing," Daren says, as he is still looking at the scorched earth from the area we left. "If we were any closer to that explosion, things could have ended pretty badly."
-
-"I don't think it's over yet," I tell him, as I'm still looking attentively at the sky. "The Overseer seems to have finally found a way to attack us despite his self-imposed 'maintenance mode'. He's not going to stop until he runs out of drones that he can drop on us. Illuna, could you cool down that hot crater a little?"
-
-"Will do," she says, and then she sends a small torrent of water to flood the hole in the ground that has formed from the explosion.
-
- When the water comes in contact with the flaming hot rocks, a good deal of it evaporates from the heat, but this helps to lower the temperature of the ground enough for us to be able to walk on it again. Once the earth is all cooled down, Illuna dismisses the leftover water, and then she looks at me.
-
-"The ground has been cooled," Illuna tells me.
-
 #if(v_b3_ch6_kelrim == 1 || v_b3_ch6_plan == 3) {
  "Guys, I suggest that we run as far away from here as our legs can carry us," I say.
 
@@ -2099,6 +2099,18 @@ We all sprint away from the drone, with Daren making sure to be the last one in 
 We all sprint away from the drone, with Daren making sure to be the last one in the group so that he can hold a protective barrier between us and the metal ball with his shield. As we are distancing ourselves from the drone, we suddenly hear it beeping three times and then it self-destructs, generating an explosion so big that it almost reaches the buildings on the side of the street and creating a wide crater in the ground.
 
 }
+ Even with the distance we've put between us and the drone, the impact of the blast still managed to reach us but we were already pretty far from the center of the explosion so it was nothing that Daren’s barrier couldn’t handle. As we now stop to look at the singeing hot earth forming the crater behind us and at all the windows that were broken by the explosion’s shockwave, I immediately turn my eyes towards the drones in the sky that are still floating innocently, as if they were completely unaware of what's happening below.
+
+"I guess you're not our Overseer expert for nothing," Daren says, as he is still looking at the scorched earth from the area we left. "If we were any closer to that explosion, things could have ended pretty badly."
+
+"I don't think it's over yet," I tell him, as I'm still looking attentively at the sky. "The Overseer seems to have finally found a way to attack us despite his self-imposed 'maintenance mode'. He's not going to stop until he runs out of drones that he can drop on us. Illuna, could you cool down that hot crater a little?"
+
+"Will do," she says, and then she sends a small torrent of water to flood the hole in the ground that has formed from the explosion.
+
+ When the water comes in contact with the flaming hot rocks, a good deal of it evaporates from the heat, but this helps to lower the temperature of the ground enough for us to be able to walk on it again. Once the earth is all cooled down, Illuna dismisses the leftover water, and then she looks at me.
+
+"The ground has been cooled," Illuna tells me.
+
 choice("Continue", B3-Ch06b-Carry2, v_current_scene = B3-Ch06b-Carry2)
 
 
@@ -2157,6 +2169,16 @@ TEXT:
 "The captain of the royal guards is dead?!" the teleporter guy says, now sounding utterly shocked.
 
 }
+#if(v_b3_ch6_preparing == 0) {
+ "Hey, Barry, can you hear us?" Daren says, after he taps the transceiver.
+
+"You're alive?..." the teleporter guy says, sounding rather surprised. "What happened to all the royal guards that were coming after you?"
+
+"The ones that survived used their teleportation devices to return to their king," Daren says. "Gontrok forced them to retreat after we killed their captain."
+
+"The captain of the royal guards is dead?!" the teleporter guy says, now sounding utterly shocked.
+
+}
 #if(v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1) {
  "Yes, he's dead," Daren says. "Now, can you please try to teleport us back to the rebel base?"
 
@@ -2169,16 +2191,6 @@ TEXT:
 "Yes, the royal guards abandoned him when they teleported to their king, remember?" Melindra says. "He's still hiding in the same abandoned house where the captain sent him to take shelter during the battle."
 
 "Oh, yeah!" Hadrik says. "Now that you mention it, I think I can sense his aura too! He's not too far from us!"
-
-}
-#if(v_b3_ch6_preparing == 0) {
- "Hey, Barry, can you hear us?" Daren says, after he taps the transceiver.
-
-"You're alive?..." the teleporter guy says, sounding rather surprised. "What happened to all the royal guards that were coming after you?"
-
-"The ones that survived used their teleportation devices to return to their king," Daren says. "Gontrok forced them to retreat after we killed their captain."
-
-"The captain of the royal guards is dead?!" the teleporter guy says, now sounding utterly shocked.
 
 }
 choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1)

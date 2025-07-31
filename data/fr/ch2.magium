@@ -36,7 +36,7 @@ Daren gives me one long look, and then he sighs deeply.
 "Would you guys mind telling me what you've been whispering about for the past minute?" the woman asks us.
 
 choice("Her looks", Ch2-Looks, v_current_scene = Ch2-Looks, v_ch2_kate_whisper = 1, v_checkpoint_rich = 0)
-choice("Deciding which one should make a pass at her", Ch2-Pass, v_ac_ch2_talker = 1, v_current_scene = Ch2-Pass, v_ch2_kate_whisper = 2, v_checkpoint_rich = 0, special:achievement-Smooth talker-v_ac_ch2_talker)
+choice("Deciding which one should make a pass at her", Ch2-Pass, v_ac_ch2_talker = 1, v_current_scene = Ch2-Pass, v_ch2_kate_whisper = 2, v_checkpoint_rich = 0)
 choice("Just finishing our discussion from earlier", Ch2-Earlier, v_current_scene = Ch2-Earlier, v_ch2_kate_whisper = 3, v_checkpoint_rich = 0)
 choice("Discussing whether she is a banshee or not", Ch2-Banshee, v_current_scene = Ch2-Banshee, v_ch2_kate_whisper = 4, v_checkpoint_rich = 0)
 
@@ -58,6 +58,7 @@ choice("Continue", Ch2-Escort, v_current_scene = Ch2-Escort)
 ID: Ch2-Pass
 TEXT:
 
+achievement("Smooth talker",v_ac_ch2_talker)
 "We were trying to decide which one of us should make a pass at you," I tell her. "We were just about to play rock paper scissors for it! Would you do us the honor of arbitering our match?"
 
 The woman is clearly upset about my comment. She is trying to control her frown and appear unfazed, but her anger is visible enough. I'm wondering if I went too far with my joke. Well, at least she doesn't appear to be doubting my words.
@@ -382,10 +383,12 @@ choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwate
 ID: Ch2-Battle-stillwater
 TEXT:
 
-set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness < 3 || v_premonition > 0)
+set(v_ac_ch2_nails,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
+set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 set(v_ch2_toughness_happened,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 set(v_is_dead,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
+achievement("Tough as nails",v_ac_ch2_nails)
 #if(v_premonition > 0) {
 
 Shortly after the young mage appears behind me, I see a vision of him slashing his dagger towards my neck. Was that... a premonition?
@@ -448,7 +451,7 @@ The young mage slashes his dagger towards my neck. The slash is too fast for me 
 The last thing I see is Daren trying in vain to heal my wound, as my consciousness slowly fades away.
 
 }
-choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 0 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load game", , , special:saves) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
@@ -547,8 +550,10 @@ choice("Continue", Ch2-Avoid2, v_current_scene = Ch2-Avoid2)
 ID: Ch2-Avoid2
 TEXT:
 
+set(v_ac_ch2_nails,1) if (v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2)
 set(v_is_dead,0) if (v_agility == 0 && v_reflexes > 0 || v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2 || v_agility > 0)
 set(v_is_dead,1) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness > 2)
+achievement("Tough as nails",v_ac_ch2_nails)
 #if(v_agility > 0) {
 
 My plan to lure the younger mage away is working far better than I expected. The mage keeps teleporting after me, and trying to catch me off guard, but every time he thinks he's got me in a pinch, I simply dash away with ease. I knew that stat device would come in handy, but I never dared to dream it would be so useful. I feel like I could just keep running like this for hours and not get tired.
@@ -657,8 +662,12 @@ choice("Continue", Ch2-Fight2, v_current_scene = Ch2-Fight2)
 ID: Ch2-Fight2
 TEXT:
 
+set(v_ac_ch2_master,1) if (v_combat_technique > 0)
+set(v_ac_ch2_nails,1) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2)
 set(v_is_dead,0) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2 || v_combat_technique > 0)
 set(v_is_dead,1) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness > 2)
+achievement("Tough as nails",v_ac_ch2_nails)
+achievement("Martial arts master",v_ac_ch2_master)
 #if(v_combat_technique > 0) {
 
 Once I'm far enough away from Daren and his opponent, I turn back towards the mage with the dagger and assume my fighting stance. I realize I am feeling quite confident in my fighting skills all of a sudden. Is it because of that stat device? The mage tries to surprise me again by teleporting behind me, but I manage to stop his arm as he flings it towards me. Keeping a firm hold of his arm, I pull back his wrist, forcing him to let go of the dagger. As I take his weapon, he quickly pulls out another dagger from his sleeve, and makes a lunge towards me. Our two daggers clash and we start to fight.
@@ -1001,7 +1010,7 @@ The two deer stop and look towards me.
 
 }
 choice("Next chapter", Ch3-Intro, v_next_chapter_crash = 1, v_current_scene = Ch3-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ancient_languages < 2)
-choice("Offer to provide protection in exchange for leading us to their cave", Ch2-Protection, v_ac_ch2_unlikely = 1, v_current_scene = Ch2-Protection, v_ch2_deer_interaction = 1, special:achievement-An unlikely ally-v_ac_ch2_unlikely) if (v_ancient_languages >= 2)
+choice("Offer to provide protection in exchange for leading us to their cave", Ch2-Protection, v_ac_ch2_unlikely = 1, v_current_scene = Ch2-Protection, v_ch2_deer_interaction = 1) if (v_ancient_languages >= 2)
 choice("Wish them safe travels", Ch2-Travels, v_current_scene = Ch2-Travels, v_ch2_deer_interaction = 2) if (v_ancient_languages >= 2)
 choice("Tell them they look delicious", Ch2-Delicious, v_current_scene = Ch2-Delicious, v_ch2_deer_interaction = 3) if (v_ancient_languages >= 2)
 
@@ -1009,6 +1018,7 @@ choice("Tell them they look delicious", Ch2-Delicious, v_current_scene = Ch2-Del
 ID: Ch2-Protection
 TEXT:
 
+achievement("An unlikely ally",v_ac_ch2_unlikely)
 "Yes, I can," I tell her. "I overheard you talking about a cave. We are looking for shelter as well. We could offer you protection on your way back if you promise to let us share your cave for one night."
 
 The female deer is measuring me up with her eyes. She isn't sure what to make of my offer.

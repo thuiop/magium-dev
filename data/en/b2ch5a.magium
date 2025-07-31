@@ -386,6 +386,12 @@ I decide to take advantage of the opportunity Leila gave me, by making a dash to
 "It's going to take more than that to kill me," Velgos says.
 
 }
+#if(v_agility < 3 && v_combat_technique < 2) {
+ 
+
+I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and attempting to cut his head off from the side where his shoulder pad had been shattered. Velgos sees me coming, and he slashes one of his scimitars towards me, but I manage to dodge it, and I go straight for his neck. Unfortunately, the troll's first strike was never meant to hit its target, but only to lead me into the path of his second scimitar. I never got the chance to dodge his second blow, which severed my head from my shoulders, and killed me on the spot.
+
+}
 #if(v_agility >= 3 || v_combat_technique >= 2) {
  "Watch out!" Bruce shouts at us, from behind.
 
@@ -394,12 +400,6 @@ Not long after his warning, two very large ogres make their way out of the gate 
 "I knew it," our mage teammate says. "I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!"
  
 "Stop complaining," Bruce says. "Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself."
-
-}
-#if(v_agility < 3 && v_combat_technique < 2) {
- 
-
-I decide to take advantage of the opportunity Leila gave me, by making a dash towards the troll and attempting to cut his head off from the side where his shoulder pad had been shattered. Velgos sees me coming, and he slashes one of his scimitars towards me, but I manage to dodge it, and I go straight for his neck. Unfortunately, the troll's first strike was never meant to hit its target, but only to lead me into the path of his second scimitar. I never got the chance to dodge his second blow, which severed my head from my shoulders, and killed me on the spot.
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_combat_technique < 2)
@@ -440,6 +440,16 @@ I get just close enough to him in order to make him attack me, and then I try to
 Leila immediately understands the intent behind my actions, and as soon as Velgos takes his eyes off her, she makes one quick dash towards him, swinging one of her daggers towards his neck, from the side where his shoulder pad had been shattered. She cuts his head off in a single movement, and then she grabs it by the hair and throws it on the ground. Almost immediately afterwards, she stomps on the troll's head, crushing it underneath her sandal.
 
 }
+#if(v_agility < 3 && v_reflexes < 3) {
+ 
+
+Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
+
+I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.
+
+I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I don't get the chance to dodge his strike, and one of his scimitars beheads me on the spot.
+
+}
 #if(v_agility >= 3 || v_reflexes >= 3) {
  The troll's body jumps away from us, but the head on the ground does not seem to be regenerating. Instead, a new head is now forming itself, starting from Velgos' neck. It only takes about five seconds until the head gets regenerated completely, although, judging by the expression on his face, this must have been a particularly painful process.
 
@@ -454,16 +464,6 @@ Not long after his warning, two very large ogres make their way out of the gate 
 "I knew it," our mage teammate says. "I knew that they wouldn't make it as easy for us as fighting a single troll. They just had to bring in the ogres too!"
  
 "Stop complaining," Bruce says. "Ogres are easy to beat. They're dumb, and they're slow as snails. I can take them both on myself."
-
-}
-#if(v_agility < 3 && v_reflexes < 3) {
- 
-
-Leila is probably going to have a better chance at cutting the troll's head than I will. I just need to make sure that she can sneak up on him.
-
-I rush towards Velgos, with my enchanted knife at the ready, pretending that I want to stab him in the chest.
-
-I get just close enough to him in order to make him attack me, and then I try to dash back, but I'm not fast enough, and the troll catches me on the wrong footing. I don't get the chance to dodge his strike, and one of his scimitars beheads me on the spot.
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility < 3 && v_reflexes < 3)

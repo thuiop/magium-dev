@@ -1489,9 +1489,11 @@ choice("Continue", Ch9-Final-march, v_current_scene = Ch9-Final-march) if (v_ch9
 ID: Ch9-Final-march
 TEXT:
 
+set(v_ac_ch9_observer,1) if (v_hearing >= 2 && v_perception >= 1)
 set(v_ch9_ogres,1) if (v_ch9_take_rose == 0 && v_hearing < 2 || v_ch9_take_rose == 1 && v_hearing < 2)
 set(v_ch9_ogres,2) if (v_ch9_take_rose == 0 && v_perception == 0 && v_hearing >= 2 || v_ch9_take_rose == 1 && v_perception == 0 && v_hearing >= 2)
 set(v_ch9_ogres,3) if (v_hearing >= 2 && v_perception >= 1)
+achievement("Keen observer",v_ac_ch9_observer)
 #if(v_ch9_take_rose == 0 && v_hearing < 2) {
  
 
@@ -1821,6 +1823,8 @@ choice("Load game", , , special:saves)
 ID: Ch9-Throw
 TEXT:
 
+set(v_ac_ch9_decision,1)
+achievement("A wise decision",v_ac_ch9_decision)
   I do as the shaman says, and throw my crossbow at his feet. I then take my dagger out and throw it away as well. Daren hesitates for a few seconds, but eventually he follows my example and throws down both his sword and his shield. Hadrik and Flower were carrying no weapons with them, so they simply stood there, looking at the ogre.
 
 "A wise decision," the shaman says, as he gestures towards his two associates.

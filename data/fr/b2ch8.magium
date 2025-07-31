@@ -263,6 +263,8 @@ choice("Continue", B2-Ch08a-Trailing, v_current_scene = B2-Ch08a-Trailing)
 ID: B2-Ch08a-Trailing
 TEXT:
 
+set(v_ac_b2_ch8_trivia,1) if (v_b2_ch8_tickle == 0)
+achievement("Stillwater trivia",v_ac_b2_ch8_trivia)
 #if(v_b2_ch8_tickle == 0) {
  "Because Eiden decided after the still winter that we should keep what happened to us a secret," Melindra says. "He was worried that if people found out how we became stillwaters, certain individuals might try to exploit that knowledge for their own benefit."
 
@@ -598,10 +600,12 @@ choice("Continue", B2-Ch08a-Crossbow, v_current_scene = B2-Ch08a-Crossbow)
 ID: B2-Ch08a-Crossbow
 TEXT:
 
+set(v_ac_b2_ch8_savior,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 && v_reflexes < 2)
 set(v_b2_ch8_saved,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 set(v_b2_ch8_saved,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 && v_reflexes < 2)
 set(v_is_dead,0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 set(v_is_dead,1) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
+achievement("Unexpected savior",v_ac_b2_ch8_savior)
 #if(v_combat_technique >= 1) {
  
 
@@ -722,6 +726,8 @@ choice("Continue", B2-Ch08a-Fight, v_current_scene = B2-Ch08a-Fight) if (v_b2_ch
 ID: B2-Ch08a-Goblins
 TEXT:
 
+set(v_ac_b2_ch8_effects,1) if (v_b2_ch7_dizziness == 0)
+achievement("Side effects",v_ac_b2_ch8_effects)
 #if(v_b2_ch7_dizziness == 0) {
  "Flower! Illuna!" I say. "I want to go check why the two goblin mages haven't attacked us yet. Could you come with me? We should be able to find where they're hiding, with a little help from Arraka."
 
@@ -822,20 +828,6 @@ As I take a look towards the three orcs that were fighting Leila, all of the com
 "Leila, step away from the orcs," I say.
 
 }
- Leila complies right away, and she puts as much distance as she can between herself and the two remaining mace-wielding orcs, although one of them immediately begins to follow her. I swing my tree like a club, and I hit the orc that stayed behind from the side, completely crushing his internal organs, and killing him before he hits the ground. Seeing that there is only one orc left aside from the captain, Leila stops moving away from the battlefield, and she dashes straight for her pursuer, slicing his neck wide open, without giving him any time to react.
-
-"HAHAHAHA!" Hadrik laughs, all of a sudden. "What a great idea! Why didn't I think of that?"
-
-He then dashes towards a tree behind him and he pulls it straight out of the ground, roots and all. As soon as he acquires his new weapon, Hadrik tries to squash one of the ogres underneath its weight, but the monster simply blocks the tree with his club, as the force of the blow pushes him one foot into the ground. 
-
-"Daren, you might want to move away from there..." I say, as Daren jumps away from the orc captain, and I swing my tree at him, in an attempt to squash him like I did with his companions.
-
- The orc does not let himself get intimidated, and he swings his flaming axes so fast that he cuts my tree into six pieces before it even reaches him. As the now burning pieces of wood fall on the ground beside him, the orc is looking straight at me, with a very pissed off look on his face.
-
-"Damn..." I say, as I look at the big chunk of wood that I still have left in my hands.
-
-Instead of engaging me, however, the orc captain reaches for a horn that he was wearing around his neck, and he blows in it as loud as he can. As soon as he does this, the ogres step back from Hadrik, and a very bright white light begins to engulf all of the monsters, while their bodies start to vibrate loudly.
-
 #if(v_b2_ch5_scimitar == 0) {
  
 
@@ -852,6 +844,20 @@ As I take a look towards the three orcs that were fighting Leila, all of the com
 "Leila, step away from the orcs," I say.
 
 }
+ Leila complies right away, and she puts as much distance as she can between herself and the two remaining mace-wielding orcs, although one of them immediately begins to follow her. I swing my tree like a club, and I hit the orc that stayed behind from the side, completely crushing his internal organs, and killing him before he hits the ground. Seeing that there is only one orc left aside from the captain, Leila stops moving away from the battlefield, and she dashes straight for her pursuer, slicing his neck wide open, without giving him any time to react.
+
+"HAHAHAHA!" Hadrik laughs, all of a sudden. "What a great idea! Why didn't I think of that?"
+
+He then dashes towards a tree behind him and he pulls it straight out of the ground, roots and all. As soon as he acquires his new weapon, Hadrik tries to squash one of the ogres underneath its weight, but the monster simply blocks the tree with his club, as the force of the blow pushes him one foot into the ground. 
+
+"Daren, you might want to move away from there..." I say, as Daren jumps away from the orc captain, and I swing my tree at him, in an attempt to squash him like I did with his companions.
+
+ The orc does not let himself get intimidated, and he swings his flaming axes so fast that he cuts my tree into six pieces before it even reaches him. As the now burning pieces of wood fall on the ground beside him, the orc is looking straight at me, with a very pissed off look on his face.
+
+"Damn..." I say, as I look at the big chunk of wood that I still have left in my hands.
+
+Instead of engaging me, however, the orc captain reaches for a horn that he was wearing around his neck, and he blows in it as loud as he can. As soon as he does this, the ogres step back from Hadrik, and a very bright white light begins to engulf all of the monsters, while their bodies start to vibrate loudly.
+
 choice("Continue", B2-Ch08a-Retreat, v_current_scene = B2-Ch08a-Retreat)
 
 
@@ -984,6 +990,8 @@ choice("Load game", , , special:saves) if (v_combat_technique < 2 && v_toughness
 ID: B2-Ch08a-Retreat
 TEXT:
 
+set(v_ac_b2_ch8_tree,1) if (v_b2_ch8_goblins == 2)
+achievement("Tree wielder",v_ac_b2_ch8_tree)
 #if(v_b2_ch8_goblins == 0) {
  "Crap, they're getting away!" Daren says, as he rushes towards the captain, but it is too late.
 
@@ -1384,12 +1392,6 @@ TEXT:
 "Okay..." I say. "Then let me ask you something else. Why exactly did you need to bend your knees and to keep your elbows close to your body when you cast the spell that blew away the orc who was attacking you? Because as far as I'm aware, that stance is what they teach novice elementalists at the very beginning of their training, in order to help them better control their powers, when they are still getting accustomed to them. Are you still getting accustomed to your powers, after six hundred years, Melindra?"
 
 }
-#if(v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1) {
- "I..." Melindra starts to say, but she hesitates, and I interrupt her.
-
-"Or is it perhaps that Arraka was speaking literally, when she said that you don't know how to hold back?..." I say. "Those crazy stillwater powers must surely come with some sort of drawbacks, no? I would expect someone like Eiden, who knows all the ins and outs of magic to find a way around such a problem, but you don't seem like the type. You still haven't learned how to control your stillwater powers properly, have you? It's too much for you to handle, and you're afraid that you'll accidentally put too much power behind one of your spells, and blow us all away, while also killing yourself in the process because of that oath you made."
-
-}
 #if(v_b2_ch8_saved == 1) {
  "I don't know what you're talking about," Melindra says, feigning ignorance. "I didn't lie about anything."
 
@@ -1402,6 +1404,12 @@ TEXT:
 "I don't KNOW!" Melindra says. "I just did it on a whim!"
 
 "Okay..." I say. "Then let me ask you something else. Why exactly did you need to bend your knees and to keep your elbows close to your body when you cast the spell that blew away the orc who was attacking you? Because as far as I'm aware, that stance is what they teach novice elementalists at the very beginning of their training, in order to help them better control their powers, when they are still getting accustomed to them. Are you still getting accustomed to your powers, after six hundred years, Melindra?"
+
+}
+#if(v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1) {
+ "I..." Melindra starts to say, but she hesitates, and I interrupt her.
+
+"Or is it perhaps that Arraka was speaking literally, when she said that you don't know how to hold back?..." I say. "Those crazy stillwater powers must surely come with some sort of drawbacks, no? I would expect someone like Eiden, who knows all the ins and outs of magic to find a way around such a problem, but you don't seem like the type. You still haven't learned how to control your stillwater powers properly, have you? It's too much for you to handle, and you're afraid that you'll accidentally put too much power behind one of your spells, and blow us all away, while also killing yourself in the process because of that oath you made."
 
 }
 choice("Continue", B2-Ch08a-Image, v_current_scene = B2-Ch08a-Image) if (v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1)
@@ -1422,14 +1430,6 @@ Melindra frowns at me, but she doesn't say anything.
 "I swear..." Melindra says, with a menacing look in her eyes. "If you plan on telling anyone about this..."
 
 }
-#if(v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1) {
- "You'll what?" I ask her. "Pat me slightly on the back? Caress me softly? Because that's about the most you can do to me after that vow you made. I bet you must be regretting your decision to make that oath life-binding now, huh?"
-
-"A little..." Melindra says.
-
-"Relax," I tell her. "I don't have any reason to tell anyone about this. It's not like you could help us if you wanted to. If you want to appear as even more unlikeable than you already are, then who am I to stop you?"
-
-}
 #if(v_b2_ch8_tornado == 1) {
  "No, you're wrong!" Melindra says. "The only reason why I used that stance was because I was still tired after casting that tornado earlier, and I wanted to be extra safe!"
 
@@ -1440,6 +1440,14 @@ Melindra frowns at me, but she doesn't say anything.
 "What I don't understand is why you would purposely avoid telling us about it," I say. "Do you really care about your image that much? Is it really so important for you to be known as this perfect and all-powerful stillwater that can do no wrong, that you'd be willing to risk this entire mission?"
 
 "I swear..." Melindra says, with a menacing look in her eyes. "If you plan on telling anyone about this..."
+
+}
+#if(v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1) {
+ "You'll what?" I ask her. "Pat me slightly on the back? Caress me softly? Because that's about the most you can do to me after that vow you made. I bet you must be regretting your decision to make that oath life-binding now, huh?"
+
+"A little..." Melindra says.
+
+"Relax," I tell her. "I don't have any reason to tell anyone about this. It's not like you could help us if you wanted to. If you want to appear as even more unlikeable than you already are, then who am I to stop you?"
 
 }
 choice("Continue", B2-Ch08a-Unlikeable, v_current_scene = B2-Ch08a-Unlikeable) if (v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1)
@@ -1719,6 +1727,20 @@ TEXT:
 "No," Leila says. "My father once told me that the physical stats from the device enhance the physical abilities that you already have, and that the more fit you are, physically, the more effect those stats will have on you. Given that I've always had a very frail constitution, this is the most I can get out of my stat device, at my current levels."
 
 }
+#if(v_b2_ch1_interfere == 1) {
+ "Don't forget that there were also lessathi in the city."
+
+"The lessathi we fought did not have any stat devices with them," Leila writes. "Even if they were hiding them somewhere, I should have still been able to detect them with the help of my own device. Also, one of those lessathi came to threaten me while I was still in my cell, and he wasn't carrying a stat device back then either."
+
+"A lessathi threatened you?" Kate asks.
+
+"Yes," Leila writes. "He was trying to convince me to hand over my stat booster to him, but I refused to do it. He later ordered the arena owner to confiscate it from me, but the owner decided to not listen to him, because he wanted me to keep my stat device, in order to make the fight more interesting."
+
+"I just remembered that there was something else that I wanted to ask about the stat device," I say. "Leila, you told me that you had level three in both strength and speed, but when you were fighting in the arena, you didn't seem to be much stronger or faster than that troll with the high regeneration. Is your device defective by any chance?"
+
+"No," Leila says. "My father once told me that the physical stats from the device enhance the physical abilities that you already have, and that the more fit you are, physically, the more effect those stats will have on you. Given that I've always had a very frail constitution, this is the most I can get out of my stat device, at my current levels."
+
+}
 #if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "Huh..." I say. "Well, then, I guess that all those months I've spent doing physical training in preparation for this tournament were not wasted after all."
 
@@ -1733,20 +1755,6 @@ TEXT:
 "Melindra can go sleep in the river, for all I care," Kate says. "It's not like she's going to help guard the camp in any way. Which reminds me that I should be preparing to take the first shift. You guys should go get some sleep. Neither of you are scheduled to take any shifts tonight, so you might as well enjoy your rest."
 
 We decide to take Kate's advice, and we each head towards our tents. Once I get inside, I place my notebook in my backpack and I prepare to go to bed. I still have some stuff that I'd want to read, but I can do that in the morning. 
-
-}
-#if(v_b2_ch1_interfere == 1) {
- "Don't forget that there were also lessathi in the city."
-
-"The lessathi we fought did not have any stat devices with them," Leila writes. "Even if they were hiding them somewhere, I should have still been able to detect them with the help of my own device. Also, one of those lessathi came to threaten me while I was still in my cell, and he wasn't carrying a stat device back then either."
-
-"A lessathi threatened you?" Kate asks.
-
-"Yes," Leila writes. "He was trying to convince me to hand over my stat booster to him, but I refused to do it. He later ordered the arena owner to confiscate it from me, but the owner decided to not listen to him, because he wanted me to keep my stat device, in order to make the fight more interesting."
-
-"I just remembered that there was something else that I wanted to ask about the stat device," I say. "Leila, you told me that you had level three in both strength and speed, but when you were fighting in the arena, you didn't seem to be much stronger or faster than that troll with the high regeneration. Is your device defective by any chance?"
-
-"No," Leila says. "My father once told me that the physical stats from the device enhance the physical abilities that you already have, and that the more fit you are, physically, the more effect those stats will have on you. Given that I've always had a very frail constitution, this is the most I can get out of my stat device, at my current levels."
 
 }
 choice("Continue", B2-Ch08a-Unnoticed, v_current_scene = B2-Ch08a-Unnoticed) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
@@ -1860,6 +1868,8 @@ choice("Let her sleep in the tent for a few hours, and go join Kate on her night
 ID: B2-Ch08a-Gentleman
 TEXT:
 
+set(v_ac_b2_ch8_gentleman,1)
+achievement("A true gentleman",v_ac_b2_ch8_gentleman)
  "Actually, I think I have another idea," I say.
 
 I then struggle to crawl over her on all fours, in order to reach the entrance of the tent.

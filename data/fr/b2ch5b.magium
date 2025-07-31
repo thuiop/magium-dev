@@ -556,6 +556,8 @@ choice("Stab him in the right leg, but spare his life", B2-Ch05b-Spare, v_curren
 ID: B2-Ch05b-Spare
 TEXT:
 
+set(v_ac_b2_ch5_speaker,1) if (v_b2_ch5_spare == 1)
+achievement("Public speaker",v_ac_b2_ch5_speaker)
 #if(v_b2_ch5_spare == 0) {
  I take my weapon away from the man's throat, and then I use it to stab him directly in the heart, granting him a quick death.
 
@@ -702,6 +704,8 @@ choice("Continue", B2-Ch05b-Caliber, v_current_scene = B2-Ch05b-Caliber) if (v_b
 ID: B2-Ch05b-Caliber
 TEXT:
 
+set(v_ac_b2_ch5_united,1) if (v_b2_ch5_spare == 1 && v_b2_ch5_wilhelm == 1)
+achievement("United we stand",v_ac_b2_ch5_united)
 #if(v_b2_ch5_spare == 0) {
  "Very well," the announcer says. "While we're at it, is there anyone else who would like to join the undesirables' side?"
 
@@ -714,16 +718,6 @@ One of the gladiators begins to move forward, but another one pulls him back, fr
 "Do you have a death wish?" the gladiator from behind says. "Don't you see who you're up against? That dwarf pulverized half of the manticores and the scorpions all by himself! And that healer in armor pretty much fought all the monsters by himself too, and he doesn't even have a scratch. You'd have to be insane to want to fight them!"
 
 Hearing the gladiator's speech, the few other warriors who were planning to join the final round are now all starting to have second thoughts.
-
-}
-#if(v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1) {
- "Really?" the announcer asks, shocked, as he sees that none of the gladiators are volunteering to fight. "No one? Do you people realize what you can gain if you kill either one of those warriors in front of you? You can be freed just like that, or get showered with riches!"
-
-"Better to be poor than dead," one of the gladiators says, while many of the others nod in agreement.
-
-"What do you all think you are doing?" the ambassador shouts furiously, as he comes running into the fighting area once more. "Why aren't you fighting them? There are dozens of you! Dozens!"
-
-"Numbers don't mean anything when you're up against enemies of that caliber," one of the gladiators says.
 
 }
 #if(v_b2_ch5_spare == 1) {
@@ -742,6 +736,16 @@ One of the gladiators begins to move forward, but another one pulls him back, fr
 "Do you have a death wish?" the gladiator from behind says. "Don't you see who you're up against? That dwarf pulverized half of the manticores and the scorpions all by himself! And that healer in armor pretty much fought all the monsters by himself too, and he doesn't even have a scratch. You'd have to be insane to want to fight them!"
 
 Hearing the gladiator's speech, the few other warriors who were planning to join the final round are now all starting to have second thoughts.
+
+}
+#if(v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1) {
+ "Really?" the announcer asks, shocked, as he sees that none of the gladiators are volunteering to fight. "No one? Do you people realize what you can gain if you kill either one of those warriors in front of you? You can be freed just like that, or get showered with riches!"
+
+"Better to be poor than dead," one of the gladiators says, while many of the others nod in agreement.
+
+"What do you all think you are doing?" the ambassador shouts furiously, as he comes running into the fighting area once more. "Why aren't you fighting them? There are dozens of you! Dozens!"
+
+"Numbers don't mean anything when you're up against enemies of that caliber," one of the gladiators says.
 
 }
 choice("Continue", B2-Ch05b-Cancelled, v_current_scene = B2-Ch05b-Cancelled) if (v_b2_ch5_spare == 0 || v_b2_ch5_spare == 1)
@@ -1323,6 +1327,16 @@ While Tyrath is busy heating up his body, Golmyck and I manage to position ourse
 He then pulls on a lever to his right, and the cargo hold opens below us, dropping the rope.
 
 }
+#if(v_b2_ch5_pilot == 0) {
+ Tyrath's eyes start glowing bright red all of a sudden, and he looks more pissed off than ever. He now seems to be voluntarily increasing his body temperature to an alarming degree, because I'm beginning to see steam coming out from all over him. He must be trying to evaporate all the water from his body, in order to be able to breathe fire again. 
+
+While Tyrath is busy heating up his body, Golmyck and I manage to position ourselves right above the dragon, and we ready ourselves to drop the rope on him.  As soon as the dragon achieves his purpose of evaporating all of the water inside him, he uses the last of his breath to exhale a large flame from his mouth, eliminating all of the water that was surrounding his head until now.
+
+"Now!" Golmyck says, as we watch the dragon gasp for air.
+
+"Aye, aye, sir!" I say, and I pull on the lever to my right, which opens the cargo hold below us, dropping the rope.
+
+}
 #if(v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1) {
  Just as the gnome said, the rope unfurls as it falls, and then it starts spinning by itself. The dragon is too busy catching his breath to look above him, and as soon as the rope reaches him, it ties itself around his wings, preventing him from flapping them any further. Tyrath looks shocked, as he starts falling towards the ground, and his first reaction is to try and break free from the rope by using the force of his wings. Failing that, he begins to chew on the rope with his fangs, while also attempting to cut it with his claws, but it's no use. As he gets closer to the ground, the dragon tries using the last of his magic energy reserves to slow down his momentum by teleporting a few dozen feet above his position a few times in a row. This does not slow down his falling speed at all, however, and eventually he hits the ground, with an extremely loud noise, creating a crater in the middle of the arena's fighting area, and sending large clouds of dust all around him.
 
@@ -1335,16 +1349,6 @@ He then pulls on a lever to his right, and the cargo hold opens below us, droppi
 The rope that was tying the dragon's wings has already been burned into ashes by the dragon's transformation. Tyrath now soars back into the sky, looking more menacing than ever before.
 
 "This is all my fault," Tyrath says, in an unusually calm tone. "I alone am to blame for having given you the illusion that you could actually stand a chance against me. I am now going to fix that mistake. Instead of continuing to fight you individually, I will simply destroy this whole city and everyone in it with a single spell. This way, there will be no more misunderstandings."
-
-}
-#if(v_b2_ch5_pilot == 0) {
- Tyrath's eyes start glowing bright red all of a sudden, and he looks more pissed off than ever. He now seems to be voluntarily increasing his body temperature to an alarming degree, because I'm beginning to see steam coming out from all over him. He must be trying to evaporate all the water from his body, in order to be able to breathe fire again. 
-
-While Tyrath is busy heating up his body, Golmyck and I manage to position ourselves right above the dragon, and we ready ourselves to drop the rope on him.  As soon as the dragon achieves his purpose of evaporating all of the water inside him, he uses the last of his breath to exhale a large flame from his mouth, eliminating all of the water that was surrounding his head until now.
-
-"Now!" Golmyck says, as we watch the dragon gasp for air.
-
-"Aye, aye, sir!" I say, and I pull on the lever to my right, which opens the cargo hold below us, dropping the rope.
 
 }
 choice("Continue", B2-Ch05b-Serious, v_current_scene = B2-Ch05b-Serious) if (v_b2_ch5_pilot == 0 || v_b2_ch5_pilot == 1)
@@ -1470,14 +1474,6 @@ We all exit through the gate, trying to find Enrique , but before we get to even
 He then turns his back on her and heads towards Enrique who was waiting for us not far from the gate. The girl looks mildly irritated by Daren's remark, but it does not look like she's planning to give up just yet. Taking a better look at her, I notice that her clothes, while aesthetically pleasing, do not look much different from the pajamas that they sell on the Western Continent. They remind me quite a lot of the type of clothing that Eiden likes to wear.
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- Wait a minute... This girl knows Eiden... And she wears similar clothing to him... So, does this mean that... No, no, no, what am I even thinking about? It's just a coincidence. There's no way that this girl could be a--
-
-"Hey, Barry, are you coming?" Daren tells me.
-
-"Oh, yeah, yeah, I'll be right there," I say, as I throw the young girl one last hesitant look, and then I head towards Daren.
-
-}
 #if(v_ch11_saved_rose == 1) {
  "Come on," Daren tells us. "I think this is the gate that Rose went through when the evacuation started. She must be waiting for us outside."
 
@@ -1488,6 +1484,14 @@ We all exit through the gate, trying to find Rose , but before we get to even lo
 "Sorry, kid," Daren says, as he pats the girl on the shoulder, briefly. "We're not giving autographs."
 
 He then turns his back on her and heads towards Rose who was waiting for us not far from the gate. The girl looks mildly irritated by Daren's remark, but it does not look like she's planning to give up just yet. Taking a better look at her, I notice that her clothes, while aesthetically pleasing, do not look much different from the pajamas that they sell on the Western Continent. They remind me quite a lot of the type of clothing that Eiden likes to wear.
+
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ Wait a minute... This girl knows Eiden... And she wears similar clothing to him... So, does this mean that... No, no, no, what am I even thinking about? It's just a coincidence. There's no way that this girl could be a--
+
+"Hey, Barry, are you coming?" Daren tells me.
+
+"Oh, yeah, yeah, I'll be right there," I say, as I throw the young girl one last hesitant look, and then I head towards Daren.
 
 }
 choice("Continue", B2-Ch05b-Ending, v_current_scene = B2-Ch05b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -1510,12 +1514,6 @@ TEXT:
 "Damn it, Hadrik!" Daren says. "You are the last person that I want to hear this from. You don't even care about winning the tournament! Didn't you say that you only came here for the challenge? I bet you're only trying to postpone this because you hate the idea of having to go search for pine cones."
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- All of a sudden, Kate, Daren and I slowly begin to get raised from the ground, and as we are floating, we all get turned around, simultaneously, to face the opposite way. Standing in front of us now is the young girl in pajamas from before, smiling pleasantly at us.
-
-"Well, then!" the girl says, with a smile, while clapping her hands together. "Now that I've got your attention, perhaps we could have a little chat? I promise you that this won't take any longer than a few minutes!"
-
-}
 #if(v_ch11_saved_rose == 1) {
  "Thank the gods you are all alive!" Rose says. "When I saw the dragon, I tried to return to the arena immediately, but they wouldn't let me back in! All I could do was watch Kate, Hadrik, Flower and that plane fight the dragon in the sky from out here, but I had no idea what had happened to Barry and Daren, or even if they were still alive!"
 
@@ -1528,6 +1526,12 @@ TEXT:
 "The king?" Rose asks Daren, shocked.
 
 "Yeah, I couldn't believe my eyes, either," Daren says. "I think I'm slowly starting to understand why this guy got elected as your king by such a large majority."
+
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ All of a sudden, Kate, Daren and I slowly begin to get raised from the ground, and as we are floating, we all get turned around, simultaneously, to face the opposite way. Standing in front of us now is the young girl in pajamas from before, smiling pleasantly at us.
+
+"Well, then!" the girl says, with a smile, while clapping her hands together. "Now that I've got your attention, perhaps we could have a little chat? I promise you that this won't take any longer than a few minutes!"
 
 }
 choice("Next chapter", B2-Ch06a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch06a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)

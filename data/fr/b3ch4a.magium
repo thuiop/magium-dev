@@ -83,14 +83,6 @@ TEXT:
 "They're still on the surface," Illuna says. "Meanwhile, we've been teleported to an unidentified underground tunnel by accident, and we're trying to find our way out. We'll explain more as we walk. Let's get moving."
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
- After Breynan heals Leila's concussion that she got from hitting her head against the pavement earlier, we all begin to head in the direction that seems the most likely to lead us towards the surface. With Melindra's help, we manage to avoid the paths leading directly to magical traps for a while, although according to her own words, we will probably be forced to start disarming some of them rather soon.
-
-While we're walking down the corridors, I suddenly hear a long beep coming from my pocket. I immediately realize that the sound is coming from my stat device and I take it out as quickly as I can, in order to get a good look at it. What I'm currently seeing on the screen is a text message, notifying me about the experimental stat activation and asking me if I want to see a quick introduction about what these stats can do.
-
-It looks like I won't be able to see any of my stats until I answer the question on this screen.
-
-}
 #if(v_ch11_saved_rose == 0) {
  "There is... no time to rest," Illuna says, as she slowly gets up on her feet and then nearly falls back to the ground. "For all we know, we could be inside enemy territory right now. We need to keep moving."
 
@@ -105,6 +97,14 @@ Illuna tries to take a few steps forward, but she trips again, as Kate and I rus
 "What happened?" Leila writes, after she calms down a little. "Where are all the royal guard trainees?"
 
 "They're still on the surface," Illuna says. "Meanwhile, we've been teleported to an unidentified underground tunnel by accident, and we're trying to find our way out. We'll explain more as we walk. Let's get moving."
+
+}
+#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
+ After Breynan heals Leila's concussion that she got from hitting her head against the pavement earlier, we all begin to head in the direction that seems the most likely to lead us towards the surface. With Melindra's help, we manage to avoid the paths leading directly to magical traps for a while, although according to her own words, we will probably be forced to start disarming some of them rather soon.
+
+While we're walking down the corridors, I suddenly hear a long beep coming from my pocket. I immediately realize that the sound is coming from my stat device and I take it out as quickly as I can, in order to get a good look at it. What I'm currently seeing on the screen is a text message, notifying me about the experimental stat activation and asking me if I want to see a quick introduction about what these stats can do.
+
+It looks like I won't be able to see any of my stats until I answer the question on this screen.
 
 }
 choice("See the introduction", B3-Ch04a-Introduction, v_current_scene = B3-Ch04a-Introduction, v_b3_ch4_introduction = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -146,22 +146,6 @@ TEXT:
 'The second utility of this stat was discovered during testing,' the next page says. 'While the initial purpose of this stat was only to keep the aura flow stable, a few of the test subjects found out that with enough practice it could also be used to hide their auras completely, making themselves undetectable in terms of magical sense. After receiving this new information, we made a few adjustments to the Bluff stat and also gave it a secondary name, in order to better reflect its potential. If you are unable to use this stat to conceal your aura, please contact the person in charge of your stat activation, so they can readjust your device.'
 
 }
-#if(v_b3_ch4_introduction == 1 && v_b3_ch1_unlock != 2) {
- When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
-
-'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
-
-As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
-
-}
-#if(v_b3_ch1_unlock == 2 && v_b3_ch4_introduction == 1) {
- When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
-
-'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
-
-As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'm also noticing that I have an extra available point to spend. This must be the 'bonus' point that Leila's father said I would gain because of locking my stats by accident. The one that would cause me to gain one less point when I'll be getting my next batch. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
-
-}
 #if(v_b3_ch4_introduction == 0 && v_b3_ch1_unlock != 2) {
  I decide that I want to skip the introduction so I press the corresponding button on my device, which makes a new text appear on the screen.
 
@@ -182,6 +166,22 @@ Oh, so they used to have instructions manuals back when they were first handing 
 As soon as I press the next page button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'm also noticing that I have an extra available point to spend. This must be the 'bonus' point that Leila's father said I would gain because of locking my stats by accident. The one that would cause me to gain one less point when I'll be getting my next batch.
 
 I guess I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
+
+}
+#if(v_b3_ch4_introduction == 1 && v_b3_ch1_unlock != 2) {
+ When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
+
+'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
+
+As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
+
+}
+#if(v_b3_ch1_unlock == 2 && v_b3_ch4_introduction == 1) {
+ When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
+
+'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
+
+As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'm also noticing that I have an extra available point to spend. This must be the 'bonus' point that Leila's father said I would gain because of locking my stats by accident. The one that would cause me to gain one less point when I'll be getting my next batch. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
 
 }
 choice("Invest points now", B3-Ch04a-Stats-spent, v_current_scene = B3-Ch04a-Stats-spent, special:stats) if (v_b3_ch4_introduction == 0 || v_b3_ch4_introduction == 1)
@@ -201,22 +201,6 @@ TEXT:
 'The second utility of this stat was discovered during testing,' the next page says. 'While the initial purpose of this stat was only to keep the aura flow stable, a few of the test subjects found out that with enough practice it could also be used to hide their auras completely, making themselves undetectable in terms of magical sense. After receiving this new information, we made a few adjustments to the Bluff stat and also gave it a secondary name, in order to better reflect its potential. If you are unable to use this stat to conceal your aura, please contact the person in charge of your stat activation, so they can readjust your device.'
 
 }
-#if(v_b3_ch4_introduction == 1 && v_b3_ch1_unlock != 2) {
- When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
-
-'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
-
-As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
-
-}
-#if(v_b3_ch1_unlock == 2 && v_b3_ch4_introduction == 1) {
- When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
-
-'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
-
-As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'm also noticing that I have an extra available point to spend. This must be the 'bonus' point that Leila's father said I would gain because of locking my stats by accident. The one that would cause me to gain one less point when I'll be getting my next batch. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
-
-}
 #if(v_b3_ch4_introduction == 0 && v_b3_ch1_unlock != 2) {
  I decide that I want to skip the introduction so I press the corresponding button on my device, which makes a new text appear on the screen.
 
@@ -237,6 +221,22 @@ Oh, so they used to have instructions manuals back when they were first handing 
 As soon as I press the next page button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'm also noticing that I have an extra available point to spend. This must be the 'bonus' point that Leila's father said I would gain because of locking my stats by accident. The one that would cause me to gain one less point when I'll be getting my next batch.
 
 I guess I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
+
+}
+#if(v_b3_ch4_introduction == 1 && v_b3_ch1_unlock != 2) {
+ When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
+
+'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
+
+As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
+
+}
+#if(v_b3_ch1_unlock == 2 && v_b3_ch4_introduction == 1) {
+ When I press on the 'next page' button one more time, I am shown one final text before I can proceed to my usual stat screen.
+
+'This concludes the introduction of the experimental aura stats,' the text says. 'Pressing on the next page button will now return you to your stat screen. Don't forget that if you had any points invested into your stats before the activation you will need to reinvest them, as they have been reset.'
+
+As soon as I press the button, the stat screen finally appears and I can see that my three new stats have been added right below the other stats, which are currently all at level zero. I'm also noticing that I have an extra available point to spend. This must be the 'bonus' point that Leila's father said I would gain because of locking my stats by accident. The one that would cause me to gain one less point when I'll be getting my next batch. I'll have to think whether I want to start investing my points now, or if I should wait until later before I make my decision.
 
 }
 choice("Continue", B3-Ch04a-Avg-Joe, v_current_scene = B3-Ch04a-Avg-Joe) if (v_agility_aux == 0 && v_ancient_languages_aux == 0 && v_aura_hardening_aux == 0 && v_b3_ch1_unlock == 2 && v_b3_ch4_average_joe == 1 && v_b3_ch4_introduction == 0 && v_bluff_aux == 0 && v_combat_technique_aux == 0 && v_hearing_aux == 0 && v_magical_sense_aux == 0 && v_perception_aux == 0 && v_premonition_aux == 0 && v_reflexes_aux == 0 && v_strength_aux == 0 && v_toughness_aux == 0 || v_agility_aux == 0 && v_ancient_languages_aux == 0 && v_aura_hardening_aux == 0 && v_b3_ch1_unlock == 2 && v_b3_ch4_average_joe == 1 && v_b3_ch4_introduction == 1 && v_bluff_aux == 0 && v_combat_technique_aux == 0 && v_hearing_aux == 0 && v_magical_sense_aux == 0 && v_perception_aux == 0 && v_premonition_aux == 0 && v_reflexes_aux == 0 && v_strength_aux == 0 && v_toughness_aux == 0 || v_agility_aux == 0 && v_ancient_languages_aux == 0 && v_aura_hardening_aux == 0 && v_b3_ch4_average_joe == 1 && v_b3_ch4_introduction == 0 && v_bluff_aux == 0 && v_combat_technique_aux == 0 && v_hearing_aux == 0 && v_magical_sense_aux == 0 && v_perception_aux == 0 && v_premonition_aux == 0 && v_reflexes_aux == 0 && v_strength_aux == 0 && v_toughness_aux == 0 && v_b3_ch1_unlock != 2 || v_agility_aux == 0 && v_ancient_languages_aux == 0 && v_aura_hardening_aux == 0 && v_b3_ch4_average_joe == 1 && v_b3_ch4_introduction == 1 && v_bluff_aux == 0 && v_combat_technique_aux == 0 && v_hearing_aux == 0 && v_magical_sense_aux == 0 && v_perception_aux == 0 && v_premonition_aux == 0 && v_reflexes_aux == 0 && v_strength_aux == 0 && v_toughness_aux == 0 && v_b3_ch1_unlock != 2)
@@ -263,6 +263,8 @@ choice(""Not on this save slot. I'm using this one for the Average Joe achieveme
 ID: B3-Ch04a-Avg-Joe2
 TEXT:
 
+set(v_ac_b3_ch4_demolisher,1) if (v_b3_ch4_demolisher == 3)
+achievement("Fourth wall demolisher",v_ac_b3_ch4_demolisher)
 #if(v_b3_ch4_demolisher == 1 && v_b3_ch1_unlock != 2) {
  "I'm not spending any points. I'll only start investing them when it's absolutely necessary."
 
@@ -709,6 +711,20 @@ While she was talking, Flower suddenly looked like she was about to faint and fa
 "Illuna, how did you manage to get hurt this badly?" Flower asks, shocked. "I can barely even stand up! And how did we get here?... This doesn't look like the rebel base at all!"
 
 }
+#if(v_ch11_saved_rose == 1) {
+ "Even if she casts spells instinctively, I still think it will be less risky than if two of you use the dispelling technique at the same time," I say. "Look, if anything bad happens while she's doing the dispelling, I'll tell her to stop. I'll make sure to monitor the trap's aura closely so that there are no dangerous fluctuations. And if you don't feel like talking to Flower, it's fine. I can teach her all of the motions and incantations myself. You won't have to interact with her at all if you don't want to."
+
+"Really?" Illuna says, while raising an eyebrow. "You'll teach her the motions yourself? With no help from me whatsoever?"
+
+"Yeah, sure," I say. "How hard can it be?"
+
+"Very well, then," Illuna says. "In that case, I will wake her up. She will be with you shortly."
+
+After a few seconds of silence, the blue light in Illuna's eyes disappears, and Flower's eyes regain their natural green color.
+
+"Okay, I'm up, I'm up..." Flower says in a sleepy voice. "What's going on-- wait what is this place? I don't recognize it at all! When did we get out of the rebel base?"
+
+}
 #if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Flower, we'll explain the situation to you later," I say. "For now, we need you to help us disarm this trap. It is made only of fire spells, so you should be able to do the dispelling naturally as long as you simply copy my movements and say the correct incantations. Can you help us?"
 
@@ -751,20 +767,6 @@ When Flower tries to imitate me, she somehow gets the movements completely wrong
 "Right, so with both of your knees slightly bent, you first put the arm on your left side in front like this," I say.
 
 "Got it!" Flower says, as she tries to copy my movements again.
-
-}
-#if(v_ch11_saved_rose == 1) {
- "Even if she casts spells instinctively, I still think it will be less risky than if two of you use the dispelling technique at the same time," I say. "Look, if anything bad happens while she's doing the dispelling, I'll tell her to stop. I'll make sure to monitor the trap's aura closely so that there are no dangerous fluctuations. And if you don't feel like talking to Flower, it's fine. I can teach her all of the motions and incantations myself. You won't have to interact with her at all if you don't want to."
-
-"Really?" Illuna says, while raising an eyebrow. "You'll teach her the motions yourself? With no help from me whatsoever?"
-
-"Yeah, sure," I say. "How hard can it be?"
-
-"Very well, then," Illuna says. "In that case, I will wake her up. She will be with you shortly."
-
-After a few seconds of silence, the blue light in Illuna's eyes disappears, and Flower's eyes regain their natural green color.
-
-"Okay, I'm up, I'm up..." Flower says in a sleepy voice. "What's going on-- wait what is this place? I don't recognize it at all! When did we get out of the rebel base?"
 
 }
 choice("Continue", B3-Ch04a-Coach, v_current_scene = B3-Ch04a-Coach) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
@@ -875,16 +877,6 @@ Everything keeps going as planned until the very last spell. Unfortunately, just
 
 }
 #if(v_magical_sense >= 3) {
- "There was a very subtle trembling in the aura that I could detect thanks to my magical sense stat," I say. "I don't think your two flows were synchronized enough. You should try slowing down your movements when you're doing the dispelling. That should help with your focus."
-
-"Slow down the movements?..." Breynan says. "But the motions need to be done at a certain speed in order for the spells to have any effect!"
-
-"Again, it doesn't matter if your spells wouldn't normally have an effect, since you're only dispelling a trap," I say. "The motions will still be correct even if you perform them at a slower pace. Try doing what I said and you'll see what I mean."
-
-"Very well," Illuna says. "Let us start over, then."
-
-Breynan and Illuna begin dispelling the trap once more, at a much slower pace. I make sure to study the trap's aura very closely while they're doing the casting, but I'm not seeing any trembling this time around. Eventually, they manage to reach the very last spell without any problems and the magical energy radiating from the trap slowly disappears, indicating that the trap has been successfully disarmed.
-
  
 
 For the first few spells, everything goes smoothly. Both Illuna and Breynan are executing their movements perfectly, and the trap is reacting exactly how it should. As they keep casting their spells, however, I can't help but feel that something is wrong. But how can that be? They are not making any mistakes. Their movements are all flawless. Surely it must all be my imagination.
@@ -894,6 +886,16 @@ All of a sudden, I notice a very subtle trembling in the aura of the magical tra
 "Stop the dispelling!" I shout at Illuna and Breynan. "Something is wrong!"
 
 "What do you mean?" Illuna says, as both her and Breynan cancel their technique and the trap's aura stabilizes once again. "Everything was going smoothly. There were no fluctuations in the trap's aura that I could see."
+
+ "There was a very subtle trembling in the aura that I could detect thanks to my magical sense stat," I say. "I don't think your two flows were synchronized enough. You should try slowing down your movements when you're doing the dispelling. That should help with your focus."
+
+"Slow down the movements?..." Breynan says. "But the motions need to be done at a certain speed in order for the spells to have any effect!"
+
+"Again, it doesn't matter if your spells wouldn't normally have an effect, since you're only dispelling a trap," I say. "The motions will still be correct even if you perform them at a slower pace. Try doing what I said and you'll see what I mean."
+
+"Very well," Illuna says. "Let us start over, then."
+
+Breynan and Illuna begin dispelling the trap once more, at a much slower pace. I make sure to study the trap's aura very closely while they're doing the casting, but I'm not seeing any trembling this time around. Eventually, they manage to reach the very last spell without any problems and the magical energy radiating from the trap slowly disappears, indicating that the trap has been successfully disarmed.
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_magical_sense < 3)
@@ -1041,6 +1043,16 @@ We stay perfectly quiet while we climb up the stairs, in order to not give away 
 As soon as we reach the wall at the end of the stairs, Illuna gives us a signal to get ready, and then she knocks lightly on the secret door like before, causing it to slide away and to make way for us to exit the tunnel. To our disappointment, the stairs did not in fact lead us to the surface, but to yet another underground room, although this one seems less like a natural cavern and more of a man-made cellar with a rather high ceiling. This particular room that we ended up in seems to be some sort of closet, because there are a lot of buckets filled with water in here, along with some wet rags that have probably been recently used to wipe the floors.
 
 }
+#if(v_b3_ch4_insist == 1) {
+ Once we are all inside the hidden passage, Illuna touches the wall from before with her hand, causing it to slowly slide back into its original position. We then begin climbing up the stairs, which are being lit by bright blue crystals embedded into the cavern walls, just like the tunnels outside, but also like the tunnels from the rebel base and the ones below the arena from Thilias. 
+
+ There sure seem to be a lot of crystals and seredium rocks underneath Varathia. I wonder if they are in any way connected to all the peculiar stuff happening on this continent, like the talking animals, the mythical creatures and the fact that this is the 'only place' on the earthen plane where you can access the Magium, according to Arraka. Maybe I'll ask her about these things after we get back.
+
+We stay perfectly quiet while we climb up the stairs, in order to not give away our position in case anyone is waiting for us at the other end of this tunnel. According to Melindra, the wall on the other side has an unusually large concentration of seredium in it, which makes it almost impossible to sense anything beyond it. However, this also means that the enemy should not be able to sense us approaching either, which gives us the element of surprise.
+
+As soon as we reach the wall at the end of the stairs, Illuna gives us a signal to get ready, and then she knocks lightly on the secret door like before, causing it to slide away and to make way for us to exit the tunnel. To our disappointment, the stairs did not in fact lead us to the surface, but to yet another underground room, although this one seems less like a natural cavern and more of a man-made cellar with a rather high ceiling. This particular room that we ended up in seems to be some sort of closet, because there are a lot of buckets filled with water in here, along with some wet rags that have probably been recently used to wipe the floors.
+
+}
 #if(v_b3_ch4_insist == 0 || v_b3_ch4_insist == 1) {
  Once Illuna closes the secret door behind us, she steps to the front of the group again and she starts walking towards the next room, which appears to be full of people, judging by what I can sense of their auras from here.
 
@@ -1053,16 +1065,6 @@ Melindra is suddenly interrupted by Flower, who just opened the door leading out
 "No, it's not the royal guards," Flower says in a shaky voice, as she tries to control her body from trembling. "It's... It's..."
 
 When we reach the door and we take a look inside the next room, we immediately understand why Flower was having such a hard time finding her words.
-
-}
-#if(v_b3_ch4_insist == 1) {
- Once we are all inside the hidden passage, Illuna touches the wall from before with her hand, causing it to slowly slide back into its original position. We then begin climbing up the stairs, which are being lit by bright blue crystals embedded into the cavern walls, just like the tunnels outside, but also like the tunnels from the rebel base and the ones below the arena from Thilias. 
-
- There sure seem to be a lot of crystals and seredium rocks underneath Varathia. I wonder if they are in any way connected to all the peculiar stuff happening on this continent, like the talking animals, the mythical creatures and the fact that this is the 'only place' on the earthen plane where you can access the Magium, according to Arraka. Maybe I'll ask her about these things after we get back.
-
-We stay perfectly quiet while we climb up the stairs, in order to not give away our position in case anyone is waiting for us at the other end of this tunnel. According to Melindra, the wall on the other side has an unusually large concentration of seredium in it, which makes it almost impossible to sense anything beyond it. However, this also means that the enemy should not be able to sense us approaching either, which gives us the element of surprise.
-
-As soon as we reach the wall at the end of the stairs, Illuna gives us a signal to get ready, and then she knocks lightly on the secret door like before, causing it to slide away and to make way for us to exit the tunnel. To our disappointment, the stairs did not in fact lead us to the surface, but to yet another underground room, although this one seems less like a natural cavern and more of a man-made cellar with a rather high ceiling. This particular room that we ended up in seems to be some sort of closet, because there are a lot of buckets filled with water in here, along with some wet rags that have probably been recently used to wipe the floors.
 
 }
 choice("Continue", B3-Ch04a-Machine, v_current_scene = B3-Ch04a-Machine) if (v_b3_ch4_insist == 0 || v_b3_ch4_insist == 1)
@@ -1146,24 +1148,6 @@ After a few seconds of simply staring in shock at the dead man in front of me, I
 "The metal that these chains are made of is special," Melindra says, as she slowly approaches the table and then grabs one of the chains in her hand. "If it stays in contact with a person's aura for too long, it forms a symbiotic relationship with them. You can't just remove it by force, because it would be the same as if you were removing one of their vital organs. I'm sorry that I didn't realize this sooner."
 
 }
-#if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 1 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1) {
- "But there's a way to reverse this, right?..." I ask her helplessly, even though I already know the answer she's going to give me. "A way to reattach the chains and to bring this man back to life?..."
-
-"I'm afraid not," Melindra says. "This metal seems to be a heavily modified version of the old prototypes that Billy Bob used to play with the last time I was here, which is why it took me so long to recognize it, but the basic principles should be the same. Once you've cut off the connection by force, there is no way to undo the damage. The only way in which any of the people from this room are ever going to be free is if we find the control room and deactivate these chains from there."
-
-"What if we tried to destroy the metal container?" Leila writes. "Would that not have the same effect as deactivating the chains?"
-
-"If you try to destroy that energy-filled container, it's going to cause an explosion large enough to kill every single person in this room, including us," Melindra says, as she drops the chain from her hand. "Like I said before, deactivating the chains from the control room is the only way to free the prisoners."
-
- "Then we could try to reach that room quickly, before any of the guards--" Kate starts to say, but Melindra interrupts her.
-
-"We have absolutely no way of knowing where they might have placed the control room in this place," Melindra says. "And given the importance of that room, it is no doubt going to be very heavily guarded. We're all weakened after that last fight, and we don't even have all our team members here with us, let alone any of the rebels except Breynan. What we should be focusing on right now is finding a way out. This is no time to be playing hero."   
-
-"No, no, no..." I say, as I frantically grab the severed chains and try to reattach them by hand. "There has to be some kind of way to bring him back. I was only trying to save him! He couldn't have died just like that! How am I going to tell that little girl that I killed her father after she begged me to save him?... I have to find some way to reverse--"
-
-Before I get to finish my sentence, the metal container and all of the chains suddenly begin shining with a bright blue light, as the prisoners from the entire room start screaming in unison.
-
-}
 #if(v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1) {
  I instinctively cut the chains off before giving Melindra the chance to say anything else.
 
@@ -1190,6 +1174,34 @@ After a few seconds of simply staring in shock at the dead man in front of me, I
 "You'd have to find the control room, and deactivate them manually from there," Melindra says. "That would be the only way."
 
 }
+#if(v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0) {
+ "Why?" I ask Melindra. "What's wrong?"
+
+"Do you remember how I said earlier that these chains looked familiar?" Melindra says, as she approaches the table and then grabs one of the chains in her hand. "Well, I just realized why. It's because of the metal they are made of. This metal seems to be a heavily modified version of the old prototypes that Billy Bob used to play with the last time I was here, which is why it took me so long to recognize it, but the basic principles should still be the same. In short, if this metal stays in contact with a person's aura for too long, it forms a symbiotic relationship with them. If you were to remove it by force, it would be the same as if you were removing one of their vital organs. It would kill them in a matter of seconds."
+
+"Are you serious?..." I say. "Then how exactly are you supposed to take off these chains without killing the prisoners?"
+
+"You'd have to find the control room, and deactivate them manually from there," Melindra says. "That would be the only way."
+
+}
+#if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 1 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1) {
+ "But there's a way to reverse this, right?..." I ask her helplessly, even though I already know the answer she's going to give me. "A way to reattach the chains and to bring this man back to life?..."
+
+"I'm afraid not," Melindra says. "This metal seems to be a heavily modified version of the old prototypes that Billy Bob used to play with the last time I was here, which is why it took me so long to recognize it, but the basic principles should be the same. Once you've cut off the connection by force, there is no way to undo the damage. The only way in which any of the people from this room are ever going to be free is if we find the control room and deactivate these chains from there."
+
+"What if we tried to destroy the metal container?" Leila writes. "Would that not have the same effect as deactivating the chains?"
+
+"If you try to destroy that energy-filled container, it's going to cause an explosion large enough to kill every single person in this room, including us," Melindra says, as she drops the chain from her hand. "Like I said before, deactivating the chains from the control room is the only way to free the prisoners."
+
+ "Then we could try to reach that room quickly, before any of the guards--" Kate starts to say, but Melindra interrupts her.
+
+"We have absolutely no way of knowing where they might have placed the control room in this place," Melindra says. "And given the importance of that room, it is no doubt going to be very heavily guarded. We're all weakened after that last fight, and we don't even have all our team members here with us, let alone any of the rebels except Breynan. What we should be focusing on right now is finding a way out. This is no time to be playing hero."   
+
+"No, no, no..." I say, as I frantically grab the severed chains and try to reattach them by hand. "There has to be some kind of way to bring him back. I was only trying to save him! He couldn't have died just like that! How am I going to tell that little girl that I killed her father after she begged me to save him?... I have to find some way to reverse--"
+
+Before I get to finish my sentence, the metal container and all of the chains suddenly begin shining with a bright blue light, as the prisoners from the entire room start screaming in unison.
+
+}
 #if(v_b3_ch3_chains == 0 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0) {
  "What if we tried to destroy the metal container?" Leila writes. "Would that not have the same effect as deactivating the chains?"
 
@@ -1202,16 +1214,6 @@ After a few seconds of simply staring in shock at the dead man in front of me, I
  "So you're just going to leave me here, then?" Alice's father says, with fear in his voice. "If you're just going to abandon me, then at least try cutting the chains! You can't know for sure that I'll die. You can't know! Oh no, I can feel the container activating itself again. Cut the chains! Cut the chains, quick before-- AAGHHH!"
 
 Suddenly, the metal container and all of the chains begin shining with a bright blue light, as the prisoners from the entire room start screaming in unison.
-
-}
-#if(v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0) {
- "Why?" I ask Melindra. "What's wrong?"
-
-"Do you remember how I said earlier that these chains looked familiar?" Melindra says, as she approaches the table and then grabs one of the chains in her hand. "Well, I just realized why. It's because of the metal they are made of. This metal seems to be a heavily modified version of the old prototypes that Billy Bob used to play with the last time I was here, which is why it took me so long to recognize it, but the basic principles should still be the same. In short, if this metal stays in contact with a person's aura for too long, it forms a symbiotic relationship with them. If you were to remove it by force, it would be the same as if you were removing one of their vital organs. It would kill them in a matter of seconds."
-
-"Are you serious?..." I say. "Then how exactly are you supposed to take off these chains without killing the prisoners?"
-
-"You'd have to find the control room, and deactivate them manually from there," Melindra says. "That would be the only way."
 
 }
 choice("Continue", B3-Ch04a-Spectacle, v_current_scene = B3-Ch04a-Spectacle, v_b3_ch4_beg = 0, v_b3_ch4_billy = 0, v_b3_ch4_tasked = 0, v_b3_ch4_drones = 0) if (v_b3_ch3_chains == 0 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 0 && v_b3_ch4_cut == 1 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 0 || v_b3_ch3_chains == 1 && v_b3_ch4_cut == 1)

@@ -1685,6 +1685,8 @@ choice("Try to take the healer by surprise with my speed and stab him in the hea
 ID: Ch7-Intimidate
 TEXT:
 
+set(v_ac_ch7_answer,1)
+achievement("Violence is not the answer",v_ac_ch7_answer)
  I put my hands in my pockets and start walking slowly towards the white mage, trying to mimic Eiden's casual demeanor and laidback smile. As I approach him, the mages that appeared to be part of his group are starting to panic, and they're stepping aside in order to clear my path. When I stop right in front of the healer, looking at him with a smile on my face, I can see his sweat dropping from his forehead. Just as I thought. With the exception of Daren, healers are all bark and no bite.
 
 "What's wrong?" I ask him. "Didn't you say that this was the best time to strike? Well, I'm right here. Give it your best shot!"
@@ -1821,8 +1823,10 @@ choice("Try to avoid getting hit as long as possible", Ch7-Avoid, v_current_scen
 ID: Ch7-Fight
 TEXT:
 
+set(v_ac_ch7_crusher,1) if (v_toughness == 4 && v_strength >= 3 || v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4)
 set(v_is_dead,0) if (v_toughness == 4 && v_strength >= 3 || v_agility >= 2 && v_strength < 3 || v_agility >= 2 && v_toughness < 4 || v_combat_technique >= 3 && v_strength >= 3 && v_toughness < 4)
 set(v_is_dead,1) if (v_agility < 2 && v_strength < 3 || v_agility < 2 && v_combat_technique < 3 && v_toughness < 4)
+achievement("Golem crusher",v_ac_ch7_crusher)
 #if(v_agility >= 2 && v_strength < 3) {
  
 
@@ -2618,8 +2622,10 @@ choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_ro
 ID: Ch7-Accept2
 TEXT:
 
+set(v_ac_ch7_hadrik,1) if (v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2)
 set(v_ch7_win_vs_hadrik,0) if (v_combat_technique == 4 && v_strength < 2 || v_combat_technique < 4 || v_reflexes < 3)
 set(v_ch7_win_vs_hadrik,1) if (v_combat_technique == 4 && v_reflexes >= 3 && v_strength >= 2)
+achievement("Defeated Hadrik",v_ac_ch7_hadrik)
 #if(v_reflexes < 3) {
  
 

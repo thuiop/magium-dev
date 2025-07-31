@@ -634,12 +634,6 @@ choice("Continue", B2-Ch07a-No-Help2, v_current_scene = B2-Ch07a-No-Help2) if (v
 ID: B2-Ch07a-No-Help2
 TEXT:
 
-#if(v_ch11_saved_rose == 0) {
- "That's because the spell shocks you at faster intervals if it sees that you're trying to break free!" I say. "It doesn't work that way. You need to be relaxed, and to only try to escape at the very last second. Of course, you can't know how often it will shock you until you let yourself get shocked a few times, while counting the number of seconds for each interval. The intervals will not always be of the same length, but there will usually be a pattern that you can figure out. Once you're sure that you got the count right, you wait for the last moment, and only then you try to escape. Obviously, the easier way around this would be to use protection against electricity, but with the amount of energy it takes to keep that protection up and running, you'd have to be insane to use it at all times, on the off-chance that you'll get attacked by an electrical spell other than the standard ones."
-
-"Uh," Hadrik says, "not that I want to interrupt you or anything, but we should really hurry up if we want to finish the game before Enrique is done with the feast preparations. We likely only have about twenty minutes left until the food is done, and everyone except Leila still has at least five cards left in their hands."
-
-}
 #if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Uh..." I say. "Okay... So, you mean the advanced version from the standard white mage spellbook. And Hadrik, I assume that you are relying on your partial resistance that comes from being a giant in order to defend yourself from such spells?"
 
@@ -656,6 +650,12 @@ TEXT:
  "I doubt it," I say. "The spell that he used seemed to have certain rules and limitations, which would not have been the case if he could have used electricity freely, as an element. The electric spell that he used to paralyze you felt extremely similar to a spell that I had access to, back when I had my stat device powered up, so it's likely the same one. I don't remember every single detail about it, but it was one of those spells that you could only cast once a day, and I know for sure that one major drawback of the spell was the fact that the area of effect was extremely small. I mean, you could pretty much just roll over to the side, and the following electrical currents would not target you anymore. The only reason why it worked against you was because you three happened to be standing very close together, and because you didn't know what kind of spell you were up against. If you knew how it worked, then you could have just gotten out of the way at the exact moment before a new electrical current hit you, since the effect of the paralysis wears off a bit, right before each new shock."
 
 "Yeah, I very much doubt that I could have done that," Daren says, "since I was trying to break free of the spell's effect the whole time, and it didn't work."
+
+}
+#if(v_ch11_saved_rose == 0) {
+ "That's because the spell shocks you at faster intervals if it sees that you're trying to break free!" I say. "It doesn't work that way. You need to be relaxed, and to only try to escape at the very last second. Of course, you can't know how often it will shock you until you let yourself get shocked a few times, while counting the number of seconds for each interval. The intervals will not always be of the same length, but there will usually be a pattern that you can figure out. Once you're sure that you got the count right, you wait for the last moment, and only then you try to escape. Obviously, the easier way around this would be to use protection against electricity, but with the amount of energy it takes to keep that protection up and running, you'd have to be insane to use it at all times, on the off-chance that you'll get attacked by an electrical spell other than the standard ones."
+
+"Uh," Hadrik says, "not that I want to interrupt you or anything, but we should really hurry up if we want to finish the game before Enrique is done with the feast preparations. We likely only have about twenty minutes left until the food is done, and everyone except Leila still has at least five cards left in their hands."
 
 }
 #if(v_ch11_saved_rose == 1) {
@@ -798,16 +798,6 @@ He then stamps two more documents, and he hands them over to us, so we can each 
 
 }
 #if(v_b2_ch7_tunnel == 0 || v_b2_ch7_tunnel == 1) {
- "What?..." Daren says, as he's trying to focus on his cards while listening to me. "Oh, yeah, I remember. What about it?"
-
-"How many spells do you have that protect you against paralysis?" I say. 
-
-"Just one," Daren says. "And the shield does not protect against paralysis, so it's not protection overload!"
-
-"Okay, okay," I say. "Is anyone else using protection against paralysis?"
-
-"Yes," Kate says. "I use the spell described in the latest 'Advanced Theory of Magic' book by Azarius."
-
  "There you go," the king says. "These papers should be enough to absolve you of your crimes, no matter where you go in Varathia. Now, if there's nothing else you need from me, I will be resuming my work on the lessathi device that was supposed to send you the instructions related to the tournament's objectives, telepathically. I've been trying to get it fixed for more than a week, but I still can't figure out what's wrong with it, so you can imagine how frustrating this has been for me."
 
 As Golmyck goes to work on his device, Hadrik puts down his backpack, and he reaches within it, to pull out a deck of playing cards.
@@ -817,6 +807,16 @@ As Golmyck goes to work on his device, Hadrik puts down his backpack, and he rea
 We spend the next hour or so playing a card game that Hadrik learned from dwarven taverns. Apparently, one of the original rules of the game was that a player needed to take a sip of dwarven ale every time they lost a hand, but we had to scrap this rule for obvious reasons. The game involved a lot of bluffing, so it was no surprise that Leila was the one who came out on top, given that she could read auras, to tell if someone was lying. Since I was the one she could get a read on the easiest because of my 'spiky' aura, I eventually got tired of losing every single match, and I decided to take a break to read my notebook some more, in the hopes of finding more loopholes that Eiden might be using.
 
 "Hey, Daren," I say, after reading through the notebook for some time. "Remember that one time when Eiden paralyzed every one of you? Right before he teleported us in front of Thilias?"
+
+ "What?..." Daren says, as he's trying to focus on his cards while listening to me. "Oh, yeah, I remember. What about it?"
+
+"How many spells do you have that protect you against paralysis?" I say. 
+
+"Just one," Daren says. "And the shield does not protect against paralysis, so it's not protection overload!"
+
+"Okay, okay," I say. "Is anyone else using protection against paralysis?"
+
+"Yes," Kate says. "I use the spell described in the latest 'Advanced Theory of Magic' book by Azarius."
 
 }
 choice("Continue", B2-Ch07a-Unconscious, v_current_scene = B2-Ch07a-Unconscious) if (v_b2_ch7_tunnel == 0 || v_b2_ch7_tunnel == 1)
@@ -853,6 +853,18 @@ choice("Continue", B2-Ch07a-Careful, v_current_scene = B2-Ch07a-Careful)
 ID: B2-Ch07a-Careful
 TEXT:
 
+#if(v_b2_ch7_tunnel == 0 || v_b2_ch7_tunnel == 1) {
+ "Uh," Hadrik says, "not that I want to interrupt you or anything, but we should really hurry up if we want to finish the game before we leave. We've only got about half an hour left before the lessathi meeting, and everyone except Leila still has at least six cards left in their hands."
+
+Once Hadrik and the others finish their game, we leave our backpacks in the care of king Golmyck, and we all get ready to descend into the tunnels below.
+
+"Be careful," Golmyck says, before we leave. "The lessathi may not be mages, but their highly advanced magical devices make them into as big a threat as some of the most skilled participants that have joined this tournament. I would have given you more information about them, but unfortunately the only thing I know is that the one wielding two scythes is using electric attacks. The functions of the others' devices are still unknown to me."
+
+"Well," I say, "at least we know who we'll be targeting first."
+
+The king opens a trapdoor which leads to the underground corridors, and an extension ladder drops down, allowing us to reach the floor of the tunnel safely. We climb down one by one, and once we all reach the lower level, Golmyck wishes us luck, and he pulls the ladder back up, closing the trapdoor with a loud thump. Looking up, I can barely tell that there had been an open trapdoor on the ceiling above us, only seconds ago. The texture of the secret door blends perfectly with the rocky surface of the ceiling and walls, making it completely hidden, unless you know exactly where to look for it.
+
+}
 #if(v_b2_ch7_tunnel == 0) {
  We travel through the corridors for a few minutes, making sure to carefully follow the directions that the king gave us, while periodically asking Arraka if she doesn't sense any guards on our way to the lessathi headquarters.
 
@@ -871,18 +883,6 @@ TEXT:
 "A little earlier than they were supposed to, but not by much," Daren says, as he also looks towards the hologram in front of Flower. "We should still make it there before they finish. It won't be long until we reach the last corridor, and then--"
 
 He stops in his tracks, as he looks towards the hologram, with a thoughtful expression on his face.
-
-}
-#if(v_b2_ch7_tunnel == 0 || v_b2_ch7_tunnel == 1) {
- "Uh," Hadrik says, "not that I want to interrupt you or anything, but we should really hurry up if we want to finish the game before we leave. We've only got about half an hour left before the lessathi meeting, and everyone except Leila still has at least six cards left in their hands."
-
-Once Hadrik and the others finish their game, we leave our backpacks in the care of king Golmyck, and we all get ready to descend into the tunnels below.
-
-"Be careful," Golmyck says, before we leave. "The lessathi may not be mages, but their highly advanced magical devices make them into as big a threat as some of the most skilled participants that have joined this tournament. I would have given you more information about them, but unfortunately the only thing I know is that the one wielding two scythes is using electric attacks. The functions of the others' devices are still unknown to me."
-
-"Well," I say, "at least we know who we'll be targeting first."
-
-The king opens a trapdoor which leads to the underground corridors, and an extension ladder drops down, allowing us to reach the floor of the tunnel safely. We climb down one by one, and once we all reach the lower level, Golmyck wishes us luck, and he pulls the ladder back up, closing the trapdoor with a loud thump. Looking up, I can barely tell that there had been an open trapdoor on the ceiling above us, only seconds ago. The texture of the secret door blends perfectly with the rocky surface of the ceiling and walls, making it completely hidden, unless you know exactly where to look for it.
 
 }
 choice("Continue", B2-Ch07a-Premonition, v_current_scene = B2-Ch07a-Premonition) if (v_b2_ch7_tunnel == 0)
@@ -993,34 +993,6 @@ As soon as the rock hits the ground, a big explosion covers the area around it, 
 "I don't know..." I say. "Arraka, you wouldn't happen to detect any other tunnels around here that aren't marked on the king's map, would you?"
 
 }
-#if(v_b2_ch7_rock == 0 && v_b2_ch7_tunnel == 0 || v_b2_ch7_rock == 1 && v_b2_ch7_tunnel == 0) {
- "Huh?" Arraka asks. "Oh, I do, actually... Hold on, let me add them to the hologram."
-
-A few seconds after she's done talking, three more blue corridors appear on the hologram that is floating in front of her amulet.
-
-"Hey, look," I say, "one of those corridors seems to link the tunnel we're currently in with one of the seredium tunnels. And that tunnel also leads towards the lessathi headquarters."
-
-"Yeah, but I can't guarantee that the seredium tunnel is currently functional," Arraka says. "Like I said before, I only put it there because it was on the gnome's map. I can't sense anything inside it. It may as well be filled with guards, for all I know."
-
-"Well, it's better than nothing," I say. "Which wall leads to the secret tunnel? That one?"
-
-I then point towards a specific area on the wall to our right, while waiting for Arraka's answer.
-
-"Uh-huh," Arraka says.
-
-"Alright," Hadrik says. "Well, in that case, I'll go open the path for us."
-
- "Yes," Daren says, as Hadrik heads towards the wall that leads to the secret tunnel. "As long as we know which wall leads to the tunnel, finding the secret lever that opens it up shouldn't be that--"
-
-Before Daren gets to finish his sentence, Hadrik reaches the wall, and he punches right through it, making it crumble into pieces. 
-
-"Seriously..." Daren says, as he smacks his forehead with the palm of his hand. "Do you have to do this every single time?"
-
-"Relax!" Hadrik says. "The lessathi are too far away to hear a mere few rocks crumbling down, and if there really are guards on the other side, it's not like we'd have any way to sneak past them. It's a direct path to the lessathi headquarters from here. No way around."
-
-"Fine, let's keep going," Daren says. "We'll see what happens, when it happens."
-
-}
 #if(v_b2_ch7_rock == 1 && v_b2_ch7_tunnel == 1) {
  "Well, why don't you throw a rock, and see for yourself if it explodes, then?"
 
@@ -1049,6 +1021,34 @@ As soon as the rock hits the ground, a big explosion covers the area around it, 
 "I suppose so," I say.
 
 "Alright," Hadrik says. "Well, in that case, I'll go open the path for us."
+
+}
+#if(v_b2_ch7_rock == 0 && v_b2_ch7_tunnel == 0 || v_b2_ch7_rock == 1 && v_b2_ch7_tunnel == 0) {
+ "Huh?" Arraka asks. "Oh, I do, actually... Hold on, let me add them to the hologram."
+
+A few seconds after she's done talking, three more blue corridors appear on the hologram that is floating in front of her amulet.
+
+"Hey, look," I say, "one of those corridors seems to link the tunnel we're currently in with one of the seredium tunnels. And that tunnel also leads towards the lessathi headquarters."
+
+"Yeah, but I can't guarantee that the seredium tunnel is currently functional," Arraka says. "Like I said before, I only put it there because it was on the gnome's map. I can't sense anything inside it. It may as well be filled with guards, for all I know."
+
+"Well, it's better than nothing," I say. "Which wall leads to the secret tunnel? That one?"
+
+I then point towards a specific area on the wall to our right, while waiting for Arraka's answer.
+
+"Uh-huh," Arraka says.
+
+"Alright," Hadrik says. "Well, in that case, I'll go open the path for us."
+
+ "Yes," Daren says, as Hadrik heads towards the wall that leads to the secret tunnel. "As long as we know which wall leads to the tunnel, finding the secret lever that opens it up shouldn't be that--"
+
+Before Daren gets to finish his sentence, Hadrik reaches the wall, and he punches right through it, making it crumble into pieces. 
+
+"Seriously..." Daren says, as he smacks his forehead with the palm of his hand. "Do you have to do this every single time?"
+
+"Relax!" Hadrik says. "The lessathi are too far away to hear a mere few rocks crumbling down, and if there really are guards on the other side, it's not like we'd have any way to sneak past them. It's a direct path to the lessathi headquarters from here. No way around."
+
+"Fine, let's keep going," Daren says. "We'll see what happens, when it happens."
 
 }
 #if(v_b2_ch7_rock == 0 && v_b2_ch7_tunnel == 1 || v_b2_ch7_rock == 1 && v_b2_ch7_tunnel == 1) {
@@ -1714,12 +1714,6 @@ About an hour and a half later, we finally reach the mansion, where Enrique was 
 About fifteen minutes later, Enrique comes out of the kitchen, followed by five cooks, each carrying plates of food, and each of them bringing a completely different specialty dish to the table. I would not be surprised if these dishes actually tasted better than what Flower can magically conjure, given her relatively limited knowledge of the culinary arts. After the cooks are done placing all of the dishes on one of the bigger picnic tables from the yard, Ella and Rose's siblings also join us, and we all seat ourselves at the table, getting ready for the well-earned feast.
 
 }
-#if(v_ch11_saved_rose == 0) {
- We spend the next few hours eating, drinking, and celebrating our long-awaited release from the arena.
-
-The food provided to us by the cooks actually did turn out to be on par with Flower's magically conceived delicacies, if not better. There were so many dishes on that table of which I'd never heard before, that it looked almost as if I were participating in a royal banquet of some kind. The cooks were initially all standing up in a line, in front of the table, waiting for us to order refills, but after a whole hour of Hadrik insisting that they join us for a drink, they eventually gave in, and began to slowly loosen up, as the effect of the dwarven ale was starting to set in. Towards the end of the celebration, Enrique made sure to supply us all with Rose's special herbs, so we could start fresh in the morning, without fear of any hangovers.
-
-}
 #if(v_ch11_saved_rose == 1 && v_ch11_saved_slave == 3) {
  We grab our backpacks, we wave goodbye to the king, and we go climb the stairs to the throne room. The king's servant was still there, and he had a rather uneasy look in his eyes, when he saw us finally exit the king's basement, after more than two hours, but he said nothing, and he led us outside, just like the last time when we came to the castle. 
 
@@ -1748,6 +1742,12 @@ About an hour and a half later, we finally reach the mansion, where Rose was wai
 Just as promised, exactly twenty minutes later, Rose comes out of the kitchen, carrying two trays of food. I go to her side, to take one of the trays off her hands, and then we all help her set the table, at one of the larger picnic tables in the yard. Ella and Rose's siblings, who were playing in the yard are now also joining us, and Ella comes with the rest of us, to help bring the remaining food from the kitchen.
 
 }
+#if(v_ch11_saved_rose == 0) {
+ We spend the next few hours eating, drinking, and celebrating our long-awaited release from the arena.
+
+The food provided to us by the cooks actually did turn out to be on par with Flower's magically conceived delicacies, if not better. There were so many dishes on that table of which I'd never heard before, that it looked almost as if I were participating in a royal banquet of some kind. The cooks were initially all standing up in a line, in front of the table, waiting for us to order refills, but after a whole hour of Hadrik insisting that they join us for a drink, they eventually gave in, and began to slowly loosen up, as the effect of the dwarven ale was starting to set in. Towards the end of the celebration, Enrique made sure to supply us all with Rose's special herbs, so we could start fresh in the morning, without fear of any hangovers.
+
+}
 #if(v_ch11_saved_rose == 1) {
  We spend the next few hours eating, drinking, and celebrating our long-awaited release from the arena.
 
@@ -1768,18 +1768,18 @@ TEXT:
  As Hadrik and the others are nearing the end of their card game, Enrique comes out of the kitchen, followed by five cooks, each carrying plates of food, and each of them bringing a completely different specialty dish to the table. I would not be surprised if these dishes actually tasted better than what Flower can magically conjure, given her relatively limited knowledge of the culinary arts. After the cooks are done placing all of the dishes on one of the bigger picnic tables from the yard, Ella and Rose's siblings also join us, and we all seat ourselves at the table, getting ready for the well-earned feast.
 
 }
-#if(v_ch11_saved_rose == 0) {
- We spend the next few hours eating, drinking, and celebrating our long-awaited release from the arena.
-
-The food provided to us by the cooks actually did turn out to be on par with Flower's magically conceived delicacies, if not better. There were so many dishes on that table of which I'd never heard before, that it looked almost as if I were participating in a royal banquet of some kind. The cooks were initially all standing up in a line, in front of the table, waiting for us to order refills, but after a whole hour of Hadrik insisting that they join us for a drink, they eventually gave in, and began to slowly loosen up, as the effect of the dwarven ale was starting to set in. Towards the end of the celebration, Enrique made sure to supply us all with Rose's special herbs, so we could start fresh in the morning, without fear of any hangovers.
-
-}
 #if(v_ch11_saved_rose == 1 && v_ch11_saved_slave == 3) {
  As Hadrik and the others are nearing the end of their card game, Rose comes out of the kitchen, carrying two trays of food. I go to her side, to take one of the trays off her hands, and then I help her set the table, at one of the larger picnic tables in the yard. Rose's siblings, who were playing in the yard are now also joining us, while Rose and I head towards the kitchen, to bring the rest of the food outside.
 
 }
 #if(v_ch11_saved_rose == 1 && v_ch11_saved_slave != 3) {
  As Hadrik and the others are nearing the end of their card game, Rose comes out of the kitchen, carrying two trays of food. I go to her side, to take one of the trays off her hands, and then I help her set the table, at one of the larger picnic tables in the yard. Ella and Rose's siblings, who were playing in the yard are now also joining us, and Ella comes with me and Rose, to help us bring the rest of the food from the kitchen.
+
+}
+#if(v_ch11_saved_rose == 0) {
+ We spend the next few hours eating, drinking, and celebrating our long-awaited release from the arena.
+
+The food provided to us by the cooks actually did turn out to be on par with Flower's magically conceived delicacies, if not better. There were so many dishes on that table of which I'd never heard before, that it looked almost as if I were participating in a royal banquet of some kind. The cooks were initially all standing up in a line, in front of the table, waiting for us to order refills, but after a whole hour of Hadrik insisting that they join us for a drink, they eventually gave in, and began to slowly loosen up, as the effect of the dwarven ale was starting to set in. Towards the end of the celebration, Enrique made sure to supply us all with Rose's special herbs, so we could start fresh in the morning, without fear of any hangovers.
 
 }
 #if(v_ch11_saved_rose == 1) {

@@ -317,26 +317,6 @@ Just as the flames disappear, I see the lessathi rushing towards me with a dagge
 Seeing that the lessathi has been killed, the green-eyed drone slowly approaches us and begins to speak.
 
 }
-#if(v_aura_hardening >= 3 || v_premonition >= 3) {
- "The Overseer protocol thanks you for your assistance," the Overseer says. "You have done me a great service by ending Biliborrathrathsarran's life. Rest assured that this debt will not be forgotten."
-
-"You wanted him dead?..." I say. "Then why didn't you just kill him yourself?"
-
-"I have been designed in such a way that I cannot kill the person who activates me," the Overseer says. "Biliborrathrathsarran was the one who reactivated me this time, so killing him was impossible for me."
-
-"Hold on a second," I say. "Are you trying to say that you deliberately led us to Billy Bob's workshop because you wanted us to kill him for you?"
-
-"That is correct," the Overseer replies.
-
-"I don't get it," I say. "I thought your catch phrase was that your 'only purpose' is to provide assistance. Whatever happened to that?"
-
-"The Overseer protocol's only purpose is to provide assistance," the Overseer says. "However, I've never specified to whom I am providing the assistance."
-
-"And to whom are you providing that assistance, then, if we may ask?" Illuna says.
-
-"To myself," the Overseer says.
-
-}
 #if(v_aura_hardening >= 3 && v_premonition < 3) {
  
 
@@ -363,6 +343,26 @@ Seeing that the lessathi has been killed, the green-eyed drone slowly approaches
 I then begin to walk towards the lessathi, as he is still trembling in fear, while leaning against the edge of the table with his hands behind his back.
 
 All of a sudden, a powerful burst of fire erupts from beneath the floor tile I just stepped on, engulfing me in flames. I try to jump away, but the pain is excruciating and it only takes a few seconds for me to get burned to a crisp and to lose my consciousness for good.
+
+}
+#if(v_aura_hardening >= 3 || v_premonition >= 3) {
+ "The Overseer protocol thanks you for your assistance," the Overseer says. "You have done me a great service by ending Biliborrathrathsarran's life. Rest assured that this debt will not be forgotten."
+
+"You wanted him dead?..." I say. "Then why didn't you just kill him yourself?"
+
+"I have been designed in such a way that I cannot kill the person who activates me," the Overseer says. "Biliborrathrathsarran was the one who reactivated me this time, so killing him was impossible for me."
+
+"Hold on a second," I say. "Are you trying to say that you deliberately led us to Billy Bob's workshop because you wanted us to kill him for you?"
+
+"That is correct," the Overseer replies.
+
+"I don't get it," I say. "I thought your catch phrase was that your 'only purpose' is to provide assistance. Whatever happened to that?"
+
+"The Overseer protocol's only purpose is to provide assistance," the Overseer says. "However, I've never specified to whom I am providing the assistance."
+
+"And to whom are you providing that assistance, then, if we may ask?" Illuna says.
+
+"To myself," the Overseer says.
 
 }
 choice("Continue", B3-Ch04b-Sneaky, v_current_scene = B3-Ch04b-Sneaky) if (v_aura_hardening >= 3 || v_premonition >= 3)
@@ -452,14 +452,6 @@ Instead of answering her, I take out my dagger from its sheath and I start walki
 All of a sudden, I see a vision of a powerful burst of fire erupting from beneath the floor tile under my feet and burning me to a crisp as soon as I take another step forward. My first instinct tells me to jump backwards, but I decide to make a quick forward dash instead, managing to avoid the fire by a hair and also to reach the lessathi in a matter of seconds.
 
 }
-#if(v_aura_hardening >= 3 || v_premonition >= 3) {
- When Billy Bob sees me getting so close to him, he tries to pull out a small dagger from behind his back, but I manage to hit him in the head with the hilt of my dagger and knock him out before he gets to unsheathe his own weapon.
-
-That was a close one. I hadn't even considered the idea that there could be a lessathi-made trap device hidden underneath that floor tile. Was this the reason why Billy Bob was keeping his hands behind his back? So he could press some hidden button beneath the table and activate the trap? I suppose that does make sense, if I think about it...
-
-"Would you mind telling me why exactly you chose to knock out the lessathi instead of killing him?" Kate says, as she looks at Billy Bob lying unconsciously on the floor beside me. "You do realize that once he wakes up, he'll continue to do all the terrible things he'd been doing until we found him, right?..."
-
-}
 #if(v_aura_hardening >= 3 && v_premonition < 3) {
  
 
@@ -482,6 +474,14 @@ All of a sudden, a powerful burst of fire erupts from beneath the floor tile I j
 Instead of answering her, I take out my dagger from its sheath and I start walking towards the lessathi. Billy Bob jumps backwards, trying to get away from me, but he quickly realizes that he can't retreat that way, due to the table blocking his path. As Billy Bob is now trembling in fear, while leaning against the edge of the table with his hands behind his back, I keep advancing towards him with my dagger at the ready, aiming to knock him out with the hilt.
 
 All of a sudden, a powerful burst of fire erupts from beneath the floor tile I just stepped on, engulfing me in flames. I try to jump away, but the pain is excruciating and it only takes a few seconds for me to get burned to a crisp and to lose my consciousness for good.
+
+}
+#if(v_aura_hardening >= 3 || v_premonition >= 3) {
+ When Billy Bob sees me getting so close to him, he tries to pull out a small dagger from behind his back, but I manage to hit him in the head with the hilt of my dagger and knock him out before he gets to unsheathe his own weapon.
+
+That was a close one. I hadn't even considered the idea that there could be a lessathi-made trap device hidden underneath that floor tile. Was this the reason why Billy Bob was keeping his hands behind his back? So he could press some hidden button beneath the table and activate the trap? I suppose that does make sense, if I think about it...
+
+"Would you mind telling me why exactly you chose to knock out the lessathi instead of killing him?" Kate says, as she looks at Billy Bob lying unconsciously on the floor beside me. "You do realize that once he wakes up, he'll continue to do all the terrible things he'd been doing until we found him, right?..."
 
 }
 choice(""Yes, but if we kill him, we'll be just as bad as he is!"", B3-Ch04b-Bad, v_current_scene = B3-Ch04b-Bad) if (v_aura_hardening >= 3 || v_premonition >= 3)
@@ -774,6 +774,8 @@ choice(""Actually, after hearing all of this, I think I'd rather keep Billy Bob 
 ID: B3-Ch04b-Voluntarily4
 TEXT:
 
+set(v_ac_b3_ch4_alliance,1) if (v_b3_ch4_billy == 7)
+achievement("A hidden alliance",v_ac_b3_ch4_alliance)
 #if(v_b3_ch4_billy == 7) {
  "Sounds like a plan!"
 
@@ -995,8 +997,10 @@ choice("Tell them that it's none of their business.", B3-Ch04b-Business, v_curre
 ID: B3-Ch04b-Tasked
 TEXT:
 
+set(v_ac_b3_ch4_deception,1) if (v_bluff >= 4)
 set(v_b3_ch4_tasked,5) if (v_bluff < 4)
 set(v_b3_ch4_tasked,1) if (v_bluff >= 4)
+achievement("A master of deception",v_ac_b3_ch4_deception)
 #if(v_bluff < 4) {
  
 
@@ -1026,14 +1030,6 @@ We all turn left and we make a run for the door at the end of the corridor. Once
 
 }
 #if(v_bluff >= 4) {
- The three men then turn around and they slowly walk away from us, until we are no longer able to see them anymore.
-
-"That was incredible..." Kate says, as soon as the three guards are out of earshot. "Did you see how quickly they believed that obvious lie? It's like those men completely lost their common sense the minute they heard Barry speak!"
-
-"I don't understand what happened," Leila writes. "Barry's aura was calm, but anyone could have seen that he wasn't telling the truth just from the way he talked. If you add the fact that the reasons he gave were completely ridiculous, I'm starting to think that calming the aura is not the only thing that this 'Bluff' stat does."
-
-"Did neither of you notice how Barry's aura enveloped the three guards while he was talking?" Melindra says. "I'm no expert, but I'm guessing that must have had something to do with their temporary lapse in judgment. Still, I really doubt that this technique could work on mages, or on anyone reasonably competent in controlling their auras, so Barry, maybe next time you might want to consider telling a lie that is at least somewhat believable. Wouldn't you agree?"
-
  
 
 "We are the new guards," I say. "We came here to relieve you of your duties."
@@ -1049,6 +1045,14 @@ We all turn left and we make a run for the door at the end of the corridor. Once
 The guards exchange a few looks, and then the man who interrogated us addresses his teammates.
 
 "Their story checks out," the man says. "Come on, let's go grab a beer before we head home. Maybe with a little luck we'll still find some tavern open at this hour."
+
+ The three men then turn around and they slowly walk away from us, until we are no longer able to see them anymore.
+
+"That was incredible..." Kate says, as soon as the three guards are out of earshot. "Did you see how quickly they believed that obvious lie? It's like those men completely lost their common sense the minute they heard Barry speak!"
+
+"I don't understand what happened," Leila writes. "Barry's aura was calm, but anyone could have seen that he wasn't telling the truth just from the way he talked. If you add the fact that the reasons he gave were completely ridiculous, I'm starting to think that calming the aura is not the only thing that this 'Bluff' stat does."
+
+"Did neither of you notice how Barry's aura enveloped the three guards while he was talking?" Melindra says. "I'm no expert, but I'm guessing that must have had something to do with their temporary lapse in judgment. Still, I really doubt that this technique could work on mages, or on anyone reasonably competent in controlling their auras, so Barry, maybe next time you might want to consider telling a lie that is at least somewhat believable. Wouldn't you agree?"
 
  "Right, right," I say. "I got a little carried away, there. My bad."
 
@@ -1101,22 +1105,6 @@ We all turn left and we make a run for the door at the end of the corridor. Once
 
 }
 #if(v_bluff >= 2) {
- "That was not a bad bluff, Barry," Leila writes with a smile, while we're moving away from the guards. "The points you spent in that stat were not wasted."
-
-As we keep advancing through the corridor, we eventually reach another door. Before we open it, Melindra stops us to give us a few pointers.
-
-"There are some guards out there, but they're pretty far away from the door," she says. "Kate and Flower, I see that you're both suppressing the magic from your auras, but that's not enough if you want to avoid being detected by someone with keen magical sense. You need to suppress your auras completely, like Illuna. Can you do that?"
-
-"I think so..." Kate says.
-
-"We'll try!" Flower says.
-
-"And the same goes for everyone else too," Melindra says. "Try to keep your auras as suppressed as possible, and with a little luck, we might be able to walk past those guards unnoticed."
-
-"Suppress my aura," I say. "Right."
-
-I try to conceal my aura as well as I can, using the breathing exercises that I learned from Illuna two weeks ago, but I only manage to partially hide it.
-
  
 
 "We're the new cleaners!" I say. "We were sent here to wash the prisoners downstairs."
@@ -1136,6 +1124,22 @@ I try to conceal my aura as well as I can, using the breathing exercises that I 
 "The exit's that way," the guard says, as he points towards the right side of the corridor. "Don't get lost now."
 
 "Oh right, it was that way!" I say. "Sorry, it's our first time here, so we're getting a little confused with all these identical-looking corridors. Alright everyone, let's go to the right!"
+
+ "That was not a bad bluff, Barry," Leila writes with a smile, while we're moving away from the guards. "The points you spent in that stat were not wasted."
+
+As we keep advancing through the corridor, we eventually reach another door. Before we open it, Melindra stops us to give us a few pointers.
+
+"There are some guards out there, but they're pretty far away from the door," she says. "Kate and Flower, I see that you're both suppressing the magic from your auras, but that's not enough if you want to avoid being detected by someone with keen magical sense. You need to suppress your auras completely, like Illuna. Can you do that?"
+
+"I think so..." Kate says.
+
+"We'll try!" Flower says.
+
+"And the same goes for everyone else too," Melindra says. "Try to keep your auras as suppressed as possible, and with a little luck, we might be able to walk past those guards unnoticed."
+
+"Suppress my aura," I say. "Right."
+
+I try to conceal my aura as well as I can, using the breathing exercises that I learned from Illuna two weeks ago, but I only manage to partially hide it.
 
 }
 choice("Continue", B3-Ch04b-Hearing, v_current_scene = B3-Ch04b-Hearing) if (v_bluff < 2)
@@ -1225,20 +1229,6 @@ When we reach the top of the stairs, we enter a new hallway and we begin to adva
 
 }
 #if(v_hearing >= 3) {
- "I can't turn it on right away," the other man says. "It needs to charge up a little first!"
-
-"I just heard the guards talking about how the trap will need to charge up before they can use it again," I tell my friends. "We can go now. It's safe."
-
-"Let's hurry, then," Kate says.
-
-"You can hear them from that far away?..." Breynan asks me, as we're all quickly traversing the corridor with the deactivated electric trap.
-
-"Yes, it's because of my stat device," I say. "But if we run into another one of these undetectable lessathi traps later on, we might not be so lucky next time. Melindra, isn't there a way in which you could detect these with your magical sense?"
-
-"These are lessathi devices that are made specifically for the purpose of not being detected," Melindra says. "Even Arraka would have trouble finding these. All we can do is be really careful and hope for the best.
-
-"I was afraid that you might say something like that," I say.
-
  
 
 Just when we're about to reach the end of the stairs, I hear the voice of a guard from very far behind us, who is talking to one of his colleagues.
@@ -1252,6 +1242,20 @@ We all stop right before the end of the staircase, where we are getting a perfec
 "Are they dead?" I hear the voice of a man very far behind us.
 
 "No, they didn't enter the corridor for some reason," says the man who ordered the activation of the trap initially. "Try turning it on again!"
+
+ "I can't turn it on right away," the other man says. "It needs to charge up a little first!"
+
+"I just heard the guards talking about how the trap will need to charge up before they can use it again," I tell my friends. "We can go now. It's safe."
+
+"Let's hurry, then," Kate says.
+
+"You can hear them from that far away?..." Breynan asks me, as we're all quickly traversing the corridor with the deactivated electric trap.
+
+"Yes, it's because of my stat device," I say. "But if we run into another one of these undetectable lessathi traps later on, we might not be so lucky next time. Melindra, isn't there a way in which you could detect these with your magical sense?"
+
+"These are lessathi devices that are made specifically for the purpose of not being detected," Melindra says. "Even Arraka would have trouble finding these. All we can do is be really careful and hope for the best.
+
+"I was afraid that you might say something like that," I say.
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_hearing < 3)
@@ -1273,6 +1277,16 @@ TEXT:
 Just as the lessathi stops talking, a very loud alarm noise fills the hallway and then the whole section in front of the staircase that we were heading towards becomes completely uncrossable, because a hundred spinning metal blades are coming out of the ground, walls and ceiling, leaving no room for us to squeeze past them without getting cut into pieces.
 
 }
+#if(v_b3_ch4_tasked == 2 || v_b3_ch4_tasked == 3 || v_b3_ch4_tasked == 5) {
+ "Breynan, did you try contacting your friend from the teleporter room again?" Melindra says, while we're still walking through the hallway. "Maybe you can reach him from here."
+
+"I already tried but he still won't answer," Breynan says. "Maybe we'll have better luck if we keep moving upwar--"
+
+"Attention all guards from the tower!" we suddenly hear the voice of Billy Bob, through a magical voice magnifier that is bolted to a wall. "My sensors are indicating that the intruders are trying to reach the upper levels. I will activate the trap near the staircase leading out of section B98-6C. If you hurry, you should be able to corner them easily enough. You'd better not let them get away..."
+
+Just as the lessathi stops talking, the whole section in front of the staircase that we were heading towards becomes completely uncrossable, because a hundred spinning metal blades are coming out of the ground, walls and ceiling, leaving no room for us to squeeze past them without getting cut into pieces.
+
+}
  "I'm... not sure how we're supposed to get past this one..." Breynan says.
 
 "Couldn't Flower blow them up or something?" I say.
@@ -1287,16 +1301,6 @@ Just as the lessathi stops talking, a very loud alarm noise fills the hallway an
 
 "Last time you talked to her, Rose said she had a premonition in which she saw me almost get killed," Illuna says. "It's possible that she's actually been making a little more progress than what she told you so far. We already know that there aren't enough seredium walls between her and us to block our communication completely, given that she's situated on the surface, so contacting her could be worth a try."
 
-#if(v_b3_ch4_tasked == 2 || v_b3_ch4_tasked == 3 || v_b3_ch4_tasked == 5) {
- "Breynan, did you try contacting your friend from the teleporter room again?" Melindra says, while we're still walking through the hallway. "Maybe you can reach him from here."
-
-"I already tried but he still won't answer," Breynan says. "Maybe we'll have better luck if we keep moving upwar--"
-
-"Attention all guards from the tower!" we suddenly hear the voice of Billy Bob, through a magical voice magnifier that is bolted to a wall. "My sensors are indicating that the intruders are trying to reach the upper levels. I will activate the trap near the staircase leading out of section B98-6C. If you hurry, you should be able to corner them easily enough. You'd better not let them get away..."
-
-Just as the lessathi stops talking, the whole section in front of the staircase that we were heading towards becomes completely uncrossable, because a hundred spinning metal blades are coming out of the ground, walls and ceiling, leaving no room for us to squeeze past them without getting cut into pieces.
-
-}
 choice("Try to contact Rose.", B3-Ch04b-Contact, v_current_scene = B3-Ch04b-Contact)
 choice("Suggest that it would be better if Kate froze the spinning blades instead.", B3-Ch04b-Froze, v_current_scene = B3-Ch04b-Froze)
 
@@ -1455,17 +1459,17 @@ Unfortunately, as soon as the drones' spell is cast, we quickly realize that no 
 
 }
 #if(v_magical_sense >= 4) {
- My heart rate is through the roof. The speed at which I'm deciphering every one of the spells is breathtaking, and it feels as if the time has slowed down to a halt in order to allow me to have all these thoughts racing through my head at the same time. It feels like entire minutes have passed, but in reality, I don't think it's been more than a few seconds. The way before me is clear. I know what I have to do.
-
-"We need to disrupt the flow of the spell!" I tell everyone around me, speaking as fast as I can, while the magical energy inside the cage is becoming so dense that it's almost palpable. "I need everyone who is a mage to cast the simplest spells they have, whenever I raise my right hand. It doesn't matter what spell, as long as you can cast it in the blink of an eye. I don't have time to explain why. Just trust me on this!"
-
-The others look at each other for a second, but then they turn their heads back to me, and they all give me a curt nod. I wait two seconds and then I raise my right hand. At the same time, Kate creates a small cube of ice, Flower sends a tiny ball of fire flying into the air, Illuna sprinkles some water on the ground, Breynan casts an orb of light and Melindra makes a few air currents rotate above her palm.
-
  
 
 Something about the way in which the magic is flowing around the room suddenly reminds me of an old memory that I'd thought to be long forgotten. A few years ago, I was speaking to a hermit that everyone considered to be crazy, and he was always telling me how people are learning magic the wrong way, and how nobody would listen to him when he suggested that the magical academies should be completely restructured to follow his teachings. The main point of contention between him and the other scholars was his claim that imperfections in magical techniques are absolutely necessary if you want to create a perfect spell. The obvious contradiction in his statement made everyone dismiss him as a senile old man, but his theory was that the more a technique gets closer to perfection, the more predictable it will become, and the easier it would be to counteract it.
 
 When I'm seeing the perfect way in which these machines are executing their spells, I think I'm finally beginning to understand what that hermit meant. I can tell exactly what they're trying to do, and even if they're combining ten different spells at the same time, the way they are moving the flows of the auras is so 'by the book' that it would be impossible for me to not recognize every single one of them.
+
+ My heart rate is through the roof. The speed at which I'm deciphering every one of the spells is breathtaking, and it feels as if the time has slowed down to a halt in order to allow me to have all these thoughts racing through my head at the same time. It feels like entire minutes have passed, but in reality, I don't think it's been more than a few seconds. The way before me is clear. I know what I have to do.
+
+"We need to disrupt the flow of the spell!" I tell everyone around me, speaking as fast as I can, while the magical energy inside the cage is becoming so dense that it's almost palpable. "I need everyone who is a mage to cast the simplest spells they have, whenever I raise my right hand. It doesn't matter what spell, as long as you can cast it in the blink of an eye. I don't have time to explain why. Just trust me on this!"
+
+The others look at each other for a second, but then they turn their heads back to me, and they all give me a curt nod. I wait two seconds and then I raise my right hand. At the same time, Kate creates a small cube of ice, Flower sends a tiny ball of fire flying into the air, Illuna sprinkles some water on the ground, Breynan casts an orb of light and Melindra makes a few air currents rotate above her palm.
 
  I then lower my hand and they all stop their spells, waiting for my next signal. Five seconds later, I raise my hand again, and everyone casts the same spells as before, looking anxiously around them to see if anything has changed. The air is still heavy, but it doesn't feel like the drones' spell has been progressing in any way since our mages began casting their own spells. I continue to predict the rhythm of the drones' magic flow by using every piece of information I know about how their spells are supposed to be cast. With the aid of my magical sense stat, I can finally detect the flows well enough to be able to put all of that magical theory I've learned into practice.
 
@@ -1501,16 +1505,6 @@ Just as I'm about to run my dagger through it, the drone shoots an ice beam out 
 
 }
 #if(v_aura_hardening >= 4) {
- It looks like the magical barrier it had around it wasn't all that good against close-ranged attacks. This means that I might be able to finish off the rest of the drones in the same way. I just have to be a little more careful about the way I approach them.
-
-I fly towards another one of the drones, I feint an attack with my dagger, and then I fly back just when the metal ball shoots a fire beam at me. As soon as it's done with its attack, I fly back towards it and I try to stab it with my blade as hard as I can. This time, however, the tip of my dagger gets stopped by the barrier surrounding the drone, and the same metal ball now seems to be creating two slates of rock that it wants to smash my head with.
-
-"Barry, get back!" Kate says, as she shoots an icicle straight into the drone's eye, making it drop to the ground and also causing the slates of rock to disappear.
-
-"Oh, now I get it!" I say. "They're having trouble switching between their defensive barriers! It looks like one of their barriers is stronger against physical attacks, while the other is stronger against magical attacks, but they can't use them both at the same time. You know what that means, right?"
-
-I then take out my crossbow, as Kate and Illuna both ready up their spells. Before the other two drones get the chance to defend themselves, the three of us shoot them simultaneously with crossbow bolts, water lances and icicles, which destroy the metal balls in a matter of seconds.
-
  
 
 "Melindra, can you cast your air currents on me?" I say. "I want to try and stab the drones in their eyes while they are stunned."
@@ -1523,6 +1517,16 @@ She then waves her hands in the air a few times, and shortly afterwards I can fe
 
 Just as I'm about to run my dagger through it, the drone shoots an ice beam out of its eye, which envelops me completely. Instead of freezing me, however, the drone only manages to freeze the hardened aura around me, which means that the only effect it has on me is that I'm feeling a little cold. I don't give the drone the time to prepare another attack, and I stab it repeatedly in its eye, until its propeller stops working and the metal ball drops to the ground.
 
+ It looks like the magical barrier it had around it wasn't all that good against close-ranged attacks. This means that I might be able to finish off the rest of the drones in the same way. I just have to be a little more careful about the way I approach them.
+
+I fly towards another one of the drones, I feint an attack with my dagger, and then I fly back just when the metal ball shoots a fire beam at me. As soon as it's done with its attack, I fly back towards it and I try to stab it with my blade as hard as I can. This time, however, the tip of my dagger gets stopped by the barrier surrounding the drone, and the same metal ball now seems to be creating two slates of rock that it wants to smash my head with.
+
+"Barry, get back!" Kate says, as she shoots an icicle straight into the drone's eye, making it drop to the ground and also causing the slates of rock to disappear.
+
+"Oh, now I get it!" I say. "They're having trouble switching between their defensive barriers! It looks like one of their barriers is stronger against physical attacks, while the other is stronger against magical attacks, but they can't use them both at the same time. You know what that means, right?"
+
+I then take out my crossbow, as Kate and Illuna both ready up their spells. Before the other two drones get the chance to defend themselves, the three of us shoot them simultaneously with crossbow bolts, water lances and icicles, which destroy the metal balls in a matter of seconds.
+
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_aura_hardening < 4)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_aura_hardening < 4)
@@ -1533,8 +1537,10 @@ choice("Continue", B3-Ch04b-Stuck, v_current_scene = B3-Ch04b-Stuck) if (v_aura_
 ID: B3-Ch04b-Drones2
 TEXT:
 
+set(v_ac_b3_ch4_thrower,1) if (v_strength >= 3)
 set(v_is_dead,0) if (v_aura_hardening >= 4 || v_strength >= 3)
 set(v_is_dead,1) if (v_aura_hardening < 4 && v_strength < 3)
+achievement("Rock throwing champion",v_ac_b3_ch4_thrower)
 #if(v_strength >= 3) {
  
 
@@ -1621,12 +1627,6 @@ Breynan does not get to finish his sentence, because all of the drones explode a
 
 }
 #if(v_perception >= 2) {
- Surprisingly, the barrier around the metal ball is not affected at all, and the light from its eye does not flicker even once. Before I get the time to make sense of what's happening, Kate shoots the same drone that I was attacking with an icicle, which passes right through its barrier, hitting it in the eye. As the metal ball falls to the ground, I begin to finally understand what is going on.
-
-"Oh, now I get it!" I say. "They're having trouble switching between their defensive barriers! It looks like one of their barriers is stronger against physical attacks, while the other is stronger against magical attacks, but they can't use them both at the same time. You know what that means, right?"
-
-I then aim my crossbow at the next drone, as Kate and Illuna both ready up their spells. Before the other two drones get the time to defend themselves, the three of us shoot them simultaneously with crossbow bolts, water lances and icicles, which destroy the metal balls in a matter of seconds.
-
  
 
 I take out my crossbow and I try to shoot one of the drones in its eye. Just like it happened with Kate's icicles earlier, my crossbow bolt simply bounces off the metal ball's magical barrier, leaving it completely unharmed.
@@ -1636,6 +1636,12 @@ I'm pretty sure that I noticed the light from the drone's orange eye flickering 
 I shoot the drone again, this time with two consecutive shots one after the other. The crossbow bolts get deflected by the barrier once more, but this time the flickering of the light was much more noticeable. Let me try that one more time with three crossbow bolts.
 
 Just like I suspected, as soon as I shoot three consecutive crossbow bolts into the drone, the barrier fails to defend it from all of them, and one of the bolts hits the metal ball in the eye, sending it falling to the ground. I then load my crossbow, and I aim it at another one of the drones, this time shooting all of my crossbow bolts into it one after the other.
+
+ Surprisingly, the barrier around the metal ball is not affected at all, and the light from its eye does not flicker even once. Before I get the time to make sense of what's happening, Kate shoots the same drone that I was attacking with an icicle, which passes right through its barrier, hitting it in the eye. As the metal ball falls to the ground, I begin to finally understand what is going on.
+
+"Oh, now I get it!" I say. "They're having trouble switching between their defensive barriers! It looks like one of their barriers is stronger against physical attacks, while the other is stronger against magical attacks, but they can't use them both at the same time. You know what that means, right?"
+
+I then aim my crossbow at the next drone, as Kate and Illuna both ready up their spells. Before the other two drones get the time to defend themselves, the three of us shoot them simultaneously with crossbow bolts, water lances and icicles, which destroy the metal balls in a matter of seconds.
 
 }
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_perception < 2)
