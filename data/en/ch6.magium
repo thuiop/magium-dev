@@ -458,6 +458,7 @@ choice("Do not secure the backpack", Ch6-Enough, v_current_scene = Ch6-Enough)
 ID: Ch6-Secure
 TEXT:
 
+set(v_ch6_secure,1)
 #if(v_ch2_human_reason == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 0 && v_ch5_admit_lie == 1) {
 "Secure it. Better to be safe than sorry."
 
@@ -611,6 +612,7 @@ choice(""I'm sorry, I should have told you the truth from the beginning."", Ch6-
 ID: Ch6-Enough
 TEXT:
 
+set(v_ch6_secure,0)
 #if(v_ch2_human_reason == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 0 && v_ch5_admit_lie == 1) {
 "No, leave it like that. It's secure enough as it is."
 
@@ -2791,6 +2793,7 @@ choice("Ask Kate to freeze the whole area to make sure Eiden isn't around anymor
 ID: Ch6-Ashamed
 TEXT:
 
+set(v_rate_game_shown,1) if (v_rate_game_shown == 0)
 "Yeah, Daren, you should be ashamed of yourself!"
 
 "Damn it, Barry! You're not planning to make this any easier for me, are you?"
@@ -2827,6 +2830,7 @@ choice("Continue", Ch6-Healing, v_current_scene = Ch6-Healing)
 ID: Ch6-Simple
 TEXT:
 
+set(v_rate_game_shown,1) if (v_rate_game_shown == 0)
 "Calm down, Rose, it's not as simple as that."
 
 "What's not that simple?" Rose says. "He saved all of our lives! I saw it happen before my eyes! We all would have been dead if not for him! He's the one that gave you all of those powers that allowed you to fight the dragon. Why are you acting like he's our enemy?"
@@ -2861,6 +2865,7 @@ choice("Continue", Ch6-Healing, v_current_scene = Ch6-Healing)
 ID: Ch6-Freeze
 TEXT:
 
+set(v_rate_game_shown,1) if (v_rate_game_shown == 0)
 "Kate, could you freeze the whole area around us? I want to make sure that Eiden isn't hiding around us invisibly and listening to what we're saying."
 
 Kate nods, and she sends a powerful wave of freezing magic all around us. The air has suddenly gotten a lot chillier, and all of the trees now look like they're made of crystal, but there's no sign of the stillwater. Even if he got to block Kate's attack, we would still have sensed at least some magical power coming from him if he were still here. I guess he really did just teleport away after all.

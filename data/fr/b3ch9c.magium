@@ -742,6 +742,7 @@ choice("Load game", , , special:saves) if (v_aura_hardening == 0 || v_b3_ch9_ele
 ID: B3-Ch09c-Upwards
 TEXT:
 
+set(v_ac_b3_ch9_consolation,+1) if (v_b3_ch9_currents == 1 && v_is_dead == 0 && v_perception < 3 && v_reflexes < 3)
 set(v_is_dead,0) if (v_b3_ch9_currents == 1 && v_perception >= 3 || v_b3_ch9_currents == 1 && v_reflexes >= 3 || v_b3_ch9_currents == 0)
 set(v_is_dead,1) if (v_aura_hardening == 0 && v_b3_ch9_currents == 1 && v_perception < 3 && v_reflexes < 3 || v_b3_ch9_currents == 1 && v_aura_hardening > 0 && v_perception < 3 && v_reflexes < 3)
 #if(v_b3_ch9_currents == 0) {
@@ -1058,6 +1059,7 @@ choice("Continue", B3-Ch09c-Maintenance, v_current_scene = B3-Ch09c-Maintenance)
 ID: B3-Ch09c-Fought
 TEXT:
 
+set(v_ac_b3_ch9_consolation,+1) if (v_b3_ch9_currents == 0 && v_is_dead == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_is_dead == 0 && v_reflexes < 4)
 set(v_is_dead,1) if (v_b3_ch9_currents == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_reflexes < 4)
 set(v_is_dead,0) if (v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_b3_ch9_currents == 1 && v_reflexes >= 4)
 #if(v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) {
@@ -1117,6 +1119,7 @@ choice("Continue", B3-Ch09c-Maintenance, v_current_scene = B3-Ch09c-Maintenance)
 ID: B3-Ch09c-Between
 TEXT:
 
+set(v_ac_b3_ch9_consolation,+1) if (v_b3_ch9_currents == 0 && v_is_dead == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_is_dead == 0 && v_reflexes < 4)
 set(v_is_dead,1) if (v_b3_ch9_currents == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_reflexes < 4)
 set(v_is_dead,0) if (v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_b3_ch9_currents == 1 && v_reflexes >= 4)
 #if(v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) {
@@ -1170,6 +1173,7 @@ choice("Continue", B3-Ch09c-Maintenance, v_current_scene = B3-Ch09c-Maintenance)
 ID: B3-Ch09c-Finding
 TEXT:
 
+set(v_ac_b3_ch9_consolation,+1) if (v_is_dead == 0 && v_perception < 2)
 set(v_is_dead,1) if (v_perception < 2)
 set(v_is_dead,0) if (v_perception >= 2)
 #if(v_perception < 2) {

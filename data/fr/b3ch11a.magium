@@ -1,6 +1,21 @@
 ID: B3-Ch11a-Intro
 TEXT:
 
+set(v_b3_ch11_diane,0)
+set(v_b3_ch11_escape,0)
+set(v_b3_ch11_friend,0)
+set(v_b3_ch11_hear,0)
+set(v_b3_ch11_magic,0)
+set(v_b3_ch11_melindra,0)
+set(v_b3_ch11_mocking,0)
+set(v_b3_ch11_money,0)
+set(v_b3_ch11_path,0)
+set(v_b3_ch11_puzzle4,0)
+set(v_b3_ch11_red,0)
+set(v_b3_ch11_reverse,0)
+set(v_b3_ch11_transferred,0)
+set(v_b3_ch11_weakness,0)
+set(v_is_dead,0)
  
 
 "Let me see if I got this straight..." Hadrik tells Meridith. "You people have been gathering a huge amount of energy from mages since the beginning of this tournament, all for the purpose of killing Eiden..."
@@ -395,8 +410,8 @@ As Daren and Melindra walk over to us, Flower frowns and sticks her tongue out a
 }
 choice("Tell the others where Hadrik went.", B3-Ch11a-Went, v_current_scene = B3-Ch11a-Went, v_b3_ch11_reverse = 1) if (v_hearing >= 2)
 choice("Remain silent, and keep going towards the wrong tunnel.", B3-Ch11a-Silent, v_current_scene = B3-Ch11a-Silent, v_b3_ch11_reverse = 0) if (v_hearing >= 2)
-choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_perception_aux >= 4 && v_hearing < 2)
-choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_hearing < 2 && v_perception_aux < 4)
+choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_perception >= 4 && v_hearing < 2)
+choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_hearing < 2 && v_perception < 4)
 
 
 ID: B3-Ch11a-Silent
@@ -434,8 +449,8 @@ Meridith sighs.
 
 As Daren and Melindra walk over to us, Flower frowns and sticks her tongue out at the lessathi guard before she turns around to join us as well.
 
-choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_perception_aux >= 4)
-choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_perception_aux < 4)
+choice("Continue", B3-Ch11a-Observation, v_current_scene = B3-Ch11a-Observation) if (v_perception >= 4)
+choice("Continue", B3-Ch11a-Behind, v_current_scene = B3-Ch11a-Behind) if (v_perception < 4)
 
 
 ID: B3-Ch11a-Observation

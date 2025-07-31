@@ -52,7 +52,7 @@ async function parse(filename) {
             skip = false;
         } else if (
             (match = line.match(
-                /set\((?<varName>.*),(?<value>[0-9])\)( if (?<condition>.*))?/,
+                /set\((?<varName>.*),(?<value>[0-9+])\)( if (?<condition>.*))?/,
             ))
         ) {
             const conditions = match.groups.condition
