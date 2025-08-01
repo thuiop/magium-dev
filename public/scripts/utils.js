@@ -17,13 +17,25 @@ const getCookies = function () {
     return cookies;
 };
 
-function storeItem(key,value) {
+function cookieSet(key,value) {
     document.cookie = key+"="+value;
 }
 
 function cookieAdd(name,value) {
     const current_value = getCookie(name) || 0
-    storeItem(name,parseInt(current_value)+parseInt(value))
+    cookieSet(name,parseInt(current_value)+parseInt(value))
+}
+
+function storeItem(key,value) {
+      if (value.startsWith("+")){
+          cookieAdd(key,value.slice(1))
+      }
+      else if (value.startsWith("-")){
+          cookieAdd(key,-parseInt(value.slice(1)))
+      }
+      else {
+          cookieSet(key,value)
+      }
 }
 
 function setTheme(theme) {
@@ -49,12 +61,7 @@ function setResponseCookies(response) {
   scrollToTop();
 
   for (const [key, value] of Object.entries(response.setVariables)) {
-      if (value.startsWith("+")){
-          cookieAdd(key,value.slice(1))
-      }
-      else {
-          storeItem(key,value)
-      }
+      storeItem(key,value)
   }
 }
 
