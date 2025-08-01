@@ -30,6 +30,9 @@ function storeItem(key,value) {
       if (value.startsWith("+")){
           cookieAdd(key,value.slice(1))
       }
+      else if (value.startsWith("-")){
+          cookieAdd(key,-parseInt(value.slice(1)))
+      }
       else {
           cookieSet(key,value)
       }
