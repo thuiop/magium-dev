@@ -186,7 +186,7 @@
                 <img src="/images/achievement_trophy.png" width="100" height="100" />
                 <div class="achievement-modal-content">
                     <div class="achievement-modal-title">
-                        ACHIEVEMENT UNLOCKED 
+                        <%= mainAchievementUnlockedText %>
                     </div>
                     <div class="achievement-modal-caption">
                       Full immersion
@@ -196,6 +196,24 @@
     </div>
 </div>
 <% }; %>
+<% if ( !locals.v_stats_seen ) { %>
+    <div id="firstTimeStatsModal" class="first-time-stats-modal" _="on closeModal remove me">
+        <%- statsIntroductionText %>
+        <div class='stat_fail'>
+            [ Ancient languages check failed - level 3 ]
+        </div>
+        <br/>
+        <div class='stat_success'>
+            [ Combat technique check succesful - level 2 ]
+        </div>
+        <br/>
+        <div style="display:flex;align-items:center;flex-direction:column;">
+            <button class="first-time-stats-continue" _="on click cookieAdd('v_stats_seen',1) then trigger closeModal">
+                <%= statsIntroductionButton %>
+            </div>
+        </div>
+    </div>
+<% } %>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
         <%= statsHeaderText %>
