@@ -11,8 +11,16 @@ function nightModeButtonClick() {
 
 function updateNightModeButtonText() {
     const theme = getCookie('data-theme');
-    const button = document.getElementById('themeToggleBtn');
-    button.textContent = theme === 'dark' ? 'Deactivate night mode' : 'Activate night mode';
+    const buttonActivate = document.getElementById('themeToggleBtnActivate');
+    const buttonDeactivate = document.getElementById('themeToggleBtnDeactivate');
+    if (theme === "dark") {
+        buttonActivate.style.display = "flex";    
+        buttonDeactivate.style.display = "none";    
+    }
+    else {
+        buttonActivate.style.display = "none";
+        buttonDeactivate.style.display = "flex";    
+    }
 }
 
 function toggleTheme() {
