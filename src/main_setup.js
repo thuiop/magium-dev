@@ -162,12 +162,12 @@ function checkStats(setVariables, values) {
 TODO: Discuss possibilities of alternate logic that do not need inference, 
   but can simply be stored in the JSON object itself.
 */
-function get_header_from_id(id) {
+function get_header_from_id(id, headerTemplate) {
     const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]?-.*$/;
     let result = regex.exec(id)
     if (result) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
-        return `Book ${book} - Chapter ${result.groups["chapter"]}`;
+        return ejs.render(headerTemplate,{"book": book,"chapter":result.groups["chapter"]})
     }
 }
 
@@ -215,7 +215,7 @@ function render_scene(req) {
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
-    let data = Object.assign({}, { id: id, header: get_header_from_id(id), scene: sceneData }, cookieData, req.data);
+    let data = Object.assign({}, { id: id, header: get_header_from_id(id,req.data["mainHeaderTemplate"]), scene: sceneData }, cookieData, req.data);
     return ejs.renderFile(path.join(dirname, "templates","main.ejs"), data);
 }
 
@@ -402,7 +402,7 @@ expressApp.get("/", (req, res) => {
     render_full(
         req,
         (r) => render_scene(r),
-        get_header_from_id(id),
+        get_header_from_id(id,req.data["mainHeaderTemplate"]),
     ).then((rendered) => res.send(rendered));
 });
 
