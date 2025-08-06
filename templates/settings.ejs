@@ -10,12 +10,14 @@
             <%= settingsLanguageText %>
         </button>
     </div>
-    <div id="themeToggleBtnActivate" class="response">
+    <% let themeActivateStyle = locals["data-theme"] === "dark" ? 'style="display:none"' : ''; %>
+    <% let themeDeactivateStyle = locals["data-theme"] === "dark" ? '' : 'style="display:none"'; %>
+    <div id="themeToggleBtnActivate" <%- themeActivateStyle %> class="response">
         <button onclick="nightModeButtonClick()">
             <div id=""><%= settingsNightModeActivateText %></div>
         </button>
     </div>
-    <div id="themeToggleBtnDeactivate" style="display:none" class="response">
+    <div id="themeToggleBtnDeactivate" <%- themeDeactivateStyle %> class="response">
         <button onclick="nightModeButtonClick()">
             <div id=""><%= settingsNightModeDeactivateText %></div>
         </button>

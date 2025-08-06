@@ -14,12 +14,12 @@ function updateNightModeButtonText() {
     const buttonActivate = document.getElementById('themeToggleBtnActivate');
     const buttonDeactivate = document.getElementById('themeToggleBtnDeactivate');
     if (theme === "dark") {
-        buttonActivate.style.display = "flex";    
-        buttonDeactivate.style.display = "none";    
-    }
-    else {
         buttonActivate.style.display = "none";
         buttonDeactivate.style.display = "flex";    
+    }
+    else {
+        buttonActivate.style.display = "flex";    
+        buttonDeactivate.style.display = "none";    
     }
 }
 

@@ -239,7 +239,7 @@ function render_menu(req) {
 function render_settings(req) {
     return ejs.renderFile(
         path.join(dirname, "templates","settings.ejs"),
-        req.data,
+        Object.assign({},req.cookies,req.data),
     );
 }
 
