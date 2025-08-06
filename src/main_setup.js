@@ -407,33 +407,33 @@ expressApp.get("/", (req, res) => {
 });
 
 expressApp.get("/menu", (req, res) => {
-    render_full(req, render_menu, "Menu").then((rendered) =>
+    render_full(req, render_menu, req.data["menuHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.get("/settings", (req, res) => {
-    render_full(req, render_settings, "Settings").then((rendered) =>
+    render_full(req, render_settings, req.data["settingsHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 
 expressApp.get("/language", (req, res) => {
-    render_full(req, (req) => (render_language(req,locales)), "Language selection").then((rendered) =>
+    render_full(req, (req) => (render_language(req,locales)), req.data["languageHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 
 expressApp.get("/stats", (req, res) => {
-    render_full(req, render_stats, "Stats").then((rendered) =>
+    render_full(req, render_stats, req.data["statsHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.get("/achievements", (req, res) => {
-    render_full(req, render_achievements_menu, "Achievements").then(
+    render_full(req, render_achievements_menu, req.data["achievementsMenuHeaderText"]).then(
         (rendered) => res.send(rendered),
     );
 });
@@ -445,7 +445,7 @@ expressApp.get("/achievements/book/:id", (req, res) => {
             r,
             data[parseInt(r.params.id)],
         );
-    render_full(req, callback, "Achievements").then((rendered) =>
+    render_full(req, callback,req.data["achievementsMenuHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
@@ -461,38 +461,38 @@ expressApp.get(
                     `b${r.params.idBook}ch${r.params.idChapter}`
                 ],
             );
-        render_full(req, callback, "Achievements").then((rendered) =>
+        render_full(req, callback,req.data["achievementsMenuHeaderText"]).then((rendered) =>
             res.send(rendered),
         );
     },
 );
 
 expressApp.all("/saves", bodyParser.json(), (req, res) => {
-    render_full(req, render_saves, "Save files").then((rendered) =>
+    render_full(req, render_saves,req.data["savesHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.all("/saves/:page", bodyParser.json(), (req, res) => {
     const callback = (r) => render_saves_by_page(r, req.params.page);
-    render_full(req, callback, "Save files").then((rendered) =>
+    render_full(req, callback,req.data["savesHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
-    render_full(req,render_local_saves,"Local Save files").then((rendered) => res.send(rendered));
+    render_full(req,render_local_saves,req.data["savesHeaderText"]).then((rendered) => res.send(rendered));
 });
 
 expressApp.all('/local_saves/:page', bodyParser.json(), (req, res) => {  
     const callback = (r) => render_local_saves_by_page(r, req.params.page);
-    render_full(req, callback, "Local Save files").then((rendered) => 
+    render_full(req, callback,req.data["savesHeaderText"]).then((rendered) => 
         res.send(rendered)
     );
 });
 
 expressApp.get("/about", (req, res) => {
-    render_full(req, render_about, "About").then(
+    render_full(req, render_about,req.data["aboutHeaderText"]).then(
         (rendered) => res.send(rendered),
     );
 });
