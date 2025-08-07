@@ -77,17 +77,24 @@ function apply_conditions(conditions, values) {
     );
 }
 
+function capitalizeFirstLetter(val) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+
+
 function varToStat(varName) {
+    let statName;
     if (varName == "v_agility") {
-        return "Speed";
+        statName = "Speed";
     }
     if (varName == "v_perception") {
-        return "Observation";
+        statName = "Observation";
     } else {
-        return (
-            varName.charAt(2).toUpperCase() + varName.slice(3).replace("_", " ")
+        statName = (
+            varName.slice(2).split("_").map(capitalizeFirstLetter).join("")
         );
     }
+    return "stats" + statName + "Text";
 }
 
 function parseStatCheck(condition) {
@@ -130,7 +137,7 @@ function parseStatCheck(condition) {
     return { variable: varToStat(variable), value: value, success: success };
 }
 
-function checkStats(setVariables, values) {
+function checkStats(setVariables, values, localeData) {
     let newStatChecks = [];
     let setVariable;
     for (setVariable of setVariables) {
@@ -144,6 +151,7 @@ function checkStats(setVariables, values) {
             for (conditionGroup of conditionGroups) {
                 for (condition of conditionGroup) {
                     if ((statCheck = parseStatCheck(condition))) {
+                        statCheck["variable"] = localeData[statCheck["variable"]];
                         newStatChecks.push(JSON.stringify(statCheck));
                     }
                 }
@@ -208,6 +216,7 @@ function render_scene(req) {
     sceneData.statChecks = checkStats(
         sceneData.setVariables.concat(sceneData.paragraphs, sceneData.choices),
         cookieData,
+        req.data,
     );
     sceneData.achievements = sceneData.achievements.filter(
         (achievement) => cookieData[achievement.variable] == "1" ,
@@ -215,15 +224,16 @@ function render_scene(req) {
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
-    let data = Object.assign({}, { id: id, header: get_header_from_id(id,req.data["mainHeaderTemplate"]), scene: sceneData }, cookieData, req.data);
+    let data = Object.assign({}, { id: id, header: get_header_from_id(id,req.data["mainHeaderTemplate"]), scene: sceneData, "ejs": ejs}, cookieData, req.data);
     return ejs.renderFile(path.join(dirname, "templates","main.ejs"), data);
 }
 
 function render_stats(req) {
     let data = Object.assign({}, req.data, {
-        maximized:
+        "maximized":
             req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" &&
             req.cookies.v_maximized_stats_used === "1",
+        "ejs": ejs,
     }, req.cookies);
     return ejs.renderFile(path.join(dirname, "templates","stats.ejs"), data);
 }
