@@ -1,33 +1,15 @@
-<div class="response">
-    <button
-        hx-get="/achievements/book/1"
-        hx-target="#content"
-        hx-swap="innerHTML"
-        hx-push-url="true"
-    > 
-        <%= achievementsMenuBook1Text %>
-    </button>
-</div>
-<div class="response">
-    <button
-        hx-get="/achievements/book/2"
-        hx-target="#content"
-        hx-swap="innerHTML"
-        hx-push-url="true"
-    > 
-        <%= achievementsMenuBook2Text %>
-    </button>
-</div>
-<div class="response">
-    <button
-        hx-get="/achievements/book/3"
-        hx-target="#content"
-        hx-swap="innerHTML"
-        hx-push-url="true"
-    > 
-        <%= achievementsMenuBook3Text %>
-    </button>
-</div>
+<% for (let i=1; i<bookCount+1; i++) { %>
+    <div class="response">
+        <button
+            hx-get="/achievements/book/<%= i %>"
+            hx-target="#content"
+            hx-swap="innerHTML"
+            hx-push-url="true"
+        > 
+            <%= ejs.render(achievementsMenuBookTemplate,{"num":i}) %>
+        </button>
+    </div>
+<% } %>
 <div style="display:none">
     <h2 id="header" hx-swap-oob="true">
         <%= achievementsMenuHeaderText %>

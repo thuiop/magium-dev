@@ -27,6 +27,7 @@ function cookieAdd(name,value) {
 }
 
 function storeItem(key,value) {
+      value = value.toString();
       if (value.startsWith("+")){
           cookieAdd(key,value.slice(1))
       }

@@ -77,17 +77,24 @@ function apply_conditions(conditions, values) {
     );
 }
 
+function capitalizeFirstLetter(val) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+}
+
+
 function varToStat(varName) {
+    let statName;
     if (varName == "v_agility") {
-        return "Speed";
+        statName = "Speed";
     }
     if (varName == "v_perception") {
-        return "Observation";
+        statName = "Observation";
     } else {
-        return (
-            varName.charAt(2).toUpperCase() + varName.slice(3).replace("_", " ")
+        statName = (
+            varName.slice(2).split("_").map(capitalizeFirstLetter).join("")
         );
     }
+    return "stats" + statName + "Text";
 }
 
 function parseStatCheck(condition) {
@@ -130,7 +137,7 @@ function parseStatCheck(condition) {
     return { variable: varToStat(variable), value: value, success: success };
 }
 
-function checkStats(setVariables, values) {
+function checkStats(setVariables, values, localeData) {
     let newStatChecks = [];
     let setVariable;
     for (setVariable of setVariables) {
@@ -144,6 +151,7 @@ function checkStats(setVariables, values) {
             for (conditionGroup of conditionGroups) {
                 for (condition of conditionGroup) {
                     if ((statCheck = parseStatCheck(condition))) {
+                        statCheck["variable"] = localeData[statCheck["variable"]];
                         newStatChecks.push(JSON.stringify(statCheck));
                     }
                 }
@@ -162,12 +170,12 @@ function checkStats(setVariables, values) {
 TODO: Discuss possibilities of alternate logic that do not need inference, 
   but can simply be stored in the JSON object itself.
 */
-function get_header_from_id(id) {
+function get_header_from_id(id, headerTemplate) {
     const regex = /(B(?<book>[0-9]*)-)?Ch(?<chapter>[0-9]*)[a-c]?-.*$/;
     let result = regex.exec(id)
     if (result) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
-        return `Book ${book} - Chapter ${result.groups["chapter"]}`;
+        return ejs.render(headerTemplate,{"book": book,"chapter":result.groups["chapter"]})
     }
 }
 
@@ -208,6 +216,7 @@ function render_scene(req) {
     sceneData.statChecks = checkStats(
         sceneData.setVariables.concat(sceneData.paragraphs, sceneData.choices),
         cookieData,
+        req.data,
     );
     sceneData.achievements = sceneData.achievements.filter(
         (achievement) => cookieData[achievement.variable] == "1" ,
@@ -215,15 +224,16 @@ function render_scene(req) {
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
-    let data = Object.assign({}, { id: id, header: get_header_from_id(id), scene: sceneData }, cookieData, req.data);
+    let data = Object.assign({}, { id: id, header: get_header_from_id(id,req.data["mainHeaderTemplate"]), scene: sceneData, "ejs": ejs}, cookieData, req.data);
     return ejs.renderFile(path.join(dirname, "templates","main.ejs"), data);
 }
 
 function render_stats(req) {
     let data = Object.assign({}, req.data, {
-        maximized:
+        "maximized":
             req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" &&
             req.cookies.v_maximized_stats_used === "1",
+        "ejs": ejs,
     }, req.cookies);
     return ejs.renderFile(path.join(dirname, "templates","stats.ejs"), data);
 }
@@ -239,7 +249,7 @@ function render_menu(req) {
 function render_settings(req) {
     return ejs.renderFile(
         path.join(dirname, "templates","settings.ejs"),
-        req.data,
+        Object.assign({},req.cookies,req.data),
     );
 }
 
@@ -251,16 +261,17 @@ function render_language(req,locales) {
 }
 
 function render_achievements_menu(req) {
+    const bookCount = Object.keys(achievementsData["en"]).length;
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu.ejs"),
-        Object.assign({},req.data,req.cookies),
+        Object.assign({},req.data,req.cookies,{"ejs":ejs,"bookCount":bookCount}),
     );
 }
 
 function render_achievements_menu_book(req, achievementsData) {
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu_book.ejs"),
-        Object.assign({}, req.data, { achievements: achievementsData }),
+        Object.assign({}, req.data, { achievements: achievementsData, ejs: ejs }),
     );
 }
 
@@ -402,38 +413,38 @@ expressApp.get("/", (req, res) => {
     render_full(
         req,
         (r) => render_scene(r),
-        get_header_from_id(id),
+        get_header_from_id(id,req.data["mainHeaderTemplate"]),
     ).then((rendered) => res.send(rendered));
 });
 
 expressApp.get("/menu", (req, res) => {
-    render_full(req, render_menu, "Menu").then((rendered) =>
+    render_full(req, render_menu, req.data["menuHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.get("/settings", (req, res) => {
-    render_full(req, render_settings, "Settings").then((rendered) =>
+    render_full(req, render_settings, req.data["settingsHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 
 expressApp.get("/language", (req, res) => {
-    render_full(req, (req) => (render_language(req,locales)), "Language selection").then((rendered) =>
+    render_full(req, (req) => (render_language(req,locales)), req.data["languageHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 
 expressApp.get("/stats", (req, res) => {
-    render_full(req, render_stats, "Stats").then((rendered) =>
+    render_full(req, render_stats, req.data["statsHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.get("/achievements", (req, res) => {
-    render_full(req, render_achievements_menu, "Achievements").then(
+    render_full(req, render_achievements_menu, req.data["achievementsMenuHeaderText"]).then(
         (rendered) => res.send(rendered),
     );
 });
@@ -445,7 +456,7 @@ expressApp.get("/achievements/book/:id", (req, res) => {
             r,
             data[parseInt(r.params.id)],
         );
-    render_full(req, callback, "Achievements").then((rendered) =>
+    render_full(req, callback,req.data["achievementsMenuHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
@@ -461,38 +472,38 @@ expressApp.get(
                     `b${r.params.idBook}ch${r.params.idChapter}`
                 ],
             );
-        render_full(req, callback, "Achievements").then((rendered) =>
+        render_full(req, callback,req.data["achievementsMenuHeaderText"]).then((rendered) =>
             res.send(rendered),
         );
     },
 );
 
 expressApp.all("/saves", bodyParser.json(), (req, res) => {
-    render_full(req, render_saves, "Save files").then((rendered) =>
+    render_full(req, render_saves,req.data["savesHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.all("/saves/:page", bodyParser.json(), (req, res) => {
     const callback = (r) => render_saves_by_page(r, req.params.page);
-    render_full(req, callback, "Save files").then((rendered) =>
+    render_full(req, callback,req.data["savesHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
 expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
-    render_full(req,render_local_saves,"Local Save files").then((rendered) => res.send(rendered));
+    render_full(req,render_local_saves,req.data["savesHeaderText"]).then((rendered) => res.send(rendered));
 });
 
 expressApp.all('/local_saves/:page', bodyParser.json(), (req, res) => {  
     const callback = (r) => render_local_saves_by_page(r, req.params.page);
-    render_full(req, callback, "Local Save files").then((rendered) => 
+    render_full(req, callback,req.data["savesHeaderText"]).then((rendered) => 
         res.send(rendered)
     );
 });
 
 expressApp.get("/about", (req, res) => {
-    render_full(req, render_about, "About").then(
+    render_full(req, render_about,req.data["aboutHeaderText"]).then(
         (rendered) => res.send(rendered),
     );
 });

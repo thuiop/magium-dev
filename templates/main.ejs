@@ -10,16 +10,16 @@
 
 <% scene.statChecks.forEach(function(statCheck) { if (statCheck.success) {%>
     <div class='stat_success'>
-        [ <%= statCheck.variable %> check successful - level <%= statCheck.value %>  ]
+       <%= ejs.render(mainStatSuccessTemplate,{"variable": statCheck.variable, "value": statCheck.value}) %> 
     </div>
 <% } else { %>
     <div class='stat_fail'>
         <% if (statCheck.variable === "v_b3_ch1_unlock") { %>
             <% if (v_current_scene != "B3-Ch01a-Crossbow") { %>
-                [ Stat device locked - check failed ]
+                <%= mainStatDeviceLockedText %>
             <% } %>
         <% } else { %>
-            [ <%= statCheck.variable %> check failed - level <%= statCheck.value %>  ]
+           <%= ejs.render(mainStatFailedTemplate,{"variable": statCheck.variable, "value": statCheck.value}) %> 
         <% } %>
     </div>
 <% }}); %>
