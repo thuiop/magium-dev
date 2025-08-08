@@ -261,9 +261,10 @@ function render_language(req,locales) {
 }
 
 function render_achievements_menu(req) {
+    const bookCount = Object.keys(achievementsData["en"]).length;
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu.ejs"),
-        Object.assign({},req.data,req.cookies,{"ejs":ejs}),
+        Object.assign({},req.data,req.cookies,{"ejs":ejs,"bookCount":bookCount}),
     );
 }
 
