@@ -263,14 +263,14 @@ function render_language(req,locales) {
 function render_achievements_menu(req) {
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu.ejs"),
-        Object.assign({},req.data,req.cookies),
+        Object.assign({},req.data,req.cookies,{"ejs":ejs}),
     );
 }
 
 function render_achievements_menu_book(req, achievementsData) {
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu_book.ejs"),
-        Object.assign({}, req.data, { achievements: achievementsData }),
+        Object.assign({}, req.data, { achievements: achievementsData, ejs: ejs }),
     );
 }
 
