@@ -7,6 +7,36 @@
         data['name'] = save_name;
         localStorage.setItem(save_key, JSON.stringify(data));
     }
+
+    document.addEventListener("localsaverestored", () => {
+            console.log("The Local Save Restoration has been initiated.");
+            });
+
+    function downloadLocalStorageSave(save_key) {
+        let data = JSON.parse(localStorage.getItem(save_key));
+        navigator.clipboard.writeText(btoa(JSON.stringify(data)));
+        alert("Save copied to clipboard!")
+    }
+
+    // function to upload a savegame into local storage
+    function restoreLocalStorageSave(i, overwrite = false) {
+        if (overwrite && !window.confirm("Do you want to overwrite your save by restoring the current save?")) {
+            return;
+        }
+
+        let save_input = document.getElementById(`file_${i}`);
+        let save_string = atob(save_input.value);
+        try {
+            JSON.parse(save_string);
+        } catch (e) {
+            alert("The given string is not a valid save!")
+                return;
+        }
+        console.log("Restore save: ", i);
+        localStorage.setItem(`save${i}`, save_string);
+        htmx.trigger(save_input, "localsaverestored");
+    }
+
 </script>
 <div class="description">
     <div>
@@ -39,6 +69,22 @@
                 > 
                     <%= savesLoadText %>
                 </button>
+            <% }; %>
+            <label 
+                class="save-file-input"
+                for="file_<%= i %>"
+                style="flex-grow: 1;"
+                _="on click show save<%= i %>Modal with visibility"
+            >
+                <%= savesImportText %>
+            </label>
+            <% if (saveData[`save${i}`]) { %>
+                <button 
+                    style="flex-grow: 1;"
+                    onclick="downloadLocalStorageSave('save<%= i %>')"
+                > 
+                    <%= savesExportText %>
+                </button>
                 <input class="save-name-input" style="flex-grow: 1;" type="text" 
                 id="save_name_<%= i %>"
                 value="<%= saveData[`save${i}`].name %>"
@@ -51,6 +97,32 @@
                 >
             <% } %>
         </div>
+    <div id="save<%= i %>Modal" class="save-modal-content" _="on closeModal hide with visibility">
+        <div class="saves-modal-text">
+            <%- savesModalText %>
+        </div>
+        <input type="text"
+            id="file_<%= i %>"
+            class="save-modal-input"
+            hx-post
+            hx-trigger="localsaverestored"
+            hx-ext="submitlocalstorage"
+            hx-target="#content"
+            hx-swap="innerHTML"
+        />
+        <div class="save-modal-buttons">
+            <button 
+                for="file_<%= i %>"
+                _="on click restoreLocalStorageSave(<%= i %>,
+                <% if (saveData[`save${i}`]) { %> <%= true %> <% } else { %> <%= false %> <% }%>) then trigger closeModal"
+            >
+                <%= savesImportText %>
+            </button>
+            <button _="on click trigger closeModal">
+                <%= savesImportCancelText %>
+            </button>
+        </div>
+    </div>
     <% }; %>
 </div>
 </div>
