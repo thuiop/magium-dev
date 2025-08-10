@@ -17,8 +17,6 @@ function saveGameToLocalStorage(saveName, overwrite = false) {
     cookies.date = curDateTime
     cookies.name = curDateTime
 
-    console.log(cookies)
-
     if (localStorage) {
         writeSaveToLocalStorage(saveName,cookies);
     }
@@ -47,7 +45,6 @@ htmx.defineExtension('submitlocalstorage', {
     encodeParameters: function(xhr, parameters, elt) {
         xhr.overrideMimeType('text/json') // override default mime type
         let data = Object.assign({},localStorage)
-        console.log("local Storage Data: ", data);
         Object.keys(data).forEach(function(key, index) {
             try {
                 data[key] = JSON.parse(LZString.decompressFromBase64(data[key]));

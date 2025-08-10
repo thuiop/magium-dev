@@ -18,7 +18,7 @@ const getCookies = function () {
 };
 
 function cookieSet(key,value) {
-    document.cookie = key+"="+value;
+    document.cookie = key+"="+value+";path=/";
 }
 
 function cookieAdd(name,value) {
