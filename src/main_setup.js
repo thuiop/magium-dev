@@ -330,8 +330,11 @@ function render_saves_by_page(req, page) {
     //         }
     //     }
     // }
+    console.log(req)
     Object.entries(req.body).forEach(function (entry) {
-        saveData[entry[0]] = { date: entry[1].date, name: entry[1].name };
+        if (entry[1]) {
+            saveData[entry[0]] = { date: entry[1].date, name: entry[1].name };
+        }
     });
     let data = Object.assign({}, req.cookies, {
         saveData: saveData,
