@@ -1,3 +1,13 @@
+function clearState() {
+    document.cookie.split(';').forEach(cookie => {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        if (/v_.*/.test(name) && !(/.*_ac_.*/.test(name))) {
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        }
+    });
+}
+
 function readSaveFromLocalStorage(saveName) {
     return JSON.parse(LZString.decompressFromBase64(localStorage.getItem(saveName)));
 }
@@ -83,25 +93,20 @@ function restoreLocalStorageSave(i, overwrite = false) {
 
     let save_input = document.getElementById(`file_${i}`);
     let save_string = save_input.value;
-    let plain_save_string = atob(save_string);
-    if (plain_save_string[0] === "{") {
-        try {
-            let saveObject = JSON.parse(plain_save_string);
-            writeSaveToLocalStorage(`save${i}`,saveObject);
-        } catch (e) {
-            alert("The given string is not a valid save!")
-                return;
-        }
-    }
-    else {
-        try {
-            JSON.parse(LZString.decompressFromBase64(save_string));
-        } catch (e) {
-            alert("The given string is not a valid save!")
-                return;
-        }
-
+    try {
+        JSON.parse(LZString.decompressFromBase64(save_string));
         localStorage.setItem(`save${i}`, save_string);
+    } catch (e) {
+        let plain_save_string = atob(save_string);
+        if (plain_save_string[0] === "{") {
+            try {
+                let saveObject = JSON.parse(plain_save_string);
+                writeSaveToLocalStorage(`save${i}`,saveObject);
+            } catch (e) {
+                alert("The given string is not a valid save!")
+                    return;
+            }
+        }
     }
     htmx.trigger(save_input, "localsaverestored");
 }
