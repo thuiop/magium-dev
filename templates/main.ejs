@@ -31,20 +31,25 @@
 <% for (choice of scene.choices) {%>
     <div class="response">
         <button
-        onClick="setResponseCookies(<%= JSON.stringify(choice) %>)"
+        onClick="setResponseVariables(<%= JSON.stringify(choice) %>)"
         <% if (!choice.special) { %>
-            hx-get="/"
+            hx-post="/"
+            hx-ext="submitcurrentstate"
         <% } else if (choice.special=="stats") { %>
-            hx-get="/stats"
+            hx-post="/stats"
+            hx-ext="submitcurrentstate"
             hx-push-url="true"
         <% } else if (choice.special === "checkpoint_load") { %>
-            hx-get="/"
+            hx-post="/"
+            hx-ext="submitcurrentstate"
             hx-on::before-request="loadGameFromLocalStorage('checkpoint')"
         <% } else if (choice.special=="checkpoint_save") { %>
-            hx-get="/"
+            hx-post="/"
+            hx-ext="submitcurrentstate"
             hx-on::before-request="saveGameToLocalStorage('checkpoint')"
         <% } else if (choice.special=="restart") { %>
-            hx-get="/"
+            hx-post="/"
+            hx-ext="submitcurrentstate"
             hx-on::before-request="clearState()"
         <% } else if (choice.special === "saves") { %>
             hx-post="/saves/0"

@@ -171,7 +171,7 @@
     id="cancel-changes"><%= statsCancelText %></button>
 <button onclick="confirmStats()" 
     id="confirm-changes"><%= statsConfirmText %></button>
-<button hx-get="/" hx-target="#content" hx-swap="innerHTML" hx-push-url="/"
+<button hx-post="/" hx-ext="submitcurrentstate" hx-target="#content" hx-swap="innerHTML" hx-push-url="/"
     id="return-to-game"><%= statsReturnToGameText %></button>
 </div>
 <% if (maximized && ((locals.v_ac_ch6_immersion || 0) === 0)) { %>
@@ -196,7 +196,7 @@
     </div>
 </div>
 <% }; %>
-<% if ( !locals.v_stats_seen ) { %>
+<% if ( !locals.stats_intro_seen ) { %>
     <div id="firstTimeStatsModal" class="first-time-stats-modal" _="on closeModal remove me">
         <%- statsIntroductionText %>
         <div class='stat_fail'>
@@ -208,7 +208,7 @@
         </div>
         <br/>
         <div style="display:flex;align-items:center;flex-direction:column;">
-            <button class="first-time-stats-continue" _="on click cookieAdd('v_stats_seen',1) then trigger closeModal">
+            <button class="first-time-stats-continue" _="on click js document.cookie='stats_intro_seen=1' end then trigger closeModal">
                 <%= statsIntroductionButton %>
             </div>
         </div>

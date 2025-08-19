@@ -1,11 +1,10 @@
 function clearState() {
-    document.cookie.split(';').forEach(cookie => {
-        const eqPos = cookie.indexOf('=');
-        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-        if (/v_.*/.test(name) && !(/.*_ac_.*/.test(name))) {
-            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
-        }
-    });
+    let data = readSaveFromLocalStorage("currentState");
+    data = Object.entries(data).filter((keyval) => {
+        let key = keyval[0];
+        return (/v_.*/.test(key) && !(/.*_ac_.*/.test(key))); 
+    })
+    saveGameToLocalStorage("currentState")
 }
 
 function readSaveFromLocalStorage(saveName) {
@@ -21,14 +20,14 @@ function saveGameToLocalStorage(saveName, overwrite = false) {
         return;
     }
 
-    let cookies = getCookies();
-    const today = new Date();
-    const curDateTime = today.toUTCString()
-    cookies.date = curDateTime
-    cookies.name = curDateTime
-
     if (localStorage) {
-        writeSaveToLocalStorage(saveName,cookies);
+        let data = readSaveFromLocalStorage("currentState");
+        const today = new Date();
+        const curDateTime = today.toUTCString()
+        data.date = curDateTime
+        data.name = curDateTime
+
+        writeSaveToLocalStorage(saveName,data);
     }
     else {
         console.log("localStorage not supported");
@@ -38,8 +37,7 @@ function saveGameToLocalStorage(saveName, overwrite = false) {
 function loadGameFromLocalStorage(saveName) {
     if (localStorage) {
         const data = readSaveFromLocalStorage(saveName);
-        clearState()
-        Object.entries(data).forEach((entry) => storeItem(entry[0],entry[1]))
+        writeSaveToLocalStorage("currentState",data);
     }
     else {
         console.log("localStorage not supported");
@@ -64,7 +62,20 @@ htmx.defineExtension('submitlocalstorage', {
             }
         });
         delete data["htmx-history-cache"]
-        return (JSON.stringify(data))
+        return JSON.stringify(data)
+    }
+  })
+
+
+htmx.defineExtension('submitcurrentstate', {
+    onEvent: function (name, evt) {
+        if (name === "htmx:configRequest") {
+            evt.detail.headers['Content-Type'] = "application/json"
+        }
+    },
+    encodeParameters: function(xhr, parameters, elt) {
+        xhr.overrideMimeType('text/json') // override default mime type
+        return LZString.decompressFromBase64(localStorage.getItem("currentState"));
     }
   })
 

@@ -21,7 +21,8 @@
             <% if (saveData[`save${i}`]) { %>
                 <button 
                     style="flex-grow: 1;"
-                    hx-get="/"
+                    hx-post="/"
+                    hx-ext="submitcurrentstate"
                     hx-on::before-request="loadGameFromLocalStorage('save<%= i %>')"
                     hx-target="#content"
                     hx-swap="innerHTML"
@@ -121,7 +122,8 @@ Same hard-coding is done in the backend-->
 </div>
 <div class="response">
     <button
-        hx-get="/"
+        hx-post="/"
+        hx-ext="submitcurrentstate"
         hx-target="#content"
         hx-swap="innerHTML"
         hx-push-url="true"
