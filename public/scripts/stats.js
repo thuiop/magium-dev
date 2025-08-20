@@ -3,15 +3,10 @@
 // Check if some of the stats are undefined.
 // If they are, update every stat cookie with the default value 0, and reload the page.
 
-function getDefaultStatsVariables() {
-    const stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
-        "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
-        "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
-        "v_max_stat"]
-    return stats_variables;
-}
-
-const stats_variables = getDefaultStatsVariables();
+const stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
+    "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
+    "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
+    "v_max_stat"]
 
 
 
