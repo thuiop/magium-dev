@@ -3,17 +3,11 @@
 // Check if some of the stats are undefined.
 // If they are, update every stat cookie with the default value 0, and reload the page.
 
-function getDefaultStatsVariables() {
-    const stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
-        "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
-        "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
-        "v_max_stat"]
-    return stats_variables;
-}
+const stats_variables = ["v_available_points", "v_strength", "v_toughness", "v_agility", "v_reflexes",
+    "v_hearing", "v_perception", "v_ancient_languages", "v_combat_technique", "v_premonition",
+    "v_bluff", "v_magical_sense", "v_aura_hardening", "v_magical_power", "v_magical_knowledge",
+    "v_max_stat"]
 
-const stats_variables = getDefaultStatsVariables();
-
-let locals = getCookies(); // From the utils.js file
 
 
 function initStats(event) {
@@ -22,27 +16,22 @@ function initStats(event) {
     if (page != "stats") {
         return;
     }
-    locals = getCookies()
+    locals = readSaveFromLocalStorage("currentState");
 
     var reload = false;
     stats_variables.forEach(function(stat) {
         const value = locals[stat];
-        console.log(stat);
-        console.log(value);
         if (value === null || value === undefined) {
             if (stat === 'v_max_stat') {
-                storeItem(stat, "3") // From the utils.js file
+                locals[stat] = 3;
             } else {
-                storeItem(stat, "0")
-            }
-            // Temporary points
-            if (stat === 'v_available_points') {
-                storeItem(stat, "0")
+                locals[stat] = 0;
             }
             reload = true;
         }
     });
     if (reload) {
+        writeSaveToLocalStorage("currentState",locals);
         window.location.reload();
     }
 }
@@ -78,6 +67,7 @@ function getAuxiliaryStatMapping() {
 }
 
 function initializeAuxiliaryProperty(stat_property, default_value) {
+    let locals = readSaveFromLocalStorage("currentState");
     const stat_value = locals[stat_property] && !Number.isNaN(locals[stat_property]) ? 
         parseInt(locals[stat_property]) : 0;
     return stat_value;
@@ -129,6 +119,7 @@ let stats_changed = false; // This variable is used to check if the stats have b
 
 function updateStat(stat, stat_aux_key, stat_field_id, stat_field_value_id) {
     let stat_aux_value = stats_aux[stat_aux_key];
+    let locals = readSaveFromLocalStorage("currentState");
     const stat_max = locals["v_max_stat"];
     const available_points = stats_aux["v_available_points_aux"];
 
@@ -145,11 +136,13 @@ function confirmStats() {
     if (!stats_changed) { return; }
     // Update the stats cookies
     const stats_aux_mapping = getAuxiliaryStatMapping();
+    let locals = readSaveFromLocalStorage("currentState");
     for (let stat_aux in stats_aux) {
         let stat_aux_mapping = stats_aux_mapping[stat_aux]
         let stat = stat_aux_mapping["stat"]
-        storeItem(stat, stats_aux[stat_aux])
+        locals[stat] = stats_aux[stat_aux]
     }
+    writeSaveToLocalStorage("currentState",locals);
     // Refresh the page to reflect the changes
     window.location.reload();
 }

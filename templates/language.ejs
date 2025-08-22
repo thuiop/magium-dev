@@ -2,7 +2,7 @@
     <% for (entry of Object.entries(locales)) { %>
         <div class="response">
             <button
-                onClick="storeItem('locale','<%= entry[0] %>');window.location.reload()"
+                onClick="document.cookie='locale=<%= entry[0] %>';window.location.reload()"
             > 
                 <%= entry[1] %>
             </button>

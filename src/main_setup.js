@@ -179,8 +179,8 @@ function get_header_from_id(id, headerTemplate) {
     }
 }
 
-function getLocaleData(fullData,cookies) {
-    let locale = cookies.locale ? cookies.locale : "en"
+function getLocaleData(fullData, localeCookie) {
+    let locale = localeCookie ? localeCookie : "en"
     return Object.assign({},fullData[locale])
 }
 
@@ -196,10 +196,10 @@ function render_full(req, callback, header = "") {
 }
 
 function render_scene(req) {
-    const id = req.cookies.v_current_scene
-        ? req.cookies.v_current_scene
+    const id = req.body.v_current_scene
+        ? req.body.v_current_scene
         : "Ch1-Intro1";
-    let cookieData = Object.assign({}, req.cookies);
+    let cookieData = Object.assign({}, req.body);
     let sceneData = Object.assign({}, req.data[id]);
     sceneData.setVariables = sceneData.setVariables.filter((setVariable) =>
         apply_conditions(setVariable.conditions, cookieData),
@@ -231,10 +231,11 @@ function render_scene(req) {
 function render_stats(req) {
     let data = Object.assign({}, req.data, {
         "maximized":
-            req.cookies.v_current_scene === "Ch6-Eiden-vs-dragon" &&
-            req.cookies.v_maximized_stats_used === "1",
+            (req.body.v_current_scene || "") === "Ch6-Eiden-vs-dragon" &&
+            (req.body.v_maximized_stats_used || 0) === "1",
+        "stats_intro_seen": req.cookies.stats_intro_seen,
         "ejs": ejs,
-    }, req.cookies);
+    }, req.body);
     return ejs.renderFile(path.join(dirname, "templates","stats.ejs"), data);
 }
 
@@ -249,7 +250,7 @@ function render_menu(req) {
 function render_settings(req) {
     return ejs.renderFile(
         path.join(dirname, "templates","settings.ejs"),
-        Object.assign({},req.cookies,req.data),
+        Object.assign({},req.body,req.data),
     );
 }
 
@@ -264,7 +265,7 @@ function render_achievements_menu(req) {
     const bookCount = Object.keys(achievementsData["en"]).length;
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu.ejs"),
-        Object.assign({},req.data,req.cookies,{"ejs":ejs,"bookCount":bookCount}),
+        Object.assign({},req.data,req.body,{"ejs":ejs,"bookCount":bookCount}),
     );
 }
 
@@ -278,7 +279,7 @@ function render_achievements_menu_book(req, achievementsData) {
 function render_achievements_menu_chapter(req, achievementsData) {
     return ejs.renderFile(
         path.join(dirname, "templates","achievements_menu_chapter.ejs"),
-        Object.assign({}, { achievements: achievementsData }, req.cookies, req.data),
+        Object.assign({}, { achievements: achievementsData }, req.body, req.data),
     );
 }
 
@@ -330,7 +331,6 @@ function render_saves_by_page(req, page) {
     //         }
     //     }
     // }
-    console.log(req)
     Object.entries(req.body).forEach(function (entry) {
         if (entry[1]) {
             saveData[entry[0]] = { date: entry[1].date, name: entry[1].name };
@@ -404,14 +404,13 @@ expressApp.use(cookieParser());
 expressApp.use(express.static(path.join(dirname, "public")));
 
 expressApp.use((req, res, next) => {
-  req.data = Object.assign({},getLocaleData(magiumData,req.cookies),getLocaleData(localeData,req.cookies));
+  req.data = Object.assign({},getLocaleData(magiumData,req.cookies.locale),getLocaleData(localeData,req.cookies.locale));
   next()
 })
 
-
-expressApp.get("/", (req, res) => {
-    const id = req.cookies.v_current_scene
-        ? req.cookies.v_current_scene
+expressApp.all("/", bodyParser.json(), (req, res) => {
+    const id = req.body.v_current_scene
+        ? req.body.v_current_scene
         : "Ch1-Intro1";
     render_full(
         req,
@@ -440,7 +439,7 @@ expressApp.get("/language", (req, res) => {
 });
 
 
-expressApp.get("/stats", (req, res) => {
+expressApp.all("/stats", bodyParser.json(), (req, res) => {
     render_full(req, render_stats, req.data["statsHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
@@ -453,7 +452,7 @@ expressApp.get("/achievements", (req, res) => {
 });
 
 expressApp.get("/achievements/book/:id", (req, res) => {
-    const data  = getLocaleData(achievementsData,req.cookies);
+    const data  = getLocaleData(achievementsData,req.cookies.locale);
     const callback = (r) =>
         render_achievements_menu_book(
             r,
@@ -467,7 +466,6 @@ expressApp.get("/achievements/book/:id", (req, res) => {
 expressApp.get(
     "/achievements/book/(:idBook)/chapter/(:idChapter)",
     (req, res) => {
-        const data  = getLocaleData(achievementsData,req.cookies);
         const callback = (r) =>
             render_achievements_menu_chapter(
                 r,
