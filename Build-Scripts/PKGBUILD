@@ -1,19 +1,18 @@
 # Maintainer: <ashrafulrafi200 at gmail dot com>
 pkgname=magium-js
-pkgver=0.9.0
+pkgver=0.9.2
 pkgrel=1
 pkgdesc="Text based choose your own adventure game. This is a fan made recreation and the eventual continuation of the three original books created by the late Christian Mihailescu."
 license=("MIT")
 arch=('x86_64' 'aarch64')
 url="https://github.com/thuiop/magium-dev"
-source_x86_64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.0/MagiumJS-linux-x64-0.9.zip")
-source_aarch64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.0/MagiumJS-linux-arm-0.9.zip")
-# No checksums provided now
-sha256sums_x86_64=('SKIP')
-sha256sums_aarch54=('SKIP') 
+source_x86_64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.2/MagiumJS-linux-x64-0.9.2.zip")
+source_aarch64=("https://github.com/thuiop/magium-dev/releases/download/v0.9.2/MagiumJS-linux-arm64-0.9.2.zip")
+sha256sums_x86_64=('1d3b1cdd9c34bb4cb70eb506e2c600ef4159d5212ee4f8ca225c6d9a1409bd2c')
+sha256sums_aarch54=('a8ae98e4d3e7146088c72030e769f7fdd413b8acadd42067a79f76338250a95f') 
 depends=()
 makedepends=('unzip')
-noextract=('MagiumJS-linux-x64-0.9.zip' 'MagiumJS-linux-arm-0.9.zip')
+noextract=('MagiumJS-linux-x64-0.9.2.zip' 'MagiumJS-linux-arm-0.9.2.zip')
 
 package() {
     install -d "${pkgdir}/opt/magium/"
@@ -22,9 +21,9 @@ package() {
 
 # Extract the appropriate zip file based on architecture
     if [[ "$CARCH" == "x86_64" ]]; then
-        unzip -q "${srcdir}/MagiumJS-linux-x64-0.9.zip" -d "${pkgdir}/opt/magium/"
+        unzip -q "${srcdir}/MagiumJS-linux-x64-0.9.2.zip" -d "${pkgdir}/opt/magium/"
     elif [[ "$CARCH" == "aarch64" ]]; then
-        unzip -q "${srcdir}/MagiumJS-linux-arm-0.9.zip" -d "${pkgdir}/opt/magium/"
+        unzip -q "${srcdir}/MagiumJS-linux-arm-0.9.2.zip" -d "${pkgdir}/opt/magium/"
     fi
     
 # Move the extracted files to the target directory
