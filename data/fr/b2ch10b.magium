@@ -212,7 +212,6 @@ After hearing Kate's words, Talmak keeps turning his head between me and Daren, 
 After hearing Kate's words, Talmak keeps turning his head between me and Daren, looking at each of us in turn, as if he is simply refusing to believe what is happening before his eyes. Once he finally understands that we are indeed being serious, he completely loses his temper, and his face contorts into a snarl.
 
 }
-#if(v_b2_ch10_advisor == 0 || v_b2_ch10_advisor == 1 || v_b2_ch10_advisor == 2) {
  "You would compete against me?" Talmak shouts furiously, as he gets up from his chair and looks at me directly. "ME? The Sage of the North?"
 
 He then stops suppressing his magical power, and for a moment, it feels like the intensity of his aura is hitting me right in the face.
@@ -231,8 +230,7 @@ He then stops suppressing his magical power, and for a moment, it feels like the
 
 "These two fools have already sealed their fate!" Talmak shouts, as he faces the other members of our team. "But the rest of you do not need to die together with them. If you join my side now, you will be allowed to live."
 
-}
-choice("Continue", B2-Ch10b-Denied, v_current_scene = B2-Ch10b-Denied) if (v_b2_ch10_advisor == 0 || v_b2_ch10_advisor == 1 || v_b2_ch10_advisor == 2)
+choice("Continue", B2-Ch10b-Denied, v_current_scene = B2-Ch10b-Denied)
 
 
 ID: B2-Ch10b-Denied
@@ -619,7 +617,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_combat_technique < 4)
 set(v_is_dead,0) if (v_combat_technique == 4)
-#if(v_combat_technique == 4 || v_combat_technique < 4) {
  
 
 It's time to stop playing games, and to start going on the offensive. Let's see... What can I use against him?
@@ -632,7 +629,6 @@ I start to punch all of the stone slates that are magically created, while makin
 
 I keep dodging and punching rocks until it looks as if Talmak has all of his focus on Hadrik, and then I start flying as fast as I can, straight towards the sage and his platform, which are both right below me.
 
-}
 #if(v_combat_technique < 4) {
  Unfortunately, it seems that Talmak was still paying attention to me, and as soon as he sees me approach him, he conjures a large slate of stone, exactly in front of me. I manage to stop before hitting the obstacle, but the rocks that were following right behind me hit me at full speed, and they crush me against the stone slate, killing me instantly.
 
@@ -705,7 +701,6 @@ TEXT:
 
 set(v_is_dead,1) if (v_perception < 4)
 set(v_is_dead,0) if (v_perception == 4)
-#if(v_perception == 4 || v_perception < 4) {
  
 
 It's time to stop playing games, and to start going on the offensive. But in order to do that, I'm going to need to pay a little more attention to my surroundings.
@@ -716,7 +711,6 @@ Given that Talmak always tries to anticipate where I'm going, while continuously
 
 I begin to fly in circles, without any aim or purpose, so that the sage would have a harder time predicting what I will do. This is working, to a certain extent, but it's not really helping me get anywhere near him. I need to keep watching the rocks and to see if I can't find any patterns in how he moves them, that I might be able to exploit.
 
-}
 #if(v_perception < 4) {
  As I am busy trying to observe how Talmak is moving and creating his rocks, I lose focus on the boulders that were actually out to get me, and one of them hits me right in the head. Before I have the time to recover, the sage creates even more stone slates, and I quickly get squashed between several layers of rock, which makes me die almost instantly.
 
@@ -1327,7 +1321,6 @@ As we all take a look to see what's happening, we are shocked to find out that a
 "Why don't you try absorbing this golem with your sword, Daren?" Talmak shouts from above. "Maybe you'll manage to scratch the sole of its foot, before it stomps you to death!"
 
 }
-#if(v_b2_ch10_target == 0 || v_b2_ch10_target == 1) {
  He then uses his earth powers to move the walls of rock on the sides of the chasm closer together, in order to create a path for his stone giant to walk on. The earth is trembling violently once more, as the pit below us gets narrower by the second, until the walls forming the crevice get joined together, leaving nothing but a small crack in the earth, between them.
 
 In the meantime, Melindra makes us float until we are at a relatively safe distance from the golem, and then she lands us on the ground.
@@ -1350,9 +1343,8 @@ All of a sudden, Melindra loses control of one of her wind blades, which flies a
 
 "Damn..." Daren says, as he looks at the hole in the ground left by the blade from earlier. "I really hope that my barrier is strong enough to protect us from one of these, if it hits us..."
 
-}
-choice(""Would your barrier work more effectively if we huddled closer together?"", B2-Ch10b-Huddled, v_current_scene = B2-Ch10b-Huddled) if (v_b2_ch10_target == 0 || v_b2_ch10_target == 1)
-choice(""Maybe you could try to use your sword to absorb the wind blades."", B2-Ch10b-Absorb, v_current_scene = B2-Ch10b-Absorb) if (v_b2_ch10_target == 0 || v_b2_ch10_target == 1)
+choice(""Would your barrier work more effectively if we huddled closer together?"", B2-Ch10b-Huddled, v_current_scene = B2-Ch10b-Huddled)
+choice(""Maybe you could try to use your sword to absorb the wind blades."", B2-Ch10b-Absorb, v_current_scene = B2-Ch10b-Absorb)
 
 
 ID: B2-Ch10b-Huddled
@@ -1460,7 +1452,6 @@ Before she gets to finish what she had to say, the banshee gets teleported out o
 "Sure, I guess..." Daren says, confused. "But I don't see why--"
 
 }
-#if(v_b2_ch10_target == 0 || v_b2_ch10_target == 1) {
  "Then let me ask you directly..." Melindra says. "Are you, or are you not planning to cast a spell on me that limits my powers?"
 
 "What?..." Daren says. "No! Of course not! What are you even saying? Do you know how risky it would be to try and cast a spell like that on you, given the nature of your stillwater aura? You could even die from something like that. I would never even dream of casting such a spell on you!"
@@ -1479,8 +1470,7 @@ Before she gets to finish what she had to say, the banshee gets teleported out o
 
 "They're just trying to be nice, Melindra," I say. "There's no need to act so shocked about it. Also, could we maybe move away from this camp? I have a feeling that we're going to start getting attacked by a hundred pinecone-collecting underlings if we stay in this place much longer..."
 
-}
-choice("Continue", B2-Ch10b-Empty, v_current_scene = B2-Ch10b-Empty, v_b2_ch11_added_hearing = 0) if (v_b2_ch10_target == 0 || v_b2_ch10_target == 1)
+choice("Continue", B2-Ch10b-Empty, v_current_scene = B2-Ch10b-Empty, v_b2_ch11_added_hearing = 0)
 
 
 ID: B2-Ch10b-Empty
@@ -1624,7 +1614,7 @@ Before I get to finish my train of thought, Hadrik is the one to hit the nail on
 "So, I've been wondering about something for a while... maybe you guys can clear it up for me," Hadrik says. "Does the time look frozen to anyone else? Or is it just me?..."
 
 }
-choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b2_ch10_activate == 0 || v_b2_ch10_activate == 1 || v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1)
+choice("Next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
 
 
 ID: B2-Ch10b-Details
@@ -1754,4 +1744,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch11a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch11a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

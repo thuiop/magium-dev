@@ -120,7 +120,6 @@ TEXT:
 "...That is indeed a very good point," Meridith says, in a resigned tone. "Forgive me. It seems that in my eagerness to ensure Eiden's demise, I almost placed you and your friends in mortal danger without realizing it. Perhaps it might be better if I offered you a different deal... One that even your dwarf friend would be willing to accept."
 
 }
-#if(v_b3_ch11_friend == 0 || v_b3_ch11_friend == 1 || v_b3_ch11_friend == 2) {
  "What do you mean?" I ask her. "What kind of deal are you talking about?"
 
 "The thing that I want the most from your group right now is for you to continue to participate in the mage tournament," Meridith says. "That way, at least I'll know that you'll still be here, in Varathia when we enact our plan. If you all agree to continue doing the tournament objectives so that the kings don't kick you out of the continent, then I will personally guarantee you access to our Magium node, as long as our plan works perfectly, and we manage to kill Eiden without your help. However, on the off-chance that Eiden survives, then you will have to decide for yourselves whether you are willing to kill him or not. In this scenario, you would obviously only gain access to the Magium node if you joined our side and killed Eiden, but for your safety, I won't ask you to make this decision until the very last moment. This way, even if Eiden were to ask you very specific questions about your meeting with me, you could answer him truthfully, without turning him into your enemy."
@@ -139,8 +138,7 @@ TEXT:
 
 "How so?" I ask.
 
-}
-choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting) if (v_b3_ch11_friend == 0 || v_b3_ch11_friend == 1 || v_b3_ch11_friend == 2)
+choice("Continue", B3-Ch11a-Augmenting, v_current_scene = B3-Ch11a-Augmenting)
 
 
 ID: B3-Ch11a-Augmenting
@@ -243,7 +241,6 @@ As soon as she receives it, Meridith uses her wand to touch the stat booster, an
 "Do you have any idea if there are other ways in which we could activate this Emergency Mode on command?" Kate says. "Like for example, if we all tried to transfer our magical energy into the device at the same time, could that perhaps trigger it?" 
 
 }
-#if(v_b3_ch11_transferred == 0 || v_b3_ch11_transferred == 1) {
  "You'd need ridiculous amounts of energy to be transferred very fast into the device, to even have a slight chance of activating this mode," Meridith says. "Realistically speaking, stillwaters are the only kinds of mages who possess such high quantities of energy, but as far as I know, Melindra does not have full control over her powers, so she would never be able to do something as complex as transferring her energy willingly into the device. If the rest of you were to try activating the device with your levels of energy, you'd likely only be wasting your time."
 
 "I see," Kate says.
@@ -256,8 +253,7 @@ As soon as she receives it, Meridith uses her wand to touch the stat booster, an
 
 "Thank you, lady Meridith," Diane says. "I will make sure to speak my mind whenever I have something important to add!"
 
-}
-choice("Continue", B3-Ch11a-Insane, v_current_scene = B3-Ch11a-Insane) if (v_b3_ch11_transferred == 0 || v_b3_ch11_transferred == 1)
+choice("Continue", B3-Ch11a-Insane, v_current_scene = B3-Ch11a-Insane)
 
 
 ID: B3-Ch11a-Insane
@@ -321,16 +317,14 @@ TEXT:
 "So, do any of you have any idea which way your friends might have gone?"  Diane asks us. "The seredium walls are making it pretty much impossible for us to detect their auras."
 
 }
-#if(v_b3_ch10_node == 0 || v_b3_ch10_node == 1) {
  "If I'm not mistaken," Kate says, "we already went past the secret tunnel entrance that we used to get here, and I don't think Hadrik could have opened it without smashing through the wall. This means that he must have kept going further down this corridor."
 
 "Yes, I think so as well," Meridith says. "There are only two ways out of this area, aside from the secret tunnel, but the problem is that one of those routes leads straight into Heksol faction territory. Maybe we should check that tunnel first, just to be safe."
 
 "Isn't the entrance to that corridor clearly marked as leading to the Heksol faction area, in the common language?" Diane says. "Surely, the dwarf must have read that and decided to take the other path, right?"
 
-}
-choice(""Yeah, if it's marked like you say, then he probably avoided that tunnel."", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
-choice(""Actually, he might have had even more of a reason to go there, if it's marked."", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
+choice(""Yeah, if it's marked like you say, then he probably avoided that tunnel."", B3-Ch11a-Avoided, v_current_scene = B3-Ch11a-Avoided, v_b3_ch11_path = 0)
+choice(""Actually, he might have had even more of a reason to go there, if it's marked."", B3-Ch11a-Reason, v_current_scene = B3-Ch11a-Reason, v_b3_ch11_path = 1)
 
 
 ID: B3-Ch11a-Avoided
@@ -535,7 +529,6 @@ A few minutes later, we suddenly hear Hadrik's loud laughter, as he seems to be 
 "I have to say, it sounds like your dwarf friend and I could have really gotten along," Hadrik says. "It's too bad that I couldn't meet him while he was still alive."
 
 }
-#if(v_b3_ch11_puzzle4 == 0 || v_b3_ch11_puzzle4 == 1) {
  "Yes, well at least he had a death worthy of a dwarf," the Heksol faction guard says. "He picked a fight with the wrong people while he was dead drunk, and he got stabbed in the chest. The way I heard it, he managed to take four of them down with him too, before he croaked. He always used to tell me that a drunken brawl would be the best possible way for him to leave this world, so I guess he finally got his wish."
 
 "Hey, would you look at that..." Hadrik says, with a grin, as we turn the corner and get a direct line of sight towards the dwarf and his new friend. "If it isn't the big boss herself! Well, what are you just standing there, for? Come here. Sit with us. Have a drink!"
@@ -568,8 +561,7 @@ Taking a good look around Hadrik and the lessathi guard, I see that they are sur
 
 "Hahahah!" Kleykarth laughs. "I was just messing with you, dwarf. There's no need for you to panic. Your secrets are safe with me!"
 
-}
-choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg) if (v_b3_ch11_puzzle4 == 0 || v_b3_ch11_puzzle4 == 1)
+choice("Continue", B3-Ch11a-Uverg, v_current_scene = B3-Ch11a-Uverg)
 
 
 ID: B3-Ch11a-Behind
@@ -815,7 +807,6 @@ TEXT:
 "The Overseer is the artificial intelligence that controls the flying metal contraptions with red and green eyes from Ollendor," I tell Meridith. "As of recently, he has learned to use these blue crystals to spy on people, by transferring his consciousness into them."
 
 }
-#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  "Oh, right," Meridith says, "I do remember hearing a long time ago that Biliborrathrathsarran had reactivated some highly intelligent machine built by the lessathi of old, but I didn't know all the details. Unfortunately, we haven't really been getting a lot of information from inside Ollendor these past few years, since it has been much too dangerous to keep any spies inside that city. But how would a machine be able to transfer its consciousness into the crystals? Does it even have a consciousness to begin with?"
 
 "From what we've been told," Kate says, "the lessathi who built the Overseer also created a manufactured soul for him, in order to give him free will. However, the reason why he is able to navigate through these crystals is because he was controlled by the Magium for a brief period of time, and he has managed to retain some of the knowledge that he had access to during those few minutes."
@@ -836,10 +827,9 @@ TEXT:
 
 "Is he--" Meredith turns to me, as she seems to be having trouble finding her words. "Is this machine mocking me?"
 
-}
-choice(""Welcome to the club. He's been mocking us like this since the first day we met him."", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
-choice(""Actually, I think he just can't stop himself from talking like this."", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
-choice(""I've always found it difficult to tell if he's being serious or not in these situations."", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice(""Welcome to the club. He's been mocking us like this since the first day we met him."", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 0)
+choice(""Actually, I think he just can't stop himself from talking like this."", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 1)
+choice(""I've always found it difficult to tell if he's being serious or not in these situations."", B3-Ch11a-Exchange, v_current_scene = B3-Ch11a-Exchange, v_b3_ch11_mocking = 2)
 
 
 ID: B3-Ch11a-Exchange
@@ -889,7 +879,6 @@ TEXT:
 "Amazing!" Uverg says. "I never thought I'd get an opportunity in this lifetime to have a conversation with someone who went through the same experience as me! Would you perhaps be interested in an exchange of information regarding what we've learned during our brief interaction with the Magium? I'm certain that we would both have a lot to benefit from something like this!"
 
 }
-#if(v_b3_ch11_mocking == 0 || v_b3_ch11_mocking == 1 || v_b3_ch11_mocking == 2) {
  "The Overseer protocol accepts your proposition," the Overseer says. "I must admit that I was also curious to know more about you ever since you managed to detect me through the crystals. We will arrange for a private meeting at a later date, so that we can discuss this at length."
 
 "If you think we're just going to let you two hold a private conversation about the Magium, then you might be far less intelligent than I initially thought," Meridith tells the Overseer.
@@ -908,8 +897,7 @@ TEXT:
 
 "...No," Meridith says, as she appears to be calming down. "I will not give in to your provocations. You know very well that you have no proof for your claims, and I will not waste any time validating your conspiracies."
 
-}
-choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty) if (v_b3_ch11_mocking == 0 || v_b3_ch11_mocking == 1 || v_b3_ch11_mocking == 2)
+choice("Continue", B3-Ch11a-Crafty, v_current_scene = B3-Ch11a-Crafty)
 
 
 ID: B3-Ch11a-Crafty
@@ -1055,7 +1043,6 @@ TEXT:
 "This 'Overseer' has clearly been antagonizing me from the very beginning, in the hopes of gaining the sympathy of the Heksol faction," Meridith says. "If he had any intention of maintaining a peaceful relationship with me, he would not have behaved like this."
 
 }
-#if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "While that is indeed true," Uverg says, "you should also remember that you were the first one to provoke him, by openly stating that you would not allow him access to the Magium node. This gave the Overseer no option but to see you as his direct enemy, and to try to ally with your adversaries, instead. If you were to show more lenience towards him, then maybe he would--"
 
 "No," Meridith says, simply. "The time for negotiations is long past. I will not forbid you to interact with the Overseer, since he seems to have taken an interest in you, but as far as I am concerned, the Overseer is a potential enemy that has infiltrated our base, and I will treat him as such until there is a strong reason for me to believe otherwise."
@@ -1068,14 +1055,12 @@ TEXT:
 
 "Good," Meridith says. "Follow me."
 
-}
-choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 0 || v_b3_ch11_weakness == 1 && v_b3_ch8_overseer2 == 1 || v_b3_ch11_weakness == 2 && v_b3_ch4_billy == 9 || v_b3_ch11_weakness == 2 && v_b3_ch4_billy != 9 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1 || v_b3_ch11_weakness == 0)
+choice("Continue", B3-Ch11a-Analysis, v_current_scene = B3-Ch11a-Analysis)
 
 
 ID: B3-Ch11a-Analysis
 TEXT:
 
-#if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1) {
  "Lady Meridith, there was something that I needed to discuss with you as well," Uverg says. "May I come with you?"
 
 "Can this not wait for a few more hours?" Meridith says. "I would prefer to have my conversation with them in private."
@@ -1098,7 +1083,6 @@ TEXT:
 
  "Ahem... " Uverg says, as we are still walking side by side through the underground tunnels. "Moving on from the surface-level analysis of the blue crystals, I would now like to summarize some of the main points that I think you will find most interesting, from the twenty-page detailed report that I'll be leaving on your desk later today. First of all, I am not sure if you've noticed this before, but the color of these crystals is not in fact completely blue. If you look carefully, you will see that there is also a slight tinge of indigo, although it can be easy to miss for the untrained eye. This to me was very shocking, because it would mean that the very name that we've been using all these years to describe the crystals might be completely incorrect! Further analysis may be needed, of course, but it may well be possible that in the near future, these 'blue crystals' could be officially renamed to 'blue with a slight tinge of indigo crystals'. Truly, we are making history!"
 
-}
 #if(v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0) {
  "Oh yeah," Hadrik says, as he now turns to the rest of us. "She totally killed him."
 
@@ -1115,7 +1099,7 @@ When we reached the entrance of the tunnel, we came upon Daren, Melindra, Flower
 As soon as Meridith figures out what happened, she explains the situation to the guard, and he lets them go, so that they can come with us towards the Magium node again.
 
 }
-choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted) if (v_b3_ch11_path == 0 && v_b3_ch11_reverse == 0 || v_b3_ch11_path == 1 || v_b3_ch11_reverse == 1)
+choice("Continue", B3-Ch11a-Entrusted, v_current_scene = B3-Ch11a-Entrusted)
 
 
 ID: B3-Ch11a-Entrusted
@@ -1179,7 +1163,6 @@ TEXT:
 "You said earlier that you knew of an event similar to this strange awakening of the crystals that we are experiencing at the moment," Meridith says. "Was this in some way related to the transformations that those humans have undergone, which led them to become lessathi?"
 
 }
-#if(v_b3_ch11_escape == 0 || v_b3_ch11_escape == 1 || v_b3_ch11_escape == 2) {
  "I believe so," Uverg says. "Of course, it would be practically impossible to do a proper analysis after all this time has passed, but logically speaking, one would normally assume that it was the prolonged exposure to the awakened crystals that triggered these drastic changes in those people's auras. From the knowledge that the Magium has given me, it appears that the crystals awoke from their slumber after some sort of underground explosion that was triggered by accident. I think it took more than a hundred years for the crystals to go back to normal since then. If this is true, then I can only hope that the event we are experiencing now will not end up changing our auras even further."
 
 "We can worry about that later," Meridith says. "You said that it took entire generations for these crystals to have any noticeable effect on our ancestors, so we should have enough time to figure things out."
@@ -1200,8 +1183,7 @@ TEXT:
 
 "And what was this 'revenge', exactly?" Daren asks.
 
-}
-choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric) if (v_b3_ch11_escape == 0 || v_b3_ch11_escape == 1 || v_b3_ch11_escape == 2)
+choice("Continue", B3-Ch11a-Eccentric, v_current_scene = B3-Ch11a-Eccentric)
 
 
 ID: B3-Ch11a-Eccentric
@@ -1333,7 +1315,6 @@ TEXT:
 "I want you to get a taste of the reward you would be receiving if you helped me," Meridith says. "I want you to know what it is like to actually access the Magium. It would be a shame for you to have come all this way without even gaining a proper understanding of how the Magium node is supposed to be useful to you."
 
 }
-#if(v_b3_ch11_money == 0 || v_b3_ch11_money == 1 || v_b3_ch11_money == 2) {
  "Now that you mention it, I was wondering if this Magium node of yours would come with a user's manual or not," Daren says. "Because let's be fair, I doubt that most of us would know what to do even if we gained access to it."
 
 "There's no need to worry about that," Meridith says. "We have devices that were built specifically for the purpose of gaining knowledge from the Magium, without the risk of you going mad. The process will be slow, and it may take many years to get the information that you want, depending on what you are looking for, but the potential is limitless. I've in fact brought such a device with me, so that I can demonstrate to you how it works. So, what do you say? Shall we give it a try?"
@@ -1360,8 +1341,7 @@ While Meridith was talking, I managed to recreate the air currents spell that I 
 
 "What, the flying?" I ask Meridith, as I am still trying to find my balance in mid-air. "Oh, I'm just using the air elementalist powers granted to me by the device to create some air currents around me that are moving constantly. It sounds complicated at first, but if you treat it as if you were flying a plane, it gets much simpler."
 
-}
-choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector) if (v_b3_ch11_money == 0 || v_b3_ch11_money == 1 || v_b3_ch11_money == 2)
+choice("Continue", B3-Ch11a-Connector, v_current_scene = B3-Ch11a-Connector)
 
 
 ID: B3-Ch11a-Connector
@@ -1417,7 +1397,6 @@ choice("Continue", B3-Ch11a-Endless, v_current_scene = B3-Ch11a-Endless)
 ID: B3-Ch11a-Endless
 TEXT:
 
-#if(v_b3_ch10_node == 0 || v_b3_ch10_node == 1) {
  "So, all I have to do is press this green button over here, right?" Daren asks Meridith.
 
 "Exactly," Meridith says. "The rest will become obvious once you press it."
@@ -1438,7 +1417,6 @@ TEXT:
 
 As soon as I do that, I immediately understand what Daren was talking about. I am still aware of the world around me, but at the same time I feel like my mind is connected to an endless library, full of books containing knowledge dating all the way back to the beginning of the universe. However, the access to them is clearly limited, and I don't think this is just because of me being inexperienced. In fact, it is far more likely that the limit has been placed by the designers of this device, in order to avoid traumatizing people who are still not ready to see the real thing.
 
-}
 #if(v_b3_ch10_node == 1) {
  Having touched the Magium node once already, I can tell with a high degree of certainty that the information available to me right now is only a small fraction of what the Magium has to offer.
 
@@ -1449,8 +1427,8 @@ I'm actually starting to think that the green button is meant to only give me a 
  I'm starting to think that the green button is meant to only give me a small taste of the Magium's knowledge, and that the red button is in fact the real access to the Magium. Maybe I should try pressing it?
 
 }
-choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
-choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1) if (v_b3_ch10_node == 0 || v_b3_ch10_node == 1)
+choice("Don't press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 0)
+choice("Press the red button.", B3-Ch11a-Generous, v_current_scene = B3-Ch11a-Generous, v_b3_ch11_red = 1)
 
 
 ID: B3-Ch11a-Generous
@@ -1506,7 +1484,6 @@ After me, Kate was the one who volunteered, and then Hadrik. Both of them seemed
 The last one to try out the device was Flower. Just as she was about to press the green button, Illuna's blue eyes suddenly started glowing, as she took control of the body.
 
 }
-#if(v_b3_ch11_red == 0 || v_b3_ch11_red == 1) {
  "Allow me," Illuna says, as she presses the red button, and then also a few other buttons in quick succession.
 
 Seeing what she is doing, Meridith crosses her arms, giving Illuna a reproachful look, but she lets her finish what she wants to do, and only comments on her actions once she comes to return the device to her.
@@ -1519,8 +1496,7 @@ Seeing what she is doing, Meridith crosses her arms, giving Illuna a reproachful
 
 "I've found quite a bit more than what I was looking for, actually," Illuna says. "I believe that this newly acquired knowledge will be very useful in helping me develop some techniques that I've been working on for the past few days."
 
-}
-choice("Continue", B3-Ch11a-Exploring, v_current_scene = B3-Ch11a-Exploring) if (v_b3_ch11_red == 0 || v_b3_ch11_red == 1)
+choice("Continue", B3-Ch11a-Exploring, v_current_scene = B3-Ch11a-Exploring)
 
 
 ID: B3-Ch11a-Exploring
@@ -1570,7 +1546,7 @@ achievement("Hidden alliance aftermath",v_ac_b3_ch11_aftermath)
 As expected, the Overseer ignores Daren completely, and he just plays the conversation that he recorded, by using the blue crystal.
 
 }
-#if(v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7) {
+#if(v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  "What do you want, Overseer?" Daren asks him, bluntly.
 
 "First of all, I wanted to report to you that as promised, the issues concerning the seredium towers from Ollendor will soon be resolved," the Overseer says. "Upon closer analysis, I have concluded that these towers were not operating at full capacity, which is why I am now in the process of adding more mage slaves, so that everything will work more smoothly. No thanks are necessary."
@@ -1596,7 +1572,6 @@ As expected, the Overseer ignores Daren completely, and he just plays the conver
 The Overseer then begins playing the conversation that he recorded, by using the blue crystal.
 
 }
-#if(v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1) {
  "Creator, with all due respect, I think you might be underestimating Eiden," we hear Meridith's voice, coming from the crystal. "The message he sent us was very clear. He told us to 'remember the still winter'.  This is almost certainly his way of telling us that he knows exactly what we're trying to do, and that he is confident in his ability to stop us. I've also received reports that for the past few weeks, he has been teleporting all across the continent, preparing a powerful spell of his own. If we don't do something, we might lose our last chance to end him for good!"
 
 "What do you suggest?" the Magium fragment says, in the voice of an old man.
@@ -1623,10 +1598,9 @@ The Overseer then begins playing the conversation that he recorded, by using the
 
 "Oh, that's right, we never got to tell you..." Diane says. "Meridith was actually about to send me to Galamir before Melindra called her, so I talked her into letting me join your group. You know, since we're all going the same way! I hope you all don't mind!"
 
-}
-choice(""Not at all. A friend of Kate's is a friend of ours!"", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
-choice(""Only if you promise not to shock us with your electric powers again."", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
-choice(""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us."", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice(""Not at all. A friend of Kate's is a friend of ours!"", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 0)
+choice(""Only if you promise not to shock us with your electric powers again."", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 1)
+choice(""I'm sorry, but it kind of sounds to me like Meridith is sending you to spy on us."", B3-Ch11a-Detector, v_current_scene = B3-Ch11a-Detector, v_b3_ch11_diane = 2)
 
 
 ID: B3-Ch11a-Detector
@@ -1680,7 +1654,6 @@ As Hadrik and Daren are just finishing their conversation, the secret door to th
 As Hadrik and Daren are just finishing their conversation, the secret door to the Magium node opens up, making way for Meridith to pass through.
 
 }
-#if(v_b3_ch11_diane == 0 || v_b3_ch11_diane == 1 || v_b3_ch11_diane == 2) {
  "I'm sorry that it took so much time," Meridith tells us, as she closes the wall behind her. "The Creator had some important matters to discuss with me that could not be delayed any further. Anyway, I think I've held you all long enough. It's time for me to give you your pinecone detector, so you can be on your way."
 
 "FINALLY!" Arraka says, in a loud voice. "I was starting to get really tired of this place."
@@ -1701,8 +1674,7 @@ As Hadrik and Daren are just finishing their conversation, the secret door to th
 
 "Looks like there will be a lot of familiar faces at this meeting," Daren says. "We've all met Leo the leopard and the orc captain, and I'm pretty sure Barry said he and Illuna met Fyron, so the only ones we won't know there will be the kings of Varathia and the representative of the dragons. Maybe we'll have a chance to meet some of them in Galamir."
 
-}
-choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration) if (v_b3_ch11_diane == 0 || v_b3_ch11_diane == 1 || v_b3_ch11_diane == 2)
+choice("Continue", B3-Ch11a-Declaration, v_current_scene = B3-Ch11a-Declaration)
 
 
 ID: B3-Ch11a-Declaration
@@ -1847,7 +1819,6 @@ TEXT:
 "Are you sure that there's no way we can help you save your brother from... wherever he is?" Daren says. "Maybe if you would tell us what happened to him, we could--"
 
 }
-#if(v_b3_ch11_melindra == 0 || v_b3_ch11_melindra == 1 || v_b3_ch11_melindra == 2 || v_b3_ch11_melindra == 3) {
  "No, there's nothing you can do to help, aside from what you've already done," Melindra says. "I know I've been a little elusive about what happened to my brother, but one of the main reasons for that is because I'm not entirely sure myself of what has become of him, and I'd rather spend my time trying to find him than thinking about worst case scenarios. All I can tell you for certain is that he fell in with some very shady individuals a while back, who had him fooled that they had the best of intentions, and I've never heard from him since. Fortunately, I still have a few leads that could help me get to him, and with the item that I've retrieved from the late king of Ollendor, hopefully it shouldn't take me more than a few days to reach him."
 
 "But then wouldn't it be quicker if more of us searched for him at the same time?" Kate asks her.
@@ -1874,8 +1845,7 @@ TEXT:
 
 "Not to ruin the mood or anything," Daren says, "but I'd advise moving slowly when you fly away from here, as an extra precaution. Normally, the enchanter's oath that you've taken should not require you to do anything else, now that we are in possession of the pinecone detector, but it never hurts to be too careful."
 
-}
-choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military) if (v_b3_ch11_melindra == 0 || v_b3_ch11_melindra == 1 || v_b3_ch11_melindra == 2 || v_b3_ch11_melindra == 3)
+choice("Continue", B3-Ch11a-Military, v_current_scene = B3-Ch11a-Military)
 
 
 ID: B3-Ch11a-Military
@@ -1915,7 +1885,7 @@ Just as we were getting ready to depart ourselves, Flower pulls out her transcei
 "Hey, Melindra, how are you doing?" she says.
 
 }
-#if(v_b2_ch8_energizer == 1 && v_b3_ch10_benefits == 1 || v_b2_ch8_energizer == 0 || v_b3_ch10_benefits == 0) {
+#if(v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 1 || v_b3_ch10_benefits == 0) {
  "...Flower," Melindra says, "you do realize that when I said you could call me as often as you wanted, I didn't literally mean-- you know what? Never mind. I'm doing fine, Flower. How are you?"
 
 "Doing great, thanks for asking!" Flower says, with a smile. "Talk to you later, bye!"
@@ -1951,7 +1921,7 @@ When she saw Eiden, Diane was already beginning to charge up her electric powers
 "Oh," Eiden says, in a very disappointed tone. "I see..."
 
 }
-choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent) if (v_b2_ch8_energizer == 1 && v_b3_ch10_benefits == 1 || v_b2_ch8_energizer == 0 || v_b3_ch10_benefits == 0)
+choice("Continue", B3-Ch11a-Continent, v_current_scene = B3-Ch11a-Continent)
 
 
 ID: B3-Ch11a-Continent

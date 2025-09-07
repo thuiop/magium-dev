@@ -289,7 +289,6 @@ I then take Arraka's amulet from Illuna, and I start spinning it, while Illuna l
 "No, I can't 'see' anything from inside here, are you stupid?" Arraka says. "I have no eyes. I can make out most things with my magical sense, so I don't really need my eyesight for anything important, but to me, the girl's drawings in the air were just magical particles, floating around at random. Now that I know what they're supposed to be, I might be able to make a little more sense of them."
 
 }
-#if(v_b2_ch3_spin == 1 || v_b2_ch3_spin == 2 || v_b2_ch3_spin == 3) {
  "Are you sure it's safe to carry her around like this?" Leila writes, looking concerned.
 
 "Don't worry, she's not that tough!" I say. "Hell, I fought her with a dagger while she was in her best condition, and she still couldn't kill me!"
@@ -304,8 +303,7 @@ She pauses.
 
 "Thank you," Leila writes, as Illuna begins to cast her healing spells.  
 
-}
-choice("Continue", B2-Ch03a-Accounting, v_current_scene = B2-Ch03a-Accounting) if (v_b2_ch3_spin == 1 || v_b2_ch3_spin == 2 || v_b2_ch3_spin == 3)
+choice("Continue", B2-Ch03a-Accounting, v_current_scene = B2-Ch03a-Accounting)
 
 
 ID: B2-Ch03a-Accounting
@@ -1466,9 +1464,9 @@ He then casts his spell, and he vanishes into thin air, alongside the tiger and 
 "You have some very... unique friends," Leila writes, smiling, as we walk through the dark corridor.
 
 }
-choice(""What's that supposed to mean?"", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed) if (v_b2_ch3_troll == 0 || v_b2_ch3_troll == 1)
-choice(""Actually, only one of them is my friend."", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend) if (v_b2_ch3_troll == 0 || v_b2_ch3_troll == 1)
-choice(""You can say that again..."", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again) if (v_b2_ch3_troll == 0 || v_b2_ch3_troll == 1)
+choice(""What's that supposed to mean?"", B2-Ch03a-Supposed, v_current_scene = B2-Ch03a-Supposed)
+choice(""Actually, only one of them is my friend."", B2-Ch03a-Friend, v_current_scene = B2-Ch03a-Friend)
+choice(""You can say that again..."", B2-Ch03a-Again, v_current_scene = B2-Ch03a-Again)
 
 
 ID: B2-Ch03a-Supposed
@@ -1600,7 +1598,7 @@ His body then picks up his head from the ground, and it places it back on top of
 "I hope you've convinced yourselves of the futility of your actions," the troll says. "If you want this to end quickly, just stand there and don't move. I will be sure to grant you a merciful death."
 
 }
-choice("Continue", B2-Ch03a-Postpone, v_current_scene = B2-Ch03a-Postpone) if (v_b2_ch3_troll == 0 || v_b2_ch3_troll == 1)
+choice("Continue", B2-Ch03a-Postpone, v_current_scene = B2-Ch03a-Postpone)
 
 
 ID: B2-Ch03a-Postpone
@@ -1720,4 +1718,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

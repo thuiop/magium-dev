@@ -67,7 +67,6 @@ TEXT:
 "So, is this the reason why you called us here?" Kate says. "You want our two groups to join forces?"
 
 }
-#if(v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1) {
  "That would be the main gist of it, yes," the king of the underground says. "However, I would first like to ask you one important question. How exactly were you planning to get past all of the defenses the king has in place, before you could get close enough to assassinate him?"
 
 "Uh... we didn't really know much about this city's defenses before we came here, so we couldn't make any preparations in advance," Hadrik says. "Our plan was more or less to head straight for the palace, and then to just wing it."
@@ -88,8 +87,7 @@ The king picks up the device and then presses on one of the buttons. Immediately
 
 "This is a conversation between Billy Bob and the Overseer," the king says. "The Overseer is the one with the more metallic-sounding voice, in case you couldn't tell. Please tell me what you think of this discussion, once you're done listening to it."
 
-}
-choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance) if (v_b3_ch3_interest == 0 || v_b3_ch3_interest == 1)
+choice("Continue", B3-Ch03a-Assistance, v_current_scene = B3-Ch03a-Assistance)
 
 
 ID: B3-Ch03a-Assistance
@@ -238,7 +236,6 @@ choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monste
 choice(""Listen, there was no way we could have known those were good goblins!"", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 choice(""All we can really do now is try and make it up to him in some way."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
 choice(""Does it really matter that much? They were all monsters, after all."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
-choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 
 
 ID: B3-Ch03a-Roam
@@ -307,7 +304,6 @@ choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monste
 choice(""Listen, there was no way we could have known those were good goblins!"", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 choice(""All we can really do now is try and make it up to him in some way."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
 choice(""Does it really matter that much? They were all monsters, after all."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
-choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 
 
 ID: B3-Ch03a-Guided
@@ -376,7 +372,6 @@ choice("Continue", B3-Ch03a-Hag, v_current_scene = B3-Ch03a-Hag, v_b3_ch3_monste
 choice(""Listen, there was no way we could have known those were good goblins!"", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 choice(""All we can really do now is try and make it up to him in some way."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 1) if (v_b3_ch2_goblins == 1)
 choice(""Does it really matter that much? They were all monsters, after all."", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 2) if (v_b3_ch2_goblins == 1)
-choice("Continue", B3-Ch03a-Goblins, v_current_scene = B3-Ch03a-Goblins, v_b3_ch3_monsters = 0) if (v_b3_ch2_goblins == 1)
 
 
 ID: B3-Ch03a-Goblins
@@ -438,7 +433,6 @@ TEXT:
 "Listen here, you old hag," Hadrik tells Arraka, "I don't know how you do things in your spirit world, but over here on the earthen plane, people don't normally use their auras to attack people. Hell, it took me years to develop my aura hardening technique, and I'm not even sure if I've ever seen someone use anything similar in my travels."
 
 }
-#if(v_b3_ch3_monsters == 0 || v_b3_ch3_monsters == 1 || v_b3_ch3_monsters == 2) {
  "Hadrik is right," I say. "I've been travelling all across the Western Continent, in search for a way to become a mage ever since I was seventeen, and even the most obscure tomes that I've read did not contain any information about aura manipulation techniques."
 
 "Oh yeah?" Arraka says. "Well, too bad! Even if you can't do it, the gods most certainly can, and the same goes for Eiden, the golden fox and Tyrath, although the lizard probably can't do it when he's not in his molten lava form. I'm willing to bet that Azarius can do it too, and probably also every other sage except for that moron, Talmak. This isn't something you can just ignore. Not being able to counter these types of techniques gives your opponent an enormous advantage over you. Hell, you saw what that frail old man was doing to you earlier. You can't keep relying on me to point out the weaknesses of these techniques every time they are used against you! You need to learn to deal with them yourselves."
@@ -451,7 +445,6 @@ TEXT:
 
 "Yes, Barry, what is it?" Leila's father says.
 
-}
 #if(v_b3_ch1_unlock == 2) {
  "Well, first of all, I was wondering if you could help me unlock my device," I say. "We got it locked by accident yesterday, while we were trying to unlock the hidden aura stats."
 
@@ -596,7 +589,7 @@ TEXT:
 "Oh, I see!" Leila's father says, as he seems to have finally found the key he was looking for. "My mistake, then!"
 
 }
-#if(v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1) {
+#if(v_ch11_romance_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1) {
  "You two seem to be getting along quite well..." Leila's father says, as he turns to take a quick look at us, before he begins opening the first lock on the door to his workshop. "How long have you been travelling together, again?"
 
 "Uhm... I guess it's been around five days, now," I say. "But we also spent a lot of time together in the days before the arena, coming up with strategies and trying to sabotage the event."
@@ -612,16 +605,16 @@ choice(""Melindra and I are not in a relationship."", B3-Ch03a-Plans, v_current_
 choice(""Uh, yes... of course! A relationship is exactly what we are in, Melindra and I!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 1) if (v_b2_ch8_energizer == 1)
 choice(""It's no problem!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 2) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
 choice(""Well, technically it's just a vague promise. Anything could still happen!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 3) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
-choice(""It's no problem!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
-choice(""Actually, Kate and I are just friends."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
-choice(""Actually, I'd prefer to focus on winning the Magium, without any distractions."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
+choice(""It's no problem!"", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 4) if (v_ch11_romance_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1)
+choice(""Actually, Kate and I are just friends."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 5) if (v_ch11_romance_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1)
+choice(""Actually, I'd prefer to focus on winning the Magium, without any distractions."", B3-Ch03a-Plans, v_current_scene = B3-Ch03a-Plans, v_b3_ch3_plans = 6) if (v_ch11_romance_rose == 0 && v_b2_ch8_energizer != 1 || v_ch11_saved_rose == 0 && v_b2_ch8_energizer != 1)
 
 
 ID: B3-Ch03a-Plans
 TEXT:
 
 set(v_ac_b3_ch3_ominous,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
-set(v_b3_ch3_chains,0) if (v_premonition < 4 && v_b3_ch1_unlock != 2 || v_b3_ch1_unlock == 2 || v_b3_ch3_plans == 0 || v_b3_ch3_plans == 1 || v_b3_ch3_plans == 2 || v_b3_ch3_plans == 3 || v_b3_ch3_plans == 4 || v_b3_ch3_plans == 5 || v_b3_ch3_plans == 6)
+set(v_b3_ch3_chains,0) if (v_b3_ch1_unlock == 2 || v_premonition < 4)
 set(v_b3_ch3_chains,1) if (v_premonition == 4 && v_b3_ch1_unlock != 2)
 achievement("Ominous foreshadowing",v_ac_b3_ch3_ominous)
 #if(v_b3_ch3_plans == 0) {
@@ -858,7 +851,6 @@ TEXT:
 "Right..." I say, in a not entirely convinced tone.
 
 }
-#if(v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2) {
  "May I ask one question?" Leila's father says. "Why do you need to unlock the magical stats? As far as I am aware, only half-lessathi are able to use them."
 
 "Oh, it's because I actually am a half-lessathi," I say. "I've even had the chance to use these stats before, when I activated the device's emergency mode, so I already know that they work for me."
@@ -875,8 +867,7 @@ Leila and I both say goodbye to doctor Reidzek, and then we head back towards ou
 
 On our way back we run into Peter and also into a few other people that we don't recognize, who were using the same corridor to arrive in different areas from the underground rebel base, and while we're walking, Leila takes the opportunity to ask me a few more questions about my past. After walking for a few minutes, we finally make it back to the waiting room, where we see that Daren and Hadrik have already been healed, and that they were now waiting for us to return.
 
-}
-choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique) if (v_b3_ch3_magical == 0 || v_b3_ch3_magical == 1 || v_b3_ch3_magical == 2)
+choice("Continue", B3-Ch03a-Technique, v_current_scene = B3-Ch03a-Technique)
 
 
 ID: B3-Ch03a-Technique
@@ -1540,7 +1531,6 @@ Albert laughs.
 Albert then smiles politely and he walks past me, without saying another word. As I turn around to look for him, I realize that he's already gone. I'm going to need to look out for this one. My instincts tell me that he is quite a bit more dangerous than Wilhelm, so I shouldn't underestimate him.
 
 }
-#if(v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2) {
  After spending twenty more minutes walking around the corridors, I suddenly run into Peter, who tells me that he's been looking for me and that the king of the underground has requested another meeting with me and my group. When I ask him what this is about, he says that he isn't allowed to talk about it, but I can easily tell that he's acting a lot more stressed out than the last time I spoke to him. I decide to call everyone on their transceivers, and we eventually manage to assemble in the waiting room, so we can once again go meet the king.
 
 It doesn't take us too long to reach the throne room, and once we're inside, we seat ourselves on the same chairs that were prepared for us the first time. Just like the last time, Albert is also present in the room, leaning against a wall with his arms crossed, but Peter seems to be a lot more fidgety, and not so sure of himself anymore. It would appear that the only people from the last meeting who are missing this time around are Breynan and Leila's father.
@@ -1551,10 +1541,9 @@ It doesn't take us too long to reach the throne room, and once we're inside, we 
 
  "Oh, that's right, you were in the quarantine zone this whole time, so you don't know what happened..." the king says. "In short, I couldn't help but notice that this 'Eiden' has been going out of his way lately to provide your group with information related to the king of Ollendor and his clique. I noticed this for the first time earlier today, when my men reported that Eiden delayed the blessing ceremony for no particular reason, only to give the go-ahead shortly after your group arrived in the Perellion plaza. Since this was one of the few places where the screening of the ceremony was scheduled to take place, it made me a little suspicious. However, the confirmation came a few hours ago, when I received word that your friends happened to be in our recording room exactly when Eiden was having a conversation with the Overseer, and Eiden more or less admitted that he lured the metal ball there on purpose because he knew that one of our listening devices was planted nearby. So, now I ask you again... What exactly is your affiliation with Eiden?"
 
-}
-choice(""Does this whole situation seem familiar to anyone else, or is it just me?"", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
-choice(""We know him, but we wouldn't really call him a friend."", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
-choice(""He's helped us before, but he mostly does it on a whim."", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim) if (v_b3_ch3_assassin == 0 || v_b3_ch3_assassin == 1 || v_b3_ch3_assassin == 2)
+choice(""Does this whole situation seem familiar to anyone else, or is it just me?"", B3-Ch03a-Familiar, v_current_scene = B3-Ch03a-Familiar)
+choice(""We know him, but we wouldn't really call him a friend."", B3-Ch03a-Friend, v_current_scene = B3-Ch03a-Friend)
+choice(""He's helped us before, but he mostly does it on a whim."", B3-Ch03a-Whim, v_current_scene = B3-Ch03a-Whim)
 
 
 ID: B3-Ch03a-Familiar

@@ -121,8 +121,8 @@ As the metal ball keeps pestering us, more and more of the citizens we are passi
 "Possibly," Melindra says. "I have no idea how these golem heads have evolved over the years. It doesn't really matter either way. Let's proceed, shall we?"
 
 }
-choice("Continue", B3-Ch02b-Esteemed, v_current_scene = B3-Ch02b-Esteemed) if (v_b3_ch2_goblins == 3 && v_b3_ch2_name == 0 || v_b3_ch2_goblins == 3 && v_b3_ch2_name == 1 || v_b3_ch2_goblins == 3 && v_b3_ch2_name == 2 || v_b3_ch2_goblins == 3 && v_b3_ch2_name == 3 || v_b3_ch2_goblins == 3 && v_b3_ch2_name == 4 || v_b3_ch2_goblins == 4 && v_b3_ch2_name == 0 || v_b3_ch2_goblins == 4 && v_b3_ch2_name == 1 || v_b3_ch2_goblins == 4 && v_b3_ch2_name == 2 || v_b3_ch2_goblins == 4 && v_b3_ch2_name == 3 || v_b3_ch2_goblins == 4 && v_b3_ch2_name == 4 || v_b3_ch2_infiltration == 3 && v_b3_ch2_name == 0 || v_b3_ch2_infiltration == 3 && v_b3_ch2_name == 1 || v_b3_ch2_infiltration == 3 && v_b3_ch2_name == 2 || v_b3_ch2_infiltration == 3 && v_b3_ch2_name == 3 || v_b3_ch2_infiltration == 3 && v_b3_ch2_name == 4)
-choice("Continue", B3-Ch02b-Premonition, v_current_scene = B3-Ch02b-Premonition) if (v_b3_ch2_name == 0 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3 || v_b3_ch2_name == 1 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3 || v_b3_ch2_name == 2 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3 || v_b3_ch2_name == 3 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3 || v_b3_ch2_name == 4 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3)
+choice("Continue", B3-Ch02b-Esteemed, v_current_scene = B3-Ch02b-Esteemed) if (v_b3_ch2_goblins == 3 || v_b3_ch2_goblins == 4 || v_b3_ch2_infiltration == 3)
+choice("Continue", B3-Ch02b-Premonition, v_current_scene = B3-Ch02b-Premonition) if (v_b3_ch2_goblins != 3 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3)
 
 
 ID: B3-Ch02b-Esteemed
@@ -198,7 +198,6 @@ TEXT:
 "It appears that you would like to change your initial designation," the metal ball says. "Unfortunately, it is not possible to change your group's name at this time. You will therefore continue to be referred to as 'Da-ren' for the time being. We apologize for the inconvenience."
 
 }
-#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
  "Hey, no problem!" I say. "In that case, I guess we'll be goin--"
 
 "In order for this unit to be able to properly guide you through the city, you will first need to specify your intended destination," the metal ball says.
@@ -211,8 +210,7 @@ TEXT:
 
 "Error," the metal ball says. "This unit is not equipped to deal with such a scenario. Initiating experimental artificial intelligence protocol: designation Overseer. Please standby. Your inquiry will be answered shortly."
 
-}
-choice("Continue", B3-Ch02b-Formulating, v_current_scene = B3-Ch02b-Formulating) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
+choice("Continue", B3-Ch02b-Formulating, v_current_scene = B3-Ch02b-Formulating)
 
 
 ID: B3-Ch02b-Formulating
@@ -301,7 +299,7 @@ achievement("I cannot tell a lie.",v_ac_b3_ch2_lie)
 "Who knows?" Daren says. "It could be a trap of some kind. Or perhaps their surveillance system is defective, and the metal balls haven't reported us to anyone in charge yet. It's anyone's guess, really. There's not exactly much we can do about it other than keeping our guards up, and hoping for the best. This is an unknown territory for us, so we should assume that there are enemies around every corner unless proven otherwise. Melindra, how long do we have until we reach that plaza you mentioned?"
 
 }
-choice("Continue", B3-Ch02b-Pajamas, v_current_scene = B3-Ch02b-Pajamas) if (v_b3_ch2_confess == 0 || v_b3_ch2_confess == 1)
+choice("Continue", B3-Ch02b-Pajamas, v_current_scene = B3-Ch02b-Pajamas)
 
 
 ID: B3-Ch02b-Pajamas
@@ -641,7 +639,7 @@ After smacking the floor two more times with his scepter, the man in blue robes 
 "My beloved people!" the king says. "As I've announced yesterday, our Creator has finally returned. I've spoken to him yesterday, and he has gracefully agreed to participate in this ceremony, in order to receive the blessing of the God of the Seas, just like every other citizen of Ollendor. Once he becomes one of us, I'm certain that he will guide us to new heights, and together with him we will no longer need to fear any of our enemies!"
 
 }
-#if(v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3) {
+#if(v_b3_ch2_goblins != 3 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3) {
  As Melindra begins to concentrate on remembering the right way towards the palace, I can feel the air currents around me disappearing, likely because she can no longer maintain her focus on them.
 
 "At least we won't have to worry about being attacked here, with all these civilians standing around," Hadrik says, as he looks at all the people gathered in our area. "What do you all suppose this ceremony is about, anyway?"
@@ -885,7 +883,7 @@ Gontrok laughs.
 "See, now that's what I've been waiting to hear!" Gontrok says. "To be perfectly honest, I've been itching to have another fight with Hadrik for a long time, and I don't think I'll ever get a better opportunity than this. You two stay back! I alone should be enough to finish them all off!"
 
 }
-#if(v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3) {
+#if(v_b3_ch2_goblins != 3 && v_b3_ch2_goblins != 4 && v_b3_ch2_infiltration != 3) {
  "I don't care about your race's history, recruit," the captain says, in a cold tone. "What I do care about, however, is the reason why these criminals have still not been apprehended by our city guards. From the descriptions we received, these are clearly the hoodlums that destroyed our front gates and invaded our city."
 
 "As long as we deal with them ourselves, it doesn't really matter that much, does it, captain?" Gontrok says. "To be perfectly honest, I've been itching to have another fight with Hadrik for a long time, and I don't think I'll ever get a better opportunity than this. You two stay back! I alone should be enough to finish them all off!"
@@ -901,7 +899,7 @@ Gontrok laughs.
 
 "Perhaps you've forgotten, Hadrik," Gontrok says, "but I've learned many of the weaknesses in your combat style, back when we were sparring repeatedly in our homeland. You likely learned many of my weaknesses too, but I've worked hard to overcome them since then, and I've already changed my combat style dramatically in these last years. But the question is... did you change yours?"
 
-choice("Continue", B3-Ch02b-Gontrok2, v_current_scene = B3-Ch02b-Gontrok2) if (v_b3_ch2_hearing == 0 || v_b3_ch2_hearing == 1)
+choice("Continue", B3-Ch02b-Gontrok2, v_current_scene = B3-Ch02b-Gontrok2)
 
 
 ID: B3-Ch02b-Gontrok2
@@ -1061,7 +1059,7 @@ As Gontrok approaches me, I quickly realize that his wings grant him a far highe
 The only way I could compensate for this would be to react quicker than him, whenever he attacks me, but unfortunately my reflexes are nowhere near good enough for this to happen, and so the giant soon catches up to me, grabbing me with one hand by my shirt and punching me so hard in the face with the other, that he completely shatters my skull and kills me in an instant.
 
 }
-#if(v_combat_technique == 4 && v_reflexes == 4 && v_b3_ch1_unlock != 2 || v_reflexes == 4 && v_combat_technique < 4 && v_b3_ch1_unlock != 2) {
+#if(v_reflexes == 4 && v_b3_ch1_unlock != 2) {
  
 
 "What's the matter, hero?" Gontrok says with a malicious grin, as he kicks Daren in the stomach once again just when he was trying to get back up. "Isn't this supposed to be the part where you defy the odds and make a spectacular comeback? Don't disappoint me like this... I was having such high expectations of you!"

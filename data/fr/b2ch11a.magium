@@ -52,8 +52,8 @@ We all do as Daren says, and we head over to Rose, until we are right in front o
 Rose does not react to Kate's words in any way. She doesn't even seem to be aware of our presence. It's as if she were in some sort of... trance.
 
 }
-choice("Keep trying to talk to her.", B2-Ch11a-Keep, v_current_scene = B2-Ch11a-Keep, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
-choice("Grab her by the arms, and try to shake her out of the trance.", B2-Ch11a-Grab, v_current_scene = B2-Ch11a-Grab, v_checkpoint_rich = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Keep trying to talk to her.", B2-Ch11a-Keep, v_current_scene = B2-Ch11a-Keep, v_checkpoint_rich = 0)
+choice("Grab her by the arms, and try to shake her out of the trance.", B2-Ch11a-Grab, v_current_scene = B2-Ch11a-Grab, v_checkpoint_rich = 0)
 
 
 ID: B2-Ch11a-Keep
@@ -111,7 +111,7 @@ Seeing that she still isn't doing anything, I position myself right next to her,
 Rose then disappears again, and she reappears on our left side, preparing to speak again, as the echo in her voice gets more intense, in order to signify the beginning of the prophecy. After each line that she speaks, Rose disappears and appears in a different place, making us all turn our heads in confusion.
 
 }
-choice("Continue", B2-Ch11a-Prophecy, v_current_scene = B2-Ch11a-Prophecy) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11a-Prophecy, v_current_scene = B2-Ch11a-Prophecy)
 
 
 ID: B2-Ch11a-Grab
@@ -165,7 +165,7 @@ The revenant then disappears again, and she reappears on our left side, preparin
 Rose then disappears again, and she reappears on our left side, preparing to speak again, as the echo in her voice gets more intense, in order to signify the beginning of the prophecy. After each line that she speaks, Rose disappears and appears in a different place, making us all turn our heads in confusion.
 
 }
-choice("Continue", B2-Ch11a-Prophecy, v_current_scene = B2-Ch11a-Prophecy) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11a-Prophecy, v_current_scene = B2-Ch11a-Prophecy)
 
 
 ID: B2-Ch11a-Prophecy
@@ -227,7 +227,6 @@ A prophecy about a great disaster... Two old enemies... Does this mean that we w
 "This is not Arraka's doing," Melindra says, as she struggles to remain calm. "I already told you. That sage battle from earlier will seem like nothing, compared to what's about to happen."
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Hey, I could make that prophecy happen in less than a day, if you want," Arraka says. "That way, you wouldn't have to waste any more time trying to figure it out. All you have to do is let me out of this amulet. What do you say?"
 
 "I think I'd rather figure it out by myself, if you don't mind," I say.
@@ -242,14 +241,12 @@ A prophecy about a great disaster... Two old enemies... Does this mean that we w
 
 "Only if everything happens in the same way that it did six hundred years ago," Melindra says. "The last time I've had the honor of witnessing a time weaver's prophecy, I didn't have to wait long until--"
 
-}
-choice("Continue", B2-Ch11a-Prophecy2, v_current_scene = B2-Ch11a-Prophecy2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11a-Prophecy2, v_current_scene = B2-Ch11a-Prophecy2)
 
 
 ID: B2-Ch11a-Prophecy2
 TEXT:
 
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  She is right. I don't think I've experienced such a feeling of dread, ever since I saw Arraka get out of her amulet. It's like every single fiber of my being is telling me to run the hell away from here, as far as possible, and as fast as my feet can carry me. I can't let this fear overcome me. Not now. I'm almost certain that even the smallest wrong decision made at this point could lead to my instant obliteration. Just who is it exactly, that we are facing, here?
 
 "Greetings, mortals..." we hear several male voices, speaking in unison, all around us.
@@ -262,7 +259,6 @@ This speech pattern is very similar to the way in which Arraka speaks sometimes,
 
 "This is the God of Time," Melindra says. "Don't ask him any questions. He has the power to end us all in a matter of seconds. Just... kneel..."
 
-}
 #if(v_ch11_saved_rose == 0) {
  She then kneels before the God of Time, with her head bowed down, while she signals Daren to do the same.
 
@@ -287,9 +283,9 @@ While I was standing there, considering my options, the God of Time was slowly m
 "Don't listen to what he says," Arraka tells us. "He needs you alive for his plans to work. He can't do anything to you. He's just bluffing."
 
 }
-choice("Kneel before the God of Time", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
-choice("Stand my ground", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
-choice("Stand my ground and insult the God of Time", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Kneel before the God of Time", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 1)
+choice("Stand my ground", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 0)
+choice("Stand my ground and insult the God of Time", B2-Ch11a-Kneel, v_current_scene = B2-Ch11a-Kneel, v_b2_ch11_kneel = 2)
 
 
 ID: B2-Ch11a-Kneel
@@ -365,7 +361,6 @@ We are now all being squashed against the rocky soil by an incredible force, and
 During this time, I can't manage to pay attention to anything around me. Every ounce of my energy is being focused into withstanding the pain. I can no longer tell if the screams that I'm hearing are coming from me, or from my friends. It's as if I've voluntarily entered some sort of trance, trying to become one with the pain. Trying to let it flow through me. No matter how hard I try, however, the pain keeps getting the better of me, and then I need to regain my focus all over again.
 
 }
-#if(v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 1 || v_b2_ch11_kneel == 2) {
  "Can you STOP with the time reversals, already?" Arraka says, exasperated, after a while. "You're making me dizzy!"
 
 Upon hearing Arraka's words, the God of Time casts one last time-reversal spell, and then he lowers the amount of pressure in the air above us, making sure that he is no longer hurting us, but still keeping us pressed against the ground.
@@ -378,8 +373,7 @@ Upon hearing Arraka's words, the God of Time casts one last time-reversal spell,
 
 "And we will," the God of Time says. "As soon as we are both back to our peak conditions. You wouldn't want to fight me from inside an amulet, would you?"
 
-}
-choice("Continue", B2-Ch11a-Absorb, v_current_scene = B2-Ch11a-Absorb) if (v_b2_ch11_kneel == 0 || v_b2_ch11_kneel == 1 || v_b2_ch11_kneel == 2)
+choice("Continue", B2-Ch11a-Absorb, v_current_scene = B2-Ch11a-Absorb)
 
 
 ID: B2-Ch11a-Absorb
@@ -502,7 +496,6 @@ choice("Continue.", B2-Ch11a-Invitation, v_current_scene = B2-Ch11a-Invitation) 
 ID: B2-Ch11a-Sanity
 TEXT:
 
-#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
  "As soon as every preparation is in place," the God of Time says. "But this does not mean that you should spend the remaining time holding conversations with these lowly creatures. Why do you bother answering every single one of their questions? I very much doubt that these people will even make it past the first stage of the ritual."
 
 Arraka laughs.
@@ -517,7 +510,6 @@ He then flies over to Rose's position, and he grabs her by her chin, turning her
 
 "You want me to get my hands off her?..." the god asks, surprised. "Oh, this time weaver is your friend... How interesting. Then, perhaps it would be more fitting for her to join you in your future trials. That way, you can all be together, in your moments of suffering. Let me just pull her out of her trance."
 
-}
 #if(v_ch4_spared_dave == 1) {
  After he stops talking, the God of Time releases Rose from his grasp, and then he waves his hand in front of her face, which causes the bright light to fade from her eyes. Rose is now looking all around her, confused, trying to understand where she is, and why she is floating above the ground, next to a blue man with no face.
 
@@ -550,13 +542,12 @@ He pauses.
 After the god is done talking, a blinding white light fills our entire area, making it impossible to see any further than my own hands.
 
 }
-choice("Continue.", B2-Ch11a-Cabin, v_current_scene = B2-Ch11a-Cabin) if (v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1)
+choice("Continue.", B2-Ch11a-Cabin, v_current_scene = B2-Ch11a-Cabin)
 
 
 ID: B2-Ch11a-Invitation
 TEXT:
 
-#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
  "As soon as every preparation is in place," the God of Time says. "But this does not mean that you should spend the remaining time holding conversations with these lowly creatures. Why do you bother answering every single one of their questions? I very much doubt that these people will even make it past the first stage of the ritual."
 
 Arraka laughs.
@@ -571,7 +562,6 @@ He then flies over to the revenant's position, and he grabs her by her chin, tur
 
 After he stops talking, the God of Time releases the revenant from his grasp, and then he waves his hand in front of her face, which causes the bright light to fade from her eyes. After she regains her senses, the revenant looks around her, with her calm, emotionless gaze, and then she addresses the God of Time, directly.
 
-}
 #if(v_ch4_spared_dave == 1) {
  "I see that you've removed me from my trance," the revenant says. "Should I take it that you're going to force me to participate in your ritual?"
 
@@ -602,7 +592,7 @@ He pauses.
 After the god is done talking, a blinding white light fills our entire area, making it impossible to see any further than my own hands.
 
 }
-choice("Continue.", B2-Ch11a-Cabin, v_current_scene = B2-Ch11a-Cabin) if (v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1)
+choice("Continue.", B2-Ch11a-Cabin, v_current_scene = B2-Ch11a-Cabin)
 
 
 ID: B2-Ch11a-Cabin
@@ -881,14 +871,12 @@ choice("Continue", B2-Ch11a-Eliminated, v_current_scene = B2-Ch11a-Eliminated)
 ID: B2-Ch11a-Eliminated
 TEXT:
 
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  This was the one and only time when I ever froze up from fear. In fact, if I come to think of it, what happened after this incident was that I developed an almost suicidal tendency to completely ignore danger, no matter how dire the situation was. It's almost as if my desire for something like this to never happen again was so strong, that it fried my brain, and it eliminated my instinct of self-preservation. So many things are starting to make sense, now... I can't believe that I've been keeping this memory repressed for so long. I suppose I have the God of Time to thank for this stunning revelation. I would shake his hand, but with the amount of rage that I am feeling towards him right now, I'm afraid that I might crush it by mistake.
 
 The banshee is now starting to chase after my brother. I waste no time, and I dash towards her, impaling her through her back with my pitchfork, without giving her any chance to retaliate. As the banshee slowly dies before my eyes, a white light once again fills the area, and I get transported through time once more. This time, however, I am not worried. I already know that I have passed this stage of the ritual.
 
 Just as I was expecting, as soon as the light fades, I find myself back in my twenty-eight year old body, surrounded by all my friends, as Arraka lets out one of her usual laughs.
 
-}
 #if(v_ch11_saved_rose == 0) {
  "It looks like you are one of the first to pass this part of the ritual, Barry-boy," Arraka says. "Come, have a seat, and let us enjoy ourselves, while we watch the rest of your friends suffering in their own trials!"
 
@@ -929,8 +917,8 @@ I take a quick glance around me to see what our current situation is. The God of
 "Which ones are you talking about?" Arraka says. "The ones that already passed, or the ones still inside the trance?"
 
 }
-choice(""Both, I guess?..."", B2-Ch11a-Transparent, v_current_scene = B2-Ch11a-Transparent, v_b2_ch11_both = 1) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
-choice(""The ones that are still inside their rituals, obviously."", B2-Ch11a-Transparent, v_current_scene = B2-Ch11a-Transparent, v_b2_ch11_both = 0) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice(""Both, I guess?..."", B2-Ch11a-Transparent, v_current_scene = B2-Ch11a-Transparent, v_b2_ch11_both = 1)
+choice(""The ones that are still inside their rituals, obviously."", B2-Ch11a-Transparent, v_current_scene = B2-Ch11a-Transparent, v_b2_ch11_both = 0)
 
 
 ID: B2-Ch11a-Transparent
@@ -976,7 +964,6 @@ In a single instant, the scenery around me changes completely, and everyone exce
 In a single instant, the scenery around me changes completely, and everyone except for Flower and me disappears from before my eyes, as I now find myself standing in front of Rose's house, in the city of Thilias. When I take a better look at the two of us, I notice that Flower and I have both become semi-transparent, and the same goes for Arraka's amulet. On the other hand, I'm also seeing another Flower and another instance of me who are not transparent at all, and who are currently busy talking to Rose and her siblings, in the same yard where we are located. Hadrik, Kate and Daren are also here, apparently, but they are not saying anything.
 
 }
-#if(v_b2_ch11_both == 0 || v_b2_ch11_both == 1) {
  "First, let me give you a bit of context!" Arraka says.
 
 "What's happening?" I say. "How did you bring us here?"
@@ -995,8 +982,7 @@ In a single instant, the scenery around me changes completely, and everyone exce
 
 Once again, the whole scenery around us changes in an instant, and we both find ourselves inside Daren's room from Rose's mansion, where Daren is currently sitting on the bed, with his torso leaning forward, and his elbows propped on his knees, while he is holding his head with both his hands. Just like before, he seems to be completely unaware of our presence.
 
-}
-#if(v_b2_ch11_both == 0 && v_ch11_saved_slave != 3 || v_b2_ch11_both == 1 && v_ch11_saved_slave != 3) {
+#if(v_ch11_saved_slave != 3) {
  "He can't see or hear us, by the way," Arraka tells me, as we are still in our semi-transparent form. "Just thought I'd make it clear, in case you didn't figure it out by now."
 
 "She could have died..." I hear Daren's voice reverberating from the walls, even though Daren's mouth is still closed. "She could have died right before my eyes, and I would have been powerless to save her..."
@@ -1010,7 +996,7 @@ Once again, the whole scenery around us changes in an instant, and we both find 
 "No, you idiot!" Arraka says. "How many times do I need to tell you that your friends are connected to the Magium, right now? Reading their thoughts while they are in this state is easy if you have some decent knowledge of how auras work. Now shut up and pay attention! I didn't bring you here for nothing."
 
 }
-#if(v_b2_ch11_both == 0 && v_ch11_saved_slave == 3 || v_b2_ch11_both == 1 && v_ch11_saved_slave == 3) {
+#if(v_ch11_saved_slave == 3) {
  "He can't see or hear us, by the way," Arraka tells me, as we are still in our semi-transparent form. "Just thought I'd make it clear, in case you didn't figure it out by now."
 
 "She's dead..." I hear Daren's voice reverberating from the walls, even though Daren's mouth is still closed. "She was killed right in front of my eyes, and I was powerless to stop it all from happening."
@@ -1024,7 +1010,7 @@ Once again, the whole scenery around us changes in an instant, and we both find 
 "No, you idiot!" Arraka says. "How many times do I need to tell you that your friends are connected to the Magium, right now? Reading their thoughts while they are in this state is easy if you have some decent knowledge of how auras work. Now shut up and pay attention! I didn't bring you here for nothing."
 
 }
-choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage) if (v_b2_ch11_both == 0 || v_b2_ch11_both == 1)
+choice("Continue", B2-Ch11a-Luggage, v_current_scene = B2-Ch11a-Luggage)
 
 
 ID: B2-Ch11a-Luggage

@@ -148,7 +148,6 @@ TEXT:
 "Fair enough," I say. "I was only making a suggestion, after all. Maybe someone other than me can come up with some better explanations. Does anybody else have any ideas?"
 
 }
-#if(v_b3_ch8_theory == 0 || v_b3_ch8_theory == 1 || v_b3_ch8_theory == 2 || v_b3_ch8_theory == 3) {
  "Okay, hear me out, guys!" Hadrik says, as he raises both his hands in the air briefly, to get our attention. "What if when the split happened, most of the beings from this 'primordial' plane or whatever it's called died, all except for one who was too powerful to be killed, and this being eventually became the Magium?"
 
 "So the Magium would be kind of like their equivalent to Arraka, then?" Daren says. "Some entity that just kept absorbing other denizens of the primordial plane until it became almost impossible to kill?"
@@ -159,8 +158,7 @@ TEXT:
 
  "I think you are all forgetting one important detail," Kate says, as the rest of us now turn to look at her. "We already know that there are multiple versions of Arraka that exist simultaneously across various universes, but from what I could tell, there appears to be only one Magium. Arraka told us that she had to enter the Magium's realm in order to be able to travel to the different other worlds during the God of Time's ritual, which means that the Magium must act like some kind of bridge that connects all the universes together. We also know that the Magium came here by mistake, looking for a different Arraka than the one in our universe, which strongly suggests that there is only one entity overseeing all of the parallel worlds, instead of there being a different Magium assigned for each universe. If a powerful being from one of the many primordial planes across the various universes were to have survived the split, like you say, then it would have also needed to ascend beyond the concepts of time and space, creating its very own world between worlds, full of the contradictions and impossibilities that Barry and Leila told us about when they described--"
 
-}
-choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries) if (v_b3_ch8_theory == 0 || v_b3_ch8_theory == 1 || v_b3_ch8_theory == 2 || v_b3_ch8_theory == 3)
+choice("Continue", B3-Ch08a-Boundaries, v_current_scene = B3-Ch08a-Boundaries)
 
 
 ID: B3-Ch08a-Boundaries
@@ -268,7 +266,7 @@ TEXT:
 "Being watched through the crystals, you mean?" Daren says. "I guess we can't really ignore the possibility, but I don't see a reason why someone or something as powerful as the Magium would not simply reveal itself to us directly instead of hiding."
 
 }
-choice("Continue", B3-Ch08a-Observing, v_current_scene = B3-Ch08a-Observing) if (v_bluff == 0 || v_bluff >= 1)
+choice("Continue", B3-Ch08a-Observing, v_current_scene = B3-Ch08a-Observing)
 
 
 ID: B3-Ch08a-Puke
@@ -447,7 +445,7 @@ TEXT:
 "If it helps in your decision-making process," the Overseer says, "I happen to have a recording of the king of the underground heavily hinting to one of his underlings that your group should be killed if you try to oppose his coronation as the new king of Ollendor. I recorded their conversation while I was listening to them through one of the crystals about an hour ago. Here is what the two of them said."
 
 }
-#if(v_b3_ch4_billy <= 6) {
+#if(v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  "We'll be joining your side, of course!"
 
 "Hey, now, let's not be so hasty!" Daren says. "The Overseer may have helped us in the past, but so did the king of the underground. I see no reason why we should pick one side over the other. In fact, I'm not even sure if we have a reason to join this fight at all. It's not like we have any guarantees that either the Overseer or the king of the underground have the people of Ollendor's best interest at heart. Maybe it would be better for us to not get involved this time."
@@ -489,7 +487,7 @@ TEXT:
 "There is still the unresolved matter of the outsiders, however," Albert says. "We do not know yet if they will support your ascension to the throne, even if we sell it to them as being only a temporary measure until we decide whether we want to assemble a council or not."
 
 }
-choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy == 9 || v_b3_ch4_billy <= 6)
+choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing)
 
 
 ID: B3-Ch08a-Beginning
@@ -503,7 +501,7 @@ TEXT:
  "You mentioned that the king of the underground has not yet given any indication of wanting to betray you, but that is not entirely accurate," the Overseer says. "I actually happen to have a recording of the king of the underground heavily hinting to one of his underlings that your group should be killed if you try to oppose his coronation as the new king of Ollendor. I recorded their conversation while I was listening to them through one of the crystals about an hour ago. Here is what the two of them said."
 
 }
-#if(v_b3_ch4_billy <= 6) {
+#if(v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  "We've been working with the rebels from the beginning, so we will stay on their side."
 
 "To be perfectly honest," Daren says, "we've received help from both the Overseer and the king of the underground since we came here, so I can't say that I consider either of them to be our enemies. If you ask me, I don't really see a reason why we should join either side of the conflict. Maybe it would be better for us to not get involved this time."
@@ -547,13 +545,13 @@ TEXT:
 "There is still the unresolved matter of the outsiders, however," Albert says. "We do not know yet if they will support your ascension to the throne, even if we sell it to them as being only a temporary measure until we decide whether we want to assemble a council or not."
 
 }
-choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy == 9 || v_b3_ch4_billy <= 6)
+choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing)
 
 
 ID: B3-Ch08a-Rescue
 TEXT:
 
-#if(v_b3_ch4_billy == 9 || v_b3_ch4_billy <= 6) {
+#if(v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8 || v_b3_ch4_billy == 9) {
  "I'm on whichever side helps us rescue the prisoners from the seredium towers."
 
 "Error," the Overseer says. "According to my analysis, neither of the two sides will consider the rescue of the seredium tower prisoners to be a priority. Could you please clarify which side you were referring to, specifically?"
@@ -599,7 +597,7 @@ TEXT:
 "There is still the unresolved matter of the outsiders, however," Albert says. "We do not know yet if they will support your ascension to the throne, even if we sell it to them as being only a temporary measure until we decide whether we want to assemble a council or not."
 
 }
-choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy == 9 || v_b3_ch4_billy <= 6)
+choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing)
 
 
 ID: B3-Ch08a-Involved
@@ -625,7 +623,7 @@ TEXT:
 "If it helps in your decision-making process," the Overseer says, "I happen to have a recording of the king of the underground heavily hinting to one of his underlings that your group should be killed if you try to oppose his coronation as the new king of Ollendor. I recorded their conversation while I was listening to them through one of the crystals about an hour ago. Here is what the two of them said."
 
 }
-#if(v_b3_ch4_billy <= 6) {
+#if(v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  "Actually, I'd prefer to not get involved in this fight at all, if possible."
 
 "I'm afraid that this is not an option," the Overseer says.
@@ -667,13 +665,12 @@ TEXT:
 "There is still the unresolved matter of the outsiders, however," Albert says. "We do not know yet if they will support your ascension to the throne, even if we sell it to them as being only a temporary measure until we decide whether we want to assemble a council or not."
 
 }
-choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy == 9 || v_b3_ch4_billy <= 6)
+choice("Continue", B3-Ch08a-Antagonizing, v_current_scene = B3-Ch08a-Antagonizing)
 
 
 ID: B3-Ch08a-Antagonizing
 TEXT:
 
-#if(v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1) {
  "Hmm…" the king of the underground says. "We should be careful to avoid directly antagonizing Daren and his group. The healer has become somewhat of a respected figure in our little underground society after everything he's done to help our people, so it would definitely hurt my image if I were to oppose him openly. That being said, we also cannot afford to risk the future of Ollendor based on the whims of a few people who won't have to actually live here and see the consequences of their poor decisions. If they oppose the idea of me being the new ruler, we will try our best to convince them that for the time being, I am the only viable option."
 
 "And if they refuse to see the truth in front of their eyes?" Albert says. "What then?"
@@ -698,7 +695,6 @@ TEXT:
 
 "Well, that was... informative," Daren says. "So, what do you guys think we should do next?"
 
-}
 #if(v_b3_ch8_watching == 0) {
  "He didn't... specifically say that Albert should kill us," Daren says, in a somewhat hesitant tone. "It's still possible that he could just want him to bribe us or something."
 
@@ -715,9 +711,9 @@ TEXT:
 "Precisely," the Overseer says. "My prediction is that when the king of the underground will launch his all-out attack against me, he will likely enlist your aid for this operation, since you are theoretically his allies. By my calculations, the most opportune moment for the king to betray you would be either during your battle against me, or shortly before that. However, if you were to ally yourselves with me instead, we could set up an ambush for the king of the underground's forces and attack him together, before his attempt to stab you in the back."
 
 }
-choice(""I'm fine with anything, as long as we get away from these crystals."", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
-choice(""We should have a discussion with the rebels about who should be the next king."", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
-choice(""We should ask the king what he is planning to do about the seredium tower prisoners."", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
+choice(""I'm fine with anything, as long as we get away from these crystals."", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 0)
+choice(""We should have a discussion with the rebels about who should be the next king."", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 1)
+choice(""We should ask the king what he is planning to do about the seredium tower prisoners."", B3-Ch08a-Flaming, v_current_scene = B3-Ch08a-Flaming, v_b3_ch8_next = 2)
 
 
 ID: B3-Ch08a-Flaming
@@ -749,7 +745,6 @@ TEXT:
 "Let's head for the waiting room, then," Daren says. "Once we're there, we'll see if we can spot Albert or Peter, so that they can tell us where the king is."
 
 }
-#if(v_b3_ch8_next == 0 || v_b3_ch8_next == 1 || v_b3_ch8_next == 2) {
  "So, I know that I'm probably going to get ignored for asking this," Melindra says, as we are leaving our sleeping quarters, "but why is everyone taking so much interest in what happens with this city after we leave? Most of you never even heard of Ollendor before I first told you about it, so why would it even matter to you if this place were to get burnt to ashes once we're gone, as long as we're not burning with it?"
 
 "Not all of us will be leaving Ollendor," Illuna says. "Leila and doctor Reidzek are planning to move here, so they will in fact burn with the city if it turns into a flaming pile of ashes."
@@ -760,9 +755,8 @@ TEXT:
 
  "I see," Melindra says. "Well, good luck with that, I suppose."
 
-}
-choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_next == 0 && v_b3_ch8_watching == 1 || v_b3_ch8_next == 1 && v_b3_ch8_watching == 1 || v_b3_ch8_next == 2 && v_b3_ch8_watching == 1)
-choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_next == 0 && v_b3_ch8_watching == 0 || v_b3_ch8_next == 1 && v_b3_ch8_watching == 0 || v_b3_ch8_next == 2 && v_b3_ch8_watching == 0)
+choice("Continue", B3-Ch08a-Weakling, v_current_scene = B3-Ch08a-Weakling) if (v_b3_ch8_watching == 1)
+choice("Continue", B3-Ch08a-Break, v_current_scene = B3-Ch08a-Break) if (v_b3_ch8_watching == 0)
 
 
 ID: B3-Ch08a-Weakling

@@ -136,7 +136,7 @@ TEXT:
 "Umm, no... of course not!" Daren says. "It's your choice whether you want to be king or not. I was only making a suggestion, that's all..."
 
 }
-choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2) if (v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4)
+choice("Continue", B3-Ch08b-King2, v_current_scene = B3-Ch08b-King2)
 
 
 ID: B3-Ch08b-Kelrim
@@ -183,7 +183,7 @@ choice("Continue", B3-Ch08b-Kelrim2, v_current_scene = B3-Ch08b-Kelrim2)
 ID: B3-Ch08b-King2
 TEXT:
 
-#if(v_b3_ch6_kelrim == 1 || v_b3_ch6_plan == 3) {
+#if(v_b3_ch6_kelrim == 1 && v_b3_ch8_king != 4 || v_b3_ch6_plan == 3 && v_b3_ch8_king != 4) {
  "So, are there any other people that you would like to recommend?" the king asks Daren.
 
 "Uh... I don't... I mean, what about Desmond?" Daren says. "He seems like he would be a great--" 
@@ -405,11 +405,9 @@ As Arraka finishes her taunt, both her and Hadrik start laughing in unison, and 
  "Yeah, we should probably talk about that."
 
 }
-#if(v_b3_ch8_defeat == 0 || v_b3_ch8_defeat == 1 || v_b3_ch8_defeat == 2) {
  "Then let us get right to it," the king of the underground says. "First of all, I'd like to get you all up to speed with a few recent developments that have happened on the surface since you've returned from your trip to the seredium tower. According to our scouts, the Overseer has been very busy these past few hours. One of the first things he did after the king's death was apparently to begin assassinating every single high-ranked person in the city who knew about the existence of his core. Daren, I think you should already be familiar with what the Overseer's core is from Peter. Have you told your friends about it yet?"
 
-}
-choice("Continue", B3-Ch08b-Resistance, v_current_scene = B3-Ch08b-Resistance) if (v_b3_ch8_defeat == 0 || v_b3_ch8_defeat == 1 || v_b3_ch8_defeat == 2)
+choice("Continue", B3-Ch08b-Resistance, v_current_scene = B3-Ch08b-Resistance)
 
 
 ID: B3-Ch08b-Resistance
@@ -451,16 +449,14 @@ TEXT:
 "Yes, we've already agreed that we'd be going with you tomorrow," Daren says.
 
 }
-#if(v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1) {
  "Very well," the king says. "We will give you the exact details of this mission later, once we'll know for sure who we can count on to fight alongside us. My hope is that the Overseer is not aware of my knowledge about his core's whereabouts, because otherwise we will likely encounter heavy resistance on our way to our target. If he does know, however, there is not much we can do other than to power through his defenses and hope for the best, because we will already be bringing our best men on this mission, so it will be all or nothing. One more thing to note is that the Overseer is for some reason still maintaining the city-wide lockdown from before, so we should expect to be attacked by his flying metal balls as soon as we reach the surface, even if we don't take any hostile action towards them."
 
 "Understood," Daren says. 
 
  "Oh, and another thing..." the king of the underground says. "You should be careful to not talk about our plans to eliminate the Overseer when you are close to any of the blue crystals. It may be hard to believe, but Albert told me while we were in the throne room that he could feel someone watching us through the crystals. When I asked him to give me more details, he said he couldn't, because it was more of an instinct than anything else, and that he couldn't feel any foreign auras coming from the crystals by using his magical sense. Since I have come to trust Albert's assassin instincts throughout the years, my conclusion was that the most likely culprit would be the Overseer, because to my knowledge, his metal balls also have blue crystals within them, so he must have somehow found a way to resonate with the crystals in the caves. That might also explain why the crystals have started behaving so erratically all of a sudden, although their strange behavior could also have been caused by the recent explosions that affected them."
 
-}
-choice(""You're right about the Overseer. We detected him through one of the crystals, earlier."", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
-choice(""That's good to know. We'll try to be more careful around these crystals from now on."", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0) if (v_b3_ch8_watching == 0 || v_b3_ch8_watching == 1)
+choice(""You're right about the Overseer. We detected him through one of the crystals, earlier."", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 1)
+choice(""That's good to know. We'll try to be more careful around these crystals from now on."", B3-Ch08b-Populated, v_current_scene = B3-Ch08b-Populated, v_b3_ch8_detected = 0)
 
 
 ID: B3-Ch08b-Populated
@@ -542,7 +538,7 @@ The king of the underground nods, and then we all follow Daren outside of the wa
 "Yeah, reading that guy's true intentions is a pain," Arraka says. "I wouldn't recommend it. I've checked his aura a few times, and he seems to have made a habit of adding a little tremble to it almost every time when he speaks about an easily verifiable truth, in order to throw off any potential aura readers like myself. If he makes it seem like he's lying all the time, even when it's obvious that he's telling the truth, it gets too annoying when you try to differentiate between the actual lies and the fake lies, considering how good he is at aura manipulation. Maybe I could figure it out if I were to try hard enough, but I'm not going to waste my time for something as stupid as this."
 
 }
-choice("Continue", B3-Ch08b-Workshop, v_current_scene = B3-Ch08b-Workshop) if (v_b3_ch8_detected == 0 || v_b3_ch8_detected == 1 || v_b3_ch8_king == 0 || v_b3_ch8_king == 1 || v_b3_ch8_king == 2 || v_b3_ch8_king == 3 || v_b3_ch8_king == 4 || v_b3_ch8_king == 5)
+choice("Continue", B3-Ch08b-Workshop, v_current_scene = B3-Ch08b-Workshop)
 
 
 ID: B3-Ch08b-Workshop
@@ -558,7 +554,7 @@ TEXT:
 "Sounds good to me," Hadrik says. "Alright, see you all later. I'm gonna go see if I can improve my new shapeshifting technique some more."
 
 }
-#if(v_b3_ch8_king == 5 && v_b3_ch4_billy != 7) {
+#if(v_b3_ch8_king == 5 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  "Sounds good to me," Hadrik says. "Alright, see you all later. I'm gonna go see if I can improve my new shapeshifting technique some more."
 
 }
@@ -572,7 +568,7 @@ TEXT:
 "Sounds good to me," Hadrik says. "Alright, see you all later. I'm gonna go see if I can improve my new shapeshifting technique some more."
 
 }
-#if(v_b3_ch4_billy != 7 && v_b3_ch8_king != 5) {
+#if(v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8 && v_b3_ch8_king != 5) {
  "Even if it were possible to find out his true intentions," Daren says, "it would still be a bad idea to tell the king about our discussion with the Overseer, because that would almost guarantee our exclusion from tomorrow's mission. With how suspicious the king of the underground usually tends to get over the smallest of things, I really don't see how he could trust us in any way after hearing that we're having secret conversations with the Overseer in his very own underground base. I don't think we can obtain any more information from either the king of the underground or the Overseer, so we'll just have to think long and hard and decide whose side we'll take by the end of the day. Either way, we should probably-- hey, wait a minute... I completely forgot to check, but Albert wouldn't by any chance have been following us invisibly this whole time, would he?"
 
 "Relax," Arraka says. "If he were following you, I would have told you about it."
@@ -637,7 +633,7 @@ choice("Tell the Overseer that we won't help him set an ambush for the king of t
 ID: B3-Ch08b-Answer
 TEXT:
 
-#if(v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy != 8) {
+#if(v_b3_ch8_overseer2 == 0 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  ...tell the Overseer that we won't help him set an ambush for the king of the underground.
 
 Once we decided what to say to him, all we had to do was go back to our sleeping quarters and call out the Overseer's name for him to immediately respond to us from one of the crystals, as if he'd been there this whole time, just waiting for our answer.
@@ -657,7 +653,7 @@ When we informed him that we did not want to follow his plan, the Overseer was c
 As soon as we were all on the same page regarding tomorrow's events and what needed to be done, Breynan went back to his own room, far away from us, and we also asked the Overseer nicely to no longer spy on us through the crystals so that we could go to sleep.
 
 }
-#if(v_b3_ch4_billy == 9 && v_b3_ch8_overseer2 == 1 || v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy <= 6) {
+#if(v_b3_ch4_billy == 9 && v_b3_ch8_overseer2 == 1 || v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 7 && v_b3_ch4_billy != 8) {
  ...agree with the Overseer's plan of setting an ambush for the king of the underground.
 
 Once we decided what to say to him, all we had to do was go back to our sleeping quarters and call out the Overseer's name for him to immediately respond to us from one of the crystals, as if he'd been there this whole time, just waiting for our answer.
@@ -701,12 +697,12 @@ We also asked the Overseer to show Breynan the recording in which the king of th
 As soon as we were all on the same page regarding tomorrow's events and what needed to be done, Breynan went back to his own room, far away from us, and we also asked the Overseer nicely to no longer spy on us through the crystals so that we could go to sleep.
 
 }
-#if(v_b3_ch4_billy == 7 && v_b3_ch8_king == 5 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 8 && v_b3_ch8_king == 5 && v_b3_ch8_overseer2 == 1 || v_b3_ch8_overseer2 == 0) {
+#if(v_b3_ch4_billy == 7 && v_b3_ch8_king == 5 || v_b3_ch4_billy == 8 && v_b3_ch8_king == 5 || v_b3_ch8_overseer2 == 0) {
  "So, does anyone feel like volunteering for a night shift?" Daren asks us, once we are all done making our beds.
 
 }
-choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch6_shift == 0 && v_b3_ch8_overseer2 == 0 || v_b3_ch4_billy == 7 && v_b3_ch6_shift == 0 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 8 && v_b3_ch6_shift == 0 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 9 && v_b3_ch6_shift == 0 && v_b3_ch8_overseer2 == 1 || v_b3_ch6_shift == 0 && v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy <= 6)
-choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch6_shift == 1 && v_b3_ch8_overseer2 == 0 || v_b3_ch4_billy == 7 && v_b3_ch6_shift == 1 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 8 && v_b3_ch6_shift == 1 && v_b3_ch8_overseer2 == 1 || v_b3_ch4_billy == 9 && v_b3_ch6_shift == 1 && v_b3_ch8_overseer2 == 1 || v_b3_ch6_shift == 1 && v_b3_ch8_overseer2 == 1 && v_b3_ch4_billy <= 6)
+choice("Continue", B3-Ch08b-Hadrik, v_current_scene = B3-Ch08b-Hadrik) if (v_b3_ch4_billy == 7 && v_b3_ch6_shift == 0 || v_b3_ch4_billy == 8 && v_b3_ch6_shift == 0 || v_b3_ch4_billy == 9 && v_b3_ch6_shift == 0 || v_b3_ch6_shift == 0 && v_b3_ch8_overseer2 == 0 || v_b3_ch6_shift == 0 && v_b3_ch4_billy <= 6)
+choice("Continue", B3-Ch08b-Leila, v_current_scene = B3-Ch08b-Leila) if (v_b3_ch4_billy == 7 && v_b3_ch6_shift == 1 || v_b3_ch4_billy == 8 && v_b3_ch6_shift == 1 || v_b3_ch4_billy == 9 && v_b3_ch6_shift == 1 || v_b3_ch6_shift == 1 && v_b3_ch8_overseer2 == 0 || v_b3_ch6_shift == 1 && v_b3_ch4_billy <= 6)
 
 
 ID: B3-Ch08b-Hadrik
@@ -836,7 +832,6 @@ TEXT:
 "It's fine," Leila writes. "There wasn't any special meaning behind my voice or anything. I just used the voices of the other girls around me as a reference point, and then I played around with different tonalities in my head until I found one that I liked. What about you? Your thinking voice was the same as the one you use to talk, right? Was this something that you chose consciously, or is it just something that happened without you giving it much thought?"
 
 }
-#if(v_b3_ch8_voice == 0 || v_b3_ch8_voice == 1) {
  "Hmm..." I say, as I begin to slowly stroke my chin with my right hand without realizing. "Now that you mention it... how did I get this voice in my head? I remember that when I was a kid I used to think with my child voice, but then when my speaking voice changed gradually over time as I grew up, did the voice in my head change at the same pace, or did it lag behind? Did I ever make a conscious effort to update my thinking voice, or did it happen naturally? And why did I never think about this until now?"
 
 While I am still busy trying to solve this most intriguing conundrum, Leila suddenly begins to giggle uncontrollably, in her usual silent fashion.
@@ -849,8 +844,7 @@ While I am still busy trying to solve this most intriguing conundrum, Leila sudd
 
 "I suppose you're right!" Leila writes, with a smile, as she now seems to have finally managed to contain her laughter from before.
 
-}
-choice("Continue", B3-Ch08b-Leila4, v_current_scene = B3-Ch08b-Leila4) if (v_b3_ch8_voice == 0 || v_b3_ch8_voice == 1)
+choice("Continue", B3-Ch08b-Leila4, v_current_scene = B3-Ch08b-Leila4)
 
 
 ID: B3-Ch08b-Leila4
@@ -926,7 +920,7 @@ As we are finishing our conversation, we can hear the voices of a few of our fri
 When we reach our friends, we find out that everyone was already awake and that they were just about to call out to us. As soon as they see us, they all get up from their beds, they grab their backpacks and they assemble in front of the door, so that we can leave together.
 
 }
-choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 0 || v_b3_ch8_heartfelt == 1)
+choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending)
 
 
 ID: B3-Ch08b-Oblivious
@@ -1025,7 +1019,7 @@ Neither of us says anything else until we reach the room in which the others wer
 As soon as they notice us, our friends grab their backpacks and they walk out the door, so that we can all assemble in front of our room. 
 
 }
-choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending) if (v_b3_ch8_heartfelt == 2 || v_b3_ch8_heartfelt == 3)
+choice("Continue", B3-Ch08b-Ending, v_current_scene = B3-Ch08b-Ending)
 
 
 ID: B3-Ch08b-Hadrik2
@@ -1237,4 +1231,4 @@ Barry and his team have decided to accept the Overseer's offer, and to pretend t
 Whichever side wins this battle will get to decide who will be the next king of Ollendor.
 
 }
-choice("Proceed to next chapter", B3-Ch09a-Intro, v_current_scene = B3-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice("Proceed to next chapter", B3-Ch09a-Intro, v_current_scene = B3-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

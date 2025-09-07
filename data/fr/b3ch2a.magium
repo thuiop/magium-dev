@@ -160,7 +160,6 @@ TEXT:
 "No it isn't," the guard says. "I'm not sure if you were guessing randomly just now or if somebody actually misled you, but if you want to enter the city without knowing the actual password, then you're going to have to file for the required paperwork, like any other outsider."
 
 }
-#if(v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4) {
  "And what do we need to do to file for these papers, exactly?" Daren says.
 
 "For the moment, you don't need to do anything," the guard says. "I will send someone later today to obtain all the necessary permissions from the higher ups, and then we'll bring you some papers to sign. This usually takes a while, though. You could try checking back tomorrow, but I wouldn't get my hopes up if I were you. People rarely get their entrance papers earlier than three days after their arrival."
@@ -179,10 +178,9 @@ The guard nods at Daren, and then we all head back towards the woods that we cam
 
 "It's not as easy as you might think," Melindra says. "This city isn't like Thilias. Breaking the law here may well get your entire family murdered, or worse. Most people wouldn't take that risk, no matter how much money was at stake." 
 
-}
-choice(""What if we tried to get one of them drunk, instead?"", B3-Ch02a-Drunk, v_current_scene = B3-Ch02a-Drunk, v_b3_ch2_infiltration = 0) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
-choice(""To be honest, I agree with Hadrik. We should just smash through their front gates."", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1) if (v_b3_ch2_pass2 == 0 || v_b3_ch2_pass2 == 1 || v_b3_ch2_pass2 == 2 || v_b3_ch2_pass2 == 3 || v_b3_ch2_pass2 == 4)
-choice(""I could try to eavesdrop on someone from afar." (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2) if (v_b3_ch2_pass2 == 0 && v_hearing == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 1 && v_hearing == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 2 && v_hearing == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 3 && v_hearing == 4 && v_b3_ch1_unlock != 2 || v_b3_ch2_pass2 == 4 && v_hearing == 4 && v_b3_ch1_unlock != 2)
+choice(""What if we tried to get one of them drunk, instead?"", B3-Ch02a-Drunk, v_current_scene = B3-Ch02a-Drunk, v_b3_ch2_infiltration = 0)
+choice(""To be honest, I agree with Hadrik. We should just smash through their front gates."", B3-Ch02a-Smash, v_current_scene = B3-Ch02a-Smash, v_b3_ch2_infiltration = 1)
+choice(""I could try to eavesdrop on someone from afar." (Requires Hearing 4)", B3-Ch02a-Eavesdrop, v_current_scene = B3-Ch02a-Eavesdrop, v_b3_ch2_infiltration = 2) if (v_hearing == 4 && v_b3_ch1_unlock != 2)
 
 
 ID: B3-Ch02a-Drunk
@@ -397,7 +395,7 @@ As Daren and the others are coming out of the woods one by one, I put the lid on
 Once our friends reach us, we all begin heading for the city gates together, in the hopes that this time around we will be more successful. However, just as we are making our first steps, we hear an unfamiliar voice calling to us from inside the woods.
 
 }
-choice("Continue", B3-Ch02a-Information, v_current_scene = B3-Ch02a-Information) if (v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 3)
+choice("Continue", B3-Ch02a-Information, v_current_scene = B3-Ch02a-Information)
 
 
 ID: B3-Ch02a-Smash
@@ -677,7 +675,6 @@ choice("Continue", B3-Ch02a-Dialect2, v_current_scene = B3-Ch02a-Dialect2)
 ID: B3-Ch02a-Dialect2
 TEXT:
 
-#if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3) {
  "What do you mean 'gargoyle wings'?..." I ask him, confused. "Doesn't that writing say 'griffin beak'?"
 
 "Ah... I see you can read our old dialect!" the old goblin says, surprised. "Quite impressive! As for your question, the symbols describing the password can indeed be directly translated as 'griffin beak', but we have a code with our friend that we always use when we transmit messages to each other. If we rearrange those symbols according to our secret code, the meaning of the words changes completely, and it reads as 'gargoyle wings' instead. Do you understand now?"
@@ -686,8 +683,7 @@ TEXT:
 
 "No, actually the information in question was about the fact that the password is not the only thing required, if you want to enter the city," the old goblin says. "You also need to wink three times with your left eye while saying it, or they won't let you in. This was added a while ago as an extra precaution, in order to prevent eavesdropping. The passwords change every week, but the number of winks do not change, as far as I'm aware."
 
-}
-#if(v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 2) {
+#if(v_b3_ch2_infiltration != 1 && v_b3_ch2_infiltration != 3) {
  "Now that is indeed something we did not know..." I say. "We'll keep that in mind. Thanks!"
 
 "Umm... excuse me!" Melindra says to the goblins, this time adopting one of her more pleasant smiles. "Would you perhaps be interested in a trade for that purple rock with the scribbles on it? I really took a liking to it, and would hate to lose it from my collection."
@@ -725,8 +721,8 @@ TEXT:
 "Well, now that our business is done, I believe it's time we head towards the city," the old goblin says. "It might not be the best idea for us to go all at once, though, as we may seem suspicious. You can go first, if you want, and then we'll be following you soon afterwards."
 
 }
-choice(""Sounds good. Let's go!"", B3-Ch02a-Trouble, v_current_scene = B3-Ch02a-Trouble, v_b3_ch2_goblins = 3) if (v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3)
-choice(""It's fine, we're not in a hurry. You can go first instead."", B3-Ch02a-Trouble, v_current_scene = B3-Ch02a-Trouble, v_b3_ch2_goblins = 4) if (v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2 || v_b3_ch2_infiltration == 3)
+choice(""Sounds good. Let's go!"", B3-Ch02a-Trouble, v_current_scene = B3-Ch02a-Trouble, v_b3_ch2_goblins = 3)
+choice(""It's fine, we're not in a hurry. You can go first instead."", B3-Ch02a-Trouble, v_current_scene = B3-Ch02a-Trouble, v_b3_ch2_goblins = 4)
 
 
 ID: B3-Ch02a-Trouble
@@ -842,7 +838,7 @@ He then gives a signal to the two metal golems behind him, who immediately open 
 We all move past the guard and enter the city, and as soon as we're inside, the gates behind us slam shut.
 
 }
-choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating) if (v_b3_ch2_goblins == 3 || v_b3_ch2_goblins == 4)
+choice("Continue", B3-Ch02a-Communicating, v_current_scene = B3-Ch02a-Communicating)
 
 
 ID: B3-Ch02a-Communicating
@@ -956,7 +952,7 @@ He then raises his shield, and a semi-transparent magical barrier appears all ar
 "Brace yourselves," Daren says. "It's going to get hot."
 
 }
-choice("Continue", B3-Ch02a-Insane2, v_current_scene = B3-Ch02a-Insane2) if (v_b3_ch2_infiltration == 0 || v_b3_ch2_infiltration == 1 || v_b3_ch2_infiltration == 2)
+choice("Continue", B3-Ch02a-Insane2, v_current_scene = B3-Ch02a-Insane2)
 
 
 ID: B3-Ch02a-Insane2

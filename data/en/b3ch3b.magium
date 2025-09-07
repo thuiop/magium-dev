@@ -675,8 +675,8 @@ The Overseer does not answer Leila, and he simply keeps hovering in the air, in 
 
 }
 choice(""Yes, can you stop calling us Felran?"", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 0)
-choice(""Why are you helping us assassinate your own king?"", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
-choice(""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?"", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
+choice(""Why are you helping us assassinate your own king?"", B3-Ch03b-Helping, v_current_scene = B3-Ch03b-Helping)
+choice(""Why did you interrupt your conversation with Eiden all of a sudden, earlier today?"", B3-Ch03b-Interrupt, v_current_scene = B3-Ch03b-Interrupt)
 choice(""Yes, can you stop calling us Cutthroat Dave?"", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 1)
 choice(""Yes, can you stop calling us Barry?"", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 2)
 choice(""Yes, can you stop calling us Unidentified?"", B3-Ch03b-Calling, v_current_scene = B3-Ch03b-Calling) if (v_b3_ch2_name == 3)
@@ -726,7 +726,6 @@ TEXT:
 "Of course," I say. "I don't know why I was expecting anything different."
 
 }
-#if(v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4) {
  "Does anyone else have any questions for the Overseer?" Breynan says.
 
 "I don't know if there's any use in interrogating him further," Kate says. "It seems to me that he already told us all the information he had regarding the king of Ollendor's weaknesses."
@@ -745,8 +744,7 @@ Breynan suddenly interrupts himself, because right before we reach the end of th
 
 "Listen... I don't know who sent you here, but we don't mean to hurt you," Breynan tells the three men. "Please, get out of the way."
 
-}
-choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform) if (v_b3_ch2_name == 0 || v_b3_ch2_name == 1 || v_b3_ch2_name == 2 || v_b3_ch2_name == 3 || v_b3_ch2_name == 4)
+choice("Continue", B3-Ch03b-Platform, v_current_scene = B3-Ch03b-Platform)
 
 
 ID: B3-Ch03b-Helping
@@ -946,7 +944,7 @@ He then says the same words in a much louder voice, as the look in his eyes now 
 I take one last look at the boy, and then I follow Breyan out of the alley, without turning back. When we exit the alleyway, I catch a glimpse of a woman right outside, covering her eyes with one of her hands, while tears are slowly running down her face. I quickly realize that she must be the wife of the man I just killed. We all walk right past her without saying a word, and we begin heading back towards the place where we first got teleported. 
 
 }
-choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms) if (v_b3_ch3_civilians == 0 || v_b3_ch3_civilians == 1 || v_b3_ch3_civilians == 2)
+choice("Continue", B3-Ch03b-Uniforms, v_current_scene = B3-Ch03b-Uniforms)
 
 
 ID: B3-Ch03b-Uniforms
@@ -1039,7 +1037,6 @@ set(v_ac_b3_ch3_job,1) if (v_b2_ch7_dizziness == 1)
 set(v_is_dead,1) if (v_b2_ch7_dizziness == 1)
 set(v_is_dead,0) if (v_b2_ch7_dizziness == 0)
 achievement("A job well done!",v_ac_b3_ch3_job)
-#if(v_b2_ch7_dizziness == 0 || v_b2_ch7_dizziness == 1) {
  "I'm on it!" I say, and then I fly up high in the sky, in order to make sure that I can get over Melindra's invisible barrier so that I can start shooting at the man with the trident.
 
 As I get past the barrier, I position myself somewhere above the royal guard trainee, and I begin firing my crossbow in his direction. Unfortunately, the man anticipates my shots and he manages to get out of the way in time, while he also prepares a counter attack by using his weapon to create a few boulders out of thin air. When he's done making his rock projectiles, he points his trident towards me and he sends all of his boulders flying at me with great speed.
@@ -1050,7 +1047,6 @@ I dodge the projectiles easily in mid-air and then I shoot a few more crossbow b
 
 When I hear what Melindra is saying, I look up and I see that there are now six red-eyed metal balls that are quickly heading towards me. I attempt to shoot them from a distance, but they dodge my attacks without much effort and then they continue to advance in my direction. In the meantime, the man with the trident takes advantage of this situation and he begins to send even more boulders my way, so he can keep me distracted.
 
-}
 #if(v_b2_ch7_dizziness == 1) {
  As I am busy dodging boulders in mid-air while reloading my crossbow, I suddenly get a strong headache and a feeling of intense disorientation, which causes me to stop moving and to grab my forehead with both hands, in an attempt to make the pain go away.
 
@@ -1367,4 +1363,4 @@ Tap on the button below to proceed.
 Tap on the button below to proceed.
 
 }
-choice("Proceed towards next chapter", B3-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Proceed towards next chapter", B3-Ch04a-Intro, v_next_chapter_crash = 1, v_current_scene = B3-Ch04a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

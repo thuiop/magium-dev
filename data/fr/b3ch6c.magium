@@ -13,7 +13,7 @@ While we're walking, Daren begins to heal everyone who got hurt during the battl
 "So, uhm..." Hadrik says, as Daren is busy healing Leila. "I suppose I owe you all an explanation about all those... things Gontrok said about me while we were fighting."
 
 }
-#if(v_b3_ch6_plan == 3) {
+#if(v_b3_ch6_plan == 3 && v_b3_ch6_kelrim != 1) {
  "Guys, I have some housework to do, so I'll be closing the transceiver now," Rose tells us. "Try to stay out of trouble for the rest of the day, okay? I don't think I'll be able to freeze the time anymore until I get some rest."
 
 "We'll try to be more careful from now on," I tell Rose. "Bye, and thanks again!"
@@ -253,7 +253,6 @@ After a short pause during which neither of us says anything, Leila's writing ap
 "Yes," Leila writes. "We should probably do that."
 
 }
-#if(v_b3_ch6_shift == 0 || v_b3_ch6_shift == 1) {
  We both get up and begin walking down the same corridor again, heading back to where we originally came from. As we walk, I can't help but notice that Leila is looking slightly anxious.
 
 "Do you think my father is okay?..." she writes to me after a while.
@@ -284,8 +283,7 @@ Albert switches the transceiver's frequency and taps it again, but once more he 
 
 "Sure," says Peter, who seems to have just entered the waiting room and is now getting closer to us. "What is it?"
 
-}
-choice("Continue", B3-Ch06c-Herbs, v_current_scene = B3-Ch06c-Herbs) if (v_b3_ch6_shift == 0 || v_b3_ch6_shift == 1)
+choice("Continue", B3-Ch06c-Herbs, v_current_scene = B3-Ch06c-Herbs)
 
 
 ID: B3-Ch06c-Herbs
@@ -307,14 +305,6 @@ achievement("Quarantine ender",v_ac_b3_ch6_quarantine)
 
 As we stand there, waiting for Peter to contact us, we see Daren coming out of the quarantine area and beginning a conversation with Desmond, who is still guarding the door.
 
- "Desmond, I'm... I'm so sorry," Daren says, with his head bowed down. "There is no way for me to save your brother. His sickness is just too severe at this point. If I had gotten here a few days earlier, he may have still had a chance, but with the way things are now it's just-- he is too-- I'm sorry..."
-
-"It's alright," Desmond says, in a resigned tone. "You don't need to beat yourself up over it. I'm sure you've done all you could. What about the others? Is there any chance that any of them will recover?"
-
-"Half of them are already cured, including myself," Daren says. "As for the other half, it is still difficult to say. This treatment works best if you catch the disease in its early stages, but if you catch it too late, the chances of survival decrease drastically. The ones in critical condition will not make it, but the ones whose symptoms are only somewhat severe may still have a chance. We will have to wait for a bit longer until we can draw some definitive conclusions."
-
-"Even if it's only half of them, this is still much more than we could have hoped for," Desmond says. "Until today, anyone who went through that door was considered to be a dead man. Now it's possible that we might not even need to send people into quarantine anymore. You should be proud of what you've accomplished here, healer. Maybe my brother won't make it, but many families will now get to see their loved ones again after they thought them to be dead. I should be the one apologizing for having misjudged you. We are all in your debt."
-
  "I really am sorry about your brother," Daren says, looking genuinely depressed. "I wish I could have saved everyone. The only thing I can tell you is that his final moments will be a little better now that two of the nurses have been healed of the sickness, so they will be able to spend more time caring for the patients."
 
 "You've done more than enough," Desmond says. "Go get some rest. You've earned it."
@@ -335,6 +325,16 @@ Not long after Daren leaves the room, we finally hear Peter's voice coming from 
 
 "Yes!" Albert says. "What happened? Where is doctor Reidzek?"
 
+#if(v_b3_ch6_labels < 2 && v_b3_ch6_password != 3 && v_ch11_saved_rose != 1 || v_b3_ch6_labels < 2 && v_b3_ch6_secret < 1 && v_b3_ch6_password != 3 && v_b3_ch6_secret != 0 || v_b3_ch6_labels < 2 && v_b3_ch6_secret < 1 && v_b3_ch6_password != 3 && v_b3_ch6_sleep != 0) {
+ "Desmond, I'm... I'm so sorry," Daren says, with his head bowed down. "There is no way for me to save your brother. His sickness is just too severe at this point. If I had gotten here a few days earlier, he may have still had a chance, but with the way things are now it's just-- he is too-- I'm sorry..."
+
+"It's alright," Desmond says, in a resigned tone. "You don't need to beat yourself up over it. I'm sure you've done all you could. What about the others? Is there any chance that any of them will recover?"
+
+"Half of them are already cured, including myself," Daren says. "As for the other half, it is still difficult to say. This treatment works best if you catch the disease in its early stages, but if you catch it too late, the chances of survival decrease drastically. The ones in critical condition will not make it, but the ones whose symptoms are only somewhat severe may still have a chance. We will have to wait for a bit longer until we can draw some definitive conclusions."
+
+"Even if it's only half of them, this is still much more than we could have hoped for," Desmond says. "Until today, anyone who went through that door was considered to be a dead man. Now it's possible that we might not even need to send people into quarantine anymore. You should be proud of what you've accomplished here, healer. Maybe my brother won't make it, but many families will now get to see their loved ones again after they thought them to be dead. I should be the one apologizing for having misjudged you. We are all in your debt."
+
+}
 #if(v_ch11_saved_rose == 1 && v_b3_ch6_secret >= 1 || v_b3_ch6_secret == 0 && v_b3_ch6_sleep == 0 && v_ch11_saved_rose == 1 || v_b3_ch6_password == 3 || v_b3_ch6_labels >= 2) {
  "Desmond, I wanted to tell you that your brother is no longer in any danger of dying from the disease," Daren says. "It will still take him a while to fully recover, because his condition was very severe, but if all goes well, you should be able to meet him again in a week or two."
 

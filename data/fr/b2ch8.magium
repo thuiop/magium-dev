@@ -329,8 +329,8 @@ achievement("Stillwater trivia",v_ac_b2_ch8_trivia)
 "Well," Melindra says, "we sort of became friends while he was being imprisoned. Actually, we were more like trading partners than friends, but I guess we also became friends, afterwards."
 
 }
-choice(""Was this before the still winter? What was he being imprisoned for?"", B2-Ch08a-Imprisoned, v_current_scene = B2-Ch08a-Imprisoned) if (v_b2_ch8_tickle == 0 || v_b2_ch8_tickle == 1)
-choice(""How did he manage to get imprisoned when he has all these powers?"", B2-Ch08a-Powers, v_current_scene = B2-Ch08a-Powers) if (v_b2_ch8_tickle == 0 || v_b2_ch8_tickle == 1)
+choice(""Was this before the still winter? What was he being imprisoned for?"", B2-Ch08a-Imprisoned, v_current_scene = B2-Ch08a-Imprisoned)
+choice(""How did he manage to get imprisoned when he has all these powers?"", B2-Ch08a-Powers, v_current_scene = B2-Ch08a-Powers)
 
 
 ID: B2-Ch08a-Imprisoned
@@ -680,8 +680,8 @@ I stumble out of his way clumsily, managing to avoid getting hit, but falling on
 Just as she is about to take the shot, the girl suddenly loses her balance, and she almost faints, just like she did earlier, after she cast that tornado. I don't get to see if she managed to regain her consciousness, because this window of opportunity was all the orc needed to swing his sword at me and to slice my head straight off my shoulders.
 
 }
-choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
-choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
+choice("Fight the orcs and send Flower to look for the goblins.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 0) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
+choice("Go look for the goblin mages, along with Flower and Illuna.", B2-Ch08a-Assess, v_current_scene = B2-Ch08a-Assess, v_b2_ch8_goblins = 1) if (v_b2_ch6_crossbow == 1 && v_combat_technique == 0 || v_b2_ch8_tornado == 0 && v_combat_technique == 0 || v_combat_technique == 0 && v_reflexes >= 2 || v_combat_technique >= 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
 choice("Load game", , , special:saves) if (v_b2_ch6_crossbow == 0 && v_b2_ch8_tornado == 1 && v_combat_technique == 0 && v_reflexes < 2)
@@ -776,7 +776,7 @@ I try to head into the exact direction where the goblins are drawn on Arraka's m
 "There is a suggestion spell cast on this area," Illuna says, as she studies the area in front of us closely. "Arraka is probably not as affected by it as we are because she's inside the amulet, but the spell seems to have a similar effect to the one that Kate is using to protect our camp. We're not going to get past this area unless we get a very detailed description of the environment that those two goblins are situated in, so we can imagine that location as we move forward. Arraka, what can you tell us about the area around these goblins?"
 
 }
-choice("Continue", B2-Ch08a-Goblins2, v_current_scene = B2-Ch08a-Goblins2) if (v_b2_ch7_dizziness == 0 || v_b2_ch7_dizziness == 1)
+choice("Continue", B2-Ch08a-Goblins2, v_current_scene = B2-Ch08a-Goblins2)
 
 
 ID: B2-Ch08a-Goblins2
@@ -1046,7 +1046,7 @@ Mere seconds after the white light appears, the orc and the ogres get teleported
 "Hey, thanks!" I say. "You weren't half-bad yourself!"
 
 }
-choice("Continue", B2-Ch08a-Dispatches, v_current_scene = B2-Ch08a-Dispatches) if (v_b2_ch8_goblins == 0 || v_b2_ch8_goblins == 2)
+choice("Continue", B2-Ch08a-Dispatches, v_current_scene = B2-Ch08a-Dispatches)
 
 
 ID: B2-Ch08a-Dispatches
@@ -1406,13 +1406,11 @@ TEXT:
 "Okay..." I say. "Then let me ask you something else. Why exactly did you need to bend your knees and to keep your elbows close to your body when you cast the spell that blew away the orc who was attacking you? Because as far as I'm aware, that stance is what they teach novice elementalists at the very beginning of their training, in order to help them better control their powers, when they are still getting accustomed to them. Are you still getting accustomed to your powers, after six hundred years, Melindra?"
 
 }
-#if(v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1) {
  "I..." Melindra starts to say, but she hesitates, and I interrupt her.
 
 "Or is it perhaps that Arraka was speaking literally, when she said that you don't know how to hold back?..." I say. "Those crazy stillwater powers must surely come with some sort of drawbacks, no? I would expect someone like Eiden, who knows all the ins and outs of magic to find a way around such a problem, but you don't seem like the type. You still haven't learned how to control your stillwater powers properly, have you? It's too much for you to handle, and you're afraid that you'll accidentally put too much power behind one of your spells, and blow us all away, while also killing yourself in the process because of that oath you made."
 
-}
-choice("Continue", B2-Ch08a-Image, v_current_scene = B2-Ch08a-Image) if (v_b2_ch8_saved == 0 || v_b2_ch8_saved == 1)
+choice("Continue", B2-Ch08a-Image, v_current_scene = B2-Ch08a-Image)
 
 
 ID: B2-Ch08a-Image
@@ -1442,15 +1440,13 @@ Melindra frowns at me, but she doesn't say anything.
 "I swear..." Melindra says, with a menacing look in her eyes. "If you plan on telling anyone about this..."
 
 }
-#if(v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1) {
  "You'll what?" I ask her. "Pat me slightly on the back? Caress me softly? Because that's about the most you can do to me after that vow you made. I bet you must be regretting your decision to make that oath life-binding now, huh?"
 
 "A little..." Melindra says.
 
 "Relax," I tell her. "I don't have any reason to tell anyone about this. It's not like you could help us if you wanted to. If you want to appear as even more unlikeable than you already are, then who am I to stop you?"
 
-}
-choice("Continue", B2-Ch08a-Unlikeable, v_current_scene = B2-Ch08a-Unlikeable) if (v_b2_ch8_tornado == 0 || v_b2_ch8_tornado == 1)
+choice("Continue", B2-Ch08a-Unlikeable, v_current_scene = B2-Ch08a-Unlikeable)
 
 
 ID: B2-Ch08a-Unlikeable
@@ -1557,7 +1553,7 @@ All of a sudden, Melindra grabs my arm with both her hands, and she presses hers
 "Darling, are you going to just let them talk about me like that?" Melindra says, with pleading eyes, but with a mocking smile. "You're not going to let them walk away after calling me a whore, are you?"
 
 }
-choice("Continue", B2-Ch08a-Terrified, v_current_scene = B2-Ch08a-Terrified) if (v_b2_ch8_parents == 0 || v_b2_ch8_parents == 1)
+choice("Continue", B2-Ch08a-Terrified, v_current_scene = B2-Ch08a-Terrified)
 
 
 ID: B2-Ch08a-Terrified
@@ -1741,7 +1737,6 @@ TEXT:
 "No," Leila says. "My father once told me that the physical stats from the device enhance the physical abilities that you already have, and that the more fit you are, physically, the more effect those stats will have on you. Given that I've always had a very frail constitution, this is the most I can get out of my stat device, at my current levels."
 
 }
-#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "Huh..." I say. "Well, then, I guess that all those months I've spent doing physical training in preparation for this tournament were not wasted after all."
 
 "You did physical training?" Kate says, shocked. "And this is the result? I bet I could beat you in an arm-wrestling match if I tried hard enough."
@@ -1756,8 +1751,7 @@ TEXT:
 
 We decide to take Kate's advice, and we each head towards our tents. Once I get inside, I place my notebook in my backpack and I prepare to go to bed. I still have some stuff that I'd want to read, but I can do that in the morning. 
 
-}
-choice("Continue", B2-Ch08a-Unnoticed, v_current_scene = B2-Ch08a-Unnoticed) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch08a-Unnoticed, v_current_scene = B2-Ch08a-Unnoticed)
 
 
 ID: B2-Ch08a-Unnoticed
@@ -2042,4 +2036,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch09a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch09a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch09a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

@@ -1,6 +1,7 @@
 ID: B2-Ch05a-Intro
 TEXT:
 
+#if(v_b2_ch2_deal != 3 && v_b2_ch2_lessathi != 0 || v_b2_ch2_deal != 3 && v_b2_ch2_threatened != 2) {
  
 
 "Stillwater!" Bruce shouts. "Hey, stillwater, are you listening?"
@@ -11,6 +12,7 @@ I suddenly realize that I've been so lost in my own thoughts for the past minute
 
 "I was talking about Wilhelm," Bruce says. "We can't let him roam free throughout the arena after what he did last round. Who knows who he'll try to kill next? I say we tie him up, and leave him here. It's safer that way."
 
+}
 #if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_deal == 3) {
  
 
@@ -202,7 +204,7 @@ Just as I was hoping, it looks like the dwarf brought more than a few bottles of
 "Not exactly," I say. "But I did come here to ask you for one of your dwarven ale bottles, if it's not too much trouble."
 
 }
-choice("Continue", B2-Ch05a-Maliciously, v_current_scene = B2-Ch05a-Maliciously) if (v_b2_ch5_heard_guards == 0 || v_b2_ch5_heard_guards == 1)
+choice("Continue", B2-Ch05a-Maliciously, v_current_scene = B2-Ch05a-Maliciously)
 
 
 ID: B2-Ch05a-Maliciously
@@ -284,7 +286,6 @@ I then head towards the fighting area, through the hole in the wall where the ir
 "Uh, see you, I guess..." Hadrik says, looking a bit confused.
 
 }
-#if(v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 1 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 1) {
  As I slowly make my way towards the troll, with the bottle of ale in my hand, the announcer starts shouting at me, from his elevated platform above.
 
 "What do you think you're doing?" he says. "The round hasn't begun yet! Get back to your own division area right now! Do you hear me? Get back! Hey, are you listening to me?"
@@ -297,8 +298,7 @@ I don't say anything and I keep walking forward.
 
 "Damn it!" the announcer says. "Open the gates. Open them now!"
 
-}
-choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable) if (v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 0 && v_b2_ch4_beer == 1 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 0 || v_b2_ch2_creatures == 1 && v_b2_ch4_beer == 1)
+choice("Continue", B2-Ch05a-Flammable, v_current_scene = B2-Ch05a-Flammable)
 
 
 ID: B2-Ch05a-Flammable
@@ -713,9 +713,9 @@ Instead, the troll regrew his head again from his neck, although this time aroun
 As I prepare to join my friends in battle, I take one long look at Velgos, and I try to make a plan of attack.
 
 }
-choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
-choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
-choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
+choice("Observe the battle between Leila and Velgos, in order to find his weaknesses", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 1)
+choice("Lie to the mage, in order to convince him to act as a decoy", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 2)
+choice("Cut the troll's head off, while he's busy fighting Leila", B2-Ch05a-Contrary-Ogres, v_current_scene = B2-Ch05a-Contrary-Ogres, v_b2_ch5_strategy = 3)
 
 
 ID: B2-Ch05a-Contrary-Ogres
@@ -761,7 +761,7 @@ I take another quick look towards the battlefield, and it looks like Velgos is n
 The ogres are now rushing towards the troll, with their clubs at the ready, preparing to strike. As he sees his former companions turning on him, Velgos' eyes fill with rage.
 
 }
-choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 2)
+choice("Continue", B2-Ch05a-Climactic-Ogres, v_current_scene = B2-Ch05a-Climactic-Ogres)
 
 
 ID: B2-Ch05a-Climactic-Ogres
@@ -835,7 +835,7 @@ The troll is now desperately trying to gasp for air, while looking at me and Lei
 "Well, that was anti-climactic..." I say.
 
 }
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 2 || v_b2_ch5_first_cut == 0 && v_b2_ch5_strategy == 3 || v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 1 || v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_strategy == 3)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead)
 
 
 ID: B2-Ch05a-Contrary-Wilhelm
@@ -891,7 +891,7 @@ The troll is now desperately trying to gasp for air, while looking at me and Lei
 "Well, that was anti-climactic..." I say.
 
 }
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_strategy == 1 || v_b2_ch5_strategy == 2 || v_b2_ch5_strategy == 3)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead)
 
 
 ID: B2-Ch05a-Contrary-Without
@@ -999,7 +999,7 @@ choice("Continue", B2-Ch05a-Troll-final, v_current_scene = B2-Ch05a-Troll-final)
 ID: B2-Ch05a-Troll-final
 TEXT:
 
-#if(v_b2_ch5_first_cut == 1 || v_b2_ch5_strategy == 2 || v_b2_ch5_wilhelm == 1) {
+#if(v_b2_ch5_strategy == 2 || v_b2_ch5_wilhelm == 1 || v_b2_ch5_first_cut != 0) {
  After his head gets crushed once more, the troll begins regrowing a new one from his neck, but this time, something is definitely off. The grotesque form that is emerging from his neck can no longer be called anything close to a head. The face is missing half of its skin, the eyes are coming out of their orbits, and the shape of it is nothing like before. More importantly, it would seem that his head has not been well enough regenerated to allow him to breathe. 
 
 The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
@@ -1013,7 +1013,7 @@ The troll is now desperately trying to gasp for air, while looking at me and Lei
 The troll is now desperately trying to gasp for air, while looking at me and Leila with pure hatred in his eyes. He tries to speak, but he has no air left in his lungs. He only manages to make some unintelligible guttural sounds, while taking a few steps forward and stretching one of his arms towards us, in a futile attempt to reach us. Once he runs out of breath completely, he drops to his knees, and he starts clawing at his throat with his hands, as if he were trying to create a new pathway for the air to reach his lungs. Eventually, he stops moving altogether, and he drops face-first to the ground, lifeless.
 
 }
-choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead) if (v_b2_ch5_first_cut == 0 && v_b2_ch5_wilhelm == 0 || v_b2_ch5_first_cut == 1 || v_b2_ch5_strategy == 2 || v_b2_ch5_wilhelm == 1)
+choice("Continue", B2-Ch05a-Troll-dead, v_current_scene = B2-Ch05a-Troll-dead)
 
 
 ID: B2-Ch05a-Easily-Without
@@ -1269,7 +1269,7 @@ The two ogres move away from us, and they start heading towards the arena gate, 
 "We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
 
 }
-#if(v_b2_ch5_negotiate == 0) {
+#if(v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy != 2 || v_b2_ch5_negotiate == 0 && v_b2_ch5_first_cut != 0 && v_b2_ch5_wilhelm != 0) {
  Not long after we kill Velgos, Bruce also finishes his fight with the ogres, and then he comes heading straight for us.
 
 "You guys are already done with the troll?" Bruce asks, surprised, as he reaches us.
@@ -1281,7 +1281,7 @@ The two ogres move away from us, and they start heading towards the arena gate, 
 "We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
 
 }
-#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 || v_b2_ch5_first_cut == 1 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm == 0) {
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch2_cell != 1 || v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm != 0 || v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm == 0 && v_b2_ch5_first_cut != 0) {
  "Don't think you're getting away that easily, you son of a bitch!" the mage tells me.
 
 "Get away with what?" I say.
@@ -1297,16 +1297,6 @@ The two ogres move away from us, and they start heading towards the arena gate, 
 "There is no round after the next one!" the mage shouts. "It's just an optional fight!"
 
 "Technically it's only optional if you don't break the rules, but I see your point," I say, as I make a short pause to think things through. "Well, if that's how things are, then I guess there's no chance left for us to get even. Too bad. But hey, no hard feelings, right?"
-
- While the mage is grinding his teeth, Bruce is now heading towards us, having finished his fight with the two ogres.
-
-"You guys are already done with the troll?" Bruce asks, surprised, as he reaches us.
-
-"Yeah, we killed him ages ago," I say. "What took you so long?"
-
-"So... is the fight over, then?" Bruce says. "What are we still standing around here, for?"
-
-"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
 
 }
 #if(v_b2_ch2_cell == 1 && v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm == 0) {
@@ -1329,11 +1319,23 @@ He pauses.
 "We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
 
 }
+#if(v_b2_ch5_first_cut == 0 && v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 || v_b2_ch5_negotiate == 0 && v_b2_ch5_strategy == 2 && v_b2_ch5_wilhelm == 0) {
+ While the mage is grinding his teeth, Bruce is now heading towards us, having finished his fight with the two ogres.
+
+"You guys are already done with the troll?" Bruce asks, surprised, as he reaches us.
+
+"Yeah, we killed him ages ago," I say. "What took you so long?"
+
+"So... is the fight over, then?" Bruce says. "What are we still standing around here, for?"
+
+"We're waiting for the announcer to come back..." I say. "He's the one that's supposed to announce the end of the fight."
+
+}
 #if(v_b2_ch5_negotiate == 0 || v_b2_ch5_negotiate == 2) {
  
 
 }
-choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly) if (v_b2_ch5_negotiate == 0 || v_b2_ch5_negotiate == 1 || v_b2_ch5_negotiate == 2)
+choice("Continue", B2-Ch05a-Smoothly, v_current_scene = B2-Ch05a-Smoothly)
 
 
 ID: B2-Ch05a-Smoothly

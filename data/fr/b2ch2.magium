@@ -97,8 +97,8 @@ TEXT:
 "It depends on the nature of the item," the servant says. "Without knowing what item in particular you are referring to, I cannot give you a definitive answer to your question."
 
 }
-choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1) if (v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_saved_rose == 0)
-choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0) if (v_ch11_romance_rose == 0 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_saved_rose == 0)
+choice("Tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 1)
+choice("Don't tell him about the stat device.", B2-Ch02a-Tell-servant, v_current_scene = B2-Ch02a-Tell-servant, v_b2_ch2_tell_servant = 0)
 
 
 ID: B2-Ch02a-Tell-servant
@@ -148,7 +148,7 @@ The servant smiles.
 "Is there any chance you could enchant my crossbow as well?" I ask.
 
 }
-#if(v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1) {
+#if(v_b2_ch2_tell_servant == 0) {
  "Oh, okay," I say. "Never mind, then."
 
 "Hey, Barry," Daren says, and both the king's servant and I turn our heads towards him.
@@ -164,7 +164,7 @@ The servant smiles.
 "Is there any chance you could enchant my crossbow as well?" I ask.
 
 }
-#if(v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 0) {
+#if(v_ch11_saved_rose == 0) {
  "You are not allowed to use ranged weapons within the arenas of Varathia," the king's servant says.
 
 "I'll be honest with you, Barry," Daren tells me, "even if ranged weapons were allowed, I would still not recommend getting your crossbow enchanted. It would be much better to buy a new one. Basic enchantment just isn't a good substitute for poor craftsmanship. With daggers, it's different, because the quality of the metal is much more important than the way the blade was made."
@@ -178,7 +178,7 @@ Daren frowns at him.
 Once he found the shop, Daren went in, and he didn't come out until exactly half an hour had passed. 
 
 }
-#if(v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 1) {
+#if(v_ch11_saved_rose == 1) {
  "You are not allowed to use ranged weapons within the arenas of Varathia," the king's servant says.
 
 "I'll be honest with you, Barry," Daren tells me, "even if ranged weapons were allowed, I would still not recommend getting your crossbow enchanted. It would be much better to buy a new one. Basic enchantment just isn't a good substitute for poor craftsmanship. With daggers, it's different, because the quality of the metal is much more important than the way the blade was made."
@@ -194,7 +194,7 @@ Once he found the shop, Daren went in, and he didn't come out until exactly half
  During this time, I used my transceiver to contact Rose, and to tell her that we wouldn't make it home in time for dinner tonight. She was shocked at first, but after she heard the whole story, she was relieved that we were at least given a chance to free ourselves. She then promised me that she will be there, in the audience, to cheer for us when the time comes.
 
 }
-choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems) if (v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 0 && v_ch11_saved_rose == 1 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 0 || v_b2_ch2_tell_servant == 1 && v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch02a-Gems, v_current_scene = B2-Ch02a-Gems)
 
 
 ID: B2-Ch02a-Gems
@@ -244,7 +244,7 @@ It took us about two more hours to get from the marketplace to the arenas. Once 
 "I see," the desk worker says, after he reads the letter. "Very well, then. Given that I am the only one who is still working at this late hour, I will have to ask you to wait patiently in this lobby, while I lead each one of you to your individual cells."
 
 }
-choice("Continue", B2-Ch02a-Cell, v_current_scene = B2-Ch02a-Cell) if (v_ch10_gems == 0 || v_ch10_gems == 1)
+choice("Continue", B2-Ch02a-Cell, v_current_scene = B2-Ch02a-Cell)
 
 
 ID: B2-Ch02a-Cell
@@ -344,7 +344,6 @@ I nod to him and then go through the open door.
 "Farewell," the desk worker says, as he closes the door behind me.
 
 }
-#if(v_b2_ch2_cell == 1 || v_b2_ch2_cell == 2 || v_b2_ch2_cell == 3) {
  The room I am now finding myself in is only being lit by a few candles. The recreational area appears to be empty, except for one particularly bulky man, wearing leather armor, who is now steadily approaching me. 
 
 "I've been waiting for you," the man says, in a menacing tone. "I heard that they'd be bringing you in tonight."
@@ -363,8 +362,7 @@ I remain silent. There would be no point in correcting him. I'd much rather have
 
 "Now, why would you want to do that?" I ask him. "Aren't we supposed to be part of the same team?"
 
-}
-choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows) if (v_b2_ch2_cell == 1 || v_b2_ch2_cell == 2 || v_b2_ch2_cell == 3)
+choice("Continue", B2-Ch02a-Gallows, v_current_scene = B2-Ch02a-Gallows)
 
 
 ID: B2-Ch02a-Gallows
@@ -688,13 +686,13 @@ The only source of light in the room appears to be coming from a very small wind
 "Get up," the guard says. "It's recreation time. Go recreate. Come on, get out of here!"
 
 }
-choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation) if (v_b2_ch2_threatened == 1 || v_b2_ch2_threatened == 2)
+choice("Continue", B2-Ch02a-Recreation, v_current_scene = B2-Ch02a-Recreation)
 
 
 ID: B2-Ch02a-Recreation
 TEXT:
 
-#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2) {
+#if(v_b2_ch2_fist != 3 && v_b2_ch2_fist != 4 && v_b2_ch2_fist != 5) {
  I reluctantly get out of bed, put my sweater in my backpack and then head back towards the recreation area. I make sure to lock the door behind me on my way out, and then I head towards a corner of the room where there are no people around. 
 
 I take a quick look around the room to see who else they placed in my division. Aside from Bruce and Wilhelm who I met yesterday, there's the silver haired girl that was staring at me, and then there are two more individuals that both look like the gladiator versions of Cutthroat Dave. The two thugs seem to be the only ones who are actually talking to each other. The other three are each standing somewhere as far as possible from everyone else, leaning with their backs against the walls, their arms crossed, waiting for the recreation period to be over. 
@@ -750,7 +748,7 @@ Bruce then pats me on the shoulder, and he goes back to where he was standing at
 "Yes," Wilhelm says. "You already saw the way he treated you yesterday. He is the kind of person who likes to act before he thinks, and these types of individuals are always dangerous. He might act friendly towards you now, but who knows what he'll do tomorrow. When you're up against unpredictable brutes that prefer to rely on their fists instead of their reason, you can never know when they'll turn against you."
 
 }
-#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2) {
+#if(v_b2_ch2_threatened == 2 && v_b2_ch2_fist != 3 && v_b2_ch2_fist != 4 && v_b2_ch2_fist != 5) {
  "Yeah," Bruce says. "About Wilhelm. He might seem like an ordinary guy to you, but in reality he's a trained assassin. I can tell by the way he moves and speaks. These assassin types can never be trusted. They're not real warriors like you and me. The only way they know how to fight is by stabbing people in the back. You should be careful around him. Don't believe anything he says!"
 
 "Oh, yeah," I say. "I figured that he was an assassin. Don't worry, I'll look out for him."
@@ -762,14 +760,6 @@ Bruce then pats me on the shoulder, and he goes back to where he was standing at
 "Good morning," Wilhelm says. "I hope that I'm not interrupting anything. I just wanted to talk to you about our conversation from yesterday. I think that we may have started off on the wrong foot. If I've given you any reason to mistrust me, then I promise you that I will do everything in my power to--"
 
 "Listen, Wilhelm," I interrupt him. "After what I told you yesterday, I assumed that you'd be smart enough to stay out of my way until the end of the arena events, but I guess I was mistaken. It's no problem. I'll just make my stance a little clearer this time around."
-
- "What do you mean?" Wilhelm asks me, with a bit of apprehension in his voice.
-
-"I mean that I'm going to give you a choice," I say. "I'm not sure why you'd want to kill me. I don't know if you've been hired, or if you have some personal reason for it. But in the end, you're just an assassin, you're not a fighter. In order to kill someone, you can't fight them head on. You need the element of surprise. Now, of course, you can still try to catch me off guard, but your problem will be that I'll know exactly what to expect. If you think that's worth the risk, then by all means, go ahead. If not, then I suggest you keep away from me until we're done with the arena."
-
-"I understand," Wilhelm says, looking as if I'd taken all the wind out of his sails. "I won't bother you any longer."
-
-He then turns to leave.
 
 }
 #if(v_b2_ch2_fist == 3 && v_b2_ch2_threatened != 2 || v_b2_ch2_fist == 4 && v_b2_ch2_threatened != 2 || v_b2_ch2_fist == 5 && v_b2_ch2_threatened != 2) {
@@ -808,7 +798,17 @@ He then turns to leave.
 "Of course," I say.
 
 }
-choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess) if (v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 0 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 1 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 3 || v_b2_ch2_fist == 4 || v_b2_ch2_fist == 5)
+#if(v_b2_ch2_fist == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_fist == 2 && v_b2_ch2_threatened == 2) {
+ "What do you mean?" Wilhelm asks me, with a bit of apprehension in his voice.
+
+"I mean that I'm going to give you a choice," I say. "I'm not sure why you'd want to kill me. I don't know if you've been hired, or if you have some personal reason for it. But in the end, you're just an assassin, you're not a fighter. In order to kill someone, you can't fight them head on. You need the element of surprise. Now, of course, you can still try to catch me off guard, but your problem will be that I'll know exactly what to expect. If you think that's worth the risk, then by all means, go ahead. If not, then I suggest you keep away from me until we're done with the arena."
+
+"I understand," Wilhelm says, looking as if I'd taken all the wind out of his sails. "I won't bother you any longer."
+
+He then turns to leave.
+
+}
+choice("Continue", B2-Ch02a-Princess, v_current_scene = B2-Ch02a-Princess)
 
 
 ID: B2-Ch02a-Princess
@@ -971,7 +971,7 @@ Leila sighs, and she goes to sit on her bed.
 "In that case," Leila writes, "you'd better take care to also not harm the organizers or any of the spectators. That is against the rules, as well."
 
 }
-choice("Continue", B2-Ch02a-Outcasts, v_current_scene = B2-Ch02a-Outcasts) if (v_b2_ch2_lessathi == 0 || v_b2_ch2_lessathi == 1)
+choice("Continue", B2-Ch02a-Outcasts, v_current_scene = B2-Ch02a-Outcasts)
 
 
 ID: B2-Ch02a-Outcasts
@@ -1234,7 +1234,6 @@ choice("Continue", B2-Ch02a-Soundproof, v_current_scene = B2-Ch02a-Soundproof)
 ID: B2-Ch02a-Soundproof
 TEXT:
 
-#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "You see," the voice continues, "we couldn't help but notice that the king of Thilias seems to have placed an unusual amount of trust in you and your companions. Enough trust to invite you into his secret room below the throne. That is not the kind of invitation that is acquired easily."
 
 He pauses again, to see if I have anything to say. He waits for a few more seconds, and then he continues from where he left off.
@@ -1247,7 +1246,6 @@ The voice laughs softly.
 
 "Of course not," he says. "If we wanted to assassinate the king, I assure you that there would be much easier, risk-free methods to use in order to get the job done."
 
-}
 #if(v_b2_ch1_interfere == 0) {
  "Then what is it that you are trying to do?"
 
@@ -1262,16 +1260,15 @@ The voice laughs softly.
 There's no way I could agree to take this deal after I already convinced everyone to help me rid the king of the lessathi in his city. Then again, this guy is saying that all I need to do in order to get my reward is to agree to help him. Since I'm going to attack them later anyway, I guess I wouldn't have much to lose if I lied to him now.
 
 }
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
+choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_ac_b2_ch2_easy = 1, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3) if (v_b2_ch1_interfere == 0)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 1 || v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 1)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch1_interfere == 0 && v_b2_ch2_tell_servant == 0 || v_b2_ch1_interfere == 1 && v_b2_ch2_tell_servant == 0)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch2_tell_servant == 1)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 2) if (v_b2_ch2_tell_servant == 0)
 
 
 ID: B2-Ch02a-Refuse-threat
 TEXT:
 
-#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "No, thanks," I say. "I like to keep things challenging."
 
 There is a brief pause, during which none of us says anything.
@@ -1290,9 +1287,8 @@ There is a brief pause, during which none of us says anything.
 
 "I never said that it's illegal," the lessathi says. "I only said that we would have the guards confiscate it. A little chat with the arena's owner should be enough to bend the rules for this one special occasion. Now, do we have an agreement, or not?"
 
-}
-choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
-choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
+choice("Lie to the lessathi about accepting the deal and betray them later.", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 1)
+choice("Refuse the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 4)
 choice("Accept the lessathi's offer", B2-Ch02a-Deal-conclusion, v_current_scene = B2-Ch02a-Deal-conclusion, v_b2_ch2_deal = 3) if (v_b2_ch1_interfere == 0)
 
 
@@ -1358,7 +1354,7 @@ The lessathi doesn't say anything for a few seconds, but then he answers me in t
 With these last words, the lessathi makes his departure. I wait for a minute, to make sure that he's gone for good, and then I get back to reading my notebook.
 
 }
-choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers) if (v_b2_ch2_deal == 1 || v_b2_ch2_deal == 2 || v_b2_ch2_deal == 3 || v_b2_ch2_deal == 4)
+choice("Continue", B2-Ch02a-Transceivers, v_current_scene = B2-Ch02a-Transceivers)
 
 
 ID: B2-Ch02a-Transceivers
@@ -1656,7 +1652,7 @@ Leila nods, and we both start to walk towards the cabin. There's something that'
 As we reach the cabin, I go inside carefully, making sure that there are no traps. The cabin doesn't have any fireplace or chimney, but there's some firewood inside, and also some flint. I take the firewood and the flint outside, and then I take some of the dried up moss from the cave's walls to provide a bit of kindling. Once we've set up the fire, Leila and I sit ourselves down next to it, trying to get as close to the heat as we can.
 
 }
-choice("Continue", B2-Ch02a-Natural, v_current_scene = B2-Ch02a-Natural) if (v_b2_ch2_elevator == 0 || v_b2_ch2_elevator == 1)
+choice("Continue", B2-Ch02a-Natural, v_current_scene = B2-Ch02a-Natural)
 
 
 ID: B2-Ch02a-Natural
@@ -1734,7 +1730,7 @@ Leila shakes her head.
  "Wait, you just said that you used to call him your father," I say. "But you said yesterday that the reason why you were brought here was because you saved your father from slavery. This person you saved... is he someone other than your natural father?"
 
 }
-choice("Continue", B2-Ch02a-Hiding, v_current_scene = B2-Ch02a-Hiding) if (v_b2_ch2_upset == 0 || v_b2_ch2_upset == 1)
+choice("Continue", B2-Ch02a-Hiding, v_current_scene = B2-Ch02a-Hiding)
 
 
 ID: B2-Ch02a-Hiding
@@ -1831,7 +1827,7 @@ Leila nods.
 Leila nods hesitantly, as she grabs my hand, and I help her up. We leave the fire behind, and we head towards the tunnels beyond the wooden cabin. For the next twenty minutes or so, we walk in silence through the underground caverns, using a long stick that I'd gotten from the cabin to test the ground for traps. In the areas that were completely dark, we had to rely on our stat devices to light the way before us, but luckily the glowing blue crystals that we'd seen before were also scattered throughout these tunnels, embedded into the walls, so we didn't have to worry about the lighting, most of the time.
 
 }
-choice("Continue", B2-Ch02a-Creatures, v_current_scene = B2-Ch02a-Creatures) if (v_b2_ch2_kate == 0 || v_b2_ch2_kate == 1)
+choice("Continue", B2-Ch02a-Creatures, v_current_scene = B2-Ch02a-Creatures)
 
 
 ID: B2-Ch02a-Creatures
@@ -2209,4 +2205,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch03a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch03a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch03a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch03a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

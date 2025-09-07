@@ -66,13 +66,11 @@ I let Arraka focus on researching her new spell while I head to a more isolated 
 I let Arraka focus on researching her new spell while I head to a more isolated part of our camp, which is perfect for me letting loose a little and experimenting with my newly acquired magic. During the two days since we've left the lessathi base, I've been spending as much time as possible cataloguing my available spells in my notebook and testing each one of them out, to make sure that I could indeed use them when required.
 
 }
-#if(v_b3_ch12_believe == 0 || v_b3_ch12_believe == 1) {
  I've also tried out quite a few combinations of spells that I'd discovered while doing research with Brinhorn back in the days, but some of these turned out to be trickier than I thought. Unsurprisingly, it turns out that it's much easier to theorize on the effects of a spell combination than to actually manage to use it in practice. Combining spells is a really advanced technique, after all, and the stat device doesn't really have any built-in features to help me with this, since it was designed to cast the spells separately.
 
  The only way in which I can become accustomed to this is through repeated experimentation, just as I would have done if I were a regular mage. I suppose this is one rare thing for which Brinhorn genuinely deserves some praise. Whenever I came up with an outlandish idea for combining two or more spells, he almost always managed to make it work nearly effortlessly, and could follow my instructions perfectly. You could easily tell that he had spent countless amounts of hours practicing his magic, all for the purpose of one day surpassing Azarius.
 
-}
-choice("Continue", B3-Ch12a-Practicing, v_current_scene = B3-Ch12a-Practicing, v_available_points = +4, v_available_points_aux = +4) if (v_b3_ch12_believe == 0 || v_b3_ch12_believe == 1)
+choice("Continue", B3-Ch12a-Practicing, v_current_scene = B3-Ch12a-Practicing, v_available_points = +4, v_available_points_aux = +4)
 
 
 ID: B3-Ch12a-Practicing
@@ -123,17 +121,15 @@ Now, then... Let's see if I can find a quick way to deal with this before Hadrik
 Now, then... Let's see if I can find a quick way to deal with this before Hadrik gets too bored to act as my test subject anymore.
 
 }
-#if(v_b3_ch12_invest == 0 || v_b3_ch12_invest == 1) {
  I remember Arraka saying that Daren was using the flow of Hadrik's aura to predict his movements when they were dueling. It might be difficult for me to do the same thing, considering that I didn't get any aura training from Arraka, but maybe I can supplement some of her training with the stats from my device?
 
 If not, then I suppose I could always try the brute force approach, by using my speed to close in on Hadrik and my reflexes to cast a spell at him before he dashes away. As long as I'm close enough, it should be easier to target him.
 
 Or... I could just try to bluff him.
 
-}
-choice("Try to predict Hadrik's movements from his aura.", B3-Ch12a-Predict, v_current_scene = B3-Ch12a-Predict, v_b3_ch12_approach = 0) if (v_b3_ch12_invest == 0 || v_b3_ch12_invest == 1)
-choice("Attempt to get close to Hadrik so I can aim at him easier.", B3-Ch12a-Brute, v_current_scene = B3-Ch12a-Brute, v_b3_ch12_approach = 1) if (v_b3_ch12_invest == 0 || v_b3_ch12_invest == 1)
-choice("Tell Hadrik that him standing in place would make it harder for me to aim at him.", B3-Ch12a-Bluff, v_current_scene = B3-Ch12a-Bluff, v_b3_ch12_approach = 2) if (v_b3_ch12_invest == 0 || v_b3_ch12_invest == 1)
+choice("Try to predict Hadrik's movements from his aura.", B3-Ch12a-Predict, v_current_scene = B3-Ch12a-Predict, v_b3_ch12_approach = 0)
+choice("Attempt to get close to Hadrik so I can aim at him easier.", B3-Ch12a-Brute, v_current_scene = B3-Ch12a-Brute, v_b3_ch12_approach = 1)
+choice("Tell Hadrik that him standing in place would make it harder for me to aim at him.", B3-Ch12a-Bluff, v_current_scene = B3-Ch12a-Bluff, v_b3_ch12_approach = 2)
 
 
 ID: B3-Ch12a-Predict
@@ -211,7 +207,6 @@ Still, that went much better than I thought it would. After only a few adjustmen
 "Later," I say, simply, and then I pull out my notebook again, so I can get back to cataloguing my available spells.
 
 }
-#if(v_magical_sense == 4 && v_perception == 4 || v_magical_sense == 4 && v_perception < 4 || v_magical_sense < 4) {
  About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
 
 "Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
@@ -228,8 +223,7 @@ Still, that went much better than I thought it would. After only a few adjustmen
 
 "Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
 
-}
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_magical_sense == 4 && v_perception == 4 || v_magical_sense == 4 && v_perception < 4 || v_magical_sense < 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit)
 
 
 ID: B3-Ch12a-Brute
@@ -299,7 +293,6 @@ Instead of dashing away again, Hadrik just stands there for a few moments and pl
 "Later," I say, simply, and then I pull out my notebook again, so I can get back to cataloguing my available spells.
 
 }
-#if(v_agility == 4 && v_reflexes == 4 || v_agility == 4 && v_reflexes < 4 || v_agility < 4) {
  About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
 
 "Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
@@ -316,8 +309,7 @@ Instead of dashing away again, Hadrik just stands there for a few moments and pl
 
 "Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
 
-}
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_agility == 4 && v_reflexes == 4 || v_agility == 4 && v_reflexes < 4 || v_agility < 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit)
 
 
 ID: B3-Ch12a-Bluff
@@ -375,7 +367,6 @@ As he gets hit by the spell, Hadrik puts his hand on his head for several second
 Realizing that I won't get any more help from him, I decide to pull out my notebook again and to go back to cataloguing my available spells.
 
 }
-#if(v_bluff == 4 || v_bluff < 4) {
  About ten or so minutes later, Arraka finally calls me to her, so that she can give me my new task.
 
 "Alright, Barry-boy, let's see the fruits of your labor," Arraka says. "Go ahead and shoot a fire arrow at that tree over there."
@@ -392,8 +383,7 @@ Realizing that I won't get any more help from him, I decide to pull out my noteb
 
 "Then shut up and do it," Arraka says. "As long as you do exactly the same thing that you did on the ethereal plane, it will work."
 
-}
-choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit) if (v_bluff == 4 || v_bluff < 4)
+choice("Continue", B3-Ch12a-Hermit, v_current_scene = B3-Ch12a-Hermit)
 
 
 ID: B3-Ch12a-Hermit
@@ -560,7 +550,6 @@ TEXT:
 "Dear gods, not the light flash again," Kate says. "Haven't you had enough?"
 
 }
-#if(v_b3_ch12_spell == 0 || v_b3_ch12_spell == 1 || v_b3_ch12_spell == 2 || v_b3_ch12_spell == 3) {
  "Look, I know that you all hate it," I say, "but it's important for our timing to be perfect if we want to use this in battle effectively. As soon as I say the code words 'Daren, catch!' you all need to close your eyes for exactly one second, no matter what you are doing on the battlefield, or else you'll get blinded along with the enemy. This is a very old spell that they don't really teach anymore nowadays, so most people won't be expecting it the first time when I use it against them. That's why it's necessary for us to do it well from the very first try, before we lose the element of surprise."
 
 "Listen, Barry..." Hadrik says, "I get that you're really excited about finally obtaining your magical stats, but it feels like this is the only thing you've been talking about for two days straight. Maybe it wouldn't be such a bad idea to forget about your magic for an hour or two and do something else for a change."
@@ -569,7 +558,6 @@ TEXT:
 
 "Maybe Barry could show off some of the other new spells that he's learned today!" Diane says. "How about it?"
 
-}
 #if(v_b3_ch12_hadrik == 0) {
  "Hmm..." I say. "Today I've been really busy with finding spell combinations and banging my head against the tree, so I can't say that I've tested that many spells compared to yesterday. Oh, I suppose I did attempt to cast a dizziness spell on Hadrik earlier, but I never really managed to lock onto him because he was dashing around too fast."
 
@@ -598,7 +586,7 @@ TEXT:
 "What is Wolf-- Wolfer-- Wolfor's daze?" Flower asks us. "I've never heard of it before."
 
 }
-choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford) if (v_b3_ch12_hadrik == 0 || v_b3_ch12_hadrik == 1 || v_b3_ch12_spell == 0 || v_b3_ch12_spell == 1 || v_b3_ch12_spell == 2 || v_b3_ch12_spell == 3)
+choice("Continue", B3-Ch12a-Wolford, v_current_scene = B3-Ch12a-Wolford)
 
 
 ID: B3-Ch12a-Wolford
@@ -699,7 +687,6 @@ TEXT:
 "Gods be damned..." Hadrik says, out of the blue. "You said you had 'one last thing' to test before calling it a day, but you're still not done talking. Can we not enjoy ourselves for one hour without thinking about our training?"
 
 }
-#if(v_b3_ch12_chance == 0 || v_b3_ch12_chance == 1) {
  "I was already done talking, you oaf," Arraka says. "Have fun intoxicating yourself with that slow poison you like to call 'dwarven ale'. I'm going back to my research."
 
 "That's what I like to hear!" Hadrik says, as he takes another drink from his bottle.
@@ -714,10 +701,9 @@ Now that I think about it, this wasn't the first time when Diane acted in this m
 
 "Around here should be fine, I think," Diane says, as she stops somewhere near the river. "We're far enough from the others to not be distracting them from their own trainings. So, what kind of spells will we be testing today, Barry? As you may have guessed, I have a rather high tolerance for pain, so there's no need to hold back!"
 
-}
-choice(""I'm not sure if I should be relieved or worried that you feel comfortable joking about this."", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 0) if (v_b3_ch12_chance == 0 || v_b3_ch12_chance == 1)
-choice(""That's reassuring, because my next spell does have an unusually high mortality rate."", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 1) if (v_b3_ch12_chance == 0 || v_b3_ch12_chance == 1)
-choice(""I actually wasn't planning on using any painful spells, but that's good to know."", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 2) if (v_b3_ch12_chance == 0 || v_b3_ch12_chance == 1)
+choice(""I'm not sure if I should be relieved or worried that you feel comfortable joking about this."", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 0)
+choice(""That's reassuring, because my next spell does have an unusually high mortality rate."", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 1)
+choice(""I actually wasn't planning on using any painful spells, but that's good to know."", B3-Ch12a-Describe, v_current_scene = B3-Ch12a-Describe, v_b3_ch12_relieved = 2)
 
 
 ID: B3-Ch12a-Describe
@@ -763,7 +749,6 @@ Hearing what I had to say, Diane lets out a short snort of laughter before she a
 "Oh, I see," Diane says. "That does make sense! So... what spell are you planning to start with, then?"
 
 }
-#if(v_b3_ch12_relieved == 0 || v_b3_ch12_relieved == 1 || v_b3_ch12_relieved == 2) {
  "I was thinking of beginning with the dizziness spell that I mentioned earlier, during our drinking session," I say. "Would it be okay if I asked you to describe in as much detail as you can exactly what you are feeling in the first few seconds after I cast the spell on you? I'm trying to figure out if I can get any use out of it or not."
 
 "Uh... I have a protection against dizziness cast on me at the moment," Diane says. "Should I remove it first, or--"
@@ -788,8 +773,7 @@ As soon as I'm done checking my notebook, I get into my stance and I cast the di
 
 "Sure, sure, not a problem," Diane says.
 
-}
-choice("Continue", B3-Ch12a-Nausea, v_current_scene = B3-Ch12a-Nausea) if (v_b3_ch12_relieved == 0 || v_b3_ch12_relieved == 1 || v_b3_ch12_relieved == 2)
+choice("Continue", B3-Ch12a-Nausea, v_current_scene = B3-Ch12a-Nausea)
 
 
 ID: B3-Ch12a-Nausea
@@ -838,7 +822,6 @@ TEXT:
 "That's the spirit!" I say. "And hey, if things don't work out with Hadrik, you could always try Arraka! One might not be able to tell this at first glance, but she is the type of person who always listens to you and who will help you in your time of need. I'm sure she would love your company!"
 
 }
-#if(v_b3_ch12_diane == 0 || v_b3_ch12_diane == 1) {
  "Barry, I think that might be the best advice I've heard all day!" Diane says, with a smile. "In fact, I think I'll try to talk to her right now. Thanks for the suggestion!"
 
 "You are very welcome!" I say, as Diane now heads towards Flower and Illuna, presumably to have a conversation with Arraka.
@@ -849,9 +832,8 @@ I decide to head in the opposite direction, so that I can test out a few more co
 
 Normally, this wouldn't have been a big deal, but this is the third time in the past two days that I've seen Kate do the exact same thing, despite the fact that she usually takes her aim training very seriously. I think something is up with her. Maybe I should go ask her what's wrong.
 
-}
-choice("Go talk to Kate.", B3-Ch12a-Kate1, v_current_scene = B3-Ch12a-Kate1, v_b3_ch12_kate = 1) if (v_b3_ch12_diane == 0 || v_b3_ch12_diane == 1)
-choice("Ignore Kate and go test some spell combinations.", B3-Ch12a-Ignore, v_current_scene = B3-Ch12a-Ignore, v_b3_ch12_kate = 0) if (v_b3_ch12_diane == 0 || v_b3_ch12_diane == 1)
+choice("Go talk to Kate.", B3-Ch12a-Kate1, v_current_scene = B3-Ch12a-Kate1, v_b3_ch12_kate = 1)
+choice("Ignore Kate and go test some spell combinations.", B3-Ch12a-Ignore, v_current_scene = B3-Ch12a-Ignore, v_b3_ch12_kate = 0)
 
 
 ID: B3-Ch12a-Kate1
@@ -1147,13 +1129,13 @@ About twenty minutes later, Daren finally makes his way to our meeting spot and 
 "Sure thing," I say, as Daren takes out the deck of cards that he got from Hadrik and puts them on the ground next to me. "Let's see what you've got!"
 
 }
-#if(v_b3_ch12_spell == 0 && v_b3_ch5_moustache != 2 || v_b3_ch12_spell == 1 && v_b3_ch5_moustache != 2 || v_b3_ch12_spell == 2 && v_b3_ch5_moustache != 2 || v_b3_ch12_spell == 3 && v_b3_ch5_moustache != 2) {
+#if(v_b3_ch5_moustache != 2) {
  For the next few hours or so, Daren and I played a few different card games from both of our homelands, while we exchanged some stories from our time before the tournament. Normally, Daren would have been the one doing most of the storytelling, but this time he insisted on me telling him some of my adventures as well, despite me warning him that any situation I've been in would sound boring compared to what he and Hadrik have experienced throughout their lives.
 
 Once I was done telling him a few of my stories, I couldn't help but notice that I managed to maintain his interest for much longer than I was expecting. He seemed to be paying close attention the whole time I was talking, and sometimes it even felt like he could barely wait any longer to hear the end of the story. Could it be that he actually enjoyed it?
 
 }
-choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn) if (v_b3_ch12_delusional == 0 || v_b3_ch12_delusional == 1 || v_b3_ch12_delusional == 2 || v_b3_ch12_spell == 0 || v_b3_ch12_spell == 1 || v_b3_ch12_spell == 2 || v_b3_ch12_spell == 3 || v_b3_ch5_moustache == 2)
+choice("Continue", B3-Ch12a-Brinhorn, v_current_scene = B3-Ch12a-Brinhorn)
 
 
 ID: B3-Ch12a-Brinhorn
@@ -1241,7 +1223,6 @@ TEXT:
 "But Eiden would only be destroying the cities because of his inevitable upcoming fight against Tyrath, right?" Daren says. "In that case, don't you think it would be a better idea to stop Tyrath rather than Eiden?"
 
 }
-#if(v_b3_ch12_conflicted == 0 || v_b3_ch12_conflicted == 1 || v_b3_ch12_conflicted == 2) {
  "Frankly," I say, "after what we've found out from Meridith, I'm beginning to think that the two old enemies from the prophecy might actually be Eiden and the lessathi, instead of Eiden and Tyrath like we originally thought. I know that he technically 'took their side' during the still winter, according to Melindra, but Meridith clearly does not see things that way, and she is obviously preparing for some kind of big showdown with Eiden at the end of this tournament, so I wouldn't be surprised if it was their fight instead that triggered the destruction of the Varathian cities."
 
 "...I thought that it was the Magium itself that sent this prophecy to us," Daren says. "Why would it send a prophecy about this conflict and at the same time actively take the side of one of the opposing factions and help create the conflict in the first place?"
@@ -1254,8 +1235,7 @@ TEXT:
 
 "Yeah, you've definitely lost me, Barry," Daren says. "I know you were trying to make this sound less confusing, but all of this Magium, fragments and node stuff is going way over my head. I can only hope that we will have as little interaction as possible with all of them in the future, so I won't actually need to understand any of this. All I want from the Magium is to use the node to get the knowledge I require from it and that's it. No other complications!"
 
-}
-choice("Continue", B3-Ch12a-Unusual, v_current_scene = B3-Ch12a-Unusual) if (v_b3_ch12_conflicted == 0 || v_b3_ch12_conflicted == 1 || v_b3_ch12_conflicted == 2)
+choice("Continue", B3-Ch12a-Unusual, v_current_scene = B3-Ch12a-Unusual)
 
 
 ID: B3-Ch12a-Unusual
@@ -1305,7 +1285,6 @@ TEXT:
 "No, actually it's about the Magium nodes," I say. "From what I have gathered so far, it seems like you and Arraka have interacted with one of the nodes in the past, but I was under the impression that each of these nodes is being closely guarded by the major faction from Varathia that owns it. Can you tell us which was the node you used, or is this also a secret that you are not allowed to tell us?"
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "It was Fyron's node," Illuna says. "That is also the one that Arraka has been using, even before Fyron, if she is to be believed. I personally have not seen her use it even once during the time she was 'mentoring' me, and she never even bothered to mention its existence to me at that time."
 
 "Of course I wasn't using it at the time," Arraka says. "I had already gotten most of the information that I needed from the Magium while I was still on the magical plane. The only thing that interested me from the nodes on the earthen plane was to find a way back to my own plane of existence, but I couldn't find anything useful. Things might have gone better if I hadn't been stuck in a mountain or forced to inhabit animal bodies during the majority of my time here, but I never exactly had the opportunity to test that hypothesis."
@@ -1320,8 +1299,7 @@ TEXT:
 
 "Shouldn't you be the one who is worried?" Illuna asks Diane, while raising an eyebrow. "If they make a deal with Fyron about his node, they will have one less reason to take Meridith's deal about killing Eiden."
 
-}
-choice("Continue", B3-Ch12a-Obscure, v_current_scene = B3-Ch12a-Obscure) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch12a-Obscure, v_current_scene = B3-Ch12a-Obscure)
 
 
 ID: B3-Ch12a-Obscure
@@ -1352,7 +1330,6 @@ choice(""I agree with Kate. There would be nothing wrong with you wanting some p
 ID: B3-Ch12a-Plates
 TEXT:
 
-set(v_b3_ch12_sincere,0) if (v_b3_ch12_sincere == 1 && v_bluff > 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_sincere == 0 || v_b3_ch12_sincere == 2)
 set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 #if(v_b3_ch12_sincere == 1 && v_bluff > 0) {
  "Actually, I would never use such a technique even if I had it!"
@@ -1366,7 +1343,7 @@ set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 "Any time!" I tell her.
 
 }
-#if(v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_sincere == 2) {
+#if(v_bluff == 0 && v_b3_ch12_sincere != 0 || v_b3_ch12_sincere == 2) {
  "Actually, I would never use such a technique even if I had it!"
 
 "Of course not," Hadrik says, jokingly. "You would have no need for it. You already have your bluff stat for that!"
@@ -1388,7 +1365,7 @@ set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 "I'm glad to see that you're all taking this a lot better than I was expecting," Diane says. "For what it's worth, I was aware that this technique of mine could cause some of you to become suspicious, so I've been trying my best to be as open with you as I can and to not hide anything from you. I hope that my efforts have not been in vain!"
 
 }
-#if(v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_sincere == 1 && v_bluff > 0 || v_b3_ch12_sincere == 0 || v_b3_ch12_sincere == 2) {
+#if(v_b3_ch12_sincere == 0 || v_b3_ch12_sincere == 2 || v_bluff >= 0) {
  "So... is it okay if I go wash the plates?" Flower asks us, suddenly. "I see that you're all done eating."
 
 "Actually, I think I'll be washing the plates today," Illuna says. "I've been using the knowledge that I retrieved from Meridith's Magium node to improve a spell of mine, and this would be a good way to practice it."
@@ -1408,8 +1385,8 @@ set(v_b3_ch12_sincere,2) if (v_b3_ch12_sincere == 1 && v_bluff == 0)
 "Hmm..." Arraka says. "Not bad. There are a few tiny adjustments that I'd make, but other than that, it doesn't look bad at all. Here, let me mark some of the inadequacies I've noticed, so that you can work on them."
 
 }
-choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 2 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 1 && v_bluff > 0)
-choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 0 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 2 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 1 && v_bluff == 0 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 1 && v_bluff > 0)
+choice("Continue", B3-Ch12a-Sober, v_current_scene = B3-Ch12a-Sober) if (v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 0 || v_b3_ch12_hadrik == 1 && v_b3_ch12_sincere == 2 || v_b3_ch12_hadrik == 1 && v_bluff == 0 || v_b3_ch12_hadrik == 1 && v_bluff > 0)
+choice("Continue", B3-Ch12a-Rock, v_current_scene = B3-Ch12a-Rock) if (v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 0 || v_b3_ch12_hadrik == 0 && v_b3_ch12_sincere == 2 || v_b3_ch12_hadrik == 0 && v_bluff == 0 || v_b3_ch12_hadrik == 0 && v_bluff > 0)
 
 
 ID: B3-Ch12a-Sober
@@ -1493,7 +1470,6 @@ On our way to our destination, I noticed that Diane was trying even harder than 
 "Oh gods!" Flower exclaims, not even an hour after our departure, as she points excitedly at some very mundane-looking rock. "Barry, do you see that? It's a cloakshield rock! A cloakshield rock, Barry!"
 
 }
-#if(v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 1) {
  "I see it," I say, in a very unenthusiastic tone.
 
 "That rock... looks nothing like a cloak or a shield..." Daren says. "Why would you call it that?"
@@ -1528,5 +1504,4 @@ As soon as we leave the area, Flower pulls out her transceiver, and she shouts i
 
 "Hey, Melindra!" she says. "You'll never guess what rock I found lying in the grass in the middle of the woods!"
 
-}
-choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting) if (v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 0 && v_b3_ch12_hadrik == 1 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 0 || v_b3_ch12_diane == 1 && v_b3_ch12_hadrik == 1)
+choice("Continue", B3-Ch12b-Distracting, v_current_scene = B3-Ch12b-Distracting)

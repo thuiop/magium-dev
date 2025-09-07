@@ -303,7 +303,6 @@ As soon as Hadrik gets close enough to our group, Kate sends a quick wave of fre
 The wave of freezing magic catches Gontrok and a royal guard wearing a red cape and a hood completely by surprise, turning them both into statues of ice. Illuna does not miss this opportunity and she immediately conjures three huge flying water serpents, just like yesterday, each of them going after their own target. The first serpent goes after Gontrok and the other royal guard who was frozen. 
 
 }
-#if(v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1) {
  Just when it seems like the giant is about to be engulfed by the water, he somehow cracks open the ice he was encased in, and he jumps out of the way in the nick of time. The guard with the red cape, on the other hand, is not so lucky. The serpent swallows him whole, and then it continues to fly away, carrying him far from the battlefield.
 
 Meanwhile, the other two serpents are not doing so well. The elf air elementalist appears to have created a small but very powerful tornado in front of him, which is making short work of Illuna's water construct, despite its large size. In a different part of the battlefield, it looks like the captain of the guards transformed a part of his aura into some kind of invisible sword, because he is acting as if he were holding a weapon by the hilt with both hands, while cutting the water serpent in half.
@@ -314,10 +313,9 @@ Meanwhile, the other two serpents are not doing so well. The elf air elementalis
 
 "I agree," Kate says. "We should try to attack the ambassador with everything we've got."
 
-}
-choice(""You guys take care of him. I'll go deal with the earth elementalist in the sky."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
-choice(""Okay. I'll take care of the air elementalist elf in the meantime."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
-choice(""Alright, I'll focus my attacks on him too, then."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
+choice(""You guys take care of him. I'll go deal with the earth elementalist in the sky."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 0)
+choice(""Okay. I'll take care of the air elementalist elf in the meantime."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 1)
+choice(""Alright, I'll focus my attacks on him too, then."", B3-Ch06b-Defend, v_current_scene = B3-Ch06b-Defend, v_b3_ch6_focus = 2)
 
 
 ID: B3-Ch06b-Defend
@@ -660,7 +658,7 @@ I float there, in the middle of all the rocks for about ten seconds, trying in v
 I don't get to think about this for much longer, because two large boulders approach me at great speed while I'm not paying attention, coming from two opposite sides, and they smash my head into pieces before I even get to understand what's going on.
 
 }
-#if(v_b3_ch6_concealed == 0 && v_magical_sense >= 2 || v_b3_ch6_concealed == 1 && v_magical_sense >= 2 || v_magical_sense >= 2 && v_bluff < 3) {
+#if(v_magical_sense >= 2) {
  
 
 After flying around aimlessly for a few more seconds, I realize that I'm not making any progress like this, so I decide to close my eyes and to focus only on finding the mage's aura.
@@ -670,7 +668,7 @@ Hmm... He's clearly hiding his aura, but I can sense it if I concentrate on it r
 As I am having my revelation, two large rocks are coming at me from opposite sides, at high speed, trying to crush my head between them. I easily dodge them and then I head towards the big boulder in which the elementalist is currently hiding. Seeing that I'm flying straight for him with my dagger ready, the elementalist immediately moves his big boulder out of the way, and then all of a sudden half of the rocks that were immobile only a second ago are flying out of the elementalist's path to make way for him to pass, while the other half are trying to kill me.
 
 }
-#if(v_b3_ch6_concealed == 0 && v_b3_ch6_selected == 3 && v_magical_sense >= 2 || v_b3_ch6_concealed == 1 && v_b3_ch6_selected == 3 && v_magical_sense >= 2 || v_b3_ch6_selected == 3 && v_magical_sense >= 2 && v_bluff < 3) {
+#if(v_b3_ch6_selected == 3 && v_magical_sense >= 2) {
  Throughout all the chaos, one of the boulders accidentally brushes off against the drone that is still following me. This causes the metal ball to start talking in a loud voice, even though it doesn't seem to be addressing anyone in particular.
 
 "Warning! Warning!" says the green-eyed drone. "A non-combat unit is being under attack. Requesting backup immed--"
@@ -680,7 +678,7 @@ The drone does not get to finish calling for its friends, because another rock h
 With the sheer number of rocks that are attempting to smash my head in right now, I am honestly required to use all of the flying expertise that I've accumulated so far to be able to avoid them. The problem is that it's now impossible for me to get any closer to the earth elementalist, because he keeps moving away from me and I'm already too busy just trying to stay alive.
 
 }
-#if(v_b3_ch6_concealed == 0 && v_magical_sense >= 2 && v_b3_ch6_selected != 3 || v_b3_ch6_concealed == 1 && v_magical_sense >= 2 && v_b3_ch6_selected != 3 || v_magical_sense >= 2 && v_bluff < 3 && v_b3_ch6_selected != 3) {
+#if(v_magical_sense >= 2 && v_b3_ch6_selected != 3) {
  With the sheer number of rocks that are attempting to smash my head in right now, I am honestly required to use all of the flying expertise that I've accumulated so far to be able to avoid them. The problem is that it's now impossible for me to get any closer to the earth elementalist, because he keeps moving away from me and I'm already too busy just trying to stay alive.
 
 }
@@ -707,8 +705,8 @@ It's working! He doesn't know where I am anymore, but I still know where he is. 
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_bluff < 3 || v_magical_sense < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_bluff < 3 || v_magical_sense < 2)
 choice("Load game", , , special:saves) if (v_bluff < 3 || v_magical_sense < 2)
-choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_b3_ch6_concealed == 0 && v_bluff >= 3 && v_magical_sense >= 2 || v_b3_ch6_concealed == 1 && v_bluff >= 3 && v_magical_sense >= 2)
-choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_b3_ch6_concealed == 0 && v_bluff >= 3 && v_magical_sense >= 2 || v_b3_ch6_concealed == 1 && v_bluff >= 3 && v_magical_sense >= 2)
+choice("Go back down.", B3-Ch06b-Visibility, v_current_scene = B3-Ch06b-Visibility, v_b3_ch6_earth = 0) if (v_bluff >= 3 && v_magical_sense >= 2)
+choice("Keep going after the earth elementalist.", B3-Ch06b-Mustache, v_current_scene = B3-Ch06b-Mustache, v_b3_ch6_earth = 1) if (v_bluff >= 3 && v_magical_sense >= 2)
 
 
 ID: B3-Ch06b-Visibility
@@ -734,7 +732,7 @@ Kate and Flower are still firing projectiles at the captain and the ambassador, 
 I decide to fly a little closer to the ground, in the hopes that I can take the black-robed guy by surprise. 
 
 }
-choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed) if (v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
+choice("Continue", B3-Ch06b-Robed, v_current_scene = B3-Ch06b-Robed)
 
 
 ID: B3-Ch06b-Mustache
@@ -979,11 +977,11 @@ What happens instead is that he is the one who surprises me, because as soon as 
 What happens instead is that he is the one who surprises me, because as soon as I get close enough to him he teleports right in front of me and he shoots a spray of acid out of his left palm, aiming for my neck.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1) {
+#if(v_b3_ch6_preparing == 1) {
  With the black-robed guy now confirmed to be dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
+#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
  "It's about time you showed up, Albert," I say. "I was beginning to think that you ran away."
 
 "A true assassin only reveals himself once he is absolutely certain that he will succeed in killing his target," we hear Albert's voice coming from an empty place in the middle of the street.
@@ -997,7 +995,7 @@ What happens instead is that he is the one who surprises me, because as soon as 
 With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4) {
  The acid almost immediately melts through my skin and muscles, causing me a huge amount of pain while I also become unable to breathe. After a few more agonizing moments, I finally begin to lose my senses, as I slowly succumb to my death.
 
 }
@@ -1025,7 +1023,7 @@ As I give Illuna a victory salute, she nods back at me and then she begins to at
 With the black-robed guy now dead, I land on the ground near Kate and Illuna and I take another look at the whole battlefield, in order to assess our current situation.
 
 }
-#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
+#if(v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch5_fight >= 4) {
  What catches my eye the most is the unusual movement of the boulders in the sky. It looks like the earth elementalist is preparing for something. Is he finally going to use the rocks to attack everyone on the ground?
 
 "Those boulders up in the sky have begun to move," I tell Kate and Illuna. "I think we're going to need some magical barriers soon."
@@ -1041,7 +1039,7 @@ As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begi
 "Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
 
 }
-#if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
+#if(v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch5_fight >= 4) {
  What catches my eye the most is what's currently happening in the sky. The big rocks that were floating high above us have more than doubled in number since the last time I looked at them. Does this mean that the earth elementalist has just been creating boulders non-stop since the beginning of the battle? 
 
 All of a sudden, the rocks in the sky begin to move around in a very unusual manner, as if the earth elementalist were preparing for something. This isn't looking good. Maybe I should tell the others about this.
@@ -1059,11 +1057,11 @@ As soon as Kate, Flower, Kelrim and I get within five feet of Melindra, she begi
 "Yes," Kate says, "but as soon as I will start concentrating on reinforcing the ice dome, my icicles will become weaker, and that might give the captain the chance to strike back at us."
 
 }
-choice(""I say it's still worth it. We're going to need every possible defense against that many rocks."", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
-choice(""Alright. Let's keep the ice dome as a last alternative, then."", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 1 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening >= 3 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
-choice("Load game", , , special:saves) if (v_b3_ch6_focus == 0 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 1 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4 || v_b3_ch6_focus == 2 && v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
+choice(""I say it's still worth it. We're going to need every possible defense against that many rocks."", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 1) if (v_b3_ch6_preparing == 1 || v_aura_hardening >= 3 || v_b3_ch5_fight >= 4)
+choice(""Alright. Let's keep the ice dome as a last alternative, then."", B3-Ch06b-Dome, v_current_scene = B3-Ch06b-Dome, v_b3_ch6_defense = 0) if (v_b3_ch6_preparing == 1 || v_aura_hardening >= 3 || v_b3_ch5_fight >= 4)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
+choice("Load game", , , special:saves) if (v_b3_ch6_preparing == 0 && v_aura_hardening < 3 && v_b3_ch5_fight < 4)
 
 
 ID: B3-Ch06b-Dome
@@ -1125,7 +1123,7 @@ When Daren and Leila hear me, they come running towards us and once they get ins
 "It's all well and good," I say. "We still have Melindra's wind barrier as backup in case yours fails. That should be enough to defend us for the time being."
 
 }
-#if(v_b3_ch6_air == 0 && v_b3_ch6_defense == 0 || v_b3_ch6_air == 0 && v_b3_ch6_defense == 1 || v_b3_ch6_defense == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_defense == 1 && v_b3_ch6_air >= 1) {
+#if(v_b3_ch6_air == 0 || v_b3_ch6_air >= 1) {
  Not long after we set up our defenses, the earth elementalist also finishes his preparations and now all of his boulders are nicely aligned so that he can more easily throw them at us. The first wave he sends towards us is made up of only ten rocks, probably to test the durability of our barriers. Fortunately for us, none of them manage to get past Daren's protective spell, even if the boulders were all fairly large and were coming from every direction.
 
 Now that he has gotten a better idea of what to expect, the earth elementalist is sending down around fifty large rocks at very high speeds, from every angle possible. Some of the rocks are round, while others have sharp tips, likely enhanced by magical sharpening as well as heavy reinforcement. Once they hit Daren's semi-transparent barrier, the majority of the boulders either slide off it or break into pieces from the force of the impact, but none of them are getting through.
@@ -1223,21 +1221,19 @@ After I say this, the first thing that Kate does is to send an icicle into the h
 "Look out!" I shout as I get somewhat closer to the ground, while the rocks above me are already beginning to fall. "Boulders incoming! Boulders incoming!"
 
 }
-#if(v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1 || v_b3_ch5_fight >= 4) {
  What happens next is that the whole battlefield becomes completely chaotic, as everyone except Hadrik and Gontrok abandon their current fights and focus solely on surviving the hundreds of boulders that are about to rain down upon them.
 
 As my friends gather in one place and Kate builds a dome out of reinforced ice around them, I try to help out as well as I can by positioning myself directly above them and slicing through as many of the falling rocks as possible.
 
 Eventually, the large boulders stop falling and everyone escapes unharmed, including our enemies, while Hadrik and Gontrok are still continuing their fight as if nothing happened. Just as Kate dismisses her ice dome, we feel an enormous pressure coming from above us, which pushes us all to the ground and completely prevents us from moving.
 
-}
-choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1 || v_b3_ch5_fight >= 4)
+choice("Continue", B3-Ch06b-Conditions, v_current_scene = B3-Ch06b-Conditions)
 
 
 ID: B3-Ch06b-Conditions
 TEXT:
 
-#if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_air >= 1) {
+#if(v_b3_ch6_air == 0 || v_b3_ch6_air >= 1) {
  Even under these conditions, Daren still somehow manages to cancel the invisible force by moving his sword very slightly to the right, and then he quickly gets up, making a rush for the captain, while all of the boulders and the rubble around us that had been magically created are now slowly fading into thin air.
 
 The captain of the guards puts both his hands in front of him and uses his aura manipulation technique to push Daren away, while he uses the pressure from before to immobilize the rest of us again. The next thing that the captain tries to do is pull Daren's sword away from him, but he ends up pulling on his whole arm along with the sword, because the weapon simply won't detach itself from the palm of his hand.
@@ -1249,7 +1245,7 @@ Daren's wrist suddenly begins to twist in a very unnatural way, as he struggles 
 "--anyone can clearly see that you are still a novice at aura manipulation," the captain continues, as he throws Daren's sword away while looking at him in disgust. "A small twist of the wrist is all that it takes to break your concentration at your current level. Now lay down on the ground, where you and your kind belong."
 
 }
-#if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1) {
+#if(v_b3_ch6_air == 0) {
  Right after the captain stops talking, Daren is slammed into the ground by an invisible force, like the rest of us. For a moment, I see Daren's sword budging a few inches as he tries to make it fly back into his hand, but the pain in his wrist is clearly preventing him from focusing properly. 
 
 The captain does not notice what Daren is trying to do, and instead he directs his attention towards Gontrok, who is still fighting Hadrik.
@@ -1265,7 +1261,7 @@ The captain does not notice what Daren is trying to do, and instead he directs h
 "I don't," the captain says, "but with the amount of tricks they've pulled out of their sleeves so far, I wouldn't be surprised if they were to make use of your own wind blades to free themselves or even kill you. I'm not taking that risk. The ambassador's safety remains our highest priority."
 
 }
-#if(v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_air >= 1) {
+#if(v_b3_ch6_air >= 1) {
  Right after the captain stops talking, Daren is slammed into the ground by an invisible force, like the rest of us. For a moment, I see Daren's sword budging a few inches as he tries to make it fly back into his hand, but the pain in his wrist is clearly preventing him from focusing properly. 
 
 The captain does not notice what Daren is trying to do, and instead he directs his attention towards Gontrok, who is still fighting Hadrik.
@@ -1319,14 +1315,14 @@ He waits for a few seconds, but he gets no answer.
 "Duly noted," the captain says, as the ambassador is now heading into the street we are in, so he can reach his shelter.
 
 }
-choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_air >= 1)
-choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_tie == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_air >= 1)
+choice("Ask Arraka if she can help Kate cancel the captain's aura technique like yesterday.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 0)
+choice("Ask Daren if he can try summoning the sword with his uninjured hand instead.", B3-Ch06b-Surrounded, v_current_scene = B3-Ch06b-Surrounded, v_b3_ch6_uninjured = 1)
 
 
 ID: B3-Ch06b-Surrounded
 TEXT:
 
-set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 || v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 || v_b3_ch6_plan == 3 && v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 || v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_combat_technique < 2 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_premonition >= 2 && v_combat_technique < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air >= 1)
+set(v_b3_ch6_wounded,0) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_air >= 1 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 || v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 && v_combat_technique < 2 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_premonition >= 2 && v_combat_technique < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air >= 1)
 set(v_b3_ch6_wounded,1) if (v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2)
 #if(v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0) {
  
@@ -1468,15 +1464,14 @@ He then begins to slowly amplify the pressure on top of us, probably trying to s
 The invisible force above us is getting stronger with each passing moment. The pain is becoming more and more unbearable to the point that most of us have already given up on trying to keep quiet and we're now just screaming our lungs out.
 
 }
-choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_plan == 3 && v_b3_ch6_air >= 1 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 0 || v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1)
-choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_premonition >= 2 && v_combat_technique < 2 && v_b3_ch6_plan != 3)
-choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 0 && v_b3_ch6_air >= 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_uninjured == 1 && v_b3_ch6_air >= 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 0 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_b3_ch6_uninjured == 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_premonition < 2 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06b-Trance, v_current_scene = B3-Ch06b-Trance) if (v_b3_ch6_air == 0 && v_b3_ch6_plan == 3 || v_b3_ch6_plan == 3 && v_b3_ch6_tie == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_air >= 1)
+choice("Continue", B3-Ch06b-Nausea, v_current_scene = B3-Ch06b-Nausea) if (v_b3_ch6_air >= 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition >= 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_premonition >= 2 && v_combat_technique < 2 && v_b3_ch6_plan != 3)
+choice("Continue", B3-Ch06b-Panic, v_current_scene = B3-Ch06b-Panic, v_b3_ch6_kelrim = 0) if (v_b3_ch6_air >= 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 0 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_uninjured == 1 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique >= 2 && v_premonition < 2 && v_b3_ch6_plan != 3 || v_b3_ch6_air == 0 && v_b3_ch6_tie == 0 && v_combat_technique < 2 && v_premonition < 2 && v_b3_ch6_plan != 3)
 
 
 ID: B3-Ch06b-Trance
 TEXT:
 
-#if(v_b3_ch6_uninjured == 0 || v_b3_ch6_uninjured == 1) {
  All of a sudden, I hear Rose shouting through the transceiver, and I quickly notice that the world around us is completely frozen again, including Hadrik and Gontrok, who were continuing their fight somewhere far away from us.
 
 "Barry, can you move?!" Rose says loudly.
@@ -1503,7 +1498,6 @@ TEXT:
 
 The time then immediately gets unfrozen and just as I am beginning to feel the pressure from above crushing me again, Daren lifts his left hand in the air, he closes his fist, and the invisible force that was pushing us down disappears completely.
 
-}
 #if(v_b3_ch6_uninjured == 0) {
  "It's over, captain," Daren says, as he gets up from the ground and begins to walk slowly towards him. "Surrender now, and I won't have to kill you."
 
@@ -1524,7 +1518,7 @@ As soon as he says this, the captain attempts to twist Daren's left hand with hi
 As he is holding his arms outstretched, his sword now flies away from the captain and straight into his left hand.
 
 }
-choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2) if (v_b3_ch6_uninjured == 0 || v_b3_ch6_uninjured == 1)
+choice("Continue", B3-Ch06b-Trance2, v_current_scene = B3-Ch06b-Trance2)
 
 
 ID: B3-Ch06b-Trance2
@@ -1554,7 +1548,7 @@ As he runs away, the tornado keeps following him, and now the captain who was fo
 Sadly for him, he does not have enough energy left in him to make his weapon anywhere near as powerful as before, and Daren cuts through it in a flash, beheading the captain in the same movement. As the captain's headless body falls into a puddle of his own blood, Daren calmly sheathes his sword and he turns to look at us.
 
 }
-choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v_b3_ch6_air == 0 || v_b3_ch6_air >= 1)
+choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical)
 
 
 ID: B3-Ch06b-Nausea
@@ -1577,7 +1571,6 @@ set(v_ac_b3_ch6_guardian,1) if (v_b3_ch6_manipulators == 2)
 set(v_is_dead,1) if (v_b3_ch6_manipulators != 2)
 set(v_is_dead,0) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0 || v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
 achievement("Guardian angel",v_ac_b3_ch6_guardian)
-#if(v_b3_ch6_uninjured == 0 || v_b3_ch6_uninjured == 1 || v_b3_ch6_manipulators != 2) {
  "Kelrim, don't do it!" I shout loudly. "Don't cast the nausea spell!"
 
 "What?..." Kelrim says. "How did you know that I was going to--"
@@ -1590,7 +1583,6 @@ achievement("Guardian angel",v_ac_b3_ch6_guardian)
 
 "How touching," the captain says, in a cold tone of voice. "I hope you're done saying your goodbyes, because you will soon be getting your wish granted. You will all die here together."
 
-}
 #if(v_b3_ch6_manipulators != 2) {
  As the pain becomes greater, it gets increasingly difficult to maintain my consciousness. During this time, Kate and Flower shoot a few projectiles at the captain, but they get easily blocked by him. Daren also tries desperately to get his sword back, but he is much too weakened to focus on his aura technique properly.
 
@@ -1601,7 +1593,7 @@ Could this have meant that other members of our team may have had that affinity 
 When the pain finally overcomes me, I lose my consciousness for good and I die soon afterwards, along with everyone else.
 
 }
-#if(v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0 || v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1) {
+#if(v_b3_ch6_manipulators == 2) {
  Not long after the captain stops talking, we feel the pressure above us suddenly disappearing, even though it doesn't look like Daren did anything this time. As we are all getting up from the ground, confused, the captain is staring at Kate while pointing at her, with an incredulous look on his face.
 
 "You did this?!" the captain says. "With an icicle, of all things? What kind of a half-assed improvisation is this?!"
@@ -1622,7 +1614,7 @@ Instead of answering the captain's question, Kate sends several icicles his way,
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch6_manipulators != 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch6_manipulators != 2)
 choice("Load game", , , special:saves) if (v_b3_ch6_manipulators != 2)
-choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 0 || v_b3_ch6_manipulators == 2 && v_b3_ch6_uninjured == 1)
+choice("Continue", B3-Ch06b-Wyvern, v_current_scene = B3-Ch06b-Wyvern) if (v_b3_ch6_manipulators == 2)
 
 
 ID: B3-Ch06b-Wyvern
@@ -1656,7 +1648,7 @@ As the wyvern is preparing to dive back down, the air elementalist elf fires thr
 While I am watching him fly, I quickly realize that this guy barely has any control over his air currents, unlike Melindra or me, because he is moving through the air in a completely chaotic way, as if he were being carried away by a strong wind or something. He must have been really desperate if he still decided to try flying even under these conditions.
 
 }
-choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v_b3_ch6_air == 0 || v_b3_ch6_air >= 1)
+choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical)
 
 
 ID: B3-Ch06b-Panic
@@ -1736,7 +1728,7 @@ As the wyvern is preparing to dive back down, the air elementalist elf fires thr
 While I am watching him fly, I quickly realize that this guy barely has any control over his air currents, unlike Melindra or me, because he is moving through the air in a completely chaotic way, as if he were being carried away by a strong wind or something. He must have been really desperate if he still decided to try flying even under these conditions.
 
 }
-choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical) if (v_b3_ch6_air == 0 || v_b3_ch6_air >= 1)
+choice("Continue", B3-Ch06b-Tactical, v_current_scene = B3-Ch06b-Tactical)
 
 
 ID: B3-Ch06b-Tactical
@@ -1846,7 +1838,6 @@ choice("Continue", B3-Ch06b-Reveals, v_current_scene = B3-Ch06b-Reveals) if (v_b
 ID: B3-Ch06b-Opportunity
 TEXT:
 
-#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1) {
  "Is everyone safe?" Rose asks, in an anxious voice. "Please tell me that nobody died!"
 
 "We're all alive, Rose," Kate says. "Thanks to you. Your timing was impeccable. How did you know exactly when to call us?"
@@ -1861,8 +1852,7 @@ TEXT:
 
 "Oh, I'm fine..." Kelrim says. "It's just... it's just that... if your friend hadn't intervened, I would have most likely cast that nausea spell that I told you about before on the captain. I may have been only seconds away from ending my own life, and the thought of that terrifies me a little."
 
-}
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 || v_b3_ch5_fight < 4) {
  "Kelrim..." Daren says. "What you tried to do was very noble, but there are still people down there who need your help. They're not just waiting for me to save them, they are waiting for you, and they would all be sad if you were gone. You understand this, right?"
 
 "Yes..." Kelrim says. "Yes, I understand. Thank you. Shall we teleport back to the base?"
@@ -1870,7 +1860,7 @@ TEXT:
 "We probably should," Daren says. "Hopefully, there will no longer be any signal interference now that the royal guards are gone. Let's all get closer together first, so that Barry from the teleporter room can lock onto us easier."
 
 }
-#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
+#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
  "Kelrim..." Daren says. "What you tried to do was very noble, but there are still people down there who need your help. They're not just waiting for me to save them, they are waiting for you, and they would all be sad if you were gone. You understand this, right?"
 
 "Yes..." Kelrim says. "Yes, I understand. Thank you. Shall we teleport back to the base?"
@@ -1886,7 +1876,7 @@ TEXT:
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
  "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
 
 "Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
@@ -1894,7 +1884,7 @@ TEXT:
 As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
  After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
@@ -1918,27 +1908,25 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly)
 
 
 ID: B3-Ch06b-Mention
 TEXT:
 
-#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1) {
  "See, Kelrim?" Daren tells the goblin, as he approaches him. "I told you that we'd find a way if we worked together!"
 
 "Yes, you did," Kelrim says, with a faint smile. "Thank you... for looking out for me."
 
 "Don't mention it!" Daren says.
 
-}
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 || v_b3_ch5_fight < 4) {
  He pauses.
 
 "Anyway," Daren says, "I think we should try teleporting back to the rebel base again. The royal guards are gone now, so with a little luck maybe our signal isn't being blocked anymore. Let's first get closer together, so that Barry from the teleporter room will be able to lock onto our signal easier."
 
 }
-#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
+#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
  "I'd say it's about time we teleported out of here, don't you think?" Albert says, as he finally cancels his invisibility spell and reveals himself to now be standing right next to us.
 
 "Nice timing, Albert!" I say. "You sure were a lot of help back there, when we most needed you!"
@@ -1950,7 +1938,7 @@ TEXT:
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
  "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
 
 "Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
@@ -1958,7 +1946,7 @@ TEXT:
 As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
  After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
@@ -1982,18 +1970,18 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed != 3 || v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed != 3 || v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed != 3 || v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_betrayed == 3 || v_b3_ch4_billy != 9)
 
 
 ID: B3-Ch06b-Reveals
 TEXT:
 
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 || v_b3_ch5_fight < 4) {
  "If the royal guards are gone, then maybe our signal isn't being blocked anymore either," Daren says. "Let's try teleporting back to the rebel base again. Oh, but first we should probably get a little closer together, so that Barry from the teleporter room can get a better lock onto our signal."
 
 }
-#if(v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight >= 4 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight >= 4) {
+#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight >= 4) {
  "Then we should teleport out of here before anyone else arrives," Albert says, as he finally cancels his invisibility spell and reveals himself to now be standing right next to us.
 
  "Nice timing, Albert!" I say. "You sure were a lot of help back there, when we most needed you!"
@@ -2005,7 +1993,7 @@ TEXT:
 "The captain had a keen enough magical sense that I couldn't get anywhere near him without being detected," Albert says. "Trust me, if that weren't the case, I would have assassinated him a long time ago. There was nothing I could do."
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_wounded == 1 && v_b3_ch5_fight < 4) {
  "Could you heal my shoulder wound before we leave?" I tell Daren, as Hadrik is now walking towards us, in his dwarf form. "The bleeding has stopped, but it still hurts like crazy."
 
 "Oh, of course," Daren says, and then he begins casting his healing spell on me. "From what I'm seeing, everyone except Barry has only minor wounds, so I'll handle the rest of the healing after we get out of here."
@@ -2013,7 +2001,7 @@ TEXT:
 As soon as his healing spell is done and Hadrik also gets close enough to us, Daren pulls out his transceiver so he can call the teleporter guy.
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_wounded == 0 && v_b3_ch5_fight < 4) {
  After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
@@ -2037,8 +2025,8 @@ As soon as his healing spell is done and Hadrik also gets close enough to us, Da
 After we all assemble in the same spot, including Hadrik, who is back in his dwarf form, Daren takes out his transceiver to call the teleporter guy.
 
 }
-choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed != 3 || v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed != 3 || v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch6_betrayed != 3 || v_b3_ch4_billy == 9 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch6_betrayed != 3)
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 || v_b3_ch6_betrayed == 3 && v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 0 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 0 && v_b3_ch4_billy != 9 || v_b3_ch6_preparing == 1 && v_b3_ch6_wounded == 1 && v_b3_ch4_billy != 9)
+choice("Continue", B3-Ch06b-Fading, v_current_scene = B3-Ch06b-Fading) if (v_b3_ch4_billy == 9 && v_b3_ch6_betrayed != 3)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_betrayed == 3 || v_b3_ch4_billy != 9)
 
 
 ID: B3-Ch06b-Fading
@@ -2117,7 +2105,6 @@ choice("Continue", B3-Ch06b-Carry2, v_current_scene = B3-Ch06b-Carry2)
 ID: B3-Ch06b-Carry2
 TEXT:
 
-#if(v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1) {
  "Great," I say. "Now let's get back there before-- ah crap. Watch out for falling drones!"
 
 Two more drones fall from the sky and land near our position, as we all run back to our initial spot. In the meantime, Kate conjures an ice wall behind us and Daren once again makes a semi-transparent barrier with his shield. The drones explode a little quicker this time and the flames melt through the ice wall, but the obstacle placed by Kate is still enough to stop them from reaching Daren's shield. As we manage to climb down the crater and to get back to our original location successfully, I look at the sky one more time to confirm my suspicions.
@@ -2126,8 +2113,7 @@ It looks like the Overseer is indeed still unable to move his drones. All he can
 
 "Make sure that you don't leave this area," I tell everyone. "There are no drones directly on top of us, so the Overseer won't have any bombs to use against us here."
 
-}
-#if(v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 || v_b3_ch6_preparing == 1) {
+#if(v_b3_ch6_preparing == 1 || v_b3_ch5_fight < 4) {
  "Man, I didn't think the Overseer would wreak so much havoc in his own city!" Hadrik says. "Look at this place! It's a mess!"
 
 "Well," I say, "he did tell us that that the 'routine' which made him give a damn about the citizens of Varathia was deactivated, so I suppose this was to be expected."
@@ -2149,7 +2135,7 @@ It looks like the Overseer is indeed still unable to move his drones. All he can
 "I'll call Barry to teleport us out of here before anything else happens," Daren says, as he takes out his transceiver again.
 
 }
-choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1)
+choice("Continue", B3-Ch06b-Utterly, v_current_scene = B3-Ch06b-Utterly)
 
 
 ID: B3-Ch06b-Utterly
@@ -2179,7 +2165,6 @@ TEXT:
 "The captain of the royal guards is dead?!" the teleporter guy says, now sounding utterly shocked.
 
 }
-#if(v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1) {
  "Yes, he's dead," Daren says. "Now, can you please try to teleport us back to the rebel base?"
 
 "Oh right, of course!" the teleporter guy says. "Just give me a bit of time to lock onto your signals properly."
@@ -2192,9 +2177,8 @@ TEXT:
 
 "Oh, yeah!" Hadrik says. "Now that you mention it, I think I can sense his aura too! He's not too far from us!"
 
-}
-choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1)
-choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0) if (v_b3_ch6_preparing == 0 || v_b3_ch6_preparing == 1)
+choice("Go and kill the ambassador.", B3-Ch06b-Kill, v_current_scene = B3-Ch06b-Kill, v_b3_ch6_ambassador = 1)
+choice("Leave the ambassador alone.", B3-Ch06b-Leave, v_current_scene = B3-Ch06b-Leave, v_b3_ch6_ambassador = 0)
 
 
 ID: B3-Ch06b-Kill
@@ -2274,7 +2258,7 @@ I then shoot the ambassador in the head, killing him before he has the chance to
 "Okay, Barry, you can teleport us now," Daren says.
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3 || v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3 || v_b3_ch5_fight < 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3) {
  Once everything is ready, we see the usual white light covering us as our bodies begin to vibrate loudly, and then we find ourselves back in the teleporter room, next to Barry Thundercloud and Albert.
 
 "W-what happened to Kelrim?..." the teleporter guy asks, when he sees the goblin's dead body in Daren's arms.
@@ -2292,7 +2276,7 @@ I then shoot the ambassador in the head, killing him before he has the chance to
 He then turns invisible along with the goblin's corpse, as he presumably heads back towards the rebel base.
 
 }
-#if(v_b3_ch6_kelrim == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_preparing == 1 || v_b3_ch6_kelrim == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 || v_b3_ch6_plan == 3 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_kelrim == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_kelrim == 1 && v_b3_ch5_fight < 4 || v_b3_ch6_plan == 3 && v_b3_ch6_preparing == 1 || v_b3_ch6_plan == 3 && v_b3_ch5_fight < 4) {
  Once everything is ready, we see the usual white light covering us as our bodies begin to vibrate loudly, and then we find ourselves back in the teleporter room, next to Barry Thundercloud and Albert.
 
 "So, the captain's really dead?..." the teleporter guy asks immediately after he sees us, as if he still couldn't believe what he heard from Daren.
@@ -2364,7 +2348,7 @@ TEXT:
  We wait for about half a minute for the teleporter guy to finally be done with his preparations.
 
 }
-#if(v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3 || v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3) {
+#if(v_b3_ch6_preparing == 1 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3 || v_b3_ch5_fight < 4 && v_b3_ch6_kelrim != 1 && v_b3_ch6_plan != 3) {
  Once everything is ready, we see the usual white light covering us as our bodies begin to vibrate loudly, and then we find ourselves back in the teleporter room, next to Barry Thundercloud and Albert.
 
 "W-what happened to Kelrim?..." the teleporter guy asks, when he sees the goblin's dead body in Daren's arms.
@@ -2382,7 +2366,7 @@ TEXT:
 He then turns invisible along with the goblin's corpse, as he presumably heads back towards the rebel base.
 
 }
-#if(v_b3_ch6_kelrim == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_plan == 3 && v_b3_ch6_preparing == 1 || v_b3_ch6_kelrim == 1 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4 || v_b3_ch6_plan == 3 && v_b3_ch6_preparing == 0 && v_b3_ch5_fight < 4) {
+#if(v_b3_ch6_kelrim == 1 && v_b3_ch6_preparing == 1 || v_b3_ch6_kelrim == 1 && v_b3_ch5_fight < 4 || v_b3_ch6_plan == 3 && v_b3_ch6_preparing == 1 || v_b3_ch6_plan == 3 && v_b3_ch5_fight < 4) {
  Once everything is ready, we see the usual white light covering us as our bodies begin to vibrate loudly, and then we find ourselves back in the teleporter room, next to Barry Thundercloud and Albert.
 
 "So, the captain's really dead?..." the teleporter guy asks immediately after he sees us, as if he still couldn't believe what he heard from Daren.

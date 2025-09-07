@@ -126,7 +126,6 @@ As I put down the bottle, I suddenly realize that I may have went a little overb
 "What's going on?" Flower asks, as her and Leila are both coming towards us, after having been woken up from the noise. "Are we having a visitor?"
 
 }
-#if(v_b2_ch10_toast == 1 && v_b2_ch9_drink == 0 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0) {
  "Yeah, this is Daren's old enchanting master," Hadrik says. "It's the first time that they're seeing each other in over ten years, so we're holding a toast to celebrate their reunion."
 
 "Another female mage?..." Nolderan asks, as he senses the magic in Flower's aura.
@@ -159,8 +158,7 @@ As I put down the bottle, I suddenly realize that I may have went a little overb
 
 "After I lost my sage title, you mean?" Nolderan says. "You can say it out loud, boy. It's not like I'm going to sulk. It's been fourteen years since then. I've moved on by now. Sure, I haven't really been competing as much, since then, but this time it's different. This Magium tournament has given me an opportunity of a lifetime, so I couldn't just ignore it."
 
-}
-choice("Continue", B2-Ch10a-Undefeated, v_current_scene = B2-Ch10a-Undefeated) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 0 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0)
+choice("Continue", B2-Ch10a-Undefeated, v_current_scene = B2-Ch10a-Undefeated)
 
 
 ID: B2-Ch10a-Undefeated
@@ -434,14 +432,14 @@ As Daren was finishing his sentence, a very large blue circle appeared on the gr
 
 "Get out of the summoning circle!" Daren shouts. "Get out, now!"
 
-choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b2_ch10_toast == 0 && v_is_dead == 0 || v_b2_ch9_drink == 0 && v_is_dead == 0 || v_combat_technique == 0 && v_is_dead == 0 || v_is_dead == 0 && v_combat_technique >= 2 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_is_dead == 0 || v_b2_ch6_crossbow == 0 && v_combat_technique == 1 && v_is_dead == 0 || v_b2_ch6_crossbow == 1 && v_combat_technique == 1 && v_is_dead == 0 || v_is_dead == 0)
+choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth)
 
 
 ID: B2-Ch10a-Dagger
 TEXT:
 
-set(v_is_dead,0) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_is_dead == 0)
 set(v_is_dead,1) if (v_b2_ch10_toast == 0 && v_reflexes < 1 || v_b2_ch9_drink == 0 && v_reflexes < 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes < 2)
+set(v_is_dead,0) if (v_b2_ch10_toast == 0 && v_reflexes >= 1 || v_b2_ch9_drink == 0 && v_reflexes >= 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes >= 2)
 #if(v_b2_ch10_toast == 1 && v_b2_ch5_scimitar == 0 && v_b2_ch9_drink == 1) {
  
 
@@ -494,7 +492,7 @@ The orc sees me coming, and he blocks my first blow with his shield, while he sw
  I reacted too late, however, and the mace hit me hard in the head, crushing my skull under its weight, and sending me crashing to the ground, while my consciousness faded away, forever.
 
 }
-#if(v_b2_ch10_toast == 0 && v_reflexes >= 1 || v_b2_ch9_drink == 0 && v_reflexes >= 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes >= 2) {
+#if(v_b2_ch10_toast == 0 && v_reflexes >= 1 || v_b2_ch9_drink == 0 && v_reflexes >= 1 || v_reflexes >= 2) {
  I manage to get out of harm's way in time, and before the monster gets to attack me a second time, Leila stabs him from behind, with one of her daggers, forcing him to turn her way once more. I take advantage of this, and I immediately dash back towards my enemy, driving my blade through the back of his helmet, which makes it pass straight through his neck. After a few seconds of gurgling up blood, the orc finally falls to the ground, and he dies soon afterwards.
 
 As I look to see how the others are doing, I notice that the rest of the monsters are already dead, and that my teammates are now assembling near the woods, so we can go and fight the orc mages and their captain together.
@@ -520,10 +518,10 @@ As Daren was finishing his sentence, a very large blue circle appeared on the gr
 "Get out of the summoning circle!" Daren shouts. "Get out, now!"
 
 }
-choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0 || v_is_dead == 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch10_toast == 0 && v_reflexes < 1 || v_b2_ch9_drink == 0 && v_reflexes < 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch10_toast == 0 && v_reflexes < 1 || v_b2_ch9_drink == 0 && v_reflexes < 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes < 2)
 choice("Load game", , , special:saves) if (v_b2_ch10_toast == 0 && v_reflexes < 1 || v_b2_ch9_drink == 0 && v_reflexes < 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes < 2)
+choice("Continue", B2-Ch10a-Mammoth, v_current_scene = B2-Ch10a-Mammoth) if (v_b2_ch10_toast == 0 && v_reflexes >= 1 || v_b2_ch9_drink == 0 && v_reflexes >= 1 || v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 && v_reflexes >= 2 || v_is_dead == 0)
 
 
 ID: B2-Ch10a-Mammoth
@@ -638,7 +636,6 @@ choice("Continue", B2-Ch10a-Currents, v_current_scene = B2-Ch10a-Currents)
 ID: B2-Ch10a-Currents
 TEXT:
 
-#if(v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0) {
  I wait for a few seconds, to see if I get any reaction, but still, the only answer I get is silence.
 
 "Listen," I say. "I'm not asking you to join the battle. You don't need to give yourself away or anything. All I'm asking is that you cast a spell on me that will allow me to fly."
@@ -653,7 +650,6 @@ I wait for another three seconds, but there are no sounds coming from inside the
 
 All of a sudden, I can feel several air currents circling around me, similar to the ones I felt when Melindra raised me in the air for the first time. Then, only a few seconds later, my body gets lifted from the ground, and I start to float several feet above the soil. When I move my hands around, a little, I notice that the air currents are reacting to my movements, and changing my direction accordingly. If I raise my arms in the air, the air currents propel me upwards. If I lower them, I slowly come to a halt. The currents also seem to be taking into account the way I lean my body, and the way I move my legs when they establish what direction I need to go in.
 
-}
 #if(v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1) {
  Obviously, they're not going to be as responsive as the currents I was using to lift me from the ground back when I was using my stat device's emergency mode, due to the fact that these particular air currents need to wait for my movements, before they change my direction and speed, but it's much better than what I would have expected, from a spell of this kind. I could still do without all the nausea I'm getting every time I do a quick turn, but that's probably due to my current drunken state, and not the fault of the spell.
 
@@ -678,9 +674,9 @@ I try to do as many moves as possible, so I can properly understand what causes 
 As I look up, I suddenly notice that two of the wyvern riders are currently diving down towards me, with their spears at the ready, while Kate and Flower are too busy fighting their own wyverns to be able to help me in any way.
 
 }
-choice("Try to attack the wyverns", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns, v_b2_ch10_bribe = 0) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0)
-choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0)
-choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0)
+choice("Try to attack the wyverns", B2-Ch10a-Wyverns, v_current_scene = B2-Ch10a-Wyverns, v_b2_ch10_bribe = 0)
+choice("Aim to kill the orc riders first", B2-Ch10a-Riders, v_current_scene = B2-Ch10a-Riders, v_b2_ch10_bribe = 1)
+choice("Try to bribe the orcs into joining my side", B2-Ch10a-Bribe, v_current_scene = B2-Ch10a-Bribe, v_b2_ch10_bribe = 2)
 
 
 ID: B2-Ch10a-Bribe
@@ -857,8 +853,8 @@ As I get closer to my destination, I stop right above the mammoth, in order to b
 Now, then... which one of its weak points should I go for... The eyes? Or its nostrils on the underside of its trunk?
 
 }
-choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0) if (v_ch10_gems == 0 || v_ch10_gems == 1 || v_b2_ch10_bribe != 2)
-choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1) if (v_ch10_gems == 0 || v_ch10_gems == 1 || v_b2_ch10_bribe != 2)
+choice("Attack the eyes", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 0)
+choice("Attack the nostrils", B2-Ch10a-Plan, v_current_scene = B2-Ch10a-Plan, v_b2_ch10_weakpoint = 1)
 
 
 ID: B2-Ch10a-Plan
@@ -896,7 +892,6 @@ While Hadrik is talking, the sound of his voice keeps fluctuating in intensity, 
 "Sounds like a good plan," I shout, "although, I'd rather aim for a weak point other than the eyes. But how are you planning on holding down the trunk?"
 
 }
-#if(v_b2_ch10_weakpoint == 0 || v_b2_ch10_weakpoint == 1) {
  "Don't worry," Hadrik says. "I've got that covered."
 
 He then jumps off the trunk and he lands on the ground.
@@ -909,13 +904,12 @@ I don't have time to think about this much longer, because the mammoth is now fu
 
 Apparently, Hadrik has turned himself into a giant snail... And he's just crawling on the ground at a very low speed... Oh man, I sure hope he's not messing with me, right now. At any rate, I already told Hadrik that I'd follow his plan, so all I can do now is keep dodging, and hope that he knows what he's doing.
 
-}
 #if(v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0) {
  After flying out of the trunk's way a few more times, I notice that Hadrik is finally done with his shapeshifting, and he is now back in his dwarf form, standing with his feet in the slime that his snail form left behind. He has his arms raised, and he is looking straight at me.
 
 }
 choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_b2_ch10_toast == 0 || v_b2_ch9_drink == 0)
-choice("Continue", B2-Ch10a-Drunk, v_current_scene = B2-Ch10a-Drunk) if (v_b2_ch10_toast == 1 && v_b2_ch10_weakpoint == 0 && v_b2_ch9_drink == 1 || v_b2_ch10_toast == 1 && v_b2_ch10_weakpoint == 1 && v_b2_ch9_drink == 1)
+choice("Continue", B2-Ch10a-Drunk, v_current_scene = B2-Ch10a-Drunk) if (v_b2_ch10_toast == 1 && v_b2_ch9_drink == 1)
 
 
 ID: B2-Ch10a-Drunk
@@ -950,9 +944,9 @@ choice("Continue", B2-Ch10a-Breed, v_current_scene = B2-Ch10a-Breed) if (v_refle
 ID: B2-Ch10a-Breed
 TEXT:
 
-set(v_is_dead,0) if (v_b2_ch10_weakpoint == 0 && v_strength == 4 || v_b2_ch10_weakpoint == 1 && v_reflexes >= 2 || v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar != 0)
 set(v_is_dead,1) if (v_b2_ch10_weakpoint == 0 && v_strength < 4 || v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0 && v_reflexes < 2)
-#if(v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar == 0 || v_b2_ch10_weakpoint == 0) {
+set(v_is_dead,0) if (v_b2_ch10_weakpoint == 0 && v_strength == 4 || v_b2_ch10_weakpoint == 1 && v_reflexes >= 2 || v_b2_ch10_weakpoint == 1 && v_b2_ch5_scimitar != 0)
+#if(v_b2_ch10_weakpoint == 0 || v_b2_ch5_scimitar == 0) {
  
 
 "Alright, Barry!" Hadrik shouts. "Now try to make the mammoth swing its trunk over here!"
@@ -1134,7 +1128,7 @@ Once they get close enough to our position, Flower and Kate dismiss their fire j
 "We should at least be prepared, in case it happens," Daren says. "Let's start with some healing. Come over here, and I'll tend to each of your wounds, in turn."
 
 }
-#if(v_b2_ch10_bribe == 2 && v_b2_ch10_scouts == 0 && v_ch10_gems == 1 || v_b2_ch10_bribe == 2 && v_b2_ch10_scouts == 1 && v_ch10_gems == 1) {
+#if(v_b2_ch10_bribe == 2 && v_ch10_gems == 1) {
  As Kate and Flower come landing on the ground, next to us, the wyvern rider stops a dozen feet above the ground, as the wyvern keeps slowly flapping its wings, to maintain its altitude.
 
 "All of the other orcs are dead, human," the orc says. "I have fulfilled my end of the bargain."
@@ -1156,7 +1150,7 @@ The orc nods, and then he utters a command to his wyvern, which makes it go up, 
 "We should at least be prepared, in case it happens," Daren says. "Let's start with some healing. Come over here, and I'll tend to each of your wounds, in turn."
 
 }
-choice("Continue", B2-Ch10a-Milady, v_current_scene = B2-Ch10a-Milady) if (v_b2_ch10_scouts == 0 || v_b2_ch10_scouts == 1)
+choice("Continue", B2-Ch10a-Milady, v_current_scene = B2-Ch10a-Milady)
 
 
 ID: B2-Ch10a-Milady
@@ -1341,7 +1335,6 @@ choice("Continue", B2-Ch10a-Diverse, v_current_scene = B2-Ch10a-Diverse)
 ID: B2-Ch10a-Diverse
 TEXT:
 
-#if(v_b2_ch10_traps == 0 || v_b2_ch10_traps == 1) {
  "Hey, Barry," Kate says. "There's something that I forgot to ask. How did you manage to cast that flight spell on yourself, earlier? Was it with the help of your stat device?"
 
 As Kate finishes her question, I see Melindra right behind her, staring straight at me, with a menacing look in her eyes.
@@ -1364,7 +1357,6 @@ As Kate finishes her question, I see Melindra right behind her, staring straight
 
 "It's a long story," Nolderan says. "If you want, I'll tell it to you when we get there."
 
-}
 #if(v_b2_ch10_traps == 0) {
  "Arraka," Illuna says, all of a sudden. "Can you sense the camp? How many mages are there inside, waiting for us?"
 
@@ -1413,4 +1405,4 @@ Illuna frowns at the amulet, but she doesn't say anything.
 "I still think that she's hiding something," Illuna says. "But I suppose that we won't find out what exactly that is until we reach our destination and see for ourselves. Let's catch up with the others. We're starting to look a little suspicious."
 
 }
-choice("Continue", B2-Ch10b-Blame, v_current_scene = B2-Ch10b-Blame) if (v_b2_ch10_traps == 0 || v_b2_ch10_traps == 1)
+choice("Continue", B2-Ch10b-Blame, v_current_scene = B2-Ch10b-Blame)

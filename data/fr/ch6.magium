@@ -603,7 +603,7 @@ As I struggle to find my words, Daren finally starts to understand what's going 
 "When were you planning on telling me this?"
 
 }
-choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch2_human_reason == 1 && v_ch3_kate_badly_hurt == 0 || v_ch2_human_reason == 1 && v_ch3_kate_badly_hurt == 1 || v_ch3_kate_badly_hurt == 0 && v_ch5_admit_lie == 1 || v_ch3_kate_badly_hurt == 1 && v_ch5_admit_lie == 1)
+choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch2_human_reason == 1 || v_ch5_admit_lie == 1)
 choice(""I wasn't going to."", Ch6-Wasnt, v_current_scene = Ch6-Wasnt) if (v_ch2_human_reason == 2 && v_ch5_admit_lie == 0 || v_ch2_human_reason == 3 && v_ch5_admit_lie == 0)
 choice(""I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset."", Ch6-Upset, v_current_scene = Ch6-Upset) if (v_ch2_human_reason == 2 && v_ch5_admit_lie == 0 || v_ch2_human_reason == 3 && v_ch5_admit_lie == 0)
 choice(""I'm sorry, I should have told you the truth from the beginning."", Ch6-Beginning, v_current_scene = Ch6-Beginning) if (v_ch2_human_reason == 2 && v_ch5_admit_lie == 0 || v_ch2_human_reason == 3 && v_ch5_admit_lie == 0)
@@ -757,7 +757,7 @@ As I struggle to find my words, Daren finally starts to understand what's going 
 "When were you planning on telling me this?"
 
 }
-choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch2_human_reason == 1 && v_ch3_kate_badly_hurt == 0 || v_ch2_human_reason == 1 && v_ch3_kate_badly_hurt == 1 || v_ch3_kate_badly_hurt == 0 && v_ch5_admit_lie == 1 || v_ch3_kate_badly_hurt == 1 && v_ch5_admit_lie == 1)
+choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch2_human_reason == 1 || v_ch5_admit_lie == 1)
 choice(""I wasn't going to."", Ch6-Wasnt, v_current_scene = Ch6-Wasnt) if (v_ch2_human_reason == 2 && v_ch5_admit_lie == 0 || v_ch2_human_reason == 3 && v_ch5_admit_lie == 0)
 choice(""I'm sorry, I meant to tell you sooner, but I was afraid you'd get upset."", Ch6-Upset, v_current_scene = Ch6-Upset) if (v_ch2_human_reason == 2 && v_ch5_admit_lie == 0 || v_ch2_human_reason == 3 && v_ch5_admit_lie == 0)
 choice(""I'm sorry, I should have told you the truth from the beginning."", Ch6-Beginning, v_current_scene = Ch6-Beginning) if (v_ch2_human_reason == 2 && v_ch5_admit_lie == 0 || v_ch2_human_reason == 3 && v_ch5_admit_lie == 0)
@@ -800,7 +800,7 @@ The scenery that we've seen during our travel has been rather underwhelming. May
 Kate seems to have somewhat recovered since this morning, but she still looks weak, and she almost lost her balance a few times while we were walking. When Rose asked her if she'd rather we take a break, she said that she'll be fine and that we should keep going without worrying about her.
 
 }
-choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel)
 
 
 ID: Ch6-Upset
@@ -848,7 +848,7 @@ The scenery that we've seen during our travel has been rather underwhelming. May
 Kate seems to have somewhat recovered since this morning, but she still looks weak, and she almost lost her balance a few times while we were walking. When Rose asked her if she'd rather we take a break, she said that she'll be fine and that we should keep going without worrying about her.
 
 }
-choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel)
 
 
 ID: Ch6-Beginning
@@ -888,7 +888,7 @@ The scenery that we've seen during our travel has been rather underwhelming. May
 Kate seems to have somewhat recovered since this morning, but she still looks weak, and she almost lost her balance a few times while we were walking. When Rose asked her if she'd rather we take a break, she said that she'll be fine and that we should keep going without worrying about her.
 
 }
-choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("Continue", Ch6-Travel, v_current_scene = Ch6-Travel)
 
 
 ID: Ch6-Travel
@@ -936,12 +936,12 @@ We've been keeping a steady pace so far, and there's been no breaks except for o
 "Barry, I've been meaning to ask, did we actually interrupt an important discussion between you and Kate this morning? Kate's been acting evasive every time I brought up the subject. I'd feel terrible if you two lost the chance to confess your feelings for each other because Daren and I couldn't read the mood."
 
 }
-choice(""Don't worry, that wasn't what our discussion was about."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 1) if (v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 0 || v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 1 || v_ch2_human_reason == 1 || v_ch5_admit_lie == 0)
-choice(""Actually, I prefer women with larger breasts like yourself."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 2) if (v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 0 || v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 1 || v_ch2_human_reason == 1 || v_ch5_admit_lie == 0)
-choice(""I'm still available, if that's what you're asking."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 3) if (v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 0 || v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 1 || v_ch2_human_reason == 1 || v_ch5_admit_lie == 0)
-choice(""You've got it all wrong! My only feelings are for you."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 4) if (v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 0 || v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 1 || v_ch2_human_reason == 1 || v_ch5_admit_lie == 0)
-choice(""Don't worry, we got to say all we needed before you interrupted."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 5) if (v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 0 || v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 1 || v_ch2_human_reason == 1 || v_ch5_admit_lie == 0)
-choice(""Actually, you're the one that stunned me with your beauty when I first saw you."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 6) if (v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 0 || v_ch5_admit_lie == 1 && v_ch5_ignore_scream == 1 || v_ch2_human_reason == 1 || v_ch5_admit_lie == 0)
+choice(""Don't worry, that wasn't what our discussion was about."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 1)
+choice(""Actually, I prefer women with larger breasts like yourself."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 2)
+choice(""I'm still available, if that's what you're asking."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 3)
+choice(""You've got it all wrong! My only feelings are for you."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 4)
+choice(""Don't worry, we got to say all we needed before you interrupted."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 5)
+choice(""Actually, you're the one that stunned me with your beauty when I first saw you."", Ch6-Flirt, v_current_scene = Ch6-Flirt, v_ch6_flirt = 6)
 
 
 ID: Ch6-Flirt
@@ -1620,9 +1620,9 @@ I quickly turn around and see Eiden standing behind me, with his eyes closed as 
 "I mean, I don't think I've even read a children's book where the main villain gloats to such an extent. It's embarrassing, really."
 
 }
-choice(""Where have you been hiding all this time?"", Ch6-Time-weaver, v_current_scene = Ch6-Time-weaver, v_ch6_eiden_answer = 1) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice(""What did you do?"", Ch6-Time-weaver, v_current_scene = Ch6-Time-weaver, v_ch6_eiden_answer = 2) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice(""Why did you save us?"", Ch6-Time-weaver, v_current_scene = Ch6-Time-weaver, v_ch6_eiden_answer = 3) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice(""Where have you been hiding all this time?"", Ch6-Time-weaver, v_current_scene = Ch6-Time-weaver, v_ch6_eiden_answer = 1)
+choice(""What did you do?"", Ch6-Time-weaver, v_current_scene = Ch6-Time-weaver, v_ch6_eiden_answer = 2)
+choice(""Why did you save us?"", Ch6-Time-weaver, v_current_scene = Ch6-Time-weaver, v_ch6_eiden_answer = 3)
 
 
 ID: Ch6-Time-weaver
@@ -1744,9 +1744,9 @@ Eiden turns to me.
 "Barry, I must admit, I don't think I've ever seen such diversity in a team before. A time weaver, a healer in armor, a survivor from the Beacon of Hope and a stat device wielder. I think I'm starting to root for you!"
 
 }
-choice(""Good, then maybe you can finish off that dragon for us."", Ch6-Power-up, v_current_scene = Ch6-Power-up, v_ch6_eiden_answer = 1) if (v_ch6_eiden_answer == 1 || v_ch6_eiden_answer == 2 || v_ch6_eiden_answer == 3)
-choice(""What's a time weaver?"", Ch6-Power-up, v_current_scene = Ch6-Power-up, v_ch6_eiden_answer = 2) if (v_ch6_eiden_answer == 1 || v_ch6_eiden_answer == 2 || v_ch6_eiden_answer == 3)
-choice(""What's so special about being a stat device wielder?"", Ch6-Power-up, v_current_scene = Ch6-Power-up, v_ch6_eiden_answer = 3) if (v_ch6_eiden_answer == 1 || v_ch6_eiden_answer == 2 || v_ch6_eiden_answer == 3)
+choice(""Good, then maybe you can finish off that dragon for us."", Ch6-Power-up, v_current_scene = Ch6-Power-up, v_ch6_eiden_answer = 1)
+choice(""What's a time weaver?"", Ch6-Power-up, v_current_scene = Ch6-Power-up, v_ch6_eiden_answer = 2)
+choice(""What's so special about being a stat device wielder?"", Ch6-Power-up, v_current_scene = Ch6-Power-up, v_ch6_eiden_answer = 3)
 
 
 ID: Ch6-Power-up
@@ -1820,7 +1820,7 @@ Eiden then starts to fade into thin air. When only his outline is visible anymor
 "Oh, and I'd recommend starting with a magical barrier. Your friends don't seem to be doing very well."
 
 }
-choice("Continue", Ch6-Think, v_current_scene = Ch6-Think) if (v_ch6_eiden_answer == 1 || v_ch6_eiden_answer == 2 || v_ch6_eiden_answer == 3)
+choice("Continue", Ch6-Think, v_current_scene = Ch6-Think)
 
 
 ID: Ch6-Think
@@ -2037,7 +2037,7 @@ I take his sword and prepare to fly out of the barrier to face the dragon.
 I nod to him, as I fly out of the barrier, and right through the scorching flames. It feels as if I were in an oven, but at least I'm not getting any visible burns. Tyrath sees me fly through his fire and lets out a powerful roar. I do not let him intimidate me and lunge at him fiercely with my sword in hand. 
 
 }
-choice("Continue", Ch6-Sword-strength, v_current_scene = Ch6-Sword-strength) if (v_ch6_defense == 1 || v_ch6_defense == 2 || v_ch6_defense == 3)
+choice("Continue", Ch6-Sword-strength, v_current_scene = Ch6-Sword-strength)
 
 
 ID: Ch6-Big-spells
@@ -2079,7 +2079,7 @@ Next, I cast the necessary protection spells on Rose, and head for Daren and Kat
 After I finish casting the spells on the three of us, I fly out of the barrier to face the dragon. Finally, I can go all out now.
 
 }
-choice("Continue", Ch6-Big-spells2, v_current_scene = Ch6-Big-spells2) if (v_ch6_defense == 1 || v_ch6_defense == 2 || v_ch6_defense == 3)
+choice("Continue", Ch6-Big-spells2, v_current_scene = Ch6-Big-spells2)
 
 
 ID: Ch6-Sword-strength
@@ -2154,9 +2154,9 @@ choice("Continue", Ch6-Sword2, v_current_scene = Ch6-Sword2) if (v_ch6_defense =
 ID: Ch6-Stat-checks
 TEXT:
 
-set(v_is_dead,0) if (v_ch6_improvise == 1 && v_perception == 4 || v_ch6_offense == 1 && v_perception == 4 || v_ch6_offense == 2 && v_perception == 4 || v_ch6_improvise == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 2 && v_premonition == 4 && v_perception < 4 || v_ch6_defense == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_perception == 4 || v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_perception == 4 || v_ch6_improvise == 1 && v_ch6_offense == 2 && v_is_dead == 0 && v_perception == 4 || v_ch6_improvise == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 2 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_defense == 1 && v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_perception == 4 || v_ch6_defense == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_improvise == 1 && v_ch6_offense == 2 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_defense == 1 && v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_premonition == 4 && v_perception < 4 || v_ch6_defense == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_improvise == 1 && v_ch6_offense == 2 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_defense == 1 && v_ch6_improvise == 1 && v_ch6_offense == 1 && v_is_dead == 0 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4)
+set(v_is_dead,0) if (v_ch6_improvise == 1 && v_perception == 4 || v_ch6_offense == 1 && v_perception == 4 || v_ch6_offense == 2 && v_perception == 4 || v_ch6_improvise == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 2 && v_premonition == 4 && v_perception < 4 || v_ch6_improvise == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 2 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4)
 set(v_is_dead,1) if (v_perception < 4 && v_premonition < 4 && v_reflexes < 4)
-#if(v_ch6_improvise == 1 && v_perception == 4 || v_ch6_offense == 1 && v_perception == 4) {
+#if(v_ch6_offense == 1 && v_perception == 4 || v_ch6_improvise == 1 && v_perception == 4 && v_ch6_offense != 2) {
 
 I notice that there's something off about the way the sun is shining on the dragon's scales. It's as if the light is coming from the wrong direction. Could it be that the dragon I'm looking at is an illusion? If that's the case, then where's the real dragon?
 
@@ -2174,7 +2174,7 @@ I cast a spell on myself that allows me to see through illusions. Sure enough, t
 I teleport next to the dragon, and swing my sword at him. He gets taken by surprise, and he teleports away to avoid taking any damage. 
 
 }
-#if(v_ch6_improvise == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_offense == 1 && v_premonition == 4 && v_perception < 4) {
+#if(v_ch6_offense == 1 && v_premonition == 4 && v_perception < 4 || v_ch6_improvise == 1 && v_premonition == 4 && v_perception < 4 && v_ch6_offense != 2) {
 
 I suddenly see a vision of the dragon in front of me slowly fading away, and a different dragon appearing behind me. My premonition sense is trying to warn me of something. Could it be that I'm currently looking at an illusion?
 
@@ -2203,7 +2203,7 @@ Tyrath quickly whips his tail towards me and grabs me with it. The force with wh
 The force of his tail's grip is so strong that I can feel it crushing my internal organs. As I cough up some blood, I can feel my vision starting to blur. The last thing I see is the dragon's hideous face, as he laughs triumphantly. 
 
 }
-#if(v_ch6_improvise == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_offense == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4) {
+#if(v_ch6_offense == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 || v_ch6_improvise == 1 && v_reflexes == 4 && v_perception < 4 && v_premonition < 4 && v_ch6_offense != 2) {
 
 I shoot a bolt of lightning at him, which hits him head on, although it doesn't seem to have affected him in any way. Suddenly, the dragon in front of me disappears and a different dragon appears behind me.
 
@@ -2471,7 +2471,7 @@ Just before I reach the ground, I suddenly stop in mid-air and then I fall flat 
 "How disappointing," I hear Eiden's voice from high above in the sky. "How very disappointing. Barry, I was expecting a lot more from you. I didn't give you all of that magical energy just so you could waste it by activating your device's temporary maximized mode."
 
 }
-#if(v_ch6_improvise == 2 && v_ch6_offense == 1 || v_ch6_improvise == 1) {
+#if(v_ch6_improvise == 1 || v_ch6_offense == 1) {
 Now I'm the one starting to get angry. I can feel my body starting to radiate heat. I can even see steam coming out of me. Suddenly, I can feel my speed increase by the tenfold. What kind of spell did I just cast? My stat device never told me I had access to anything like this. I feel like I can never lose to anyone ever again.
 
 Everything seems to be moving much slower all of a sudden. Or am I just the one moving faster? I can predict the dragon's attack before he even teleports in front of me, but I don't feel the need to dodge anymore. Instead, I simply block Tyrath's next claw strike with my left hand.
@@ -2493,9 +2493,9 @@ Just before I reach the ground, I suddenly stop in mid-air and then I fall flat 
 "How disappointing," I hear Eiden's voice from high above in the sky. "How very disappointing. Barry, I was expecting a lot more from you. I didn't give you all of that magical energy just so you could waste it by activating your device's temporary maximized mode."
 
 }
-choice(""I don't know what that means."", Ch6-Eiden-vs-dragon, v_current_scene = Ch6-Eiden-vs-dragon, v_ch6_big_plans = 1) if (v_ch6_improvise == 2 && v_ch6_offense == 1 || v_ch6_improvise == 2 && v_ch6_offense == 2 || v_ch6_improvise == 1)
-choice(""I didn't activate anything."", Ch6-Eiden-vs-dragon, v_current_scene = Ch6-Eiden-vs-dragon, v_ch6_big_plans = 2) if (v_ch6_improvise == 2 && v_ch6_offense == 1 || v_ch6_improvise == 2 && v_ch6_offense == 2 || v_ch6_improvise == 1)
-choice(""Why do you keep saving me?"", Ch6-Eiden-vs-dragon, v_current_scene = Ch6-Eiden-vs-dragon, v_ch6_big_plans = 3) if (v_ch6_improvise == 2 && v_ch6_offense == 1 || v_ch6_improvise == 2 && v_ch6_offense == 2 || v_ch6_improvise == 1)
+choice(""I don't know what that means."", Ch6-Eiden-vs-dragon, v_current_scene = Ch6-Eiden-vs-dragon, v_ch6_big_plans = 1)
+choice(""I didn't activate anything."", Ch6-Eiden-vs-dragon, v_current_scene = Ch6-Eiden-vs-dragon, v_ch6_big_plans = 2)
+choice(""Why do you keep saving me?"", Ch6-Eiden-vs-dragon, v_current_scene = Ch6-Eiden-vs-dragon, v_ch6_big_plans = 3)
 
 
 ID: Ch6-Eiden-vs-dragon
@@ -2593,7 +2593,7 @@ Instead of replying, the dragon blasts Eiden with his fire breath. The stillwate
 "I see you're still up to your old tricks," the dragon says. "But I've become a lot more powerful since you left. This won't be like the last time."
 
 }
-choice("Continue", Ch6-Eiden-vs-dragon2, v_current_scene = Ch6-Eiden-vs-dragon2, v_ch6_won_dragon = 3) if (v_ch6_big_plans == 1 || v_ch6_big_plans == 2 || v_ch6_big_plans == 3)
+choice("Continue", Ch6-Eiden-vs-dragon2, v_current_scene = Ch6-Eiden-vs-dragon2, v_ch6_won_dragon = 3)
 
 
 ID: Ch6-Eiden-vs-dragon2
@@ -2710,8 +2710,8 @@ Eiden turns back to me.
 "Well done, Barry! I'll be honest with you, I was hoping you'd be using more spectacular spells in this skirmish, but I cannot blame you for wanting to be efficient!"
 
 }
-choice(""What just happened?"", Ch6-Win-fight2, v_current_scene = Ch6-Win-fight2, v_ch6_lessathi = 1) if (v_ch6_won_dragon == 1 || v_ch6_won_dragon == 2 || v_ch6_offense != 2)
-choice(""Who are the lessathi?"", Ch6-Win-fight2, v_current_scene = Ch6-Win-fight2, v_ch6_lessathi = 2) if (v_ch6_won_dragon == 1 || v_ch6_won_dragon == 2 || v_ch6_offense != 2)
+choice(""What just happened?"", Ch6-Win-fight2, v_current_scene = Ch6-Win-fight2, v_ch6_lessathi = 1)
+choice(""Who are the lessathi?"", Ch6-Win-fight2, v_current_scene = Ch6-Win-fight2, v_ch6_lessathi = 2)
 
 
 ID: Ch6-Win-fight2
@@ -2737,7 +2737,7 @@ TEXT:
 "It transported him to a dragon prison on this island. Since I doubt there's anyone actually guarding it at this point I imagine that he won't have much trouble escaping, but even so, he'll still have to destroy the prison's automatic defenses and he'll have to travel all the way back here. So it should be at least a few days before he comes back."
 
 }
-choice("Continue", Ch6-Eiden-leaves, v_current_scene = Ch6-Eiden-leaves) if (v_ch6_lessathi == 1 || v_ch6_lessathi == 2)
+choice("Continue", Ch6-Eiden-leaves, v_current_scene = Ch6-Eiden-leaves)
 
 
 ID: Ch6-Lose-fight2
@@ -2763,7 +2763,7 @@ TEXT:
 "He was transported to a dragon prison on this island. Since I doubt there's anyone actually guarding it at this point I imagine that he won't have much trouble escaping, but even so, he'll still have to destroy the prison's automatic defenses and he'll have to travel all the way back here. So it should be at least a few days before he comes back."
 
 }
-choice("Continue", Ch6-Eiden-leaves, v_current_scene = Ch6-Eiden-leaves) if (v_ch6_lessathi == 1 || v_ch6_lessathi == 2)
+choice("Continue", Ch6-Eiden-leaves, v_current_scene = Ch6-Eiden-leaves)
 
 
 ID: Ch6-Eiden-leaves

@@ -92,7 +92,6 @@ This was never about me having a hangover. We were teleported here by mistake, a
 I get up from the ground and I begin to look around me, trying to figure out which way we need to go to get out of the cave. As I am moving my head, the strong feeling of nausea from before returns to me in full-force, making me lose my balance while simply standing in place. Leila catches me before I fall to the ground and then she goes to my right side, taking my arm and putting it around her neck so that I can hold onto her in case I feel like I'm about to fall again.
 
 }
-#if(v_b3_ch7_force == 0 || v_b3_ch7_force == 1 || v_b3_ch7_force == 2) {
  "You shouldn't be making any sudden movements," Leila writes. "That will only make your headache worse. Try moving your head slowly, until you get accustomed to your nauseating sensation."
 
 "Damn, this is so much worse than the last time when we ended up here," I say, as I struggle to not faint again from the pain. "My head hurts so much it feels like it's going to explode..."
@@ -105,8 +104,7 @@ I get up from the ground and I begin to look around me, trying to figure out whi
 
 "Well, you sure are handling this a lot better than I am, then," I say. "At the moment, I'm having a difficult time even holding this conversation with you without collapsing."
 
-}
-choice("Continue", B3-Ch07a-Intro3, v_current_scene = B3-Ch07a-Intro3) if (v_b3_ch7_force == 0 || v_b3_ch7_force == 1 || v_b3_ch7_force == 2)
+choice("Continue", B3-Ch07a-Intro3, v_current_scene = B3-Ch07a-Intro3)
 
 
 ID: B3-Ch07a-Intro3
@@ -141,9 +139,8 @@ choice("Let Leila handle her headache by herself and go follow her.", B3-Ch07a-M
 ID: B3-Ch07a-Massage
 TEXT:
 
-set(v_b3_ch7_massage,0) if (v_b3_ch7_massage == 1 && v_magical_sense < 2 || v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 0)
 set(v_b3_ch7_massage,2) if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)
-#if(v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 1) {
+#if(v_magical_sense >= 2 && v_b3_ch7_massage != 0 || v_b3_ch7_massage == 1) {
  
 
 "Before we go, could you try teaching me that massage technique?" I say. "Maybe I can help you get rid of your headache."
@@ -155,16 +152,6 @@ set(v_b3_ch7_massage,2) if (v_b3_ch7_massage == 1 && v_magical_sense >= 2)
 "Fine," Leila writes. "But it's going to be a VERY short explanation. Come here."
 
 I get closer to Leila and I put both my hands on her temples, as she tells me through her writing exactly which kinds of aura fluctuations I need to look out for.
-
- "So... what do you think happened to everyone at the rebel base?" Leila writes to me, while we are walking through the tunnels. "You don't suppose any of them got buried under the rubble from all those explosions, do you?..."
-
-"I don't know about the rebels or the civilians, but everyone in our group has been through far worse stuff than some lousy cave-ins," I say. "I wouldn't worry about them being buried under the rubble, but then again, those explosions are probably the least of their worries right now. If what Peter said was true, the king of Ollendor has sent a small army to attack the people in the underground, and what's left of the royal guards will be there too, including the trainees. It's going to be a tough fight for them, any way you look at it."
-
-"Can you try calling them through the transceiver?" Leila writes. "Maybe we'll get lucky and you'll be able to reach them."
-
-"The walls around us are all filled with seredium, so I wouldn't get my hopes up but I can try, sure," I say.
-
-I then pull out my transceiver, set the frequency to Daren's number and tap it once.
 
 }
 #if(v_b3_ch7_massage == 0) {
@@ -189,7 +176,7 @@ I then pull out my transceiver, set the frequency to Daren's number and tap it o
 "Okay, let’s get going," Leila writes, and then the two of us travel further into the cave.
 
 }
-#if(v_b3_ch7_massage == 1 && v_magical_sense >= 2 || v_b3_ch7_massage == 2 && v_magical_sense >= 2) {
+#if(v_magical_sense >= 2 && v_b3_ch7_massage != 0) {
  After about twenty seconds or so, I begin to finally understand how my hand movements are influencing the very subtle changes in Leila's aura, and this helps me to better identify the source of her headache. Despite Leila's rushed and incomplete instructions, I manage to improvise a technique that is close enough to what she used on me, and I can see how the strained expression that she had on her face slowly turns into one that is much more relaxed.
 
 "The pain... it's going away!" Leila writes, astonished, as I am still massaging her temples. "I didn't think you could learn to do this so quickly! It took me hours of practice to get this good with it when my father first taught the technique to me."
@@ -201,7 +188,19 @@ I then pull out my transceiver, set the frequency to Daren's number and tap it o
 "Alright," I say, as I take my hands away from Leila's head. "Follow me. I'm pretty sure I remember which way we went last time."
 
 }
-choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2) if (v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 0 || v_b3_ch7_massage == 1)
+#if(v_b3_ch7_massage == 2 && v_magical_sense >= 2 || v_b3_ch7_massage == 1) {
+ "So... what do you think happened to everyone at the rebel base?" Leila writes to me, while we are walking through the tunnels. "You don't suppose any of them got buried under the rubble from all those explosions, do you?..."
+
+"I don't know about the rebels or the civilians, but everyone in our group has been through far worse stuff than some lousy cave-ins," I say. "I wouldn't worry about them being buried under the rubble, but then again, those explosions are probably the least of their worries right now. If what Peter said was true, the king of Ollendor has sent a small army to attack the people in the underground, and what's left of the royal guards will be there too, including the trainees. It's going to be a tough fight for them, any way you look at it."
+
+"Can you try calling them through the transceiver?" Leila writes. "Maybe we'll get lucky and you'll be able to reach them."
+
+"The walls around us are all filled with seredium, so I wouldn't get my hopes up but I can try, sure," I say.
+
+I then pull out my transceiver, set the frequency to Daren's number and tap it once.
+
+}
+choice("Continue", B3-Ch07a-Massage2, v_current_scene = B3-Ch07a-Massage2)
 
 
 ID: B3-Ch07a-Massage2
@@ -547,7 +546,7 @@ ID: B3-Ch07a-Respite
 TEXT:
 
 set(v_is_dead,1) if (v_agility < 4 || v_reflexes < 4)
-set(v_is_dead,0) if (v_b3_ch7_bet == 0 && v_is_dead == 0 || v_b3_ch7_bet == 1 && v_is_dead == 0 || v_b3_ch7_bet == 3 && v_is_dead == 0 || v_agility >= 4 && v_reflexes >= 4)
+set(v_is_dead,0) if (v_agility >= 4 && v_reflexes >= 4)
 #if(v_reflexes < 4) {
  
 
@@ -628,8 +627,8 @@ choice("Tell Leila to perform the technique on Gontrok while I keep him busy.", 
 ID: B3-Ch07a-Perform
 TEXT:
 
-set(v_is_dead,0) if (v_b3_ch7_massage == 0 || v_b3_ch7_massage == 1 || v_b3_ch7_massage == 2 || v_combat_technique >= 2)
 set(v_is_dead,1) if (v_combat_technique < 2)
+set(v_is_dead,0) if (v_combat_technique >= 2)
 #if(v_b3_ch7_massage == 0) {
  
 
@@ -991,9 +990,9 @@ Just like the last time, the royal guard's voice appears to be coming from all a
 "You're not... no, you can't be serious!" Gontrok says. "Why would you do something like this?"
 
 }
-choice(""If you want to kill the king, then you'd better wait in line! We were here first!"", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line) if (v_b3_ch7_bet == 1 || v_b3_ch7_bet == 2 || v_b3_ch7_bet == 5 || v_b3_ch7_bet == 6 || v_b3_ch7_bet == 7)
-choice(""What a coincidence! We want to kill the king too! Why don't we join forces?"", B3-Ch07a-Join, v_current_scene = B3-Ch07a-Join) if (v_b3_ch7_bet == 1 || v_b3_ch7_bet == 2 || v_b3_ch7_bet == 5 || v_b3_ch7_bet == 6 || v_b3_ch7_bet == 7)
-choice(""You're going to kill the king? Perfect! Less work for us, then!"", B3-Ch07a-Work, v_current_scene = B3-Ch07a-Work) if (v_b3_ch7_bet == 1 || v_b3_ch7_bet == 2 || v_b3_ch7_bet == 5 || v_b3_ch7_bet == 6 || v_b3_ch7_bet == 7)
+choice(""If you want to kill the king, then you'd better wait in line! We were here first!"", B3-Ch07a-Line, v_current_scene = B3-Ch07a-Line)
+choice(""What a coincidence! We want to kill the king too! Why don't we join forces?"", B3-Ch07a-Join, v_current_scene = B3-Ch07a-Join)
+choice(""You're going to kill the king? Perfect! Less work for us, then!"", B3-Ch07a-Work, v_current_scene = B3-Ch07a-Work)
 
 
 ID: B3-Ch07a-Line
@@ -1186,7 +1185,7 @@ Right after I say this, Leila punches me lightly in the arm.
 "Well, the fingers that were the closest to the crystal are the ones that disappeared," I say, "so my guess is that these crystals must have some sort of defense mechanism that activates itself when someone attacks them. What I can't really wrap my head around is the reason why there was no blood or even any scar tissue left after half of his hand was practically cut off. Also, for a second, even I was almost convinced that Gontrok's hand was like that from the very beginning. It's like the fingers didn't just disappear, but they were instead completely... erased... from existence..."
 
 }
-#if(v_b3_ch7_fingers == 1 && v_bluff == 0 || v_b3_ch7_fingers == 1 && v_bluff >= 1 || v_b3_ch7_fingers == 0) {
+#if(v_b3_ch7_fingers == 0 || v_bluff == 0 || v_bluff >= 1) {
  As I say those words, a sudden chill travels throughout my entire body, and I begin to shiver uncontrollably while drops of cold sweat are slowly forming on the side of my forehead. If Gontrok's fingers have really been removed from existence altogether, then the only entity I know that is capable of doing something like this is the Magium itself. Does this mean that these crystals are connected to the Magium somehow? Is the Magium watching us right now?
 
 I suddenly begin to turn around frantically, in order to see where each of the crystals are placed. There are so many of them. Too many to count... And they are everywhere. If the Magium really were capable of watching us through these crystals, then there would be no place for us to hide from it in these caves. We are trapped here like rats. There is no escape.
@@ -1208,7 +1207,7 @@ He then picks up a rock from the ground with his right hand and he shows it to L
 Gontrok does not get to finish his swing, however, because his arm freezes in place and so does the rest of his body, as if it were being immobilized by an invisible force. While the giant struggles to break himself free of the aura technique, we see Eiden coming out of invisibility somewhere not too far behind him with his eyes closed, as always.
 
 }
-choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian) if (v_b3_ch7_fingers == 1 && v_bluff == 0 || v_b3_ch7_fingers == 1 && v_bluff >= 1 || v_b3_ch7_fingers == 0)
+choice("Continue", B3-Ch07a-Barbarian, v_current_scene = B3-Ch07a-Barbarian)
 
 
 ID: B3-Ch07a-Barbarian
@@ -1461,7 +1460,6 @@ Once we reach the top of the stairs, we go through the second door that has been
 I nod to her, and then we begin to climb up the stairs leading to the basement below the seredium tower. Once we reach the top of the stairs, we go through the second door that has been left open by Eiden and we enter the same closet room full of buckets and wet rags that we stumbled into during our previous visit to the tower.
 
 }
-#if(v_b3_ch7_door == 0 || v_b3_ch7_door == 1) {
  As we are now heading into the room full of people chained up to the ceiling, I cannot help but feel the same shivers down my spine that I felt the last time I was here, despite knowing exactly what was waiting for us. I don't get a lot of time to think about this, however, because almost as soon as we exit the closet, we hear the voices of Eiden and the king of Ollendor coming from the voice magnifier tied to the transceiver that is placed in the upper corner of the room, which if I remember correctly is the device that Billy Bob was using before to make announcements to the prisoners.
 
 "Creator, please understand that I had no intention of going against your wishes!" the king of Ollendor says. "It's just that you said you were away on important business and you gave us no way to contact you, so there was no chance for me to discuss my plans with you. I would have never even imagined that you would object to the destruction of the crystal-filled underground corridors!"
@@ -1474,8 +1472,7 @@ I nod to her, and then we begin to climb up the stairs leading to the basement b
 
 "Punishment?" the king asks, suddenly scared. "Creator, please, I can explain!"
 
-}
-choice("Continue", B3-Ch07a-Nullified, v_current_scene = B3-Ch07a-Nullified) if (v_b3_ch7_door == 0 || v_b3_ch7_door == 1)
+choice("Continue", B3-Ch07a-Nullified, v_current_scene = B3-Ch07a-Nullified)
 
 
 ID: B3-Ch07a-Nullified
@@ -1580,7 +1577,7 @@ The beam envelops my whole body in flames, but thanks to my hardened aura I only
 "...Very well," the king says, reluctantly. "Your friend's father is currently being held in a prison cell somewhere in this city. However, only I know his location, which means that if you don't do exactly as I say, doctor Reidzek will be meeting an untimely death at the hands of--"
 
 }
-#if(v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3 || v_b3_ch7_tyrant == 0) {
+#if(v_b3_ch7_tyrant == 0 || v_aura_hardening >= 3) {
  "Actually, doctor Reidzek is right here," we hear the Overseer's voice, as a green drone is now entering the room, with Leila's father walking close behind it. "I offered to free him from his cell in exchange for activating a few of my protocols that Biliborrathrathsarran always refused to give me access to, for fear of handing over too much control to me."
 
 "You did what?!" the king shouts at Leila's father. "How? How could you have possibly considered that giving the Overseer more control is a good idea?"
@@ -1597,8 +1594,8 @@ The beam envelops my whole body in flames, but thanks to my hardened aura I only
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
 choice("Load game", , , special:saves) if (v_b3_ch7_tyrant == 1 && v_aura_hardening < 3)
-choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3 || v_b3_ch7_tyrant == 0)
-choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 1 && v_aura_hardening >= 3 || v_b3_ch7_tyrant == 0)
+choice("Shoot the king above his left knee and then shoot him in the head.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 1) if (v_b3_ch7_tyrant == 0 || v_aura_hardening >= 3)
+choice("Tell the Overseer that he should kill the king himself.", B3-Ch07a-Assassinate, v_current_scene = B3-Ch07a-Assassinate, v_b3_ch7_assassinate = 0) if (v_b3_ch7_tyrant == 0 || v_aura_hardening >= 3)
 
 
 ID: B3-Ch07a-Assassinate
@@ -1606,7 +1603,7 @@ TEXT:
 
 set(v_ac_b3_ch7_sharpshooter,1) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
 set(v_is_dead,1) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
-set(v_is_dead,0) if (v_b3_ch4_billy == 0 && v_is_dead == 0 || v_b3_ch4_billy == 7 && v_is_dead == 0 || v_b3_ch4_billy == 8 && v_is_dead == 0 || v_b3_ch4_billy == 9 && v_is_dead == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1 || v_is_dead == 0 && v_b3_ch4_billy != 0 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
+set(v_is_dead,0) if (v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
 achievement("Sharpshooter",v_ac_b3_ch7_sharpshooter)
 #if(v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2) {
  
@@ -1676,7 +1673,7 @@ Just as the king is done uttering his words, we hear the sound of propellers com
 Having finished their job, the red-eyed drones now retreat out of the room in an orderly fashion, and shortly afterwards the Overseer's green-eyed drone turns towards us to ask us a question.
 
 }
-#if(v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1) {
+#if(v_b3_ch7_assassinate == 0 || v_b3_ch7_door == 1) {
  "The king of Ollendor is now dead," the Overseer says. "You've fulfilled your original purpose for coming here. Does this mean that you will now leave, or do you still have unfinished business in my city?"
 
 "Well, first of all, I still need to-- hold on a second, what do you mean 'your city'?" I ask him.
@@ -1704,7 +1701,7 @@ Having finished their job, the red-eyed drones now retreat out of the room in an
 "Your fate has not yet been decided," the Overseer says. "The Overseer protocol will need to conduct an analysis depending on what you will claim to be your next objectives within this city. Now, is there anything else I can help you with?"
 
 }
-#if(v_is_dead == 0 && v_b3_ch4_billy != 0) {
+#if(v_is_dead == 0 && v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 0) {
  "Uhm, no, no, I think you've already made things pretty clear," I say. "So, now that you've obtained control of the city and everything... what are you planning to do with us, exactly?"
 
 "Your fate has not yet been decided," the Overseer says. "The Overseer protocol will need to conduct an analysis depending on what you will claim to be your next objectives within this city. Now, is there anything else I can help you with?"
@@ -1727,7 +1724,7 @@ Having finished their job, the red-eyed drones now retreat out of the room in an
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
 choice("Load game", , , special:saves) if (v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception < 2)
-choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch4_billy == 0 && v_is_dead == 0 || v_b3_ch4_billy == 7 && v_is_dead == 0 || v_b3_ch4_billy == 8 && v_is_dead == 0 || v_b3_ch4_billy == 9 && v_is_dead == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1 || v_is_dead == 0 && v_b3_ch4_billy != 0 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2)
+choice("Continue", B3-Ch07a-Golems, v_current_scene = B3-Ch07a-Golems) if (v_b3_ch4_billy == 0 && v_is_dead == 0 || v_b3_ch4_billy == 7 && v_is_dead == 0 || v_b3_ch4_billy == 8 && v_is_dead == 0 || v_b3_ch4_billy == 9 && v_is_dead == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 0 || v_b3_ch7_assassinate == 0 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 1 || v_b3_ch7_assassinate == 1 && v_b3_ch7_door == 0 && v_perception >= 2 || v_is_dead == 0 && v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 0)
 
 
 ID: B3-Ch07a-Golems

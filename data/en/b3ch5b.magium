@@ -95,7 +95,6 @@ Albert nods and then he begins to walk towards the throne room, as the rest of u
 After walking for a while, we finally reach the room where the king was waiting for us and we seat ourselves down on the empty chairs that are facing the throne. As we are taking our seats, Albert walks past us and he goes to join Peter, who is currently standing behind the king's throne. It seems that the two guards that are usually by the king's side have not been invited this time around. The only people here except for our group are the king of the underground, Albert and Peter.
 
 }
-#if(v_b3_ch5_follow == 0 || v_b3_ch5_follow == 1 || v_b3_ch5_follow == 2) {
  All three of them seem very tired, and the king even has visible bags under his eyes. However, aside from the fatigue, I can also feel a certain... tension in the air that I haven't felt in our last two meetings. Hopefully it's just my imagination.
 
 "Good morning, friends," the king says. "I hope you've slept well. My apologies for calling you to yet another meeting out of the blue, but there are quite a few things I need to discuss with you that can't be delayed any longer. First, allow me to give you a bit of context."
@@ -124,8 +123,7 @@ The king does not answer the ambassador in any way, and neither do any of the ot
 
 "Ambassador, I want you to think very carefully about your next words," the king of Ollendor says, in a frighteningly calm tone.  "What you are about to say from now on may well decide whether you live or die today. First of all, I want you to confirm to me one more time what you just told me. Are you absolutely certain that my brother is dead?"
 
-}
-choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass) if (v_b3_ch5_follow == 0 || v_b3_ch5_follow == 1 || v_b3_ch5_follow == 2)
+choice("Continue", B3-Ch05b-Bypass, v_current_scene = B3-Ch05b-Bypass)
 
 
 ID: B3-Ch05b-Bypass
@@ -645,7 +643,7 @@ While I'm still being shocked, Albert tries to free himself again but I hold ont
 As Daren was talking, Peter changed his mind and decided to target him instead of me, casting a lightning spell on Daren as soon as he exposed his back to him.
 
 }
-choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure) if (v_toughness == 0 || v_premonition >= 2 || v_toughness > 0)
+choice("Continue", B3-Ch05b-Obscure, v_current_scene = B3-Ch05b-Obscure)
 
 
 ID: B3-Ch05b-Obscure
@@ -753,7 +751,7 @@ As we are about to exit the throne room, we hear some whispers behind us, and so
 We then go out through the door and into the tunnel outside, as we begin to head for the waiting room.
 
 }
-#if(v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy != 0) {
+#if(v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 0 || v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8) {
  "One moment, please…" the king says. "Peter has just reminded me of something that I think you might want to know about before you return to the surface. In short, we've noticed that the flying metal balls have no longer been following their usual patrol routes since yesterday evening, and they've also been behaving quite erratically. I heard from Breynan that you killed Billy Bob yesterday, so this may be a part of the reason, but I would be careful if I were you. Something tells me that the Overseer is planning something big, and you might not want to be caught in the middle of it."
 
 "Alright," Daren says. "We'll try to be careful. Farewell!"
@@ -878,7 +876,6 @@ Once she is done counting them the first time, she starts to count them again bu
 "No, this does not mean that I now consider you to be an adult," Illuna says. "And no matter how many times you will call me Illuna or act as if you were a grown-up, that is still not going to change. However... I've given this some more thought, and I've... arrived at the conclusion that I CAN make a concession and accept to call you a thirty-year-old, if it really means that much to you... It will still take a little bit of time getting used to the idea, but--"
 
 }
-#if(v_b3_ch5_breath == 0 || v_b3_ch5_breath == 1) {
  "Oh Petal, thank you so much!" Flower says in a very loud voice, as she now looks like she is hugging herself.
 
 "Can you at least control your body when you hug me inside your mind?" Illuna says. "Or do you not realize how ridiculous we both look right now?"
@@ -893,14 +890,12 @@ She then comes closer to me and Melindra and she grabs our hands, as she smiles 
 
 "And thank you both!" Flower says. "Thank you for all that you did for us!"
 
-}
-choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2) if (v_b3_ch5_breath == 0 || v_b3_ch5_breath == 1)
+choice("Continue", B3-Ch05b-Birthday2, v_current_scene = B3-Ch05b-Birthday2)
 
 
 ID: B3-Ch05b-Birthday2
 TEXT:
 
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Hey, cut it out!" Melindra says, pulling her hand away, as I see her getting flustered for the first time since I've met her. "There's no need to thank me! We're friends, remember? And besides, I barely even did anything!"
 
 "That's not true!" Flower says. "You helped us a lot! You both did! Petal and I might have still been fighting today if it weren't for you! Thank you so much!"
@@ -931,7 +926,6 @@ We do what Flower says, and we take the small plates with us, as we walk towards
 
 "As always!" Hadrik says, while he hands me one of the mugs.
 
-}
 #if(v_ch11_saved_rose == 1) {
  "It's too bad that Rose isn't here with us," I say. "It would have been nice to give her a slice of cake, considering that she helped out too last night."
 
@@ -974,7 +968,7 @@ As Flower is returning to us, Desmond calls out to her in a loud voice.
 "Thank you!" Flower says, as she waves at him happily, and then she comes back to us.
 
 }
-choice("Continue", B3-Ch05b-Ending, v_current_scene = B3-Ch05b-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch05b-Ending, v_current_scene = B3-Ch05b-Ending)
 
 
 ID: B3-Ch05b-Ending

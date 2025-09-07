@@ -266,8 +266,8 @@ As we step over the rubble and take a good look outside of our cell, we see that
 "Barry," Daren says, "didn't that trinket of yours have a stat named 'ancient languages'? Come over here and see if you can translate this!"
 
 }
-choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ch8_talk == 0 && v_ancient_languages < 3 || v_ch8_talk == 1 && v_ancient_languages < 3)
-choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ch8_talk == 0 && v_ancient_languages >= 3 || v_ch8_talk == 1 && v_ancient_languages >= 3)
+choice("Continue", Ch8-Languages-failed, v_current_scene = Ch8-Languages-failed) if (v_ancient_languages < 3)
+choice("Continue", Ch8-Languages-success, v_current_scene = Ch8-Languages-success) if (v_ancient_languages >= 3)
 
 
 ID: Ch8-Languages-failed
@@ -1129,7 +1129,7 @@ As the wound heals completely, the girl's eyes turn back to their normal green c
 "Hmph..." Daren says. "I was going to do that anyway."
 
 }
-choice("Continue", Ch8-Purification, v_current_scene = Ch8-Purification) if (v_ch8_smash == 0 || v_ch8_smash == 1)
+choice("Continue", Ch8-Purification, v_current_scene = Ch8-Purification)
 
 
 ID: Ch8-Awakened-win
@@ -1207,7 +1207,7 @@ As the wound heals completely, the girl's eyes turn back to their normal green c
 "Hmph..." Daren says. "I was going to do that anyway."
 
 }
-choice("Continue", Ch8-Purification, v_current_scene = Ch8-Purification) if (v_ch8_smash == 0 || v_ch8_smash == 1)
+choice("Continue", Ch8-Purification, v_current_scene = Ch8-Purification)
 
 
 ID: Ch8-Purification
@@ -1429,9 +1429,9 @@ Looking at the markings on the three walls, I start to understand the source of 
 "I don't know..." the girl says. "Oooooh! If only I could remember which way is the right one!"
 
 }
-choice("Suggest taking the path marked with a dragonfly", Ch8-Dragonfly, v_current_scene = Ch8-Dragonfly) if (v_ch8_talk == 0 || v_ch8_talk == 1)
-choice("Suggest taking the path marked with a beetle", Ch8-Beetle, v_current_scene = Ch8-Beetle) if (v_ch8_talk == 0 || v_ch8_talk == 1)
-choice("Suggest taking the path marked with a wasp", Ch8-Wasp, v_current_scene = Ch8-Wasp) if (v_ch8_talk == 0 || v_ch8_talk == 1)
+choice("Suggest taking the path marked with a dragonfly", Ch8-Dragonfly, v_current_scene = Ch8-Dragonfly)
+choice("Suggest taking the path marked with a beetle", Ch8-Beetle, v_current_scene = Ch8-Beetle)
+choice("Suggest taking the path marked with a wasp", Ch8-Wasp, v_current_scene = Ch8-Wasp)
 
 
 ID: Ch8-Dragonfly
@@ -1505,7 +1505,7 @@ After a few minutes of walking through the corridor, we finally start to see som
 "This is it!" Flower says, excited, as she points towards the exit. "I remember this part! Once we're past that door, nothing will stand between us and the control room! I told you we'd make it there safely! Come on, follow me!"
 
 }
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_ch8_talk == 0 || v_ch8_talk == 1)
+choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room)
 
 
 ID: Ch8-Wasp
@@ -1657,10 +1657,10 @@ After a few minutes of walking through the corridor, we finally start to see som
 "This is it!" Flower says, excited, as she points towards the exit. "I remember this part! Once we're past that door, nothing will stand between us and the control room! I told you we'd make it there safely! Come on, follow me!"
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
-choice("Load game", , , special:saves) if (v_ch8_talk == 0 && v_premonition < 4 || v_ch8_talk == 1 && v_premonition < 4)
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_ch8_talk == 0 && v_premonition == 4 || v_ch8_talk == 1 && v_premonition == 4)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition < 4)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition < 4)
+choice("Load game", , , special:saves) if (v_premonition < 4)
+choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_premonition == 4)
 
 
 ID: Ch8-Beetle
@@ -1690,7 +1690,7 @@ After a few minutes of walking through the corridor, we finally start to see som
 "This is it!" Flower says, excited, as she points towards the exit. "I remember this part! Once we're past that door, nothing will stand between us and the control room! I told you we'd make it there safely! Come on, follow me!"
 
 }
-choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room) if (v_ch8_talk == 0 || v_ch8_talk == 1)
+choice("Continue", Ch8-Control-room, v_current_scene = Ch8-Control-room)
 
 
 ID: Ch8-Control-room
@@ -1754,7 +1754,7 @@ Suddenly, a golden cage pops out of nowhere and surrounds every one of us except
 "Ooooooh! You are always so stubborn!" the girl says, as her eyes turn a bright red, and her magical aura starts to radiate strongly from her body. "Fine! If you want a fight, I'll give you your fight! Get ready, Petal!"
 
 }
-choice("Continue", Ch8-Golden-rule, v_current_scene = Ch8-Golden-rule) if (v_ch8_talk == 0 || v_ch8_talk == 1)
+choice("Continue", Ch8-Golden-rule, v_current_scene = Ch8-Golden-rule)
 
 
 ID: Ch8-Golden-rule

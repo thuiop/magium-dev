@@ -65,7 +65,6 @@ TEXT:
 "Right," I say.
 
 }
-#if(v_b2_ch9_tyrath == 0 || v_b2_ch9_tyrath == 1 || v_b2_ch9_tyrath == 2) {
  "You've been sharing quite a lot of things with us about Eiden's past today, Melindra..." Illuna says, all of a sudden. "May I ask to what do we owe this sudden change of heart on your part?"
 
 "Well, since I am obviously Eiden's spy," Melindra says, with a sarcastic tone in her voice, "I can't just keep everything a secret from you. I need to reveal some sensitive information here and there, to make sure that you people actually start to trust me."
@@ -78,8 +77,7 @@ Kate frowns at her, but she doesn't say anything.
 
 "Uh... maybe it's about time we changed the subject," Hadrik says, in an attempt to avoid another argument breaking out between Kate and Melindra. "Like for instance, did you guys also notice that we haven't really encountered a lot of animals while we've been walking through these forests? I would have expected these places to be teeming with wildlife, but we've mostly only run into monsters and other mages."
 
-}
-choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles) if (v_b2_ch9_tyrath == 0 || v_b2_ch9_tyrath == 1 || v_b2_ch9_tyrath == 2)
+choice("Continue", B2-Ch09b-Circles, v_current_scene = B2-Ch09b-Circles)
 
 
 ID: B2-Ch09b-Circles
@@ -346,7 +344,7 @@ We do as Flower says, and wait for a while, until the wolves and the bear go pas
 "Alright," Daren says. "Let's get going, then. Preferably in a direction that leads us away from the forest fire."
 
 }
-choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila) if (v_b2_ch9_spell == 0 || v_b2_ch9_spell == 1)
+choice("Continue", B2-Ch09b-Leila, v_current_scene = B2-Ch09b-Leila)
 
 
 ID: B2-Ch09b-Leila
@@ -586,7 +584,7 @@ TEXT:
 "Huh..." Hadrik says. "Well, I don't know about the rest of you guys, but this whole thing kind of killed the mood for me. I think I'm going to gather up the cards for now, and we'll finish the game some other time."
 
 }
-choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch9_channel == 0 || v_b2_ch9_channel == 1)
+choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift)
 
 
 ID: B2-Ch09b-Freezing
@@ -663,7 +661,7 @@ choice(""Rose, do you remember what you were doing before the time froze?"", B2-
 ID: B2-Ch09b-Energizer-Rose
 TEXT:
 
-#if(v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 1) {
+#if(v_b2_ch9_weavers == 1) {
  "Could you at least tell us what you know about-- Ugh..."
 
 As I was talking, I suddenly felt a strong urge to vomit, and I had to reign myself in, although by this point it was getting pretty obvious that I could no longer hide my condition from the others.
@@ -675,7 +673,7 @@ As I was talking, I suddenly felt a strong urge to vomit, and I had to reign mys
 "Wait, energizer spell?" Rose says. "What is she talking about?"
 
 }
-#if(v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1) {
+#if(v_b2_ch9_weavers == 0) {
  "Rose, do you remember what you were doing before-- Ugh..."
 
 As I was talking, I suddenly felt a strong urge to vomit, and I had to reign myself in, although by this point it was getting pretty obvious that I could no longer hide my condition from the others.
@@ -687,7 +685,7 @@ As I was talking, I suddenly felt a strong urge to vomit, and I had to reign mys
 "Wait, energizer spell?" Rose says. "What is she talking about?"
 
 }
-#if(v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 0) {
+#if(v_ch11_romance_rose == 0) {
  "Melindra spent the night in Barry's tent, yesterday," Kate says, in a cold voice. "They both used an energizer spell, but Barry never used one before, so he is experiencing some fatigue-induced headaches and nausea."
 
 "Oh..." Rose says. "I see..."
@@ -695,7 +693,7 @@ As I was talking, I suddenly felt a strong urge to vomit, and I had to reign mys
 "So, uh..." Hadrik says, trying to change the subject. "How are things going in Thilias?"
 
 }
-#if(v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 1) {
+#if(v_ch11_romance_rose == 1) {
  "Melindra spent the night in Barry's tent, yesterday," Kate says, in a cold voice. "They both used an energizer spell, but Barry never used one before, so he is experiencing some fatigue-induced headaches and nausea. I think you can imagine what they used the energizer spell for."
 
 "Yes... I understand..." Rose says, trying to appear calm, although it was clear from her tone of voice that she was deeply disappointed.
@@ -713,7 +711,7 @@ After I finish my sentence, there is a long pause, during which none of us says 
 "So, uh..." Hadrik says, trying to change the subject. "How are things going in Thilias?"
 
 }
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 0 && v_ch11_romance_rose == 1 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 0 || v_b2_ch9_weavers == 1 && v_ch11_romance_rose == 1)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias)
 
 
 ID: B2-Ch09b-Weaver
@@ -751,7 +749,7 @@ TEXT:
 "Agreed," Hadrik says. "So, how are things going in Thilias?"
 
 }
-choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias) if (v_b2_ch9_weavers == 0 || v_b2_ch9_weavers == 1)
+choice("Continue", B2-Ch09b-Thilias, v_current_scene = B2-Ch09b-Thilias)
 
 
 ID: B2-Ch09b-Thilias
@@ -807,7 +805,6 @@ After hearing Daren's words, I suddenly realize what happened. The reason why th
 "I see..." Rose says.
 
 }
-#if(v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1) {
  "Rooooose!" we hear Suzie's voice coming from the transceiver. "Kevin is being mean to me again!"
 
 "I'll be right there, Suzie!" Rose shouts.
@@ -822,8 +819,7 @@ We all say our goodbyes to Rose, and then she closes the transceiver, in order t
 
 "I say we finish the round we were playing before we got interrupted and then call it a day," Daren says. "I want to make sure that I get some sleep before some new storm comes out of nowhere to wake us up."
 
-}
-choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch09b-Shift, v_current_scene = B2-Ch09b-Shift)
 
 
 ID: B2-Ch09b-Shift
@@ -853,8 +849,8 @@ It didn't take me long to fall asleep, and I woke up several hours later, at the
 "Come on, Barry," Hadrik says. "We're up next. I hope you're in the mood for drinking tonight, because I've got these dwarven ale bottles with me that are just begging to be emptied."
 
 }
-choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1) if (v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 1 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3)
-choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0) if (v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 1 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3)
+choice("Agree to drink with Hadrik", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 1)
+choice("Tell him that I'd rather stay sober tonight", B2-Ch09b-Met-zek, v_current_scene = B2-Ch09b-Met-zek, v_b2_ch9_drink = 0)
 
 
 ID: B2-Ch09b-Met-zek
@@ -916,13 +912,13 @@ At any rate, there is at least one thing I know for sure, and it's the fact that
 "So, Barry," Hadrik says, as he places a card on the ground, facing up. "I've been meaning to ask... What is your opinion on Melindra so far? You've had that little episode with her in your tent, and aside from Flower, you seem to be the only other person that she's talked with, in private. Be honest, do you think that she'll ever manage to fit in the group?"
 
 }
-choice("Continue", B2-Ch09b-Interrupt, v_current_scene = B2-Ch09b-Interrupt) if (v_b2_ch9_drink == 0 || v_b2_ch9_drink == 1)
+choice("Continue", B2-Ch09b-Interrupt, v_current_scene = B2-Ch09b-Interrupt)
 
 
 ID: B2-Ch09b-Interrupt
 TEXT:
 
-#if(v_b2_ch9_amused == 1) {
+#if(v_b2_ch9_amused == 1 && v_b2_ch8_energizer != 0 && v_b2_ch8_energizer != 2 && v_b2_ch8_energizer != 3) {
  "It's hard to say," I tell him, as I place a card on the ground, facing up, as well. "I've had a little discussion with her this morning, but I didn't manage to convince her to stop antagonizing the group through her actions. She said that she shouldn't try to change the way she lives her life just to accommodate others, and that Eiden never had a problem with the way she was acting."
 
 "Yeah, I was afraid that she might say something like that," Hadrik says.
@@ -936,7 +932,7 @@ TEXT:
 So, the question here is... Did he place down a good card? Or a bad card?
 
 }
-#if(v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3) {
+#if(v_b2_ch9_amused == 0 && v_b2_ch8_energizer != 0 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3) {
  "It's hard to say," I tell him, as I place a card on the ground, facing up, as well. "I've had a little discussion with her this morning, and she promised me that she would try to antagonize people less from now on, but a lot of harm has already been done. Kate, at least, doesn't seem to trust her at all. I'm not sure about the others, but it's pretty clear that aside from Flower, nobody is really trying to be her friend."
 
 "I know," Hadrik says. "That's why I tried to arrange that card game before we went to sleep. I was hoping that maybe if they all got to talk to each other more, they'd reach some kind of understanding. I haven't had any luck so far, though."
@@ -956,8 +952,8 @@ So, the question here is... Did he place down a good card? Or a bad card?
 So, the question here is... Did he place down a good card? Or a bad card?
 
 }
-choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0 || v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3 || v_b2_ch9_amused == 1)
-choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0) if (v_b2_ch8_energizer == 1 && v_b2_ch9_amused == 0 || v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 2 || v_b2_ch8_energizer == 3 || v_b2_ch9_amused == 1)
+choice("Tell him to turn his card face up", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 1)
+choice("Let the round continue normally", B2-Ch09b-Conversation, v_current_scene = B2-Ch09b-Conversation, v_b2_ch9_flip = 0)
 
 
 ID: B2-Ch09b-Conversation
@@ -965,7 +961,7 @@ TEXT:
 
 set(v_ac_b2_ch9_cards,1) if (v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1)
 achievement("Master of cards",v_ac_b2_ch9_cards)
-#if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1) {
+#if(v_b2_ch9_flip == 1) {
  "Flip your card, Hadrik," I tell him.
 
 Hadrik grins at me, and he turns his card face up. Apparently, the card he placed down was one of the worst cards he could have had in this situation. Not only did he lose the round, but he did so in a spectacular fashion. I'm almost wondering if he wasn't just looking for an excuse to have another drink from his bottle.
@@ -1027,7 +1023,7 @@ Huh... Well, I guess there's a first time for everything.
 "Congratulations on winning a Met-Zek match for the first time, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
 
 }
-#if(v_b2_ch9_drink == 0 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1) {
+#if(v_b2_ch9_drink == 1 || v_b2_ch9_flip == 0) {
  "But how are we going to convince them to get along with Melindra otherwise?" Hadrik says.
 
 "I don't know," I say. "But it most certainly won't be through talking. Let's be serious, here. If simply having a conversation would have been enough to get this whole situation fixed, we wouldn't be where we are now. It's through her actions that Melindra needs to earn the team's trust, not through words. I doubt that anything you and I could say at this point would make much of a difference."
@@ -1037,7 +1033,7 @@ As I finish talking, I take a look towards the cards that I have on the ground, 
 "Congratulations on winning the round, Barry!" Hadrik says, as I can see the sun slowly rising behind him. "Now, I think we should be taking a bit of a break, in order to greet our new guest properly. He will be reaching us shortly."
 
 }
-choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending) if (v_b2_ch9_drink == 0 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 0 && v_b2_ch9_flip == 1 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 0 || v_b2_ch9_drink == 1 && v_b2_ch9_flip == 1)
+choice("Continue", B2-Ch09b-Ending, v_current_scene = B2-Ch09b-Ending)
 
 
 ID: B2-Ch09b-Ending
@@ -1075,4 +1071,4 @@ Tap the button below to proceed.
 Tap the button below to proceed.
 
 }
-choice("Go to next chapter", B2-Ch10a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch10a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

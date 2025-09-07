@@ -151,9 +151,9 @@ Great. I'm wondering if he plans to blow my cover to every single person we meet
 "Is that what he told you?" the woman asks. "And you believe him? He's just trying to get you to lower your guard!" 
 
 }
-choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against) if (v_ch1_stillwater == 1 || v_ch1_stillwater == 2)
-choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust) if (v_ch1_stillwater == 1 || v_ch1_stillwater == 2)
-choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick) if (v_ch1_stillwater == 1 || v_ch1_stillwater == 2)
+choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against)
+choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust)
+choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick)
 
 
 ID: Ch2-Against
@@ -384,9 +384,9 @@ ID: Ch2-Battle-stillwater
 TEXT:
 
 set(v_ac_ch2_nails,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness < 3 || v_premonition > 0)
 set(v_ch2_toughness_happened,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 set(v_is_dead,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 achievement("Tough as nails",v_ac_ch2_nails)
 #if(v_premonition > 0) {
@@ -425,7 +425,7 @@ She lowers her left arm to reveal her face, as she looks straight at the mage wi
 "Make up your mind!" she shouts, as the whole forest falls silent from the sound of her voice. 
 
 }
-#if(v_premonition == 0 && v_reflexes == 0 && v_toughness > 2) {
+#if(v_premonition == 0 && v_reflexes == 0 && v_toughness >= 3) {
 
 The young mage slashes his dagger towards my neck. The slash is too fast for me to dodge, but when it hits my neck, it doesn't quite manage to cut through my skin, only drawing a bit of blood instead. The mage looks at his dagger, surprised, and then immediately kicks me hard in the chest, knocking me flat on my back.
 
@@ -451,7 +451,7 @@ The young mage slashes his dagger towards my neck. The slash is too fast for me 
 The last thing I see is Daren trying in vain to heal my wound, as my consciousness slowly fades away.
 
 }
-choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_is_dead == 0 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_is_dead == 1 && v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load game", , , special:saves) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
@@ -584,7 +584,7 @@ Terrified, the young mage with the dagger tries to teleport into the forest to g
 It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
 
 }
-#if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2) {
+#if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness >= 3) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
 
@@ -594,16 +594,8 @@ To both me and the mage's surprise , the blade doesn't quite manage to cut throu
 
 "Boy, what do you think you're doing? Stop fooling around and finish him! He's just an ordinary human!" shouts the mage with the battleaxe.
 
-Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
-
-"No!" shouts the older mage when he sees what happened to his eldest son. Taking his eyes off his opponent was a fatal mistake. Daren didn't waste his chance, and drove his blade right through the man's chest, his enchanted weapon cutting through the mage's heavy armor like a knife through butter. The bearded mage gave out one last gurgle, before he drowned in his own blood. 
-
-Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which killed him instantly.
-
-It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
-
 }
-#if(v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness > 2) {
+#if(v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness >= 3) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
 
@@ -627,6 +619,16 @@ His dagger slits my throat right open. I desperately try to stop the flow of blo
 "Barry!" I hear Daren scream in the distance.
 
 The last thing I see is the mage's dagger descending towards me as he lands the finishing blow.
+
+}
+#if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2) {
+Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
+
+"No!" shouts the older mage when he sees what happened to his eldest son. Taking his eyes off his opponent was a fatal mistake. Daren didn't waste his chance, and drove his blade right through the man's chest, his enchanted weapon cutting through the mage's heavy armor like a knife through butter. The bearded mage gave out one last gurgle, before he drowned in his own blood. 
+
+Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which killed him instantly.
+
+It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
 
 }
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_agility == 0 && v_reflexes > 0 || v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2 || v_agility > 0)
@@ -683,7 +685,7 @@ Terrified, the young mage with the dagger tries to teleport into the forest to g
 It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
 
 }
-#if(v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2) {
+#if(v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness >= 3) {
 
 Once I'm far enough away from Daren and his opponent, I turn back towards the mage with the dagger and assume my fighting stance. As the mage teleports behind me again, I attempt to disarm him. I fail to grab his arm, however, and his knife reaches my neck.
 
@@ -693,14 +695,8 @@ To both me and the mage's surprise , the blade doesn't quite manage to cut throu
 
 Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
 
-"No!" shouts the older mage when he sees what happened to his eldest son. Taking his eyes off his opponent was a fatal mistake. Daren didn't waste his chance, and drove his blade right through the man's chest, his enchanted weapon cutting through the mage's heavy armor like a knife through butter. The bearded mage gave out one last gurgle, before he drowned in his own blood. 
-
-Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which kills him instantly.
-
-It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
-
 }
-#if(v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness > 2) {
+#if(v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness >= 3) {
 
 Once I'm far enough away from Daren and his opponent, I turn back towards the mage with the dagger and assume my fighting stance. As the mage teleports behind me again, I attempt to disarm him. I fail to grab his arm, however, and his knife reaches my neck.
 
@@ -720,6 +716,14 @@ His dagger slits my throat right open. I desperately try to stop the flow of blo
 "Barry!" I hear Daren scream in the distance.
 
 The last thing I see is the mage's dagger descending towards me as he lands the finishing blow.
+
+}
+#if(v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2) {
+"No!" shouts the older mage when he sees what happened to his eldest son. Taking his eyes off his opponent was a fatal mistake. Daren didn't waste his chance, and drove his blade right through the man's chest, his enchanted weapon cutting through the mage's heavy armor like a knife through butter. The bearded mage gave out one last gurgle, before he drowned in his own blood. 
+
+Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which kills him instantly.
+
+It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
 
 }
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2 || v_combat_technique > 0)

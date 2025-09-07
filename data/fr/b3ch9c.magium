@@ -331,7 +331,6 @@ Okay, so that must have earned me a few seconds of thinking, at least. Let's see
 As I look all around me to see what the situation on the battlefield is, different thoughts are racing through my head at a very high speed. How do I deal with this? Can I dispel disintegration? No, no, no, these beams that the drones are shooting at us are completely black. It's like they're swallowing up all of the light around them. I don't think this kind of an effect can even be achieved on the earthen plane. I've read tons of articles from scholars that have researched disintegration in the past, and most of them agreed that such a spell should only be possible in ideal environments that cannot be created on a material plane of existence.
 
 }
-#if(v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3) {
  But what about the theory behind this spell? Wasn't there some kind of weakness that I could exploit? There were so many details written in those articles... There had to have been something that I can make use of. If only I could remember!
 
 While I am racking my brain, trying to find a solution, I notice Peter doing something very peculiar in the background. Unlike the rest of us who are mostly either trying to evade the drones' attacks or attempting to destroy them, Peter seems to be more focused on the disintegrating beams themselves. He appears to be waiting for the exact time when a drone attacks him, and then he tries to place a ball of fire in front of the pitch black beam, as he moves to the side to avoid getting hit.
@@ -348,8 +347,7 @@ When I realize what he is doing, my brain is immediately flooded by a swarm of i
 
 "The one thing that all the scholars agreed on when talking about disintegration was that auras are by far the most resistant to it," I say. "We've already seen how well the king of the underground's hardened aura barrier could withstand that shockwave from before, and we also have Flower, who is an ethereal and a fire elementalist, so she would be the perfect candidate for an experiment like this, thanks to the huge amount of control that she has over her flames. If you and I can keep the other drones away from them in the meantime, they might just be able to pull it off, but we need to hurry!"
 
-}
-choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible) if (v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
+choice("Continue", B3-Ch09c-Feasible, v_current_scene = B3-Ch09c-Feasible)
 
 
 ID: B3-Ch09c-Feasible
@@ -462,9 +460,9 @@ Not long after I stop talking, the necks begin to regenerate very fast, but inst
 The last thing I get to experience is my ethereal body getting melted by acid saliva, as one of the green hydra heads swallows me whole, and then I lose my consciousness completely.
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
-choice("Load game", , , special:saves) if (v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
 
 
 ID: B3-Ch09c-Frantically
@@ -540,7 +538,6 @@ Suddenly, out of nowhere, a very long spinning blade comes flying straight for t
 "Ah, crap..." I say, as the hydra is now frantically turning all of its fourteen heads around, trying to figure out which one of us attacked it.
 
 }
-#if(v_b3_ch9_hydra == 0 || v_b3_ch9_hydra == 1 || v_b3_ch9_hydra == 2) {
  Shortly after I stop talking, I begin to feel one of the most eerie and hard to describe sensations that I've ever experienced in my life. The feeling that I'm getting is as if my consciousness is being repeatedly thrust through a tunnel, back and forth, and it can't seem to decide at which end of the tunnel its destination is. 
 
 As this is happening, I'm finding myself for one second lying face-first in a puddle on a street, during a storm, and for the next second I'm back here on the ethereal plane, floating in the middle of the sea of light. After being thrown around between the earthen and ethereal plane a few more times, I can sense all of the light around me connecting directly to my mind, and then I begin to hear some very clear thoughts in my head, as if they were my own, even though I am positive that I'm not the one thinking them.
@@ -551,8 +548,7 @@ As this is happening, I'm finding myself for one second lying face-first in a pu
 
 "I'm... not sure..." Peter says, as he is looking towards the king, with a somewhat fearful look in his eyes.
 
-}
-choice("Continue", B3-Ch09c-Conducted, v_current_scene = B3-Ch09c-Conducted, v_b3_ch3_stats_unavailable = 0) if (v_b3_ch9_hydra == 0 || v_b3_ch9_hydra == 1 || v_b3_ch9_hydra == 2)
+choice("Continue", B3-Ch09c-Conducted, v_current_scene = B3-Ch09c-Conducted, v_b3_ch3_stats_unavailable = 0)
 
 
 ID: B3-Ch09c-Conducted
@@ -683,16 +679,14 @@ She then gets surrounded by a bright light once again, and a few seconds later, 
 She then gets surrounded by a bright light once again, and a few seconds later, she teleports away.
 
 }
-#if(v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1) {
  Now that Flower left, I decide to take a good look around me in both planes of existence, to see what the situation is at the moment. 
 
 From what I can tell, it seems like the Overseer is currently too preoccupied with what's going on in Ollendor to pay attention to us on the ethereal plane, and it shows, because the hydra has barely done anything noteworthy in the past minute except for using its breath attacks against us a few times.
 
 Meanwhile, on the earthen plane, one of the metal golems has gained a significant advance on the other four, and it will very soon get close enough to shoot its fire beam at us. If Hadrik doesn't wake up soon, we might be in trouble.
 
-}
-choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
-choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
+choice("Attack the Overseer on the ethereal plane, while he's distracted.", B3-Ch09c-Distracted, v_current_scene = B3-Ch09c-Distracted, v_ac_b3_ch9_consolation = +1)
+choice("Fly towards the metal golem and keep it distracted until Hadrik wakes up.", B3-Ch09c-Upwards, v_current_scene = B3-Ch09c-Upwards)
 
 
 ID: B3-Ch09c-Distracted
@@ -734,9 +728,9 @@ As I am struggling to shake off the hydra, the metal golem on the earthen plane 
 As I am struggling to shake off the hydra, the metal golem on the earthen plane finally gets close enough to attack us and it shoots a huge fire beam out of its mouth, which is so powerful that it burns through my hardened aura easily and it incinerates me in an instant. 
 
 }
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_aura_hardening == 0 || v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3 || v_aura_hardening > 0)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_aura_hardening == 0 || v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3 || v_aura_hardening > 0)
-choice("Load game", , , special:saves) if (v_aura_hardening == 0 || v_b3_ch9_element == 0 || v_b3_ch9_element == 1 || v_b3_ch9_element == 2 || v_b3_ch9_element == 3 || v_aura_hardening > 0)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
 
 
 ID: B3-Ch09c-Upwards
@@ -815,7 +809,7 @@ As I manage to very narrowly evade another fire beam, I suddenly realize that th
 After we repeat these exact same motions a few more times, the golem begins to just stand there, without doing anything, probably because it's trying to understand why its flawless path prediction algorithm is no longer working as intended. This staring contest between us continues for a while longer, until I see a small but familiar shape on the ground approaching the golem at a breathtaking speed.
 
 }
-#if(v_aura_hardening == 0 && v_b3_ch9_currents == 1 && v_perception < 3 || v_b3_ch9_currents == 1 && v_reflexes >= 3 && v_perception < 3 || v_b3_ch9_currents == 1 && v_aura_hardening > 0 && v_perception < 3) {
+#if(v_b3_ch9_currents == 1 && v_aura_hardening >= 0 && v_perception < 3 || v_b3_ch9_currents == 1 && v_reflexes >= 3 && v_perception < 3) {
  
 
 I begin to focus my consciousness on the earthen plane and I raise my arms up, causing Melindra's air currents to activate themselves and to propel me upwards.
@@ -885,7 +879,7 @@ Will I be fast enough to dodge every one of its attacks? And what about the limi
 It does not take me long to find out the answer to my question, because the next fire beam is finally accurate enough to hit me, and also powerful enough to burn through my hardened aura and incinerate me in an instant.
 
 }
-choice("Continue", B3-Ch09c-Holographic, v_current_scene = B3-Ch09c-Holographic) if (v_b3_ch9_currents == 1 && v_perception >= 3 || v_b3_ch9_currents == 1 && v_reflexes >= 3 || v_b3_ch9_currents == 0)
+choice("Continue", B3-Ch09c-Holographic, v_current_scene = B3-Ch09c-Holographic) if (v_b3_ch9_currents == 0 || v_perception >= 3 || v_reflexes >= 3)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_aura_hardening == 0 && v_b3_ch9_currents == 1 && v_perception < 3 && v_reflexes < 3 || v_b3_ch9_currents == 1 && v_aura_hardening > 0 && v_perception < 3 && v_reflexes < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_aura_hardening == 0 && v_b3_ch9_currents == 1 && v_perception < 3 && v_reflexes < 3 || v_b3_ch9_currents == 1 && v_aura_hardening > 0 && v_perception < 3 && v_reflexes < 3)
 choice("Load game", , , special:saves) if (v_aura_hardening == 0 && v_b3_ch9_currents == 1 && v_perception < 3 && v_reflexes < 3 || v_b3_ch9_currents == 1 && v_aura_hardening > 0 && v_perception < 3 && v_reflexes < 3)
@@ -978,7 +972,6 @@ choice("Continue", B3-Ch09c-Pillars, v_current_scene = B3-Ch09c-Pillars)
 ID: B3-Ch09c-Pillars
 TEXT:
 
-#if(v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1) {
  As Peter and I look at each other from a distance, it takes only a few moments for us to figure out that we are both thinking the same thing, so we both nod curtly and then we hurry up to get into position for casting a grand-scale spell of the likes that the ethereal realm has probably never seen before.
 
 There is only one way to definitively paralyze a monster of this size, and every person who has ever aimed to become a generalist should know of it. It is one of sage Drakesbane's favorite spells, and I heard that he routinely uses it whenever he goes on his dragon hunts. Neither me nor Peter could ever dream of casting such a complex spell by ourselves, but if we were to work together and synchronize ourselves perfectly, it might just be worth a shot...
@@ -999,7 +992,6 @@ The hydra now tries to breathe flames at the semi-transparent walls of its enclo
 
 "Hahaha... That's not the way to get out of an aura prison, you stupid creature," the king of the underground says, as he almost breaks out in a fit of laughter while watching the hydra squirm in pain.
 
-}
 #if(v_b3_ch9_hadrik == 1) {
  While I am busy setting up the pillars on the ethereal plane, I also make sure to blink from time to time, so that I can switch my perspective to the earthen plane and position myself in a place where the golems can't shoot at me without risking to destroy each other. After I change my location a few times, I suddenly realize that I may have run out of places to hide from all four golems, and that I might be forced to dodge all of their attacks very soon.
 
@@ -1062,7 +1054,6 @@ TEXT:
 set(v_ac_b3_ch9_consolation,+1) if (v_b3_ch9_currents == 0 && v_is_dead == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_is_dead == 0 && v_reflexes < 4)
 set(v_is_dead,1) if (v_b3_ch9_currents == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_reflexes < 4)
 set(v_is_dead,0) if (v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_b3_ch9_currents == 1 && v_reflexes >= 4)
-#if(v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) {
  
 
 "I don't think your shield can hold against four fire beams all at once," I say. "Maybe it would be better if we each fought two golems. I'll try to lure the two on the right. You try seeing if you can catch the attention of the ones on the left."
@@ -1079,7 +1070,6 @@ Once I blink and switch my main focus to the other plane of existence, I quickly
 
 To my shock, it seems that one of the golems has finally decided that getting rid of me is worth destroying one of its brethren, and it opens fire on me with no warning.
 
-}
 #if(v_b3_ch9_currents == 0 && v_reflexes < 2) {
  Unfortunately, the time it took me to switch back my focus to the earthen plane and to dash away was not enough for me to escape the beam, and the flames burnt me to ashes in a matter of seconds.
 
@@ -1088,7 +1078,7 @@ To my shock, it seems that one of the golems has finally decided that getting ri
  Unfortunately, the time it took me to switch back my focus to the earthen plane and to dash away was not enough for me to escape the beam, especially considering how unresponsive my currents are, and the flames burnt me to ashes in a matter of seconds.
 
 }
-#if(v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_b3_ch9_currents == 1 && v_reflexes >= 4) {
+#if(v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_reflexes >= 4) {
  I would've probably been dead if not for my quick reaction time, but I managed to switch my focus back to the earthen plane and to get out of the way just in time to see the golem behind me getting absolutely destroyed by the beam of its comrade-in-arms. The metal giant that attacked me seems to now be regretting its decision, because it is keeping its head down, without making any more movements, as if it were mourning its deceased partner.
 
 This momentary pause gives me the opportunity to go place the final pillar that was needed for the paralysis spell to function in the ethereal plane, and as soon as I'm done, I give the 'okay' signal to Peter so that we can commence our simultaneous casting.
@@ -1122,7 +1112,6 @@ TEXT:
 set(v_ac_b3_ch9_consolation,+1) if (v_b3_ch9_currents == 0 && v_is_dead == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_is_dead == 0 && v_reflexes < 4)
 set(v_is_dead,1) if (v_b3_ch9_currents == 0 && v_reflexes < 2 || v_b3_ch9_currents == 1 && v_reflexes < 4)
 set(v_is_dead,0) if (v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_b3_ch9_currents == 1 && v_reflexes >= 4)
-#if(v_b3_ch9_currents == 0 || v_b3_ch9_currents == 1) {
  
 
 I might not be able to hide myself from all four golems at once, but I can still make sure that at least two of them won't attack me as long as I place myself between them.
@@ -1133,7 +1122,6 @@ I blink my eyes in order to switch back to the ethereal plane, and I create anot
 
 To my shock, it seems that one of the two golems between which I've positioned myself decided that getting rid of me is worth destroying one of its brethren, and it opens fire on me with no warning.
 
-}
 #if(v_b3_ch9_currents == 0 && v_reflexes < 2) {
  Unfortunately, the time it took me to switch back my focus to the earthen plane and to dash away was not enough for me to escape the beam, and the flames burnt me to ashes in a matter of seconds.
 
@@ -1142,7 +1130,7 @@ To my shock, it seems that one of the two golems between which I've positioned m
  Unfortunately, the time it took me to switch back my focus to the earthen plane and to dash away was not enough for me to escape the beam, especially considering how unresponsive my currents are, and the flames burnt me to ashes in a matter of seconds.
 
 }
-#if(v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_b3_ch9_currents == 1 && v_reflexes >= 4) {
+#if(v_b3_ch9_currents == 0 && v_reflexes >= 2 || v_reflexes >= 4) {
  I would've probably been dead if not for my quick reaction time, but I managed to switch my focus back to the earthen plane and to get out of the way just in time to see the golem behind me getting absolutely destroyed by the beam of its comrade-in-arms. The metal giant that attacked me seems to now be regretting its decision, because it is keeping its head down, without making any more movements, as if it were mourning its deceased partner.
 
 This momentary pause gives me the opportunity to go place the final pillar that was needed for the paralysis spell to function in the ethereal plane, and as soon as I'm done, I give the 'okay' signal to Peter so that we can commence our simultaneous casting.
@@ -1231,7 +1219,6 @@ TEXT:
 
 set(v_ac_b3_ch9_trinkets,1) if (v_b3_ch9_cover == 1 && v_b3_ch9_currents == 0)
 achievement("No need for trinkets",v_ac_b3_ch9_trinkets)
-#if(v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1) {
  "How did I know what?" I say.
 
 "That the hydra was about to hit us with a sonic attack," Peter answers me. "How did you figure it out?"
@@ -1254,7 +1241,6 @@ Once more the Overseer gets interrupted, and when he starts speaking again, his 
 
 "Most likely, yes," the king of the underground says. "But it doesn't matter. Look at what's happening on the earthen plane. The drones are dropping like flies from the sky. The giant golems have all fallen to the ground. The Overseer has lost all control over his minions. He is no longer a threat to us."
 
-}
 #if(v_b3_ch9_hadrik == 0) {
  "Really?" I ask the king, as I begin to control my body from the earthen plane like a puppet in order to fly it back to the plaza, while signalling Daren to follow me. "You're not at all worried about that ominous warning that he gave us before he disappeared? Not even a little bit?"
 
@@ -1275,7 +1261,7 @@ All of a sudden, we hear Flower teleporting back to us and then we get to see th
 "Guys, I'm so sorry that I couldn't get back here sooner," Flower says. "I got a really nasty headache because I teleported too many times in a row over large distances and I was worried that I might mess up your fight. I didn't even imagine that you'd beat them so fast! How did you even do it?"
 
 }
-choice("Continue", B3-Ch09c-Indebted, v_current_scene = B3-Ch09c-Indebted) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
+choice("Continue", B3-Ch09c-Indebted, v_current_scene = B3-Ch09c-Indebted)
 
 
 ID: B3-Ch09c-Indebted
@@ -1402,7 +1388,6 @@ choice("Continue", B3-Ch09c-Ingenuity, v_current_scene = B3-Ch09c-Ingenuity)
 ID: B3-Ch09c-Ingenuity
 TEXT:
 
-#if(v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1) {
  "Okay, Flower has calmed down for now," Illuna says. "What were we talking about again? Oh right, the darkness. Well, there's not much to say about it, really. Darkness is the absence of light. The light from the ethereal plane is the ether itself. The ether was the one attacking you, so Flower decided to teleport you in the only place where you'd be truly safe from it. However, the only way to get yourself out of the ethereal abyss is by imagining a place very clearly in your head, and being firmly convinced that you can transport yourself there through your own powers. Seeing that you were no longer breathing on the earthen plane, I assumed that you had failed at your task, so I had to get a little creative."
 
 She then holds out her palm and conjures a floating sphere of water above it, hinting that she was the reason why the water that I was drenched in was three times colder than the rain drops from the storm.
@@ -1421,7 +1406,6 @@ She then holds out her palm and conjures a floating sphere of water above it, hi
 
 "Yes..." I say. "That's what I'm afraid of..."
 
-}
 #if(v_b3_ch9_hadrik == 0) {
  "Flower is... fine," Illuna says. "For now, at least. I'm not entirely certain, but it's possible that her recent transformation is shielding her from the ether in some way. It is a little hard to speculate without knowing any more details about this new form of hers. Anyway, I'll be right back."
 
@@ -1450,7 +1434,7 @@ As I continue to walk around the plaza, I see Peter and the king of the undergro
 "I see that you've made it out of there alive," I tell Peter and the king. "Does this mean that you both reached your sanctuaries in time?"
 
 }
-choice("Continue", B3-Ch09c-Stories, v_current_scene = B3-Ch09c-Stories) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
+choice("Continue", B3-Ch09c-Stories, v_current_scene = B3-Ch09c-Stories)
 
 
 ID: B3-Ch09c-Stories
@@ -1478,7 +1462,6 @@ He pauses.
 "Either way, this is likely going to take a while," Peter continues. "You people have already helped enough and deserve some rest. As soon as your whole group is awake, we'll talk to Breynan so he can teleport you back to the underground base. I'm pretty sure that he should still be waiting for us in the teleporter room."
 
 }
-#if(v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1) {
  "What about you two?" I ask Peter and the king. "Won't you be coming back with us?"
 
 "We will stay here for a while longer to guard our unconscious comrades," Peter says. "Just to be safe. You never know what enemies might be lurking just around the corner."
@@ -1495,8 +1478,7 @@ He then pulls out some bottles from his backpack like he said he would, and he h
 
 "Sure, no problem!" Hadrik says, as he puts Peter and the king's bottles back in his backpack. "So, anyway, where was I? Oh yeah, I was gonna start from the beginning. Let me tell you what happened right after I reached the door to the Overseer's secret base. Man, you guys are going to love this!"
 
-}
-choice("Continue", B3-Ch09c-Ending, v_current_scene = B3-Ch09c-Ending) if (v_b3_ch9_hadrik == 0 || v_b3_ch9_hadrik == 1)
+choice("Continue", B3-Ch09c-Ending, v_current_scene = B3-Ch09c-Ending)
 
 
 ID: B3-Ch09c-Ending
@@ -1560,4 +1542,4 @@ However, instead of sending a green-eyed drone to talk to Barry and his team, th
 Reluctantly, Barry and the others started heading towards the Ollendor castle, so that they could have one last discussion with the Overseer about his plans of ruling the city, now that the rebels no longer posed a problem for him.
 
 }
-choice("Proceed to next chapter", B3-Ch10a-Intro, v_current_scene = B3-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_b3_ch8_overseer2 == 0 || v_b3_ch8_overseer2 == 1)
+choice("Proceed to next chapter", B3-Ch10a-Intro, v_current_scene = B3-Ch10a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
