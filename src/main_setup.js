@@ -464,7 +464,7 @@ expressApp.get("/achievements/book/:id", (req, res) => {
 });
 
 expressApp.get(
-    "/achievements/book/(:idBook)/chapter/(:idChapter)",
+    "/achievements/book/:idBook/chapter/:idChapter",
     (req, res) => {
         const data  = getLocaleData(achievementsData,req.cookies.locale);
         const callback = (r) =>
