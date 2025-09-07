@@ -119,7 +119,7 @@ As Daren shakes his arm up and down, trying to make the sword fall off his hand,
 "Umm... don't you guys think we should get moving?" Flower says. "We're not that far from the teleporter, and we've just been standing around ever since Daren began to test his new techniques..."
 
 }
-#if(v_b3_ch6_manipulators == 0 || v_b3_ch6_manipulators == 1) {
+#if(v_b3_ch6_manipulators != 2) {
  "Right, right," Daren says, in an unconvinced tone. "Rapidly drying glue. Well, here I go!"
 
 After a few seconds of concentration, Daren lets go of his sword to see if it drops to the ground or not. Instead of falling, the weapon stays firmly attached to his palm, and it continues to stay that way even as Daren shakes his hand repeatedly to test the durability of the 'glue'.
@@ -140,6 +140,8 @@ As Daren shakes his arm up and down, trying to make the sword fall off his hand,
 
 "Huh..." Daren says. "You might be on to something, there. Let's see if it works."
 
+}
+#if(v_b3_ch6_manipulators == 0 || v_b3_ch6_manipulators == 1) {
  He then extends his right arm in front of him with the palm facing downwards, and we see the sword slowly beginning to drop from his hand, as if it were still being held by an invisible gooey fluid, until it finally detaches itself completely and falls to the ground. 
 
 "Oh, now I get it!" Daren says, as he picks his sword back up. "The aura can't turn back to its original form directly. You need to undo the process by following the same steps in reverse. That's why I couldn't simply imagine the glue disappearing and had to turn it back into a liquid first!"
@@ -153,8 +155,8 @@ As Daren shakes his arm up and down, trying to make the sword fall off his hand,
 "Umm... don't you guys think we should get moving?" Flower says. "We're not that far from the teleporter, and we've just been standing around ever since Daren began to test his new techniques..."
 
 }
-choice("Continue", B3-Ch06a-Medicinal, v_current_scene = B3-Ch06a-Medicinal) if (v_b3_ch6_manipulators == 0 && v_ch11_saved_rose == 1 || v_b3_ch6_manipulators == 1 && v_ch11_saved_rose == 1 || v_b3_ch6_manipulators == 2 && v_ch11_saved_rose == 1)
-choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise) if (v_b3_ch6_manipulators == 0 && v_ch11_saved_rose == 0 || v_b3_ch6_manipulators == 1 && v_ch11_saved_rose == 0 || v_b3_ch6_manipulators == 2 && v_ch11_saved_rose == 0)
+choice("Continue", B3-Ch06a-Medicinal, v_current_scene = B3-Ch06a-Medicinal) if (v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise) if (v_ch11_saved_rose == 0)
 
 
 ID: B3-Ch06a-Medicinal
@@ -263,7 +265,7 @@ As promised, it does not take Rose longer than three minutes to come back to the
 "What do you think, Kelrim?" Daren says. "Is there any shop in Ollendor that would have all the ingredients we are looking for?"
 
 }
-choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise) if (v_b3_ch6_sleep == 0 || v_b3_ch6_sleep == 1)
+choice("Continue", B3-Ch06a-Merchandise, v_current_scene = B3-Ch06a-Merchandise)
 
 
 ID: B3-Ch06a-Merchandise
@@ -297,7 +299,6 @@ TEXT:
 "Let's get going, then," Melindra says. "And don't forget to suppress your auras before we teleport to the surface. I'm talking about suppressing them completely, not just hiding the magic from your auras, because otherwise you'll get easily detected by people with a keen enough magical sense. You can take a look at how Illuna is always doing it, if you want a clear example." 
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "Yeah, yeah," Hadrik says. "We got it."
 
 We walk for a few more minutes, until we finally reach the entrance to the teleporter room. Once we are inside, we see that the teleporting device is still being operated by the same guy from yesterday. Just like the king of the underground and Albert, the teleporter guy does not seem to have gotten much sleep last night.
@@ -314,8 +315,7 @@ We walk for a few more minutes, until we finally reach the entrance to the telep
 
  "Well, there were three of us Barrys in the same neighborhood when we were growing up," the teleporter guy says. "It was getting a bit difficult to tell who we were talking about when we were playing outside, so we decided to give each other nicknames. Unfortunately, being the brats that we were, we ended up giving each other the most insulting nicknames that we could possibly think of, and so our newly chosen designations quickly became useless, because none of us were stupid enough to respond when we were being called names like slowpoke, monobrow or fat face. That was when... when my little brother stepped in. He told us to stop fighting, and that he would make up some better nicknames for us which we would have no reason to refuse. He always was the voice of reason in our group. Even when we were little..."
 
-}
-choice("Continue", B3-Ch06a-Merchandise2, v_current_scene = B3-Ch06a-Merchandise2) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B3-Ch06a-Merchandise2, v_current_scene = B3-Ch06a-Merchandise2)
 
 
 ID: B3-Ch06a-Merchandise2
@@ -365,7 +365,7 @@ choice(""It doesn't matter if he used to be called slowpoke or not. Nobody is go
 ID: B3-Ch06a-Slowpoke
 TEXT:
 
-set(v_b3_ch6_concealed,0) if (v_b3_ch6_slowpoke == 0 || v_b3_ch6_slowpoke == 1 || v_b3_ch6_slowpoke == 2 || v_bluff < 3)
+set(v_b3_ch6_concealed,0) if (v_bluff < 3)
 set(v_b3_ch6_concealed,1) if (v_bluff >= 3)
 #if(v_b3_ch6_slowpoke == 0) {
  
@@ -489,8 +489,9 @@ Now that Leila mentions it, I realize that most of the shopkeepers we've passed 
 
 As we all look up at the sky, we see a green-eyed drone slowly making its way down towards us.    
 
-choice("Continue", B3-Ch06a-Helpful, v_current_scene = B3-Ch06a-Helpful) if (v_b3_ch4_billy == 0 && v_ch11_saved_rose == 0 || v_b3_ch4_billy == 9)
-choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8 || v_b3_ch4_billy != 0)
+choice("Continue", B3-Ch06a-Mercy, v_current_scene = B3-Ch06a-Mercy) if (v_b3_ch4_billy == 9)
+choice("Continue", B3-Ch06a-Helpful, v_current_scene = B3-Ch06a-Helpful) if (v_b3_ch4_billy == 0 && v_ch11_saved_rose == 0 || v_b3_ch4_billy <= 6 && v_b3_ch4_billy != 0)
+choice("Continue", B3-Ch06a-Processing, v_current_scene = B3-Ch06a-Processing) if (v_b3_ch4_billy == 7 || v_b3_ch4_billy == 8)
 choice("Continue", B3-Ch06a-Complaint, v_current_scene = B3-Ch06a-Complaint) if (v_b3_ch4_billy == 0 && v_ch11_saved_rose == 1)
 
 
@@ -525,7 +526,6 @@ choice(""How exactly are you planning to kill us when you can't even move your d
 ID: B3-Ch06a-Maintenance
 TEXT:
 
-set(v_b3_ch6_betrayed,0) if (v_b3_ch6_betrayed == 1 && v_bluff < 4 || v_b3_ch6_betrayed == 0 || v_b3_ch6_betrayed == 2 || v_b3_ch6_betrayed == 3)
 set(v_b3_ch6_betrayed,3) if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)
 #if(v_b3_ch6_betrayed == 0) {
  "Actually, I think you should study this phenomenon right now and let us be on our way."
@@ -560,12 +560,6 @@ set(v_b3_ch6_betrayed,3) if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)
 
 "Due to lack of any additional information, the Overseer will have to revisit all of the existing pieces of evidence in order to make sense of this illogical string of events," the Overseer says. "Please be patient. This may take some time."
 
- "Hey, there's no need to hurry on our account," I say. "Take as much time as you want! If you ever need us again, you know how to find us. Let's go, everyone."
-
-"Do you think this will be enough to keep the Overseer out of our hair?" Leila writes, as we move away from the green-eyed drone.
-
-"I don't know, but at the very least it should delay him for a while," I say. "Hopefully, it will give us enough time to buy the herbs we need and teleport back to the rebel base."
-
 }
 #if(v_b3_ch6_betrayed == 2) {
  "How exactly are you planning to kill us when you can't even move your drones?"
@@ -583,7 +577,15 @@ set(v_b3_ch6_betrayed,3) if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)
 "Okay, that's it!" I say. "Let's just ignore him and walk away from here. I've heard enough from him for one day."
 
 }
-#if(v_b3_ch6_betrayed == 1 && v_bluff < 4 || v_b3_ch6_betrayed == 3 && v_bluff < 4 || v_b3_ch6_betrayed == 0 || v_b3_ch6_betrayed == 2) {
+#if(v_bluff >= 4 && v_b3_ch6_betrayed != 0 && v_b3_ch6_betrayed != 2) {
+ "Hey, there's no need to hurry on our account," I say. "Take as much time as you want! If you ever need us again, you know how to find us. Let's go, everyone."
+
+"Do you think this will be enough to keep the Overseer out of our hair?" Leila writes, as we move away from the green-eyed drone.
+
+"I don't know, but at the very least it should delay him for a while," I say. "Hopefully, it will give us enough time to buy the herbs we need and teleport back to the rebel base."
+
+}
+#if(v_b3_ch6_betrayed == 0 || v_b3_ch6_betrayed == 2 || v_bluff < 4) {
  "Do you think he's going to attack us?" Leila writes, as we move away from the green-eyed drone.
 
 "I don't think he can do that without going out of his 'maintenance mode', which would put him at risk of being deactivated by Billy Bob," I say. "The most he can do in his current situation is probably to alert the guards."
@@ -591,7 +593,6 @@ set(v_b3_ch6_betrayed,3) if (v_b3_ch6_betrayed == 1 && v_bluff >= 4)
 "If he tells the royal guards where we are, it's still going to be pretty bad for us," Daren says. "We'll have to try and get those herbs as quickly as possible."
 
 }
-#if(v_b3_ch6_betrayed == 0 || v_b3_ch6_betrayed == 1 || v_b3_ch6_betrayed == 2 || v_b3_ch6_betrayed == 3) {
  We continue to follow Kelrim and after a while we enter a small alleyway that leads us directly where we want to go. About forty seconds of walking later, we stop in front of a building that has a big sign on top of it saying 'Welcome to Pete's Herbal Shop. Best quality herbs in town. Now on sale!'
 
 "This is it," Kelrim says. "Let's go inside."
@@ -602,8 +603,7 @@ We walk through the door one by one, making sure to close it once we're all in. 
 
 The shopkeeper standing behind the counter does not seem to be scared of us or be apprehensive in any way, as opposed to the other store owners we've seen through the windows on our way here. In fact, he seems to be quite excited that he finally gets the chance to sell some of his merchandise, considering how empty the streets are right now. As Daren is getting ready to address the store owner, Hadrik beats him to the punch and starts talking in a loud tone as well, to match that of the shopkeeper.
 
-}
-choice("Continue", B3-Ch06a-Pete, v_current_scene = B3-Ch06a-Pete) if (v_b3_ch6_betrayed == 0 || v_b3_ch6_betrayed == 1 || v_b3_ch6_betrayed == 2 || v_b3_ch6_betrayed == 3)
+choice("Continue", B3-Ch06a-Pete, v_current_scene = B3-Ch06a-Pete)
 
 
 ID: B3-Ch06a-Helpful
@@ -774,7 +774,6 @@ ID: B3-Ch06a-Secret2
 TEXT:
 
 set(v_ac_b3_ch6_natural,1) if (v_b3_ch6_password == 2 && v_bluff >= 4 || v_b3_ch6_password == 3 && v_bluff >= 4)
-set(v_b3_ch6_password,0) if (v_b3_ch6_password == 2 && v_bluff < 4 || v_b3_ch6_password == 0 || v_b3_ch6_password == 1 || v_b3_ch6_password == 3)
 set(v_b3_ch6_password,3) if (v_b3_ch6_password == 2 && v_bluff >= 4)
 achievement("A natural liar",v_ac_b3_ch6_natural)
 #if(v_b3_ch6_password == 0) {
@@ -841,7 +840,7 @@ After a few more moments, there is a loud noise coming from above and then the s
 "There's no use trying to mask your aura, royal guard," Melindra says. "I can sense you hiding in that room behind the counter. How about you come out slowly, with your hands where we can see them, and nobody will have to get hurt?"
 
 }
-#if(v_b3_ch6_password == 2 && v_bluff < 4 || v_b3_ch6_password == 3 && v_bluff < 4 || v_b3_ch6_password == 0 || v_b3_ch6_password == 1) {
+#if(v_b3_ch6_password != 2 && v_b3_ch6_password != 3 || v_bluff < 4) {
  "Hey, even if he refuses to sell them to you, you could always just take the herbs and leave him the money on the counter," Hadrik says. "Technically, it would be the same as buying the herbs, but without all the hassle."
 
 "That just sounds like stealing with extra steps," Daren says.
@@ -854,6 +853,8 @@ After a few more moments, there is a loud noise coming from above and then the s
 
 He then readies his fist and he punches the wall with enough force to make it crumble to pieces in a matter of seconds. On the other side of the now shattered wall, an old man with a short gray beard behind a counter is looking at us too shocked to speak, while Hadrik is calmly dusting himself off.
 
+}
+#if(v_b3_ch6_password == 0 || v_b3_ch6_password == 1 || v_bluff < 4) {
  "In terms of durability, I'd give this wall a six out of ten," Hadrik says in an unimpressed tone. "Not too terrible, but not that great either. Hey, look, there really was a shop back here!"
 
 As Hadrik walks over the rubble and we move to follow him, we see that the room behind the crumbled wall is full of shelves containing many different varieties of herbs. There also seems to be a door on the other side of the room which likely leads into some kind of storage. As the shop owner is finally mustering up the courage to speak, I can't help but notice that the door to the storage room is slightly open.
@@ -863,7 +864,7 @@ As Hadrik walks over the rubble and we move to follow him, we see that the room 
 "There's no use trying to mask your aura, royal guard," Melindra says. "I can sense you hiding in that room behind the counter. How about you come out slowly, with your hands where we can see them, and nobody will have to get hurt?"
 
 }
-choice("Continue", B3-Ch06a-Secret3, v_current_scene = B3-Ch06a-Secret3) if (v_b3_ch6_password == 0 || v_b3_ch6_password == 1 || v_b3_ch6_password == 2 || v_b3_ch6_password == 3)
+choice("Continue", B3-Ch06a-Secret3, v_current_scene = B3-Ch06a-Secret3)
 
 
 ID: B3-Ch06a-Secret3
@@ -1032,8 +1033,8 @@ Once he starts climbing towards the surface, he bids us farewell and then he kee
 "Great," Daren says. "Well, now that everything is settled with Loyrang, we'd like to purchase a few herbs, if you don't mind."
 
 }
-choice("Continue", B3-Ch06a-Destroyed, v_current_scene = B3-Ch06a-Destroyed) if (v_b3_ch6_tie == 0 && v_b3_ch6_password != 3 || v_b3_ch6_tie == 1 && v_b3_ch6_password != 3)
-choice("Continue", B3-Ch06a-Bluffed, v_current_scene = B3-Ch06a-Bluffed) if (v_b3_ch6_password == 3 && v_b3_ch6_tie == 0 || v_b3_ch6_password == 3 && v_b3_ch6_tie == 1)
+choice("Continue", B3-Ch06a-Destroyed, v_current_scene = B3-Ch06a-Destroyed) if (v_b3_ch6_password != 3)
+choice("Continue", B3-Ch06a-Bluffed, v_current_scene = B3-Ch06a-Bluffed) if (v_b3_ch6_password == 3)
 
 
 ID: B3-Ch06a-Destroyed
@@ -1236,7 +1237,7 @@ choice("Suggest calling Rose on the transceiver so she can freeze time for thirt
 ID: B3-Ch06a-Hadrik-Plan
 TEXT:
 
-set(v_is_dead,0) if (v_b3_ch6_plan == 0 || v_b3_ch6_plan == 2 || v_is_dead == 1 || v_aura_hardening >= 2 || v_combat_technique >= 1)
+set(v_is_dead,0) if (v_aura_hardening >= 2 || v_combat_technique >= 1)
 set(v_is_dead,1) if (v_aura_hardening < 2 && v_combat_technique < 1)
 #if(v_b3_ch6_plan == 0 && v_combat_technique >= 1) {
  
@@ -1316,7 +1317,7 @@ Luckily for me, when the drone tries to shock me with an electric attack, my aur
 The drone shocks me with an electrical current, but my partial resistance to electricity due to being a half-lessathi isn't enough to protect me from the damage. It only takes a few more seconds until I lose my consciousness and then my heart slowly stops beating for good.
 
 }
-choice("Continue", B3-Ch06a-Entrance, v_current_scene = B3-Ch06a-Entrance) if (v_b3_ch6_plan == 0 || v_b3_ch6_plan == 2 || v_is_dead == 0 || v_is_dead == 1 || v_aura_hardening >= 2 || v_combat_technique >= 1)
+choice("Continue", B3-Ch06a-Entrance, v_current_scene = B3-Ch06a-Entrance) if (v_aura_hardening >= 2 || v_combat_technique >= 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_aura_hardening < 2 && v_combat_technique < 1)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_aura_hardening < 2 && v_combat_technique < 1)
 choice("Load game", , , special:saves) if (v_aura_hardening < 2 && v_combat_technique < 1)
@@ -1687,14 +1688,12 @@ Not long after I finish my conversation with the Overseer, Daren and the others 
 "Yeah," I say. "He told me that he received an order to make all his drones retreat. He wouldn't tell me why he was given that order when I asked him, though."
 
 }
-#if(v_b3_ch6_selected == 0 || v_b3_ch6_selected == 1 || v_b3_ch6_selected == 2 || v_b3_ch6_selected == 3) {
  "The drones were probably told to fall back so that they wouldn't interfere with the royal guards that have been sent to capture us," Melindra says. "I'm sensing a few of them heading towards us as we speak. I'm detecting Gontrok, the captain and some third guy who isn't a mage coming from one side, while the royal guard who didn't join the fight against us last time is coming this way from the opposite side, along with some mage that I don't recognize."
 
 "Then I'll have to call Barry so he can teleport us out of here right away," Daren says, as he quickly pulls out his transceiver.
 
 "Did you get everything you needed from the shop?" I ask him.
 
-}
 #if(v_b3_ch6_sleep == 1) {
  "Almost," Daren says. "We couldn't find any summerglow grass or crownwick herbs, but the shopkeeper gave us a replacement that will hopefully be just as good."
 
@@ -1707,7 +1706,7 @@ Not long after I finish my conversation with the Overseer, Daren and the others 
 "Hey, Barry, can you hear us?" Daren says into the transceiver after he taps it once.
 
 }
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_selected == 0 || v_b3_ch6_selected == 1 || v_b3_ch6_selected == 2 || v_b3_ch6_selected == 3 || v_b3_ch6_sleep == 0 || v_b3_ch6_sleep == 1)
+choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent)
 
 
 ID: B3-Ch06a-Pete
@@ -1757,7 +1756,7 @@ TEXT:
 "Sadly, I sold my last batch of crownwick herbs yesterday," Pete says.
 
 }
-#if(v_b3_ch6_sleep == 1 && v_ch11_saved_rose == 1 || v_ch11_saved_rose == 0) {
+#if(v_b3_ch6_sleep == 1 || v_ch11_saved_rose == 0) {
  "Would you by any chance happen to have any suitable replacements, then?" Daren says.
 
 "Replacements for summerglow grass?..." Pete says. "Well, I'm not exactly sure if it'll do the trick, but I could give you some crow's feet if you want. Not actual crow's feet, mind you... I'm talking about the plant that's named like this. It has similar effects to summerglow grass, but it's not exactly the same. Want to give it a try?"
@@ -1978,7 +1977,7 @@ TEXT:
 "Hey, Barry, can you hear us?" Daren says into the transceiver after he taps it once.
 
 }
-choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent) if (v_b3_ch6_sleep == 0 || v_b3_ch6_sleep == 1)
+choice("Continue", B3-Ch06a-Silent, v_current_scene = B3-Ch06a-Silent)
 
 
 ID: B3-Ch06a-Silent
@@ -2213,7 +2212,6 @@ TEXT:
 "I'm counting around six people that have been heading consistently in our direction since we left the shop," Melindra says. "The only ones I recognize are Gontrok and the captain. Three of the others are mages, and one of them appears to be a normal human, although he might be using lessathi devices as weapons."
 
 }
-#if(v_b3_ch6_secret == 0 || v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1) {
  "What about the guy in black robes who attacked you when you went to the surface last time?" Daren says. "Do you know where he is?"
 
 "No, I do not," Melindra says. "He was using a lot of lessathi artifacts, though, so I wouldn't put it past him to have a ring that would make him undetectable even for someone like me."
@@ -2238,8 +2236,7 @@ TEXT:
 
 "Well, at least this gives us the advantage of having enough time to position ourselves on the battlefield," Hadrik says. "This street is really wide and long, so it’s pretty much perfect for an all-out brawl!"
 
-}
-choice("Continue", B3-Ch06a-Confession, v_current_scene = B3-Ch06a-Confession) if (v_b3_ch6_secret == 0 || v_b3_ch6_tie == 0 || v_b3_ch6_tie == 1)
+choice("Continue", B3-Ch06a-Confession, v_current_scene = B3-Ch06a-Confession)
 
 
 ID: B3-Ch06a-Confession

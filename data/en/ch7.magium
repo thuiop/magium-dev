@@ -57,9 +57,9 @@ Kate doesn't let me finish my sentence and suddenly makes an ice dagger appear i
 "If you make any kind of noise, I will slit your throat here and now. Do you understand?"
 
 }
-choice(""Yes."", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice(""If you wanted to borrow some money from me, you could have just asked nicely."", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1) if (v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice(""Yes."", Ch7-Yes, v_current_scene = Ch7-Yes, v_checkpoint_rich = 0, v_ch7_tap = 0)
+choice(""If you wanted to borrow some money from me, you could have just asked nicely."", Ch7-Borrow, v_current_scene = Ch7-Borrow, v_checkpoint_rich = 0, v_ch7_tap = 0)
+choice("Tap the magical transceiver three times, without letting her notice.", Ch7-Tap, v_current_scene = Ch7-Tap, v_checkpoint_rich = 0, v_ch7_tap = 1)
 
 
 ID: Ch7-Yes
@@ -1453,8 +1453,8 @@ For a moment, her words confused me, but then I realized she must be trying to p
 "Hey, now, let's not get ahead of ourselves," he whispers to me. "Why should we risk our lives just because she refuses to get purified? We can't go on like this forever."
 
 }
-choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1) if (v_ch7_tap == 0 || v_ch7_tap == 1)
-choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0) if (v_ch7_tap == 0 || v_ch7_tap == 1)
+choice("Help Kate", Ch7-Help, v_current_scene = Ch7-Help, v_ch7_help_kate = 1)
+choice("Don't help Kate", Ch7-No-help, v_current_scene = Ch7-No-help, v_ch7_help_kate = 0)
 
 
 ID: Ch7-Help
@@ -1661,8 +1661,8 @@ His laugh is just as crazy as the look in his eyes. Daren does not say anything,
  "You're all just playing into his hands," says a mage in white robes and with long blond hair who appears to be some sort of a healer. "Stillwater or no, the fact remains that he hasn't cast any sort of spell since we laid eyes on him. Do you think that's a coincidence? No one can possibly fully replenish their magical energy in just over two hours after a fight with a dragon. He must be in a vulnerable state. Now is the best time to strike!"
 
 }
-choice(""Are you willing to bet your life on that, white mage?"", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1 || v_ch7_call_rose == 0)
-choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 1 || v_ch7_call_rose == 0)
+choice(""Are you willing to bet your life on that, white mage?"", Ch7-Bet-your-life, v_current_scene = Ch7-Bet-your-life, v_ch7_intimidate = 0)
+choice("Walk up to him casually and attempt to intimidate him", Ch7-Intimidate, v_current_scene = Ch7-Intimidate, v_ch7_intimidate = 1)
 
 
 ID: Ch7-Bet-your-life
@@ -2041,7 +2041,7 @@ The summoner mage is beyond himself with joy thanks to this latest turn of event
 "Aye! And I never expected that old saying about elves never leaving home without a stick up their arse to turn out to be true, either. It's a crazy world we're living in, I'll tell you that!"
 
 }
-choice("Continue", Ch7-Azarius-vs-summoner, v_current_scene = Ch7-Azarius-vs-summoner) if (v_ch7_intimidate == 0 || v_ch7_intimidate == 1)
+choice("Continue", Ch7-Azarius-vs-summoner, v_current_scene = Ch7-Azarius-vs-summoner)
 
 
 ID: Ch7-Azarius-vs-summoner
@@ -2218,7 +2218,7 @@ A mage who is wearing a silver circlet on his head and green robes grabs the nec
 "Unhand me, fool! I'm only travelling with you because my god ordered me to. Do not presume to tell me what to do! This matter has nothing to do with you or your God of Fate."
 
 }
-choice("Continue", Ch7-God-of-death, v_current_scene = Ch7-God-of-death) if (v_ch7_help_kate == 0 || v_ch7_help_kate == 1)
+choice("Continue", Ch7-God-of-death, v_current_scene = Ch7-God-of-death)
 
 
 ID: Ch7-God-of-death
@@ -2560,7 +2560,7 @@ choice("Refuse the challenge", Ch7-Refuse, v_current_scene = Ch7-Refuse)
 ID: Ch7-Accept
 TEXT:
 
-#if(v_ch7_call_rose == 1 && v_ch7_watch_fight == 0 || v_ch7_call_rose == 0) {
+#if(v_ch7_call_rose != 1 || v_ch7_watch_fight != 1) {
  "Sure, why not? I'll give it a shot."
 
 "Hah! That's the spirit!" Hadrik says.
@@ -2616,7 +2616,7 @@ The dwarf comes charging directly towards me, without bothering to use any evasi
 Instead of going for a punch, however, he attempts to prod me with his index finger. 
 
 }
-choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2) if (v_ch7_call_rose == 1 && v_ch7_watch_fight == 0 || v_ch7_call_rose == 1 && v_ch7_watch_fight == 1 || v_ch7_call_rose == 0)
+choice("Continue", Ch7-Accept2, v_current_scene = Ch7-Accept2)
 
 
 ID: Ch7-Accept2

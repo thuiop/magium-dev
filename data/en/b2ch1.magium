@@ -385,7 +385,7 @@ As we turn around, we see that the man who spoke is almost as tall as Daren, wit
 "Did these mean people upset you, my dear Suzie?" the man asks her.
 
 }
-choice("Continue", B2-Ch01a-Bottle, v_current_scene = B2-Ch01a-Bottle) if (v_b2_ch1_volunteer == 0 || v_b2_ch1_volunteer == 1)
+choice("Continue", B2-Ch01a-Bottle, v_current_scene = B2-Ch01a-Bottle)
 
 
 ID: B2-Ch01a-Bottle
@@ -719,7 +719,7 @@ Once we all said our goodbyes to Enrique and to Rose's siblings, we went on our 
 It took us a little less than two hours to reach the castle of Thilias from Rose's mansion. When we reached the front gates, Daren signaled the guards to let us through, and once they confirmed our identities, they opened the doors. We all step inside, slowly, as the gates slam shut behind us.
 
 }
-choice("Continue", B2-Ch01a-Hallway, v_current_scene = B2-Ch01a-Hallway) if (v_b2_ch1_truth == 0 || v_b2_ch1_truth == 1)
+choice("Continue", B2-Ch01a-Hallway, v_current_scene = B2-Ch01a-Hallway)
 
 
 ID: B2-Ch01a-Lover
@@ -1065,7 +1065,7 @@ Shortly after I stop talking, the girl takes out a brick from the wall, and then
 "Well, we did first meet her while she was doing morning exercises in some trap filled ruins," Hadrik says.
 
 }
-choice("Continue", B2-Ch01a-Bricks2, v_current_scene = B2-Ch01a-Bricks2) if (v_b2_ch1_puzzle2 == 0 || v_b2_ch1_puzzle2 == 1)
+choice("Continue", B2-Ch01a-Bricks2, v_current_scene = B2-Ch01a-Bricks2)
 
 
 ID: B2-Ch01a-Bricks2
@@ -1155,7 +1155,7 @@ After we make our way out of the dark room behind the wall, Flower pulls on the 
 "Spectacular," Daren says. "Now, let's get moving."
 
 }
-choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason) if (v_b2_ch1_puzzle2 == 0 || v_b2_ch1_puzzle2 == 1)
+choice("Continue", B2-Ch01a-Reason, v_current_scene = B2-Ch01a-Reason)
 
 
 ID: B2-Ch01a-Reason
@@ -1253,7 +1253,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 || v_b2_ch1_spin == 1)
+choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator)
 
 
 ID: B2-Ch01a-Value
@@ -1325,7 +1325,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 || v_b2_ch1_spin == 1)
+choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator)
 
 
 ID: B2-Ch01a-Innocent
@@ -1333,7 +1333,7 @@ TEXT:
 
 set(v_ac_b2_ch1_breed,1) if (v_b2_ch1_spin == 0)
 achievement("Half-breed",v_ac_b2_ch1_breed)
-#if(v_b2_ch1_spin == 0 && v_ch11_kill_noble == 1) {
+#if(v_b2_ch1_spin == 0 && v_ch11_kill_noble == 1 && v_ch11_saved_slave != 3) {
  "We didn't kill him! We're innocent!" 
 
 "Oh?" Golmyck says, while stroking his chin. "That's strange. Our reports show that it was you, specifically, who killed the earl of Ollendor. I would have thought that you'd know by now just how hard it is to hide information in my city. Why would you lie to us like this?"
@@ -1367,7 +1367,7 @@ As we all turn around, Eiden starts to walk slowly towards the ambassador, and h
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-#if(v_b2_ch1_spin == 1 && v_ch11_kill_noble == 1) {
+#if(v_b2_ch1_spin == 1 && v_ch11_kill_noble == 1 && v_ch11_saved_slave != 3) {
  "We didn't kill him! We're innocent!" 
 
 "Oh?" Golmyck says, while stroking his chin. "That's strange. Our reports show that it was you, specifically, who killed the earl of Ollendor. I would have thought that you'd know by now just how hard it is to hide information in my city. Why would you lie to us like this?"
@@ -1549,7 +1549,7 @@ Eiden looks at me, with his closed eyes and smiles. I only now realize that I mi
 "What's the matter, ambassador?" Eiden asks, with a smirk. "Aren't you going to bow before your Creator?"
 
 }
-choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator) if (v_b2_ch1_spin == 0 && v_ch11_kill_noble == 0 || v_b2_ch1_spin == 0 && v_ch11_kill_noble == 1 || v_b2_ch1_spin == 0 && v_ch11_saved_slave == 3 || v_b2_ch1_spin == 1 && v_ch11_kill_noble == 0 || v_b2_ch1_spin == 1 && v_ch11_kill_noble == 1 || v_b2_ch1_spin == 1 && v_ch11_saved_slave == 3)
+choice("Continue", B2-Ch01a-Creator, v_current_scene = B2-Ch01a-Creator)
 
 
 ID: B2-Ch01a-Creator
@@ -1589,6 +1589,7 @@ choice("Continue", B2-Ch01a-Creator2, v_current_scene = B2-Ch01a-Creator2)
 ID: B2-Ch01a-Creator2
 TEXT:
 
+#if(v_ch11_saved_slave == 3 || v_ch11_kill_noble != 0) {
  "Oh?" Eiden says, with an evil smile. "And what if I told you that I was in fact the one who gave them the ability to hurt the people of Varathia?"
 
 The ambassador is now sweating even harder than before, and he seems to be too afraid to give Eiden an answer. Seeing the expression on his face, Eiden starts to laugh.
@@ -1605,6 +1606,7 @@ The ambassador is now sweating even harder than before, and he seems to be too a
 
 "No..." the ambassador says. "No, of course not..."
 
+}
 #if(v_ch11_kill_noble == 0 && v_ch11_saved_slave != 3) {
  "Oh?" Eiden says, with an evil smile. "And what if I told you that I was in fact both the one who gave them the ability to hurt the people of Varathia, and the one who killed your beloved earl?"
 
@@ -1880,7 +1882,7 @@ He takes a few moments to clear his thoughts before he continues.
 "Very well, then," Golmyck says. "I will think about what you've said. We will continue this discussion further, once you return from the arena. After you manage to earn your freedom, you will need to stop by my castle again, in order to receive some documents which will prove that you've served your sentence for your crimes. While these documents will most likely not be needed in Thilias, they should help you deal with guards that might try to have you arrested in other cities, for the murder of the earl of Ollendor. Now, unless you have anything else to discuss with me, I will start writing on that letter of admission for the dwarf, and then you can be on your way."
 
 }
-choice("Continue", B2-Ch01a-Ending, v_current_scene = B2-Ch01a-Ending) if (v_b2_ch1_interfere == 0 || v_b2_ch1_interfere == 1)
+choice("Continue", B2-Ch01a-Ending, v_current_scene = B2-Ch01a-Ending)
 
 
 ID: B2-Ch01a-Ending
@@ -1922,4 +1924,4 @@ Press the button below to proceed to the next chapter.
 Press the button below to proceed to the next chapter.
 
 }
-choice("Go to next chapter", B2-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 || v_second_book_purchased == 1)
+choice("Go to next chapter", B2-Ch02a-Intro, v_next_chapter_crash = 1, v_current_scene = B2-Ch02a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)

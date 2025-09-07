@@ -50,9 +50,9 @@ As we stand guard, we start discussing about the tournament, and its organizatio
 "But even so, if their goal is to get their hands on a powerful mage, why have they still not announced the objectives? Wouldn't it be in their best interest to get this tournament finished as quickly as possible?"
 
 }
-choice(""Maybe there are no objectives."", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 1) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice(""Maybe they encountered some unexpected technical difficulties."", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
-choice(""Maybe they're waiting for our numbers to decrease."", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0 || v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice(""Maybe there are no objectives."", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 1)
+choice(""Maybe they encountered some unexpected technical difficulties."", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 2)
+choice(""Maybe they're waiting for our numbers to decrease."", Ch4-Intro2, v_current_scene = Ch4-Intro2, v_checkpoint_rich = 0, v_ch4_objectives = 3)
 
 
 ID: Ch4-Intro2
@@ -142,8 +142,8 @@ Seeing that I don't say anything, Daren replies in my stead.
 "Oh? Then you must be the healer in armor I've been hearing so much about! And it seems that you also have a third member in your party. A survivor of the Beacon of Hope, no less. I did not know any of them were still alive."
 
 }
-choice(""What's the Beacon of Hope?"", Ch4-Beacon, v_current_scene = Ch4-Beacon) if (v_ch4_objectives == 1 || v_ch4_objectives == 2 || v_ch4_objectives == 3)
-choice(""Why is she a survivor? Did the Beacon of Hope burn down?"", Ch4-Survivor, v_current_scene = Ch4-Survivor) if (v_ch4_objectives == 1 || v_ch4_objectives == 2 || v_ch4_objectives == 3)
+choice(""What's the Beacon of Hope?"", Ch4-Beacon, v_current_scene = Ch4-Beacon)
+choice(""Why is she a survivor? Did the Beacon of Hope burn down?"", Ch4-Survivor, v_current_scene = Ch4-Survivor)
 
 
 ID: Ch4-Beacon
@@ -584,7 +584,7 @@ I can't risk calling for Kate to help given her current condition. It's going to
 }
 choice("Try to persuade Daren to agree with Kate", Ch4-Persuade, v_current_scene = Ch4-Persuade) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0)
 choice("Agree with Daren", Ch4-Agree, v_current_scene = Ch4-Agree) if (v_ch3_bloodied == 0 && v_ch3_kate_badly_hurt == 0)
-choice("Continue", Ch4-Strategy, v_current_scene = Ch4-Strategy) if (v_ch3_bloodied == 1 && v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("Continue", Ch4-Strategy, v_current_scene = Ch4-Strategy) if (v_ch3_bloodied == 1 || v_ch3_kate_badly_hurt == 1)
 
 
 ID: Ch4-Persuade
@@ -772,8 +772,8 @@ Daren shakes his head in disapproval and hands me a dagger from his belt.
 "Really, Barry. There were dozens of daggers on the ground you could have picked on our way here. Try to take this more seriously."
 
 }
-choice("Try to keep Cutthroat Dave busy while Daren defeats the others", Ch4-Busy, v_current_scene = Ch4-Busy) if (v_ch3_tactics == 1 || v_ch3_tactics == 2 || v_ch3_tactics == 3)
-choice("Try to defeat Cutthroat Dave", Ch4-Defeat, v_current_scene = Ch4-Defeat) if (v_ch3_tactics == 1 || v_ch3_tactics == 2 || v_ch3_tactics == 3)
+choice("Try to keep Cutthroat Dave busy while Daren defeats the others", Ch4-Busy, v_current_scene = Ch4-Busy)
+choice("Try to defeat Cutthroat Dave", Ch4-Defeat, v_current_scene = Ch4-Defeat)
 
 
 ID: Ch4-Busy
@@ -1326,7 +1326,7 @@ He smiles.
 With these last words he turns his back to me, and he disappears into the darkness of the forest.
 
 }
-choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_ending = 5, v_ch4_spared_dave = 0, special:checkpoint_save) if (v_ch4_dave_defeat == 1 || v_ch4_dave_defeat == 2 || v_ch4_dave_defeat == 3)
+choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_ending = 5, v_ch4_spared_dave = 0, special:checkpoint_save)
 
 
 ID: Ch4-Defeat-spare
@@ -1452,4 +1452,4 @@ He smiles.
 With these last words he turns his back to me, and he disappears into the darkness of the forest.
 
 }
-choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_spared_dave = 1, v_ch4_ending = 5, special:checkpoint_save) if (v_ch4_dave_defeat == 1 || v_ch4_dave_defeat == 2 || v_ch4_dave_defeat == 3)
+choice("Next chapter", Ch5-Intro, v_next_chapter_crash = 1, v_current_scene = Ch5-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch4_spared_dave = 1, v_ch4_ending = 5, special:checkpoint_save)

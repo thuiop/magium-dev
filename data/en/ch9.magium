@@ -172,9 +172,9 @@ Seeing the looks on our faces, she decides to give us a bit more context.
 "No, you've got it all wrong!" Flower says. "The day Petal awakened was the happiest day of my life! At long last, I had someone here with me, to share my world with! You cannot possibly imagine the joy I felt when I realized that I no longer had to live my life alone inside of my own mind!"
 
 }
-choice(""Live inside your own mind? You mean to say that you space out a lot?"", Ch9-Space-out, v_current_scene = Ch9-Space-out) if (v_ch8_old == 0 || v_ch8_old == 1)
-choice(""Talk about an active imagination!"", Ch9-Imagination, v_current_scene = Ch9-Imagination) if (v_ch8_old == 0 || v_ch8_old == 1)
-choice(""I know a good doctor in the Western Continent, if you are interested."", Ch9-Doctor, v_current_scene = Ch9-Doctor) if (v_ch8_old == 0 || v_ch8_old == 1)
+choice(""Live inside your own mind? You mean to say that you space out a lot?"", Ch9-Space-out, v_current_scene = Ch9-Space-out)
+choice(""Talk about an active imagination!"", Ch9-Imagination, v_current_scene = Ch9-Imagination)
+choice(""I know a good doctor in the Western Continent, if you are interested."", Ch9-Doctor, v_current_scene = Ch9-Doctor)
 
 
 ID: Ch9-Space-out
@@ -641,7 +641,7 @@ choice("Continue", Ch9-Blushing, v_current_scene = Ch9-Blushing)
 ID: Ch9-Blushing
 TEXT:
 
-#if(v_ch6_flirt == 1 || v_ch6_flirt == 5 || v_ch6_flirt == 6) {
+#if(v_ch6_flirt != 2 && v_ch6_flirt != 3 && v_ch6_flirt != 4) {
  As I don't really feel like embarrassing her, I decide to ignore what happened and change the subject.
 
 "So, anyway," I tell her, "there's something I've been meaning to ask you in private since this morning. What do you think about Flower?"
@@ -687,10 +687,10 @@ Rose looks like she's somewhat surprised by my question.
 "Do you mean in a general sense?" Rose asks me. "To me, she seems like a charming young girl with a cheerful personality and a kind heart, and I find that she is a really fun person to be around with. What about you? There has to be some reason why you asked me this. What do you think about Flower?"
 
 }
-choice(""I find her a bit annoying, to be frank."", Ch9-Annoying, v_current_scene = Ch9-Annoying) if (v_ch6_flirt == 1 || v_ch6_flirt == 2 || v_ch6_flirt == 3 || v_ch6_flirt == 4 || v_ch6_flirt == 5 || v_ch6_flirt == 6)
-choice(""I just can't bring myself to trust her."", Ch9-Trust, v_current_scene = Ch9-Trust) if (v_ch6_flirt == 1 || v_ch6_flirt == 2 || v_ch6_flirt == 3 || v_ch6_flirt == 4 || v_ch6_flirt == 5 || v_ch6_flirt == 6)
-choice(""I was just thinking about what Daren said this morning."", Ch9-Morning, v_current_scene = Ch9-Morning) if (v_ch6_flirt == 1 || v_ch6_flirt == 2 || v_ch6_flirt == 3 || v_ch6_flirt == 4 || v_ch6_flirt == 5 || v_ch6_flirt == 6)
-choice(""I think she's pretty fun too. I was just curious to see if you thought the same."", Ch9-Curious, v_current_scene = Ch9-Curious) if (v_ch6_flirt == 1 || v_ch6_flirt == 2 || v_ch6_flirt == 3 || v_ch6_flirt == 4 || v_ch6_flirt == 5 || v_ch6_flirt == 6)
+choice(""I find her a bit annoying, to be frank."", Ch9-Annoying, v_current_scene = Ch9-Annoying)
+choice(""I just can't bring myself to trust her."", Ch9-Trust, v_current_scene = Ch9-Trust)
+choice(""I was just thinking about what Daren said this morning."", Ch9-Morning, v_current_scene = Ch9-Morning)
+choice(""I think she's pretty fun too. I was just curious to see if you thought the same."", Ch9-Curious, v_current_scene = Ch9-Curious)
 
 
 ID: Ch9-Annoying
@@ -875,9 +875,9 @@ The banshee frowns when she hears my question, and she turns her head towards me
 "Cut to the chase, human," she says. "I've never been very fond of the roundabout ways in which you people like to start your conversations. You're here because you don't trust me to guard your camp by myself, aren't you?"
 
 }
-choice(""Yeah, that's about right."", Ch9-Right, v_current_scene = Ch9-Right) if (v_ch9_inventory == 0 || v_ch9_inventory == 1)
-choice(""No, I just wanted to get to know you!"", Ch9-Know, v_current_scene = Ch9-Know) if (v_ch9_inventory == 0 || v_ch9_inventory == 1)
-choice(""Actually, I just wanted to talk about the weather."", Ch9-Weather, v_current_scene = Ch9-Weather) if (v_ch9_inventory == 0 || v_ch9_inventory == 1)
+choice(""Yeah, that's about right."", Ch9-Right, v_current_scene = Ch9-Right)
+choice(""No, I just wanted to get to know you!"", Ch9-Know, v_current_scene = Ch9-Know)
+choice(""Actually, I just wanted to talk about the weather."", Ch9-Weather, v_current_scene = Ch9-Weather)
 
 
 ID: Ch9-Right
@@ -1292,7 +1292,7 @@ After looking at me for a few seconds, Kate grabs my hand, and she uses it to ta
 "There's your list," Kate says. "Now stop wasting time and come help me with this tent. The sun is already up, so we want to start moving as soon as possible."
 
 }
-choice("Continue", Ch9-Strategy, v_current_scene = Ch9-Strategy) if (v_ch9_inventory == 0 || v_ch9_inventory == 1)
+choice("Continue", Ch9-Strategy, v_current_scene = Ch9-Strategy)
 
 
 ID: Ch9-Strategy
@@ -1365,7 +1365,7 @@ Daren turns towards Rose.
 "Getting back to the discussion at hand," Daren says, "I believe that the next thing we need to establish is how we are going to retrieve that chalice. From what I heard, the stronghold is positioned on top of a hill, and all of the trees in a mile radius from it have been cut down. There's no way we'll be able to sneak our way in."
 
 }
-choice("Continue", Ch9-Sloppy, v_current_scene = Ch9-Sloppy) if (v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
+choice("Continue", Ch9-Sloppy, v_current_scene = Ch9-Sloppy)
 
 
 ID: Ch9-Sloppy
@@ -1483,7 +1483,7 @@ He then turns to Rose and Kate.
 "Oh, I could never live with myself if I just abandoned you here like this!" Flower says. "And besides, Petal and I have fought ogres before. They're not that tough! I don't think there will be any problems."
 
 }
-choice("Continue", Ch9-Final-march, v_current_scene = Ch9-Final-march) if (v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
+choice("Continue", Ch9-Final-march, v_current_scene = Ch9-Final-march)
 
 
 ID: Ch9-Final-march
@@ -1564,9 +1564,9 @@ A crazy thought occurs to me, and I aim my crossbow somewhere a few feet above t
 I pay him no mind, and I shoot an arrow at the empty space in front of me. Instead of going through the air, however, the arrow stops in mid-flight, and a trickle of blood starts coming out from its tip. Soon afterwards, a hideous creature begins to slowly materialize in front of us, with my arrow sticking out of its big belly. The monster is about eight feet tall, with thick gray skin, and it's wearing nothing other than a loincloth around its waist. Two of its lower fangs are sticking out of its closed mouth, its forehead is exceedingly narrow, and on its face, it is wearing one of the dumbest expressions I've ever seen in my life.
 
 }
-choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_ch9_take_rose == 0 && v_hearing < 2 || v_ch9_take_rose == 1 && v_hearing < 2)
-choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_ch9_take_rose == 0 && v_hearing < 2 || v_ch9_take_rose == 1 && v_hearing < 2)
-choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 0 && v_perception == 0 && v_hearing >= 2 || v_ch9_take_rose == 1 && v_perception == 0 && v_hearing >= 2)
+choice("Try to convince Flower to open the amulet", Ch9-Open, v_current_scene = Ch9-Open) if (v_hearing < 2)
+choice("Ignore Arraka", Ch9-Ignore, v_current_scene = Ch9-Ignore) if (v_hearing < 2)
+choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_perception == 0 && v_hearing >= 2)
 choice("Continue", Ch9-Nice, v_current_scene = Ch9-Nice) if (v_hearing >= 2 && v_perception >= 1)
 
 
@@ -1593,7 +1593,7 @@ Once we make sure that there are no other invisible ogre scouts in the area, we 
 Once we make sure that there are no other invisible ogre scouts in the area, we grab our weapons and start our final march towards the stronghold.
 
 }
-choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled) if (v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
+choice("Continue", Ch9-Muffled, v_current_scene = Ch9-Muffled)
 
 
 ID: Ch9-Muffled
@@ -1740,7 +1740,7 @@ TEXT:
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
 choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 && v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 || v_ch9_take_rose == 1)
 
 
 ID: Ch9-Sacred
@@ -1757,7 +1757,7 @@ TEXT:
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
 choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 && v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 || v_ch9_take_rose == 1)
 
 
 ID: Ch9-Merry
@@ -1774,7 +1774,7 @@ TEXT:
 "Yeah, that's not how this is going to work," Hadrik says, with a grin, as he readies his fists.
 
 choice("Continue", Ch9-Persuade, v_current_scene = Ch9-Persuade) if (v_ch9_take_rose == 0 && v_ch9_ogres != 3)
-choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 && v_ch9_take_rose == 0 || v_ch9_take_rose == 1)
+choice("Continue", Ch9-Submission, v_current_scene = Ch9-Submission) if (v_ch9_ogres == 3 || v_ch9_take_rose == 1)
 
 
 ID: Ch9-Persuade

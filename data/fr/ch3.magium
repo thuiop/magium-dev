@@ -395,7 +395,7 @@ Daren shrugs.
 I follow Daren out of the cave, and together we start climbing the mountain, to reach a good vantage point. The moon is high in the sky, and the stars are bright. We won't have any trouble spotting enemies if they approach. 
 
 }
-choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage) if (v_ch3_tactics == 1 || v_ch3_tactics == 2 || v_ch3_tactics == 3)
+choice("Continue", Ch3-Vantage, v_current_scene = Ch3-Vantage)
 
 
 ID: Ch3-Vantage
@@ -537,9 +537,9 @@ After yet another pause, Daren decides to change the subject.
 "So, how's it going with Kate, then? Are you making any progress with her?"
 
 }
-choice(""I'm not trying to seduce her, Daren."", Ch3-Seduce, v_current_scene = Ch3-Seduce, v_ch3_seduce = 1, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 1 || v_ch2_human_reason == 2 || v_ch2_human_reason == 3)
-choice(""She still hasn't given in to my charms."", Ch3-Charm, v_current_scene = Ch3-Charm, v_ch3_seduce = 2, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 1 || v_ch2_human_reason == 2 || v_ch2_human_reason == 3)
-choice(""She's eating out of the palm of my hand!"", Ch3-Palm, v_current_scene = Ch3-Palm, v_ch3_seduce = 3, v_available_points = +6, v_available_points_aux = +6) if (v_ch2_human_reason == 1 || v_ch2_human_reason == 2 || v_ch2_human_reason == 3)
+choice(""I'm not trying to seduce her, Daren."", Ch3-Seduce, v_current_scene = Ch3-Seduce, v_ch3_seduce = 1, v_available_points = +6, v_available_points_aux = +6)
+choice(""She still hasn't given in to my charms."", Ch3-Charm, v_current_scene = Ch3-Charm, v_ch3_seduce = 2, v_available_points = +6, v_available_points_aux = +6)
+choice(""She's eating out of the palm of my hand!"", Ch3-Palm, v_current_scene = Ch3-Palm, v_ch3_seduce = 3, v_available_points = +6, v_available_points_aux = +6)
 
 
 ID: Ch3-Seduce
@@ -834,8 +834,8 @@ We exit the cave and head for the trees. The moon is still pretty high up in the
 As we walk in awkward silence for a few minutes, I figure I might as well try to start a conversation.
 
 }
-choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1) if (v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 0 || v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 1 || v_ch2_kate_debt == 0)
-choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2) if (v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 0 || v_ch2_kate_debt == 1 && v_ch2_not_owe_debt == 1 || v_ch2_kate_debt == 0)
+choice("Ask her how come she knows how the stat device works", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 1)
+choice("Ask her what she wanted to discuss with me in private", Ch3-Awkward, v_current_scene = Ch3-Awkward, v_ch3_awkward = 2)
 
 
 ID: Ch3-Awkward
@@ -865,7 +865,7 @@ She stops in front of me, and looks me straight in the eye.
 She stops in front of me, and looks me straight in the eye.
 
 }
-choice("Continue", Ch3-Bugging, v_current_scene = Ch3-Bugging) if (v_ch3_awkward == 1 || v_ch3_awkward == 2)
+choice("Continue", Ch3-Bugging, v_current_scene = Ch3-Bugging)
 
 
 ID: Ch3-Bugging
@@ -975,7 +975,7 @@ Kate still doesn't trust me. If I tell her I'm the one that convinced Daren to s
 Is that so?...
 
 }
-choice("Continue", Ch3-Born, v_current_scene = Ch3-Born) if (v_ch2_kate_whisper == 1 || v_ch2_kate_whisper == 2 || v_ch2_kate_whisper == 3 || v_ch2_kate_whisper == 4)
+choice("Continue", Ch3-Born, v_current_scene = Ch3-Born)
 
 
 ID: Ch3-Born
@@ -1135,7 +1135,7 @@ Her reaction took me by surprise.
 "What's that supposed to mean?"
 
 }
-choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart) if (v_ch3_daren_worry == 1 || v_ch3_daren_worry == 2 || v_ch3_daren_worry == 3)
+choice("Continue", Ch3-Dart, v_current_scene = Ch3-Dart)
 
 
 ID: Ch3-Dart
@@ -1716,7 +1716,7 @@ She stops for a little and then looks at me.
 We spent the rest of our trip back in silence. But I didn't really find it awkward anymore. After all we've been through this morning, a bit of quiet is more than welcome.
 
 }
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch2_kate_debt == 0 || v_ch2_kate_debt == 1)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save)
 
 
 ID: Ch3-Saved-Dagger
@@ -1910,7 +1910,7 @@ choice("Continue", Ch3-Decide-Alive, v_current_scene = Ch3-Decide-Alive) if (v_c
 ID: Ch3-Second-Kill
 TEXT:
 
-set(v_is_dead,0) if (v_combat_technique >= 1 && v_reflexes >= 1 || v_combat_technique == 0 && v_agility >= 1 && v_reflexes >= 1 || v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_ch3_first_killed == 0 && v_is_dead == 0 && v_combat_technique >= 1 && v_reflexes >= 1 || v_combat_technique == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1 || v_ch3_first_killed == 0 && v_combat_technique == 0 && v_is_dead == 0 && v_agility >= 1 && v_reflexes >= 1 || v_ch3_first_killed == 0 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_is_dead == 0 && v_combat_technique >= 1 && v_reflexes >= 1 || v_ch3_first_killed == 0 && v_combat_technique == 0 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_combat_technique == 0 && v_is_dead == 0 && v_agility >= 1 && v_reflexes >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_ch3_first_killed == 1 && v_ch3_saved_from_dart == 1 && v_combat_technique == 0 && v_is_dead == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1)
+set(v_is_dead,0) if (v_combat_technique >= 1 && v_reflexes >= 1 || v_combat_technique == 0 && v_agility >= 1 && v_reflexes >= 1 || v_reflexes == 0 && v_toughness == 3 && v_combat_technique >= 1 || v_combat_technique == 0 && v_reflexes == 0 && v_toughness == 3 && v_agility >= 1)
 set(v_is_dead,1) if (v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_combat_technique == 0 && v_reflexes >= 1 || v_agility == 0 && v_combat_technique == 0 && v_reflexes == 0 && v_toughness == 3)
 #if(v_combat_technique >= 1 && v_reflexes >= 1) {
 
@@ -2182,7 +2182,7 @@ I could also try to snipe them from a distance, but I'd need to be pretty far fo
 My eyes wander towards one of the many fallen trees around me, and suddenly a crazy thought comes to my mind. I bend my knees and try to lift the tree from the ground.
 
 }
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_strength == 0 || v_strength >= 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift)
 
 
 ID: Ch3-Viable
@@ -2214,7 +2214,7 @@ I could also try to snipe them from a distance, but I'd need to be pretty far fo
 My eyes wander towards one of the many fallen trees around me, and suddenly a crazy thought comes to my mind. I bend my knees and try to lift the tree from the ground.
 
 }
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_strength == 0 || v_strength >= 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift)
 
 
 ID: Ch3-Prioritize
@@ -2246,7 +2246,7 @@ This means that I could try to take them all out by very quickly moving from one
 I could also try to snipe them from a distance, but I'd need to be pretty far for them to not be able to tell where the shots are coming from, and that kind of stunt would take significantly more time to pull off than any of my other viable strategies.
 
 }
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_strength == 0 || v_strength >= 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift)
 
 
 ID: Ch3-Every
@@ -2402,7 +2402,7 @@ I could also try to snipe them from a distance, but I'd need to be pretty far fo
 My eyes wander towards one of the many fallen trees around me, and suddenly a crazy thought comes to my mind. I bend my knees and try to lift the tree from the ground.
 
 }
-choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift) if (v_ch3_first_killed == 0 && v_ch3_second_killed == 0 && v_strength == 0 || v_ch3_first_killed == 0 && v_ch3_second_killed == 0 && v_strength >= 1 || v_ch3_first_killed == 0 && v_ch3_second_killed == 1 && v_strength == 0 || v_ch3_first_killed == 0 && v_ch3_second_killed == 1 && v_strength >= 1 || v_ch3_first_killed == 1 && v_ch3_second_killed == 0 && v_strength == 0 || v_ch3_first_killed == 1 && v_ch3_second_killed == 0 && v_strength >= 1 || v_ch3_first_killed == 1 && v_ch3_second_killed == 1 && v_strength == 0 || v_ch3_first_killed == 1 && v_ch3_second_killed == 1 && v_strength >= 1)
+choice("Continue", Ch3-Lift, v_current_scene = Ch3-Lift)
 
 
 ID: Ch3-Lift
@@ -2441,9 +2441,9 @@ At any rate, time is running out. I need to choose one strategy and stick to it.
 At any rate, time is running out. I need to choose one strategy and stick to it.
 
 }
-choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_ch3_tried_lift == 1 && v_strength == 3 || v_ch3_tried_lift == 1 && v_strength < 3 || v_ch3_tried_lift == 0)
-choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_ch3_tried_lift == 1 && v_strength == 3 || v_ch3_tried_lift == 1 && v_strength < 3 || v_ch3_tried_lift == 0)
-choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_ch3_tried_lift == 1 && v_strength == 3 || v_ch3_tried_lift == 1 && v_strength < 3 || v_ch3_tried_lift == 0)
+choice("Rely on speed and use melee attacks", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 1) if (v_ch3_tried_lift == 0 || v_strength == 3 || v_strength < 3)
+choice("Try to aim the crossbow while moving", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 2) if (v_ch3_tried_lift == 0 || v_strength == 3 || v_strength < 3)
+choice("Snipe them from a distance", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 3) if (v_ch3_tried_lift == 0 || v_strength == 3 || v_strength < 3)
 choice("Use fallen trees for throwing and clobbering", Ch3-Final-decision, v_current_scene = Ch3-Final-decision, v_ch3_tactic = 4) if (v_ch3_tried_lift == 1 && v_strength == 3)
 
 
@@ -2522,7 +2522,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_ch3_lift_tree == 0 && v_perception < 3 || v_ch3_lift_tree == 1 && v_perception < 3)
 set(v_is_dead,0) if (v_perception == 3)
-#if(v_ch3_lift_tree == 0 && v_perception < 3 || v_ch3_lift_tree == 1 && v_perception < 3) {
+#if(v_perception < 3) {
 
 I try to take advantage of the distance between us, by shooting them right away.
 
@@ -2536,8 +2536,8 @@ I try to take advantage of the distance between us, by shooting them right away.
 I only now realize how amazing my eyesight has become. Even through this darkness, I can almost see my attackers' faces clearly. Aiming for them with my crossbow is a piece of cake. 
 
 }
-choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_ch3_lift_tree == 0 && v_perception < 3 || v_ch3_lift_tree == 1 && v_perception < 3)
-choice("Try to aim the crossbow while moving", Ch3-Move-second, v_current_scene = Ch3-Move-second) if (v_ch3_lift_tree == 0 && v_perception < 3 || v_ch3_lift_tree == 1 && v_perception < 3)
+choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_perception < 3)
+choice("Try to aim the crossbow while moving", Ch3-Move-second, v_current_scene = Ch3-Move-second) if (v_perception < 3)
 choice("Use fallen trees for throwing and clobbering", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_ch3_lift_tree == 1 && v_perception < 3)
 choice("Continue", Ch3-Snipe2, v_current_scene = Ch3-Snipe2) if (v_perception == 3)
 
@@ -2547,7 +2547,7 @@ TEXT:
 
 set(v_is_dead,1) if (v_ch3_lift_tree == 0 && v_combat_technique < 3 || v_ch3_lift_tree == 1 && v_combat_technique < 3)
 set(v_is_dead,0) if (v_combat_technique == 3)
-#if(v_ch3_lift_tree == 0 && v_combat_technique < 3 || v_ch3_lift_tree == 1 && v_combat_technique < 3) {
+#if(v_combat_technique < 3) {
 
 I make sure I don't stop moving for even a second, and I start shooting them with my crossbow. 
 
@@ -2563,8 +2563,8 @@ There are ten of them and one of me. I am not foolish enough to think that simpl
 By doing that, I make sure none of them manage to circle around me while others distract me. Knowing all of my enemies' location also helps me find their collective blind spots. If only two or three of them see me at a time, it makes it easier for me to dodge their shots. 
 
 }
-choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_ch3_lift_tree == 0 && v_combat_technique < 3 || v_ch3_lift_tree == 1 && v_combat_technique < 3)
-choice("Snipe them from a distance", Ch3-Snipe-second, v_current_scene = Ch3-Snipe-second) if (v_ch3_lift_tree == 0 && v_combat_technique < 3 || v_ch3_lift_tree == 1 && v_combat_technique < 3)
+choice("Rely on speed and use melee attacks", Ch3-Speed, v_current_scene = Ch3-Speed) if (v_combat_technique < 3)
+choice("Snipe them from a distance", Ch3-Snipe-second, v_current_scene = Ch3-Snipe-second) if (v_combat_technique < 3)
 choice("Use fallen trees for throwing and clobbering", Ch3-Clobber, v_current_scene = Ch3-Clobber) if (v_ch3_lift_tree == 1 && v_combat_technique < 3)
 choice("Continue", Ch3-Move2, v_current_scene = Ch3-Move2) if (v_combat_technique == 3)
 
@@ -2883,7 +2883,7 @@ As I take out more and more of them, the crossbowmen are starting to gradually l
 Taking out every single crossbowman that attempted to flee the battlefield has proven to be a bit time consuming, however. By the time I've finished all one hundred of them, Kate had sustained quite a few injuries. She looks pretty bloodied up, but at least she's still standing.   
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_final_decision == 2 && v_ch3_prioritize == 4 || v_ch3_final_decision == 2 && v_ch3_prioritize < 4)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish)
 
 
 ID: Ch3-Snipe-crossbowmen
@@ -2913,7 +2913,7 @@ As I take out more and more of them, the crossbowmen are starting to gradually l
 Taking out every single crossbowman that attempted to flee the battlefield has proven to be a bit time consuming, however. By the time I've finished all one hundred of them, Kate had sustained quite a few injuries. She looks pretty bloodied up, but at least she's still standing.   
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_final_decision == 2 && v_ch3_prioritize == 4 || v_ch3_final_decision == 2 && v_ch3_prioritize < 4)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish)
 
 
 ID: Ch3-Speed-crossbowmen
@@ -2941,7 +2941,7 @@ As I take out more and more of them, the crossbowmen are starting to gradually l
 Taking out every single crossbowman that attempted to flee the battlefield has proven to be a bit time consuming, however. It's a good thing I managed to compensate by moving very fast from one place to the other. Kate didn't sustain any serious injuries while I was busy cleaning up. 
 
 }
-choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish) if (v_ch3_final_decision == 2 && v_ch3_prioritize == 4 || v_ch3_final_decision == 2 && v_ch3_prioritize < 4)
+choice("Continue", Ch3-Crossbowmen-finish, v_current_scene = Ch3-Crossbowmen-finish)
 
 
 ID: Ch3-Crossbowmen-finish
@@ -3202,7 +3202,7 @@ As I approach the battlefield, I am shocked to see that all of the men that came
 We spent the rest of our trip back in silence. But I didn't really find it awkward anymore. After all we've been through this morning, a bit of quiet is more than welcome.
 
 }
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch2_kate_debt == 0 && v_ch3_prioritize == 4 || v_ch2_kate_debt == 0 && v_ch3_prioritize < 4 || v_ch2_kate_debt == 1 && v_ch3_prioritize == 4 || v_ch2_kate_debt == 1 && v_ch3_prioritize < 4)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save)
 
 
 ID: Ch3-Alone-Crossbowmen-Return
@@ -3304,4 +3304,4 @@ I notice she's barely able to stand on her feet, so I hurry to support her.
 We spent the rest of our trip back in silence. But I didn't really find it awkward anymore. After all we've been through this morning, a bit of quiet is more than welcome.
 
 }
-choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save) if (v_ch2_kate_debt == 0 && v_ch3_bloodied == 0 || v_ch2_kate_debt == 0 && v_ch3_bloodied == 1 || v_ch2_kate_debt == 1 && v_ch3_bloodied == 0 || v_ch2_kate_debt == 1 && v_ch3_bloodied == 1)
+choice("Next chapter", Ch4-Intro, v_next_chapter_crash = 1, v_current_scene = Ch4-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, v_ch3_kate_badly_hurt = 0, special:checkpoint_save)

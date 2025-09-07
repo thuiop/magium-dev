@@ -862,7 +862,7 @@ choice("Continue", Ch11b-Sacrificial, v_current_scene = Ch11b-Sacrificial)
 ID: Ch11b-Sacrificial
 TEXT:
 
-#if(v_ch11_strategy == 1 || v_ch11_strategy == 2) {
+#if(v_ch11_strategy != 3 && v_ch11_strategy != 4) {
  "No!" Zack shouts. "I won't let it end like this!"
 
 Right after he finishes his sentence, the necromancer takes a knife out of his robes and he uses it to stab himself in the chest. He then gets enveloped in a bright red light, and soon afterwards, he starts turning into ashes. 
@@ -894,7 +894,6 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 "Relax," Hadrik says. "If his all-powerful stillwater skeletons couldn't kill us, what do you expect him to do after he's already dead?"
 
 }
-#if(v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4) {
  "That's some tough talk coming from someone who couldn't even identify an obvious weakness in their enemy's defenses," Arraka says. "You all would have been toast if it weren't for me. I'm the one who saved all of you losers. Where's my reward for that, huh?"
 
 "Oh, I've got your reward right here!" Hadrik says, as he grabs Arraka's amulet from Flower's neck, and he starts spinning it by the chain.
@@ -903,10 +902,9 @@ As we all gather around to look at the pile of ashes that the necromancer has tu
 
 "Really?" Hadrik says, with a grin, as he continues to spin Arraka. "Huh. I guess it must have slipped my mind."
 
-}
-choice(""Put her down, Hadrik. It's not worth the bother."", Ch11b-Bother, v_current_scene = Ch11b-Bother) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
-choice(""I suppose she does deserve this after all she's done."", Ch11b-Deserve, v_current_scene = Ch11b-Deserve) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
-choice(""Can I spin her next?"", Ch11b-Spin, v_current_scene = Ch11b-Spin) if (v_ch11_strategy == 1 || v_ch11_strategy == 2 || v_ch11_strategy == 3 || v_ch11_strategy == 4)
+choice(""Put her down, Hadrik. It's not worth the bother."", Ch11b-Bother, v_current_scene = Ch11b-Bother)
+choice(""I suppose she does deserve this after all she's done."", Ch11b-Deserve, v_current_scene = Ch11b-Deserve)
+choice(""Can I spin her next?"", Ch11b-Spin, v_current_scene = Ch11b-Spin)
 
 
 ID: Ch11b-Bother
@@ -1048,7 +1046,7 @@ Just as I reach her, all of the stones in front of Rose suddenly get sent flying
 Soon after Daren starts to heal us, a loud booming noise suddenly starts to echo all throughout the city. 
 
 }
-#if(v_hearing == 4 && v_perception < 4 || v_hearing < 4) {
+#if(v_hearing <= 4 && v_perception < 4 || v_hearing < 4) {
  It's no use... I'm sure that Daren must have realized it as well. Rose is no longer breathing. She stopped breathing even before she hit the ground. She's dead. After all we've been through to bring her back home safely. After everything that's happened this past week. She died, just like that. And not even Daren can bring her back.
 
 "No..." Kate says. "This isn't right. This has to be an illusion! The necromancer could never harm her like this. The tournament's spell would have prevented him! This has to be a--"
@@ -1144,7 +1142,7 @@ ID: Ch11b-Credits
 TEXT:
 
 set(v_first_book_purchased,1)
-set(v_iap_check_resume,1) if (v_iap_checked != 2)
+set(v_iap_check_resume,1) if (v_iap_checked != 0 && v_iap_checked != 2)
 set(v_iap_check_resume,0)
  This marks the end of the first Magium book.
 
@@ -1164,7 +1162,7 @@ Thank you for playing!
 
 P.S. If you enjoyed the game, don't forget to recommend it to your friends. 
 
-choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements >= 25 || v_first_book_purchased == 1)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
-choice("Load game", , , special:saves) if (v_first_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
+choice("Proceed to book 2", B2-Ch01a-Intro, v_b1_saved_stats = 1, v_current_scene = B2-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)

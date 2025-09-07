@@ -620,7 +620,6 @@ I then start telling everyone about our trip to the underground caverns, and wha
 I'll definitely look into it," I say. "Thanks for letting me know."
 
 }
-#if(v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1) {
  "So, about that trapdoor which you triggered accidentally," Bruce says, "did you try to see if you could activate it again?"
 
 "I've tried a few times after that," Leila writes, "but I didn't get it to work."
@@ -641,8 +640,7 @@ I'll definitely look into it," I say. "Thanks for letting me know."
 
  For once, everyone agreed with Wilhelm, even if some did so more begrudgingly than others, and we decided to spend the rest of the recreation period discussing various strategies that could work against the monsters that we knew about, but also against other monsters that I've read about in my notes. We even agreed to have a second meeting later, after we'd spend some time alone in our rooms, mulling over the information that we had at our disposal.
 
-}
-choice("Continue", B2-Ch04a-Leaving, v_current_scene = B2-Ch04a-Leaving) if (v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1)
+choice("Continue", B2-Ch04a-Leaving, v_current_scene = B2-Ch04a-Leaving)
 
 
 ID: B2-Ch04a-Overheard
@@ -700,7 +698,6 @@ Realizing that I'm not planning to tell them about the creatures anymore, Leila 
 "This is not all I've heard the guards say about the arena," Wilhelm says. "I also heard them speak about who we'd be facing in the second round. Apparently it's some famous troll mercenary known by the name of Velgos. They were saying that he's fought in the arena before, and that he is considered to be on par with the undefeated champion of the arena."
 
 }
-#if(v_b2_ch4_inform == 0 || v_b2_ch4_inform == 1) {
  "Velgos?" Bruce says. "Never heard of him."
 
 "Neither have I," the mage says.
@@ -709,9 +706,8 @@ Realizing that I'm not planning to tell them about the creatures anymore, Leila 
 
 "Forget the troll," the mage says. "We need to focus on the creatures. Does anyone know of any weaknesses we can use against them?"
 
-}
-choice("Tell them the creatures' weaknesses", B2-Ch04a-Weaknesses, v_current_scene = B2-Ch04a-Weaknesses, v_b2_ch4_inform3 = 1) if (v_b2_ch4_inform == 0 || v_b2_ch4_inform == 1)
-choice("Tell them nothing", B2-Ch04a-Weaknesses, v_current_scene = B2-Ch04a-Weaknesses, v_b2_ch4_inform3 = 0) if (v_b2_ch4_inform == 0 || v_b2_ch4_inform == 1)
+choice("Tell them the creatures' weaknesses", B2-Ch04a-Weaknesses, v_current_scene = B2-Ch04a-Weaknesses, v_b2_ch4_inform3 = 1)
+choice("Tell them nothing", B2-Ch04a-Weaknesses, v_current_scene = B2-Ch04a-Weaknesses, v_b2_ch4_inform3 = 0)
 
 
 ID: B2-Ch04a-Weaknesses
@@ -741,7 +737,7 @@ I ended up telling them a lot more than I was originally planning. I gave them m
 The rest of the recreation period was spent discussing about the creatures described by the thug, and also about various strategies that we could employ to defeat them. I didn't really get involved much in their discussion, since I can't say that I'd trust any of them to have my back during a fight. A few hours after the recreation period, I went to Leila's room so we could have our own separate strategy meeting, discussing about all the possible creatures that we may encounter, and about how we could deal with them. 
 
 }
-choice("Continue", B2-Ch04a-Leaving, v_current_scene = B2-Ch04a-Leaving) if (v_b2_ch4_inform3 == 0 || v_b2_ch4_inform3 == 1)
+choice("Continue", B2-Ch04a-Leaving, v_current_scene = B2-Ch04a-Leaving)
 
 
 ID: B2-Ch04a-Leaving
@@ -785,13 +781,11 @@ Normally, I don't think he'd try anything anymore after the scare I gave him two
 The next day, I get woken up in the morning by one of the guards, telling me to pack my bags, because we're leaving in twenty minutes. I put all my stuff back in my backpack, and then I walk out the door and into the recreation room, where the other members of my division were slowly starting to gather up. As soon as we're all set to go, we begin to leave our division's area one by one, and we stop outside the door, where we are greeted by an employee of the arena, who collects all of our keys, and tells us to follow him.
 
 }
-#if(v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_lessathi == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_threatened == 0 || v_b2_ch2_threatened == 1) {
  As we all walk through the dimly lit tunnels, members from other divisions are slowly beginning to walk out of their division areas as well, and follow their guides through the corridors. When we finally reach the upper levels, we are told to line up in an orderly fashion, so that the guards who were sent to escort us to the arena will have an easier time keeping an eye on us. I didn't get to see any of my friends as we advanced towards the arena, but I did see a pretty big crowd of people making its way to the arena to see the show, and a very long line at the ticket booth. 
 
 The guards lead us through the gladiator entrance of the arena, and they show us to our locker rooms, where we get to store our belongings for the duration of the show. After we're done putting our backpacks in the lockers, the guards tell us that we're allowed to roam freely through the area designated for the gladiators until the events begin, but that we will need to gather up in the waiting area of our division after the sound of the first horn.  
 
-}
-choice("Continue", B2-Ch04a-Trace, v_current_scene = B2-Ch04a-Trace) if (v_b2_ch2_lessathi == 0 && v_b2_ch2_threatened == 2 || v_b2_ch2_lessathi == 1 && v_b2_ch2_threatened == 2 || v_b2_ch2_threatened == 0 || v_b2_ch2_threatened == 1)
+choice("Continue", B2-Ch04a-Trace, v_current_scene = B2-Ch04a-Trace)
 
 
 ID: B2-Ch04a-Trace
@@ -829,7 +823,7 @@ Leila turns around, at the sound of Kate's voice, but when she sees her face, sh
 "Kate, I..." Leila starts to write, but she gets interrupted by Kate rushing towards her, and hugging her as tightly as she can.
 
 }
-choice("Continue", B2-Ch04a-Safe, v_current_scene = B2-Ch04a-Safe) if (v_b2_ch2_kate == 0 || v_b2_ch2_kate == 1)
+choice("Continue", B2-Ch04a-Safe, v_current_scene = B2-Ch04a-Safe)
 
 
 ID: B2-Ch04a-Safe
@@ -962,7 +956,7 @@ Leila smiles, faintly.
 "Yes..." she writes. "Yes, I am glad. Thank you..."
 
 }
-choice("Continue", B2-Ch04a-Stats, v_current_scene = B2-Ch04a-Stats, v_available_points = +3, v_available_points_aux = +3) if (v_b2_ch2_kate == 0 && v_b2_ch4_called_kate == 0 || v_b2_ch2_kate == 0 && v_b2_ch4_called_kate == 1 || v_b2_ch2_kate == 1 && v_b2_ch4_called_kate == 0 || v_b2_ch2_kate == 1 && v_b2_ch4_called_kate == 1)
+choice("Continue", B2-Ch04a-Stats, v_current_scene = B2-Ch04a-Stats, v_available_points = +3, v_available_points_aux = +3)
 
 
 ID: B2-Ch04a-Stats
@@ -984,8 +978,8 @@ As we all wait for the events to begin, I suddenly hear a familiar beeping noise
 Finally. I've been waiting for this for a while.
 
 }
-choice("Invest points now", B2-Ch04a-Stats-spent, v_current_scene = B2-Ch04a-Stats-spent, special:stats) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
-choice("Invest points later(by pressing the stats button on the top of the screen)", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Invest points now", B2-Ch04a-Stats-spent, v_current_scene = B2-Ch04a-Stats-spent, special:stats)
+choice("Invest points later(by pressing the stats button on the top of the screen)", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private)
 
 
 ID: B2-Ch04a-Stats-spent
@@ -1007,7 +1001,7 @@ As we all wait for the events to begin, I suddenly hear a familiar beeping noise
 Finally. I've been waiting for this for a while.
 
 }
-choice("Continue", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch04a-Private, v_current_scene = B2-Ch04a-Private)
 
 
 ID: B2-Ch04a-Private
@@ -1053,7 +1047,6 @@ choice("Continue", B2-Ch04a-Manticores, v_current_scene = B2-Ch04a-Manticores)
 ID: B2-Ch04a-Manticores
 TEXT:
 
-#if(v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform3 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch2_heard == 0) {
  There is a mixed sound of applause and shouts coming from the spectator seats, as the gladiators from the first division make their way out of the gates, and towards the center of the arena. I do not recognize any of the warriors in this division, but judging by the continued cheers of the crowd, I'd say that most of the spectators have seen them perform at least once before. Some of the gladiators seem a little bit too confident. Former victors, perhaps? Either way, they'd better get their act together, and quick. From what Bruce said on my first day here, the events until now could not even begin to compare with what's coming. 
 
 A large iron gate on the opposite side of the arena makes a loud creaking noise as it opens. From beyond the gate, a lion with black wings, red eyes, two horns on its head and a scorpion's tail is making its way into the fighting area. The manticore wastes no time, and it soars directly into the sky. Two more manticores follow its lead, and they all start circling the skies above the arena, watching their prey intently. Seeing the beasts leave the fighting area with such ease, some of the spectators in the crowd are beginning to show signs of uneasiness.
@@ -1062,7 +1055,6 @@ A large iron gate on the opposite side of the arena makes a loud creaking noise 
 
 Several giant scorpions are now also joining the arena, coming from beyond the same gate that the manticores entered from. They are slowly advancing towards the warriors, in a straight line, without any attempt to surround them. 
 
-}
 #if(v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0) {
  It's a good thing that I heard the guards talking about the scorpions while I was in my cell.  I've had all the time in the world to prepare against them, and I've also told Leila all the information she needed to know about them.
 
@@ -1083,7 +1075,7 @@ Okay... Calm down! Desert marauders are pretty much just giant scorpions with sm
  No, wait... Those aren't scorpions, they're desert marauders. They look almost the same as scorpions, but their heads are smaller. I remember reading about desert marauders in my notebook, and I know that their weakness was behind one of the scales on their back, but I can't remember which one. If only I had my notebook with me now...
 
 }
-choice("Continue", B2-Ch04a-Backpack, v_current_scene = B2-Ch04a-Backpack) if (v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform3 == 1 || v_b2_ch2_heard == 1 && v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch2_heard == 0)
+choice("Continue", B2-Ch04a-Backpack, v_current_scene = B2-Ch04a-Backpack)
 
 
 ID: B2-Ch04a-Backpack
@@ -1101,10 +1093,10 @@ Damn it! If only I hadn't told Daren to secure my backpack, I could have sent Le
 Hold on, I also have another choice! I could send Leila to go read my notebook, and rip the pages I need out of it, so she can bring them back to me. But would she be able to find the pages? I did make a page index at the beginning, but people have had trouble understanding my ugly handwriting in the past. I can't just tell her to bring me the notebook, because then she might not have the time to return it to my backpack before our round begins. Either way, I don't have much time. I'm going to need to decide what I want to do.
 
 }
-choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_ch6_secure == 0 || v_ch6_secure == 1)
-choice("Go read the notebook.", B2-Ch04a-Read, v_current_scene = B2-Ch04a-Read, v_b2_ch4_backpack = 2) if (v_ch6_secure == 0 || v_ch6_secure == 1)
+choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1)
+choice("Go read the notebook.", B2-Ch04a-Read, v_current_scene = B2-Ch04a-Read, v_b2_ch4_backpack = 2)
 choice("Send Leila to bring me the notebook pages.", B2-Ch04a-Remain, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 3) if (v_ch6_secure == 0)
-choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_ac_b2_ch4_risk = 1, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_b2_ch2_heard == 1 && v_ch6_secure == 0 || v_b2_ch2_heard == 1 && v_ch6_secure == 1)
+choice("Stay here and watch the fights.", B2-Ch04a-Remain, v_ac_b2_ch4_risk = 1, v_current_scene = B2-Ch04a-Remain, v_b2_ch4_backpack = 1) if (v_b2_ch2_heard == 1)
 
 
 ID: B2-Ch04a-Read
@@ -1150,7 +1142,6 @@ I leave the area of our division and hurry towards the locker rooms. Shortly aft
 "Okay," I say. "How do I ask for permission, then?"
 
 }
-#if(v_ch6_secure == 0 || v_ch6_secure == 1) {
  The guard scratches his head. I don't think anyone's ever asked him this question before.
 
 "Wait here," the guard says. "I'll go ask the owner. You'd better not move from this spot till I come back, or you'll be in trouble."
@@ -1163,8 +1154,7 @@ The guard goes to climb a flight of stairs, and then he disappears from my sight
 
 When I finally reach my locker, I open it with my key, and then I get the notebook out of my backpack. I quickly rip out the pages I need, then I place my notebook back in my backpack and I close the locker.
 
-}
-choice("Continue", B2-Ch04a-Himself, v_current_scene = B2-Ch04a-Himself) if (v_ch6_secure == 0 || v_ch6_secure == 1)
+choice("Continue", B2-Ch04a-Himself, v_current_scene = B2-Ch04a-Himself)
 
 
 ID: B2-Ch04a-Himself
@@ -1196,7 +1186,6 @@ It seems that both the first and the second division fights have already ended. 
 "Your dwarf friend just defeated all those monsters by himself," Leila writes.
 
 }
-#if(v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1) {
  "By himself?" I ask, surprised. "What about the first division?"
 
 "They were all killed," Leila writes. "You can see their bodies over there."
@@ -1207,8 +1196,7 @@ She then points towards several dead gladiators that are hidden behind some mara
 
 It takes about another minute for the cheering to finally die down, and for Hadrik and the others to step off the stage, so that the next division can enter the fighting area.
 
-}
-choice("Continue", B2-Ch04a-Daft, v_current_scene = B2-Ch04a-Daft) if (v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1)
+choice("Continue", B2-Ch04a-Daft, v_current_scene = B2-Ch04a-Daft)
 
 
 ID: B2-Ch04a-Remain
@@ -1253,7 +1241,7 @@ The scorpion-like creatures are at least five times bigger than the gladiators, 
 The most agile of the three jumps on the creature's back and he stabs it fiercely in the back of its head. The marauder screams in pain and it tries to attack the warrior with its tail, but the gladiator jumps off, while the other two make a rush for it and stab the monster in both its eyes with their swords, at the same time. 
 
 }
-choice("Continue", B2-Ch04a-Mercy, v_current_scene = B2-Ch04a-Mercy) if (v_b2_ch4_backpack == 1 || v_b2_ch4_backpack == 3)
+choice("Continue", B2-Ch04a-Mercy, v_current_scene = B2-Ch04a-Mercy)
 
 
 ID: B2-Ch04a-Mercy
@@ -1402,7 +1390,7 @@ Following the sound of Arraka's voice, I manage to identify Flower in the crowd 
  Now that Arraka mentions it, I see that there are indeed spears and various other weapons mounted on the walls of the arena. They must have been placed there to give people who didn't have any weapons when they got captured an equal chance in the fighting event. Hadrik mumbles something under his breath, and he goes to get one of the spears. He then tosses it at one of the manticores, and the spear lodges itself into its chest, causing blood to spray out while the creature falls towards the ground. Before the creature reaches the soil, the dwarf grabs two more spears, and he throws them in quick succession towards two of the other manticores, killing them as well.
 
 }
-choice("Continue", B2-Ch04a-Chanting, v_current_scene = B2-Ch04a-Chanting) if (v_b2_ch4_beer == 0 || v_b2_ch4_beer == 1)
+choice("Continue", B2-Ch04a-Chanting, v_current_scene = B2-Ch04a-Chanting)
 
 
 ID: B2-Ch04a-Chanting
@@ -1499,7 +1487,7 @@ I take the notes from her hands and I study them closely.
 The information written here is definitely useful. I'll make sure to put it to good use if the need arises.
 
 }
-choice("Continue", B2-Ch04a-Daft, v_current_scene = B2-Ch04a-Daft) if (v_b2_ch2_heard == 0 || v_b2_ch2_heard == 1)
+choice("Continue", B2-Ch04a-Daft, v_current_scene = B2-Ch04a-Daft)
 
 
 ID: B2-Ch04a-Daft
@@ -1598,14 +1586,12 @@ choice("Continue", B2-Ch04a-Concentrate, v_current_scene = B2-Ch04a-Concentrate)
 ID: B2-Ch04a-Concentrate
 TEXT:
 
-#if(v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch4_inform2 == 1 || v_b2_ch4_inform3 == 1) {
  The tramplers have finished their first tour of the arena, and they're now coming back towards Daren for a second round. Some of his teammates have managed to evade the stampede, but two of them were not so lucky, and they got trampled to death before they could get out of harm's way. Daren waits patiently until the last moment yet again, and then he runs his blade through the side of the creature, slicing it in half. The crowds are going wild once more.
 
 Seeing that the first wave of beasts is already being dealt with, the announcer signals the beginning of the second wave. Three giant cobras are now making their way towards Daren, while the tramplers decide to try chasing some of the easier prey. The cobras are both taller and wider than Daren, but their size is not the only dangerous thing about them. By the looks of the black spots on their necks, I'm almost certain that these are in fact acid-spitting cobras, and not regular ones. 
 
 Acid that comes from cobras is not as strong as the acid from mage spells, but it's definitely not something to be sneezed at. While it may not significantly damage weapons and armor that have been sufficiently enchanted, the acid from a cobra can still burn through most regular metals in a matter of minutes, and it can burn through human flesh in a matter of seconds.
 
-}
 #if(v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0) {
  Being now faced with ranged attackers, Daren decides that it is no longer safe to maintain his position, and he switches to the offensive. Advancing slowly, with his shield in front, Daren gradually closes the gap between himself and the cobras, until he gets near enough to be able to make a dash attack. The cobras have been spitting at him all this time, but judging by the impact it's had on Daren's shield, they may as well have been spraying water.
 
@@ -1634,7 +1620,7 @@ While Daren was busy with the cobras, the other gladiators had somehow managed t
 Great. Our fight didn't even start yet, and our team is already falling apart. I should have known from the beginning that these people couldn't be trusted.
 
 }
-choice("Continue", B2-Ch04a-Silence, v_current_scene = B2-Ch04a-Silence) if (v_b2_ch4_inform2 == 0 && v_b2_ch4_inform3 == 0 || v_b2_ch4_inform2 == 1 || v_b2_ch4_inform3 == 1)
+choice("Continue", B2-Ch04a-Silence, v_current_scene = B2-Ch04a-Silence)
 
 
 ID: B2-Ch04a-Silence
@@ -1722,4 +1708,4 @@ We all make our way towards the center of the arena, like all the divisions befo
 The crowd watches us in complete silence, as we make our way past all the animal carcasses, in order to reach our destination. It's clear that they do not recognize anyone from our division. They're probably already thinking that we're going to get butchered, like that first division from earlier. I hope we won't end up proving them right.
 
 }
-choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard) if (v_b2_ch2_deal == 1 || v_b2_ch2_deal == 2 || v_b2_ch2_deal == 3 || v_b2_ch2_deal == 4)
+choice("Continue", B2-Ch04b-Bastard, v_current_scene = B2-Ch04b-Bastard)

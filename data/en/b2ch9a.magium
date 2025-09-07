@@ -150,7 +150,7 @@ choice("Continue", B2-Ch09a-Kick, v_current_scene = B2-Ch09a-Kick, v_checkpoint_
 ID: B2-Ch09a-Dog
 TEXT:
 
-#if(v_b2_ch9_dog == 0 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 0 && v_ch11_saved_rose == 1) {
+#if(v_b2_ch9_dog == 0) {
  "Because I didn't want to kick her out like a dog, when she didn't have a place to sleep."
 
 "No place to sleep?" Kate asks. "What do you mean? Didn't she bring a tent?"
@@ -170,7 +170,7 @@ TEXT:
 "I don't know," I say. "Lots of things. It feels like it's been ages since we've had a chance to talk, in private."
 
 }
-#if(v_b2_ch9_dog == 1 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 1) {
+#if(v_b2_ch9_dog == 1) {
  "Because I didn't want to waste any more time arguing with her."
 
 "So, you'd rather waste a whole night of sleep, than a few more minutes arguing with her?" Kate says.
@@ -186,7 +186,7 @@ TEXT:
 "I don't know," I say. "Lots of things. It feels like it's been ages since we've had a chance to talk, in private."
 
 }
-#if(v_b2_ch9_dog == 2 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 1) {
+#if(v_b2_ch9_dog == 2) {
  "Because I figured I may as well come chat with you, given that I was already up."
 
 "Oh?" Kate asks. "And what was it that you wanted to talk with me about?"
@@ -194,7 +194,7 @@ TEXT:
 "I don't know," I say. "Lots of things. It feels like it's been ages since we've had a chance to talk, in private."
 
 }
-#if(v_b2_ch9_dog == 0 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 0) {
+#if(v_ch11_saved_rose == 0) {
  "You're right..." Kate says. "It has been a while. I think the last time we've had a private conversation was that time when we were celebrating our release from the golden fox's collars. Back when... Rose was still alive..."
 
 Kate's words hit me like a dagger through my chest. I suddenly realize that I've been completely avoiding thinking about Rose ever since that day when we held a toast with Enrique in her memory. Even when I promised myself that I would not avoid thinking about her death, I still managed to do it. I guess some things are easier said than done, after all.
@@ -212,7 +212,7 @@ Kate's words hit me like a dagger through my chest. I suddenly realize that I've
 "Well, at the beginning, you weren't really talking to each other," I say. "So, I thought that maybe you might have had an argument or something, before she left the Beacon, which made it difficult for you to begin a conversation."
 
 }
-#if(v_b2_ch9_dog == 0 && v_ch11_saved_rose == 1 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 1 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 1) {
+#if(v_ch11_saved_rose == 1) {
  "You're right..." Kate says. "It has been a while. I think the last time we've had a private conversation was that time when we were celebrating our release from the golden fox's collars. So much has happened since then. The objectives announcement, the arena, the dragon's war declaration..."
 
 "And also your reunion with your childhood friend, Leila," I say. "How have things been going with her, by the way?"
@@ -226,7 +226,6 @@ Kate's words hit me like a dagger through my chest. I suddenly realize that I've
 "Well, at the beginning, you weren't really talking to each other," I say. "So, I thought that maybe you might have had an argument or something, before she left the Beacon, which made it difficult for you to begin a conversation."
 
 }
-#if(v_b2_ch9_dog == 0 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 0 && v_ch11_saved_rose == 1 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 1 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 1) {
  "Oh, no, it's not that..." Kate says. "It was just that..."
 
 She pauses.
@@ -237,8 +236,7 @@ She pauses.
 
 "Yes, you're right," Kate says. "I really owe a lot to her father. I hope we'll meet him when we reach Ollendor, so I can express my gratitude to him."
 
-}
-choice("Continue", B2-Ch09a-Notebook, v_current_scene = B2-Ch09a-Notebook) if (v_b2_ch9_dog == 0 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 0 && v_ch11_saved_rose == 1 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 1 && v_ch11_saved_rose == 1 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 0 || v_b2_ch9_dog == 2 && v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch09a-Notebook, v_current_scene = B2-Ch09a-Notebook)
 
 
 ID: B2-Ch09a-Notebook
@@ -330,8 +328,8 @@ She then conjures an ice dagger out of thin air, and she starts flinging it upwa
 "You know," Kate says, "you should consider yourself very lucky that I'm not actually planning to compete against you in this tournament. With your non-existent protection spells, and your unreliable ranged attacks, you would have no way of even touching me, while I'd be floating high above in an ice cage, raining down icicles upon you."
 
 }
-choice(""I don't know. I wouldn't be so sure about that."", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 1) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 0 || v_ch11_saved_rose == 0)
-choice(""Yeah, I probably couldn't last ten seconds against you in an actual fight."", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 0 || v_ch11_saved_rose == 0)
+choice(""I don't know. I wouldn't be so sure about that."", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 1)
+choice(""Yeah, I probably couldn't last ten seconds against you in an actual fight."", B2-Ch09a-Winner, v_current_scene = B2-Ch09a-Winner, v_b2_ch9_defeat = 0)
 
 
 ID: B2-Ch09a-Winner
@@ -369,7 +367,6 @@ She then pauses for a few seconds before she speaks again.
 "Well, then," Kate says, as she makes her ice dagger vanish into thin air, "In that case, I suppose we should both be feeling lucky that we won't be competing against each other."
 
 }
-#if(v_b2_ch9_defeat == 0 || v_b2_ch9_defeat == 1) {
  She pauses.
 
 "But I think you already know that things will not go as smoothly with Daren," Kate continues. "The two of you are practically the only members of our group who are actually aiming to win this tournament, so if you both continue on your current path, you will eventually have no other choice than to fight each other. There can be only one winner of the Magium tournament."
@@ -400,8 +397,7 @@ She then starts heading towards her own tent, as Daren and I head towards his, i
 
 "You can sleep as much as you want in your own tent, but not here," I say.
 
-}
-choice("Continue", B2-Ch09a-Dismantling, v_current_scene = B2-Ch09a-Dismantling) if (v_b2_ch9_defeat == 0 || v_b2_ch9_defeat == 1)
+choice("Continue", B2-Ch09a-Dismantling, v_current_scene = B2-Ch09a-Dismantling)
 
 
 ID: B2-Ch09a-Dismantling
@@ -598,7 +594,7 @@ TEXT:
 "I'll go get Flower, then," Melindra says, as she moves away from me. "This discussion has made me even hungrier than before. I really hope that those delicacies that she was bragging about yesterday are as good as she said they'd be."
 
 }
-choice("Continue", B2-Ch09a-Panicked, v_current_scene = B2-Ch09a-Panicked) if (v_b2_ch9_amused == 0 || v_b2_ch9_amused == 1)
+choice("Continue", B2-Ch09a-Panicked, v_current_scene = B2-Ch09a-Panicked)
 
 
 ID: B2-Ch09a-Panicked
@@ -687,7 +683,6 @@ Once we're done with the food, Melindra and I begin to dismantle my tent, while 
 "I flew it over you with my wind magic while you were still asleep," Melindra says, as she pulls her backpack out of the tent. "Okay, I'm done. Let's get to work."
 
 }
-#if(v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1) {
  We both spend the next few minutes dismantling the tent, and once we're done, I go to give Hadrik his tent back, while the others are preparing for our departure. Kate still looks upset, but Daren looks like he might have already gotten over what happened earlier this morning. Once we're all ready to go, Melindra takes the lead, and we all begin to follow her, as we walk along the river's bank, just like yesterday.
 
 Not long after we start walking, Hadrik pulls me over to the back of the group, so he can have a short conversation with me in private.
@@ -700,8 +695,7 @@ Not long after we start walking, Hadrik pulls me over to the back of the group, 
 
 With these last words, he goes to catch up with the rest of the group, and I soon follow him as well.
 
-}
-choice("Continue", B2-Ch09a-Pinecones, v_current_scene = B2-Ch09a-Pinecones) if (v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1)
+choice("Continue", B2-Ch09a-Pinecones, v_current_scene = B2-Ch09a-Pinecones)
 
 
 ID: B2-Ch09a-Sleep2
@@ -967,7 +961,6 @@ choice("Continue", B2-Ch09a-Puzzle, v_current_scene = B2-Ch09a-Puzzle)
 ID: B2-Ch09a-Puzzle
 TEXT:
 
-#if(v_b2_ch1_puzzle2 == 0 || v_b2_ch1_puzzle2 == 1) {
  "And I'm guessing that Melindra won't be revealing this information to us, either," Daren says.
 
 "I've said too much, already," Melindra says. "I've promised Eiden long ago that I wouldn't give anyone any important details about the still winter, and I intend to stick to that promise."
@@ -978,8 +971,7 @@ TEXT:
 
 For the next few hours or so, we kept following Melindra, as she led us away from the river, and through the thick of the forest, once more. As time passed, the wind that was only a small breeze this morning began to slowly intensify, while the sky was still as dark as ever. We spent most of these hours listening to some of Hadrik's and Daren's stories from their various adventures, and not much else, although one thing that I've noticed was that Melindra and Flower often seemed to be more preoccupied with their own discussions rather than paying attention to our group chats.
 
-}
-#if(v_b2_ch1_puzzle2 == 0 && v_b2_ch8_energizer == 0 || v_b2_ch1_puzzle2 == 1 && v_b2_ch8_energizer == 0) {
+#if(v_b2_ch8_energizer == 0) {
  For some odd reason, the more these two talked with each other, the more things they found that they had in common, which only sparked new topics of conversation between them that seemed to never end. 
 
 Once it got past noon, we decided to take a small break to eat some lunch. This time around, we didn't ask Flower to make any food, so she could preserve her magical energy, in case of an attack. Since I wasn't particularly hungry, I sat myself down on a tree stump, and I pulled a pack of biscuits out of my backpack, to serve as a little afternoon snack.
@@ -991,7 +983,7 @@ Once it got past noon, we decided to take a small break to eat some lunch. This 
 "Hmm?..." Melindra says, from behind Flower, looking as if what I said about my biscuits intrigued her for some reason.
 
 }
-#if(v_b2_ch1_puzzle2 == 0 && v_b2_ch8_energizer != 0 || v_b2_ch1_puzzle2 == 1 && v_b2_ch8_energizer != 0) {
+#if(v_b2_ch8_energizer != 0) {
  For some odd reason, the more these two talked with each other, the more things they found that they had in common, which only sparked new topics of conversation between them that seemed to never end. 
 
 Once it got past noon, we decided to take a small break to eat some lunch. This time around, we didn't ask Flower to make any food, so she could preserve her magical energy, in case of an attack. Since I wasn't particularly hungry, I sat myself down on a tree stump, and I pulled a pack of biscuits out of my backpack, to serve as a little afternoon snack.
@@ -1073,10 +1065,10 @@ Once it got past noon, we decided to take a small break to eat some lunch. This 
 "Awww," Flower says. "That's too bad. But I'll go ask the others too, just in case. With a little luck, they may have found some puzzle pieces by accident."
 
 }
-choice(""I'd rather hold onto it, if you don't mind."", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 0) if (v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1 || v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice(""You can have it, if you want."", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle == 1 || v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle == 1)
-choice(""Why do you care about these puzzle pieces so much?"", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1 || v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
-choice(""Sounds like a good idea. Good luck."", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_b2_ch1_puzzle2 == 0 && v_ch8_first_puzzle != 1 || v_b2_ch1_puzzle2 == 1 && v_ch8_first_puzzle != 1)
+choice(""I'd rather hold onto it, if you don't mind."", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 0) if (v_ch8_first_puzzle == 1)
+choice(""You can have it, if you want."", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 1) if (v_ch8_first_puzzle == 1)
+choice(""Why do you care about these puzzle pieces so much?"", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 2) if (v_ch8_first_puzzle != 1)
+choice(""Sounds like a good idea. Good luck."", B2-Ch09a-Coaxed, v_current_scene = B2-Ch09a-Coaxed, v_b2_ch9_puzzle_give = 3) if (v_ch8_first_puzzle != 1)
 
 
 ID: B2-Ch09a-Coaxed
@@ -1124,15 +1116,13 @@ I then finish one of my biscuits, and I reach over to the side of the tree stump
 "Thanks!" Flower says. "Enjoy your biscuits!"
 
 }
-#if(v_b2_ch9_puzzle_give == 0 || v_b2_ch9_puzzle_give == 1 || v_b2_ch9_puzzle_give == 2 || v_b2_ch9_puzzle_give == 3) {
  I take a bite from one biscuit, and with my free hand I do a military salute, as Flower turns around, and she heads towards the others. I continue to eat for a few more minutes, and once I'm done, I open up my backpack and I place the pack of biscuits back inside.
 
 Before deciding whether I should be taking my notebook out of my backpack to read some more, I take a quick look towards the others, to see what each of them is doing. Kate is currently eating alone, while sitting on the grass, with her back against a tree. Meanwhile, Leila seems to have been coaxed by Hadrik and Daren to act as referee in a rock throwing contest between them. As with most contests that I've seen between Hadrik and Daren in the past, the rules appear to be a convoluted mess, and it's very hard to tell what the actual goal of their game is. And lastly, Flower and Melindra appear to be continuing their discussions about random topics that they started this morning.
 
-}
-choice("Continue", B2-Ch09a-Kate-path, v_current_scene = B2-Ch09a-Kate-path) if (v_b2_ch8_energizer == 3 && v_b2_ch9_puzzle_give == 0 || v_b2_ch8_energizer == 3 && v_b2_ch9_puzzle_give == 1 || v_b2_ch8_energizer == 3 && v_b2_ch9_puzzle_give == 2 || v_b2_ch8_energizer == 3 && v_b2_ch9_puzzle_give == 3)
-choice("Continue", B2-Ch09a-Energizer-path, v_current_scene = B2-Ch09a-Energizer-path) if (v_b2_ch8_energizer == 1 && v_b2_ch9_puzzle_give == 0 || v_b2_ch8_energizer == 1 && v_b2_ch9_puzzle_give == 1 || v_b2_ch8_energizer == 1 && v_b2_ch9_puzzle_give == 2 || v_b2_ch8_energizer == 1 && v_b2_ch9_puzzle_give == 3)
-choice("Continue", B2-Ch09a-Feelings, v_current_scene = B2-Ch09a-Feelings) if (v_b2_ch8_energizer == 0 && v_b2_ch9_puzzle_give == 0 || v_b2_ch8_energizer == 0 && v_b2_ch9_puzzle_give == 1 || v_b2_ch8_energizer == 0 && v_b2_ch9_puzzle_give == 2 || v_b2_ch8_energizer == 0 && v_b2_ch9_puzzle_give == 3 || v_b2_ch8_energizer == 2 && v_b2_ch9_puzzle_give == 0 || v_b2_ch8_energizer == 2 && v_b2_ch9_puzzle_give == 1 || v_b2_ch8_energizer == 2 && v_b2_ch9_puzzle_give == 2 || v_b2_ch8_energizer == 2 && v_b2_ch9_puzzle_give == 3)
+choice("Continue", B2-Ch09a-Kate-path, v_current_scene = B2-Ch09a-Kate-path) if (v_b2_ch8_energizer == 3)
+choice("Continue", B2-Ch09a-Energizer-path, v_current_scene = B2-Ch09a-Energizer-path) if (v_b2_ch8_energizer == 1)
+choice("Continue", B2-Ch09a-Feelings, v_current_scene = B2-Ch09a-Feelings) if (v_b2_ch8_energizer == 0 || v_b2_ch8_energizer == 2)
 
 
 ID: B2-Ch09a-Kate-path
@@ -1160,7 +1150,6 @@ choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying)
 ID: B2-Ch09a-Energizer-path
 TEXT:
 
-#if(v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 0 || v_ch11_saved_rose == 0) {
  I wonder if Kate is still upset with me over what happened last night. Maybe I should go talk to her. Yeah, I should definitely go talk to her.
 
 I leave my backpack next to the tree stump, and I head over to Kate, who is still eating her lunch by herself. When I reach her, Kate gives me a sideways glance, and then she continues to eat her food, without looking at me.
@@ -1185,7 +1174,6 @@ After a while, I notice that the others are slowly gathering up and preparing to
 
 "We're going this way," Melindra says, as she takes the lead. "Follow me."
 
-}
 #if(v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1) {
  "Well, maybe you should have thought of that before sharing a bed with the enemy," Kate says.
 
@@ -1226,13 +1214,12 @@ She then heads further into the woods, and she leaves me behind, without saying 
 She then heads further into the woods, and she leaves me behind, without saying another word to me.
 
 }
-choice("Continue", B2-Ch09a-Energizer-path2, v_current_scene = B2-Ch09a-Energizer-path2) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 0 || v_ch11_saved_rose == 0)
+choice("Continue", B2-Ch09a-Energizer-path2, v_current_scene = B2-Ch09a-Energizer-path2)
 
 
 ID: B2-Ch09a-Energizer-path2
 TEXT:
 
-#if(v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1) {
  Not long after we start travelling again, I suddenly feel an intense feeling of fatigue, and a strong headache that almost makes me drop to one knee. As if the headache alone wasn't enough, a feeling of nausea is also beginning to slowly creep up on me, while I'm keeping my eyes closed, trying to ignore the pain.
 
 "Barry?" Daren asks. "What's wrong?"
@@ -1247,7 +1234,6 @@ She then quickly utters an incantation and she waves her hands around, as she ca
 
 "Yes," Melindra says. "But this should all get solved if I cast another energizer spell on him."
 
-}
 #if(v_b2_ch9_cast1 == 0) {
  "No!" I tell her. "I said I don't want you to cast a second energizer spell on me! Daren, you wouldn't by any chance happen to have some spell that heals headaches and nausea, would you?"
 
@@ -1260,8 +1246,8 @@ She then quickly utters an incantation and she waves her hands around, as she ca
 "I do," Daren says, "but I'm not going to risk casting any kind of healing spell on you right now, unless we're talking about a life-threatening emergency. Casting healing spells on someone who's recently had his heart weakened by an energizer spell is asking for all kinds of trouble. Honestly, you'd be better off just letting Melindra cast that second energizer spell on you. It would still strain your heart, but at least it would do it more gradually, and the risk of heart failure when you've only used this spell once before in your entire life is almost non-existent."
 
 }
-choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1) if (v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1)
-choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0) if (v_b2_ch9_cast1 == 0 || v_b2_ch9_cast1 == 1)
+choice("Let Melindra cast the spell", B2-Ch09a-Energizer-path3, v_current_scene = B2-Ch09a-Energizer-path3, v_b2_ch9_cast2 = 1)
+choice("Don't let Melindra cast the spell", B2-Ch09a-Energizer-stat, v_current_scene = B2-Ch09a-Energizer-stat, v_b2_ch9_cast2 = 0)
 
 
 ID: B2-Ch09a-Energizer-path3
@@ -1287,7 +1273,7 @@ As we advance through the storm, the wind finally manages to blow a few trees ou
 We keep pressing forward for another twenty minutes, but the storm still doesn't look like it will be stopping anytime soon. In fact, it's been getting worse by the minute. Every time we hear a thunder, it feels almost as if someone set off a powerful explosion spell in our vicinity. The wind is now almost powerful enough to push us back while we're walking, and the number of rain drops has greatly increased as well. Will this storm never end?
 
 }
-choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying) if (v_b2_ch9_cast2 == 1)
+choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying)
 
 
 ID: B2-Ch09a-Energizer-stat
@@ -1466,8 +1452,8 @@ She then conjures an ice dagger out of thin air, and she starts flinging it upwa
 "You know," Kate says, "you should consider yourself very lucky that I'm not actually planning to compete against you in this tournament. With your non-existent protection spells, and your unreliable ranged attacks, you would have no way of even touching me, while I'd be floating high above in an ice cage, raining down icicles upon you."
 
 }
-choice(""I don't know. I wouldn't be so sure about that."", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 1) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 0 || v_ch11_saved_rose == 0)
-choice(""Yeah, I probably couldn't last ten seconds against you in an actual fight."", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 || v_ch11_romance_rose == 0 || v_ch11_saved_rose == 0)
+choice(""I don't know. I wouldn't be so sure about that."", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 1)
+choice(""Yeah, I probably couldn't last ten seconds against you in an actual fight."", B2-Ch09a-Feelings3, v_current_scene = B2-Ch09a-Feelings3, v_b2_ch9_defeat = 0)
 
 
 ID: B2-Ch09a-Feelings3
@@ -1505,7 +1491,6 @@ She then pauses for a few seconds before she speaks again.
 "Well, then," Kate says, as she makes her ice dagger vanish into thin air, "In that case, I suppose we should both be feeling lucky that we won't be competing against each other."
 
 }
-#if(v_b2_ch9_defeat == 0 || v_b2_ch9_defeat == 1) {
  She pauses.
 
 "But I think you already know that things will not go as smoothly with Daren," Kate continues. "The two of you are practically the only members of our group who are actually aiming to win this tournament, so if you both continue on your current path, you will eventually have no other choice than to fight each other. There can be only one winner of the Magium tournament."
@@ -1520,9 +1505,8 @@ We then both remain silent for a while, before we speak again.
 
 Having finished my discussion with Kate, I head back towards my tree stump, in order to get some reading done before we leave.
 
-}
-choice("Continue", B2-Ch09a-Vicinity, v_current_scene = B2-Ch09a-Vicinity) if (v_b2_ch8_energizer == 2 && v_b2_ch9_defeat == 0 || v_b2_ch8_energizer == 2 && v_b2_ch9_defeat == 1)
-choice("Continue", B2-Ch09a-Biscuits, v_current_scene = B2-Ch09a-Biscuits) if (v_b2_ch8_energizer == 0 && v_b2_ch9_defeat == 0 || v_b2_ch8_energizer == 0 && v_b2_ch9_defeat == 1)
+choice("Continue", B2-Ch09a-Vicinity, v_current_scene = B2-Ch09a-Vicinity) if (v_b2_ch8_energizer == 2)
+choice("Continue", B2-Ch09a-Biscuits, v_current_scene = B2-Ch09a-Biscuits) if (v_b2_ch8_energizer == 0)
 
 
 ID: B2-Ch09a-Vicinity
@@ -1584,8 +1568,8 @@ I sigh.
 "Of course!" Melindra says. "As soon as you apologize for what you've done, I'd be more than happy to call a truce."
 
 }
-choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1) if (v_ch6_secure == 0 || v_ch6_secure == 1)
-choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0) if (v_ch6_secure == 0 || v_ch6_secure == 1)
+choice("Apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 1)
+choice("Don't apologize", B2-Ch09a-Biscuits2, v_current_scene = B2-Ch09a-Biscuits2, v_b2_ch9_apologize = 0)
 
 
 ID: B2-Ch09a-Biscuits2
@@ -1643,7 +1627,6 @@ Melindra frowns at me, and she doesn't say anything for a few seconds.
 "Yeah," Melindra says. "Whatever."
 
 }
-#if(v_b2_ch9_apologize == 0 && v_ch6_secure == 0 || v_b2_ch9_apologize == 0 && v_ch6_secure == 1 || v_b2_ch9_apologize == 1 && v_ch6_secure == 0 || v_b2_ch9_apologize == 1 && v_ch6_secure == 1) {
  She then leaves me alone and goes to join Flower, while I flip a page from my notebook, and begin reading again.
 
 After a while, I notice that the others are slowly gathering up and preparing to leave, so I put the notebook back inside my backpack, and I get ready to join them as well.
@@ -1660,8 +1643,7 @@ As we advance through the storm, the wind finally manages to blow a few trees ou
 
 We keep pressing forward for another twenty minutes, but the storm still doesn't look like it will be stopping anytime soon. In fact, it's been getting worse by the minute. Every time we hear a thunder, it feels almost as if someone set off a powerful explosion spell in our vicinity. The wind is now almost powerful enough to push us back while we're walking, and the number of rain drops has greatly increased as well. Will this storm never end?
 
-}
-choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying) if (v_b2_ch9_apologize == 0 && v_ch6_secure == 0 || v_b2_ch9_apologize == 0 && v_ch6_secure == 1 || v_b2_ch9_apologize == 1 && v_ch6_secure == 0 || v_b2_ch9_apologize == 1 && v_ch6_secure == 1)
+choice("Continue", B2-Ch09a-Drying, v_current_scene = B2-Ch09a-Drying)
 
 
 ID: B2-Ch09a-Drying
@@ -1784,7 +1766,7 @@ I shrug.
 "Fair enough," Hadrik says. "So, what if we tried to uncover stuff about his past, instead? Or his motivations. Maybe that could help us fight him somehow. Like, for example, maybe we could find out the reason why he's filling the whole continent with those weird invisible spells."
 
 }
-choice("Continue", B2-Ch09a-Downhill, v_current_scene = B2-Ch09a-Downhill) if (v_b2_ch9_oath == 0 || v_b2_ch9_oath == 1)
+choice("Continue", B2-Ch09a-Downhill, v_current_scene = B2-Ch09a-Downhill)
 
 
 ID: B2-Ch09a-Downhill

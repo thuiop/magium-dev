@@ -95,7 +95,6 @@ She then closes her eyes and tries to concentrate, as the rest of us fall comple
 She then closes her eyes and tries to concentrate, as the rest of us fall completely silent, in order to avoid distracting her. After a while, Rose disappears from her spot, and she reappears several feet to the left of her original position. She then disappears and reappears again a few more times, in different places, until Daren finally decides to break the silence.
 
 }
-#if(v_b2_ch11_encourage == 0 || v_b2_ch11_encourage == 1 || v_b2_ch11_encourage == 2) {
  "Rose, what are you doing?..." Daren asks.
 
 "I'm trying to figure out how this works," Rose says. "I seem to be able to freeze you guys in time whenever I want, and the spell doesn't break, no matter how far I walk away from my original position. I can also unfreeze you at will, but no matter how many times I do it, the rest of the world still remains frozen. I don't understand. It's like the world around us was frozen in a completely different way than by using my powers."
@@ -116,8 +115,7 @@ She then closes her eyes and tries to concentrate, as the rest of us fall comple
 
 "Yes," Melindra says. "You are only the first group to be visited by the time weaver. Once the God of Time is done with his ritual, you will be frozen in time once more, and then the prophecy and the ritual will be repeated for other groups of people as well. Not only that, but this same prophecy will be delivered to you and the others at least two more times, before the events prophesized will come to pass, in order to announce you if any progress has been made, towards your goal of averting the disaster. The reason why Arraka said that you were the most likely ones to influence the prophecy is because the time weavers always visit their targets in order of priority, which means that your group may have the most decisive role in the events to come, depending on your choices."
 
-}
-choice("Continue", B2-Ch11c-Practice, v_current_scene = B2-Ch11c-Practice) if (v_b2_ch11_encourage == 0 || v_b2_ch11_encourage == 1 || v_b2_ch11_encourage == 2)
+choice("Continue", B2-Ch11c-Practice, v_current_scene = B2-Ch11c-Practice)
 
 
 ID: B2-Ch11c-Practice
@@ -167,7 +165,6 @@ choice("Continue", B2-Ch11c-Slowing, v_current_scene = B2-Ch11c-Slowing)
 ID: B2-Ch11c-Slowing
 TEXT:
 
-#if(v_ch4_spared_dave == 0 || v_ch4_spared_dave == 1) {
  Since Leila didn't really feel like talking at the moment, I decided to give her some space, so she could be alone, with her own thoughts.
 
 As I went back to my original spot, I saw that Flower was now busy talking with Melindra, while Kate was still helping Rose with her tests. Apparently, Rose had already found a way to use her time-slowing powers, and now she was trying to see if she could un-slow Kate as well, so that she could benefit from the effects of her spell. I tried to help Rose too, but after spending more than fifteen minutes doing tests, it didn't look like we were making any progress.
@@ -180,7 +177,6 @@ As I went back to my original spot, I saw that Flower was now busy talking with 
 
 "Your negative emotions!" Arraka says. "That's the raw material that Selkram is using to convert into magical energy. And while you losers were busy repeating those rituals over and over, sinking into the depths of despair or cursing the God of Time, you were giving him exactly what he wanted. Honestly, I think he got so much energy from you people, that he might not even NEED a second stage from your group. I guess we'll see about that soon enough."
 
-}
 #if(v_ch4_spared_dave == 1) {
  "Well, I'm happy to have been of assistance," Daren says, in a dry tone. "I suppose this gives us more time to investigate the area, then. Come on, Hadrik, let's try interacting with more of these frozen insects and trees. Maybe we'll be able to find one that isn't protected by an invisible, impenetrable shield, so we can finally cancel this damned time-freezing spell."
 
@@ -297,7 +293,6 @@ All of a sudden, a large ice wall forms itself in front of Daren, separating him
 "Those are some brave words," Hadrik says, with a grin. "Let's see if you've got what it takes to back them up."
 
 }
-#if(v_b2_ch11_defend == 0 || v_b2_ch11_defend == 1) {
  He then immediately rushes towards the revenant, at great speed, and tries to punch her, but she just disappears, right before he lands his strike, and she reappears much further away from him, while looking at him with her usual lack of human emotion in her eyes. Hadrik doesn't let himself get intimidated, and he tries to dash for her yet again, even though this yields him the same results. The third time, it is Daren who tries to slash at her with his sword, but she effortlessly evades his attack as well, by disappearing and reappearing, like the last two times.
 
 "What the hell?..." Hadrik says. "How do you keep doing that? I thought that the time was already frozen!"
@@ -308,8 +303,7 @@ She then disappears again, but this time, she reappears right behind Daren, hold
 
 "Do you surrender, healer, or do we need to continue?" the revenant says.
 
-}
-choice("Continue", B2-Ch11c-Asleep, v_current_scene = B2-Ch11c-Asleep) if (v_b2_ch11_defend == 0 || v_b2_ch11_defend == 1)
+choice("Continue", B2-Ch11c-Asleep, v_current_scene = B2-Ch11c-Asleep)
 
 
 ID: B2-Ch11c-Asleep
@@ -465,7 +459,7 @@ She then flies all the way up to where the God of Time was floating when he firs
 "Yes, I activated it," I say. "I also noticed that I still have those temporary points in my hearing stat that were technically only supposed to last for a few seconds. I'm guessing that you knew this would happen, and that's why you told me to do it?"
 
 }
-#if(v_b2_ch6_stat == 0 && v_b2_ch9_channel == 1 || v_b2_ch9_channel == 0) {
+#if(v_b2_ch6_stat == 0 || v_b2_ch9_channel == 0) {
  As soon as the revenant finishes her sentence, we all turn towards Arraka's amulet.
 
 "Arraka, will you--" Illuna starts to say, but she is interrupted.
@@ -482,7 +476,7 @@ She then flies all the way up to where the God of Time was floating when he firs
 
 }
 choice("Continue", B2-Ch11c-Maximum2, v_current_scene = B2-Ch11c-Maximum2) if (v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 || v_b2_ch10_activate == 0 && v_b2_ch9_channel == 0 || v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 || v_b2_ch11_paranoid == 0 && v_b2_ch9_channel == 0 || v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 || v_b2_ch11_paranoid == 1 && v_b2_ch9_channel == 0 || v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 || v_b2_ch11_paranoid == 2 && v_b2_ch9_channel == 0 || v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch6_stat == 0 && v_b2_ch9_channel == 1 || v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 1 || v_b2_ch10_activate == 0 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 || v_b2_ch10_activate == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 1 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 2 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch6_stat == 0 && v_b2_ch9_channel == 1 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 1 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_hearing == 7 || v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 0 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 1 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch10_activate == 0 && v_b2_ch11_paranoid == 2 && v_b2_ch6_stat == 0 && v_b2_ch9_channel == 0 && v_hearing == 7 || v_b2_ch9_channel == 0)
-choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_b2_ch11_paranoid == 0 && v_hearing == 7 || v_b2_ch11_paranoid == 1 && v_hearing == 7 || v_b2_ch11_paranoid == 2 && v_hearing == 7 || v_b2_ch10_activate == 1 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_hearing == 7)
+choice("Continue", B2-Ch11c-Enough, v_current_scene = B2-Ch11c-Enough) if (v_hearing == 7)
 choice("Continue", B2-Ch11c-Maximum, v_current_scene = B2-Ch11c-Maximum) if (v_b2_ch10_activate == 1 && v_b2_ch6_stat == 1 && v_b2_ch9_channel == 1 && v_hearing < 7)
 
 
@@ -676,7 +670,6 @@ Could it be that she still didn't manage to get over what happened in her first 
 Could it be that she still didn't manage to get over what happened in her first trial? Come to think of it, she was also at the Beacon, so it wouldn't be too surprising if she got a similar ritual to that of Kate. That is not good... Kate might be strong enough to endure the emotional trauma caused by such a trial, but what about Leila? Maybe I should go talk to her, and see how she's holding out.
 
 }
-#if(v_b2_ch11_explain == 0 || v_b2_ch11_explain == 1) {
  "Leila, is everything alright?" I say, as I get a little closer to her.
 
 Leila looks surprised, when she hears my voice. I think she has gotten used to being ignored in these situations, due to her quiet nature and her generally weak sense of presence.
@@ -697,8 +690,7 @@ Since Leila didn't really feel like talking at the moment, I decided to give her
 
 "No, we didn't need to do that," Kate says. "We left them with Enrique. He offered to move in with the children, after he found out about Rose's death, so he will be taking care of them, from now on."
 
-}
-choice("Continue", B2-Ch11c-Anxiousness, v_current_scene = B2-Ch11c-Anxiousness) if (v_b2_ch11_explain == 0 || v_b2_ch11_explain == 1)
+choice("Continue", B2-Ch11c-Anxiousness, v_current_scene = B2-Ch11c-Anxiousness)
 
 
 ID: B2-Ch11c-Anxiousness
@@ -832,7 +824,6 @@ She then tears both the teleportation scrolls into pieces, and she opens the fla
 "Oh," Daren says. "Well, in that case, it's better that you got rid of them, I suppose..."
 
 }
-#if(v_b2_ch11_items == 0 || v_b2_ch11_items == 1) {
  "You're all going to pay for this," Cutthroat Dave says, as he is looking at us, furiously. "You think you can just mess with Cutthroat Dave and get away with it? You're looking at the future winner of this tournament! You have no idea just how big of a mistake you've made."
 
 "The future winner of the tournament?" Arraka says. "Damn! Barry, it looks like you've finally found yourself some worthy competition!"
@@ -843,7 +834,6 @@ She then tears both the teleportation scrolls into pieces, and she opens the fla
 
 Cutthroat Dave reacts almost instantly, and he sends three of the knives that he had in his belt, to deflect the ice cones at the very last second.
 
-}
 #if(v_ch3_kate_badly_hurt == 1) {
  "Whoa, there..." Cutthroat Dave says, as he's now sweating a little. "Is attacking a man while he's defenseless the only thing you can-- what the hell?! Damn, woman, what is wrong with your face? That is one UGLY burn scar. What in the blazes did you do, pick a fight with a dragon?"
 
@@ -856,7 +846,7 @@ The cutthroat's words only serve to piss Kate off even more, and now she's prepa
 Kate ignores the cutthroat's request, and she is now preparing some extra ice cones, to make sure that he can't deflect them anymore.
 
 }
-choice("Continue", B2-Ch11c-Unleashes, v_current_scene = B2-Ch11c-Unleashes) if (v_b2_ch11_items == 0 || v_b2_ch11_items == 1 || v_ch3_kate_badly_hurt == 0 || v_ch3_kate_badly_hurt == 1)
+choice("Continue", B2-Ch11c-Unleashes, v_current_scene = B2-Ch11c-Unleashes)
 
 
 ID: B2-Ch11c-Unleashes
@@ -906,16 +896,16 @@ Just as the cutthroat was finishing his sentence, a bright white light covers ou
 Leaving these strange, tall buildings aside, what is even more peculiar is what's happening directly above us. Currently, there are hundreds of metal, horseless carriages, flying through the air, with people inside them. While these carriages are flying around, there are large holographic screens floating above us, picturing a man that is relaying the same message, over and over, in the Common language. The holographic screens look just like the ones that were created by Golmyck's illusion-casting device, when he announced our first objectives. The message that keeps getting repeated is: 'All non-lessathi citizens are to present themselves to the military reserve area immediately. We are under attack. I repeat, we are under attack!'.
 
 }
-choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11c-Frenzy, v_current_scene = B2-Ch11c-Frenzy)
 
 
 ID: B2-Ch11c-Frenzy
 TEXT:
 
-set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 2)
+set(v_b2_ch11_added_hearing,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4)
 set(v_b2_ch11_added_hearing,2) if (v_b2_ch11_added_hearing == 1)
 set(v_b2_ch11_district,1) if (v_ancient_languages == 4)
-set(v_b2_ch11_district,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
+set(v_b2_ch11_district,0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 2)
 set(v_hearing,-3) if (v_b2_ch11_added_hearing == 1)
 set(v_hearing_aux,-3) if (v_b2_ch11_added_hearing == 1)
 #if(v_ancient_languages == 4) {
@@ -948,7 +938,7 @@ Very shortly after being transported here, I also heard someone talking loudly i
 I'm not really sure what kind of an attacker could make a whole city panic like this, but something tells me that we are about to find out, very soon.
 
 }
-#if(v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2) {
+#if(v_b2_ch11_added_hearing != 0) {
  As I look around, I suddenly notice that my hearing is no longer as good as it was before we were brought to this place. I quickly check my stat device, in order to confirm my suspicions, and I see that the three extra levels in Hearing granted to me by the secret code have indeed been lost.
 
 "I can't believe this..." Melindra says, as she looks at the black towers in the distance. "Those towers coated in seredium dust look exactly like the kind of buildings the lessathi empire used to have thousands of years ago. I've only read about them in books. Even six hundred years ago, before the lessathi empire fell, you would not see something like this in their cities. The closest I've ever come to seeing anything resembling these towers was in Ollendor, where they are still preserving old relics from the lessathi empire's days of glory, but still, those were only ruins. For these towers to be in such good condition, we would need to have been sent back to when the lessathi empire was at its very peak. Four thousand, or even five thousand years ago! What is the God of Time thinking?"
@@ -958,9 +948,9 @@ I'm not really sure what kind of an attacker could make a whole city panic like 
  "I can't believe this..." Melindra says, as she looks at the black towers in the distance. "Those towers coated in seredium dust look exactly like the kind of buildings the lessathi empire used to have thousands of years ago. I've only read about them in books. Even six hundred years ago, before the lessathi empire fell, you would not see something like this in their cities. The closest I've ever come to seeing anything resembling these towers was in Ollendor, where they are still preserving old relics from the lessathi empire's days of glory, but still, those were only ruins. For these towers to be in such good condition, we would need to have been sent back to when the lessathi empire was at its very peak. Four thousand, or even five thousand years ago! What is the God of Time thinking?"
 
 }
-choice(""Never mind the history lesson. Any idea who might be attacking the city?"", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
-choice(""Should I take it that we are still in Varathia, then?"", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
-choice(""How do these towers work, exactly?"", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2) if (v_ancient_languages == 0 || v_ancient_languages == 1 || v_ancient_languages == 2 || v_ancient_languages == 3 || v_ancient_languages == 4 || v_b2_ch11_added_hearing == 0 || v_b2_ch11_added_hearing == 1 || v_b2_ch11_added_hearing == 2)
+choice(""Never mind the history lesson. Any idea who might be attacking the city?"", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 0)
+choice(""Should I take it that we are still in Varathia, then?"", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 1)
+choice(""How do these towers work, exactly?"", B2-Ch11c-History, v_current_scene = B2-Ch11c-History, v_b2_ch11_towers = 2)
 
 
 ID: B2-Ch11c-History
@@ -1020,15 +1010,13 @@ TEXT:
 "What do you mean?" Illuna says.
 
 }
-#if(v_ch11_saved_rose == 0 && v_ch4_spared_dave == 1 || v_ch11_saved_rose == 1 || v_ch4_spared_dave == 0) {
  "Remember how in every one of the rituals so far, Selkram has sent you to relive events from your own pasts?" Arraka says. "Well, like I said before, neither of you have lived anywhere near long enough to have experienced these current events. So by process of elimination, the past that we are now exploring is most likely... mine."
 
 Not long after Arraka is done talking, the whole sky gradually darkens, as a powerful, sinister aura envelops the area above us. The flying metal vehicles are now falling one by one, and crashing into the buildings below, while a woman in her late thirties is emerging from the dark clouds, and descending towards us. The robes she is wearing are similar to the traditional wizard robes that used to be worn hundreds of years ago, back when mages were still being called wizards, and that only traditionalist mages like Azarius are still wearing nowadays. As the woman gets closer to us, I see that her eyes are pitch black, and that she has a very familiar looking malicious grin on her face.
 
 "Well, well, well..." the woman says, as she looks towards Arraka's amulet. "It looks like Selkram sent me a little present. You're all coming from the future, I presume? Let me check my future self's aura, for a second. Wow... So, you're five thousand years older than me, huh? I guess I must have gotten really senile with old age, if I managed to get myself captured in an amulet by a glorified circus troupe. Seriously, what even are you people? A little girl dressed like a clown? A giant masquerading as a dwarf?  A woman dressed in pajamas? It's like you're trying to compete for the most ridiculously dressed wizard group of the century."
 
-}
-choice("Continue", B2-Ch11c-Mountain, v_current_scene = B2-Ch11c-Mountain) if (v_ch11_saved_rose == 0 && v_ch4_spared_dave == 1 || v_b2_ch11_towers == 0 || v_b2_ch11_towers == 1 || v_b2_ch11_towers == 2 || v_ch11_saved_rose == 1 || v_ch4_spared_dave == 0)
+choice("Continue", B2-Ch11c-Mountain, v_current_scene = B2-Ch11c-Mountain)
 
 
 ID: B2-Ch11c-Mountain
@@ -1153,7 +1141,7 @@ The last thing I get to see is Arraka waving her hand towards the others as well
 "Such a shame," past-Arraka says. "You were so close to escaping. It's too bad that the time weaver couldn't hold on to the spell for just a little longer. Frankly, I'm surprised that she held out as much as she did. After all, the first thing I did when I arrived, earlier, was to cast a spell that prevented everyone in the area from using time powers. I'm guessing that she must have had a protection from dizziness of some sort? Well, no matter. In the end, it didn't help you in any way. The time weaver is too tired to concentrate now, so all you can do is--"
 
 }
-choice("Continue", B2-Ch11c-Avalanche, v_current_scene = B2-Ch11c-Avalanche) if (v_b2_ch11_dagger == 0 && v_b2_ch11_echoes == 0 || v_b2_ch11_echoes == 1)
+choice("Continue", B2-Ch11c-Avalanche, v_current_scene = B2-Ch11c-Avalanche) if (v_b2_ch11_dagger == 0 || v_b2_ch11_echoes == 1)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 0)
 choice("Load game", , , special:saves) if (v_b2_ch11_dagger == 1 && v_b2_ch11_echoes == 0)
@@ -1425,15 +1413,13 @@ While we were still being pressed against the ground, Rose's eyes suddenly becam
 "Talk to you later," I say, and then I close the transceiver.
 
 }
-#if(v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1) {
  "I... think we should all take a small break, so we can clear our minds a little," Daren says, with a very tired look on his face. "Shall we all meet back here in twenty minutes?"
 
 "Yeah," Hadrik says. "I could use a break right about now."
 
 As everyone goes to find a place where they can be alone, for a while, Daren goes to sit on a tree stump, and begins to sharpen his blade, in order to make himself look busy.
 
-}
-choice("Continue", B2-Ch11c-Ending, v_current_scene = B2-Ch11c-Ending) if (v_ch11_saved_rose == 0 || v_ch11_saved_rose == 1)
+choice("Continue", B2-Ch11c-Ending, v_current_scene = B2-Ch11c-Ending)
 
 
 ID: B2-Ch11c-Ending
@@ -1487,7 +1473,7 @@ choice("Continue", B2-Ch11c-Credits, v_current_scene = B2-Ch11c-Credits, v_secon
 ID: B2-Ch11c-Credits
 TEXT:
 
-set(v_iap_check_resume,1) if (v_iap_checked != 2)
+set(v_iap_check_resume,1) if (v_iap_checked != 0 && v_iap_checked != 2)
 set(v_iap_check_resume,0)
 set(v_second_book_purchased,1)
  This marks the end of the second Magium book.
@@ -1508,7 +1494,7 @@ Thank you for playing!
 
 P.S. If you enjoyed the game, don't forget to recommend it to your friends. 
 
-choice("Proceed to book 3", B3-Ch01a-Intro, v_b2_saved_stats = 1, v_current_scene = B3-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save) if (v_second_book_purchased == 0 && v_nb_of_unlocked_achievements >= 25 || v_second_book_purchased == 1)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_second_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_second_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
-choice("Load game", , , special:saves) if (v_second_book_purchased == 0 && v_nb_of_unlocked_achievements < 25)
+choice("Proceed to book 3", B3-Ch01a-Intro, v_b2_saved_stats = 1, v_current_scene = B3-Ch01a-Intro, v_chapter_save_counter = 5, v_checkpoint_rich = 1, special:checkpoint_save)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load)
+choice("Load game", , , special:saves)
