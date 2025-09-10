@@ -425,7 +425,7 @@ expressApp.get("/menu", (req, res) => {
     );
 });
 
-expressApp.get("/settings", (req, res) => {
+expressApp.all("/settings", bodyParser.json(), (req, res) => {
     render_full(req, render_settings, req.data["settingsHeaderText"]).then((rendered) =>
         res.send(rendered),
     );

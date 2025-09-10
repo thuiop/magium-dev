@@ -21,6 +21,7 @@
     <script src="/scripts/utils.js"></script>
     <script src="/scripts/saves.js"></script>
     <script src="/scripts/stats.js"></script>
+    <script src="/scripts/night_mode.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
                 loadGameFromLocalStorage("currentState");
@@ -30,6 +31,11 @@
                 saveGameToLocalStorage("currentState");
             }
         )
+        let nightMode = localStorage.getItem("nightmode");
+        if (nightMode) {
+            const root = document.querySelector(':root');
+            root.style.setProperty("color-scheme", nightMode);
+        }
     </script>
   </head>
   <body>
@@ -43,6 +49,8 @@
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitlocalstorage"></div>
         <% } else if (locals.path === "/" || locals.path === "/stats") { %>
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitcurrentstate"></div>
+        <% } else if (locals.path === "/settings") { %>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitnightmode"></div>
         <% } else { %>
             <div id="content" class="content" hx-get hx-trigger="load"></div>
         <% } %>
