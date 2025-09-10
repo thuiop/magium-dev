@@ -8,7 +8,21 @@ function clearState() {
 }
 
 function readSaveFromLocalStorage(saveName) {
-    return JSON.parse(LZString.decompressFromBase64(localStorage.getItem(saveName)));
+    const saveFile = localStorage.getItem(saveName);
+    var saveData;
+    if (saveFile) {
+        try {
+            saveData = JSON.parse(LZString.decompressFromBase64(saveFile));
+        }
+        catch {
+            console.log("Save",saveName,"is incorrectly formatted:",saveFile)
+            saveData = {};
+        }
+    }
+    else {
+        saveData = {};
+    }
+    return saveData;
 }
 
 function writeSaveToLocalStorage(saveName,saveObject) {
@@ -79,12 +93,12 @@ htmx.defineExtension('submitcurrentstate', {
     }
   })
 
-function renameLocalStorageSave(saveName, saveNameId) {
-    let save_name = document.getElementById(saveNameId).value;
+function renameLocalStorageSave(saveId, saveNameElementId) {
+    let saveName = document.getElementById(saveNameElementId).value;
 
-    let data = readSaveFromLocalStorage(saveName);
-    data['name'] = saveName;
-    localStorage.setItem(saveName, JSON.stringify(data));
+    let saveData = readSaveFromLocalStorage(saveId);
+    saveData['name'] = saveName;
+    writeSaveToLocalStorage(saveId,saveData)
 }
 
 document.addEventListener("localsaverestored", () => {
