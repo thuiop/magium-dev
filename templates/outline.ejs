@@ -25,17 +25,17 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
                 loadGameFromLocalStorage("currentState");
+                let nightMode = localStorage.getItem("nightmode");
+                if (nightMode) {
+                    const root = document.querySelector(':root');
+                    root.style.setProperty("color-scheme", nightMode);
+                }
             }
         )
         document.addEventListener("visibilitychange", function() {
                 saveGameToLocalStorage("currentState");
             }
         )
-        let nightMode = localStorage.getItem("nightmode");
-        if (nightMode) {
-            const root = document.querySelector(':root');
-            root.style.setProperty("color-scheme", nightMode);
-        }
     </script>
   </head>
   <body>
