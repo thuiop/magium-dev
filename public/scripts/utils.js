@@ -22,17 +22,6 @@ function storeItem(key,value) {
     writeSaveToLocalStorage("currentState",data)
 }
 
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    document.cookie = 'data-theme=' + theme;
-}
-
-// On page load, set the theme based on the cookie
-document.addEventListener('DOMContentLoaded', () => {
-    const theme = getCookie('data-theme') || 'light'; // Default to 'light' if no cookie is found
-    setTheme(theme);
-});
-
 function navigateTo(url) {
     window.location.href = url;
 }
