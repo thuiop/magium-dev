@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", initStats)
 function updateStat(stat_id) {
     const available_points = parseInt(document.getElementById("available_points_value").innerHTML);
     const current_val = parseInt(document.getElementById(stat_id + "_value").innerHTML);
-    const max_val = parseInt(document.getElementById(stat_id + "_max").innerHTML);;
+    const max_val = parseInt(document.getElementById(stat_id + "_max").innerHTML);
 
     if ((current_val >= max_val) || (available_points <= 0)) { return; }
     document.getElementById("available_points_value").innerHTML = available_points - 1;
