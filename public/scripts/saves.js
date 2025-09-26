@@ -1,10 +1,5 @@
 function clearState() {
-    let data = readSaveFromLocalStorage("currentState");
-    data = Object.entries(data).filter((keyval) => {
-        let key = keyval[0];
-        return !(/v_.*/.test(key)) || (/v_ac_.*/.test(key)); 
-    })
-    writeSaveToLocalStorage("currentState",Object.fromEntries(data));
+    writeSaveToLocalStorage("currentState",{});
 }
 
 function readSaveFromLocalStorage(saveName) {
@@ -89,7 +84,11 @@ htmx.defineExtension('submitcurrentstate', {
     },
     encodeParameters: function(xhr, parameters, elt) {
         xhr.overrideMimeType('text/json') // override default mime type
-        return LZString.decompressFromBase64(localStorage.getItem("currentState"));
+        return JSON.stringify(Object.assign(
+            {},
+            readSaveFromLocalStorage("currentState"),
+            readSaveFromLocalStorage("achievements"),
+        ));
     }
   })
 
