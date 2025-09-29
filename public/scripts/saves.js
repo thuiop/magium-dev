@@ -135,4 +135,16 @@ function restoreLocalStorageSave(i, overwrite = false) {
     htmx.trigger(save_input, "localsaverestored");
 }
 
+function migrateAchievements() {
+    // Moves achievements to their dedicated slot (new in 0.9.4)
+    console.log("hey")
+    if (!localStorage.getItem("achievements")) {
+        let data = readSaveFromLocalStorage("currentState");
+        let achievementData = Object.fromEntries(Object.entries(data).filter(([key,val]) => (/v_ac_.*/.test(key)))); 
+        data = Object.fromEntries(Object.entries(data).filter(([key,val]) => !(/v_ac_.*/.test(key)))); 
+        writeSaveToLocalStorage("achievements",achievementData)
+        writeSaveToLocalStorage("currentState",data)
+    }
+}
 
+migrateAchievements()
