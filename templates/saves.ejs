@@ -3,7 +3,7 @@
         <%- savesExplanationText %>
     </div>
 </div>
-<div class="save-list-container" style="margin: auto;">
+<div class="save-lit-container" style="margin: auto;">
 <div class="save-list">
     <% for (let i = (locals.page ? page : 0)*10; i < (locals.page ? page+1 : 1)*10; i++) { %>
         <div class="save-entry">
@@ -119,6 +119,88 @@ Same hard-coding is done in the backend-->
         hx-push-url="true"
         hx-ext="submitlocalstorage"
     >></button>
+</div>
+<div class="achievement-export-buttons">
+    <div class="response" style="grid-column: 1">
+        <button
+            onclick="downloadLocalStorageSave('achievements')"
+        >
+            <%= savesExportAchievementsText %>
+        </button>
+    </div>
+    <div class="response" style="grid-column: 2">
+        <button
+            _="on click show saveAchievementsModal with visibility"
+        >
+            <%= savesImportAchievementsText %>
+        </button>
+        <div id="saveAchievementsModal" class="save-modal-content" _="on closeModal hide with visibility">
+            <div class="saves-modal-text">
+                <%- savesAchievementsModalText %>
+            </div>
+            <input type="text"
+                id="file_achievements"
+                class="save-modal-input"
+                hx-post
+                hx-trigger="localsaverestored"
+                hx-ext="submitlocalstorage"
+                hx-target="#content"
+                hx-swap="innerHTML"
+            />
+            <div class="save-modal-buttons">
+                <button 
+                    for="file_achievements"
+                    _="on click restoreAchievementsSave() then trigger closeModal"
+                >
+                    <%= savesImportText %>
+                </button>
+                <button _="on click trigger closeModal">
+                    <%= savesImportCancelText %>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="all-export-buttons">
+    <div class="response" style="grid-column: 1">
+        <button
+            onclick="downloadAllLocalStorageSave()"
+        >
+            <%= savesExportAllText %>
+        </button>
+    </div>
+    <div class="response" style="grid-column: 2">
+        <button
+            _="on click show saveAllModal with visibility"
+        >
+            <%= savesImportAllText %>
+        </button>
+    </div>
+    <div id="saveAllModal" class="save-modal-content" _="on closeModal hide with visibility">
+            <div class="saves-modal-text">
+                <%- savesAllModalText %>
+            </div>
+            <input type="text"
+                id="file_all"
+                class="save-modal-input"
+                hx-post
+                hx-trigger="localsaverestored"
+                hx-ext="submitlocalstorage"
+                hx-target="#content"
+                hx-swap="innerHTML"
+            />
+            <div class="save-modal-buttons">
+                <button 
+                    for="file_all"
+                    _="on click restoreAllSave() then trigger closeModal"
+                >
+                    <%= savesImportText %>
+                </button>
+                <button _="on click trigger closeModal">
+                    <%= savesImportCancelText %>
+                </button>
+            </div>
+        </div>
 </div>
 <div class="response">
     <button

@@ -463,8 +463,9 @@ expressApp.get("/achievements/book/:id", (req, res) => {
     );
 });
 
-expressApp.get(
+expressApp.all(
     "/achievements/book/:idBook/chapter/:idChapter",
+    bodyParser.json(),
     (req, res) => {
         const data  = getLocaleData(achievementsData,req.cookies.locale);
         const callback = (r) =>

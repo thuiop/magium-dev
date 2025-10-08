@@ -1,10 +1,5 @@
 function clearState() {
-    let data = readSaveFromLocalStorage("currentState");
-    data = Object.entries(data).filter((keyval) => {
-        let key = keyval[0];
-        return !(/v_.*/.test(key)) || (/v_ac_.*/.test(key)); 
-    })
-    writeSaveToLocalStorage("currentState",Object.fromEntries(data));
+    writeSaveToLocalStorage("currentState",{});
 }
 
 function readSaveFromLocalStorage(saveName) {
@@ -89,7 +84,11 @@ htmx.defineExtension('submitcurrentstate', {
     },
     encodeParameters: function(xhr, parameters, elt) {
         xhr.overrideMimeType('text/json') // override default mime type
-        return LZString.decompressFromBase64(localStorage.getItem("currentState"));
+        return JSON.stringify(Object.assign(
+            {},
+            readSaveFromLocalStorage("currentState"),
+            readSaveFromLocalStorage("achievements"),
+        ));
     }
   })
 
@@ -110,6 +109,13 @@ function downloadLocalStorageSave(saveName) {
     alert("Save copied to clipboard!")
 }
 
+function downloadAllLocalStorageSave() {
+    const items = { ...localStorage };
+    delete items["htmx-history-cache"]
+    navigator.clipboard.writeText(LZString.compressToBase64(JSON.stringify(items)));
+    alert("Save copied to clipboard!")
+}
+
 // function to upload a savegame into local storage
 function restoreLocalStorageSave(i, overwrite = false) {
     if (overwrite && !window.confirm("Do you want to overwrite your save by restoring the current save?")) {
@@ -119,6 +125,7 @@ function restoreLocalStorageSave(i, overwrite = false) {
     let save_input = document.getElementById(`file_${i}`);
     let save_string = save_input.value;
     try {
+        // See if this errs
         JSON.parse(LZString.decompressFromBase64(save_string));
         localStorage.setItem(`save${i}`, save_string);
     } catch (e) {
@@ -136,4 +143,53 @@ function restoreLocalStorageSave(i, overwrite = false) {
     htmx.trigger(save_input, "localsaverestored");
 }
 
+function restoreAchievementsSave() {
+    if (!window.confirm("Do you want to overwrite your current achievements by restoring them from the save?")) {
+        return;
+    }
 
+    let save_input = document.getElementById("file_achievements");
+    let save_string = save_input.value;
+    try {
+        // See if this errs
+        JSON.parse(LZString.decompressFromBase64(save_string));
+        localStorage.setItem("achievements", save_string);
+    } catch (e) {
+        alert("The given string is not a valid save!")
+        return;
+    }
+    htmx.trigger(save_input, "localsaverestored");
+}
+
+function restoreAllSave() {
+    if (!window.confirm("Do you want to overwrite all your current saves and achievements with the restored saves?")) {
+        return;
+    }
+
+    let save_input = document.getElementById("file_all");
+    let save_string = save_input.value;
+    try {
+        const items = JSON.parse(LZString.decompressFromBase64(save_string));
+        localStorage.clear();
+        for (entry of Object.entries(items)) {
+            localStorage.setItem(entry[0], entry[1]);
+        }
+    } catch (e) {
+        alert("The given string is not a valid save!")
+        return;
+    }
+    htmx.trigger(save_input, "localsaverestored");
+}
+
+function migrateAchievements() {
+    // Moves achievements to their dedicated slot (new in 0.9.4)
+    if (!localStorage.getItem("achievements")) {
+        let data = readSaveFromLocalStorage("currentState");
+        let achievementData = Object.fromEntries(Object.entries(data).filter(([key,val]) => (/v_ac_.*/.test(key)))); 
+        data = Object.fromEntries(Object.entries(data).filter(([key,val]) => !(/v_ac_.*/.test(key)))); 
+        writeSaveToLocalStorage("achievements",achievementData)
+        writeSaveToLocalStorage("currentState",data)
+    }
+}
+
+migrateAchievements()
