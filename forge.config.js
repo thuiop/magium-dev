@@ -3,13 +3,17 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 
 module.exports = {
   packagerConfig: {
+    icon: 'public/images/magium.ico',
     asar: true,
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        icon: 'public/images/magium.ico',
+        setupIcon: 'public/images/magium.ico',
+      },
     },
     {
       name: '@electron-forge/maker-zip',

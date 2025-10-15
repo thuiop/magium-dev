@@ -4,6 +4,7 @@ const {port} = require("./src/main_setup");
 const { app, BrowserWindow } = require('electron');
 app.on('ready', function() {
   let mainWindow = new BrowserWindow({
+    icon: 'public/images/magium.ico',
     width: 1280,
     height: 720,
     webPreferences: {
