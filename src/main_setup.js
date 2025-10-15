@@ -87,7 +87,7 @@ function varToStat(varName) {
     if (varName == "v_agility") {
         statName = "Speed";
     }
-    if (varName == "v_perception") {
+    else if (varName == "v_perception") {
         statName = "Observation";
     } else {
         statName = (
