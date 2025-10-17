@@ -200,6 +200,7 @@ function render_scene(req) {
         ? req.body.v_current_scene
         : "Ch1-Intro1";
     let cookieData = Object.assign({}, req.body);
+    let startingData = Object.assign({}, req.body); // For checking achievements
     let sceneData = Object.assign({}, req.data[id]);
     sceneData.setVariables = sceneData.setVariables.filter((setVariable) =>
         apply_conditions(setVariable.conditions, cookieData),
@@ -219,7 +220,7 @@ function render_scene(req) {
         req.data,
     );
     sceneData.achievements = sceneData.achievements.filter(
-        (achievement) => cookieData[achievement.variable] == "1" ,
+        (achievement) => (startingData[achievement.variable] != "1") && (cookieData[achievement.variable] == "1")
     );
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
