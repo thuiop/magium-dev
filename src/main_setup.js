@@ -151,7 +151,7 @@ function checkStats(setVariables, values, localeData) {
             for (conditionGroup of conditionGroups) {
                 for (condition of conditionGroup) {
                     if ((statCheck = parseStatCheck(condition))) {
-                        statCheck["variable"] = localeData[statCheck["variable"]];
+                        statCheck.variable = statCheck.variable == "v_b3_ch1_unlock" ? statCheck.variable : localeData[statCheck.variable];
                         newStatChecks.push(JSON.stringify(statCheck));
                     }
                 }
