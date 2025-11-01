@@ -1,7 +1,7 @@
 # Magium Dev
 
 <div align="center">
-    <img src="public/images/magium.ico" />
+    <img src="public/images/magium.ico" width="256" height="256" />
 </div>
 
 ## Story
