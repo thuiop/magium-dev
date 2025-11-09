@@ -21,7 +21,7 @@ However, the purification technique operates on the assumption that a woman cann
 
 "Don't you think I know that? But this one is different. If you try to purify her, you may well end up killing her!"
 
- "How can you be so sure?"
+"How can you be so sure?"
 
 "Because I've met a banshee before. Up close. Have you met a banshee before, Daren?"
 
@@ -121,7 +121,6 @@ choice("Continue", Ch2-Escort, v_current_scene = Ch2-Escort)
 ID: Ch2-Escort
 TEXT:
 
-#if(v_ch1_stillwater == 1) {
 "I... require an escort. I am not certain I can survive this tournament by myself. And I've heard of all your deeds of valor and all your legends, so I thought that maybe..."
 
 "Say no more! I will grant you my protection for the duration of your quest. From what you say, I would surmise that you're not actually trying to win the tournament?"
@@ -132,25 +131,14 @@ TEXT:
 
 "Us? You're planning to travel alongside this stillwater? You can't trust him!"
 
-}
 #if(v_ch1_stillwater == 2) {
-"I... require an escort. I am not certain I can survive this tournament by myself. And I've heard of all your deeds of valor and all your legends, so I thought that maybe..."
-
-"Say no more! I will grant you my protection for the duration of your quest. From what you say, I would surmise that you're not actually trying to win the tournament?"
-
-"No... I'm not. I am looking for... a friend. And I have reasons to believe that she's somewhere on this continent. But I don't have any specific leads just yet. For now, I just need to stay alive."
-
-"Then you can join us! We were just about to get out of here! We're way too out in the open right now."
-
-"Us? You're planning to travel alongside this stillwater? You can't trust him!"
-
 "Actually, he's not a stillwater, he's just a normal human," Daren corrects her.
 
 Great. I'm wondering if he plans to blow my cover to every single person we meet from now on.
 
 "Is that what he told you?" the woman asks. "And you believe him? He's just trying to get you to lower your guard!" 
-
 }
+
 choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against)
 choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust)
 choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick)
@@ -296,7 +284,6 @@ choice("Continue", Ch2-Fallen-trees, v_current_scene = Ch2-Fallen-trees)
 ID: Ch2-Fallen-trees
 TEXT:
 
-#if(v_ch1_stillwater == 2) {
 "Barry, don't you think there are more important things to do right now than playing around with that toy?" Daren asks me.
 
 "This isn't a toy," I answer him as I put the device back into my pocket. "And I think you should pay more attention to where you're going instead of lecturing me, because I see we just ran out of forest."
@@ -325,49 +312,15 @@ He gestures towards the lifeless bodies lying all around us.
 
 He grins.
 
- "My sons and I were a little worried at first! We were afraid we might not be ready for the big leagues. But here we are!" the bearded mage exclaims as he raises his hands and takes a victorious stance. "But enough talk! We all know what's coming!"
-
-"Barry, get behind me!" Daren shouts as he rushes in front of me.
-
-"First rule of combat," says the bearded mage.
-
-Suddenly, one of the two younger mages that were standing next to the mage with the battleaxe vanishes and appears right behind me, with a dagger in his hand.
-
-"Always kill the weakest enemies first," the bearded mage continues.  
-
-}
-#if(v_ch1_stillwater == 1) {
-"Barry, don't you think there are more important things to do right now than playing around with that toy?" Daren asks me.
-
-"This isn't a toy," I answer him as I put the device back into my pocket. "And I think you should pay more attention to where you're going instead of lecturing me, because I see we just ran out of forest."
-
-"Quiet, the two of you! We've got company," Kate says.
-
-She's right. Looking all around us, I see there are fallen trees everywhere in this area, and there are quite a few dead bodies lying around. It seems there's been a battle here, or maybe several. The victors were in the middle of looting the bodies when they noticed us.
-
-There's three of them in total. One of them is considerably well-built for a mage. He has a very long black beard covering his face, he seems to be in his mid forties, he's wearing heavy armor and is holding a large battleaxe. The other two are a bit skinnier and younger and are wearing chainmail vests instead, but they're holding no weapons. The bearded mage with the battleaxe shouts to Daren.
-
-"Quite the team you've assembled there, healer in armor. A healer, a banshee and an ordinary human. It's like you're dying to lose this tournament!"
-
-Kate was visibly affected by the banshee comment. Her eyes twitched and her look went subconsciously towards the ground. 
-
-"Mind your tongue, fool," I reply to him. "Who are you calling an ordinary human? Have you not heard of stillwaters?"
-
-"Hah! Stillwaters are legends and nothing more! I don't know what you were trying to achieve by joining this tournament, boy, but soon it won't matter anymore."
-
-"Why?" Daren asks the bearded mage. "Why have you done this?"
-
-He gestures towards the lifeless bodies lying all around us. 
-
-"Nobody told us we should start killing each other!" Daren continues. "They told us there are no rules until they give us our first objectives. We don't even know if there was going to be combat involved! Why did you have to kill all of these people?"
-
-"Because there are no rules," answers the mage with the battleaxe. "No rules means we can do whatever we want. And what we want is to eliminate as much of the competition as possible before the main event starts!"
-
- He grins.
-
 "My sons and I were a little worried at first! We were afraid we might not be ready for the big leagues. But here we are!" the bearded mage exclaims as he raises his hands and takes a victorious stance. "But enough talk! We all know what's coming!"
 
+#if(v_ch1_stillwater == 2) {
+"Barry, get behind me!" Daren shouts as he rushes in front of me.
+}
+
+#if(v_ch1_stillwater == 1) {
 His grin widens, as he looks straight at me.
+}
 
 "First rule of combat," says the bearded mage.
 
@@ -375,7 +328,6 @@ Suddenly, one of the two younger mages that were standing next to the mage with 
 
 "Always kill the weakest enemies first," the bearded mage continues.  
 
-}
 choice("Continue", Ch2-Battle-human, v_current_scene = Ch2-Battle-human, v_ch2_toughness_happened = 0) if (v_ch1_stillwater == 2)
 choice("Continue", Ch2-Battle-stillwater, v_current_scene = Ch2-Battle-stillwater) if (v_ch1_stillwater == 1)
 
@@ -386,49 +338,23 @@ TEXT:
 set(v_ac_ch2_nails,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
 set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness < 3 || v_premonition > 0)
 set(v_ch2_toughness_happened,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
-set(v_is_dead,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 achievement("Tough as nails",v_ac_ch2_nails)
-#if(v_premonition > 0) {
 
+#if(v_premonition > 0) {
 Shortly after the young mage appears behind me, I see a vision of him slashing his dagger towards my neck. Was that... a premonition?
 
 Sure enough, the young mage now slashes his dagger in the exact same way he did in my vision. Knowing where the hit's coming from, I manage to dodge it at the very last second. Right after I dodge, the mage kicks me hard in the chest, knocking me flat on my back.
-
-"Barry!" screams Daren as he rushes between me and my attacker, blocking the next strike with his shield. 
-
-"Hah! You left the woman undefended! Classic mistake," says the mage with the battleaxe, as his second son makes a dozen swords appear out of thin air , floating in front of him and sends them all flying towards Kate.
-
-Just as the swords reach her, Kate's left arm gets covered in a large, thick block of ice, sculpted in the form of a shield. She puts it in front of her, and all of the swords get stuck into it.
-
-"Left the woman undefended?" Kate asks. "So which is it, then? Woman?... Or banshee?"
-
-She lowers her left arm to reveal her face, as she looks straight at the mage with the black beard. Her eyes are brimming with fury.
-
-"Make up your mind!" she shouts, as the whole forest falls silent from the sound of her voice. 
-
 }
+
 #if(v_premonition == 0 && v_reflexes > 0) {
-
 The young mage slashes his dagger towards my neck. I react with a speed that takes me by surprise, and I manage to dodge the hit at the very last second. Right after I dodge, the mage kicks me hard in the chest, knocking me flat on my back.
-
-"Barry!" screams Daren as he rushes between me and my attacker, blocking the next strike with his shield. 
-
-"Hah! You left the woman undefended! Classic mistake," says the mage with the battleaxe, as his second son makes a dozen swords appear out of thin air , floating in front of him and sends them all flying towards Kate.
-
-Just as the swords reach her, Kate's left arm gets covered in a large, thick block of ice, sculpted in the form of a shield. She puts it in front of her, and all of the swords get stuck into it.
-
-"Left the woman undefended?" Kate asks. "So which is it, then? Woman?... Or banshee?"
-
-She lowers her left arm to reveal her face, as she looks straight at the mage with the black beard. Her eyes are brimming with fury.
-
-"Make up your mind!" she shouts, as the whole forest falls silent from the sound of her voice. 
-
 }
+
 #if(v_premonition == 0 && v_reflexes == 0 && v_toughness >= 3) {
-
 The young mage slashes his dagger towards my neck. The slash is too fast for me to dodge, but when it hits my neck, it doesn't quite manage to cut through my skin, only drawing a bit of blood instead. The mage looks at his dagger, surprised, and then immediately kicks me hard in the chest, knocking me flat on my back.
+}
 
+#if(v_premonition > 0 || v_reflexes > 0 || v_toughness >= 3) {
 "Barry!" screams Daren as he rushes between me and my attacker, blocking the next strike with his shield. 
 
 "Hah! You left the woman undefended! Classic mistake," says the mage with the battleaxe, as his second son makes a dozen swords appear out of thin air , floating in front of him and sends them all flying towards Kate.
@@ -440,18 +366,17 @@ Just as the swords reach her, Kate's left arm gets covered in a large, thick blo
 She lowers her left arm to reveal her face, as she looks straight at the mage with the black beard. Her eyes are brimming with fury.
 
 "Make up your mind!" she shouts, as the whole forest falls silent from the sound of her voice. 
-
 }
-#if(v_premonition == 0 && v_reflexes == 0 && v_toughness < 3) {
 
+#if(v_premonition == 0 && v_reflexes == 0 && v_toughness < 3) {
 The young mage slashes his dagger towards my neck. The slash is too fast for me to dodge, and when it hits my neck, it slits my throat right open. I desperately try to stop the flow of blood by covering the open wound with my hands, but it is much too late. 
 
 "Barry!" I hear Daren scream as he rushes towards me.
 
 The last thing I see is Daren trying in vain to heal my wound, as my consciousness slowly fades away.
-
 }
-choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness > 2 || v_premonition > 0)
+
+choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition > 0 || v_reflexes > 0 || v_toughness > 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load game", , , special:saves) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
@@ -551,28 +476,17 @@ ID: Ch2-Avoid2
 TEXT:
 
 set(v_ac_ch2_nails,1) if (v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_agility == 0 && v_reflexes > 0 || v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2 || v_agility > 0)
-set(v_is_dead,1) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness > 2)
 achievement("Tough as nails",v_ac_ch2_nails)
+
 #if(v_agility > 0) {
-
 My plan to lure the younger mage away is working far better than I expected. The mage keeps teleporting after me, and trying to catch me off guard, but every time he thinks he's got me in a pinch, I simply dash away with ease. I knew that stat device would come in handy, but I never dared to dream it would be so useful. I feel like I could just keep running like this for hours and not get tired.
-
-"Boy, what do you think you're doing? Stop fooling around and finish him! He's just an ordinary human!" shouts the mage with the battleaxe.
-
-Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
-
-"No!" shouts the older mage when he sees what happened to his eldest son. Taking his eyes off his opponent was a fatal mistake. Daren didn't waste his chance, and drove his blade right through the man's chest, his enchanted weapon cutting through the mage's heavy armor like a knife through butter. The bearded mage gave out one last gurgle, before he drowned in his own blood. 
-
-Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which killed him instantly.
-
-It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
-
 }
+
 #if(v_agility == 0 && v_reflexes > 0) {
-
 My plan to lure the younger mage away is working far better than I expected. The mage keeps teleporting after me, and trying to catch me off guard, but every time he thinks he's got me in a pinch, I simply dodge his strikes with ease. I knew that stat device would come in handy, but I never dared to dream it would be so useful. I feel like I could keep on doing this all day.
+}
 
+#if(v_agility > 0 || v_reflexes > 0) {
 "Boy, what do you think you're doing? Stop fooling around and finish him! He's just an ordinary human!" shouts the mage with the battleaxe.
 
 Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
@@ -582,8 +496,8 @@ Kate seems to have gone on the offensive. She is throwing ice cones towards the 
 Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which killed him instantly.
 
 It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
-
 }
+
 #if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness >= 3) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
@@ -593,9 +507,9 @@ My plan to lure the younger mage away isn't working as well as I would have hope
 To both me and the mage's surprise , the blade doesn't quite manage to cut through my skin, only drawing a bit of blood instead. I realize it must be because I had used my stat device to maximize my toughness. I use this moment of confusion to widen the distance between myself and my attacker, and try to keep my guard up for any more surprise teleports.
 
 "Boy, what do you think you're doing? Stop fooling around and finish him! He's just an ordinary human!" shouts the mage with the battleaxe.
-
 }
-#if(v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness >= 3) {
+
+#if(v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
 
@@ -606,8 +520,8 @@ This time, the mage puts more power behind his strike and he manages to break th
 "Barry!" I hear Daren scream in the distance.
 
 The last thing I see is the mage's dagger descending towards me as he lands the finishing blow.
-
 }
+
 #if(v_agility == 0 && v_reflexes == 0 && v_toughness < 3) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
@@ -619,8 +533,8 @@ His dagger slits my throat right open. I desperately try to stop the flow of blo
 "Barry!" I hear Daren scream in the distance.
 
 The last thing I see is the mage's dagger descending towards me as he lands the finishing blow.
-
 }
+
 #if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2) {
 Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
 
@@ -629,12 +543,12 @@ Kate seems to have gone on the offensive. She is throwing ice cones towards the 
 Terrified, the young mage with the dagger tries to teleport into the forest to get away, but his spell's range appears to be limited, and it only transports him halfway there. He tries to make a run for it, but  Kate snipes him from a distance, with an ice cone through his head, which killed him instantly.
 
 It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
-
 }
+
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_agility == 0 && v_reflexes > 0 || v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2 || v_agility > 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness > 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness > 2)
-choice("Load game", , , special:saves) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0 && v_toughness > 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0)
+choice("Load game", , , special:saves) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0)
 
 
 ID: Ch2-Fight
@@ -666,8 +580,6 @@ TEXT:
 
 set(v_ac_ch2_master,1) if (v_combat_technique > 0)
 set(v_ac_ch2_nails,1) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2)
-set(v_is_dead,0) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2 || v_combat_technique > 0)
-set(v_is_dead,1) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness > 2)
 achievement("Tough as nails",v_ac_ch2_nails)
 achievement("Martial arts master",v_ac_ch2_master)
 #if(v_combat_technique > 0) {
@@ -696,7 +608,7 @@ To both me and the mage's surprise , the blade doesn't quite manage to cut throu
 Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
 
 }
-#if(v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness >= 3) {
+#if(v_ch2_toughness_happened == 1 && v_combat_technique == 0) {
 
 Once I'm far enough away from Daren and his opponent, I turn back towards the mage with the dagger and assume my fighting stance. As the mage teleports behind me again, I attempt to disarm him. I fail to grab his arm, however, and his knife reaches my neck.
 
@@ -727,9 +639,9 @@ It was a gruesome show, but at this point, all I care about is that I somehow ma
 
 }
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_ch2_toughness_happened == 0 && v_combat_technique == 0 && v_toughness > 2 || v_combat_technique > 0)
-choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness > 2)
-choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness > 2)
-choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0 && v_toughness > 2)
+choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0)
+choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0)
+choice("Load game", , , special:saves) if (v_combat_technique == 0 && v_toughness < 3 || v_ch2_toughness_happened == 1 && v_combat_technique == 0)
 
 
 ID: Ch2-Ask-Kate
@@ -888,39 +800,29 @@ choice("Continue", Ch2-Battle-end2, v_current_scene = Ch2-Battle-end2)
 ID: Ch2-Battle-end2
 TEXT:
 
+Daren pauses.
+
+"Very well. Let's keep going," he says, as he heads towards the trees. 
+
+I start to follow him, but Kate stops me in my tracks. She has that very serious look in her eyes again.
+
+"Stillwater," she says in a low voice, in order to avoid being heard by Daren. "I saw you 'fighting' back there. You may have managed to convince Daren and that bearded fool that you are an ordinary human, but I am not so easily deceived. I don't know what your game is, but I'm going to keep my eye on you."
+
+"I'm not--" I start to say, but Kate cuts me off and grabs me by the shirt.
+
 #if(v_ch2_kate_debt == 0) {
-Daren pauses.
-
-"Very well. Let's keep going," he says, as he heads towards the trees. 
-
-I start to follow him, but Kate stops me in my tracks. She has that very serious look in her eyes again.
-
-"Stillwater," she says in a low voice, in order to avoid being heard by Daren. "I saw you 'fighting' back there. You may have managed to convince Daren and that bearded fool that you are an ordinary human, but I am not so easily deceived. I don't know what your game is, but I'm going to keep my eye on you."
-
-"I'm not--" I start to say, but Kate cuts me off and grabs me by the shirt.
-
 "Listen to me, stillwater. I'm not interested to hear your lies. I just wanted to make sure you were clear on what I think of your little charade. Now, are you clear?"
-
 }
+
 #if(v_ch2_kate_debt == 1) {
-Daren pauses.
-
-"Very well. Let's keep going," he says, as he heads towards the trees. 
-
-I start to follow him, but Kate stops me in my tracks. She has that very serious look in her eyes again.
-
-"Stillwater," she says in a low voice, in order to avoid being heard by Daren. "I saw you 'fighting' back there. You may have managed to convince Daren and that bearded fool that you are an ordinary human, but I am not so easily deceived. I don't know what your game is, but I'm going to keep my eye on you."
-
-"I'm not--" I start to say, but Kate cuts me off and grabs me by the shirt.
-
 "You owe me, stillwater. I saved your life during that battle and you owe me. And I intend to collect that debt sooner rather than later. Are we clear?"
-
 }
-choice(""Crystal."", Ch2-Crystal, v_current_scene = Ch2-Crystal) if (v_ch2_kate_debt == 0)
-choice(""Not really, could you elaborate some more?"", Ch2-Elaborate, v_current_scene = Ch2-Elaborate) if (v_ch2_kate_debt == 0)
-choice(""Don't worry, I always pay my debts."", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt == 1)
-choice(""Yes, we're clear."", Ch2-Clear, v_current_scene = Ch2-Clear) if (v_ch2_kate_debt == 1)
-choice(""I don't owe you anything."", Ch2-No-debt, v_current_scene = Ch2-No-debt, v_ch2_not_owe_debt = 1) if (v_ch2_kate_debt == 1)
+
+choice("Crystal.", Ch2-Crystal, v_current_scene = Ch2-Crystal) if (v_ch2_kate_debt == 0)
+choice("Not really, could you elaborate some more?", Ch2-Elaborate, v_current_scene = Ch2-Elaborate) if (v_ch2_kate_debt == 0)
+choice("Don't worry, I always pay my debts.", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt == 1)
+choice("Yes, we're clear.", Ch2-Clear, v_current_scene = Ch2-Clear) if (v_ch2_kate_debt == 1)
+choice("I don't owe you anything.", Ch2-No-debt, v_current_scene = Ch2-No-debt, v_ch2_not_owe_debt = 1) if (v_ch2_kate_debt == 1)
 
 
 ID: Ch2-Crystal
