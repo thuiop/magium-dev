@@ -213,16 +213,6 @@ TEXT:
 
 "Our god happens to know from a very reliable source that it was in fact Eiden who instigated this entire war," the necromancer says. "And for this reason, it is now the God of Death who has declared war on Eiden, and vowed to put him down like the dog that he is! However, despite his immense power, our god does have his limits, and cannot use his full power while he materializes on this plane of existence. That is why he needs the girl. We know that the golden fox spirit who resides on this realm has made Eiden swear to not kill her. Since she is clearly still alive, it means that the little girl should have value as a hostage against him. Now hand her over to us and I promise to you that there will be no blood spilled here today."
 
- "You would have never found them without my help," says the God of Fate follower. "Your god does not grant you any spells that allow you to find other people's locations from afar, and I was the only follower of my god who was actively looking for this exact group. That is also why you agreed to help me eliminate them once we found them, unless you already forgot."
-
-"Everyone knows that you are insane, Clogworth," the necromancer leader says. "I was never intending to keep my promises to you to begin with."
-
-"So, now you're telling me to my face that you were lying to me, is that it?" says Clogworth, the God of Fate follower.
-
-"Can I kill them now, or are we going to politely wait for them to stop talking before we attack them?" Kate whispers to us.
-
-"Give me a minute," Daren whispers back. "I'm trying to use what Arraka taught me about auras to figure out if they placed any magical traps around here or not."
-
 #if(v_ch11_saved_rose == 0) {
  "So, the revenant couldn't get the job done the first time, and now the God of Death sent his goons to us instead," Daren says. "Does he not understand that Eiden just doesn't care if Flower lives or dies?"
 
@@ -249,6 +239,16 @@ TEXT:
 "You dare speak this way to me, you lunatic?!" the necromancer leader says. "After I was gracious enough to let you join us on this trip?"
 
 }
+ "You would have never found them without my help," says the God of Fate follower. "Your god does not grant you any spells that allow you to find other people's locations from afar, and I was the only follower of my god who was actively looking for this exact group. That is also why you agreed to help me eliminate them once we found them, unless you already forgot."
+
+"Everyone knows that you are insane, Clogworth," the necromancer leader says. "I was never intending to keep my promises to you to begin with."
+
+"So, now you're telling me to my face that you were lying to me, is that it?" says Clogworth, the God of Fate follower.
+
+"Can I kill them now, or are we going to politely wait for them to stop talking before we attack them?" Kate whispers to us.
+
+"Give me a minute," Daren whispers back. "I'm trying to use what Arraka taught me about auras to figure out if they placed any magical traps around here or not."
+
 choice("Continue", B3-Ch12b-Visions, v_current_scene = B3-Ch12b-Visions)
 
 
@@ -792,20 +792,6 @@ Also, aside from Leo, she seems to have brought a wolf with her as well. It take
 
 "Yes, great golden fox," Leo says. "I will be fine."
 
- "This type of artifact does not have an equivalent in your human world, so it is a little hard for me to explain it to you," the wolf says, "but it will work much better if you don't know exactly what it does. You can think of it as a... good luck charm, of sorts. It is meant to help you when facing a foe that has an overwhelming amount of power compared to you. However, it will only activate once, so you should not rely on it after its one use has been exhausted."
-
-"That sounds very interesting," I tell him. "I'll make sure to wear this at all times, then. Thanks again. It was a pleasure to meet you once more!"
-
-"The pleasure was all mine, human," the wolf says. "Safe travels to you and your friends!"
-
-"Shall we proceed, then?" Diane asks us.
-
-"Indeed," the leopard says. "I trust that you know how to get to Galamir from here?"
-
-"Of course," Diane says. "The easiest way is to find the main road and just follow the signs. It's one of the most visited cities in Varathia, after all."
-
-"Yes, that is the path I usually take as well," Leo says. "The quickest way to the main road is in this direction. Let's go."
-
 #if(v_ancient_languages < 2) {
  After the fox leaves, the wolf begins to growl at me a few times, and as he is making these noises, I suddenly realize that he's trying to communicate with me in his animal language, like last time, except I can't understand him anymore because I no longer have enough points in my Ancient languages stat.
 
@@ -830,6 +816,20 @@ I then pick up the bracelet from the ground and put it around my left wrist.
 "Is there something else that I need to know about it?" I ask. "Like, certain words to activate it, or conditions that have to be met before it starts functioning?"
 
 }
+ "This type of artifact does not have an equivalent in your human world, so it is a little hard for me to explain it to you," the wolf says, "but it will work much better if you don't know exactly what it does. You can think of it as a... good luck charm, of sorts. It is meant to help you when facing a foe that has an overwhelming amount of power compared to you. However, it will only activate once, so you should not rely on it after its one use has been exhausted."
+
+"That sounds very interesting," I tell him. "I'll make sure to wear this at all times, then. Thanks again. It was a pleasure to meet you once more!"
+
+"The pleasure was all mine, human," the wolf says. "Safe travels to you and your friends!"
+
+"Shall we proceed, then?" Diane asks us.
+
+"Indeed," the leopard says. "I trust that you know how to get to Galamir from here?"
+
+"Of course," Diane says. "The easiest way is to find the main road and just follow the signs. It's one of the most visited cities in Varathia, after all."
+
+"Yes, that is the path I usually take as well," Leo says. "The quickest way to the main road is in this direction. Let's go."
+
 choice("Continue", B3-Ch12b-Dwellers, v_current_scene = B3-Ch12b-Dwellers)
 
 
@@ -1819,9 +1819,9 @@ set(v_ac_b3_ch12_dagger,1) if (v_b3_ch12_eiden == 1)
 set(v_ac_b3_ch12_delegator,1) if (v_b3_ch12_eiden == 2)
 set(v_ac_b3_ch12_hugger,1) if (v_b3_ch12_eiden == 4)
 set(v_ac_b3_ch12_liar,1) if (v_b3_ch12_approach == 2 && v_b3_ch12_eiden == 0 && v_b3_ch12_hadrik == 1)
+achievement("Serial liar",v_ac_b3_ch12_liar)
 achievement("Delegator",v_ac_b3_ch12_delegator)
 achievement("Tree-hugger",v_ac_b3_ch12_hugger)
-achievement("Serial liar",v_ac_b3_ch12_liar)
 achievement("One Dagger Man",v_ac_b3_ch12_dagger)
  I waste no time and I cast my dizziness spell on Eiden. If this is the same as when I tested the spell on Diane, he should normally be hearing a ringing in his ears right now... the exact same kind of ringing noise that you would hear if Wolford's daze had been cast on you.
 
