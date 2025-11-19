@@ -218,7 +218,6 @@ function render_scene(req) {
         cookieData,
         req.data,
     );
-    console.log(cookieData)
     sceneData.achievements = sceneData.achievements.filter(
         (achievement) => cookieData[achievement.variable] === "1"
     );
