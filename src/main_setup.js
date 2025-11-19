@@ -218,8 +218,9 @@ function render_scene(req) {
         cookieData,
         req.data,
     );
+    console.log(cookieData)
     sceneData.achievements = sceneData.achievements.filter(
-        (achievement) => (cookieData[achievement.variable + "_shown"] != "1") && (cookieData[achievement.variable] == "1")
+        (achievement) => cookieData[achievement.variable] === "1"
     );
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
