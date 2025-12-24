@@ -221,6 +221,10 @@ function render_scene(req) {
     sceneData.achievements = sceneData.achievements.filter(
         (achievement) => cookieData[achievement.variable] === "1"
     );
+    // This achievement can show up in any scene
+    if (cookieData["v_ac_b3_ch9_prize"] == "1") {
+        sceneData.achievements.push({"text": "Consolation prize", "variable": "v_ac_b3_ch9_prize"})
+    }
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
