@@ -1481,6 +1481,7 @@ After Flower says this, there is an awkward silence for about ten seconds, durin
 Melindra then goes to the farther end of the corridor and she pulls one of the levers from the left wall.
 
 }
+#if(v_b2_ch8_energizer != 1) {
  All of a sudden, I get a splitting headache, and my consciousness gets switched between the ethereal and earthen planes several times in a row, in quick succession, very similarly to how it happened when the ether was attacking me. Just when I thought it was over, the same thing happens again, except that I go back and forth between the two planes more than ten times in one second.
 
 "Barry, what's wrong?" Kate asks me, now looking very worried. "Did somebody cast a dizziness spell on you?"
@@ -1491,13 +1492,11 @@ The headache takes over me again, and I spend a good few moments alternating bet
 
 "Do you have any idea what's causing this?" Kate asks me. "Does it feel like a normal headache, or is it something else?"
 
+}
 choice("Agree to Melindra's proposition.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 1) if (v_b2_ch8_energizer == 1)
 choice("Decline Melindra's proposition.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 0) if (v_b2_ch8_energizer == 1)
 choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b2_ch8_energizer != 1)
-choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Headache, v_current_scene = B3-Ch10a-Headache) if (v_ch11_romance_rose == 1 && v_ch11_saved_rose == 1 && v_b2_ch8_energizer != 1)
-choice("Tell Kate the truth about what's happening to me.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 1) if (v_b2_ch8_energizer == 1)
-choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Proposition, v_current_scene = B3-Ch10a-Proposition, v_b3_ch10_benefits = 0) if (v_b2_ch8_energizer == 1)
-choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Abyss, v_current_scene = B3-Ch10a-Abyss) if (v_b2_ch8_energizer != 1)
+choice("Tell Kate that it's just a normal headache and that she shouldn't worry about it.", B3-Ch10a-Headache, v_current_scene = B3-Ch10a-Headache) if (v_b2_ch8_energizer != 1)
 
 
 ID: B3-Ch10a-Proposition

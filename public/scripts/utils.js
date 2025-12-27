@@ -11,13 +11,16 @@ function storeItem(key,value,storageId) {
     let data = readSaveFromLocalStorage(storageId);
     value = value.toString();
     if (value.startsWith("+")){
-        data[key] = (data[key] || 0) + parseInt(value.slice(1));
+        data[key] = parseInt(data[key] || 0) + parseInt(value.slice(1));
     }
     else if (value.startsWith("-")){
-        data[key] = (data[key] || 0) - parseInt(value.slice(1));
+        data[key] = parseInt(data[key] || 0) - parseInt(value.slice(1));
     }
     else {
         data[key] = value;
+    }
+    if (key == "v_ac_b3_ch9_consolation" && data[key] == 5) {
+        data["v_ac_b3_ch9_prize"] = 1;
     }
     writeSaveToLocalStorage(storageId,data);
 }
@@ -25,7 +28,7 @@ function storeItem(key,value,storageId) {
 function storeVariable(key,value) {
     if (key.startsWith("v_ac_")){
         let data = readSaveFromLocalStorage("achievements");
-        if (data[key] != "2") {
+        if (data[key] != 2) {
             storeItem(key,value,"achievements");
         }
     }
