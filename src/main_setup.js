@@ -485,13 +485,13 @@ expressApp.all(
     },
 );
 
-expressApp.all("/saves", bodyParser.json(), (req, res) => {
+expressApp.all("/saves", bodyParser.json({limit: '200mb'}), (req, res) => {
     render_full(req, render_saves,req.data["savesHeaderText"]).then((rendered) =>
         res.send(rendered),
     );
 });
 
-expressApp.all("/saves/:page", bodyParser.json(), (req, res) => {
+expressApp.all("/saves/:page", bodyParser.json({limit: '200mb'}), (req, res) => {
     const callback = (r) => render_saves_by_page(r, req.params.page);
     render_full(req, callback,req.data["savesHeaderText"]).then((rendered) =>
         res.send(rendered),
