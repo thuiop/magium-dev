@@ -105,8 +105,12 @@ document.addEventListener("localsaverestored", () => {
         });
 
 function downloadLocalStorageSave(saveName) {
-    navigator.clipboard.writeText(localStorage.getItem(saveName));
-    alert("Save copied to clipboard!")
+    try {
+        copyToClipboard(localStorage.getItem(saveName));
+        alert("Save copied to clipboard!")
+    } catch(error) {
+        console.error(error);
+    }
 }
 
 function downloadAllLocalStorageSave() {
