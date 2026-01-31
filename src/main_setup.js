@@ -175,7 +175,8 @@ function get_header_from_id(id, headerTemplate) {
     let result = regex.exec(id)
     if (result) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
-        return ejs.render(headerTemplate,{"book": book,"chapter":result.groups["chapter"]})
+        let chapter = parseInt(result.groups["chapter"]);
+        return ejs.render(headerTemplate,{"book": book,"chapter":chapter})
     }
 }
 
