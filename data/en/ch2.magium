@@ -138,7 +138,6 @@ Great. I'm wondering if he plans to blow my cover to every single person we meet
 
 "Is that what he told you?" the woman asks. "And you believe him? He's just trying to get you to lower your guard!" 
 }
-
 choice("Ask her what she has against me", Ch2-Against, v_current_scene = Ch2-Against)
 choice("Ask why the two of us should trust her", Ch2-Trust, v_current_scene = Ch2-Trust)
 choice("Ask why she's so quick to trust Daren and not me", Ch2-Quick, v_current_scene = Ch2-Quick)
@@ -317,11 +316,9 @@ He grins.
 #if(v_ch1_stillwater == 2) {
 "Barry, get behind me!" Daren shouts as he rushes in front of me.
 }
-
 #if(v_ch1_stillwater == 1) {
 His grin widens, as he looks straight at me.
 }
-
 "First rule of combat," says the bearded mage.
 
 Suddenly, one of the two younger mages that were standing next to the mage with the battleaxe vanishes and appears right behind me, with a dagger in his hand.
@@ -339,21 +336,17 @@ set(v_ac_ch2_nails,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness >
 set(v_ch2_toughness_happened,0) if (v_premonition == 0 && v_reflexes > 0 || v_premonition == 0 && v_reflexes == 0 && v_toughness < 3 || v_premonition > 0)
 set(v_ch2_toughness_happened,1) if (v_premonition == 0 && v_reflexes == 0 && v_toughness > 2)
 achievement("Tough as nails",v_ac_ch2_nails)
-
 #if(v_premonition > 0) {
 Shortly after the young mage appears behind me, I see a vision of him slashing his dagger towards my neck. Was that... a premonition?
 
 Sure enough, the young mage now slashes his dagger in the exact same way he did in my vision. Knowing where the hit's coming from, I manage to dodge it at the very last second. Right after I dodge, the mage kicks me hard in the chest, knocking me flat on my back.
 }
-
 #if(v_premonition == 0 && v_reflexes > 0) {
 The young mage slashes his dagger towards my neck. I react with a speed that takes me by surprise, and I manage to dodge the hit at the very last second. Right after I dodge, the mage kicks me hard in the chest, knocking me flat on my back.
 }
-
 #if(v_premonition == 0 && v_reflexes == 0 && v_toughness >= 3) {
 The young mage slashes his dagger towards my neck. The slash is too fast for me to dodge, but when it hits my neck, it doesn't quite manage to cut through my skin, only drawing a bit of blood instead. The mage looks at his dagger, surprised, and then immediately kicks me hard in the chest, knocking me flat on my back.
 }
-
 #if(v_premonition > 0 || v_reflexes > 0 || v_toughness >= 3) {
 "Barry!" screams Daren as he rushes between me and my attacker, blocking the next strike with his shield. 
 
@@ -367,7 +360,6 @@ She lowers her left arm to reveal her face, as she looks straight at the mage wi
 
 "Make up your mind!" she shouts, as the whole forest falls silent from the sound of her voice. 
 }
-
 #if(v_premonition == 0 && v_reflexes == 0 && v_toughness < 3) {
 The young mage slashes his dagger towards my neck. The slash is too fast for me to dodge, and when it hits my neck, it slits my throat right open. I desperately try to stop the flow of blood by covering the open wound with my hands, but it is much too late. 
 
@@ -375,7 +367,6 @@ The young mage slashes his dagger towards my neck. The slash is too fast for me 
 
 The last thing I see is Daren trying in vain to heal my wound, as my consciousness slowly fades away.
 }
-
 choice("Continue", Ch2-Battle-begins, v_current_scene = Ch2-Battle-begins) if (v_premonition > 0 || v_reflexes > 0 || v_toughness > 2)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_premonition == 0 && v_reflexes == 0 && v_toughness < 3)
@@ -477,15 +468,12 @@ TEXT:
 
 set(v_ac_ch2_nails,1) if (v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2)
 achievement("Tough as nails",v_ac_ch2_nails)
-
 #if(v_agility > 0) {
 My plan to lure the younger mage away is working far better than I expected. The mage keeps teleporting after me, and trying to catch me off guard, but every time he thinks he's got me in a pinch, I simply dash away with ease. I knew that stat device would come in handy, but I never dared to dream it would be so useful. I feel like I could just keep running like this for hours and not get tired.
 }
-
 #if(v_agility == 0 && v_reflexes > 0) {
 My plan to lure the younger mage away is working far better than I expected. The mage keeps teleporting after me, and trying to catch me off guard, but every time he thinks he's got me in a pinch, I simply dodge his strikes with ease. I knew that stat device would come in handy, but I never dared to dream it would be so useful. I feel like I could keep on doing this all day.
 }
-
 #if(v_agility > 0 || v_reflexes > 0) {
 "Boy, what do you think you're doing? Stop fooling around and finish him! He's just an ordinary human!" shouts the mage with the battleaxe.
 
@@ -497,7 +485,6 @@ Terrified, the young mage with the dagger tries to teleport into the forest to g
 
 It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
 }
-
 #if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness >= 3) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
@@ -508,7 +495,6 @@ To both me and the mage's surprise , the blade doesn't quite manage to cut throu
 
 "Boy, what do you think you're doing? Stop fooling around and finish him! He's just an ordinary human!" shouts the mage with the battleaxe.
 }
-
 #if(v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
@@ -521,7 +507,6 @@ This time, the mage puts more power behind his strike and he manages to break th
 
 The last thing I see is the mage's dagger descending towards me as he lands the finishing blow.
 }
-
 #if(v_agility == 0 && v_reflexes == 0 && v_toughness < 3) {
 
 My plan to lure the younger mage away isn't working as well as I would have hoped. I thought I could at least keep him busy long enough for Daren to finish his battle, but he constantly takes me by surprise with his teleportation magic, and with every slash, he gets closer to hitting me. Maybe I should get back to where Daren is fighting before I get myself killed.
@@ -534,7 +519,6 @@ His dagger slits my throat right open. I desperately try to stop the flow of blo
 
 The last thing I see is the mage's dagger descending towards me as he lands the finishing blow.
 }
-
 #if(v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2) {
 Kate seems to have gone on the offensive. She is throwing ice cones towards the other young mage, and he is now forced to use his swords to cut them down, instead of attacking her. As he focuses more on defense, Kate's attacks become more and more relentless. It doesn't take her long until she starts sending hundreds of ice daggers towards her enemy. The mage doesn't seem to know how to use his technique to defend from such a large number of simultaneous attacks. It only takes a small miscalculation on his part to end the battle abruptly, as one of the ice daggers stabs him right through the heart, killing him on the spot.
 
@@ -544,7 +528,6 @@ Terrified, the young mage with the dagger tries to teleport into the forest to g
 
 It was a gruesome show, but at this point, all I care about is that I somehow managed to make it out of that alive. 
 }
-
 choice("Continue", Ch2-Battle-end, v_current_scene = Ch2-Battle-end) if (v_agility == 0 && v_reflexes > 0 || v_agility == 0 && v_ch2_toughness_happened == 0 && v_reflexes == 0 && v_toughness > 2 || v_agility > 0)
 choice("Restart game", Ch1-Intro1, v_current_scene = Ch1-Intro1, special:restart) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0)
 choice("Load from last checkpoint", , v_chapter_save_counter = 5, special:checkpoint_load) if (v_agility == 0 && v_reflexes == 0 && v_toughness < 3 || v_agility == 0 && v_ch2_toughness_happened == 1 && v_reflexes == 0)
@@ -813,11 +796,9 @@ I start to follow him, but Kate stops me in my tracks. She has that very serious
 #if(v_ch2_kate_debt == 0) {
 "Listen to me, stillwater. I'm not interested to hear your lies. I just wanted to make sure you were clear on what I think of your little charade. Now, are you clear?"
 }
-
 #if(v_ch2_kate_debt == 1) {
 "You owe me, stillwater. I saved your life during that battle and you owe me. And I intend to collect that debt sooner rather than later. Are we clear?"
 }
-
 choice("Crystal.", Ch2-Crystal, v_current_scene = Ch2-Crystal) if (v_ch2_kate_debt == 0)
 choice("Not really, could you elaborate some more?", Ch2-Elaborate, v_current_scene = Ch2-Elaborate) if (v_ch2_kate_debt == 0)
 choice("Don't worry, I always pay my debts.", Ch2-Always, v_current_scene = Ch2-Always) if (v_ch2_kate_debt == 1)

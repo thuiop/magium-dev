@@ -36,8 +36,8 @@
   <body>
     <main id="main">
         <div class="header">
-            <button class="header-left" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineMenuButtonText %></button>
-          <h2 id="header"><%= header %></h2>
+          <button class="header-left" hx-get="/menu" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineMenuButtonText %></button>
+          <h2 class="header-title" id="header"><%- header %></h2>
           <button class="header-right" hx-post="/stats" hx-ext="submitcurrentstate" hx-target="#content" hx-swap="innerHTML" hx-push-url="true"><%= outlineStatsButtonText %></button>
         </div>
         <% if ((locals.path.includes("/saves")) || (locals.path.includes("/local_saves"))) { %>
