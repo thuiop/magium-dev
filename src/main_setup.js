@@ -42,7 +42,7 @@ function apply_condition(entry, values) {
         return true;
     } else if (
         (match = entry.match(
-            /(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9])/,
+            /(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9]+)/,
         ))
     ) {
         var variable = match.groups.varName;
@@ -101,7 +101,7 @@ function parseStatCheck(condition) {
     let match;
     if (
         (match = condition.match(
-            /(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9])/,
+            /(?<varName>\w*) (?<condType><|>|>=|==|<=|!=) (?<value>[0-9]+)/,
         ))
     ) {
         var variable = match.groups.varName;
