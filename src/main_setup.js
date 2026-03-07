@@ -11,7 +11,7 @@ if (!isNaN(parseInt(process.argv[2]))) {
 }
 
 
-const dirname = process.resourcesPath ? path.join(process.resourcesPath,"app") : process.cwd();
+const dirname = process.resourcesPath ? path.join(process.resourcesPath, "app") : process.cwd();
 const stats_variables = [
     "v_available_points",
     "v_strength",
@@ -113,8 +113,8 @@ function parseStatCheck(condition) {
         return;
     }
     // Handle the case where you lock your stat device at the beginning of book 3
-    if (variable === "v_b3_ch1_unlock" && condType === "==" && value === 2){
-        return { variable: variable, value: value, success: false}
+    if (variable === "v_b3_ch1_unlock" && condType === "==" && value === 2) {
+        return { variable: variable, value: value, success: false }
     }
     if (!stats_variables.includes(variable)) {
         return;
@@ -160,8 +160,8 @@ function checkStats(setVariables, values, localeData) {
     }
     newStatChecks = [...new Set(newStatChecks)].map(JSON.parse);
     // If stat device locked, do not display other checks
-    if (newStatChecks.some((statCheck)=>statCheck.variable == "v_b3_ch1_unlock")) {
-        newStatChecks = newStatChecks.filter((statCheck)=>statCheck.variable == "v_b3_ch1_unlock")
+    if (newStatChecks.some((statCheck) => statCheck.variable == "v_b3_ch1_unlock")) {
+        newStatChecks = newStatChecks.filter((statCheck) => statCheck.variable == "v_b3_ch1_unlock")
     }
     return newStatChecks
 }
@@ -176,27 +176,38 @@ function get_header_from_id(id, headerTemplate) {
     if (result) {
         let book = result.groups["book"] ? result.groups["book"] : "1";
         let chapter = parseInt(result.groups["chapter"]);
-        return ejs.render(headerTemplate,{"book": book,"chapter":chapter})
+        return ejs.render(headerTemplate, { "book": book, "chapter": chapter })
     }
 }
 
 function getLocaleData(fullData, localeCookie) {
     let locale = localeCookie ? localeCookie : "en"
-    return Object.assign({},fullData[locale])
+    return Object.assign({}, fullData[locale])
 }
 
-function render_full(req, callback, header = "") {
+function getLocaleDataValue(fullData, localeCookie, key) {
+    let locale = localeCookie ? localeCookie : "en"
+    return fullData[locale][key]
+}
+
+function renderFull(req, callback, header = "") {
     if (req.get("HX-Request")) {
         return callback(req);
     } else {
-        return ejs.renderFile(path.join(dirname, "templates","outline.ejs"), Object.assign({
+        return ejs.renderFile(path.join(dirname, "templates", "outline.ejs"), Object.assign({
             header: header,
             path: req.path,
-        },req.data));
+        }, req.data));
     }
 }
 
-function render_scene(req) {
+function renderThenSend(callback, headerKey) {
+    return (req, res) => renderFull(req, callback, req.data[headerKey]).then(
+        (rendered) => res.send(rendered),
+    );
+}
+
+function renderScene(req) {
     const id = req.body.v_current_scene
         ? req.body.v_current_scene
         : "Ch1-Intro1";
@@ -224,13 +235,13 @@ function render_scene(req) {
     );
     // This achievement can show up in any scene
     if (cookieData["v_ac_b3_ch9_prize"] == "1") {
-        sceneData.achievements.push({"text": "Consolation prize", "variable": "v_ac_b3_ch9_prize"})
+        sceneData.achievements.push({ "text": "Consolation prize", "variable": "v_ac_b3_ch9_prize" })
     }
     sceneData.checkpoint = sceneData.choices.some(
         (choice) => choice.setVariables["v_checkpoint_rich"] === "0",
     );
-    let data = Object.assign({}, { id: id, header: get_header_from_id(id,req.data["mainHeaderTemplate"]), scene: sceneData, "ejs": ejs}, cookieData, req.data);
-    return ejs.renderFile(path.join(dirname, "templates","main.ejs"), data);
+    let data = Object.assign({}, { id: id, header: get_header_from_id(id, req.data["mainHeaderTemplate"]), scene: sceneData, "ejs": ejs }, cookieData, req.data);
+    return ejs.renderFile(path.join(dirname, "templates", "main.ejs"), data);
 }
 
 function render_stats(req) {
@@ -241,12 +252,12 @@ function render_stats(req) {
         "stats_intro_seen": req.cookies.stats_intro_seen,
         "ejs": ejs,
     }, req.body);
-    return ejs.renderFile(path.join(dirname, "templates","stats.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates", "stats.ejs"), data);
 }
 
 function render_menu(req) {
     return ejs.renderFile(
-        path.join(dirname, "templates","menu.ejs"),
+        path.join(dirname, "templates", "menu.ejs"),
         req.data,
     );
 }
@@ -254,37 +265,39 @@ function render_menu(req) {
 
 function render_settings(req) {
     return ejs.renderFile(
-        path.join(dirname, "templates","settings.ejs"),
-        Object.assign({},req.body,req.data),
+        path.join(dirname, "templates", "settings.ejs"),
+        Object.assign({}, req.body, req.data),
     );
 }
 
-function render_language(req,locales) {
+function render_language(req, locales) {
     return ejs.renderFile(
-        path.join(dirname, "templates","language.ejs"),
-        Object.assign({},req.data,{"locales":locales}),
+        path.join(dirname, "templates", "language.ejs"),
+        Object.assign({}, req.data, { "locales": locales }),
     );
 }
 
 function render_achievements_menu(req) {
     const bookCount = Object.keys(achievementsData["en"]).length;
     return ejs.renderFile(
-        path.join(dirname, "templates","achievements_menu.ejs"),
-        Object.assign({},req.data,req.body,{"ejs":ejs,"bookCount":bookCount}),
+        path.join(dirname, "templates", "achievements_menu.ejs"),
+        Object.assign({}, req.data, req.body, { "ejs": ejs, "bookCount": bookCount }),
     );
 }
 
-function render_achievements_menu_book(req, achievementsData) {
+function render_achievements_menu_book(req) {
+    const localAchievementsData = getLocaleDataValue(achievementsData,req.cookies.locale,parseInt(req.params.id));
     return ejs.renderFile(
-        path.join(dirname, "templates","achievements_menu_book.ejs"),
-        Object.assign({}, req.data, { achievements: achievementsData, ejs: ejs }),
+        path.join(dirname, "templates", "achievements_menu_book.ejs"),
+        Object.assign({}, req.data, { achievements: localAchievementsData, ejs: ejs }),
     );
 }
 
-function render_achievements_menu_chapter(req, achievementsData) {
+function render_achievements_menu_chapter(req) {
+    const localAchievementsData = getLocaleDataValue(achievementsData,req.cookies.locale,parseInt(req.params.idBook))[`b${req.params.idBook}ch${req.params.idChapter}`];
     return ejs.renderFile(
-        path.join(dirname, "templates","achievements_menu_chapter.ejs"),
-        Object.assign({}, { achievements: achievementsData }, req.body, req.data),
+        path.join(dirname, "templates", "achievements_menu_chapter.ejs"),
+        Object.assign({}, { achievements: localAchievementsData }, req.body, req.data),
     );
 }
 
@@ -294,18 +307,7 @@ function render_saves(req) {
         saveData[entry[0]] = { date: entry[1].date, name: entry[1].name };
     });
     let data = Object.assign({}, req.cookies, { saveData: saveData }, req.data);
-    return ejs.renderFile(path.join(dirname, "templates","saves.ejs"), data);
-}
-
-// For now, it is the same as render_saves
-// However, it is expected to be different in the future
-function render_local_saves(req) {
-    let saveData = {} 
-    Object.entries(req.body).forEach(function(entry){
-        saveData[entry[0]] = {"date": entry[1].date, "name": entry[1].name}
-    })
-    let data = Object.assign({},req.cookies, {"saveData":saveData}, req.data)
-    return ejs.renderFile(path.join(dirname,"templates","local_saves.ejs"),data)
+    return ejs.renderFile(path.join(dirname, "templates", "saves.ejs"), data);
 }
 
 // While this is not the best way to handle pagination-based requests,
@@ -345,7 +347,7 @@ function render_saves_by_page(req, page) {
         saveData: saveData,
         page: parseInt(page),
     }, req.data);
-    return ejs.renderFile(path.join(dirname, "templates","saves.ejs"), data);
+    return ejs.renderFile(path.join(dirname, "templates", "saves.ejs"), data);
 }
 
 // Similar logic to render_saves_by_page
@@ -365,7 +367,7 @@ function render_local_saves_by_page(req, page) {
 function render_about(req) {
     return ejs.renderFile(
         path.join(dirname, "templates", "about.ejs"),
-        Object.assign({},req.cookies,req.data),
+        Object.assign({}, req.cookies, req.data),
     );
 }
 
@@ -375,12 +377,12 @@ let locales = require(path.join(dirname, "data", "locales.json"))
 let localeData = {};
 let magiumData = {};
 let achievementsData = {};
-let chapter;
 let book;
 
-Object.keys(locales).forEach( function(locale) {
+Object.keys(locales).forEach(function (locale) {
     magiumData[locale] = {}
-    const chapterFiles = globSync(path.join(dirname,"data",locale,"*.magium").replace(/\\/g,'/'))
+    const chapterFiles = globSync(path.join(dirname, "data", locale, "*.magium").replace(/\\/g, '/'))
+    let chapterFile;
     for (chapterFile of chapterFiles) {
         parser
             .parse(chapterFile)
@@ -390,7 +392,7 @@ Object.keys(locales).forEach( function(locale) {
     achievementsData[locale] = {}
     for (book of [1, 2, 3]) {
         achievementsData[locale][book] = require(
-            path.join(dirname, "data",locale,`achievements${book}.json`),
+            path.join(dirname, "data", locale, `achievements${book}.json`),
         );
     }
 
@@ -409,112 +411,33 @@ expressApp.use(cookieParser());
 expressApp.use(express.static(path.join(dirname, "public")));
 
 expressApp.use((req, res, next) => {
-  req.data = Object.assign({},getLocaleData(magiumData,req.cookies.locale),getLocaleData(localeData,req.cookies.locale));
-  next()
+    req.data = Object.assign({}, getLocaleData(magiumData, req.cookies.locale), getLocaleData(localeData, req.cookies.locale));
+    next()
 })
 
 expressApp.all("/", bodyParser.json(), (req, res) => {
     const id = req.body.v_current_scene
         ? req.body.v_current_scene
         : "Ch1-Intro1";
-    render_full(
+    renderFull(
         req,
-        (r) => render_scene(r),
-        get_header_from_id(id,req.data["mainHeaderTemplate"]),
+        (req) => renderScene(req),
+        get_header_from_id(id, req.data["mainHeaderTemplate"]),
     ).then((rendered) => res.send(rendered));
 });
 
-expressApp.get("/menu", (req, res) => {
-    render_full(req, render_menu, req.data["menuHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
+expressApp.get("/menu", renderThenSend(render_menu, "menuHeaderText"));
+expressApp.get("/language", renderThenSend((req) => render_language(req, locales),"languageHeaderText"));
+expressApp.get("/about", renderThenSend(render_about, "aboutHeaderText"));
+expressApp.get("/achievements", renderThenSend(render_achievements_menu, "achievementsMenuHeaderText"));
+expressApp.get("/achievements/book/:id", renderThenSend(render_achievements_menu_book, "achievementsMenuHeaderText"));
 
-expressApp.all("/settings", bodyParser.json(), (req, res) => {
-    render_full(req, render_settings, req.data["settingsHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
+expressApp.all("/achievements/book/:idBook/chapter/:idChapter", renderThenSend(render_achievements_menu_chapter, "achievementsMenuHeaderText"));
+expressApp.all("/stats", bodyParser.json(), renderThenSend(render_stats, "statsHeaderText"));
+expressApp.all("/settings", bodyParser.json(), renderThenSend(render_settings, "settingsHeaderText"));
+expressApp.all("/saves", bodyParser.json({ limit: '200mb' }), renderThenSend(render_saves,"savesHeaderText"));
+expressApp.all("/saves/:page", bodyParser.json({ limit: '200mb' }), renderThenSend((req) => render_saves_by_page(req, req.params.page),"savesHeaderText"));
 
-
-expressApp.get("/language", (req, res) => {
-    render_full(req, (req) => (render_language(req,locales)), req.data["languageHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
-
-
-expressApp.all("/stats", bodyParser.json(), (req, res) => {
-    render_full(req, render_stats, req.data["statsHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
-
-expressApp.get("/achievements", (req, res) => {
-    render_full(req, render_achievements_menu, req.data["achievementsMenuHeaderText"]).then(
-        (rendered) => res.send(rendered),
-    );
-});
-
-expressApp.get("/achievements/book/:id", (req, res) => {
-    const data  = getLocaleData(achievementsData,req.cookies.locale);
-    const callback = (r) =>
-        render_achievements_menu_book(
-            r,
-            data[parseInt(r.params.id)],
-        );
-    render_full(req, callback,req.data["achievementsMenuHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
-
-expressApp.all(
-    "/achievements/book/:idBook/chapter/:idChapter",
-    bodyParser.json(),
-    (req, res) => {
-        const data  = getLocaleData(achievementsData,req.cookies.locale);
-        const callback = (r) =>
-            render_achievements_menu_chapter(
-                r,
-                data[parseInt(r.params.idBook)][
-                    `b${r.params.idBook}ch${r.params.idChapter}`
-                ],
-            );
-        render_full(req, callback,req.data["achievementsMenuHeaderText"]).then((rendered) =>
-            res.send(rendered),
-        );
-    },
-);
-
-expressApp.all("/saves", bodyParser.json({limit: '200mb'}), (req, res) => {
-    render_full(req, render_saves,req.data["savesHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
-
-expressApp.all("/saves/:page", bodyParser.json({limit: '200mb'}), (req, res) => {
-    const callback = (r) => render_saves_by_page(r, req.params.page);
-    render_full(req, callback,req.data["savesHeaderText"]).then((rendered) =>
-        res.send(rendered),
-    );
-});
-
-expressApp.all('/local_saves', bodyParser.json(), (req, res) => {  
-    render_full(req,render_local_saves,req.data["savesHeaderText"]).then((rendered) => res.send(rendered));
-});
-
-expressApp.all('/local_saves/:page', bodyParser.json(), (req, res) => {  
-    const callback = (r) => render_local_saves_by_page(r, req.params.page);
-    render_full(req, callback,req.data["savesHeaderText"]).then((rendered) => 
-        res.send(rendered)
-    );
-});
-
-expressApp.get("/about", (req, res) => {
-    render_full(req, render_about,req.data["aboutHeaderText"]).then(
-        (rendered) => res.send(rendered),
-    );
-});
 
 expressApp.listen(port, () => {
     console.log(`Magium listening on port ${port}`);
