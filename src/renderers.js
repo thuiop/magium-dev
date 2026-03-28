@@ -9,6 +9,15 @@ const path = require("path");
 const dirName = process.resourcesPath ? path.join(process.resourcesPath, "app") : process.cwd();
 const templateDirName = path.join(dirName, "templates");
 
+/** Renders a given page ; if the request is from HTMX, it will only render the
+ * relevant content, else it will render the outline of the page (triggering an
+ * extra callback).
+ *
+ * @param {object} req - Object representing the request (as used in Express)
+ * @param {function(object, object)} callback - Function for rendering the inner content.
+ * @param {string} [header=""] - Header text
+ * @returns {string} Renderered HTML.
+ * */
 function renderFull(req, callback, header = "") {
     if (req.get("HX-Request")) {
         return callback(req);
@@ -155,7 +164,6 @@ module.exports = {
     renderAchievementsMenu,
     renderAchievementsMenuBook,
     renderAchievementsMenuChapter,
-    renderFull,
     renderLanguage,
     renderMenu,
     renderScene,

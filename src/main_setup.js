@@ -11,7 +11,6 @@ const {
     renderAchievementsMenu,
     renderAchievementsMenuBook,
     renderAchievementsMenuChapter,
-    renderFull,
     renderLanguage,
     renderMenu,
     renderScene,
@@ -31,7 +30,6 @@ if (!isNaN(parseInt(process.argv[2]))) {
 
 const dirName = process.resourcesPath ? path.join(process.resourcesPath, "app") : process.cwd();
 
-/// ---
 
 let locales = require(path.join(dirName, "data", "locales.json"))
 let localeData = {};
@@ -39,9 +37,11 @@ let magiumData = {};
 let achievementsData = {};
 let book;
 
+// Load data from files
 Object.keys(locales).forEach(function (locale) {
+    const localeDirName = path.join(dirName, "data", locale);
     magiumData[locale] = {}
-    const chapterFiles = globSync(path.join(dirName, "data", locale, "*.magium").replace(/\\/g, '/'))
+    const chapterFiles = globSync(path.join(localeDirName, "*.magium").replace(/\\/g, '/'))
     let chapterFile;
     for (chapterFile of chapterFiles) {
         parser
@@ -52,12 +52,12 @@ Object.keys(locales).forEach(function (locale) {
     achievementsData[locale] = {}
     for (book of [1, 2, 3]) {
         achievementsData[locale][book] = require(
-            path.join(dirName, "data", locale, `achievements${book}.json`),
+            path.join(localeDirName, `achievements${book}.json`),
         );
     }
 
     localeData[locale] = require(
-        path.join(dirName, "data", locale, "ui.json"),
+        path.join(localeDirName, "ui.json"),
     );
 });
 
@@ -68,7 +68,7 @@ expressApp.use(cookieParser());
 expressApp.use(express.static(path.join(dirName, "public")));
 
 // Retrieve the correct locale data
-expressApp.use((req, res, next) => {
+expressApp.use((req, _, next) => {
     req.data = Object.assign(
         {},
         getLocaleData(localeData, req.cookies.locale),
@@ -82,11 +82,8 @@ expressApp.all("/", bodyParser.json(), (req, res) => {
     const id = req.body.v_current_scene
         ? req.body.v_current_scene
         : "Ch1-Intro1";
-    renderFull(
-        req,
-        (req) => renderScene(req),
-        getHeaderFromId(id, req.data["mainHeaderTemplate"]),
-    ).then((rendered) => res.send(rendered));
+    const header = getHeaderFromId(id, req.data["mainHeaderTemplate"]);
+    renderThenSend(renderScene, header)(req, res);
 });
 
 expressApp.get("/menu", renderThenSend(renderMenu, "menuHeaderText"));
