@@ -1,5 +1,5 @@
 const ejs = require("ejs");
-const { 
+const {
     getHeaderFromId,
     apply_conditions,
     checkStats,
@@ -14,7 +14,7 @@ const templateDirName = path.join(dirName, "templates");
  * extra callback).
  *
  * @param {object} req - Object representing the request (as used in Express)
- * @param {function(object, object)} callback - Function for rendering the inner content.
+ * @param {function(object)} callback - Function for rendering the inner content, taking in a request object.
  * @param {string} [header=""] - Header text
  * @returns {string} Renderered HTML.
  * */
@@ -29,6 +29,13 @@ function renderFull(req, callback, header = "") {
     }
 }
 
+/** Returns a function that renders a given page (using renderFull) and sends 
+ * back the result. This function is expected to be given to Express.
+ *
+ * @param {function(object)} callback - Function for rendering the inner content, taking in a request object.
+ * @param {string} headerKey - Key for retrieving the header text in req.data.
+ * @returns {function(object, object)} Function to pass to Express.
+ * */
 function renderThenSend(callback, headerKey) {
     return (req, res) => renderFull(req, callback, req.data[headerKey]).then(
         (rendered) => res.send(rendered),
@@ -89,7 +96,6 @@ function renderMenu(req) {
         req.data,
     );
 }
-
 
 function renderSettings(req) {
     return ejs.renderFile(
