@@ -1,10 +1,10 @@
 const fs = require("node:fs");
 const readline = require("readline");
 
-function parseAssignement(assignement) {
-    let matchAssignement = assignement.match(/(?<varName>\w*) = (?<value>.*)/);
-    if (matchAssignement) {
-        return [matchAssignement.groups.varName, matchAssignement.groups.value];
+function parseAssignment(assignment) {
+    let matchAssignment = assignment.match(/(?<varName>\w*) = (?<value>.*)/);
+    if (matchAssignment) {
+        return [matchAssignment.groups.varName, matchAssignment.groups.value];
     } else {
         return;
     }
@@ -83,7 +83,7 @@ async function parse(filename) {
             currentParagraph = { text: "", conditions: undefined };
             const setVariableList = match.groups.setVariables
                 .split(", ")
-                .map(parseAssignement);
+                .map(parseAssignment);
             let setVariable = {};
             let setVar;
             for (setVar of setVariableList) {
