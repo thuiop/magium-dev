@@ -24,13 +24,16 @@
     <script src="/scripts/night_mode.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-                let nightMode = localStorage.getItem("nightmode");
-                if (nightMode) {
-                    const root = document.querySelector(':root');
-                    root.style.setProperty("color-scheme", nightMode);
-                }
+            let nightMode = localStorage.getItem("nightmode");
+            if (nightMode) {
+                const root = document.querySelector(':root');
+                root.style.setProperty("color-scheme", nightMode);
             }
-        )
+            let fontSize = getCookie("fontsize");
+            if (fontSize) {
+                document.documentElement.style.setProperty("font-size",fontSize);
+            }
+        })
     </script>
   </head>
   <body>
