@@ -1,3 +1,6 @@
+<script>
+    initializeFontSize()
+</script>
 <div class="main-menu">
     <div class="response">
         <button
@@ -35,6 +38,18 @@
             <button class="cheatmode-modal-yes" _="on click storeVariable('v_available_points',50) then trigger closeModal"><%= localeYes %></button>
         <br>
             <button class="cheatmode-modal-no" _="on click trigger closeModal"><%= localeNo %></button>
+    </div>
+    <div class="font-size-input-container">
+        <div class="font-size-input">
+            <input 
+                type="range"
+                id="fontSize"
+                name="font-size"
+                class="font-size-slider js-loading"
+                min="0.75" max="1.25" step="any"
+                _="on input updateFontSize()"/>
+            <label class="font-size-label" for="fontSize">Font size</label>
+        </div>
     </div>
     <div class="response">
         <button
