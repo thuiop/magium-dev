@@ -2,7 +2,7 @@ const ejs = require("ejs");
 const {
     getHeaderFromId,
     apply_conditions,
-    checkStats,
+    statChecksToDisplay,
 } = require("./utils.js");
 const path = require("path");
 
@@ -60,7 +60,7 @@ function renderScene(req) {
     sceneData.paragraphs = sceneData.paragraphs.filter(
         (paragraph) => apply_conditions(paragraph.conditions, cookieData),
     );
-    sceneData.statChecks = checkStats(
+    sceneData.statChecks = statChecksToDisplay(
         sceneData.setVariables.concat(sceneData.paragraphs, sceneData.choices),
         cookieData,
         req.data,
