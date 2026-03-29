@@ -37,6 +37,28 @@ function storeVariable(key,value) {
     }
 }
 
+
+function initializeFontSize() {
+    const fontSizeElem = document.getElementById("fontSize");
+    const currentFontSize = document.documentElement.style.fontSize;
+    if (currentFontSize) {
+        const currentFontSizePx = parseFloat(currentFontSize.slice(0,-2));
+        if (currentFontSizePx) {
+            fontSizeElem.value = currentFontSizePx / 16;
+            fontSizeElem.classList.remove("js-loading");
+            return;
+        }
+    }
+    fontSizeElem.value = 1;
+    fontSizeElem.classList.remove("js-loading");
+}
+
+function updateFontSize() {
+    const fontSizeElem = document.getElementById("fontSize");
+    const fontSize = parseFloat(fontSizeElem.value);
+    document.documentElement.style.setProperty("font-size",`${16*fontSize}px`);
+}
+
 function navigateTo(url) {
     window.location.href = url;
 }
