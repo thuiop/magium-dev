@@ -1,6 +1,7 @@
 const ejs = require("ejs");
+
+// List of stat variables ; used to check which variables should trigger a stat check display
 const stats_variables = [
-    "v_available_points",
     "v_strength",
     "v_toughness",
     "v_agility", // Speed
@@ -15,7 +16,6 @@ const stats_variables = [
     "v_aura_hardening",
     "v_magical_power", // Currently, not utilized
     "v_magical_knowledge", // Currently, not utilized
-    "v_max_stat",
 ];
 
 /** Builds the header text from the scene id. This leverages a header template
@@ -126,7 +126,8 @@ function varToStat(varName) {
     return "stats" + statName + "Text";
 }
 
-/** Parses a string representing a stat check. This is specifically made to get the needed representation of the stat check string; choices depending on the stat check are handled by apply_condition(s). It returns undefined if given a condition that is not on a stat variable. Here it is assumed that the given condition is true.
+/** Parses a string representing a stat check. 
+ * This is specifically made to get the needed representation of the stat check string; choices depending on the stat check are handled by apply_condition(s). It returns undefined if given a condition that is not on a stat variable. Here it is assumed that the given condition is true.
  *
  * @param {string} condition - String representing the condition, e.g. "v_perception > 2".
  * @returns {{ variable: string, value: number, success: boolean}}
@@ -177,7 +178,7 @@ function parseStatCheck(condition) {
  * @param {Object.<string, number>} values - Actual values of the variables. Used to check which set variables should be considered.
  * @param {Object.<string, string>} localeData - Locale data, as can be obtained with getLocaleData.
  * */
-function checkStats(setVariables, values, localeData) {
+function statChecksToDisplay(setVariables, values, localeData) {
     let newStatChecks = [];
     let setVariable;
     for (setVariable of setVariables) {
@@ -212,6 +213,6 @@ module.exports = {
     getHeaderFromId,
     getLocaleData,
     apply_conditions,
-    checkStats,
+    statChecksToDisplay,
     varToStat,
 };
