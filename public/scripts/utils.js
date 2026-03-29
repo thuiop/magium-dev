@@ -38,7 +38,7 @@ function storeVariable(key,value) {
 }
 
 
-function initializeFontSize() {
+function initializeFontSizeSlider() {
     const fontSizeElem = document.getElementById("fontSize");
     const currentFontSize = document.documentElement.style.fontSize;
     if (currentFontSize) {
@@ -57,6 +57,7 @@ function updateFontSize() {
     const fontSizeElem = document.getElementById("fontSize");
     const fontSize = parseFloat(fontSizeElem.value);
     document.documentElement.style.setProperty("font-size",`${16*fontSize}px`);
+    document.cookie = `fontsize=${16*fontSize}px`;
 }
 
 function navigateTo(url) {
@@ -70,6 +71,7 @@ function setResponseVariables(response) {
       storeVariable(key,value)
   }
 }
+
 async function copyToClipboard(textToCopy) {
     // Navigator clipboard api needs a secure context (https)
     if (navigator.clipboard && window.isSecureContext) {
