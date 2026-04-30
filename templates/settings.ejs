@@ -14,6 +14,8 @@
     </div>
     <% let themeActivateStyle = locals["nightmode"] === "dark" ? 'style="display:none"' : ''; %>
     <% let themeDeactivateStyle = locals["nightmode"] === "dark" ? '' : 'style="display:none"'; %>
+    <% let catThemeActivateStyle = locals["catppuccinTheme"] === "on" ? 'style="display:none"' : ''; %>
+    <% let catThemeDeactivateStyle = locals["catppuccinTheme"] === "on" ? '' : 'style="display:none"'; %>
     <div id="themeToggleBtnActivate" <%- themeActivateStyle %> class="response">
         <button onclick="nightModeButtonClick()">
             <div id=""><%= settingsNightModeActivateText %></div>
@@ -22,6 +24,16 @@
     <div id="themeToggleBtnDeactivate" <%- themeDeactivateStyle %> class="response">
         <button onclick="nightModeButtonClick()">
             <div id=""><%= settingsNightModeDeactivateText %></div>
+        </button>
+    </div>
+        <div id="catThemeBtnActivate" <%- catThemeActivateStyle %> class="response">
+        <button onclick="catppuccinThemeButtonClick()">
+            <div id=""><%= settingsCatppuccinThemeActivateText %></div>
+        </button>
+    </div>
+    <div id="catThemeBtnDeactivate" <%- catThemeDeactivateStyle %> class="response">
+        <button onclick="catppuccinThemeButtonClick()">
+            <div id=""><%= settingsCatppuccinThemeDeactivateText %></div>
         </button>
     </div>
     <div class="response">

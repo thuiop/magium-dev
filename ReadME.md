@@ -44,9 +44,19 @@ based off of the notes for his original vision for the story.
 - [Writing Team - Discord](https://discord.com/invite/cF3EDRmK)
 - [Writing Team - Telegram](https://t.me/+ElJa-3ImQcVkZDBl)
 
+### Themes
+
+ - Original
+ - [Catppuccin](https://catppuccin.com/)
+
+### Build Locally
+
+```sh
+npm run start:electron
+```
+
 ## Contributors
 
 <a href="https://github.com/thuiop/magium-dev/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=thuiop/magium-dev" />
 </a>
-
