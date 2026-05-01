@@ -1,7 +1,11 @@
-# Magium Dev
-
 <div align="center">
-    <img alt="Logo" width="150" src="public/images/magium.ico" />
+
+<img alt="Logo" width="150" src="public/images/magium.ico" />
+
+# MagiumJS
+
+#### CYOA Game
+
 </div>
 
 ## Story
@@ -52,6 +56,7 @@ based off of the notes for his original vision for the story.
 ### Build Locally
 
 ```sh
+npm install
 npm run start:electron
 ```
 
