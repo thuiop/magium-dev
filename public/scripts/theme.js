@@ -16,7 +16,7 @@ function setColour(selectedValue) {
     if (selectedValue === Theme.DARK || selectedValue === Theme.CAT_DARK) {
         newMode = "dark";
     } else if (selectedValue === Theme.LIGHT || selectedValue === Theme.CAT_LIGHT) {
-        newMode = currentMode === "dark" ? "light" : "dark"
+        newMode = "light";
     } else {
         throw new Error("Theme not specified");
     }
