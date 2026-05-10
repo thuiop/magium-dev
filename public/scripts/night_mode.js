@@ -60,4 +60,4 @@ htmx.defineExtension('submitnightmode', {
         const currentModeIsDefault = currentMode === "light dark" || currentMode === "";
         return JSON.stringify({"nightmode":currentMode === "dark" || (currentModeIsDefault && checkIsDarkSchemePreferred()) ? "dark" : "light"});
     }
-  })
+})

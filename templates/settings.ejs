@@ -12,33 +12,17 @@
             <%= settingsLanguageText %>
         </button>
     </div>
-    <% let themeActivateStyle = locals["nightmode"] === "dark" ? 'style="display:none"' : ''; %>
-    <% let themeDeactivateStyle = locals["nightmode"] === "dark" ? '' : 'style="display:none"'; %>
-    <% let catThemeActivateStyle = locals["catppuccinTheme"] === "on" ? 'style="display:none"' : ''; %>
-    <% let catThemeDeactivateStyle = locals["catppuccinTheme"] === "on" ? '' : 'style="display:none"'; %>
-    <div id="themeToggleBtnActivate" <%- themeActivateStyle %> class="response">
-        <button onclick="nightModeButtonClick()">
-            <div id=""><%= settingsNightModeActivateText %></div>
-        </button>
-    </div>
-    <div id="themeToggleBtnDeactivate" <%- themeDeactivateStyle %> class="response">
-        <button onclick="nightModeButtonClick()">
-            <div id=""><%= settingsNightModeDeactivateText %></div>
-        </button>
-    </div>
-        <div id="catThemeBtnActivate" <%- catThemeActivateStyle %> class="response">
-        <button onclick="catppuccinThemeButtonClick()">
-            <div id=""><%= settingsCatppuccinThemeActivateText %></div>
-        </button>
-    </div>
-    <div id="catThemeBtnDeactivate" <%- catThemeDeactivateStyle %> class="response">
-        <button onclick="catppuccinThemeButtonClick()">
-            <div id=""><%= settingsCatppuccinThemeDeactivateText %></div>
-        </button>
+    <div class="response">
+        <select id="themeDropdown" onchange="handleThemeChange(this.value)">
+            <option value="original-light" <%= locals["theme"] === "original-light" ? 'selected' : '' %>>Original Light Theme</option>
+            <option value="original-dark" <%= locals["theme"] === "original-dark" ? 'selected' : '' %>>Original Dark Mode</option>
+            <option value="catppuccin-light" <%= locals["theme"] === "catppuccin-light" ? 'selected' : '' %>>Catppuccin Light Theme</option>
+            <option value="catppuccin-dark" <%= locals["theme"] === "catppuccin-dark" ? 'selected' : '' %>>Catppuccin Dark Theme</option>
+        </select>
     </div>
     <div class="response">
         <button
-           _="on click show #cheatModeModal with visibility"
+            _="on click show #cheatModeModal with visibility"
         >
             <%= settingsCheatModeText %>
         </button>

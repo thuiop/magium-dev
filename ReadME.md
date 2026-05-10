@@ -4,7 +4,7 @@
 
 # MagiumJS
 
-#### CYOA Game
+#### CYOA Story
 
 </div>
 
