@@ -92,7 +92,7 @@ expressApp.get("/about", renderThenSend(renderAbout, "aboutHeaderText"));
 expressApp.get("/achievements", renderThenSend(renderAchievementsMenu, "achievementsMenuHeaderText"));
 expressApp.get("/achievements/book/:id", renderThenSend(renderAchievementsMenuBook, "achievementsMenuHeaderText"));
 
-expressApp.all("/achievements/book/:idBook/chapter/:idChapter", renderThenSend(renderAchievementsMenuChapter, "achievementsMenuHeaderText"));
+expressApp.all("/achievements/book/:idBook/chapter/:idChapter", bodyParser.json(), renderThenSend(renderAchievementsMenuChapter, "achievementsMenuHeaderText"));
 expressApp.all("/stats", bodyParser.json(), renderThenSend(renderStats, "statsHeaderText"));
 expressApp.all("/settings", bodyParser.json(), renderThenSend(renderSettings, "settingsHeaderText"));
 expressApp.all("/saves", bodyParser.json({ limit: '200mb' }), renderThenSend(renderSaves, "savesHeaderText"));
