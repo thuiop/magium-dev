@@ -3,6 +3,8 @@ const path = require("path");
 const express = require("express");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
+const fs = require("fs");
+const { globSync } = require('glob');
 
 const parser = require("./parser.js");
 const { getLocaleData, getHeaderFromId } = require("./utils.js");
@@ -20,7 +22,6 @@ const {
     renderSavesByPage,
     renderThenSend,
 } = require("./renderers.js")
-const { globSync } = require('glob');
 
 let port = process.env.PORT || 3000;
 if (!isNaN(parseInt(process.argv[2]))) {
@@ -28,7 +29,13 @@ if (!isNaN(parseInt(process.argv[2]))) {
 }
 
 
-const dirName = process.resourcesPath ? path.join(process.resourcesPath, "app") : process.cwd();
+let dirName;
+if (process.resourcesPath && fs.existsSync(path.join(process.resourcesPath, "app"))) {
+    dirName = path.join(process.resourcesPath, "app")
+}
+else {
+    dirName = process.cwd();
+}
 
 
 let locales = require(path.join(dirName, "data", "locales.json"))

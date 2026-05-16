@@ -5,8 +5,15 @@ const {
     statChecksToDisplay,
 } = require("./utils.js");
 const path = require("path");
+const fs = require("fs");
 
-const dirName = process.resourcesPath ? path.join(process.resourcesPath, "app") : process.cwd();
+let dirName;
+if (process.resourcesPath && fs.existsSync(path.join(process.resourcesPath, "app"))) {
+    dirName = path.join(process.resourcesPath, "app")
+}
+else {
+    dirName = process.cwd();
+}
 const templateDirName = path.join(dirName, "templates");
 
 /** Renders a given page ; if the request is from HTMX, it will only render the
