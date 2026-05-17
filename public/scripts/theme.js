@@ -20,7 +20,6 @@ function setColour(selectedValue) {
         throw new Error("Theme not specified");
     }
     root.style.setProperty("color-scheme", newMode);
-    localStorage.setItem("nightmode", newMode);
 }
 
 function setTheme(selectedValue) {
