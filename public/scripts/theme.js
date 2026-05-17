@@ -44,3 +44,17 @@ function handleThemeChange(selectedValue) {
 
     localStorage.setItem("theme", selectedValue);
 }
+
+
+htmx.defineExtension('submittheme', {
+    onEvent: function (name, evt) {
+        if (name === "htmx:configRequest") {
+            evt.detail.headers['Content-Type'] = "application/json"
+        }
+    },
+    encodeParameters: function(xhr, parameters, elt) {
+        xhr.overrideMimeType('text/json') // override default mime type
+        const theme = localStorage.getItem("theme");
+        return JSON.stringify({"theme": theme});
+    }
+})
