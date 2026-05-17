@@ -72,6 +72,11 @@ function renderScene(req) {
         cookieData,
         req.data,
     );
+    // This particular scene checks for the stats for Average Joe purposes 
+    if (id == "B3-Ch04a-Introduction2") {
+        sceneData.statChecks = [];
+    }
+
     sceneData.achievements = sceneData.achievements.filter(
         (achievement) => cookieData[achievement.variable] === "1"
     );
