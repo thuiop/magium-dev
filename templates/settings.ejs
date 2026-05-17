@@ -15,10 +15,19 @@
     </div>
     <div class="response">
         <select id="themeDropdown" onchange="handleThemeChange(this.value)">
-            <option value="original-light" <%= locals["theme"] === "original-light" ? 'selected' : '' %>>Original Light Theme</option>
-            <option value="original-dark" <%= locals["theme"] === "original-dark" ? 'selected' : '' %>>Original Dark Mode</option>
-            <option value="catppuccin-light" <%= locals["theme"] === "catppuccin-light" ? 'selected' : '' %>>Catppuccin Light Theme</option>
-            <option value="catppuccin-dark" <%= locals["theme"] === "catppuccin-dark" ? 'selected' : '' %>>Catppuccin Dark Theme</option>
+            <% const kebabToPascal = (string) => {
+                  return string.split("/")
+                    .map(kebab => kebab.split("-")
+                      .map(substr => substr.charAt(0)
+                        .toUpperCase() +
+                        substr.slice(1))
+                      .join(""))
+                    .join("/");
+                };
+            %>
+            <% for (const theme of ["original-light","original-dark","catppuccin-light","catppuccin-dark"]) { %>
+                <option value="<%= theme %>" <%= locals["theme"] === theme ? 'selected' : '' %>><%= locals[`settings${kebabToPascal(theme)}ThemeText`] %></option>
+            <% } %>
         </select>
     </div>
     <div class="response">
