@@ -11,7 +11,6 @@ function checkIsDarkSchemePreferred() {
 
 function setColour(selectedValue) {
     const root = document.querySelector(':root');
-    const currentMode = root.style.getPropertyValue("color-scheme");
     var newMode;
     if (selectedValue === Theme.DARK || selectedValue === Theme.CAT_DARK) {
         newMode = "dark";
