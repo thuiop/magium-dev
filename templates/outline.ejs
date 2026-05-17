@@ -21,14 +21,12 @@
     <script src="/scripts/utils.js"></script>
     <script src="/scripts/saves.js"></script>
     <script src="/scripts/stats.js"></script>
-    <script src="/scripts/night_mode.js"></script>
+    <script src="/scripts/theme.js"></script>
     <script>
+        // Loads on start
         document.addEventListener("DOMContentLoaded", function() {
-            let nightMode = localStorage.getItem("nightmode");
-            if (nightMode) {
-                const root = document.querySelector(':root');
-                root.style.setProperty("color-scheme", nightMode);
-            }
+            handleThemeChange(localStorage.getItem("theme"))
+
             let fontSize = getCookie("fontsize");
             if (fontSize) {
                 document.documentElement.style.setProperty("font-size",fontSize);
@@ -48,7 +46,7 @@
         <% } else if (locals.path === "/" || locals.path === "/stats" || (locals.path.includes("/achievements") && locals.path.includes("chapter"))) { %>
             <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitcurrentstate"></div>
         <% } else if (locals.path === "/settings") { %>
-            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submitnightmode"></div>
+            <div id="content" class="content" hx-post hx-trigger="load" hx-ext="submittheme"></div>
         <% } else { %>
             <div id="content" class="content" hx-get hx-trigger="load"></div>
         <% } %>

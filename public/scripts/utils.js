@@ -53,6 +53,11 @@ function initializeFontSizeSlider() {
     fontSizeElem.classList.remove("js-loading");
 }
 
+function initializeThemeText() {
+    const savedTheme = localStorage.getItem("theme") || (checkIsDarkSchemePreferred() ? Theme.DARK : Theme.LIGHT);
+    document.getElementById("themeDropdown").value = savedTheme;
+}
+
 function updateFontSize() {
     const fontSizeElem = document.getElementById("fontSize");
     const fontSize = parseFloat(fontSizeElem.value);

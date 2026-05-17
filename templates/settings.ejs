@@ -1,5 +1,6 @@
 <script>
     initializeFontSizeSlider()
+    initializeThemeText()
 </script>
 <div class="main-menu">
     <div class="response">
@@ -12,21 +13,26 @@
             <%= settingsLanguageText %>
         </button>
     </div>
-    <% let themeActivateStyle = locals["nightmode"] === "dark" ? 'style="display:none"' : ''; %>
-    <% let themeDeactivateStyle = locals["nightmode"] === "dark" ? '' : 'style="display:none"'; %>
-    <div id="themeToggleBtnActivate" <%- themeActivateStyle %> class="response">
-        <button onclick="nightModeButtonClick()">
-            <div id=""><%= settingsNightModeActivateText %></div>
-        </button>
-    </div>
-    <div id="themeToggleBtnDeactivate" <%- themeDeactivateStyle %> class="response">
-        <button onclick="nightModeButtonClick()">
-            <div id=""><%= settingsNightModeDeactivateText %></div>
-        </button>
+    <div class="response">
+        <select id="themeDropdown" onchange="handleThemeChange(this.value)">
+            <% const kebabToPascal = (string) => {
+                  return string.split("/")
+                    .map(kebab => kebab.split("-")
+                      .map(substr => substr.charAt(0)
+                        .toUpperCase() +
+                        substr.slice(1))
+                      .join(""))
+                    .join("/");
+                };
+            %>
+            <% for (const theme of ["original-light","original-dark","catppuccin-light","catppuccin-dark"]) { %>
+                <option value="<%= theme %>" <%= locals["theme"] === theme ? 'selected' : '' %>><%= locals[`settings${kebabToPascal(theme)}ThemeText`] %></option>
+            <% } %>
+        </select>
     </div>
     <div class="response">
         <button
-           _="on click show #cheatModeModal with visibility"
+            _="on click show #cheatModeModal with visibility"
         >
             <%= settingsCheatModeText %>
         </button>

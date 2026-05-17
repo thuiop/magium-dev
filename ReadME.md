@@ -1,7 +1,11 @@
-# Magium Dev
-
 <div align="center">
-    <img src="public/images/magium.ico" />
+
+<img alt="Logo" width="150" src="public/images/magium.ico" />
+
+# MagiumJS
+
+#### CYOA Story
+
 </div>
 
 ## Story
@@ -16,25 +20,27 @@ based off of the notes for his original vision for the story.
 
 ## Links:
 
-### Repositories
+### Play on the Web
 
-- [Original Magium repository](https://github.com/raduprv/Magium/tree/main?tab=MIT-1-ov-file)
-
-### Community
-
-- [Reddit](https://www.reddit.com/r/Magium/)
-- [Discord](https://discord.com/invite/cF3EDRmK)
+- http://magium.org/
 
 ### Download
 
-- [Original App - PlayStore](https://play.google.com/store/apps/details?id=com.magiumgames.magium)
-- [Original App - App Store](https://apps.apple.com/us/app/magium-text-adventure-cyoa/id1229498009)
-- [From Releases - Windows/Mac/Linux](https://github.com/thuiop/magium-dev/releases)
+- [From Releases - Windows/Mac/Linux](https://github.com/thuiop/magium-dev/releases/latest)
 
 - For Arch and derivetives
   1. Download the [PKGBUILD](https://raw.githubusercontent.com/thuiop/magium-dev/refs/heads/main/Build-Scripts/PKGBUILD) and Save it to an empty folder.
   2. Make sure you have the `base-devel` metapackage installed.
   3. Run `makepkg -i` in the Directory the package was saved to create and install the package.
+
+### Repositories
+
+- [Original Magium repository](https://github.com/raduprv/Magium)
+
+### Community
+
+- [Reddit](https://www.reddit.com/r/Magium/)
+- [Discord](https://discord.com/invite/cF3EDRmK)
 
 ### Join the team
 
@@ -42,9 +48,20 @@ based off of the notes for his original vision for the story.
 - [Writing Team - Discord](https://discord.com/invite/cF3EDRmK)
 - [Writing Team - Telegram](https://t.me/+ElJa-3ImQcVkZDBl)
 
+### Themes
+
+ - Original
+ - [Catppuccin](https://catppuccin.com/)
+
+### Build Locally
+
+```sh
+npm install
+npm run start:electron
+```
+
 ## Contributors
 
 <a href="https://github.com/thuiop/magium-dev/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=thuiop/magium-dev" />
 </a>
-
